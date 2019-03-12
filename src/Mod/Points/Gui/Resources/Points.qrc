@@ -1,0 +1,7 @@
+<RCC>
+    <qresource>
+        <file>icons/Points_Export_Point_cloud.svg</file>
+        <file>icons/Points_Import_Point_cloud.svg</file>
+        <file>icons/PointsWorkbench.svg</file>
+    </qresource>
+</RCC>
