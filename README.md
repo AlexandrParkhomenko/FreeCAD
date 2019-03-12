@@ -14,6 +14,3 @@ Here using:
 - xerces-c    == 3.2.2
 - boost       == 1.69.0
 - swig        == 3.0.12
-
-Draft/App/dxf.h
-Import/App/dxf.h
