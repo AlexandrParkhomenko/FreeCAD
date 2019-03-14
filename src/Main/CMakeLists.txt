@@ -20,7 +20,6 @@ if (BUILD_QT5)
         ${Qt5Network_LIBRARIES}
         ${Qt5UiTools_LIBRARIES}
     )
-    add_definitions(-fPIC)
 else()
     include_directories(
         ${QT_INCLUDE_DIR}

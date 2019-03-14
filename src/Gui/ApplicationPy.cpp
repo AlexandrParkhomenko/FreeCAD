@@ -54,7 +54,7 @@
 #include "WidgetFactory.h"
 #include "Workbench.h"
 #include "WorkbenchManager.h"
-#include "DownloadManager.h"
+//#include "DownloadManager.h"
 #include "DlgPreferencesImp.h"
 #include "DocumentObserverPython.h"
 #include <App/DocumentObjectPy.h>
@@ -172,9 +172,9 @@ PyMethodDef Application::Methods[] = {
   {"addModule",               (PyCFunction) Application::sAddModule, METH_VARARGS,
    "addModule(string) -> None\n\n"
    "Prints the given module import only once in the macro recording"},
-  {"showDownloads",               (PyCFunction) Application::sShowDownloads, METH_VARARGS,
-   "showDownloads() -> None\n\n"
-   "Shows the downloads manager window"},
+//  {"showDownloads",               (PyCFunction) Application::sShowDownloads, METH_VARARGS,
+//   "showDownloads() -> None\n\n"
+//   "Shows the downloads manager window"},
   {"showPreferences",               (PyCFunction) Application::sShowPreferences, METH_VARARGS,
    "showPreferences([string,int]) -> None\n\n"
    "Shows the preferences window. If string and int are provided, the given page index in the given group is shown."},
@@ -1165,15 +1165,15 @@ PyObject* Application::sAddModule(PyObject * /*self*/, PyObject *args)
     }
 }
 
-PyObject* Application::sShowDownloads(PyObject * /*self*/, PyObject *args)
-{
-    if (!PyArg_ParseTuple(args, ""))
-        return NULL;
-    Gui::Dialog::DownloadManager::getInstance();
+//PyObject* Application::sShowDownloads(PyObject * /*self*/, PyObject *args)
+//{
+//    if (!PyArg_ParseTuple(args, ""))
+//        return NULL;
+//    Gui::Dialog::DownloadManager::getInstance();
 
-    Py_INCREF(Py_None);
-    return Py_None;
-}
+//    Py_INCREF(Py_None);
+//    return Py_None;
+//}
 
 PyObject* Application::sShowPreferences(PyObject * /*self*/, PyObject *args)
 {

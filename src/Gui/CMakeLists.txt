@@ -77,7 +77,7 @@ if (BUILD_QT5)
         ${Qt5OpenGL_INCLUDE_DIRS}
         ${Qt5PrintSupport_INCLUDE_DIRS}
         ${Qt5Svg_INCLUDE_DIRS}
-        ${Qt5Network_INCLUDE_DIRS}
+        ${Qt5Network_INCLUDE_DIRS} # LocalSockets
         ${Qt5UiTools_INCLUDE_DIRS}
     )
     list(APPEND FreeCADGui_LIBS
@@ -87,7 +87,7 @@ if (BUILD_QT5)
         ${Qt5OpenGL_LIBRARIES}
         ${Qt5PrintSupport_LIBRARIES}
         ${Qt5Svg_LIBRARIES}
-        ${Qt5Network_LIBRARIES}
+        ${Qt5Network_LIBRARIES} # LocalSockets
         ${Qt5UiTools_LIBRARIES}
     )
 else()
@@ -213,8 +213,8 @@ set(Gui_MOC_HDRS
     Control.h
     Clipping.h
     DemoMode.h
-    DownloadItem.h
-    DownloadManager.h
+#    DownloadItem.h
+#    DownloadManager.h
     DlgActionsImp.h
     DlgActivateWindowImp.h
     DlgUnitsCalculatorImp.h
@@ -269,7 +269,7 @@ set(Gui_MOC_HDRS
     MainWindow.h
     ManualAlignment.h
     MDIView.h
-    NetworkRetriever.h
+#    NetworkRetriever.h
 #    OnlineDocumentation.h
     Placement.h
     InputField.h
@@ -368,8 +368,8 @@ SET(Gui_UIC_SRCS
     DlgLocationAngle.ui
     DlgLocationPos.ui
     DocumentRecovery.ui
-    DownloadManager.ui
-    DownloadItem.ui
+#    DownloadManager.ui
+#    DownloadItem.ui
     DlgExpressionInput.ui
     MouseButtons.ui
     SceneInspector.ui
@@ -445,8 +445,8 @@ SET(Dialog_CPP_SRCS
     SceneInspector.cpp
     TextureMapping.cpp
     Transform.cpp
-    DownloadItem.cpp
-    DownloadManager.cpp
+#    DownloadItem.cpp
+#    DownloadManager.cpp
     DocumentRecovery.cpp
 )
 
@@ -477,8 +477,8 @@ SET(Dialog_HPP_SRCS
     SceneInspector.h
     TextureMapping.h
     Transform.h
-    DownloadItem.h
-    DownloadManager.h
+#    DownloadItem.h
+#    DownloadManager.h
     DocumentRecovery.h
 )
 
@@ -505,8 +505,8 @@ SET(Dialog_SRCS
     DlgCheckableMessageBox.ui
     DlgTreeWidget.ui
     DlgExpressionInput.ui
-    DownloadManager.ui
-    DownloadItem.ui
+#    DownloadManager.ui
+#    DownloadItem.ui
     DocumentRecovery.ui
     MouseButtons.ui
     InputVector.ui
@@ -668,20 +668,20 @@ SET(Editor_SRCS
 SOURCE_GROUP("Editor" FILES ${Editor_SRCS})
 
 # The help system
-SET(Help_CPP_SRCS
-    Assistant.cpp
-    NetworkRetriever.cpp
+#SET(Help_CPP_SRCS
+#    Assistant.cpp
+#    NetworkRetriever.cpp
 #    OnlineDocumentation.cpp
 #    WhatsThis.cpp
-)
-SET(Help_SRCS
-    ${Help_CPP_SRCS}
-    Assistant.h
-    NetworkRetriever.h
+#)
+#SET(Help_SRCS
+#    ${Help_CPP_SRCS}
+#    Assistant.h
+#    NetworkRetriever.h
 #    OnlineDocumentation.h
 #    WhatsThis.h
-)
-SOURCE_GROUP("Help" FILES ${Help_SRCS})
+#)
+#SOURCE_GROUP("Help" FILES ${Help_SRCS})
 
 
 # The property editor
@@ -1146,7 +1146,7 @@ SET(FreeCADGui_SRCS
     ${Dialog_Settings_SRCS}
     ${Dock_Windows_SRCS}
     ${Editor_SRCS}
-    ${Help_SRCS}
+#    ${Help_SRCS}
     ${Inventor_SRCS}
     ${Propertyeditor_SRCS}
     ${Task_View_SRCS}
@@ -1179,7 +1179,7 @@ if(MSVC)
         ${Dialog_Settings_CPP_SRCS}
         ${Dock_Windows_CPP_SRCS}
         ${Editor_CPP_SRCS}
-        ${Help_CPP_SRCS}
+#        ${Help_CPP_SRCS}
         ${Inventor_CPP_SRCS}
         ${View3D_CPP_SRCS}
         ${Viewprovider_CPP_SRCS}

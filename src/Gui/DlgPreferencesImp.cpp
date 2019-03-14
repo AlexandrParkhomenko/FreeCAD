@@ -66,8 +66,8 @@ DlgPreferencesImp::DlgPreferencesImp(QWidget* parent, Qt::WindowFlags fl)
     ui->listBox->setFixedWidth(130);
     ui->listBox->setGridSize(QSize(108, 120));
 
-    connect(ui->buttonBox,  SIGNAL (helpRequested()),
-            getMainWindow(), SLOT (whatsThis()));
+//#    connect(ui->buttonBox,  SIGNAL (helpRequested()),
+//#            getMainWindow(), SLOT (whatsThis()));
     connect(ui->listBox, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)),
             this, SLOT(changeGroup(QListWidgetItem *, QListWidgetItem*)));
 

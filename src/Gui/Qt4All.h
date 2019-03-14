@@ -148,7 +148,7 @@
 #include <QTreeView>
 #include <QTreeWidget>
 #include <qvalidator.h>
-#include <QWhatsThisClickedEvent>
+//#include <QWhatsThisClickedEvent>
 #include <qwidget.h>
 #include <qobject.h>
 #include <QMdiArea>

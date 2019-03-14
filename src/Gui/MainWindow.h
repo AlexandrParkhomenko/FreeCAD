@@ -214,7 +214,7 @@ public Q_SLOTS:
     /**
      * Starts the what's this mode.
      */
-    void whatsThis();
+//#    void whatsThis();
     void switchToTopLevelMode();
     void switchToDockedMode();
     void showMessage (const QString & message, int timeout = 0);

@@ -48,7 +48,7 @@
 #if QT_VERSION >= 0x050000
 # include <QUrlQuery>
 #endif
-# include <QWhatsThis>
+//# include <QWhatsThis>
 #endif
 
 #include <boost/bind.hpp>
@@ -68,8 +68,8 @@
 
 #include "MainWindow.h"
 #include "Application.h"
-#include "Assistant.h"
-#include "DownloadManager.h"
+//#include "Assistant.h"
+//#include "DownloadManager.h"
 #include "WaitCursor.h"
 
 #include "Action.h"
@@ -88,6 +88,7 @@
 
 #include "WidgetFactory.h"
 #include "BitmapFactory.h"
+//#include "Splashscreen.h"
 
 #include "Tree.h"
 #include "PropertyView.h"
@@ -101,10 +102,9 @@
 #include "DAGView/DAGView.h"
 
 #include "DlgUndoRedo.h"
-#include "FileDialog.h"
-#include "PropertyPage.h"
-//#include "DlgOnlineHelpImp.h"
+#include "DlgOnlineHelpImp.h"
 
+//#include "Language/Translator.h"
 #include "GuiInitScript.h"
 
 #include "Document.h"
@@ -114,6 +114,12 @@
 #include "SpaceballEvent.h"
 #include "View3DInventor.h"
 #include "View3DInventorViewer.h"
+
+#if defined(Q_OS_WIN32)
+#define slots
+//#include <private/qmainwindowlayout_p.h>
+//#include <private/qwidgetresizehandler_p.h>
+#endif
 
 using namespace Gui;
 using namespace Gui::DockWnd;
@@ -135,11 +141,12 @@ struct MainWindowP
     QMdiArea* mdiArea;
     QPointer<MDIView> activeView;
     QSignalMapper* windowMapper;
+//#    QSplashScreen* splashscreen;
     StatusBarObserver* status;
-    bool whatsthis;
+//#    bool whatsthis;
     QString whatstext;
-    Assistant* assistant;
-//    QMap<QString, QPointer<UrlHandler> > urlHandler;
+//#    Assistant* assistant;
+    QMap<QString, QPointer<UrlHandler> > urlHandler;
 };
 
 class MDITabbar : public QTabBar
@@ -235,9 +242,10 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
   : QMainWindow( parent, f/*WDestructiveClose*/ )
 {
     d = new MainWindowP;
+//    d->splashscreen = 0;
     d->activeView = 0;
-    d->whatsthis = false;
-    d->assistant = new Assistant();
+//#    d->whatsthis = false;
+//#    d->assistant = new Assistant();
 
     // global access 
     instance = this;
@@ -249,6 +257,11 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
     d->mdiArea->setViewMode(QMdiArea::TabbedView);
     QTabBar* tab = d->mdiArea->findChild<QTabBar*>();
     if (tab) {
+        // 0000636: Two documents close
+#if QT_VERSION < 0x040800
+        connect(tab, SIGNAL(tabCloseRequested(int)),
+                this, SLOT(tabCloseRequested(int)));
+#endif
         tab->setTabsClosable(true);
         // The tabs might be very wide
         tab->setExpanding(false);
@@ -426,6 +439,24 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
             pDockMgr->registerDockWindow("Std_DAGView", dagDockWindow);
         }
     }
+
+#if 0 //defined(Q_OS_WIN32) this portion of code is not able to run with a vanilla Qtlib build on Windows.
+    // The MainWindowTabBar is used to show tabbed dock windows with icons
+    //
+    // add our own QTabBar-derived class to the main window layout
+    // NOTE: This uses some private stuff from QMainWindow which doesn't
+    // seem to be accessible on all platforms.
+    QMainWindowLayout* l = static_cast<QMainWindowLayout*>(this->layout());
+    for (int i=0; i<5; i++) {
+        MainWindowTabBar* result = new MainWindowTabBar(this);
+        result->setDrawBase(true);
+        result->setElideMode(Qt::ElideRight);
+        result->hide(); // avoid to show horizontal bar in top left area
+        //result->setDocumentMode(_documentMode);
+        connect(result, SIGNAL(currentChanged(int)), l, SLOT(tabChanged()));
+        l->unusedTabBars << result;
+    }
+#endif
 #endif
 
     // accept drops on the window, get handled in dropEvent, dragEnterEvent
@@ -512,10 +543,10 @@ void MainWindow::activateWorkbench(const QString& name)
     workbenchActivated(name);
 }
 
-void MainWindow::whatsThis()
-{
-    QWhatsThis::enterWhatsThisMode();
-}
+//#void MainWindow::whatsThis()
+//#{
+//#    QWhatsThis::enterWhatsThisMode();
+//#}
 
 void MainWindow::showDocumentation(const QString& help)
 {
@@ -523,7 +554,7 @@ void MainWindow::showDocumentation(const QString& help)
     if (url.scheme().isEmpty()) {
         QString page;
         page = QString::fromUtf8("%1.html").arg(help);
-        d->assistant->showDocumentation(page);
+//        d->assistant->showDocumentation(page);
     }
     else {
         QDesktopServices::openUrl(url);
@@ -532,27 +563,7 @@ void MainWindow::showDocumentation(const QString& help)
 
 bool MainWindow::event(QEvent *e)
 {
-    if (e->type() == QEvent::EnterWhatsThisMode) {
-        // Unfortunately, for top-level widgets such as menus or dialogs we
-        // won't be notified when the user clicks the link in the hypertext of
-        // the what's this text. Thus, we have to install the main window to
-        // the application to observe what happens in eventFilter().
-        d->whatstext.clear();
-        if (!d->whatsthis) {
-            d-> whatsthis = true;
-            qApp->installEventFilter(this);
-        }
-    }
-    else if (e->type() == QEvent::LeaveWhatsThisMode) {
-        // Here we can't do anything because this event is sent
-        // before the WhatThisClicked event is sent. Thus, we handle
-        // this in eventFilter().
-    }
-    else if (e->type() == QEvent::WhatsThisClicked) {
-        QWhatsThisClickedEvent* wt = static_cast<QWhatsThisClickedEvent*>(e);
-        showDocumentation(wt->href());
-    }
-    else if (e->type() == QEvent::ApplicationWindowIconChange) {
+    if (e->type() == QEvent::ApplicationWindowIconChange) {
         // if application icon changes apply it to the main window and the "About..." dialog
         this->setWindowIcon(QApplication::windowIcon());
         Command* about = Application::Instance->commandManager().getCommandByName("Std_About");
@@ -622,66 +633,6 @@ bool MainWindow::eventFilter(QObject* o, QEvent* e)
             }
         }
 
-        // We don't want to show the bubble help for the what's this text but want to
-        // start the help viewer with the according key word.
-        // Thus, we have to observe WhatThis events if called for a widget, use its text and
-        // must avoid to make the bubble widget visible.
-        if (e->type() == QEvent::WhatsThis) {
-            if (!o->isWidgetType())
-                return false;
-            // clicked on a widget in what's this mode
-            QWidget * w = static_cast<QWidget *>(o);
-            d->whatstext = w->whatsThis();
-        }
-        if (e->type() == QEvent::WhatsThisClicked) {
-            // if the widget is a top-level window
-            if (o->isWidgetType() && qobject_cast<QWidget*>(o)->isWindow()) {
-                // re-direct to the widget
-                QApplication::sendEvent(this, e);
-            }
-        }
-        // special treatment for menus because they directly call QWhatsThis::showText()
-        // whereby we must be informed for which action the help should be shown
-        if (o->inherits("QMenu") && QWhatsThis::inWhatsThisMode()) {
-            bool whatthis = false;
-            if (e->type() == QEvent::KeyPress) {
-                QKeyEvent* ke = static_cast<QKeyEvent*>(e);
-                if (ke->key() == Qt::Key_Return || ke->key() == Qt::Key_Enter || ke->key() == Qt::Key_F1)
-                    whatthis = true;
-            }
-            else if (e->type() == QEvent::MouseButtonRelease)
-                whatthis = true;
-            else if (e->type() == QEvent::EnterWhatsThisMode)
-                whatthis = true;
-            if (whatthis) {
-                QAction* cur = static_cast<QMenu*>(o)->activeAction();
-                if (cur) {
-                    // get the help text for later usage
-                    QString s = cur->whatsThis();
-                    if (s.isEmpty())
-                        s = static_cast<QMenu*>(o)->whatsThis();
-                    d->whatstext = s;
-                }
-            }
-        }
-        if (o->inherits("QWhatsThat") && e->type() == QEvent::Show) {
-            // the bubble help should become visible which we avoid by marking the widget
-            // that it is out of range. Instead of, we show the help viewer
-            if (!d->whatstext.isEmpty()) {
-                QWhatsThisClickedEvent e(d->whatstext);
-                QApplication::sendEvent(this, &e);
-            }
-            static_cast<QWidget *>(o)->setAttribute(Qt::WA_OutsideWSRange);
-            return true;
-        }
-        if (o->inherits("QWhatsThat") && e->type() == QEvent::Hide) {
-            // leave what's this mode
-            if (d->whatsthis) {
-                d->whatsthis = false;
-                d->whatstext.clear();
-                qApp->removeEventFilter(this);
-            }
-        }
     }
 
     return QMainWindow::eventFilter(o, e);
@@ -881,7 +832,7 @@ void MainWindow::onToolBarMenuAboutToShow()
             QAction* action = (*it)->toggleViewAction();
             action->setToolTip(tr("Toggles this toolbar"));
             action->setStatusTip(tr("Toggles this toolbar"));
-            action->setWhatsThis(tr("Toggles this toolbar"));
+//#            action->setWhatsThis(tr("Toggles this toolbar"));
             menu->addAction(action);
         }
     }
@@ -896,7 +847,7 @@ void MainWindow::onDockWindowMenuAboutToShow()
         QAction* action = (*it)->toggleViewAction();
         action->setToolTip(tr("Toggles this dockable window"));
         action->setStatusTip(tr("Toggles this dockable window"));
-        action->setWhatsThis(tr("Toggles this dockable window"));
+//#        action->setWhatsThis(tr("Toggles this dockable window"));
         menu->addAction(action);
     }
 }
@@ -940,11 +891,11 @@ void MainWindow::closeEvent (QCloseEvent * e)
         // we have to check the pointer before.
         QList< QPointer<QDialog> > dialogs_ptr;
         for (QList<QDialog*>::iterator it = dialogs.begin(); it != dialogs.end(); ++it) {
-            //dialogs_ptr.append(*it);
+            dialogs_ptr.append(*it);
         }
         for (QList< QPointer<QDialog> >::iterator it = dialogs_ptr.begin(); it != dialogs_ptr.end(); ++it) {
-            //if (!(*it).isNull())
-            //    (*it)->close();
+            if (!(*it).isNull())
+                (*it)->close();
         }
         QList<MDIView*> mdis = this->findChildren<MDIView*>();
         // Force to close any remaining (passive) MDI child views
@@ -954,8 +905,8 @@ void MainWindow::closeEvent (QCloseEvent * e)
         }
         d->activityTimer->stop();
         saveWindowSettings();
-        delete d->assistant;
-        d->assistant = 0;
+//        delete d->assistant;
+//        d->assistant = 0;
 
         // See createMimeDataFromSelection
         QVariant prop = this->property("x-documentobject-file");
@@ -1175,7 +1126,6 @@ void MainWindow::saveWindowSettings()
     ToolBarManager::getInstance()->saveState();
 }
 
-
 /**
  * Drops the event \a e and tries to open the files.
  */
@@ -1314,7 +1264,7 @@ bool MainWindow::canInsertFromMimeData (const QMimeData * source) const
 {
     if (!source)
         return false;
-    return source->hasUrls() || 
+    return source->hasUrls() ||
         source->hasFormat(QLatin1String("application/x-documentobject")) ||
         source->hasFormat(QLatin1String("application/x-documentobject-file"));
 }
@@ -1369,16 +1319,16 @@ void MainWindow::insertFromMimeData (const QMimeData * mimeData)
 
 void MainWindow::setUrlHandler(const QString &scheme, Gui::UrlHandler* handler)
 {
-    //d->urlHandler[scheme] = handler;
+    d->urlHandler[scheme] = handler;
 }
 
 void MainWindow::unsetUrlHandler(const QString &scheme)
 {
-    //d->urlHandler.remove(scheme);
+    d->urlHandler.remove(scheme);
 }
 
 void MainWindow::loadUrls(App::Document* doc, const QList<QUrl>& url)
-{/*
+{
     QStringList files;
     for (QList<QUrl>::ConstIterator it = url.begin(); it != url.end(); ++it) {
         QMap<QString, QPointer<UrlHandler> >::iterator jt = d->urlHandler.find(it->scheme());
@@ -1406,7 +1356,7 @@ void MainWindow::loadUrls(App::Document* doc, const QList<QUrl>& url)
                 Base::Console().Message("No support to load file '%s'\n",
                     (const char*)info.absoluteFilePath().toUtf8());
             }
-        }
+        }/*
         else if (it->scheme().toLower() == QLatin1String("http")) {
             Gui::Dialog::DownloadManager* dm = Gui::Dialog::DownloadManager::getInstance();
             dm->download(dm->redirectUrl(*it));
@@ -1432,8 +1382,8 @@ void MainWindow::loadUrls(App::Document* doc, const QList<QUrl>& url)
         else if (it->scheme().toLower() == QLatin1String("ftp")) {
             Gui::Dialog::DownloadManager::getInstance()->download(*it);
         }
+*/
     }
-
     QByteArray docName = doc ? QByteArray(doc->getName()) : qApp->translate("StdCmdNew","Unnamed").toUtf8();
     SelectModule::Dict dict = SelectModule::importHandler(files);
     // load the files with the associated modules
@@ -1441,7 +1391,7 @@ void MainWindow::loadUrls(App::Document* doc, const QList<QUrl>& url)
         // if the passed document name doesn't exist the module should create it, if needed
         Application::Instance->importFrom(it.key().toUtf8(), docName, it.value().toLatin1());
     }
-*/}
+}
 
 void MainWindow::changeEvent(QEvent *e)
 {

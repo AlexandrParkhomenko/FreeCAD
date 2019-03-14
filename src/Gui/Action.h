@@ -66,8 +66,8 @@ public:
     QString text() const;
     void setToolTip (const QString &);
     QString toolTip() const;
-    void setWhatsThis (const QString &);
-    QString whatsThis() const;
+//#    void setWhatsThis (const QString &);
+//#    QString whatsThis() const;
     void setMenuRole(QAction::MenuRole menuRole);
 
 public Q_SLOTS:
