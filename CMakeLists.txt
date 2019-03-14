@@ -25,7 +25,7 @@ set(PLATFORM_MK mkdir -p)
 
 include(AddFileDependencies)
     #include(${CMAKE_SOURCE_DIR}/cMake/ConfigureChecks.cmake)
-    include(${CMAKE_SOURCE_DIR}/FreeCadMacros.cmake)
+    include(${CMAKE_SOURCE_DIR}/Macros.cmake)
 
     set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-write-strings ${CMAKE_CXX_FLAGS}")
     INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
