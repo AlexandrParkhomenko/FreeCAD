@@ -382,7 +382,7 @@ SET(Gui_UIC_SRCS
 
 SET(Gui_RES_SRCS
     Icons/resource.qrc
-    iisTaskPanel/src/iisTaskPanel.qrc
+#    iisTaskPanel/src/iisTaskPanel.qrc
     QSint/actionpanel/schemes.qrc
 )
 
@@ -719,39 +719,39 @@ SET(Task_View_SRCS
 )
 SOURCE_GROUP("Task View" FILES ${Task_View_SRCS})
 
-SET(iisTaskPanel_SRCS
-    iisTaskPanel/src/iisfreecadscheme.cpp
-    iisTaskPanel/src/iisfreecadscheme.h
-    iisTaskPanel/src/iisiconlabel.cpp
-    iisTaskPanel/src/iisiconlabel.h
-    iisTaskPanel/src/iistaskbox.cpp
-    iisTaskPanel/src/iistaskbox.h
-    iisTaskPanel/src/iistaskgroup.cpp
-    iisTaskPanel/src/iistaskgroup.h
-    iisTaskPanel/src/iistaskheader.cpp
-    iisTaskPanel/src/iistaskheader.h
-    iisTaskPanel/src/iistaskpanel.cpp
-    iisTaskPanel/src/iistaskpanel.h
-    iisTaskPanel/src/iistaskpanelscheme.cpp
-    iisTaskPanel/src/iistaskpanelscheme.h
-    iisTaskPanel/src/iiswinxptaskpanelscheme.cpp
-    iisTaskPanel/src/iiswinxptaskpanelscheme.h
-    iisTaskPanel/src/iistaskpanel_global.h
-)
-SOURCE_GROUP("Widget\\iisTaskPanel" FILES ${iisTaskPanel_SRCS})
-set(iis_MOC_HDRS
-    iisTaskPanel/src/iisiconlabel.h
-    iisTaskPanel/src/iistaskbox.h
-    iisTaskPanel/src/iistaskgroup.h
-    iisTaskPanel/src/iistaskheader.h
-)
+#SET(iisTaskPanel_SRCS
+#    iisTaskPanel/src/iisfreecadscheme.cpp
+#    iisTaskPanel/src/iisfreecadscheme.h
+#    iisTaskPanel/src/iisiconlabel.cpp
+#    iisTaskPanel/src/iisiconlabel.h
+#    iisTaskPanel/src/iistaskbox.cpp
+#    iisTaskPanel/src/iistaskbox.h
+#    iisTaskPanel/src/iistaskgroup.cpp
+#    iisTaskPanel/src/iistaskgroup.h
+#    iisTaskPanel/src/iistaskheader.cpp
+#    iisTaskPanel/src/iistaskheader.h
+#    iisTaskPanel/src/iistaskpanel.cpp
+#    iisTaskPanel/src/iistaskpanel.h
+#    iisTaskPanel/src/iistaskpanelscheme.cpp
+#    iisTaskPanel/src/iistaskpanelscheme.h
+#    iisTaskPanel/src/iiswinxptaskpanelscheme.cpp
+#    iisTaskPanel/src/iiswinxptaskpanelscheme.h
+#    iisTaskPanel/src/iistaskpanel_global.h
+#)
+#SOURCE_GROUP("Widget\\iisTaskPanel" FILES ${iisTaskPanel_SRCS})
+#set(iis_MOC_HDRS
+#    iisTaskPanel/src/iisiconlabel.h
+#    iisTaskPanel/src/iistaskbox.h
+#    iisTaskPanel/src/iistaskgroup.h
+#    iisTaskPanel/src/iistaskheader.h
+#)
 
-if (BUILD_QT5)
-    qt5_wrap_cpp(iis_MOC_SRCS ${iis_MOC_HDRS})
-else()
-    qt4_wrap_cpp(iis_MOC_SRCS ${iis_MOC_HDRS})
-endif()
-SOURCE_GROUP("Widget\\iisTaskPanel\\Mocs" FILES ${iis_MOC_SRCS})
+#if (BUILD_QT5)
+#    qt5_wrap_cpp(iis_MOC_SRCS ${iis_MOC_HDRS})
+#else()
+#    qt4_wrap_cpp(iis_MOC_SRCS ${iis_MOC_HDRS})
+#endif()
+#SOURCE_GROUP("Widget\\iisTaskPanel\\Mocs" FILES ${iis_MOC_SRCS})
 
 SET(qsintActionPanel_SRCS
     QSint/actionpanel/actionbox.cpp
@@ -1136,7 +1136,7 @@ SET(FreeCADGui_SRCS
     ${FreeCADGui_SDK_SRCS}
     ${FreeCADGui_CPP_SRCS}
     ${FreeCADGui_XML_SRCS}
-    ${iis_MOC_SRCS}
+#    ${iis_MOC_SRCS}
     ${qsint_MOC_SRCS}
     ${Gui_QRC_SRCS}
     ${Gui_UIC_HDRS}
@@ -1150,7 +1150,7 @@ SET(FreeCADGui_SRCS
     ${Inventor_SRCS}
     ${Propertyeditor_SRCS}
     ${Task_View_SRCS}
-    ${iisTaskPanel_SRCS}
+#    ${iisTaskPanel_SRCS}
     ${qsintActionPanel_SRCS}
     ${Resource_SRCS}
     ${Quarter_SRCS}
