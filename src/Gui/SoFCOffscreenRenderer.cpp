@@ -276,10 +276,8 @@ std::string SoFCOffscreenRenderer::createMIBA(const SbMatrix& mat) const
     std::stringstream com;
     const std::map<std::string, std::string>& cfg = App::Application::Config();
     std::map<std::string, std::string>::const_iterator it;
-    it = cfg.find("BuildVersionMajor");
-    std::string major = (it != cfg.end() ? it->second : "");
-    it = cfg.find("BuildVersionMinor");
-    std::string minor = (it != cfg.end() ? it->second : "");
+    it = cfg.find("VersionName");
+    std::string VersionName = (it != cfg.end() ? it->second : "");
 
     com << setw(7) << setfill(' ') << fixed;
     com << "<?xml version=\"1.0\" encoding=\"UTF-8\"?> \n" ;
@@ -295,7 +293,7 @@ std::string SoFCOffscreenRenderer::createMIBA(const SbMatrix& mat) const
     com << " <Source>\n" ; 
     com << "  <Creator>Unknown</Creator>\n" ;  
     com << "  <CreationDate>" << QDateTime::currentDateTime().toString().toLatin1().constData() << "</CreationDate>\n" ;  
-    com << "  <CreatingSystem>" << App::GetApplication().getExecutableName() << " " << major << "." << minor << "</CreatingSystem>\n" ;
+    com << "  <CreatingSystem>" << VersionName << "</CreatingSystem>\n" ;
     com << "  <PartNumber>Unknown</PartNumber>\n";
     com << "  <Revision>1.0</Revision>\n";
     com << " </Source>\n" ;

@@ -1,15 +1,6 @@
-cmake_minimum_required(VERSION 3.10.0 FATAL_ERROR)
-project(FreeCAD_trunk)
-
-set(PACKAGE_NAME "FreeCAD")
-set(PACKAGE_VERSION_NAME "Path")
-set(PACKAGE_VERSION_MAJOR "0")
-set(PACKAGE_VERSION_MINOR "17")
-set(PACKAGE_VERSION_PATCH "10000")
-
-set(FREECAD_VERSION "${PACKAGE_VERSION_MAJOR}.${PACKAGE_VERSION_MINOR}")
-set(PACKAGE_VERSION "${PACKAGE_VERSION_MAJOR}.${PACKAGE_VERSION_MINOR}.${PACKAGE_VERSION_PATCH}")
-set(PACKAGE_STRING "${PACKAGE_NAME} ${PACKAGE_VERSION}")
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+project(FreeCAD)
+set(PACKAGE_VERSION_NAME "FreeCAD.0.17.Path")
 configure_file(${CMAKE_SOURCE_DIR}/src/Version.h.cmake ${CMAKE_SOURCE_DIR}/src/Version.h)
 
 
@@ -24,20 +15,11 @@ set(PLATFORM_MK mkdir -p)
 
 
 include(AddFileDependencies)
-    #include(${CMAKE_SOURCE_DIR}/cMake/ConfigureChecks.cmake)
-    include(${CMAKE_SOURCE_DIR}/Macros.cmake)
+include(${CMAKE_SOURCE_DIR}/Macros.cmake)
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-    set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-write-strings ${CMAKE_CXX_FLAGS}")
-    INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
-
-    # get linker errors as soon as possible and not at runtime e.g. for modules
-    if(UNIX)
-        set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--no-undefined")
-    endif()
-#MESSAGE(STATUS "CMAKE_SHARED_LINKER_FLAGS: ${CMAKE_SHARED_LINKER_FLAGS}")
-
-
-
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-write-strings ${CMAKE_CXX_FLAGS}")
+set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--no-undefined")  # get linker errors
 
 
 # Output directories for install target
@@ -84,7 +66,7 @@ OPTION(FREECAD_MAINTAINERS_BUILD "Build FreeCAD for Maintainers, with Docu and 3
 OPTION(FREECAD_USE_EXTERNAL_ZIPIOS "Use system installed zipios++ instead of the bundled." OFF)
 OPTION(FREECAD_USE_EXTERNAL_SMESH "Use system installed smesh instead of the bundled." OFF)
 OPTION(FREECAD_USE_EXTERNAL_KDL "Use system installed orocos-kdl instead of the bundled." OFF)
-OPTION(FREECAD_USE_FREETYPE "Builds the features using FreeType libs" ON)
+#OPTION(FREECAD_USE_FREETYPE "Builds the features using FreeType libs" ON)
 OPTION(FREECAD_BUILD_DEBIAN "Prepare for a build of a Debian package" OFF)
 if (WIN32 OR APPLE)
     OPTION(FREECAD_USE_QT_FILEDIALOG "Use Qt's file dialog instead of the native one." OFF)
@@ -92,12 +74,6 @@ else()
     OPTION(FREECAD_USE_QT_FILEDIALOG "Use Qt's file dialog instead of the native one." ON)
 endif()
 
-# https://blog.kitware.com/constraining-values-with-comboboxes-in-cmake-cmake-gui/
-set(FREECAD_USE_OCC_VARIANT "Official Version"  CACHE STRING  "Official OpenCASCADE version or community edition")
-set_property(CACHE FREECAD_USE_OCC_VARIANT PROPERTY STRINGS
-             "Official Version"
-             "Community Edition"
-)
 
 if (BUILD_QT5)
   OPTION(FREECAD_USE_QTOPENGL_WIDGET "Replace QGLWidget with QOpenGLWidget." ON)
@@ -212,29 +188,26 @@ set(PYCXX_SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/src/CXX")
         ${PYCXX_SOURCE_DIR}/cxxsupport.cxx
         ${PYCXX_SOURCE_DIR}/IndirectPythonInterface.cxx
     )
-#MESSAGE(STATUS "PYCXX_VERSION: ${PYCXX_VERSION}") ### now 6.2.8
-#    if(NOT ${PYCXX_VERSION} VERSION_LESS 7.0.0)
-#        list(APPEND PYCXX_SOURCES
-#            ${PYCXX_SOURCE_DIR}/cxx_exceptions.cxx)
-#        add_definitions(-DPYCXX_6_2_COMPATIBILITY)
-#    endif()
 # ==============================================================================
 MESSAGE(STATUS "PYCXX_SOURCE_DIR: ${PYCXX_SOURCE_DIR}")
-  find_package(OpenCASCADE REQUIRED)
-  if(OpenCASCADE_FOUND)
-    set(OCC_FOUND ${OpenCASCADE_FOUND})
-    set(OCC_INCLUDE_DIR ${OpenCASCADE_INCLUDE_DIR})
-    set(OCC_LIBRARY_DIR ${OpenCASCADE_LIBRARY_DIR})
-#    set(OCC_LIBRARIES ${OpenCASCADE_LIBRARIES})
-#    set(OCC_OCAF_LIBRARIES TKCAF TKXCAF) # Link this to use OCC OCAF framework
-  set(OCC_LIBRARIES TKFillet TKMesh TKernel TKG2d TKG3d TKMath TKIGES TKSTL TKShHealing TKXSBase TKBin TKBool TKBO TKCDF TKBRep TKTopAlgo TKGeomAlgo TKGeomBase TKOffset TKPrim TKSTEP TKSTEPBase TKSTEPAttr TKHLR TKFeat GLESv2 EGL
-  )
-  set(OCC_OCAF_LIBRARIES TKCAF TKXCAF TKLCAF TKXDESTEP TKXDEIGES TKMeshVS)
 
-  endif(OpenCASCADE_FOUND)
-    find_package(SWIG REQUIRED) # pivy <- Draft
-    find_package(Eigen3 REQUIRED)
-        find_package(Freetype REQUIRED)
+find_package(OpenCASCADE REQUIRED)
+set(OCC_INCLUDE_DIR ${OpenCASCADE_INCLUDE_DIR})
+set(OCC_LIBRARY_DIR ${OpenCASCADE_LIBRARY_DIR})
+set(OCC_LIBRARIES 
+  ${OpenCASCADE_FoundationClasses_LIBRARIES}
+  ${OpenCASCADE_ModelingData_LIBRARIES}
+  ${OpenCASCADE_ModelingAlgorithms_LIBRARIES}
+  ${OpenCASCADE_DataExchange_LIBRARIES}
+  #${OpenCASCADE_Draw_LIBRARIES}
+  GLESv2 EGL
+)
+set(OCC_OCAF_LIBRARIES ${OpenCASCADE_ApplicationFramework_LIBRARIES}) 
+
+
+find_package(SWIG REQUIRED) # pivy <- Draft
+find_package(Eigen3 REQUIRED)
+find_package(Freetype REQUIRED)
 
 
 if(BUILD_GUI)
@@ -248,16 +221,20 @@ if(BUILD_GUI)
         set(COIN3D_LIB_DIR ${Coin_LIB_DIR})
         set(COIN3D_VERSION ${Coin_VERSION})
 
-#            find_package(Spnav) #Spaceball
+#find_package(Spnav) #Spaceball
 set(SPNAV_INCLUDE_DIR "/usr/include")
 set(SPNAV_LIBRARY "/usr/lib/libspnav.so")
 
 
-
-
 if (BUILD_QT5)
-        find_package(Qt5Network)
-        find_package(Qt5Xml)
+find_package(
+  Qt5 #5.12
+  COMPONENTS
+    Core
+    Network
+    Xml
+  REQUIRED
+)
         if(BUILD_GUI)
             find_package(Qt5Widgets)
             find_package(Qt5PrintSupport)
@@ -271,12 +248,6 @@ if (BUILD_QT5)
             endif()
         endif(BUILD_GUI)
 
-        IF(NOT Qt5Core_FOUND)
-            MESSAGE(FATAL_ERROR "========================\n"
-                                "Qt5 libraries not found.\n"
-                                "========================\n")
-        ENDIF(NOT Qt5Core_FOUND)
-MESSAGE(STATUS "BUILD_QT5: ${PYCXX_SOURCE_DIR}")
 
         # This is a special version of the built in macro qt5_wrap_cpp
         # It is required since moc'ed files are now included instead of being added to projects directly
@@ -298,10 +269,7 @@ MESSAGE(STATUS "BUILD_QT5: ${PYCXX_SOURCE_DIR}")
                 add_file_dependencies(${it} ${outfile})
             endforeach(it)
         endmacro(fc_wrap_cpp)
-    endif (BUILD_QT5)
 # -------------------------------- Shiboken/PySide ------------------------
-
-    if(BUILD_QT5)
         # set(PYTHON_SUFFIX -python${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR})
         # Below are two variables that can be left empty for standard python 3 version,
         # but must be set by the user for different python versions such as 2.7, 3.5 ...
@@ -343,17 +311,9 @@ FIND_PROGRAM(PYSIDE2RCCBINARY NAMES pyside2-rcc)
             )
     endif(BUILD_QT5)
 
-# CMake Error at src/Mod/Draft/CMakeLists.txt:4 (PYSIDE_WRAP_RC):    DRAFT USE MACROS! ;-)
-#  Unknown CMake command "PYSIDE_WRAP_RC".
-
 #grep -lr PYSIDE_WRAP_RC
 #Mod/OpenSCAD/CMakeLists.txt
 #Mod/Import/CMakeLists.txt
-#Mod/-/Plot/CMakeLists.txt
-#Mod/-/Arch/CMakeLists.txt
-#Mod/-/Tux/CMakeLists.txt
-#Mod/-/Ship/CMakeLists.txt
-#Mod/-/Material/CMakeLists.txt
 #Mod/Draft/CMakeLists.txt
 #Tools/_TEMPLATEPY_/CMakeLists.txt
 
@@ -387,12 +347,8 @@ include_directories(${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
 
 
 add_subdirectory(src)
-###add_subdirectory(data)
 
 # == Packaging ===================================================================
-if(FREECAD_MAINTAINERS_BUILD AND NOT WIN32)
-###//
-endif(FREECAD_MAINTAINERS_BUILD AND NOT WIN32)
     #add_custom_target(dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
     add_custom_target(dist-git
             COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_SOURCE_DIR}/src/Tools/makedist.py
@@ -417,9 +373,3 @@ if(CMAKE_COMPILER_IS_GNUCXX OR MINGW)
     )
 endif(CMAKE_COMPILER_IS_GNUCXX OR MINGW)
 
-# Print message to start build process
-if (${CMAKE_BUILD_TOOL} MATCHES "make")
-    MESSAGE("=======================================\n"
-            "Now run 'make' to build ${PACKAGE_NAME}\n"
-            "=======================================\n")
-endif()

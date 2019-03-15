@@ -304,8 +304,6 @@ private:
         if (!PyArg_ParseTupleAndKeywords( args.ptr(), keywds.ptr(),
 #if PY_MAJOR_VERSION >= 3
                                           "Oet|fp",
-#else
-                                          "Oet|fi",
 #endif // Python version switch
                                           kwList, &objects, "utf-8", &fileNamePy,
                                           &fTolerance, &exportAmfCompressed )) {
@@ -355,9 +353,7 @@ private:
         if (exportFormat == MeshIO::AMF) {
             std::map<std::string, std::string> meta;
             meta["cad"] = App::Application::Config()["ExeName"] + " " +
-                          App::Application::Config()["ExeVersion"];
-            meta[App::Application::Config()["ExeName"] + "-buildRevisionHash"] =
-                          App::Application::Config()["BuildRevisionHash"];
+                          App::Application::Config()["VersionName"];
 
             exporter.reset( new AmfExporter(outputFileName, meta, exportAmfCompressed) );
 

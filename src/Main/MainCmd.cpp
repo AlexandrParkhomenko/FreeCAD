@@ -49,9 +49,6 @@
 using Base::Console;
 using App::Application;
 
-const char sBanner[] = "" ;
-
-
 
 int main( int argc, char ** argv )
 {
@@ -63,9 +60,6 @@ int main( int argc, char ** argv )
     App::Application::Config()["ExeName"] = "FreeCAD";
     App::Application::Config()["ExeVendor"] = "FreeCAD";
     App::Application::Config()["AppDataSkipVendor"] = "true";
-
-    // set the banner (for logging and console)
-    App::Application::Config()["CopyrightInfo"] = sBanner;
 
     try {
         // Init phase ===========================================================

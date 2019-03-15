@@ -441,28 +441,8 @@ PyObject* Application::sGetVersion(PyObject * /*self*/, PyObject *args)
     const std::map<std::string, std::string>& cfg = Application::Config();
     std::map<std::string, std::string>::const_iterator it;
 
-    it = cfg.find("BuildVersionMajor");
+    it = cfg.find("VersionName");
     list.append(Py::String(it != cfg.end() ? it->second : ""));
-
-    it = cfg.find("BuildVersionMinor");
-    list.append(Py::String(it != cfg.end() ? it->second : ""));
-
-    it = cfg.find("BuildRevision");
-    list.append(Py::String(it != cfg.end() ? it->second : ""));
-
-    it = cfg.find("BuildRepositoryURL");
-    list.append(Py::String(it != cfg.end() ? it->second : ""));
-
-    it = cfg.find("BuildRevisionDate");
-    list.append(Py::String(it != cfg.end() ? it->second : ""));
-
-    it = cfg.find("BuildRevisionBranch");
-    if (it != cfg.end())
-        list.append(Py::String(it->second));
-
-    it = cfg.find("BuildRevisionHash");
-    if (it != cfg.end())
-        list.append(Py::String(it->second));
 
     return Py::new_reference_to(list);
 }

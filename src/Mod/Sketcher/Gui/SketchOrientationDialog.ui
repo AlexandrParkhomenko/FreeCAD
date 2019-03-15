@@ -6,14 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>178</width>
-    <height>201</height>
+    <width>236</width>
+    <height>242</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Choose orientation</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0" colspan="2">
+    <widget class="QCheckBox" name="Reverse_checkBox">
+     <property name="text">
+      <string>Reverse direction</string>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="0">
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
@@ -66,34 +73,33 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0" colspan="2">
-    <widget class="QCheckBox" name="Reverse_checkBox">
-     <property name="text">
-      <string>Reverse direction</string>
-     </property>
-    </widget>
-   </item>
    <item row="2" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QLabel" name="label">
+       <property name="maximumSize">
+        <size>
+         <width>60</width>
+         <height>167</height>
+        </size>
+       </property>
        <property name="text">
         <string>Offset:</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="Gui::QuantitySpinBox" name="Offset_doubleSpinBox">
+      <widget class="Gui::QuantitySpinBox" name="Offset_doubleSpinBox" native="true">
        <property name="unit" stdset="0">
         <string notr="true">mm</string>
        </property>
-       <property name="minimum">
+       <property name="minimum" stdset="0">
         <double>-999999999.000000000000000</double>
        </property>
-       <property name="maximum">
+       <property name="maximum" stdset="0">
         <double>999999999.000000000000000</double>
        </property>
-       <property name="singleStep">
+       <property name="singleStep" stdset="0">
         <double>10.000000000000000</double>
        </property>
       </widget>

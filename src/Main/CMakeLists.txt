@@ -1,6 +1,3 @@
-#add_definitions(-D_FC_GUI_ENABLED_)
-#add_definitions(-DFREECADMAINPY)
-
 if (BUILD_QT5)
     include_directories(
         ${Qt5Core_INCLUDE_DIRS}
@@ -63,32 +60,14 @@ if(BUILD_GUI)
         FreeCADGui
     )
 
-    if (MSVC AND NOT BUILD_QT5)
-        list(APPEND FreeCAD_LIBS
-            ${QT_QTMAIN_LIBRARY}
-        )
-    endif()
-
     add_executable(FreeCADMain WIN32 ${FreeCAD_SRCS})
     target_link_libraries(FreeCADMain ${FreeCAD_LIBS})
 
     SET_BIN_DIR(FreeCADMain FreeCAD)
 
-    if(WIN32)
-        INSTALL(TARGETS FreeCADMain
-            RUNTIME DESTINATION bin
-            LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        )
-    elseif(APPLE AND NOT BUILD_WITH_CONDA)
-        INSTALL(TARGETS FreeCADMain
-	    RUNTIME DESTINATION MacOS
-            LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        )
-    else()
         INSTALL(TARGETS FreeCADMain 
             RUNTIME DESTINATION bin
         )
-    endif()
 endif(BUILD_GUI)
 ######################## FreeCADMainCmd ########################
 

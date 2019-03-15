@@ -317,8 +317,6 @@ PyMOD_INIT_FUNC(FreeCADGui)
     try {
         Base::Interpreter().loadModule("FreeCAD");
         App::Application::Config()["AppIcon"] = "freecad";
-        App::Application::Config()["SplashScreen"] = "freecadsplash";
-        App::Application::Config()["CopyrightInfo"] = "\xc2\xa9 Juergen Riegel, Werner Mayer, Yorik van Havre 2001-2019\n";
         // it's possible that the GUI is already initialized when the Gui version of the executable
         // is started in command mode
         if (Base::Type::fromName("Gui::BaseView").isBad())
@@ -332,8 +330,6 @@ PyMOD_INIT_FUNC(FreeCADGui)
         };
         PyObject* module = PyModule_Create(&FreeCADGuiModuleDef);
         return module;
-#else
-        Py_InitModule3("FreeCADGui", FreeCADGui_methods, "FreeCAD GUI module\n");
 #endif
     }
     catch (const Base::Exception& e) {

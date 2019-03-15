@@ -1346,9 +1346,7 @@ std::string Document::getTransientDirectoryName(const std::string& uuid, const s
 void Document::Save (Base::Writer &writer) const
 {
     writer.Stream() << "<Document SchemaVersion=\"4\" ProgramVersion=\""
-                    << App::Application::Config()["BuildVersionMajor"] << "."
-                    << App::Application::Config()["BuildVersionMinor"] << "R"
-                    << App::Application::Config()["BuildRevision"]
+                    << App::Application::Config()["VersionName"]
                     << "\" FileVersion=\"" << writer.getFileVersion() << "\">" << endl;
 
     PropertyContainer::Save(writer);
@@ -1369,7 +1367,7 @@ void Document::Restore(Base::XMLReader &reader)
     if (reader.hasAttribute("ProgramVersion")) {
         reader.ProgramVersion = reader.getAttribute("ProgramVersion");
     } else {
-        reader.ProgramVersion = "pre-0.14";
+        reader.ProgramVersion = "0.17";
     }
     if (reader.hasAttribute("FileVersion")) {
         reader.FileVersion = reader.getAttributeAsUnsigned("FileVersion");
@@ -1449,9 +1447,7 @@ void Document::exportObjects(const std::vector<App::DocumentObject*>& obj,
     writer.putNextEntry("Document.xml");
     writer.Stream() << "<?xml version='1.0' encoding='utf-8'?>" << endl;
     writer.Stream() << "<Document SchemaVersion=\"4\" ProgramVersion=\""
-                        << App::Application::Config()["BuildVersionMajor"] << "."
-                        << App::Application::Config()["BuildVersionMinor"] << "R"
-                        << App::Application::Config()["BuildRevision"]
+                        << App::Application::Config()["VersionName"]
                         << "\" FileVersion=\"1\">" << endl;
     // Add this block to have the same layout as for normal documents
     writer.Stream() << "<Properties Count=\"0\">" << endl;
@@ -1607,7 +1603,7 @@ Document::importObjects(Base::XMLReader& reader)
     if (reader.hasAttribute("ProgramVersion")) {
         reader.ProgramVersion = reader.getAttribute("ProgramVersion");
     } else {
-        reader.ProgramVersion = "pre-0.14";
+        reader.ProgramVersion = "0.17";
     }
     if (reader.hasAttribute("FileVersion")) {
         reader.FileVersion = reader.getAttributeAsUnsigned("FileVersion");
@@ -1733,10 +1729,7 @@ bool Document::saveToFile(const char* filename) const
         if (hGrp->GetBool("SaveBinaryBrep", false))
             writer.setMode("BinaryBrep");
 
-        writer.Stream() << "<?xml version='1.0' encoding='utf-8'?>" << endl
-                        << "<!--" << endl
-                        << " FreeCAD Document, see http://www.freecadweb.org for more information..." << endl
-                        << "-->" << endl;
+        writer.Stream() << "<?xml version='1.0' encoding='utf-8'?>" << endl;
         Document::Save(writer);
 
         // Special handling for Gui document.

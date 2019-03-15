@@ -636,40 +636,26 @@ void StdCmdDrawStyle::languageChange()
     Gui::ActionGroup* pcAction = qobject_cast<Gui::ActionGroup*>(_pcAction);
     QList<QAction*> a = pcAction->actions();
 
-    a[0]->setText(QCoreApplication::translate(
-        "Std_DrawStyle", "As is"));
-    a[0]->setToolTip(QCoreApplication::translate(
-        "Std_DrawStyle", "Normal mode"));
+    a[0]->setText(QString::fromLatin1("As is"));
+    a[0]->setToolTip(QString::fromLatin1("Normal mode"));
 
-    a[1]->setText(QCoreApplication::translate(
-        "Std_DrawStyle", "Flat lines"));
-    a[1]->setToolTip(QCoreApplication::translate(
-        "Std_DrawStyle", "Flat lines mode"));
+    a[1]->setText(QString::fromLatin1("Flat lines"));
+    a[1]->setToolTip(QString::fromLatin1("Flat lines mode"));
 
-    a[2]->setText(QCoreApplication::translate(
-        "Std_DrawStyle", "Shaded"));
-    a[2]->setToolTip(QCoreApplication::translate(
-        "Std_DrawStyle", "Shaded mode"));
+    a[2]->setText(QString::fromLatin1("Shaded"));
+    a[2]->setToolTip(QString::fromLatin1("Shaded mode"));
 
-    a[3]->setText(QCoreApplication::translate(
-        "Std_DrawStyle", "Wireframe"));
-    a[3]->setToolTip(QCoreApplication::translate(
-        "Std_DrawStyle", "Wireframe mode"));
+    a[3]->setText(QString::fromLatin1("Wireframe"));
+    a[3]->setToolTip(QString::fromLatin1("Wireframe mode"));
 
-    a[4]->setText(QCoreApplication::translate(
-        "Std_DrawStyle", "Points"));
-    a[4]->setToolTip(QCoreApplication::translate(
-        "Std_DrawStyle", "Points mode"));
+    a[4]->setText(QString::fromLatin1("Points"));
+    a[4]->setToolTip(QString::fromLatin1("Points mode"));
 
-    a[5]->setText(QCoreApplication::translate(
-        "Std_DrawStyle", "Hidden line"));
-    a[5]->setToolTip(QCoreApplication::translate(
-        "Std_DrawStyle", "Hidden line mode"));
+    a[5]->setText(QString::fromLatin1("Hidden line"));
+    a[5]->setToolTip(QString::fromLatin1("Hidden line mode"));
 
-    a[6]->setText(QCoreApplication::translate(
-        "Std_DrawStyle", "No shading"));
-    a[6]->setToolTip(QCoreApplication::translate(
-        "Std_DrawStyle", "No shading mode"));
+    a[6]->setText(QString::fromLatin1("No shading"));
+    a[6]->setToolTip(QString::fromLatin1("No shading mode"));
 }
 
 void StdCmdDrawStyle::updateIcon(const MDIView *view)
@@ -1865,8 +1851,6 @@ void StdViewScreenShot::activated(int iMsg)
                 if (fi.exists() && pixmap.load(fn)) {
                     QString name = qApp->applicationName();
                     std::map<std::string, std::string>& config = App::Application::Config();
-                    QString url  = QString::fromLatin1(config["MaintainerUrl"].c_str());
-                    url = QUrl(url).host();
 
                     QPixmap appicon = Gui::BitmapFactory().pixmap(config["AppIcon"].c_str());
 
@@ -1883,11 +1867,6 @@ void StdViewScreenShot::activated(int iMsg)
 
                     painter.setFont(font);
                     painter.drawText(8+appicon.width(), h-24, name);
-
-                    font.setPointSize(12);
-                    int u = QFontMetrics(font).width(url);
-                    painter.setFont(font);
-                    painter.drawText(8+appicon.width()+n-u, h-9, url);
 
                     painter.end();
                     pixmap.save(fn);
@@ -1978,95 +1957,6 @@ bool StdCmdToggleNavigation::isActive(void)
 }
 
 
-
-#if 0 // old Axis command
-// Command to show/hide axis cross
-class StdCmdAxisCross : public Gui::Command
-{
-private:
-    SoShapeScale* axisCross;
-    SoGroup* axisGroup;
-public:
-    StdCmdAxisCross() : Command("Std_AxisCross"), axisCross(0), axisGroup(0)
-    {
-        sGroup        = QT_TR_NOOP("Standard-View");
-        sMenuText     = QT_TR_NOOP("Toggle axis cross");
-        sToolTipText  = QT_TR_NOOP("Toggle axis cross");
-        sStatusTip    = QT_TR_NOOP("Toggle axis cross");
-        //# sWhatsThis    = "Std_AxisCross";
-    }
-    ~StdCmdAxisCross()
-    {
-        if (axisGroup)
-            axisGroup->unref();
-        if (axisCross)
-            axisCross->unref();
-    }
-    const char* className() const
-    { return "StdCmdAxisCross"; }
-
-    Action * createAction(void)
-    {
-        axisCross = new Gui::SoShapeScale;
-        axisCross->ref();
-        Gui::SoAxisCrossKit* axisKit = new Gui::SoAxisCrossKit();
-        axisKit->set("xAxis.appearance.drawStyle", "lineWidth 2");
-        axisKit->set("yAxis.appearance.drawStyle", "lineWidth 2");
-        axisKit->set("zAxis.appearance.drawStyle", "lineWidth 2");
-        axisCross->setPart("shape", axisKit);
-        axisGroup = new SoSkipBoundingGroup;
-        axisGroup->ref();
-        axisGroup->addChild(axisCross);
-
-        Action *pcAction = Gui::Command::createAction();
-        pcAction->setCheckable(true);
-        return pcAction;
-    }
-
-protected:
-    void activated(int iMsg)
-    {
-        float scale = 1.0f;
-
-        Gui::View3DInventor* view = qobject_cast<Gui::View3DInventor*>
-            (getMainWindow()->activeWindow());
-        if (view) {
-            SoNode* scene = view->getViewer()->getSceneGraph();
-            SoSeparator* sep = static_cast<SoSeparator*>(scene);
-            bool hasaxis = (sep->findChild(axisGroup) != -1);
-            if (iMsg > 0 && !hasaxis) {
-                axisCross->scaleFactor = scale;
-                sep->addChild(axisGroup);
-            }
-            else if (iMsg == 0 && hasaxis) {
-                sep->removeChild(axisGroup);
-            }
-        }
-    }
-
-    bool isActive(void)
-    {
-        Gui::View3DInventor* view = qobject_cast<View3DInventor*>(Gui::getMainWindow()->activeWindow());
-        if (view) {
-            Gui::View3DInventorViewer* viewer = view->getViewer();
-            if (!viewer)
-                return false; // no active viewer
-            SoGroup* group = dynamic_cast<SoGroup*>(viewer->getSceneGraph());
-            if (!group)
-                return false; // empty scene graph
-            bool hasaxis = group->findChild(axisGroup) != -1;
-            if (_pcAction->isChecked() != hasaxis)
-                _pcAction->setChecked(hasaxis);
-            return true;
-        }
-        else {
-            if (_pcAction->isChecked())
-                _pcAction->setChecked(false);
-            return false;
-        }
-    }
-};
-#else
 //===========================================================================
 // Std_ViewExample1
 //===========================================================================
@@ -2109,8 +1999,6 @@ bool StdCmdAxisCross::isActive(void)
     return false;
 
 }
-
-#endif
 
 //===========================================================================
 // Std_ViewExample1

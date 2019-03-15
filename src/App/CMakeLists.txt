@@ -1,8 +1,3 @@
-if(WIN32)
-    add_definitions(-DFCApp)
-    add_definitions(-DBOOST_DYN_LINK)
-endif(WIN32)
-
 if(FREECAD_RELEASE_SEH)
     add_definitions(-DHAVE_SEH)
 endif(FREECAD_RELEASE_SEH)
@@ -249,7 +244,6 @@ SET(FreeCADApp_CPP_SRCS
     ${Properties_CPP_SRCS}
     Application.cpp
     ApplicationPy.cpp
-    Branding.cpp
     ColorModel.cpp
     ComplexGeoData.cpp
     ComplexGeoDataPyImp.cpp
@@ -262,7 +256,6 @@ SET(FreeCADApp_HPP_SRCS
     ${Document_HPP_SRCS}
     ${Properties_HPP_SRCS}
     Application.h
-    Branding.h
     ColorModel.h
     ComplexGeoData.h
     Enumeration.h

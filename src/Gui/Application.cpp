@@ -215,57 +215,8 @@ FreeCADGui_getSoDBVersion(PyObject * /*self*/, PyObject *args)
         return NULL;
 #if PY_MAJOR_VERSION >= 3
     return PyUnicode_FromString(SoDB::getVersion());
-#else
-    return PyString_FromString(SoDB::getVersion());
 #endif
 }
-
-// Copied from https://github.com/python/cpython/blob/master/Objects/moduleobject.c
-#if PY_MAJOR_VERSION >= 3
-#if PY_MINOR_VERSION <= 4
-static int
-_add_methods_to_object(PyObject *module, PyObject *name, PyMethodDef *functions)
-{
-    PyObject *func;
-    PyMethodDef *fdef;
-
-    for (fdef = functions; fdef->ml_name != NULL; fdef++) {
-        if ((fdef->ml_flags & METH_CLASS) ||
-            (fdef->ml_flags & METH_STATIC)) {
-            PyErr_SetString(PyExc_ValueError,
-                            "module functions cannot set"
-                            " METH_CLASS or METH_STATIC");
-            return -1;
-        }
-        func = PyCFunction_NewEx(fdef, (PyObject*)module, name);
-        if (func == NULL) {
-            return -1;
-        }
-        if (PyObject_SetAttrString(module, fdef->ml_name, func) != 0) {
-            Py_DECREF(func);
-            return -1;
-        }
-        Py_DECREF(func);
-    }
-
-    return 0;
-}
-
-int
-PyModule_AddFunctions(PyObject *m, PyMethodDef *functions)
-{
-    int res;
-    PyObject *name = PyModule_GetNameObject(m);
-    if (name == NULL) {
-        return -1;
-    }
-
-    res = _add_methods_to_object(m, name, functions);
-    Py_DECREF(name);
-    return res;
-}
-#endif
-#endif
 
 struct PyMethodDef FreeCADGui_methods[] = {
     {"subgraphFromObject",FreeCADGui_subgraphFromObject,METH_VARARGS,
@@ -304,26 +255,6 @@ Application::Application(bool GUIenabled)
             (void)coin_setenv("COIN_VBO", "0", true);
         }
 
-        // Check for the symbols for group separator and decimal point. They must be different otherwise
-        // Qt doesn't work properly.
-#if defined(Q_OS_WIN32)
-        if (QLocale::system().groupSeparator() == QLocale::system().decimalPoint()) {
-            QMessageBox::critical(0, QLatin1String("Invalid system settings"),
-                QLatin1String("Your system uses the same symbol for decimal point and group separator.\n\n"
-                              "This causes serious problems and makes the application fail to work properly.\n"
-                              "Go to the system configuration panel of the OS and fix this issue, please."));
-            throw Base::RuntimeError("Invalid system settings");
-        }
-#endif
-#if 0 // QuantitySpinBox and InputField try to handle the group separator now
-        // http://forum.freecadweb.org/viewtopic.php?f=10&t=6910
-        // A workaround is to disable the group separator for double-to-string conversion, i.e.
-        // setting the flag 'OmitGroupSeparator'.
-        QLocale loc = QLocale::system();
-        loc.setNumberOptions(QLocale::OmitGroupSeparator);
-        QLocale::setDefault(loc);
-#endif
-
         // setting up Python binding
         Base::PyGILStateLocker lock;
 
@@ -358,8 +289,6 @@ Application::Application(bool GUIenabled)
             // extend the method list
             PyModule_AddFunctions(module, Application::Methods);
         }
-#else
-        PyObject* module = Py_InitModule3("FreeCADGui", Application::Methods, FreeCADGui_doc);
 #endif
         Py::Module(module).setAttr(std::string("ActiveDocument"),Py::None());
 
@@ -382,8 +311,6 @@ Application::Application(bool GUIenabled)
             NULL, NULL, NULL, NULL
         };
         PyObject* pSelectionModule = PyModule_Create(&SelectionModuleDef);
-#else
-        PyObject* pSelectionModule = Py_InitModule3("Selection", SelectionSingleton::Methods,"Selection module");
 #endif
         Py_INCREF(pSelectionModule);
         PyModule_AddObject(module, "Selection", pSelectionModule);
@@ -685,9 +612,6 @@ void Application::slotNewDocument(const App::Document& Doc)
     pDoc->createView(View3DInventor::getClassTypeId());
     // FIXME: Do we really need this further? Calling processEvents() mixes up order of execution in an
     // unpredicatable way. At least it seems that with Qt5 we don't need this any more.
-#if QT_VERSION < 0x050000
-    qApp->processEvents(); // make sure to show the window stuff on the right place
-#endif
 }
 
 void Application::slotDeleteDocument(const App::Document& Doc)
@@ -1692,7 +1616,7 @@ void Application::runApplication(void)
     }
 
 #if QT_VERSION >= 0x050600
-    //Enable automatic scaling based on pixel density fo display (added in Qt 5.6)
+    //Enable automatic scaling based on pixel density to display (added in Qt 5.6)
     mainApp.setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 #if QT_VERSION >= 0x050100
@@ -1797,9 +1721,7 @@ void Application::runApplication(void)
     if (showVersion) {
         // set main window title with FreeCAD Version
         std::map<std::string, std::string>& config = App::Application::Config();
-        QString major  = QString::fromLatin1(config["BuildVersionMajor"].c_str());
-        QString minor  = QString::fromLatin1(config["BuildVersionMinor"].c_str());
-        QString title = QString::fromLatin1("%1 %2.%3").arg(mainApp.applicationName(), major, minor);
+        QString title  = QString::fromLatin1(config["VersionName"].c_str());
         mw.setWindowTitle(title);
     } else {
         mw.setWindowTitle(mainApp.applicationName());

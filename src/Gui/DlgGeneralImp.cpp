@@ -102,7 +102,6 @@ void DlgGeneralImp::saveSettings()
                           SetASCII("AutoloadModule", startWbName.toLatin1());
 
     ui->RecentFiles->onSave();
-    ui->SplashScreen->onSave();
     ui->PythonWordWrap->onSave();
   
     QWidget* pc = DockWindowManager::instance()->getDockWindow("Python console");
@@ -120,12 +119,6 @@ void DlgGeneralImp::saveSettings()
 
     setRecentFileSize();
     ParameterGrp::handle hGrp = WindowParameter::getDefaultParameter()->GetGroup("General");
-    QString lang = QLocale::languageToString(QLocale::system().language());
-    QByteArray language = hGrp->GetASCII("Language", (const char*)lang.toLatin1()).c_str();
-    QByteArray current = ui->Languages->itemData(ui->Languages->currentIndex()).toByteArray();
-    if (current != language) {
-        hGrp->SetASCII("Language", current.constData());
-    }
 
     QVariant size = ui->toolbarIconSize->itemData(ui->toolbarIconSize->currentIndex());
     int pixel = size.toInt();
@@ -137,25 +130,6 @@ void DlgGeneralImp::saveSettings()
     QMdiArea* mdi = getMainWindow()->findChild<QMdiArea*>();
     mdi->setProperty("showImage", ui->tiledBackground->isChecked());
 
-    QVariant sheet = ui->StyleSheets->itemData(ui->StyleSheets->currentIndex());
-    if (this->selectedStyleSheet != sheet.toString()) {
-        this->selectedStyleSheet = sheet.toString();
-        hGrp->SetASCII("StyleSheet", (const char*)sheet.toByteArray());
-
-        if (!sheet.toString().isEmpty()) {
-            QFile f(sheet.toString());
-            if (f.open(QFile::ReadOnly)) {
-                mdi->setBackground(QBrush(Qt::NoBrush));
-                QTextStream str(&f);
-                qApp->setStyleSheet(str.readAll());
-
-                ActionStyleEvent e(ActionStyleEvent::Clear);
-                qApp->sendEvent(getMainWindow(), &e);
-            }
-        }
-    }
-
-    if (sheet.toString().isEmpty()) {
         if (ui->tiledBackground->isChecked()) {
             qApp->setStyleSheet(QString());
             ActionStyleEvent e(ActionStyleEvent::Restore);
@@ -168,23 +142,6 @@ void DlgGeneralImp::saveSettings()
             qApp->sendEvent(getMainWindow(), &e);
             mdi->setBackground(QBrush(QColor(160,160,160)));
         }
-
-#if QT_VERSION == 0x050600 && defined(Q_OS_WIN32)
-        // Under Windows the tree indicator branch gets corrupted after a while.
-        // For more details see also https://bugreports.qt.io/browse/QTBUG-52230
-        // and https://codereview.qt-project.org/#/c/154357/2//ALL,unified
-        // A workaround for Qt 5.6.0 is to set a minimal style sheet.
-        QString qss = QString::fromLatin1(
-               "QTreeView::branch:closed:has-children  {\n"
-               "    image: url(:/icons/style/windows_branch_closed.png);\n"
-               "}\n"
-               "\n"
-               "QTreeView::branch:open:has-children  {\n"
-               "    image: url(:/icons/style/windows_branch_open.png);\n"
-               "}\n");
-        qApp->setStyleSheet(qss);
-#endif
-    }
 
     if (mdi->style())
         mdi->style()->unpolish(qApp);
@@ -199,26 +156,16 @@ void DlgGeneralImp::loadSettings()
     ui->AutoloadModuleCombo->setCurrentIndex(ui->AutoloadModuleCombo->findData(startWbName));
 
     ui->RecentFiles->onRestore();
-    ui->SplashScreen->onRestore();
     ui->PythonWordWrap->onRestore();
 
-    // search for the language files
     ParameterGrp::handle hGrp = WindowParameter::getDefaultParameter()->GetGroup("General");
-    QString langToStr = QLocale::languageToString(QLocale::system().language());
-    QByteArray language = hGrp->GetASCII("Language", langToStr.toLatin1()).c_str();
-
-    int index = 1;
-
-    QAbstractItemModel* model = ui->Languages->model();
-    if (model)
-        model->sort(0);
 
     int current = getMainWindow()->iconSize().width();
     ui->toolbarIconSize->addItem(tr("Small (%1px)").arg(16), QVariant((int)16));
     ui->toolbarIconSize->addItem(tr("Medium (%1px)").arg(24), QVariant((int)24));
     ui->toolbarIconSize->addItem(tr("Large (%1px)").arg(32), QVariant((int)32));
     ui->toolbarIconSize->addItem(tr("Extra large (%1px)").arg(48), QVariant((int)48));
-    index = ui->toolbarIconSize->findData(QVariant(current));
+    int index = ui->toolbarIconSize->findData(QVariant(current));
     if (index < 0) {
         ui->toolbarIconSize->addItem(tr("Custom (%1px)").arg(current), QVariant((int)current));
         index = ui->toolbarIconSize->findData(QVariant(current));
@@ -227,36 +174,6 @@ void DlgGeneralImp::loadSettings()
 
     hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/MainWindow");
     ui->tiledBackground->setChecked(hGrp->GetBool("TiledBackground", false));
-
-    // List all .qss/.css files
-    QMap<QString, QString> cssFiles;
-    QDir dir;
-    QStringList filter;
-    filter << QString::fromLatin1("*.qss");
-    filter << QString::fromLatin1("*.css");
-    QFileInfoList fileNames;
-
-    // read from user, resource and built-in directory
-    QStringList qssPaths = QDir::searchPaths(QString::fromLatin1("qss"));
-    for (QStringList::iterator it = qssPaths.begin(); it != qssPaths.end(); ++it) {
-        dir.setPath(*it);
-        fileNames = dir.entryInfoList(filter, QDir::Files, QDir::Name);
-        for (QFileInfoList::iterator jt = fileNames.begin(); jt != fileNames.end(); ++jt) {
-            if (cssFiles.find(jt->baseName()) == cssFiles.end()) {
-                cssFiles[jt->baseName()] = jt->absoluteFilePath();
-            }
-        }
-    }
-
-    // now add all unique items
-    ui->StyleSheets->addItem(tr("No style sheet"), QString::fromLatin1(""));
-    for (QMap<QString, QString>::iterator it = cssFiles.begin(); it != cssFiles.end(); ++it) {
-        ui->StyleSheets->addItem(it.key(), it.value());
-    }
-
-    this->selectedStyleSheet = QString::fromLatin1(hGrp->GetASCII("StyleSheet").c_str());
-    index = ui->StyleSheets->findData(this->selectedStyleSheet);
-    if (index > -1) ui->StyleSheets->setCurrentIndex(index);
 }
 
 void DlgGeneralImp::changeEvent(QEvent *e)

@@ -1,9 +1,4 @@
-if(MSVC)
-    add_definitions(-DFCAppPart -DHAVE_ACOSH -DHAVE_ASINH -DHAVE_ATANH)
-else(MSVC)
-    add_definitions(-DHAVE_LIMITS_H -DHAVE_CONFIG_H)
-endif(MSVC)
-
+add_definitions(-DHAVE_LIMITS_H -DHAVE_CONFIG_H)
 
 include_directories(
     ${CMAKE_BINARY_DIR}
@@ -23,7 +18,6 @@ set(ImportGui_LIBS
     PartGui
     Import
     ${OCC_OCAF_LIBRARIES}
-    ${OCC_OCAF_DEBUG_LIBRARIES}
 )
 
 SET(ImportGui_SRCS

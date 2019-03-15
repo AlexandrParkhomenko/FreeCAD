@@ -114,7 +114,6 @@
 #include <Base/GeometryPyCXX.h>
 
 #include <Version.h>
-#include "Branding.h"
 
 #include <boost/tokenizer.hpp>
 #include <boost/token_functions.hpp>
@@ -264,8 +263,6 @@ Application::Application(std::map<std::string,std::string> &mConfig)
         pAppModule = init_freecad_module();
         PyDict_SetItemString(modules, "FreeCAD", pAppModule);
     }
-#else
-    PyObject* pAppModule = Py_InitModule3("FreeCAD", Application::Methods, FreeCAD_doc);
 #endif
     Py::Module(pAppModule).setAttr(std::string("ActiveDocument"),Py::None());
 
@@ -277,8 +274,6 @@ Application::Application(std::map<std::string,std::string> &mConfig)
         NULL, NULL, NULL, NULL
     };
     PyObject* pConsoleModule = PyModule_Create(&ConsoleModuleDef);
-#else
-    PyObject* pConsoleModule = Py_InitModule3("__FreeCADConsole__", ConsoleSingleton::Methods, Console_doc);
 #endif
 
     // introducing additional classes
@@ -304,8 +299,6 @@ Application::Application(std::map<std::string,std::string> &mConfig)
         pBaseModule = init_freecad_base_module();
         PyDict_SetItemString(modules, "__FreeCADBase__", pBaseModule);
     }
-#else
-    PyObject* pBaseModule = Py_InitModule3("__FreeCADBase__", NULL, Base_doc);
 #endif
     Base::BaseExceptionFreeCADError = PyErr_NewException("Base.FreeCADError", PyExc_RuntimeError, NULL);
     Py_INCREF(Base::BaseExceptionFreeCADError);
@@ -342,14 +335,8 @@ Application::Application(std::map<std::string,std::string> &mConfig)
         NULL, NULL, NULL, NULL
     };
     PyObject* pUnitsModule = PyModule_Create(&UnitsModuleDef);
-#else
-    PyObject* pUnitsModule = Py_InitModule3("Units", Base::UnitsApi::Methods,"The Unit API");
 #endif
     Base::Interpreter().addType(&Base::QuantityPy  ::Type,pUnitsModule,"Quantity");
-    // make sure to set the 'nb_true_divide' slot
-#if PY_MAJOR_VERSION < 3
-    Base::QuantityPy::Type.tp_as_number->nb_true_divide = Base::QuantityPy::Type.tp_as_number->nb_divide;
-#endif
     Base::Interpreter().addType(&Base::UnitPy      ::Type,pUnitsModule,"Unit");
 
     Py_INCREF(pUnitsModule);
@@ -775,18 +762,7 @@ void Application::addImportType(const char* Type, const char* ModuleName)
         item.types.push_back(type);
         pos = item.filter.find("*.", next);
     }
-
-    // Due to branding stuff replace "FreeCAD" with the branded application name
-    if (strncmp(Type, "FreeCAD", 7) == 0) {
-        std::string AppName = Config()["ExeName"];
-        AppName += item.filter.substr(7);
-        item.filter = AppName;
-        // put to the front of the array
-        _mImportTypes.insert(_mImportTypes.begin(),item);
-    }
-    else {
-        _mImportTypes.push_back(item);
-    }
+    _mImportTypes.push_back(item);
 }
 
 std::vector<std::string> Application::getImportModules(const char* Type) const
@@ -888,18 +864,7 @@ void Application::addExportType(const char* Type, const char* ModuleName)
         item.types.push_back(type);
         pos = item.filter.find("*.", next);
     }
-
-    // Due to branding stuff replace "FreeCAD" with the branded application name
-    if (strncmp(Type, "FreeCAD", 7) == 0) {
-        std::string AppName = Config()["ExeName"];
-        AppName += item.filter.substr(7);
-        item.filter = AppName;
-        // put to the front of the array
-        _mExportTypes.insert(_mExportTypes.begin(),item);
-    }
-    else {
-        _mExportTypes.push_back(item);
-    }
+    _mExportTypes.push_back(item);
 }
 
 std::vector<std::string> Application::getExportModules(const char* Type) const
@@ -1144,20 +1109,12 @@ void Application::destructObserver(void)
 /** freecadNewHandler()
  * prints an error message and throws an exception
  */
-#ifdef _MSC_VER // New handler for Microsoft Visual C++ compiler
-int __cdecl freecadNewHandler(size_t size )
-{
-    // throw an exception
-    throw Base::MemoryException();
-    return 0;
-}
-#else // Ansi C/C++ new handler
+// Ansi C/C++ new handler
 static void freecadNewHandler ()
 {
     // throw an exception
     throw Base::MemoryException();
 }
-#endif
 
 #if defined(FC_OS_LINUX)
 #include <execinfo.h>
@@ -1207,30 +1164,11 @@ void printBacktrace(size_t skip=0)
 
 void segmentation_fault_handler(int sig)
 {
-#if defined(FC_OS_LINUX)
+//FC_OS_LINUX
     (void)sig;
     std::cerr << "Program received signal SIGSEGV, Segmentation fault.\n";
     printBacktrace(2);
     exit(1);
-#else
-    switch (sig) {
-        case SIGSEGV:
-            std::cerr << "Illegal storage access..." << std::endl;
-#if !defined(_DEBUG)
-            throw Base::AccessViolation("Illegal storage access! Please save your work under a new file name and restart the application!");
-#endif
-            break;
-        case SIGABRT:
-            std::cerr << "Abnormal program termination..." << std::endl;
-#if !defined(_DEBUG)
-            throw Base::AbnormalProgramTermination("Break signal occurred");
-#endif
-            break;
-        default:
-            std::cerr << "Unknown error occurred..." << std::endl;
-            break;
-    }
-#endif // FC_OS_LINUX
 }
 
 void unhandled_exception_handler()
@@ -1249,57 +1187,17 @@ void unexpection_error_handler()
 #endif
 }
 
-#if defined(FC_SE_TRANSLATOR) // Microsoft compiler
-void my_se_translator_filter(unsigned int code, EXCEPTION_POINTERS* pExp)
-{
-    Q_UNUSED(pExp)
-    switch (code)
-    {
-    case EXCEPTION_ACCESS_VIOLATION:
-        throw Base::AccessViolation();
-        break;
-    case EXCEPTION_FLT_DIVIDE_BY_ZERO:
-    case EXCEPTION_INT_DIVIDE_BY_ZERO:
-        throw Base::DivisionByZeroError("Division by zero!");
-        break;
-    }
-
-    std::stringstream str;
-    str << "SEH exception of type: " << code;
-    // general C++ SEH exception for things we don't need to handle separately....
-    throw Base::RuntimeError(str.str());
-}
-#endif
-
 void Application::init(int argc, char ** argv)
 {
     try {
         // install our own new handler
-#ifdef _MSC_VER // Microsoft compiler
-        _set_new_handler ( freecadNewHandler ); // Setup new handler
-        _set_new_mode( 1 ); // Re-route malloc failures to new handler !
-#else   // Ansi compiler
+    	// Ansi compiler
         std::set_new_handler (freecadNewHandler); // ANSI new handler
-#endif
         // if an unexpected crash occurs we can install a handler function to
         // write some additional information
-#if defined (_MSC_VER) // Microsoft compiler
+//FC_OS_LINUX
         std::signal(SIGSEGV,segmentation_fault_handler);
-        std::signal(SIGABRT,segmentation_fault_handler);
-        std::set_terminate(unhandled_exception_handler);
-        std::set_unexpected(unexpection_error_handler);
-#elif defined(FC_OS_LINUX)
-        std::signal(SIGSEGV,segmentation_fault_handler);
-#endif
-#if defined(FC_SE_TRANSLATOR)
-        _set_se_translator(my_se_translator_filter);
-#endif
         initTypes();
-
-#if (BOOST_VERSION < 104600) || (BOOST_FILESYSTEM_VERSION == 2)
-        boost::filesystem::path::default_name_check(boost::filesystem::no_check);
-#endif
-
         initConfig(argc,argv);
         initApplication();
     }
@@ -1480,37 +1378,13 @@ void Application::initConfig(int argc, char ** argv)
     mConfig["AppHomePath"] = FindHomePath(argv[0]);
 
     // Version of the application extracted from SubWCRef into src/Build/Version.h
-    // We only set these keys if not yet defined. Therefore it suffices to search
-    // only for 'BuildVersionMajor'.
-    if (App::Application::Config().find("BuildVersionMajor") == App::Application::Config().end()) {
-        std::stringstream str; str << FCVersionMajor << "." << FCVersionMinor;
-        App::Application::Config()["ExeVersion"         ] = str.str();
-        App::Application::Config()["BuildVersionMajor"  ] = FCVersionMajor;
-        App::Application::Config()["BuildVersionMinor"  ] = FCVersionMinor;
-        App::Application::Config()["BuildRevision"      ] = FCRevision;
-        App::Application::Config()["BuildRepositoryURL" ] = FCRepositoryURL;
-        App::Application::Config()["BuildRevisionDate"  ] = FCRevisionDate;
-#if defined(FCRepositoryHash)
-        App::Application::Config()["BuildRevisionHash"  ] = FCRepositoryHash;
-#endif
-#if defined(FCRepositoryBranch)
-        App::Application::Config()["BuildRevisionBranch"] = FCRepositoryBranch;
-#endif
+    // We only set these keys if not yet defined.
+    if (App::Application::Config().find("VersionName") == App::Application::Config().end()) {
+        App::Application::Config()["VersionName"] = FCVersionName;
     }
 
     _argc = argc;
     _argv = argv;
-
-    // Now it's time to read-in the file branding.xml if it exists
-    Branding brand;
-    QString binDir = QString::fromUtf8((mConfig["AppHomePath"] + "bin").c_str());
-    QFileInfo fi(binDir, QString::fromLatin1("branding.xml"));
-    if (brand.readFile(fi.absoluteFilePath())) {
-        Branding::XmlConfig cfg = brand.getUserDefines();
-        for (Branding::XmlConfig::iterator it = cfg.begin(); it != cfg.end(); ++it) {
-            App::Application::Config()[it.key()] = it.value();
-        }
-    }
 
     // extract home paths
     ExtractUserPath();
@@ -1547,19 +1421,8 @@ void Application::initConfig(int argc, char ** argv)
         _pConsoleObserverFile = 0;
 
     // Banner ===========================================================
-    if (!(mConfig["Verbose"] == "Strict"))
-        Console().Message("%s %s, Libs: %s.%sR%s\n%s",mConfig["ExeName"].c_str(),
-                          mConfig["ExeVersion"].c_str(),
-                          mConfig["BuildVersionMajor"].c_str(),
-                          mConfig["BuildVersionMinor"].c_str(),
-                          mConfig["BuildRevision"].c_str(),
-                          mConfig["CopyrightInfo"].c_str());
-    else
-        Console().Message("%s %s, Libs: %s.%sB%s\n",mConfig["ExeName"].c_str(),
-                          mConfig["ExeVersion"].c_str(),
-                          mConfig["BuildVersionMajor"].c_str(),
-                          mConfig["BuildVersionMinor"].c_str(),
-                          mConfig["BuildRevision"].c_str());
+        Console().Message("%s %s\n",mConfig["ExeName"].c_str(),
+                          mConfig["VersionName"].c_str());
 
     LoadParameters();
 
@@ -1910,34 +1773,8 @@ void Application::LoadParameters(void)
 }
 
 
-#if defined(_MSC_VER)
-// fix weird error while linking boost (all versions of VC)
-// VS2010: http://forum.freecadweb.org/viewtopic.php?f=4&t=1886&p=12553&hilit=boost%3A%3Afilesystem%3A%3Aget#p12553
-namespace boost { namespace program_options { std::string arg="arg"; } }
-#if (defined (BOOST_VERSION) && (BOOST_VERSION >= 104100))
-namespace boost { namespace program_options {
-    const unsigned options_description::m_default_line_length = 80;
-} }
-#endif
-#endif
-
-#if 0 // it seems that SUSE has fixed the broken boost package
-// reported for SUSE in issue #0000208
-#if defined(__GNUC__)
-#if BOOST_VERSION == 104400
-namespace boost { namespace filesystem {
-    bool no_check( const std::string & ) { return true; }
-} }
-#endif
-#endif
-#endif
-
 pair<string, string> customSyntax(const string& s)
 {
-#if defined(FC_OS_MACOSX)
-    if (s.find("-psn_") == 0)
-        return make_pair(string("psn"), s.substr(5));
-#endif
     if (s.find("-display") == 0)
         return make_pair(string("display"), string("null"));
     else if (s.find("-style") == 0)
@@ -2158,8 +1995,7 @@ void Application::ParseOptions(int ac, char ** av)
 
     if (vm.count("version")) {
         std::stringstream str;
-        str << mConfig["ExeName"] << " " << mConfig["ExeVersion"]
-            << " Revision: " << mConfig["BuildRevision"] << std::endl;
+        str << mConfig["ExeName"] << " " << mConfig["VersionName"] << std::endl;
         throw Base::ProgramInformation(str.str());
     }
 
@@ -2271,7 +2107,7 @@ void Application::ExtractUserPath()
     mConfig["BinPath"] = mConfig["AppHomePath"] + "bin" + PATHSEP;
     mConfig["DocPath"] = mConfig["AppHomePath"] + "doc" + PATHSEP;
 
-#if defined(FC_OS_LINUX) || defined(FC_OS_CYGWIN) || defined(FC_OS_BSD)
+#if defined(FC_OS_LINUX)
     // Default paths for the user specific stuff
     struct passwd *pwd = getpwuid(getuid());
     if (pwd == NULL)
@@ -2327,147 +2163,11 @@ void Application::ExtractUserPath()
             throw Base::FileSystemError(error);
         }
     }
-
-    // Actually the name of the directory where the parameters are stored should be the name of
-    // the application due to branding reasons.
     appData += PATHSEP;
     mConfig["UserAppData"] = appData;
 
-#elif defined(FC_OS_MACOSX)
-    // Default paths for the user specific stuff on the platform
-    struct passwd *pwd = getpwuid(getuid());
-    if (pwd == NULL)
-        throw Base::RuntimeError("Getting HOME path from system failed!");
-    mConfig["UserHomePath"] = pwd->pw_dir;
-    std::string appData = pwd->pw_dir;
-    appData += PATHSEP;
-    appData += "Library";
-    appData += PATHSEP;
-    appData += "Preferences";
-    Base::FileInfo fi(appData.c_str());
-    if (!fi.exists()) {
-        // This should never ever happen
-        std::stringstream str;
-        str << "Application data directory " << appData << " does not exist!";
-        throw Base::FileSystemError(str.str());
-    }
-
-    // In order to write to our data path, we must create some directories, first.
-    // If 'AppDataSkipVendor' is defined the value of 'ExeVendor' must not be part of
-    // the path.
-    appData += PATHSEP;
-    if (mConfig.find("AppDataSkipVendor") == mConfig.end()) {
-        appData += mConfig["ExeVendor"];
-        fi.setFile(appData.c_str());
-        if (!fi.exists() && !Py_IsInitialized()) {
-            if (!fi.createDirectory()) {
-                std::string error = "Cannot create directory ";
-                error += appData;
-                // Want more details on console
-                std::cerr << error << std::endl;
-                throw Base::FileSystemError(error);
-            }
-        }
-        appData += PATHSEP;
-    }
-
-    appData += mConfig["ExeName"];
-    fi.setFile(appData.c_str());
-    if (!fi.exists() && !Py_IsInitialized()) {
-        if (!fi.createDirectory()) {
-            std::string error = "Cannot create directory ";
-            error += appData;
-            // Want more details on console
-            std::cerr << error << std::endl;
-            throw Base::FileSystemError(error);
-        }
-    }
-
-    // Actually the name of the directory where the parameters are stored should be the name of
-    // the application due to branding reasons.
-    appData += PATHSEP;
-    mConfig["UserAppData"] = appData;
-
-#elif defined(FC_OS_WIN32)
-    WCHAR szPath[MAX_PATH];
-    char dest[MAX_PATH*3];
-    // Get the default path where we can save our documents. It seems that
-    // 'CSIDL_MYDOCUMENTS' doesn't work on all machines, so we use 'CSIDL_PERSONAL'
-    // which does the same.
-    if (SUCCEEDED(SHGetFolderPathW(NULL, CSIDL_PERSONAL, NULL, 0, szPath))) {
-        WideCharToMultiByte(CP_UTF8, 0, szPath, -1,dest, 256, NULL, NULL);
-        mConfig["UserHomePath"] = dest;
-    }
-    else
-        mConfig["UserHomePath"] = mConfig["AppHomePath"];
-
-    // In the second step we want the directory where user settings of the application can be
-    // kept. There we create a directory with name of the vendor and a sub-directory with name
-    // of the application.
-    if (SUCCEEDED(SHGetFolderPathW(NULL, CSIDL_APPDATA, NULL, 0, szPath))) {
-        // convert to UTF8
-        WideCharToMultiByte(CP_UTF8, 0, szPath, -1,dest, 256, NULL, NULL);
-
-        std::string appData = dest;
-        Base::FileInfo fi(appData.c_str());
-        if (!fi.exists()) {
-            // This should never ever happen
-            std::stringstream str;
-            str << "Application data directory " << appData << " does not exist!";
-            throw Base::FileSystemError(str.str());
-        }
-
-        // In order to write to our data path we must create some directories first.
-        // If 'AppDataSkipVendor' is defined the value of 'ExeVendor' must not be part of
-        // the path.
-        if (mConfig.find("AppDataSkipVendor") == mConfig.end()) {
-            appData += PATHSEP;
-            appData += mConfig["ExeVendor"];
-            fi.setFile(appData.c_str());
-            if (!fi.exists() && !Py_IsInitialized()) {
-                if (!fi.createDirectory()) {
-                    std::string error = "Cannot create directory ";
-                    error += appData;
-                    // Want more details on console
-                    std::cerr << error << std::endl;
-                    throw Base::FileSystemError(error);
-                }
-            }
-        }
-
-        appData += PATHSEP;
-        appData += mConfig["ExeName"];
-        fi.setFile(appData.c_str());
-        if (!fi.exists() && !Py_IsInitialized()) {
-            if (!fi.createDirectory()) {
-                std::string error = "Cannot create directory ";
-                error += appData;
-                // Want more details on console
-                std::cerr << error << std::endl;
-                throw Base::FileSystemError(error);
-            }
-        }
-
-        // Actually the name of the directory where the parameters are stored should be the name of
-        // the application due to branding reasons.
-        appData += PATHSEP;
-        mConfig["UserAppData"] = appData;
-
-        // Create the default macro directory
-        fi.setFile(getUserMacroDir());
-        if (!fi.exists() && !Py_IsInitialized()) {
-            if (!fi.createDirectory()) {
-                // If the creation fails only write an error but do not raise an
-                // exception because it doesn't prevent FreeCAD from working
-                std::string error = "Cannot create directory ";
-                error += fi.fileName();
-                // Want more details on console
-                std::cerr << error << std::endl;
-            }
-        }
-    }
 #else
-# error "Implement ExtractUserPath() for your platform."
+# error "Implement ExtractUserPath() for your platform. See FreeCAD/FreeCAD"
 #endif
 }
 
@@ -2500,18 +2200,7 @@ std::string Application::FindHomePath(const char* sCall)
         // path. In the worst case we simply get q wrong path and FreeCAD is not
         // able to load its modules.
         char resolved[PATH_MAX];
-#if defined(FC_OS_BSD)
-        int mib[4];
-        mib[0] = CTL_KERN;
-        mib[1] = KERN_PROC;
-        mib[2] = KERN_PROC_PATHNAME;
-        mib[3] = -1;
-        size_t cb = sizeof(resolved);
-        sysctl(mib, 4, resolved, &cb, NULL, 0);
-        int nchars = strlen(resolved);
-#else
-        int nchars = readlink("/proc/self/exe", resolved, PATH_MAX);
-#endif
+        int nchars = readlink("/proc/self/exe", resolved, PATH_MAX); // linuxway
         if (nchars < 0 || nchars >= PATH_MAX)
             throw Base::FileSystemError("Cannot determine the absolute path of the executable");
         resolved[nchars] = '\0'; // enforce null termination
@@ -2526,94 +2215,8 @@ std::string Application::FindHomePath(const char* sCall)
 
     return homePath;
 }
-
-#elif defined(FC_OS_MACOSX)
-#include <mach-o/dyld.h>
-#include <string>
-#include <stdlib.h>
-#include <sys/param.h>
-
-std::string Application::FindHomePath(const char* call)
-{
-    // If Python is initialized at this point, then we're being run from
-    // MainPy.cpp, which hopefully rewrote argv[0] to point at the
-    // FreeCAD shared library.
-    if (!Py_IsInitialized()) {
-        uint32_t sz = 0;
-        char *buf;
-
-        _NSGetExecutablePath(NULL, &sz); //function only returns "sz" if first arg is to small to hold value
-        buf = new char[++sz];
-
-        if (_NSGetExecutablePath(buf, &sz) == 0) {
-            char resolved[PATH_MAX];
-            char* path = realpath(buf, resolved);
-            delete [] buf;
-
-            if (path) {
-                std::string Call(resolved), TempHomePath;
-                std::string::size_type pos = Call.find_last_of(PATHSEP);
-                TempHomePath.assign(Call,0,pos);
-                pos = TempHomePath.find_last_of(PATHSEP);
-                TempHomePath.assign(TempHomePath,0,pos+1);
-                return TempHomePath;
-            }
-        } else {
-            delete [] buf;
-        }
-    }
-
-    return call;
-}
-
-#elif defined (FC_OS_WIN32)
-std::string Application::FindHomePath(const char* sCall)
-{
-    // We have several ways to start this application:
-    // * use one of the two executables
-    // * import the FreeCAD.pyd module from a running Python session. In this case the
-    //   Python interpreter is already initialized.
-    // * use a custom dll that links FreeCAD core dlls and that is loaded by its host application
-    //   In this case the calling name should be set to FreeCADBase.dll or FreeCADApp.dll in order
-    //   to locate the correct home directory
-    wchar_t szFileName [MAX_PATH];
-    QString dll(QString::fromUtf8(sCall));
-    if (Py_IsInitialized() || dll.endsWith(QLatin1String(".dll"))) {
-        GetModuleFileNameW(GetModuleHandleA(sCall),szFileName, MAX_PATH-1);
-    }
-    else {
-        GetModuleFileNameW(0, szFileName, MAX_PATH-1);
-    }
-
-    std::wstring Call(szFileName), homePath;
-    std::wstring::size_type pos = Call.find_last_of(PATHSEP);
-    homePath.assign(Call,0,pos);
-    pos = homePath.find_last_of(PATHSEP);
-    homePath.assign(homePath,0,pos+1);
-
-    // switch to posix style
-    for (std::wstring::iterator it = homePath.begin(); it != homePath.end(); ++it) {
-        if (*it == '\\')
-            *it = '/';
-    }
-
-    // fixes #0001638 to avoid to load DLLs from Windows' system directories before FreeCAD's bin folder
-    std::wstring binPath = homePath;
-    binPath += L"bin";
-    SetDllDirectoryW(binPath.c_str());
-
-    // http://stackoverflow.com/questions/5625884/conversion-of-stdwstring-to-qstring-throws-linker-error
-#ifdef _MSC_VER
-    QString str = QString::fromUtf16(reinterpret_cast<const ushort *>(homePath.c_str()));
 #else
-    QString str = QString::fromStdWString(homePath);
-#endif
-    // convert to utf-8
-    return str.toUtf8().data();
-}
-
-#else
-# error "std::string Application::FindHomePath(const char*) not implemented"
+# error "std::string Application::FindHomePath(const char*) not implemented.  See FreeCAD/FreeCAD"
 #endif
 
 ObjectLabelObserver* ObjectLabelObserver::_singleton = 0;

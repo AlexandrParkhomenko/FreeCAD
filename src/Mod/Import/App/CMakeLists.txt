@@ -14,7 +14,6 @@ set(Import_LIBS
     Part
     #Assembly
     ${OCC_OCAF_LIBRARIES}
-    ${OCC_OCAF_DEBUG_LIBRARIES}
 )
 
 SET(Import_SRCS
