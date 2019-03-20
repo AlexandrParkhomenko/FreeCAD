@@ -125,7 +125,7 @@ using namespace Gui::DockWnd;
 // list of modules already loaded by a command (not issue again for macro cleanness)
 std::set<std::string> alreadyLoadedModule;
 
-CommandBase::CommandBase( const char* sMenu, const char* sToolTip, const char* sWhat,
+CommandBase::CommandBase( const char* sMenu, const char* sToolTip, const char* /*sWhat*/,
                           const char* sStatus, const char* sPixmap, const char* sAcc)
         : sMenuText(sMenu), sToolTipText(sToolTip), 
         sStatusTip(sStatus?sStatus:sToolTip), sPixmap(sPixmap), sAccel(sAcc), _pcAction(0)

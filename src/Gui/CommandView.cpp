@@ -1862,7 +1862,6 @@ void StdViewScreenShot::activated(int iMsg)
                     QFont font = painter.font();
                     font.setPointSize(20);
 
-                    int n = QFontMetrics(font).width(name);
                     int h = pixmap.height();
 
                     painter.setFont(font);

@@ -35,6 +35,7 @@
 # include <unistd.h>
 # include <pwd.h>
 # include <sys/types.h>
+# endif
 # include <ctime>
 # include <csignal>
 # include <boost/program_options.hpp>
@@ -120,7 +121,7 @@ using namespace boost::program_options;
 #include <App/TestScript.h>
 #include <App/CMakeScript.h>
 
-/ Ansi C/C++ new handler
+// Ansi C/C++ new handler
 # include <new>
 
 
