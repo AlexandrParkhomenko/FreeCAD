@@ -213,9 +213,8 @@ FreeCADGui_getSoDBVersion(PyObject * /*self*/, PyObject *args)
 {
     if (!PyArg_ParseTuple(args, ""))
         return NULL;
-#if PY_MAJOR_VERSION >= 3
     return PyUnicode_FromString(SoDB::getVersion());
-#endif
+
 }
 
 struct PyMethodDef FreeCADGui_methods[] = {
@@ -269,7 +268,6 @@ Application::Application(bool GUIenabled)
             "workbenches."
             );
 
-#if PY_MAJOR_VERSION >= 3
         // if this returns a valid pointer then the 'FreeCADGui' Python module was loaded,
         // otherwise the executable was launched
         PyObject* modules = PyImport_GetModuleDict();
@@ -289,7 +287,6 @@ Application::Application(bool GUIenabled)
             // extend the method list
             PyModule_AddFunctions(module, Application::Methods);
         }
-#endif
         Py::Module(module).setAttr(std::string("ActiveDocument"),Py::None());
 
         UiLoaderPy::init_type();
@@ -303,7 +300,6 @@ Application::Application(bool GUIenabled)
         PyModule_AddObject(module, "PySideUic", pySide->module().ptr());
 
         //insert Selection module
-#if PY_MAJOR_VERSION >= 3
         static struct PyModuleDef SelectionModuleDef = {
             PyModuleDef_HEAD_INIT,
             "Selection", "Selection module", -1,
@@ -311,7 +307,7 @@ Application::Application(bool GUIenabled)
             NULL, NULL, NULL, NULL
         };
         PyObject* pSelectionModule = PyModule_Create(&SelectionModuleDef);
-#endif
+
         Py_INCREF(pSelectionModule);
         PyModule_AddObject(module, "Selection", pSelectionModule);
 
@@ -1278,11 +1274,8 @@ QStringList Application::workbenches(void) const
     // insert all items
     while (PyDict_Next(_pcWorkbenchDictionary, &pos, &key, &value)) {
         /* do something interesting with the values... */
-#if PY_MAJOR_VERSION >= 3
         const char* wbName = PyUnicode_AsUTF8(key);
-#else
-        const char* wbName = PyString_AsString(key);
-#endif
+
         // add only allowed workbenches
         bool ok = true;
         if (!extra.isEmpty()&&ok) {

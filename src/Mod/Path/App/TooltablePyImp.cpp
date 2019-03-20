@@ -248,17 +248,11 @@ PyObject* ToolPy::setFromTemplate(PyObject * args)
     return 0;
 }
 
-#if PY_MAJOR_VERSION >= 3
 #  define PYSTRING_FROMSTRING(str)  PyUnicode_FromString(str)
 #  define PYINT_TYPE                PyLong_Type
 #  define PYINT_FROMLONG(l)         PyLong_FromLong(l)
 #  define PYINT_ASLONG(o)           PyLong_AsLong(o)
-#else
-#  define PYSTRING_FROMSTRING(str)  PyString_FromString(str)
-#  define PYINT_TYPE                PyInt_Type
-#  define PYINT_FROMLONG(l)         PyInt_FromLong(l)
-#  define PYINT_ASLONG(o)           PyInt_AsLong(o)
-#endif
+
 
 PyObject* ToolPy::templateAttrs(PyObject * args)
 {

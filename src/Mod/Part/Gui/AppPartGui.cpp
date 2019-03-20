@@ -121,7 +121,6 @@ PyMOD_INIT_FUNC(PartGui)
 
     Base::Console().Log("Loading GUI of Part module... done\n");
 
-#if PY_MAJOR_VERSION >= 3
     static struct PyModuleDef pAttachEngineTextsModuleDef = {
         PyModuleDef_HEAD_INIT,
         "AttachEngineResources",
@@ -130,10 +129,7 @@ PyMOD_INIT_FUNC(PartGui)
         NULL, NULL, NULL, NULL
     };
     PyObject* pAttachEngineTextsModule = PyModule_Create(&pAttachEngineTextsModuleDef);
-#else
-    PyObject* pAttachEngineTextsModule = Py_InitModule3("AttachEngineResources", AttacherGui::AttacherGuiPy::Methods,
-        "AttachEngine Gui resources");
-#endif
+
 
     Py_INCREF(pAttachEngineTextsModule);
     PyModule_AddObject(partGuiModule, "AttachEngineResources", pAttachEngineTextsModule);

@@ -191,7 +191,6 @@ PyDoc_STRVAR(Base_doc,
     "like vector, matrix, bounding box, placement, rotation, axis, ...\n"
     );
 
-#if PY_MAJOR_VERSION >= 3
 // This is called via the PyImport_AppendInittab mechanism called
 // during initialization, to make the built-in __FreeCADBase__
 // module known to Python.
@@ -220,7 +219,6 @@ init_freecad_module(void)
     };
     return PyModule_Create(&FreeCADModuleDef);
 }
-#endif
 
 Application::Application(std::map<std::string,std::string> &mConfig)
   : _mConfig(mConfig), _pActiveDoc(0)
@@ -232,7 +230,6 @@ Application::Application(std::map<std::string,std::string> &mConfig)
 
     // setting up Python binding
     Base::PyGILStateLocker lock;
-#if PY_MAJOR_VERSION >= 3
     PyObject* modules = PyImport_GetModuleDict();
 
     __AppMethods = Application::Methods;
@@ -242,10 +239,8 @@ Application::Application(std::map<std::string,std::string> &mConfig)
         pAppModule = init_freecad_module();
         PyDict_SetItemString(modules, "FreeCAD", pAppModule);
     }
-#endif
     Py::Module(pAppModule).setAttr(std::string("ActiveDocument"),Py::None());
 
-#if PY_MAJOR_VERSION >= 3
     static struct PyModuleDef ConsoleModuleDef = {
         PyModuleDef_HEAD_INIT,
         "__FreeCADConsole__", Console_doc, -1,
@@ -253,7 +248,7 @@ Application::Application(std::map<std::string,std::string> &mConfig)
         NULL, NULL, NULL, NULL
     };
     PyObject* pConsoleModule = PyModule_Create(&ConsoleModuleDef);
-#endif
+
 
     // introducing additional classes
 
@@ -271,14 +266,13 @@ Application::Application(std::map<std::string,std::string> &mConfig)
     // binding classes from the base module. At a later stage we should
     // remove these types from the FreeCAD module.
 
-#if PY_MAJOR_VERSION >= 3
     PyObject* pBaseModule = PyImport_ImportModule ("__FreeCADBase__");
     if (!pBaseModule) {
         PyErr_Clear();
         pBaseModule = init_freecad_base_module();
         PyDict_SetItemString(modules, "__FreeCADBase__", pBaseModule);
     }
-#endif
+
     Base::BaseExceptionFreeCADError = PyErr_NewException("Base.FreeCADError", PyExc_RuntimeError, NULL);
     Py_INCREF(Base::BaseExceptionFreeCADError);
     PyModule_AddObject(pBaseModule, "FreeCADError", Base::BaseExceptionFreeCADError);
@@ -306,7 +300,6 @@ Application::Application(std::map<std::string,std::string> &mConfig)
     PyModule_AddObject(pAppModule, "Qt", pTranslateModule);
 
     //insert Units module
-#if PY_MAJOR_VERSION >= 3
     static struct PyModuleDef UnitsModuleDef = {
         PyModuleDef_HEAD_INIT,
         "Units", "The Unit API", -1,
@@ -314,7 +307,7 @@ Application::Application(std::map<std::string,std::string> &mConfig)
         NULL, NULL, NULL, NULL
     };
     PyObject* pUnitsModule = PyModule_Create(&UnitsModuleDef);
-#endif
+
     Base::Interpreter().addType(&Base::QuantityPy  ::Type,pUnitsModule,"Quantity");
     Base::Interpreter().addType(&Base::UnitPy      ::Type,pUnitsModule,"Unit");
 
@@ -1375,10 +1368,9 @@ void Application::initConfig(int argc, char ** argv)
 #   endif
 
     // init python
-#if PY_MAJOR_VERSION >= 3
     PyImport_AppendInittab ("FreeCAD", init_freecad_module);
     PyImport_AppendInittab ("__FreeCADBase__", init_freecad_base_module);
-#endif
+
     mConfig["PythonSearchPath"] = Interpreter().init(argc,argv);
 
     // Parse the options that have impact on the init process

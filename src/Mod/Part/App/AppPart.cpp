@@ -188,11 +188,8 @@ PyTypeObject LinePyOld::Type = {
     /* --- Functions to access object as input/output buffer ---------*/
     0,                                                /* tp_as_buffer */
     /* --- Flags to define presence of optional/expanded features */
-#if PY_MAJOR_VERSION >= 3
     Py_TPFLAGS_DEFAULT,                               /*tp_flags */
-#else
-    Py_TPFLAGS_HAVE_CLASS,                            /*tp_flags */
-#endif
+
     "",
     0,                                                /*tp_traverse */
     0,                                                /*tp_clear */
@@ -220,9 +217,7 @@ PyTypeObject LinePyOld::Type = {
     0,                                                /*tp_weaklist */
     0,                                                /*tp_del */
     0                                                 /*tp_version_tag */
-#if PY_MAJOR_VERSION >=3
     ,0                                                /*tp_finalize */
-#endif
 };
 
 }
@@ -237,9 +232,6 @@ PyMOD_INIT_FUNC(Part)
     // The argument must be 'Standard_False' to avoid FPE caused by
     // Python's cmath module.
     // For Linux use segmentation_fault_handler in Application.cpp
-#if !defined(_DEBUG) && !defined(FC_OS_LINUX)
-    //OSD::SetSignal(Standard_False);
-#endif
 
     PyObject* partModule = Part::initModule();
     Base::Console().Log("Loading Part module... done\n");
@@ -353,31 +345,25 @@ PyMOD_INIT_FUNC(Part)
     Base::Interpreter().addType(&Part::PartFeaturePy        ::Type,partModule,"Feature");
     Base::Interpreter().addType(&Attacher::AttachEnginePy   ::Type,partModule,"AttachEngine");
 
-#if PY_MAJOR_VERSION >= 3
     static struct PyModuleDef BRepOffsetAPIDef = {
         PyModuleDef_HEAD_INIT,
         "BRepOffsetAPI", "BRepOffsetAPI", -1, 0,
         NULL, NULL, NULL, NULL
     };
     PyObject* brepModule = PyModule_Create(&BRepOffsetAPIDef);
-#else
-    PyObject* brepModule = Py_InitModule3("BRepOffsetAPI", 0, "BrepOffsetAPI");
-#endif
+
     Py_INCREF(brepModule);
     PyModule_AddObject(partModule, "BRepOffsetAPI", brepModule);
     Base::Interpreter().addType(&Part::BRepOffsetAPI_MakePipeShellPy::Type,brepModule,"MakePipeShell");
 
     // Geom2d package
-#if PY_MAJOR_VERSION >= 3
     static struct PyModuleDef geom2dDef = {
         PyModuleDef_HEAD_INIT,
         "Geom2dD", "Geom2d", -1, 0,
         NULL, NULL, NULL, NULL
     };
     PyObject* geom2dModule = PyModule_Create(&geom2dDef);
-#else
-     PyObject* geom2dModule = Py_InitModule3("Geom2d", 0, "Geom2d");
-#endif
+
     Py_INCREF(geom2dModule);
     PyModule_AddObject(partModule, "Geom2d", geom2dModule);
     Base::Interpreter().addType(&Part::Geometry2dPy::Type,geom2dModule,"Geometry2d");

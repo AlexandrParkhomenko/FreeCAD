@@ -1,7 +1,5 @@
 //-----------------------------------------------------------------------------
 //
-// Copyright (c) 1998 - 2007, The Regents of the University of California
-// Produced at the Lawrence Livermore National Laboratory
 // All rights reserved.
 //
 // This file is part of PyCXX. For details,see http://cxx.sourceforge.net/. The
@@ -35,9 +33,4 @@
 //
 //-----------------------------------------------------------------------------
 #include "CXX/WrapPython.h"
-
-#if PY_MAJOR_VERSION == 2
-#include "CXX/Python2/Objects.hxx"
-#else
 #include "CXX/Python3/Objects.hxx"
-#endif

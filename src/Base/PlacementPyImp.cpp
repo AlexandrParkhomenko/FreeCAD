@@ -249,11 +249,8 @@ PyObject *PlacementPy::getCustomAttributes(const char* attr) const
     // for backward compatibility
     if (strcmp(attr, "isNull") == 0) {
         PyObject *w, *res;
-#if PY_MAJOR_VERSION >= 3
         w = PyUnicode_InternFromString("isIdentity");
-#else
-        w = PyString_InternFromString("isIdentity");
-#endif
+
         res = PyObject_GenericGetAttr(const_cast<PlacementPy *>(this), w);
         Py_XDECREF(w);
         return res;

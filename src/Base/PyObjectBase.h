@@ -51,10 +51,8 @@
 
 #include <typeinfo>
 #include "Exception.h"
-#if PY_MAJOR_VERSION > 2
-#  ifndef PYCXX_PYTHON_2TO3
+#ifndef PYCXX_PYTHON_2TO3
 #  define PYCXX_PYTHON_2TO3
-#  endif
 #endif
 #include <CXX/Objects.hxx>
 
@@ -92,17 +90,11 @@
 
 /** Macro for initialization function of Python modules. 
  */
-#if PY_MAJOR_VERSION >= 3
 # define PyMOD_INIT_FUNC(name) PyMODINIT_FUNC PyInit_##name(void)
-#else
-# define PyMOD_INIT_FUNC(name) PyMODINIT_FUNC init##name(void)
-#endif
 
-#if PY_MAJOR_VERSION >= 3
+
 # define PyMOD_Return(name) return name
-#else
-# define PyMOD_Return(name) return (void)name
-#endif
+
 
 /**
  * Union to convert from PyTypeObject to PyObject pointer.

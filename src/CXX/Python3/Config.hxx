@@ -121,14 +121,6 @@
 #    define PYCXX_EXPORT
 #endif
 
-// before 3.2 Py_hash_t was missing
-#ifndef PY_MAJOR_VERSION
-#error not defined PY_MAJOR_VERSION
-#endif
-#if PY_MINOR_VERSION < 2
-typedef long int Py_hash_t;
-#endif
-
 #ifndef PYCXX_PYTHON_2TO3
 #define PYCXX_PYTHON_2TO3
 #endif

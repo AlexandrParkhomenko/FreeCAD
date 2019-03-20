@@ -321,7 +321,6 @@ PyMOD_INIT_FUNC(FreeCADGui)
         // is started in command mode
         if (Base::Type::fromName("Gui::BaseView").isBad())
             Gui::Application::initApplication();
-#if PY_MAJOR_VERSION >= 3
         static struct PyModuleDef FreeCADGuiModuleDef = {
             PyModuleDef_HEAD_INIT,
             "FreeCADGui", "FreeCAD GUI module\n", -1,
@@ -330,7 +329,7 @@ PyMOD_INIT_FUNC(FreeCADGui)
         };
         PyObject* module = PyModule_Create(&FreeCADGuiModuleDef);
         return module;
-#endif
+
     }
     catch (const Base::Exception& e) {
         PyErr_Format(PyExc_ImportError, "%s\n", e.what());
@@ -338,8 +337,7 @@ PyMOD_INIT_FUNC(FreeCADGui)
     catch (...) {
         PyErr_SetString(PyExc_ImportError, "Unknown runtime error occurred");
     }
-#if PY_MAJOR_VERSION >= 3
     return 0;
-#endif
+
 }
 

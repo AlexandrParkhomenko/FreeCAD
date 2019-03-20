@@ -95,11 +95,8 @@ PyTypeObject PyObjectBase::Type = {
     /* --- Functions to access object as input/output buffer ---------*/
     0,                                                      /* tp_as_buffer */
     /* --- Flags to define presence of optional/expanded features */
-#if PY_MAJOR_VERSION >= 3
     Py_TPFLAGS_BASETYPE|Py_TPFLAGS_DEFAULT,                 /*tp_flags */
-#else
-    Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_CLASS,              /*tp_flags */
-#endif
+
     "The most base class for Python binding",               /*tp_doc */
     0,                                                      /*tp_traverse */
     0,                                                      /*tp_clear */
@@ -127,9 +124,8 @@ PyTypeObject PyObjectBase::Type = {
     0,                                                      /*tp_weaklist */
     0,                                                      /*tp_del */
     0                                                       /*tp_version_tag */
-#if PY_MAJOR_VERSION >= 3
     ,0                                                      /*tp_finalize */
-#endif
+
 };
 
 /*------------------------------
@@ -142,11 +138,8 @@ PyMethodDef PyObjectBase::Methods[] = {
 PyObject* PyObjectBase::__getattro(PyObject * obj, PyObject *attro)
 {
     const char *attr;
-#if PY_MAJOR_VERSION >= 3
     attr = PyUnicode_AsUTF8(attro);
-#else
-    attr = PyString_AsString(attro);
-#endif
+
 
     // For the __class__ attribute get it directly as with
     // ExtensionContainerPy::getCustomAttributes we may get
@@ -206,11 +199,8 @@ PyObject* PyObjectBase::__getattro(PyObject * obj, PyObject *attro)
 int PyObjectBase::__setattro(PyObject *obj, PyObject *attro, PyObject *value)
 {
     const char *attr;
-#if PY_MAJOR_VERSION >= 3
     attr = PyUnicode_AsUTF8(attro);
-#else
-    attr = PyString_AsString(attro);
-#endif
+
 
     //FIXME: In general we don't allow to delete attributes (i.e. value=0). However, if we want to allow
     //we must check then in _setattr() of all subclasses whether value is 0.
@@ -271,11 +261,8 @@ PyObject *PyObjectBase::_getattr(const char *attr)
     else {
         // As fallback solution use Python's default method to get generic attributes
         PyObject *w, *res;
-#if PY_MAJOR_VERSION >= 3
         w = PyUnicode_InternFromString(attr);
-#else
-        w = PyString_InternFromString(attr);
-#endif
+
         if (w != NULL) {
             res = PyObject_GenericGetAttr(this, w);
             Py_XDECREF(w);
@@ -295,11 +282,8 @@ int PyObjectBase::_setattr(const char *attr, PyObject *value)
         return -1; // filter out softspace
     PyObject *w;
     // As fallback solution use Python's default method to get generic attributes
-#if PY_MAJOR_VERSION >= 3
     w = PyUnicode_InternFromString(attr); // new reference
-#else
-    w = PyString_InternFromString(attr); // new reference
-#endif
+
     if (w != NULL) {
         // call methods from tp_getset if defined
         int res = PyObject_GenericSetAttr(this, w, value);
@@ -331,13 +315,8 @@ void PyObjectBase::resetAttribute()
     if (attrDict) {
         // This is the attribute name to the parent structure
         // which we search for in the dict
-#if PY_MAJOR_VERSION < 3
-        PyObject* key1 = PyString_FromString("__attribute_of_parent__");
-        PyObject* key2 = PyString_FromString("__instance_of_parent__");
-#else
         PyObject* key1 = PyBytes_FromString("__attribute_of_parent__");
         PyObject* key2 = PyBytes_FromString("__instance_of_parent__");
-#endif
         PyObject* attr = PyDict_GetItem(attrDict, key1);
         PyObject* inst = PyDict_GetItem(attrDict, key2);
         if (attr) {
@@ -356,15 +335,9 @@ void PyObjectBase::setAttributeOf(const char* attr, PyObject* par)
     if (!attrDict) {
         attrDict = PyDict_New();
     }
-#if PY_MAJOR_VERSION < 3
-    PyObject* key1 = PyString_FromString("__attribute_of_parent__");
-    PyObject* key2 = PyString_FromString("__instance_of_parent__");
-    PyObject* attro = PyString_FromString(attr);
-#else
     PyObject* key1 = PyBytes_FromString("__attribute_of_parent__");
     PyObject* key2 = PyBytes_FromString("__instance_of_parent__");
     PyObject* attro = PyUnicode_FromString(attr);
-#endif
     PyDict_SetItem(attrDict, key1, attro);
     PyDict_SetItem(attrDict, key2, par);
     Py_DECREF(attro);
@@ -380,13 +353,8 @@ void PyObjectBase::startNotify()
     if (attrDict) {
         // This is the attribute name to the parent structure
         // which we search for in the dict
-#if PY_MAJOR_VERSION < 3
-        PyObject* key1 = PyString_FromString("__attribute_of_parent__");
-        PyObject* key2 = PyString_FromString("__instance_of_parent__");
-#else
         PyObject* key1 = PyBytes_FromString("__attribute_of_parent__");
         PyObject* key2 = PyBytes_FromString("__instance_of_parent__");
-#endif
         PyObject* attr = PyDict_GetItem(attrDict, key1);
         PyObject* parent = PyDict_GetItem(attrDict, key2);
         if (attr && parent) {
