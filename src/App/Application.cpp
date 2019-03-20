@@ -35,22 +35,9 @@
 # include <unistd.h>
 # include <pwd.h>
 # include <sys/types.h>
-# elif defined(__MINGW32__)
-# define WINVER 0x502 // needed for SetDllDirectory
-# include <Windows.h>
-# endif
 # include <ctime>
 # include <csignal>
 # include <boost/program_options.hpp>
-#endif
-
-#ifdef FC_OS_WIN32
-# include <Shlobj.h>
-#endif
-
-#if defined(FC_OS_BSD)
-#include <sys/param.h>
-#include <sys/sysctl.h>
 #endif
 
 #include "Application.h"
@@ -133,16 +120,8 @@ using namespace boost::program_options;
 #include <App/TestScript.h>
 #include <App/CMakeScript.h>
 
-#ifdef _MSC_VER // New handler for Microsoft Visual C++ compiler
-# if !defined(_DEBUG) && defined(HAVE_SEH)
-# define FC_SE_TRANSLATOR
-# endif
-
-# include <new.h>
-# include <eh.h> // VC exception handling
-#else // Ansi C/C++ new handler
+/ Ansi C/C++ new handler
 # include <new>
-#endif
 
 
 //using Base::GetConsole;

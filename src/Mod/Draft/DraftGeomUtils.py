@@ -2570,7 +2570,6 @@ def innerSoddyCircle(circle1, circle2, circle3):
 
     else:
         print("debug: innerSoddyCircle bad parameters!\n")
-        # FreeCAD.Console.PrintMessage("debug: innerSoddyCircle bad parameters!\n")
         return None
 
 def circleFrom3CircleTangents(circle1, circle2, circle3):
