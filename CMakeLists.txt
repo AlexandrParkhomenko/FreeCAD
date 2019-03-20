@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 project(FreeCAD)
-set(PACKAGE_VERSION_NAME "FreeCAD.0.17.Path")
+set(PACKAGE_VERSION_NAME "FreeCAD.0.2019.Path")
 configure_file(${CMAKE_SOURCE_DIR}/src/Version.h.cmake ${CMAKE_SOURCE_DIR}/src/Version.h)
 
 
