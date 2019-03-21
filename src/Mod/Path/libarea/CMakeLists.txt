@@ -4,24 +4,20 @@ if (CMAKE_BUILD_TOOL MATCHES "make")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
 endif (CMAKE_BUILD_TOOL MATCHES "make")
 
-if(MSVC)
-    add_definitions(-D_CRT_SECURE_NO_WARNINGS /wd4244)
-endif(MSVC)
-
-include_directories(${PYTHON_INCLUDE_DIRS})
+include_directories(${Python3_INCLUDE_DIRS})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 
 if(NOT FREECAD_USE_PYBIND11)
     if(NOT FREECAD_LIBPACK_USE OR FREECAD_LIBPACK_CHECKFILE_CLBUNDLER)
         # boost-python >= 1.67 on some platforms has suffix
-        set(BOOST_PY_SUFFIX ${PYTHON_VERSION_MAJOR}${PYTHON_VERSION_MINOR})
+        set(BOOST_PY_SUFFIX ${Python3_VERSION_MAJOR}${Python3_VERSION_MINOR})
 
         find_package( Boost COMPONENTS python${BOOST_PY_SUFFIX} )
         if (NOT Boost_PYTHON${BOOST_PY_SUFFIX}_FOUND)
             # try just the major version
-            find_package( Boost COMPONENTS python${PYTHON_VERSION_MAJOR} )
-            if (NOT Boost_PYTHON${PYTHON_VERSION_MAJOR}_FOUND)
+            find_package( Boost COMPONENTS python${Python3_VERSION_MAJOR} )
+            if (NOT Boost_PYTHON${Python3_VERSION_MAJOR}_FOUND)
                 # unversioned
                 find_package( Boost COMPONENTS python REQUIRED)
             endif()
@@ -119,7 +115,7 @@ if(MSVC)
 
     set(area_LIBS
         ${Boost_LIBRARIES}
-        ${PYTHON_LIBRARIES}
+        ${Python3_LIBRARIES}
         ${area_native_LIBS}
     )
 elseif(MINGW)
@@ -128,7 +124,7 @@ elseif(MINGW)
     )
     set(area_LIBS
         ${Boost_LIBRARIES}
-        ${PYTHON_LIBRARIES}
+        ${Python3_LIBRARIES}
         ${area_native_LIBS}
     )
 else(MSVC)
@@ -136,7 +132,7 @@ else(MSVC)
         )
     set(area_LIBS
         ${Boost_LIBRARIES}
-        ${PYTHON_LIBRARIES}
+        ${Python3_LIBRARIES}
     )
 endif(MSVC)
 

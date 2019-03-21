@@ -34,7 +34,7 @@ include_directories(
     ${Boost_INCLUDE_DIRS}
     ${EIGEN3_INCLUDE_DIR}
     ${COIN3D_INCLUDE_DIRS}
-    ${PYTHON_INCLUDE_DIRS}
+    ${Python3_INCLUDE_DIRS}
     ${XercesC_INCLUDE_DIRS}
     ${ZLIB_INCLUDE_DIR}
     ${3DCONNEXION_INCLUDE_DIR}

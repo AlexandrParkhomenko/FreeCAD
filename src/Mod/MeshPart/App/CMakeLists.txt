@@ -18,7 +18,7 @@ include_directories(
     ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${ZLIB_INCLUDE_DIR}
-    ${PYTHON_INCLUDE_DIRS}
+    ${Python3_INCLUDE_DIRS}
     ${XercesC_INCLUDE_DIRS}
     ${SMESH_INCLUDE_DIR}
     ${VTK_INCLUDE_DIRS}
@@ -94,7 +94,7 @@ if (BUILD_FLAT_MESH)
 
         add_library(flatmesh SHARED ${FLATMESH_SRCS})
         SET_PYTHON_PREFIX_SUFFIX(flatmesh)
-        target_link_libraries(flatmesh ${PYTHON_LIBRARIES} ${MeshPart_LIBS})
+        target_link_libraries(flatmesh ${Python3_LIBRARIES} ${MeshPart_LIBS})
 
         SET_BIN_DIR(flatmesh flatmesh /Mod/MeshPart)
         install(TARGETS flatmesh DESTINATION ${CMAKE_INSTALL_LIBDIR})
@@ -128,7 +128,7 @@ if (BUILD_FLAT_MESH)
 
                 add_library(flatmesh SHARED ${FLATMESH_SRCS})
                 SET_PYTHON_PREFIX_SUFFIX(flatmesh)
-                target_link_libraries(flatmesh ${PYTHON_LIBRARIES} ${MeshPart_LIBS} ${Boost_LIBRARIES})
+                target_link_libraries(flatmesh ${Python3_LIBRARIES} ${MeshPart_LIBS} ${Boost_LIBRARIES})
 
                 SET_BIN_DIR(flatmesh flatmesh /Mod/MeshPart)
                 install(TARGETS flatmesh DESTINATION ${CMAKE_INSTALL_LIBDIR})

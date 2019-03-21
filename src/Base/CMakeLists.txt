@@ -1,64 +1,21 @@
-if(WIN32)
-    add_definitions(-DFCBase)
-    add_definitions(-DPYCXX_DLL)
-    add_definitions(-DBOOST_DYN_LINK)
-    add_definitions(-DZIPIOS_UTF8)
-endif(WIN32)
-
 include_directories(
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
-    ${PYTHON_INCLUDE_DIRS}
+    ${Python3_INCLUDE_DIRS}
     ${XercesC_INCLUDE_DIRS}
     ${ZLIB_INCLUDE_DIR}
     ${PYCXX_INCLUDE_DIR}
 )
 
-if(MSVC)
     set(FreeCADBase_LIBS
-        ${Boost_LIBRARIES}
-        ${PYTHON_LIBRARIES}
-        debug ${XercesC_DEBUG_LIBRARIES}
-        optimized ${XercesC_LIBRARIES}
-        ${ZLIB_LIBRARIES}
-        debug MSVCRTD.LIB
-        debug MSVCPRTD.LIB
-        optimized MSVCRT.LIB
-        optimized MSVCPRT.LIB
-        Rpcrt4.lib
-        version.lib
-    )
-
-    #Universal C runtime introduced in VS 2015 (cl version 19)
-    if (NOT (CMAKE_CXX_COMPILER_VERSION VERSION_LESS "19"))
-        list(APPEND FreeCADBase_LIBS
-            debug vcruntimed.lib
-            debug ucrtd.lib
-            debug concrtd.lib
-            optimized vcruntime.lib
-            optimized ucrt.lib
-            optimized concrt.lib
-        )
-    endif()
-elseif(MINGW)
-    set(FreeCADBase_LIBS
-        ${PYTHON_LIBRARIES}
-        ${XercesC_LIBRARIES}
-        ${Boost_LIBRARIES}
-        ${ZLIB_LIBRARIES}
-        Rpcrt4.lib
-    )
-else(MSVC)
-    set(FreeCADBase_LIBS
-        ${PYTHON_LIBRARIES}
+        ${Python3_LIBRARIES}
         ${XercesC_LIBRARIES}
         ${Boost_LIBRARIES}
         ${ZLIB_LIBRARIES}
     )
-endif(MSVC)
 
 if (BUILD_QT5)
     include_directories(
@@ -210,20 +167,9 @@ SET(FreeCADBase_UNITAPI_SRCS
 )
 SOURCE_GROUP("Units" FILES ${FreeCADBase_UNITAPI_SRCS})
 
-if(PYTHON_VERSION_MAJOR LESS 3)
-SET(SWIG_SRCS
-    swigpyrun_1.3.25.cpp
-    swigpyrun_1.3.33.cpp
-    swigpyrun_1.3.36.cpp
-    swigpyrun_1.3.38.cpp
-    swigpyrun_1.3.40.cpp
-    swigpyrun.cpp
-)
-else(PYTHON_VERSION_MAJOR LESS 3)
 SET(SWIG_SRCS
     swigpyrun.cpp
 )
-endif(PYTHON_VERSION_MAJOR LESS 3)
 
 SET(FreeCADBase_CPP_SRCS
     Axis.cpp
@@ -280,20 +226,9 @@ SET(FreeCADBase_CPP_SRCS
     XMLTools.cpp
 )
 
-if(PYTHON_VERSION_MAJOR LESS 3)
-SET(SWIG_HEADERS
-    swigpyrun_1.3.25.h
-    swigpyrun_1.3.33.h
-    swigpyrun_1.3.36.h
-    swigpyrun_1.3.38.h
-    swigpyrun_1.3.40.h
-    swigpyrun.inl
-)
-else(PYTHON_VERSION_MAJOR LESS 3)
 SET(SWIG_HEADERS
     swigpyrun.inl
 )
-endif(PYTHON_VERSION_MAJOR LESS 3)
 
 SET(FreeCADBase_HPP_SRCS
     Axis.h
