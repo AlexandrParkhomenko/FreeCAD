@@ -66,8 +66,8 @@ Tessellation::Tessellation(QWidget* parent)
 
     // set the standard method
     ui->radioButtonStandard->setChecked(true);
-    ui->comboFineness->setCurrentIndex(2);
-    on_comboFineness_currentIndexChanged(2);
+//    ui->comboFineness->setCurrentIndex(2);
+//    on_comboFineness_currentIndexChanged(2);
 
 #if !defined (HAVE_MEFISTO)
     ui->radioButtonMefisto->setDisabled(true);
@@ -99,67 +99,18 @@ void Tessellation::meshingMethod(int id)
 
 void Tessellation::on_comboFineness_currentIndexChanged(int index)
 {
-    if (index == 5) {
-        ui->doubleGrading->setEnabled(true);
-        ui->spinEdgeElements->setEnabled(true);
-        ui->spinCurvatureElements->setEnabled(true);
-    }
-    else {
-        ui->doubleGrading->setEnabled(false);
-        ui->spinEdgeElements->setEnabled(false);
-        ui->spinCurvatureElements->setEnabled(false);
-    }
-
-    switch (index) {
-    case 0: // Very coarse
-        ui->doubleGrading->setValue(0.7);
-        ui->spinEdgeElements->setValue(0.3);
-        ui->spinCurvatureElements->setValue(1.0);
-        break;
-    case 1: // Coarse
-        ui->doubleGrading->setValue(0.5);
-        ui->spinEdgeElements->setValue(0.5);
-        ui->spinCurvatureElements->setValue(1.5);
-        break;
-    case 2: // Moderate
-        ui->doubleGrading->setValue(0.3);
-        ui->spinEdgeElements->setValue(1.0);
-        ui->spinCurvatureElements->setValue(2.0);
-        break;
-    case 3: // Fine
-        ui->doubleGrading->setValue(0.2);
-        ui->spinEdgeElements->setValue(2.0);
-        ui->spinCurvatureElements->setValue(3.0);
-        break;
-    case 4: // Very fine
-        ui->doubleGrading->setValue(0.1);
-        ui->spinEdgeElements->setValue(3.0);
-        ui->spinCurvatureElements->setValue(5.0);
-        break;
-    default:
-        break;
-    }
 }
 
 void Tessellation::on_checkSecondOrder_toggled(bool on)
 {
-    if (on)
-        ui->checkQuadDominated->setChecked(false);
 }
 
 void Tessellation::on_checkQuadDominated_toggled(bool on)
 {
-    if (on)
-        ui->checkSecondOrder->setChecked(false);
 }
 
 void Tessellation::changeEvent(QEvent *e)
 {
-    if (e->type() == QEvent::LanguageChange) {
-        int index = ui->comboFineness->currentIndex();
-        ui->retranslateUi(this);
-        ui->comboFineness->setCurrentIndex(index);
-    }
     QWidget::changeEvent(e);
 }
 

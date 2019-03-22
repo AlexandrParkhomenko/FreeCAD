@@ -113,7 +113,6 @@
 #include "SoFCInteractiveElement.h"
 #include "SoFCBoundingBox.h"
 #include "SoAxisCrossKit.h"
-#include "View3DInventorRiftViewer.h"
 
 #include "Selection.h"
 #include "SoFCSelectionAction.h"

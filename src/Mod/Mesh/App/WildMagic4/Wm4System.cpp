@@ -902,17 +902,6 @@ int System::Sprintf (char* acDst, size_t uiDstSize, const char* acFormat, ...)
 //----------------------------------------------------------------------------
 char* System::Strcpy (char* acDst, size_t uiDstSize, const char* acSrc)
 {
-#ifdef WM4_USING_VC80
-    errno_t uiError = strcpy_s(acDst,uiDstSize,acSrc);
-    if (uiError == 0)
-    {
-        return acDst;
-    }
-    else
-    {
-        return 0;
-    }
-#else
     if (!acDst || uiDstSize == 0 || !acSrc)
     {
         // Be consistent with the behavior of strcpy_s.
@@ -930,7 +919,6 @@ char* System::Strcpy (char* acDst, size_t uiDstSize, const char* acSrc)
     strncpy(acDst,acSrc,uiSrcLen);
     acDst[uiSrcLen] = 0;
     return acDst;
-#endif
 }
 //----------------------------------------------------------------------------
 char* System::Strcat (char* acDst, size_t uiDstSize, const char* acSrc)
