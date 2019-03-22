@@ -89,7 +89,6 @@ OPTION(BUILD_TECHDRAW "Build the FreeCAD Technical Drawing module" OFF)
 OPTION(BUILD_TUX "Build the FreeCAD Tux module" OFF)
 OPTION(BUILD_WEB "Build the FreeCAD web module" OFF)
 OPTION(BUILD_SURFACE "Build the FreeCAD surface module" OFF)
-OPTION(BUILD_VR "Build the FreeCAD Oculus Rift support (need Oculus SDK 4.x or higher)" OFF)
 
 OPTION(FREECAD_USE_PCL "Build the features that use PCL libs" OFF)
 if(FREECAD_USE_PCL)

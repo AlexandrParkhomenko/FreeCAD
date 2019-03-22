@@ -3,10 +3,6 @@ IF(CMAKE_BUILD_TYPE)
     add_definitions(-DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}")
 ENDIF(CMAKE_BUILD_TYPE)
 
-if (BUILD_VR)
-    add_definitions(-DBUILD_VR )
-endif(BUILD_VR)
-
 if (BUILD_ADDONMGR)
     add_definitions(-DBUILD_ADDONMGR )
 endif(BUILD_ADDONMGR)
@@ -67,16 +63,6 @@ else()
         ${QT_QTUITOOLS_LIBRARY}
     )
 endif()
-
-IF(OCULUS_FOUND)
-    add_definitions(-DOCULUS_FOUND)
-    include_directories(
-        ${OCULUS_INCLUDE_DIRS}
-    )
-    list(APPEND FreeCADGui_LIBS
-        ${OCULUS_LIBRARIES}
-    )
-ENDIF(OCULUS_FOUND)
 
 if(SHIBOKEN_INCLUDE_DIR)
     if (BUILD_QT5)
@@ -743,8 +729,6 @@ SET(View3D_CPP_SRCS
     View3DInventor.cpp
     View3DInventorExamples.cpp
     View3DInventorViewer.cpp
-    View3DInventorRiftViewer.cpp
-    CoinRiftWidget.cpp
     View3DPy.cpp
     View3DViewerPy.cpp
     NaviCube.cpp
@@ -762,8 +746,6 @@ SET(View3D_SRCS
     View3DInventorExamples.h
     View3DInventorViewer.h
     View3DPy.h
-    View3DInventorRiftViewer.h
-    CoinRiftWidget.h
     View3DViewerPy.h
     NaviCube.h
 )
