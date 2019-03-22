@@ -39,25 +39,6 @@ IF(WIN32 AND NOT Quarter_BUILD_STATIC_LIBRARY)
   ADD_DEFINITIONS(-DQUARTER_MAKE_DLL)
 ENDIF(WIN32 AND NOT Quarter_BUILD_STATIC_LIBRARY)
 
-# Add some files and filters to make the VS project more hierarchical and practical to work with
-IF(MSVC_IDE)
-  FILE(GLOB DeviceSources RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} devices/*.cpp)
-  FILE(GLOB DeviceHeaders RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} devices/*.h)
-  FILE(GLOB PrivateDeviceHeaders RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ../../include/Quarter/devices/*.h)
-
-  FILE(GLOB EventHandlerSources RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} eventhandlers/*.cpp)
-  FILE(GLOB EventHandlerHeaders RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} eventhandlers/*.h)
-  FILE(GLOB PrivateEventHandlerHeaders RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ../../include/Quarter/eventhandlers/*.h)
-
-  SIM_VS_GENERATE_BASIC_TREE()
-  SOURCE_GROUP("Source\\Devices" FILES ${DeviceSources})
-  SOURCE_GROUP("Source\\EventHandlers" FILES ${EventHandlerSources})
-  SOURCE_GROUP("Headers\\Devices" FILES ${DeviceHeaders})
-  SOURCE_GROUP("Headers\\Devices" FILES ${PrivateDeviceHeaders})
-  SOURCE_GROUP("Headers\\EventHandlers" FILES ${EventHandlerHeaders})
-  SOURCE_GROUP("Headers\\EventHandlers" FILES ${PrivateEventHandlerHeaders})
-ENDIF(MSVC_IDE)
-
 # Create the library
 # FIXME: Support building as a framework on Mac OS X. kintel 20080707.
 IF(Quarter_BUILD_STATIC_LIBRARY)

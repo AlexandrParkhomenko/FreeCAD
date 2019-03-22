@@ -1,8 +1,4 @@
-if(MSVC)
-    add_definitions(-DFCGuiPath -DHAVE_ACOSH -DHAVE_ASINH -DHAVE_ATANH)
-else(MSVC)
-    add_definitions(-DHAVE_LIMITS_H -DHAVE_CONFIG_H)
-endif(MSVC)
+add_definitions(-DHAVE_LIMITS_H -DHAVE_CONFIG_H)
 
 include_directories(
     ${CMAKE_BINARY_DIR}

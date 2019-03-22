@@ -271,10 +271,10 @@ SET(FreeCADApp_SRCS
     PreCompiled.cpp
     PreCompiled.h
 )
-
 if(BUILD_USE_PCH)
+# https://gcc.gnu.org/onlinedocs/gcc/Precompiled-Headers.html
     add_definitions(-D_PreComp_)
-    ADD_MSVC_PRECOMPILED_HEADER(FreeCADApp PreCompiled.h PreCompiled.cpp FreeCADApp_CPP_SRCS)
+#   ADD_PRECOMPILED_HEADER(FreeCADApp PreCompiled.h PreCompiled.cpp FreeCADApp_CPP_SRCS)
 endif(BUILD_USE_PCH)
 
 add_library(FreeCADApp SHARED ${FreeCADApp_SRCS})

@@ -1091,35 +1091,9 @@ SET(FreeCADGui_SRCS
     ${FreeCADGui_SRCS}
 )
 
-if(MSVC)
-    SET(FreeCADGui_CPP_SRCS
-        propertyeditor/PropertyEditor.cpp
-        propertyeditor/PropertyItem.cpp
-        propertyeditor/PropertyItemDelegate.cpp
-        propertyeditor/PropertyModel.cpp
-        TaskView/TaskAppearance.cpp
-        TaskView/TaskSelectLinkProperty.cpp
-        TaskView/TaskEditControl.cpp
-        TaskView/TaskView.cpp
-        ${Command_CPP_SRCS}
-        ${Dialog_CPP_SRCS}
-        ${Dialog_Customize_CPP_SRCS}
-        ${Dialog_Settings_CPP_SRCS}
-        ${Dock_Windows_CPP_SRCS}
-        ${Editor_CPP_SRCS}
-#        ${Help_CPP_SRCS}
-        ${Inventor_CPP_SRCS}
-        ${View3D_CPP_SRCS}
-        ${Viewprovider_CPP_SRCS}
-        ${Widget_CPP_SRCS}
-        ${Workbench_CPP_SRCS}
-        ${FreeCADGui_CPP_SRCS}
-    )
-endif(MSVC)
-
 if (BUILD_USE_PCH)
     add_definitions(-D_PreComp_)
-    ADD_MSVC_PRECOMPILED_HEADER(FreeCADGui PreCompiled.h PreCompiled.cpp FreeCADGui_CPP_SRCS)
+    ADD_PRECOMPILED_HEADER(FreeCADGui PreCompiled.h PreCompiled.cpp FreeCADGui_CPP_SRCS)
 endif(BUILD_USE_PCH)
 
 if (FREECAD_USE_QT_FILEDIALOG)

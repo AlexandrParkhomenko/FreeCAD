@@ -207,14 +207,5 @@ ENDMACRO(SET_BIN_DIR)
 
 # Set python prefix & suffix together
 MACRO(SET_PYTHON_PREFIX_SUFFIX ProjectName)
-    if(NOT MSVC)
-        set_target_properties(${ProjectName} PROPERTIES PREFIX "")
-    endif(NOT MSVC)
-    
-    if(WIN32)
-        set_target_properties(${ProjectName} PROPERTIES SUFFIX ".pyd")
-    # 0000661: cmake build on Mac OS: dealing with dylib versus so
-    elseif(APPLE)
-        set_target_properties(${ProjectName} PROPERTIES SUFFIX ".so")
-    endif(WIN32)
+    set_target_properties(${ProjectName} PROPERTIES PREFIX "")
 ENDMACRO(SET_PYTHON_PREFIX_SUFFIX)

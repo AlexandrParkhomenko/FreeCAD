@@ -94,47 +94,11 @@ add_library(
     ${PYAREA_SRC}
 )
 
-
-if(MSVC)
-    set(area_native_LIBS
-        debug MSVCRTD.LIB
-        debug MSVCPRTD.LIB
-        optimized MSVCRT.LIB
-        optimized MSVCPRT.LIB
-    )
-
-    #Universal C runtime introduced in VS 2015 (cl version 19)
-    if (NOT (CMAKE_CXX_COMPILER_VERSION VERSION_LESS "19"))
-        list(APPEND area_native_LIBS
-            debug vcruntimed.lib
-            debug ucrtd.lib
-            optimized vcruntime.lib
-            optimized ucrt.lib
-        )
-    endif()
-
-    set(area_LIBS
-        ${Boost_LIBRARIES}
-        ${Python3_LIBRARIES}
-        ${area_native_LIBS}
-    )
-elseif(MINGW)
-    set(area_native_LIBS
-        Rpcrt4.lib
-    )
-    set(area_LIBS
-        ${Boost_LIBRARIES}
-        ${Python3_LIBRARIES}
-        ${area_native_LIBS}
-    )
-else(MSVC)
-    set(area_native_LIBS
-        )
-    set(area_LIBS
-        ${Boost_LIBRARIES}
-        ${Python3_LIBRARIES}
-    )
-endif(MSVC)
+set(area_native_LIBS)
+set(area_LIBS
+  ${Boost_LIBRARIES}
+  ${Python3_LIBRARIES}
+)
 
 target_link_libraries(area-native ${area_native_LIBS})
 SET_BIN_DIR(area-native area-native)

@@ -1,8 +1,4 @@
-if(MSVC)
-    add_definitions(-DHAVE_ACOSH -DHAVE_ATANH -DHAVE_ASINH)
-else(MSVC)
-    add_definitions(-DHAVE_LIMITS_H -DHAVE_CONFIG_H)
-endif(MSVC)
+add_definitions(-DHAVE_LIMITS_H -DHAVE_CONFIG_H)
 
 include_directories(
     ${CMAKE_BINARY_DIR}
@@ -22,12 +18,6 @@ set(PartGui_LIBS
     Part
     FreeCADGui
 )
-
-if(MSVC)
-    include_directories(
-        ${CMAKE_SOURCE_DIR}/src/3rdParty/OpenGL/api
-    )
-endif(MSVC)
 
 if (BUILD_QT5)
     include_directories(

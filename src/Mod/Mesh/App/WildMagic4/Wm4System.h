@@ -157,9 +157,8 @@ public:
         unsigned char ucB, unsigned char ucA);
 
     // Wrappers for standard I/O functions to support security enhancements
-    // related to buffer overruns.  TO DO:  For now these support MSVC8.0
-    // and fall back to the older standard I/O functions on other platforms.
-    // Implementations may be provided for those other platforms to adhere
+    // related to buffer overruns.
+    // Implementations may be provided for other platforms to adhere
     // to the destination buffer size specification.
     static FILE* Fopen (const char* acFilename, const char* acMode);
     static int Fprintf (FILE* pkFile, const char* acFormat, ...);

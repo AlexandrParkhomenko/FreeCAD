@@ -38,28 +38,7 @@
 #ifndef __PyCXX_config_hh__
 #define __PyCXX_config_hh__
 
-//
-// Microsoft VC++ 6.0 has no traits
-//
-#if defined( _MSC_VER )
-
-#  define STANDARD_LIBRARY_HAS_ITERATOR_TRAITS 1
-
-#elif defined( __GNUC__ )
-#  if __GNUC__ >= 3
-#    define STANDARD_LIBRARY_HAS_ITERATOR_TRAITS 1
-#  else
-#    define STANDARD_LIBRARY_HAS_ITERATOR_TRAITS 0
-#endif
-
-//
-//	Assume all other compilers do
-//
-#else
-
-// Macros to deal with deficiencies in compilers
-#  define STANDARD_LIBRARY_HAS_ITERATOR_TRAITS 1
-#endif
+#define STANDARD_LIBRARY_HAS_ITERATOR_TRAITS 1 //__GNUC__ >= 3
 
 #if STANDARD_LIBRARY_HAS_ITERATOR_TRAITS
 #  define random_access_iterator_parent(itemtype) std::iterator<std::random_access_iterator_tag,itemtype,int>
@@ -70,18 +49,7 @@
 //
 //	Which C++ standard is in use?
 //
-#if defined( _MSC_VER )
-#  if _MSC_VER <= 1200
-// MSVC++ 6.0
-#    define PYCXX_ISO_CPP_LIB 0
-#    define STR_STREAM <strstream>
-#    define TEMPLATE_TYPENAME class
-#  else
-#    define PYCXX_ISO_CPP_LIB 1
-#    define STR_STREAM <sstream>
-#    define TEMPLATE_TYPENAME typename
-#  endif
-#elif defined( __GNUC__ )
+#if defined( __GNUC__ )
 #  if __GNUC__ >= 3
 #    define PYCXX_ISO_CPP_LIB 1
 #    define STR_STREAM <sstream>
@@ -108,18 +76,7 @@
 #endif
 
 // export macro
-#if defined( _MSC_VER )
-#  pragma warning( disable : 4251 )
-#endif
-#if defined( _MSC_VER ) || defined( __MINGW32__ )
-#  ifdef PYCXX_DLL
-#    define PYCXX_EXPORT  __declspec(dllexport)
-#  else
-#    define PYCXX_EXPORT  __declspec(dllimport)
-#  endif
-#else
-#    define PYCXX_EXPORT
-#endif
+#define PYCXX_EXPORT // dllexport/dllimport
 
 #ifndef PYCXX_PYTHON_2TO3
 #define PYCXX_PYTHON_2TO3

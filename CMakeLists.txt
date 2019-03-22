@@ -9,6 +9,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set_property(CACHE BUILD_ENABLE_CXX_STD PROPERTY STRINGS "C++11" "C++14" "C++17")
 set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-write-strings ${CMAKE_CXX_FLAGS}")
 set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--no-undefined")  # get linker errors
+# BUILD_USE_PCH
+# https://gcc.gnu.org/onlinedocs/gcc/Precompiled-Headers.html
 
 include(AddFileDependencies)
 include(${CMAKE_SOURCE_DIR}/Macros.cmake)
@@ -89,7 +91,6 @@ OPTION(BUILD_WEB "Build the FreeCAD web module" OFF)
 OPTION(BUILD_SURFACE "Build the FreeCAD surface module" OFF)
 OPTION(BUILD_VR "Build the FreeCAD Oculus Rift support (need Oculus SDK 4.x or higher)" OFF)
 
-OPTION(BUILD_FEM_NETGEN "Build the FreeCAD FEM module with the MSVC NETGEN mesher" OFF)
 OPTION(FREECAD_USE_PCL "Build the features that use PCL libs" OFF)
 if(FREECAD_USE_PCL)
   find_package(PCL REQUIRED COMPONENTS common kdtree features surface io filters segmentation sample_consensus) #ACHTUNG:may double kdtree

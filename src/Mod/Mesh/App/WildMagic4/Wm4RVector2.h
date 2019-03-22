@@ -30,33 +30,7 @@ public:
     // construction
     RVector2 ();
     RVector2 (const RVector2& rkV);
-
-#ifdef WM4_USING_VC70
-    RVector2 (const TRVector<2,ISIZE>& rkV)
-    {
-        // The inline body is here because of an apparent MSVC++ .NET 2002
-        // compiler bug.  If placed in the *.inl file, the compiler complains:
-        //
-        //   error C2244: 'Wm4::RVector2<>::__ctor' : unable to match function
-        //       definition to an existing declaration
-        //   definition
-        //       'Wm4::RVector2<>::RVector2(const Wm4::TRVector<2,> &)'
-        //   existing declarations
-        //       'Wm4::RVector2<>::RVector2(const Wm4::TRational<> &,
-        //                                  const Wm4::TRational<> &)'
-        //       'Wm4::RVector2<>::RVector2(const Wm4::TRVector<2,> &)'
-        //       'Wm4::RVector2<>::RVector2(const Wm4::RVector2<> &)'
-        //       'Wm4::RVector2<>::RVector2(void)'
-        // The "definition" is in the "existing declarations" list, so I do
-        // not know what the compiler is complaining about.
-
-        m_akTuple[0] = rkV[0];
-        m_akTuple[1] = rkV[1];
-    }
-#else
     RVector2 (const TRVector<2,ISIZE>& rkV);
-#endif
-
     RVector2 (const TRational<ISIZE>& rkX, const TRational<ISIZE>& rkY);
 
     // member access
@@ -67,31 +41,7 @@ public:
 
     // assignment
     RVector2& operator= (const RVector2& rkV);
-
-#ifdef WM4_USING_VC70
-    RVector2& operator= (const TRVector<2,ISIZE>& rkV)
-    {
-        // The inline body is here because of an apparent MSVC++ .NET 2002
-        // compiler bug.  If placed in the *.inl file, the compiler complains:
-        //
-        //   error C2244: 'Wm4::RVector2<>::operator`='' : unable to match
-        //       function definition to an existing declaration
-        //   definition
-        //       'Wm4::RVector2<> &Wm4::RVector2<>::operator =(
-        //            const Wm4::TRVector<2,> &)'
-        //   existing declarations
-        //       'Wm4::RVector2<> &Wm4::RVector2<>::operator =(
-        //            const Wm4::TRVector<2,> &)'
-        //       'Wm4::RVector2<> &Wm4::RVector2<>::operator =(
-        //            const Wm4::RVector2<> &)'
-
-        m_akTuple[0] = rkV[0];
-        m_akTuple[1] = rkV[1];
-        return *this;
-    }
-#else
     RVector2& operator= (const TRVector<2,ISIZE>& rkV);
-#endif
 
     // returns Dot(this,V)
     TRational<ISIZE> Dot (const RVector2& rkV) const;
