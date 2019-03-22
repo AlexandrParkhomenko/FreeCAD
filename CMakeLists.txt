@@ -3,9 +3,6 @@ cmake_minimum_required(VERSION 3.12 FATAL_ERROR) #https://cmake.org/cmake/help/v
 project(FreeCAD)
 set(PACKAGE_VERSION_NAME "FreeCAD.0.2019.Path")
 configure_file(${CMAKE_SOURCE_DIR}/src/Version.h.cmake ${CMAKE_SOURCE_DIR}/src/Version.h)
-#system
-set(PLATFORM_CP cp)
-set(PLATFORM_MK mkdir -p)
 #compilator
 set(BUILD_ENABLE_CXX_STD "C++11"  CACHE STRING  "Enable C++ standard")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
