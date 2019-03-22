@@ -37,13 +37,6 @@
 # define MeshExport   
 #endif
 
-#ifdef _MSC_VER
-# pragma warning(disable : 4244)
-# pragma warning(disable : 4275)
-# pragma warning(disable : 4290)
-# pragma warning(disable : 4522)
-#endif
-
 #ifdef _PreComp_
 
 // standard

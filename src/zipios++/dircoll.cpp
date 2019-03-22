@@ -134,21 +134,12 @@ void DirectoryCollection::load( bool recursive, const FilePath &subdir ) {
     if ( *it == "." || *it == ".." || *it == "..." )
       continue ;
 
-# if (defined(_MSC_VER) && (_MSC_VER >= 1600))
-    if ( boost::filesystem::get< is_directory >( it ) && recursive ) {
-      load( recursive, subdir + *it ) ;
-    } else {
-      _entries.push_back( ent = new BasicEntry( subdir + *it, "", _filepath ) ) ;
-      ent->setSize( boost::filesystem::get< boost::filesystem::size >( it ) ) ;
-    }
-#else
     if ( get< is_directory >( it ) && recursive ) {
       load( recursive, subdir + *it ) ;
     } else {
       _entries.push_back( ent = new BasicEntry( subdir + *it, "", _filepath ) ) ;
       ent->setSize( get< boost::filesystem::size >( it ) ) ;
     }
-#endif
   }
 }
 

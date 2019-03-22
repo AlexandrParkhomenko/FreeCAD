@@ -39,12 +39,6 @@
 #define __CXX_Extensions__h
 
 
-#ifdef _MSC_VER
-// disable warning C4786: symbol greater than 255 character,
-// okay to ignore
-#pragma warning( disable: 4786 )
-#endif
-
 #include "CXX/WrapPython.h"
 #include "CXX/Version.hxx"
 #include "CXX/Python3/Config.hxx"

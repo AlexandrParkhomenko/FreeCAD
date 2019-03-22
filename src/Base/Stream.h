@@ -308,11 +308,7 @@ class ofstream : public std::ofstream
 public:
     ofstream(const FileInfo& fi, ios_base::openmode mode =
                                  std::ios::out | std::ios::trunc)
-#ifdef _MSC_VER
-    : std::ofstream(fi.toStdWString().c_str(), mode)
-#else
     : std::ofstream(fi.filePath().c_str(), mode)
-#endif
     {
     }
     virtual ~ofstream()
@@ -331,11 +327,7 @@ class ifstream : public std::ifstream
 public:
     ifstream(const FileInfo& fi, ios_base::openmode mode = 
                                  std::ios::in)
-#ifdef _MSC_VER
-    : std::ifstream(fi.toStdWString().c_str(), mode)
-#else
     : std::ifstream(fi.filePath().c_str(), mode)
-#endif
     {
     }
     virtual ~ifstream()

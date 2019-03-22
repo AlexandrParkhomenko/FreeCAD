@@ -34,15 +34,6 @@
 #include "UnitsApi.h"
 #include "Console.h"
 
-// suppress annoying warnings from generated source files
-#ifdef _MSC_VER
-# pragma warning(disable : 4003)
-# pragma warning(disable : 4018)
-# pragma warning(disable : 4065)
-# pragma warning( disable : 4273 )
-# pragma warning(disable : 4335) // disable MAC file format warning on VC
-#endif
-
 using namespace Base;
 
 // ====== Static attributes =========================
@@ -349,13 +340,6 @@ void Quantity_yyerror(char *errorinfo)
 {
     throw Base::ParserError(errorinfo);
 }
-
-
-// for VC9 (isatty and fileno not supported anymore)
-//#ifdef _MSC_VER
-//int isatty (int i) {return _isatty(i);}
-//int fileno(FILE *stream) {return _fileno(stream);}
-//#endif
 
 namespace QuantityParser {
 

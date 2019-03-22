@@ -22,10 +22,6 @@
 
 
 
-#ifdef _MSC_VER
-    #define strdup _strdup
-#endif
-
 #include "PreCompiled.h"
 #include <Mod/Part/App/TopoShapeFacePy.h>
 #include <Mod/Part/App/TopoShapeEdgePy.h>

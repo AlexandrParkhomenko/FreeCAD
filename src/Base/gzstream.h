@@ -36,12 +36,6 @@
 #include <ios>
 #include <zlib.h>
 
-#ifdef _MSC_VER
-using std::ostream;
-using std::istream;
-#endif
-
-
 namespace Base {
 
 
@@ -103,17 +97,9 @@ public:
 class BaseExport igzstream : public gzstreambase, public std::istream {
 public:
     igzstream()
-#ifdef _MSC_VER
-      : istream( &buf) {} 
-#else
       : std::istream( &buf) {} 
-#endif
     igzstream( const char* name, int open_mode = std::ios_base::in, int comp = 1)
-#ifdef _MSC_VER
-      : gzstreambase( name, open_mode, comp ), istream( &buf) {}  
-#else
-      : gzstreambase( name, open_mode, comp), std::istream( &buf) {}  
-#endif
+      : gzstreambase( name, open_mode, comp), std::istream( &buf) {}
     gzstreambuf* rdbuf() { return gzstreambase::rdbuf(); }
     void open( const char* name, int open_mode = std::ios_base::in, int comp = 1) {
         gzstreambase::open( name, open_mode, comp);
@@ -123,17 +109,9 @@ public:
 class BaseExport ogzstream : public gzstreambase, public std::ostream {
 public:
     ogzstream()
-#ifdef _MSC_VER
-      : ostream( &buf) {}
-#else
       : std::ostream( &buf) {}
-#endif
     ogzstream( const char* name, int mode = std::ios_base::out, int comp = 1)
-#ifdef _MSC_VER
-      : gzstreambase( name, mode, comp), ostream( &buf) {}  
-#else
-      : gzstreambase( name, mode, comp), std::ostream( &buf) {}  
-#endif
+      : gzstreambase( name, mode, comp), std::ostream( &buf) {}
     gzstreambuf* rdbuf() { return gzstreambase::rdbuf(); }
     void open( const char* name, int open_mode = std::ios_base::out, int comp = 1) {
         gzstreambase::open( name, open_mode, comp);

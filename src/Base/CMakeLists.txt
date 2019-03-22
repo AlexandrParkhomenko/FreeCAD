@@ -197,7 +197,6 @@ SET(FreeCADBase_CPP_SRCS
     Interpreter.cpp
     Matrix.cpp
     MatrixPyImp.cpp
-    MemDebug.cpp
     Parameter.cpp
     ParameterPy.cpp
     Persistence.cpp
@@ -252,7 +251,6 @@ SET(FreeCADBase_HPP_SRCS
     InputSource.h
     Interpreter.h
     Matrix.h
-    MemDebug.h
     Observer.h
     Parameter.h
     Persistence.h

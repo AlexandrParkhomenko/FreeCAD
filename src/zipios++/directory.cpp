@@ -1,4 +1,9 @@
-/** \file
+/*
+
+#NEEDREWRITE!
+
+
+* \file
     This file and directory.h are borrowed from the dir_it library
     available at http://www.boost.org. dir_it is a directory iterator.
 */
@@ -19,29 +24,18 @@
 // Author: Dietmar Kuehl dietmar.kuehl@claas-solutions.de 
 // Title:  Implementation of the directory iterator
 // Version: $Name:  $ $Id: directory.cpp,v 1.2 2006/01/30 13:23:59 wmayer Exp $
-
 // -------------------------------------------------------------------------- 
 
 #include "meta-iostreams.h"
 
 #include "directory.h"
 
-#if defined(unix) || defined(__unix) || defined(__unix__) || defined(__APPLE__)
-#  define BOOST_UNIX 1
-#elif defined(_WINDOWS) || defined(__MINGW32__) || defined (_MSC_VER)
-#  define BOOST_WINNT 1
-#endif 
-
 // -------------------------------------------------------------------------- 
 // The POSIX version uses the functions opendir(), readdir(), and closdir()
 // to find directory entries. In addition, stat() is used to find out
 // about specific file attributes.
 
-#if defined(BOOST_UNIX)
 
-#ifndef __USE_BSD
-#define __USE_BSD
-#endif 
 #include <sys/stat.h>
 #include <dirent.h>
 #include <unistd.h>
@@ -218,158 +212,6 @@ namespace boost
 		template <> bool get<is_hidden>(dir_it const &it) { return (*it)[0] == '.'; }
 	}
 }
-
-#elif defined(BOOST_WINNT)
-
-#include "io.h"
-#include "direct.h"
-
-struct boost::filesystem::dir_it::representation
-{
-	representation():
-		m_handle(-1),
-		m_refcount(1)
-	{
-	}
-
-	representation(std::string const &dirname):
-		m_handle(_findfirst((dirname + "\\*").c_str(), &m_data)),
-		m_refcount(1)
-	{
-	}
-
-	~representation() { if (m_handle != -1) _findclose(m_handle); }
-
-	representation *reference()
-	{
-		++m_refcount;
-		return this;
-	}
-	representation *release() { return --m_refcount? 0: this; }
-
-	representation &operator++()
-	{
-		if (m_handle != -1)
-			{
-				if (_findnext(m_handle, &m_data) == -1)
-					{
-						_findclose(m_handle);
-						m_handle = -1;
-					}
-
-			}
-
-		return *this;
-	}
-
-	bool operator== (representation const &rep) const
-	{
-		return (m_handle == -1) == (rep.m_handle == -1);
-	}
-
-	std::string operator* () { return m_data.name; }
-
-
-	struct _finddata_t const &get_data() const
-	{
-		return m_data;
-	}
-
-#if 0
-	void set_mode(mode_t m, bool nv)
-	{
-		if (((get_stat().st_mode & m) == 0) == nv)
-			chmod((m_directory + m_current).c_str(), get_stat().st_mode ^ m);
-	}
-	void change_owner(uid_t uid) { chown((m_directory + m_current).c_str(), uid, get_stat().st_gid); }
-	void change_group(gid_t gid) { chown((m_directory + m_current).c_str(), get_stat().st_uid, gid); }
-#endif
-
-private:
-	struct _finddata_t m_data;
-	long               m_handle;
-	int                m_refcount;
-	std::string        m_directory;
-};
-
-namespace boost
-{
-	namespace filesystem
-	{
-#if defined(__MINGW32__)
-		template <> size_t get<size>(dir_it const &it)
-		{
-			return it.rep->get_data().size;
-		}
-		template <> mtime::value_type get<mtime>(dir_it const &it)
-		{
-			return &it.rep->get_data().time_write;
-		}
-		template <> bool get<is_directory>(dir_it const &it)
-		{
-			return (it.rep->get_data().attrib & _A_SUBDIR) != 0;
-		}
-		template <> bool get<is_regular>(dir_it const &it)
-		{
-			return (it.rep->get_data().attrib & _A_SUBDIR) == 0;
-		}
-		template <> bool get<is_hidden>(dir_it const &it)
-		{
-			return (it.rep->get_data().attrib & _A_HIDDEN) != 0;
-		}
-		template <> bool get<user_read>(dir_it const &it)
-		{
-			return true;
-		}
-		template <> bool get<user_write>(dir_it const &it)
-		{
-			return (it.rep->get_data().attrib & _A_RDONLY) == 0;
-		}
-		template <> bool get<user_execute>(dir_it const &it)
-		{
-			std::string name(*it);
-			std::string ext(name.substr(name.find_last_of('.')));
-			return ext == ".exe" || ext == ".bat";
-		}
-#else
-		get<size>::operator size::value_type() const
-		{
-			return m_it.rep->get_data().size;
-		}
-		get<mtime>::operator mtime::value_type() const
-		{
-			return &m_it.rep->get_data().time_write;
-		}
-		get<is_directory>::operator is_directory::value_type() const
-		{
-			return (m_it.rep->get_data().attrib & _A_SUBDIR) != 0;
-		}
-		get<is_regular>::operator is_regular::value_type() const
-		{
-			return (m_it.rep->get_data().attrib & _A_SUBDIR) == 0;
-		}
-		get<is_hidden>::operator is_hidden::value_type() const
-		{
-			return (m_it.rep->get_data().attrib & _A_HIDDEN) != 0;
-		}
-		get<user_read>::operator user_read::value_type() const
-		{
-			return true;
-		}
-		get<user_write>::operator user_write::value_type() const
-		{
-			return (m_it.rep->get_data().attrib & _A_RDONLY) == 0;
-		}
-		get<user_execute>::operator user_execute::value_type() const
-		{
-			std::string name(*m_it);
-			std::string ext(name.substr(name.find_last_of('.')));
-			return ext == ".exe" || ext == ".bat";
-		}
-#endif // __MINGW32__
-	}
-}
-#endif
 
 // -------------------------------------------------------------------------- 
 

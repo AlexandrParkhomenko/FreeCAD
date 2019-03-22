@@ -61,12 +61,6 @@
 # define DOUBLE_MIN 2.2250738585072014E-308    /* min decimal value of a "double"*/
 #endif
 
-#if defined(_MSC_VER)
-#define strtoll _strtoi64
-#pragma warning(disable : 4003)
-#pragma warning(disable : 4065)
-#endif
-
 using namespace Base;
 using namespace App;
 
@@ -1795,9 +1789,7 @@ int ExpressionParserlex(void);
 # pragma GCC diagnostic pop
 #endif
 #endif // DOXYGEN_SHOULD_SKIP_THIS
-#ifdef _MSC_VER
-# define strdup _strdup
-#endif
+
 
 static void initParser(const App::DocumentObject *owner)
 {

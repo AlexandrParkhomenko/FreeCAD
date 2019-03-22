@@ -33,11 +33,6 @@
 #include "Material.h"
 #include "Material.h"
 
-#ifdef _MSC_VER
-#pragma warning( disable : 4700 )
-#pragma warning( disable : 4723 )
-#endif
-
 using namespace App;
 
 

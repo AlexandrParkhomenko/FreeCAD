@@ -53,13 +53,9 @@ Enumeration::Enumeration(const Enumeration &other)
 Enumeration::Enumeration(const char *valStr)
     : _ownEnumArray(true), _index(0), _maxVal(0)
 {
-    _EnumArray = new const char*[2];
-#if defined (_MSC_VER)
-     _EnumArray[0] = _strdup(valStr);
-#else
-     _EnumArray[0] = strdup(valStr);
-#endif
-     _EnumArray[1] = NULL;
+	_EnumArray = new const char*[2];
+    _EnumArray[0] = strdup(valStr);
+    _EnumArray[1] = NULL;
 }
 
 Enumeration::Enumeration(const char **list, const char *valStr)
@@ -140,11 +136,7 @@ void Enumeration::setEnums(const std::vector<std::string> &values)
     _EnumArray = new const char*[values.size() + 1];
     int i = 0;
     for (std::vector<std::string>::const_iterator it = values.begin(); it != values.end(); ++it) {
-#if defined (_MSC_VER)
-        _EnumArray[i++] = _strdup(it->c_str());
-#else
         _EnumArray[i++] = strdup(it->c_str());
-#endif
     }
 
     _EnumArray[i] = 0; // null termination

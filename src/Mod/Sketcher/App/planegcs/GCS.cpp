@@ -20,11 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifdef _MSC_VER
-#pragma warning(disable : 4244)
-#pragma warning(disable : 4996)
-#endif
-
 //#define _GCS_DEBUG
 //#define _GCS_DEBUG_SOLVER_JACOBIAN_QR_DECOMPOSITION_TRIANGULAR_MATRIX
 //#define _DEBUG_TO_FILE // Many matrices surpass the report view string size.

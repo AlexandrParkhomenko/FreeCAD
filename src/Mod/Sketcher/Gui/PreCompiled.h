@@ -41,10 +41,6 @@
 #endif
 
 
-#ifdef _MSC_VER
-#   pragma warning(disable : 4005)
-#endif
-
 #ifdef _PreComp_
 
 // standard
@@ -62,11 +58,6 @@
 #include <stack>
 #include <queue>
 #include <bitset>
-
-#ifdef FC_OS_WIN32
-# define NOMINMAX
-# include <windows.h>
-#endif
 
 // OCC
 #include <TopoDS_Shape.hxx>

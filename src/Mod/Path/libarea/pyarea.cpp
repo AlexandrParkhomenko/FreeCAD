@@ -3,13 +3,8 @@
 // This program is released under the BSD license. See the file COPYING for details.
 
 
-#ifdef _MSC_VER
-    #define strdup _strdup
-#endif
-
 #include "Area.h"
 #include "Point.h"
-#include "AreaDxf.h"
 #include "kurve/geometry.h"
 #include "Adaptive.hpp"
 

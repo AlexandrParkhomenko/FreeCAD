@@ -148,11 +148,7 @@ SoSVGVectorOutput::~SoSVGVectorOutput()
 SbBool SoSVGVectorOutput::openFile (const char *filename)
 {
     Base::FileInfo fi(filename);
-#ifdef _MSC_VER
-    this->file.open(fi.toStdWString().c_str(), std::ios::out | std::ios::binary);
-#else
     this->file.open(fi.filePath().c_str(), std::ios::out | std::ios::binary);
-#endif
 
     return this->file.is_open();
 }

@@ -443,10 +443,6 @@ IODeviceIStreambuf::~IODeviceIStreambuf()
 std::streambuf::int_type
 IODeviceIStreambuf::underflow()
 {
-#ifndef _MSC_VER
-using std::memcpy;
-#endif
-
     // is read position before end of buffer?
     if (gptr() < egptr()) {
         return *gptr();

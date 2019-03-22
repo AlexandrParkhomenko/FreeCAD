@@ -82,11 +82,7 @@ public:
     static TimeInfo null();
 
 protected:
-#if defined (_MSC_VER)
-    struct _timeb timebuffer;
-#elif defined(__GNUC__)
     struct timeb timebuffer;
-#endif
 };
 
 

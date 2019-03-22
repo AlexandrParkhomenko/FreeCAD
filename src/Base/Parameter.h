@@ -59,14 +59,6 @@
 #include "Handle.h"
 #include "Observer.h"
 
-#ifdef _MSC_VER
-#	pragma warning( disable : 4251 )
-#	pragma warning( disable : 4503 )
-#	pragma warning( disable : 4786 )  // specifier longer then 255 chars
-#	pragma warning( disable : 4290 )  // not implemented throw specification
-#	pragma warning( disable : 4275 )
-#endif
-
 
 XERCES_CPP_NAMESPACE_BEGIN
 class DOMNode;

@@ -152,47 +152,27 @@ Action * CommandBase::createAction()
 
 void CommandBase::setMenuText(const char* s)
 {
-#if defined (_MSC_VER)
-    this->sMenuText = _strdup(s);
-#else
     this->sMenuText = strdup(s);
-#endif
 }
 
 void CommandBase::setToolTipText(const char* s)
 {
-#if defined (_MSC_VER)
-    this->sToolTipText = _strdup(s);
-#else
     this->sToolTipText = strdup(s);
-#endif
 }
 
 void CommandBase::setStatusTip(const char* s)
 {
-#if defined (_MSC_VER)
-    this->sStatusTip = _strdup(s);
-#else
     this->sStatusTip = strdup(s);
-#endif
 }
 
 void CommandBase::setPixmap(const char* s)
 {
-#if defined (_MSC_VER)
-    this->sPixmap = _strdup(s);
-#else
     this->sPixmap = strdup(s);
-#endif
 }
 
 void CommandBase::setAccel(const char* s)
 {
-#if defined (_MSC_VER)
-    this->sAccel = _strdup(s);
-#else
     this->sAccel = strdup(s);
-#endif
 }
 
 //===========================================================================
@@ -380,20 +360,12 @@ std::string Command::getUniqueObjectName(const char *BaseName) const
 
 void Command::setAppModuleName(const char* s)
 {
-#if defined (_MSC_VER)
-    this->sAppModule = _strdup(s);
-#else
     this->sAppModule = strdup(s);
-#endif
 }
 
 void Command::setGroupName(const char* s)
 {
-#if defined (_MSC_VER)
-    this->sGroup = _strdup(s);
-#else
     this->sGroup = strdup(s);
-#endif
 }
 
 
@@ -712,11 +684,7 @@ void Command::updateAction(int)
 /* TRANSLATOR Gui::MacroCommand */
 
 MacroCommand::MacroCommand(const char* name, bool system)
-#if defined (_MSC_VER)
-  : Command( _strdup(name) ), systemMacro(system)
-#else
   : Command( strdup(name) ), systemMacro(system)
-#endif
 {
     sGroup = QT_TR_NOOP("Macros");
     eType  = 0;
@@ -795,11 +763,7 @@ Action * MacroCommand::createAction(void)
 
 void MacroCommand::setScriptName( const char* s )
 {
-#if defined (_MSC_VER)
-    this->sScriptName = _strdup( s );
-#else
     this->sScriptName = strdup( s );
-#endif
 }
 
 void MacroCommand::load()
@@ -850,11 +814,7 @@ void MacroCommand::save()
 //===========================================================================
 
 PythonCommand::PythonCommand(const char* name, PyObject * pcPyCommand, const char* pActivationString)
-#if defined (_MSC_VER)
-  : Command( _strdup(name) )
-#else
   : Command( strdup(name) )
-#endif
   ,_pcPyCommand(pcPyCommand)
 {
     if (pActivationString)
@@ -1063,11 +1023,7 @@ bool PythonCommand::isChecked() const
 //===========================================================================
 
 PythonGroupCommand::PythonGroupCommand(const char* name, PyObject * pcPyCommand)
-#if defined (_MSC_VER)
-  : Command( _strdup(name) )
-#else
   : Command( strdup(name) )
-#endif
   ,_pcPyCommand(pcPyCommand)
 {
     sGroup = "Python";

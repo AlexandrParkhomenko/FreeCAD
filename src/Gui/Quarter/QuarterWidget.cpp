@@ -48,10 +48,6 @@
   \endcode
 */
 
-#ifdef _MSC_VER
-#pragma warning(disable : 4267)
-#endif
-
 #include <assert.h>
 
 #include <Quarter/QuarterWidget.h>

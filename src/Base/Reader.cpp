@@ -41,9 +41,6 @@
 #include "Console.h"
 #include "Sequencer.h"
 
-#ifdef _MSC_VER
-#include <zipios++/zipios-config.h>
-#endif
 #include <zipios++/zipfile.h>
 #include <zipios++/zipinputstream.h>
 #include <zipios++/zipoutputstream.h>
@@ -66,12 +63,8 @@ Base::XMLReader::XMLReader(const char* FileName, std::istream& str)
     CharacterCount(0), ReadType(None), _File(FileName), _valid(false),
     _verbose(true)
 {
-#ifdef _MSC_VER
-    str.imbue(std::locale::empty());
-#else
     //FIXME: Check whether this is correct
     str.imbue(std::locale::classic());
-#endif
 
     // create the parser
     parser = XMLReaderFactory::createXMLReader();

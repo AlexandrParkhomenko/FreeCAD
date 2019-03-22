@@ -22,10 +22,6 @@
 
 
 #include "PreCompiled.h"
-#ifdef _MSC_VER
-#define _USE_MATH_DEFINES
-#include <cmath>
-#endif
 #include <Gui/Application.h>
 #include <Gui/Control.h>
 #include <Gui/ViewProviderDocumentObject.h>
