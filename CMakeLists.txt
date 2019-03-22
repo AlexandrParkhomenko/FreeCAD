@@ -187,18 +187,20 @@ find_package(
   Xml
   REQUIRED
 )
-    if(BUILD_GUI)
-      find_package(Qt5Widgets)
-      find_package(Qt5PrintSupport)
-      find_package(Qt5OpenGL)
-      find_package(Qt5Svg)
-      find_package(Qt5UiTools)
-      find_package(Qt5Network)
-      find_package(Qt5Concurrent)
-      if (BUILD_QT5_WEBKIT)
-        find_package(Qt5WebKitWidgets)
-      endif()
-    endif(BUILD_GUI)
+if(BUILD_GUI)
+find_package(
+  Qt5 #5.12
+  COMPONENTS
+  Widgets
+  PrintSupport
+  OpenGL
+  Svg
+  UiTools
+  Network
+  Concurrent
+  REQUIRED
+)
+endif(BUILD_GUI)
 
 
     # This is a special version of the built in macro qt5_wrap_cpp
@@ -271,7 +273,6 @@ ENDMACRO (PYSIDE_WRAP_RC)
 endif (BUILD_GUI)
 
 
-# == Global Compiler and Linker Settings =========================================
 include_directories(${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
 add_subdirectory(src)
 
