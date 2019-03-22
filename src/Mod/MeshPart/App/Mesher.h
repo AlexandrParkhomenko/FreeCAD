@@ -41,9 +41,6 @@ public:
     enum Method {
         None = 0,
         Mefisto = 1,
-#if defined (HAVE_NETGEN)
-        Netgen = 2,
-#endif
         Standard = 3
     };
 
@@ -97,40 +94,6 @@ public:
     { colors = c; }
     //@}
 
-#if defined (HAVE_NETGEN)
-    /** @name Netgen settings */
-    //@{
-    void setFineness(int s)
-    { fineness = s; }
-    int getFineness() const
-    { return fineness; }
-    void setGrowthRate(double r)
-    { growthRate = r; }
-    double getGrowthRate() const
-    { return growthRate; }
-    void setNbSegPerEdge(double v)
-    { nbSegPerEdge = v;}
-    double getNbSegPerEdge() const
-    { return nbSegPerEdge; }
-    void setNbSegPerRadius(double v)
-    { nbSegPerRadius = v; }
-    double getNbSegPerRadius() const
-    { return nbSegPerRadius; }
-    void setSecondOrder(bool on)
-    { secondOrder = on; }
-    bool getSecondOrder() const
-    { return secondOrder; }
-    void setOptimize(bool on)
-    { optimize = on;}
-    bool getOptimize() const
-    { return optimize; }
-    void setQuadAllowed(bool on)
-    { allowquad = on;}
-    bool isQuadAllowed() const
-    { return allowquad; }
-    //@}
-#endif
-
     Mesh::MeshObject* createMesh() const;
 
 private:
@@ -145,15 +108,6 @@ private:
     bool relative;
     bool regular;
     bool segments;
-#if defined (HAVE_NETGEN)
-    int fineness;
-    double growthRate;
-    double nbSegPerEdge;
-    double nbSegPerRadius;
-    bool secondOrder;
-    bool optimize;
-    bool allowquad;
-#endif
     std::vector<uint32_t> colors;
     struct Vertex;
 

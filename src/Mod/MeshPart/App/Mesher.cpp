@@ -63,11 +63,6 @@
 
 #include <StdMeshers_LengthFromEdges.hxx>
 #include <StdMeshers_NotConformAllowed.hxx>
-#if defined(HAVE_NETGEN)
-#include <NETGENPlugin_NETGEN_2D.hxx>
-#include <NETGENPlugin_Hypothesis_2D.hxx>
-#include <NETGENPlugin_SimpleHypothesis_2D.hxx>
-#endif // HAVE_NETGEN
 #if defined(__clang__)
 # pragma clang diagnostic pop
 #endif
@@ -161,15 +156,6 @@ Mesher::Mesher(const TopoDS_Shape& s)
   , relative(false)
   , regular(false)
   , segments(false)
-#if defined (HAVE_NETGEN)
-  , fineness(5)
-  , growthRate(0)
-  , nbSegPerEdge(0)
-  , nbSegPerRadius(0)
-  , secondOrder(false)
-  , optimize(true)
-  , allowquad(false)
-#endif
 {
 }
 
@@ -331,32 +317,6 @@ Mesh::MeshObject* Mesher::createMesh() const
     int hyp=0;
 
     switch (method) {
-#if defined (HAVE_NETGEN)
-    case Netgen: {
-        NETGENPlugin_Hypothesis_2D* hyp2d = new NETGENPlugin_Hypothesis_2D(hyp++,0,meshgen);
-
-        if (fineness >=0 && fineness < 5) {
-            hyp2d->SetFineness(NETGENPlugin_Hypothesis_2D::Fineness(fineness));
-        }
-        // user defined values
-        else {
-            if (growthRate > 0)
-                hyp2d->SetGrowthRate(growthRate);
-            if (nbSegPerEdge > 0)
-                hyp2d->SetNbSegPerEdge(nbSegPerEdge);
-            if (nbSegPerRadius > 0)
-                hyp2d->SetNbSegPerRadius(nbSegPerRadius);
-        }
-
-        hyp2d->SetQuadAllowed(allowquad);
-        hyp2d->SetOptimize(optimize);
-        hyp2d->SetSecondOrder(secondOrder); // apply bisecting to create four triangles out of one
-        hypoth.push_back(hyp2d);
-
-        NETGENPlugin_NETGEN_2D* alg2d = new NETGENPlugin_NETGEN_2D(hyp++,0,meshgen);
-        hypoth.push_back(alg2d);
-    } break;
-#endif
 #if defined (HAVE_MEFISTO)
     case Mefisto: {
         if (maxLength > 0) {

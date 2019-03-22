@@ -78,19 +78,6 @@ public:
             "    meshFromShape(Shape, Deflection)\n"
             "    meshFromShape(Shape, MinLength, MaxLength)\n"
             "\n"
-            "Additionally, when FreeCAD is built with netgen, the following\n"
-            "signatures are also available (they are "
-#ifndef HAVE_NETGEN
-            "NOT "
-#endif
-            "currently):\n"
-            "\n"
-            "    meshFromShape(Shape, Fineness, SecondOrder=0,\n"
-            "                         Optimize=1, AllowQuad=0)\n"
-            "    meshFromShape(Shape, GrowthRate=0, SegPerEdge=0,\n"
-            "                  SegPerRadius=0, SecondOrder=0, Optimize=1,\n"
-            "                  AllowQuad=0)\n"
-            "\n"
             "Args:\n"
             "    Shape (required, topology) - TopoShape to create mesh of.\n"
             "    LinearDeflection (required, float)\n"
@@ -330,50 +317,11 @@ private:
             return Py::asObject(new Mesh::MeshPy(mesher.createMesh()));
         }
 
-#if defined (HAVE_NETGEN)
-        static char* kwds_fineness[] = {"Shape", "Fineness", "SecondOrder", "Optimize", "AllowQuad",NULL};
-        PyErr_Clear();
-        int fineness=0, secondOrder=0, optimize=1, allowquad=0;
-        if (PyArg_ParseTupleAndKeywords(args.ptr(), kwds.ptr(), "O!i|iii", kwds_fineness,
-                                        &(Part::TopoShapePy::Type), &shape, &fineness,
-                                        &secondOrder, &optimize, &allowquad)) {
-            MeshPart::Mesher mesher(static_cast<Part::TopoShapePy*>(shape)->getTopoShapePtr()->getShape());
-            mesher.setMethod(MeshPart::Mesher::Netgen);
-            mesher.setFineness(fineness);
-            mesher.setSecondOrder(secondOrder != 0);
-            mesher.setOptimize(optimize != 0);
-            mesher.setQuadAllowed(allowquad != 0);
-            return Py::asObject(new Mesh::MeshPy(mesher.createMesh()));
-        }
-
-        static char* kwds_user[] = {"Shape", "GrowthRate", "SegPerEdge", "SegPerRadius", "SecondOrder", "Optimize", "AllowQuad",NULL};
-        PyErr_Clear();
-        double growthRate=0, nbSegPerEdge=0, nbSegPerRadius=0;
-        if (PyArg_ParseTupleAndKeywords(args.ptr(), kwds.ptr(), "O!|dddiii", kwds_user,
-                                        &(Part::TopoShapePy::Type), &shape,
-                                        &growthRate, &nbSegPerEdge, &nbSegPerRadius,
-                                        &secondOrder, &optimize, &allowquad)) {
-            MeshPart::Mesher mesher(static_cast<Part::TopoShapePy*>(shape)->getTopoShapePtr()->getShape());
-            mesher.setMethod(MeshPart::Mesher::Netgen);
-            mesher.setGrowthRate(growthRate);
-            mesher.setNbSegPerEdge(nbSegPerEdge);
-            mesher.setNbSegPerRadius(nbSegPerRadius);
-            mesher.setSecondOrder(secondOrder != 0);
-            mesher.setOptimize(optimize != 0);
-            mesher.setQuadAllowed(allowquad != 0);
-            return Py::asObject(new Mesh::MeshPy(mesher.createMesh()));
-        }
-#endif
-
         PyErr_Clear();
         if (PyArg_ParseTuple(args.ptr(), "O!", &(Part::TopoShapePy::Type), &shape)) {
             MeshPart::Mesher mesher(static_cast<Part::TopoShapePy*>(shape)->getTopoShapePtr()->getShape());
-#if defined (HAVE_NETGEN)
-            mesher.setMethod(MeshPart::Mesher::Netgen);
-#else
             mesher.setMethod(MeshPart::Mesher::Mefisto);
             mesher.setRegular(true);
-#endif
             return Py::asObject(new Mesh::MeshPy(mesher.createMesh()));
         }
 

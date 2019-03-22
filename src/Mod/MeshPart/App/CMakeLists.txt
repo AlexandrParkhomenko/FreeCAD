@@ -4,10 +4,6 @@ if (BUILD_SMESH)
     add_definitions(-DHAVE_SMESH -DHAVE_MEFISTO)
 endif(BUILD_SMESH)
 
-if(BUILD_FEM_NETGEN)
-    add_definitions(-DHAVE_NETGEN)
-endif(BUILD_FEM_NETGEN)
-
 include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
@@ -33,9 +29,7 @@ set(MeshPart_LIBS
 if (FREECAD_USE_EXTERNAL_SMESH)
    list(APPEND MeshPart_LIBS ${EXTERNAL_SMESH_LIBS})
 else()
-   if (BUILD_FEM_NETGEN)
-       list(APPEND MeshPart_LIBS StdMeshers NETGENPlugin SMESH SMDS)
-   elseif (BUILD_SMESH)
+   if (BUILD_SMESH)
        list(APPEND MeshPart_LIBS StdMeshers SMESH SMDS)
    endif()
 endif()
