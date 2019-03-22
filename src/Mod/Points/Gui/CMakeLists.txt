@@ -23,11 +23,7 @@ set(Dialog_UIC_SRCS
     DlgPointsRead.ui
 )
 
-if (BUILD_QT5)
     qt5_wrap_ui(Dialogs_UIC_HDRS ${Dialog_UIC_SRCS})
-else()
-    qt4_wrap_ui(Dialogs_UIC_HDRS ${Dialog_UIC_SRCS})
-endif()
 
 SET(Dialogs_SRCS
     ${Dialogs_UIC_HDRS}
@@ -37,11 +33,7 @@ SET(Dialogs_SRCS
 )
 SOURCE_GROUP("Dialogs" FILES ${Dialogs_SRCS})
 
-if (BUILD_QT5)
     qt5_add_resources(Resource_SRCS Resources/Points.qrc)
-else()
-    qt4_add_resources(Resource_SRCS Resources/Points.qrc)
-endif()
 
 SET(Resource_SRCS
     ${Resource_SRCS}

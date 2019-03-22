@@ -568,7 +568,6 @@ SbBool GestureNavigationStyle::processSoEvent(const SoEvent * const ev)
                 //shouldn't happen. Gestures are not expected to start in the middle of navigation.
                 //we'll consume it, without reacting.
                 processed=true;
-                //This does, unfortunately, happen on regular basis for pan gesture on Windows8.1+Qt4.8
             }
         }
 
@@ -584,7 +583,7 @@ SbBool GestureNavigationStyle::processSoEvent(const SoEvent * const ev)
                 processed = true;
             }
         }
-    } ; //not end of SEEK_WAIT_MODE. Fall through by design!!!
+    } ; //not end of SEEK_WAIT_MODE. Fall through by design!!! // @suppress("No break at end of case")
         /* FALLTHRU */
     case NavigationStyle::SPINNING:
     case NavigationStyle::SEEK_MODE: {

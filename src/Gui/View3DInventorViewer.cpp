@@ -24,9 +24,6 @@
 #include "PreCompiled.h"
 #ifndef _PreComp_
 # include <float.h>
-# ifdef FC_OS_WIN32
-#  include <windows.h>
-# endif
 # ifdef FC_OS_MACOSX
 # include <OpenGL/gl.h>
 # else
@@ -138,7 +135,6 @@
 #include <QGesture>
 
 #include "SoTouchEvents.h"
-#include "WinNativeGestureRecognizers.h"
 #include "Document.h"
 
 //#define FC_LOGGING_CB
@@ -1000,19 +996,14 @@ void View3DInventorViewer::savePicture(int w, int h, int s, const QColor& bg, QI
     // Save picture methods:
     // FramebufferObject -- viewer renders into FBO (no offscreen)
     // CoinOffscreenRenderer -- Coin's offscreen rendering method
-    // PixelBuffer -- Qt's pixel buffer used for offscreen rendering (only Qt4)
     // Otherwise (Default) -- Qt's FBO used for offscreen rendering
     std::string saveMethod = App::GetApplication().GetParameterGroupByPath
         ("User parameter:BaseApp/Preferences/View")->GetASCII("SavePicture");
 
-    bool useFramebufferObject = false;
-    bool usePixelBuffer = false;
+    bool useFramebufferObject = true;
     bool useCoinOffscreenRenderer = false;
     if (saveMethod == "FramebufferObject") {
         useFramebufferObject = true;
-    }
-    else if (saveMethod == "PixelBuffer") {
-        usePixelBuffer = true;
     }
     else if (saveMethod == "CoinOffscreenRenderer") {
         useCoinOffscreenRenderer = true;
@@ -1097,19 +1088,6 @@ void View3DInventorViewer::savePicture(int w, int h, int s, const QColor& bg, QI
 
     try {
         // render the scene
-        if (!useCoinOffscreenRenderer) {
-            SoQtOffscreenRenderer renderer(vp);
-            renderer.setNumPasses(s);
-            renderer.setPbufferEnable(usePixelBuffer);
-            if (bgColor.isValid())
-                renderer.setBackgroundColor(SbColor4f(bgColor.redF(), bgColor.greenF(), bgColor.blueF(), bgColor.alphaF()));
-            if (!renderer.render(root))
-                throw Base::RuntimeError("Offscreen rendering failed");
-
-            renderer.writeToImage(img);
-            root->unref();
-        }
-        else {
             SoFCOffscreenRenderer& renderer = SoFCOffscreenRenderer::instance();
             renderer.setViewportRegion(vp);
             renderer.getGLRenderAction()->setSmoothing(true);
@@ -1121,7 +1099,6 @@ void View3DInventorViewer::savePicture(int w, int h, int s, const QColor& bg, QI
 
             renderer.writeToImage(img);
             root->unref();
-        }
     }
     catch (...) {
         root->unref();

@@ -40,11 +40,7 @@ set(SketcherGui_MOC_HDRS
 fc_wrap_cpp(SketcherGui_MOC_SRCS ${SketcherGui_MOC_HDRS})
 SOURCE_GROUP("Moc" FILES ${SketcherGui_MOC_SRCS})
 
-if(BUILD_QT5)
     qt5_add_resources(SketcherGui_SRCS Resources/Sketcher.qrc)
-else()
-    qt4_add_resources(SketcherGui_SRCS Resources/Sketcher.qrc)
-endif()
 
 set(SketcherGui_UIC_SRCS
     TaskSketcherConstrains.ui
@@ -62,11 +58,7 @@ set(SketcherGui_UIC_SRCS
     SketcherRegularPolygonDialog.ui
 )
 
-if(BUILD_QT5)
     qt5_wrap_ui(SketcherGui_UIC_HDRS ${SketcherGui_UIC_SRCS})
-else()
-    qt4_wrap_ui(SketcherGui_UIC_HDRS ${SketcherGui_UIC_SRCS})
-endif()
 
 SET(SketcherGui_SRCS
     ${SketcherGui_SRCS}

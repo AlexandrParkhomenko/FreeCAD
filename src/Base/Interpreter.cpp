@@ -47,8 +47,8 @@ unsigned int format2_len = 1024;
 
 using namespace Base;
 
-#if PY_VERSION_HEX <= 0x02050000
-#error "Use Python2.5.x or higher"
+#if PY_VERSION_HEX <= 0x03050000
+#error "Use Python3.5.x or higher"
 #endif
 
 

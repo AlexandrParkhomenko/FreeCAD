@@ -19,14 +19,12 @@ set(PartGui_LIBS
     FreeCADGui
 )
 
-if (BUILD_QT5)
     include_directories(
         ${Qt5Concurrent_INCLUDE_DIRS}
     )
     list(APPEND PartGui_LIBS
         ${Qt5Concurrent_LIBRARIES}
     )
-endif()
 
 set(PartGui_MOC_HDRS
     CrossSections.h
@@ -57,11 +55,7 @@ set(PartGui_MOC_HDRS
 fc_wrap_cpp(PartGui_MOC_SRCS ${PartGui_MOC_HDRS})
 SOURCE_GROUP("Moc" FILES ${PartGui_MOC_SRCS})
 
-if (BUILD_QT5)
     qt5_add_resources(PartGui_QRC_SRCS Resources/Part.qrc)
-else()
-    qt4_add_resources(PartGui_QRC_SRCS Resources/Part.qrc)
-endif()
 
 set(PartGui_UIC_SRCS
     CrossSections.ui
@@ -89,11 +83,7 @@ set(PartGui_UIC_SRCS
     TaskAttacher.ui
 )
 
-if (BUILD_QT5)
     qt5_wrap_ui(PartGui_UIC_HDRS ${PartGui_UIC_SRCS})
-else()
-    qt4_wrap_ui(PartGui_UIC_HDRS ${PartGui_UIC_SRCS})
-endif()
 
 SET(PartGui_SRCS
     ${PartGui_QRC_SRCS}

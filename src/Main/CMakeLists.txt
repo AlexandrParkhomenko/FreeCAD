@@ -1,4 +1,3 @@
-if (BUILD_QT5)
     include_directories(
         ${Qt5Core_INCLUDE_DIRS}
         ${Qt5Widgets_INCLUDE_DIRS}
@@ -17,15 +16,6 @@ if (BUILD_QT5)
         ${Qt5Network_LIBRARIES}
         ${Qt5UiTools_LIBRARIES}
     )
-else()
-    include_directories(
-        ${QT_INCLUDE_DIR}
-    )
-    list(APPEND FreeCAD_LIBS
-        ${QT_LIBRARIES}
-        ${QT_QTUITOOLS_LIBRARY}
-    )
-endif()
 
 
 if(BUILD_GUI)
@@ -80,17 +70,10 @@ SET(FreeCADMainCmd_LIBS
     FreeCADApp
 )
 
-if (BUILD_QT5)
     list(APPEND FreeCADMainCmd_LIBS
         ${Qt5Core_LIBRARIES}
         ${Qt5Xml_LIBRARIES}
     )
-else()
-    list(APPEND FreeCADMainCmd_LIBS
-        ${QT_QTCORE_LIBRARY}
-        ${QT_QTXML_LIBRARY}
-    )
-endif()
 
 target_link_libraries(FreeCADMainCmd 
     ${FreeCADMainCmd_LIBS}

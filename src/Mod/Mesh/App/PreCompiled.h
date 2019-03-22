@@ -28,11 +28,8 @@
 
 
 // Exporting of App classes
-#ifdef FC_OS_WIN32
-#   define    MeshExport __declspec(dllexport)
-#else // for Linux
-#   define    MeshExport
-#endif
+//#define    MeshExport __declspec(dllexport) //win
+#define    MeshExport
 
 #ifdef _PreComp_
 

@@ -300,7 +300,7 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
     // show main window timer
     d->visibleTimer = new QTimer(this);
     d->visibleTimer->setObjectName(QString::fromLatin1("visibleTimer"));
-    connect(d->visibleTimer, SIGNAL(timeout()),this, SLOT(showMainWindow()));
+//    connect(d->visibleTimer, SIGNAL(timeout()),this, SLOT(showMainWindow()));
     d->visibleTimer->setSingleShot(true);
 
     d->windowMapper = new QSignalMapper(this);
@@ -936,20 +936,6 @@ void MainWindow::hideEvent(QHideEvent  * /*e*/)
     // needed for logging
     std::clog << "Hide main window" << std::endl;
     d->visibleTimer->stop();
-}
-
-void MainWindow::showMainWindow()
-{
-    // Under certain circumstances it can happen that at startup the main window
-    // appears for a short moment and disappears immediately. The workaround
-    // starts a timer to check for the visibility of the main window and call
-    // ShowWindow() if needed.
-    // So far, this phenomena only appeared with Qt4.1.4
-#if defined(Q_OS_WIN) && (QT_VERSION == 0x040104)
-    WId id = this->winId();
-    ShowWindow(id, SW_SHOW);
-    std::cout << "Force to show main window" << std::endl;
-#endif
 }
 
 void MainWindow::processMessages(const QList<QByteArray> & msg)

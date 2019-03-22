@@ -39,16 +39,7 @@
 #define __PyCXX_wrap_python_hxx__
 
 // On some platforms we have to include time.h to get select defined
-#if !defined(__WIN32__) && !defined(WIN32) && !defined(_WIN32) && !defined(_WIN64)
 #include <sys/time.h>
-#endif
-
-// Prevent multiple conflicting definitions of swab from stdlib.h and unistd.h
-#if defined(__sun) || defined(sun)
-#if defined(_XPG4)
-#undef _XPG4
-#endif
-#endif
 
 // Python.h will redefine these and generate warning in the process
 #undef _XOPEN_SOURCE
@@ -56,15 +47,6 @@
 
 // pull in python definitions
 #include <Python.h>
-#ifdef FC_OS_MACOSX
-#undef toupper
-#undef tolower
-#undef isupper
-#undef islower
-#undef isspace
-#undef isalpha
-#undef isalnum
-#endif
 
 // fix issue with Python assuming that isspace, toupper etc are macros
 #if defined(isspace)

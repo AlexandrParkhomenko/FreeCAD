@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "../PreCompiled.h"
 
 #ifndef MESH_DEFINITIONS_H
 #define MESH_DEFINITIONS_H

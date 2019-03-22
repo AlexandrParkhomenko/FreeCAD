@@ -33,23 +33,19 @@ MESSAGE(STATUS "datadir: ${CMAKE_INSTALL_DATADIR}")
 MESSAGE(STATUS "includedir: ${CMAKE_INSTALL_INCLUDEDIR}")
 MESSAGE(STATUS "libdir: ${CMAKE_INSTALL_LIBDIR}")
 
-# Switch to build FreeCAD with Qt5
-OPTION(BUILD_QT5 "Build with Qt5." ON)
-OPTION(BUILD_QT5_WEBKIT "Build with Qt5." OFF)
+#OPTION(BUILD_QT5_WEBKIT "Build with Qt5." OFF)
 OPTION(BUILD_GUI "Build FreeCAD Gui. Otherwise you have only the command line and the Python import module." ON)
-OPTION(FREECAD_MAINTAINERS_BUILD "Build FreeCAD for Maintainers, with Docu and 3rd party libs. On Windows the Installer is built." OFF)
+#OPTION(FREECAD_MAINTAINERS_BUILD "Build FreeCAD for Maintainers, with Docu and 3rd party libs. On Windows the Installer is built." OFF)
 OPTION(FREECAD_USE_EXTERNAL_ZIPIOS "Use system installed zipios++ instead of the bundled." OFF)
 OPTION(FREECAD_USE_EXTERNAL_SMESH "Use system installed smesh instead of the bundled." OFF)
-OPTION(FREECAD_USE_EXTERNAL_KDL "Use system installed orocos-kdl instead of the bundled." OFF)
+#OPTION(FREECAD_USE_EXTERNAL_KDL "Use system installed orocos-kdl instead of the bundled." OFF)
 #OPTION(FREECAD_USE_FREETYPE "Builds the features using FreeType libs" ON)
-OPTION(FREECAD_BUILD_DEBIAN "Prepare for a build of a Debian package" OFF)
+#OPTION(FREECAD_BUILD_DEBIAN "Prepare for a build of a Debian package" OFF)
 OPTION(FREECAD_USE_QT_FILEDIALOG "Use Qt's file dialog instead of the native one." ON)
 
-if (BUILD_QT5)
-  OPTION(FREECAD_USE_QTOPENGL_WIDGET "Replace QGLWidget with QOpenGLWidget." ON)
-  if (FREECAD_USE_QTOPENGL_WIDGET)
-    set(HAVE_QT5_OPENGL 1)
-  endif()
+OPTION(FREECAD_USE_QTOPENGL_WIDGET "Replace QGLWidget with QOpenGLWidget." ON)
+if (FREECAD_USE_QTOPENGL_WIDGET)
+  set(HAVE_QT5_OPENGL 1)
 endif()
 configure_file(${CMAKE_SOURCE_DIR}/src/QtOpenGL.h.cmake ${CMAKE_BINARY_DIR}/src/QtOpenGL.h)
 
@@ -164,41 +160,23 @@ find_package(Eigen3 REQUIRED)
 find_package(Freetype REQUIRED)
 
 if(BUILD_GUI)
-    set(OpenGL_GL_PREFERENCE "LEGACY") # or "GLVND"
-    find_package(OpenGL REQUIRED)
+  set(OpenGL_GL_PREFERENCE "LEGACY") # or "GLVND"
+  find_package(OpenGL REQUIRED)
 
-    find_package(Coin REQUIRED)
+  find_package(Coin REQUIRED)
     set(COIN3D_INCLUDE_DIRS ${Coin_INCLUDE_DIRS})
     set(COIN3D_LIBRARIES ${Coin_LIBRARIES})
     set(COIN3D_INCLUDE_DIR ${Coin_INCLUDE_DIR})
     set(COIN3D_LIB_DIR ${Coin_LIB_DIR})
     set(COIN3D_VERSION ${Coin_VERSION})
 
-if (BUILD_QT5)
 find_package(
   Qt5 #5.12
   COMPONENTS
-  Core
-  Network
-  Xml
+  Core Network Xml
+  Widgets PrintSupport OpenGL Svg UiTools Concurrent
   REQUIRED
 )
-if(BUILD_GUI)
-find_package(
-  Qt5 #5.12
-  COMPONENTS
-  Widgets
-  PrintSupport
-  OpenGL
-  Svg
-  UiTools
-  Network
-  Concurrent
-  REQUIRED
-)
-endif(BUILD_GUI)
-
-
     # This is a special version of the built in macro qt5_wrap_cpp
     # It is required since moc'ed files are now included instead of being added to projects directly
     # It adds a reverse dependency to solve this
@@ -243,12 +221,10 @@ FIND_PROGRAM(PYSIDE2RCCBINARY NAMES pyside2-rcc)
         DESTINATION
           Ext
       )
-  endif(BUILD_QT5)
 
 #grep -lr PYSIDE_WRAP_RC
 #Mod/Draft/CMakeLists.txt
 #Tools/_TEMPLATEPY_/CMakeLists.txt
-
 MACRO(PYSIDE_WRAP_RC outfiles)
   FOREACH(it ${ARGN})
   GET_FILENAME_COMPONENT(outfile ${it} NAME_WE)
@@ -268,7 +244,5 @@ ENDMACRO (PYSIDE_WRAP_RC)
 
 endif (BUILD_GUI)
 
-
 include_directories(${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
 add_subdirectory(src)
-

@@ -48,9 +48,7 @@
 #include <qtimer.h>
 #include <qtranslator.h>
 #include <QUrl>
-#if QT_VERSION >= 0x050000
 #include <QUrlQuery>
-#endif
 #include <qvariant.h>
 #include <QWaitCondition>
 // QtGui
@@ -68,9 +66,7 @@
 #include <qcolordialog.h>
 #include <qcombobox.h>
 #include <qcursor.h>
-#if QT_VERSION >= 0x040200
 #include <QDesktopServices>
-#endif
 #include <QDesktopWidget>
 #include <QDialogButtonBox>
 #include <QDockWidget>
@@ -101,9 +97,7 @@
 #include <QMainWindow>
 #include <qmenubar.h>
 #include <qmessagebox.h>
-#if QT_VERSION >= 0x050000
 #include <QMessageLogContext>
-#endif
 #include <QMimeData>
 #include <qmovie.h>
 #include <qpainter.h>
@@ -148,7 +142,6 @@
 #include <QTreeView>
 #include <QTreeWidget>
 #include <qvalidator.h>
-//#include <QWhatsThisClickedEvent>
 #include <qwidget.h>
 #include <qobject.h>
 #include <QMdiArea>
@@ -163,14 +156,6 @@
 // QtUiTools
 #include <QUiLoader>
 #include <QtDesigner/QFormBuilder>
-
-// QtWebKit
-#if QT_VERSION >= 0x040400
-// Only needed in Web module
-//#include <QWebFrame>
-//#include <QWebView>
-//#include <QWebSettings>
-#endif
 
 #include "qmath.h"
 #include <QGraphicsView>

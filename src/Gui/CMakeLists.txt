@@ -33,7 +33,6 @@ include_directories(
         ${OPENGL_gl_LIBRARY}
     )
 
-if (BUILD_QT5)
     include_directories(
         ${Qt5Core_INCLUDE_DIRS}
         ${Qt5Widgets_INCLUDE_DIRS}
@@ -54,22 +53,16 @@ if (BUILD_QT5)
         ${Qt5Network_LIBRARIES} # LocalSockets
         ${Qt5UiTools_LIBRARIES}
     )
-else()
-    include_directories(
-        ${QT_INCLUDE_DIR}
-    )
-    list(APPEND FreeCADGui_LIBS
-        ${QT_LIBRARIES}
-        ${QT_QTUITOOLS_LIBRARY}
-    )
-endif()
+#    include_directories(
+#        ${QT_INCLUDE_DIR}
+#    )
+#    list(APPEND FreeCADGui_LIBS
+#        ${QT_LIBRARIES}
+#        ${QT_QTUITOOLS_LIBRARY}
+#    )
 
 if(SHIBOKEN_INCLUDE_DIR)
-    if (BUILD_QT5)
-        add_definitions(-DHAVE_SHIBOKEN2)
-    else()
-        add_definitions(-DHAVE_SHIBOKEN)
-    endif()
+    add_definitions(-DHAVE_SHIBOKEN2)
     include_directories(
         ${SHIBOKEN_INCLUDE_DIR}
     )
@@ -87,14 +80,10 @@ if(PYSIDE_INCLUDE_DIR)
     list(APPEND FreeCADGui_LIBS
         ${PYSIDE_LIBRARY}
     )
-    if (BUILD_QT5)
-        include_directories(
-            ${PYSIDE_INCLUDE_DIR}/QtWidgets
-        )
-        add_definitions(-DHAVE_PYSIDE2)
-    else()
-        add_definitions(-DHAVE_PYSIDE)
-    endif()
+    include_directories(
+      ${PYSIDE_INCLUDE_DIR}/QtWidgets
+    )
+    add_definitions(-DHAVE_PYSIDE2)
 endif(PYSIDE_INCLUDE_DIR)
 
 generate_from_xml(DocumentPy)
@@ -228,19 +217,10 @@ set(Gui_MOC_HDRS
 fc_wrap_cpp(Gui_MOC_SRCS ${Gui_MOC_HDRS})
 #SOURCE_GROUP("Moc" FILES ${Gui_MOC_SRCS})
 
-if (BUILD_QT5)
-    add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/moc_GraphvizView-internal.cpp
-        COMMAND ${Qt5Core_MOC_EXECUTABLE} -o ${CMAKE_CURRENT_BINARY_DIR}/moc_GraphvizView-internal.cpp ${CMAKE_CURRENT_SOURCE_DIR}/GraphvizView.cpp
-        DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/GraphvizView.cpp)
-
-    set_property(SOURCE GraphvizView.cpp APPEND PROPERTY OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/moc_GraphvizView-internal.cpp)
-else()
-    add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/moc_GraphvizView-internal.cpp
-        COMMAND ${QT_MOC_EXECUTABLE} -o ${CMAKE_CURRENT_BINARY_DIR}/moc_GraphvizView-internal.cpp ${CMAKE_CURRENT_SOURCE_DIR}/GraphvizView.cpp
-        DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/GraphvizView.cpp)
-
-    set_property(SOURCE GraphvizView.cpp APPEND PROPERTY OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/moc_GraphvizView-internal.cpp)
-endif()
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/moc_GraphvizView-internal.cpp
+  COMMAND ${Qt5Core_MOC_EXECUTABLE} -o ${CMAKE_CURRENT_BINARY_DIR}/moc_GraphvizView-internal.cpp ${CMAKE_CURRENT_SOURCE_DIR}/GraphvizView.cpp
+  DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/GraphvizView.cpp)
+set_property(SOURCE GraphvizView.cpp APPEND PROPERTY OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/moc_GraphvizView-internal.cpp)
 
 SET(Gui_UIC_SRCS
     Clipping.ui
@@ -300,13 +280,8 @@ SET(Gui_RES_SRCS
     QSint/actionpanel/schemes.qrc
 )
 
-if (BUILD_QT5)
     QT5_ADD_RESOURCES(Gui_QRC_SRCS ${Gui_RES_SRCS})
     QT5_WRAP_UI(Gui_UIC_HDRS ${Gui_UIC_SRCS})
-else()
-    QT4_ADD_RESOURCES(Gui_QRC_SRCS ${Gui_RES_SRCS})
-    QT4_WRAP_UI(Gui_UIC_HDRS ${Gui_UIC_SRCS})
-endif()
 SOURCE_GROUP("Uic" FILES ${Gui_UIC_HDRS})
 
 # The command sources
@@ -633,40 +608,6 @@ SET(Task_View_SRCS
 )
 SOURCE_GROUP("Task View" FILES ${Task_View_SRCS})
 
-#SET(iisTaskPanel_SRCS
-#    iisTaskPanel/src/iisfreecadscheme.cpp
-#    iisTaskPanel/src/iisfreecadscheme.h
-#    iisTaskPanel/src/iisiconlabel.cpp
-#    iisTaskPanel/src/iisiconlabel.h
-#    iisTaskPanel/src/iistaskbox.cpp
-#    iisTaskPanel/src/iistaskbox.h
-#    iisTaskPanel/src/iistaskgroup.cpp
-#    iisTaskPanel/src/iistaskgroup.h
-#    iisTaskPanel/src/iistaskheader.cpp
-#    iisTaskPanel/src/iistaskheader.h
-#    iisTaskPanel/src/iistaskpanel.cpp
-#    iisTaskPanel/src/iistaskpanel.h
-#    iisTaskPanel/src/iistaskpanelscheme.cpp
-#    iisTaskPanel/src/iistaskpanelscheme.h
-#    iisTaskPanel/src/iiswinxptaskpanelscheme.cpp
-#    iisTaskPanel/src/iiswinxptaskpanelscheme.h
-#    iisTaskPanel/src/iistaskpanel_global.h
-#)
-#SOURCE_GROUP("Widget\\iisTaskPanel" FILES ${iisTaskPanel_SRCS})
-#set(iis_MOC_HDRS
-#    iisTaskPanel/src/iisiconlabel.h
-#    iisTaskPanel/src/iistaskbox.h
-#    iisTaskPanel/src/iistaskgroup.h
-#    iisTaskPanel/src/iistaskheader.h
-#)
-
-#if (BUILD_QT5)
-#    qt5_wrap_cpp(iis_MOC_SRCS ${iis_MOC_HDRS})
-#else()
-#    qt4_wrap_cpp(iis_MOC_SRCS ${iis_MOC_HDRS})
-#endif()
-#SOURCE_GROUP("Widget\\iisTaskPanel\\Mocs" FILES ${iis_MOC_SRCS})
-
 SET(qsintActionPanel_SRCS
     QSint/actionpanel/actionbox.cpp
     QSint/actionpanel/actionbox.h
@@ -678,18 +619,18 @@ SET(qsintActionPanel_SRCS
     QSint/actionpanel/actionpanel.h
     QSint/actionpanel/actionpanelscheme.cpp
     QSint/actionpanel/actionpanelscheme.h
-    QSint/actionpanel/androidpanelscheme.cpp
-    QSint/actionpanel/androidpanelscheme.h
-    QSint/actionpanel/macpanelscheme.cpp
-    QSint/actionpanel/macpanelscheme.h
+//    QSint/actionpanel/androidpanelscheme.cpp
+//    QSint/actionpanel/androidpanelscheme.h
+//    QSint/actionpanel/macpanelscheme.cpp
+//    QSint/actionpanel/macpanelscheme.h
     QSint/actionpanel/taskgroup_p.cpp
     QSint/actionpanel/taskgroup_p.h
     QSint/actionpanel/taskheader_p.cpp
     QSint/actionpanel/taskheader_p.h
-    QSint/actionpanel/winvistapanelscheme.cpp
-    QSint/actionpanel/winvistapanelscheme.h
-    QSint/actionpanel/winxppanelscheme.cpp
-    QSint/actionpanel/winxppanelscheme.h
+//    QSint/actionpanel/winvistapanelscheme.cpp
+//    QSint/actionpanel/winvistapanelscheme.h
+//    QSint/actionpanel/winxppanelscheme.cpp
+//    QSint/actionpanel/winxppanelscheme.h
     QSint/actionpanel/freecadscheme.cpp
     QSint/actionpanel/freecadscheme.h
 )
@@ -702,11 +643,7 @@ set(qsint_MOC_HDRS
     QSint/actionpanel/taskheader_p.h
 )
 
-if(BUILD_QT5)
-    qt5_wrap_cpp(qsint_MOC_SRCS ${qsint_MOC_HDRS})
-else()
-    qt4_wrap_cpp(qsint_MOC_SRCS ${qsint_MOC_HDRS})
-endif()
+qt5_wrap_cpp(qsint_MOC_SRCS ${qsint_MOC_HDRS})
 SOURCE_GROUP("Widget\\QSintActionPanel\\Mocs" FILES ${qsint_MOC_SRCS})
 
 # The 3d view
@@ -765,11 +702,7 @@ SET(Quarter_MOC_HDR
     Quarter/eventhandlers/EventFilter.h
     Quarter/QuarterWidget.h
 )
-if(BUILD_QT5)
-    qt5_wrap_cpp(Quarter_MOC_SRCS ${Quarter_MOC_HDR})
-else()
-    qt4_wrap_cpp(Quarter_MOC_SRCS ${Quarter_MOC_HDR})
-endif()
+qt5_wrap_cpp(Quarter_MOC_SRCS ${Quarter_MOC_HDR})
 
 SET(Quarter_SRCS 
     ${Quarter_CPP_SRC} 
@@ -1008,7 +941,6 @@ SET(FreeCADGui_CPP_SRCS
     WaitCursor.cpp
     ManualAlignment.cpp
     TransactionObject.cpp
-    WinNativeGestureRecognizers.cpp
 )
 SET(FreeCADGui_SRCS 
     Application.h
@@ -1039,7 +971,6 @@ SET(FreeCADGui_SRCS
     WaitCursor.h
     ManualAlignment.h
     TransactionObject.h
-    WinNativeGestureRecognizers.h
 )
 
 SET(FreeCADGui_SRCS
