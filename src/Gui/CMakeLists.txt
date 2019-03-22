@@ -3,15 +3,6 @@ IF(CMAKE_BUILD_TYPE)
     add_definitions(-DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}")
 ENDIF(CMAKE_BUILD_TYPE)
 
-if (FREECAD_USE_3DCONNEXION)
-    add_definitions(-D_USE_3DCONNEXION_SDK)
-    if(APPLE)
-        set(3DCONNEXION_LINKFLAGS "-F/Library/Frameworks -weak_framework 3DconnexionClient")
-        set(3DCONNEXION_INCLUDE_DIR ${3DCONNEXIONCLIENT_FRAMEWORK}/Headers
-                                    ${3DCONNEXIONCLIENT_FRAMEWORK}/Headers/3DconnexionClient )
-    endif(APPLE)
-endif(FREECAD_USE_3DCONNEXION)
-
 if (BUILD_VR)
     add_definitions(-DBUILD_VR )
 endif(BUILD_VR)
@@ -37,37 +28,14 @@ include_directories(
     ${Python3_INCLUDE_DIRS}
     ${XercesC_INCLUDE_DIRS}
     ${ZLIB_INCLUDE_DIR}
-    ${3DCONNEXION_INCLUDE_DIR}
 )
 
-if(MSVC)
-    include_directories(
-        ${CMAKE_SOURCE_DIR}/src/3rdParty/OpenGL/api
-    )
-endif(MSVC)
-
-if(MSVC)
-    set(FreeCADGui_LIBS
-         FreeCADApp
-         ${COIN3D_LIBRARIES}
-         ${OPENGL_gl_LIBRARY}
-    )
-
-    if(FREECAD_USE_3DCONNEXION)
-        list(APPEND FreeCADGui_LIBS
-            hid
-        )
-    endif()
-
-else(MSVC)
     set(FreeCADGui_LIBS
         FreeCADApp
         ${COIN3D_LIBRARIES}
         ${Boost_LIBRARIES}
         ${OPENGL_gl_LIBRARY}
-        ${3DCONNEXION_LINKFLAGS}
     )
-endif(MSVC)
 
 if (BUILD_QT5)
     include_directories(
@@ -99,28 +67,6 @@ else()
         ${QT_QTUITOOLS_LIBRARY}
     )
 endif()
-
-IF(SPNAV_FOUND)
-    if (BUILD_QT5 AND UNIX AND NOT APPLE)
-        find_package(Qt5X11Extras REQUIRED)
-        include_directories(${Qt5X11Extras_INCLUDE_DIRS})
-        list(APPEND FreeCADGui_LIBS ${Qt5X11Extras_LIBRARIES})
-    endif()
-
-    add_definitions(-DSPNAV_FOUND)
-    include_directories(
-        ${SPNAV_INCLUDE_DIR}
-    )
-    list(APPEND FreeCADGui_LIBS
-        ${SPNAV_LIBRARIES}
-    )
-    find_package(X11 QUIET)
-    if (X11_FOUND)
-        list(APPEND FreeCADGui_LIBS
-            ${X11_X11_LIB}
-        )
-    endif(X11_FOUND)
-ENDIF(SPNAV_FOUND)
 
 IF(OCULUS_FOUND)
     add_definitions(-DOCULUS_FOUND)
@@ -184,24 +130,6 @@ SET(FreeCADGui_XML_SRCS
     DocumentPy.xml
 )
 SOURCE_GROUP("XML" FILES ${FreeCADApp_XML_SRCS})
-
-# The 3D Connexion SDK files
-if(FREECAD_USE_3DCONNEXION AND MSVC)
-SET(FreeCADGui_SDK_SRCS
-    3Dconnexion/I3dMouseParams.h
-    3Dconnexion/MouseParameters.cpp
-    3Dconnexion/MouseParameters.h
-    3Dconnexion/GuiApplicationNativeEventAwareWin32.cpp
-)
-SOURCE_GROUP("3D connexion SDK" FILES ${FreeCADGui_SDK_SRCS})
-endif(FREECAD_USE_3DCONNEXION AND MSVC)
-
-if(FREECAD_USE_3DCONNEXION AND APPLE)
-SET(FreeCADGui_SDK_SRCS
-    3Dconnexion/GuiApplicationNativeEventAwareMac.cpp
-)
-SOURCE_GROUP("3D connexion SDK" FILES ${FreeCADGui_SDK_SRCS})
-endif(FREECAD_USE_3DCONNEXION AND APPLE)
 
 set(Gui_MOC_HDRS
     Action.h

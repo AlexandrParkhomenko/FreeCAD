@@ -174,10 +174,6 @@ if(BUILD_GUI)
     set(COIN3D_LIB_DIR ${Coin_LIB_DIR})
     set(COIN3D_VERSION ${Coin_VERSION})
 
-#find_package(Spnav) #Spaceball
-set(SPNAV_INCLUDE_DIR "/usr/include")
-set(SPNAV_LIBRARY "/usr/lib/libspnav.so")
-
 if (BUILD_QT5)
 find_package(
   Qt5 #5.12
