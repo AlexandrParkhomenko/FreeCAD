@@ -4,7 +4,8 @@ For details see http://www.freecadweb.org
 
 Here using:
 - archlinux
-- only Path module with dependencies
+- opencascade == 7.3.0
+- only Path module with dependencies in FreeCAD
 - qt          >= 5.12
 - python      >= 3.0
 - PySide2     == 5.12.1
