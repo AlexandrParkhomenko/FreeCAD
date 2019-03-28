@@ -1,8 +1,4 @@
-/**
-   \defgroup ZIPIOS Zipios++
-   \ingroup EMBEDDED
-
-   \section intro Introduction
+Introduction
    
    Zipios++ is a java.util.zip-like C++ library for reading and
    writing Zip files. Access to individual entries is provided through
@@ -108,6 +104,5 @@
    SourceForge
    </A><p>
    \endhtmlonly
- */
 
 
