@@ -9,7 +9,7 @@ Introduction
    HREF="http://www.gnu.org/copyleft/lesser.html">GNU Lesser General Public
    License</A>.
    
-   \section status Status
+   Status
 
    Spanned archives are not supported, and support is not planned.
    
@@ -27,34 +27,39 @@ Introduction
    If you are aware of any other platforms that Zipios++ works on,
    please let me know (thomass@deltadata.dk).
 
-   \subsection zipfiles Zip file access
-   The two most important classes are \ref zipfile_anchor "ZipFile" and 
-   \ref ZipInputStream_anchor "ZipInputStream". ZipInputStream is an istream
+   Zip file access
+   
+   The two most important classes are 
+   - zipfile_anchor "ZipFile" and 
+   - ZipInputStream_anchor "ZipInputStream". ZipInputStream is an istream
    for reading zipfiles. It can be instantiated directly, without the
    use of ZipFile. A new ZipInputStream reads from the first entry, and
    the user can skip to the next entry by calling
-   \ref ZipInputStream_getnextentry_anchor "ZipInputStream::getNextEntry()".
+   - ZipInputStream_getnextentry_anchor "ZipInputStream::getNextEntry()".
    
    ZipFile scans the central directory of a zipfile and provides an
    interface to access that directory. The user may search for entries
-   with a particular filename using \ref fcoll_getentry_anchor "ZipFile::getEntry()", 
+   with a particular filename using 
+   - fcoll_getentry_anchor "ZipFile::getEntry()", 
    or simply get the complete list of entries
-   with \ref fcoll_entries_anchor "ZipFile::entries()". To get an
+   with 
+   - fcoll_entries_anchor "ZipFile::entries()". To get an
    istream (ZipInputStream) to a particular entry simply use
-   \ref fcoll_getinputstream "ZipFile::getInputStream()".
+   - fcoll_getinputstream "ZipFile::getInputStream()".
    
    "example_zip.cpp" demonstrates the central elements of Zipios++.
    
    A Zip file appended to another file, e.g. a binary program, with the 
    program "appendzip", can be read with 
-   \ref zipfile_openembeddedzipfile "ZipFile::openEmbeddedZipFile()".
+   - zipfile_openembeddedzipfile "ZipFile::openEmbeddedZipFile()".
 
-   \subsection filecollections FileCollections
+   FileCollections
    
    A ZipFile is actually just a special kind of 
-   \ref fcoll_anchor "FileCollection" that
+   - fcoll_anchor "FileCollection" that
    obtains its entries from a .zip Zip archive. Zipios++ also implements
-   a \ref dircol_anchor "DirectoryCollection" that obtains its entries 
+   a 
+   - dircol_anchor "DirectoryCollection" that obtains its entries 
    from a specified directory, and a \ref collcoll_anchor "CollectionCollection" 
    that obtains its entries from
    other collections. Using a single CollectionCollection any number of
@@ -63,24 +68,26 @@ Introduction
    a DirectoryCollection. A singleton (a unique global instance)
    CollectionCollection can be obtained through
    
-   \ref collcoll_inst_anchor "CollectionCollection::inst()" ;
+   - collcoll_inst_anchor "CollectionCollection::inst()" ;
 
    To save typing CollectionCollection has been typedef'ed to CColl. In
    the initialization part of an application FileCollections can be
    created, and placed under CColll::inst()'s control using
    
-   \ref collcoll_addcoll_anchor "CColl::inst().addCollection()"
+   - collcoll_addcoll_anchor "CColl::inst().addCollection()"
    
    and later an istream can be obtained using
 
-   \ref fcoll_getinputstream "CColl::inst().getInputStream()".
+   - fcoll_getinputstream "CColl::inst().getInputStream()".
    
-   \section download Download 
+   Download 
+   
    Go to Zipios++ project page on SourceForge for tar balls and ChangeLog.
    <A HREF="http://sourceforge.net/project/?group_id=5418" >
    http://sourceforge.net/project/?group_id=5418</A>
    
-   \section links Links
+   Links
+   
    <A HREF="ftp://ftp.freesoftware.com/pub/infozip/zlib/zlib.html">zlib</A>. 
    The compression library that Zipios++ uses to perform the actual 
    decompression.
@@ -94,15 +101,12 @@ Introduction
    PKWARE zip format 
    </A>. A description of the zip file format.
    
-   \section bugs Bugs 
+   Bugs
+   
    Submit bug reports and patches to thomass@deltadata.dk 
    
    
    
-   \htmlonly
-   Project hosted by <A HREF="http://sourceforge.net">
-   SourceForge
-   </A><p>
-   \endhtmlonly
+   Project hosted by <A HREF="http://sourceforge.net">SourceForge</A>
 
 
