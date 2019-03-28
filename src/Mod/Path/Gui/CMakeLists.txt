@@ -47,7 +47,6 @@ SET(PathGui_SRCS_Module
     AppPathGui.cpp
     AppPathGuiPy.cpp
     Resources/Path.qrc
-    PreCompiled.cpp
     PreCompiled.h
     DlgSettingsPathColor.ui
     DlgSettingsPathColor.cpp

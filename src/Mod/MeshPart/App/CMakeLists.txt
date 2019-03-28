@@ -44,7 +44,6 @@ SET(MeshPart_SRCS
     MeshAlgos.h
     Mesher.cpp
     Mesher.h
-    PreCompiled.cpp
     PreCompiled.h
 )
 

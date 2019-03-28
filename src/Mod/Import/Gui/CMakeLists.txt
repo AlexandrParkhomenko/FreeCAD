@@ -24,7 +24,6 @@ SET(ImportGui_SRCS
     AppImportGui.cpp
     AppImportGuiPy.cpp
     Command.cpp
-    PreCompiled.cpp
     PreCompiled.h
     Workbench.cpp
     Workbench.h

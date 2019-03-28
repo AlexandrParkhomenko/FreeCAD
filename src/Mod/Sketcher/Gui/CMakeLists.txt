@@ -74,7 +74,6 @@ SET(SketcherGui_SRCS
     CommandSketcherVirtualSpace.cpp
     CommandAlterGeometry.cpp
     Resources/Sketcher.qrc
-    PreCompiled.cpp
     PreCompiled.h
     SoZoomTranslation.cpp
     SoZoomTranslation.h
