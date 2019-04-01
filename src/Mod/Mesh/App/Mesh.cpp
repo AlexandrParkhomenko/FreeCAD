@@ -1125,6 +1125,15 @@ void MeshObject::refine()
     this->_segments.clear();
 }
 
+void MeshObject::removeSmallEdges(float length)
+{
+    unsigned long count = _kernel.CountFacets();
+    MeshCore::MeshRemoveSmallEdges eval(_kernel, length);
+    eval.Fixup();
+    if (_kernel.CountFacets() < count)
+        this->_segments.clear();
+}
+
 void MeshObject::optimizeTopology(float fMaxAngle)
 {
     MeshCore::MeshTopoAlgorithm topalg(_kernel);
@@ -1408,8 +1417,8 @@ void MeshObject::validateDeformations(float fMaxAngle, float fEps)
 {
     unsigned long count = _kernel.CountFacets();
     MeshCore::MeshFixDeformedFacets eval(_kernel,
-                                         Base::toRadians(30.0f),
-                                         Base::toRadians(120.0f),
+                                         Base::toRadians(15.0f),
+                                         Base::toRadians(150.0f),
                                          fMaxAngle, fEps);
     eval.Fixup();
     if (_kernel.CountFacets() < count)
