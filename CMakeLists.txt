@@ -242,4 +242,3 @@ endif (BUILD_GUI)
 
 include_directories(${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
 add_subdirectory(src)
-
