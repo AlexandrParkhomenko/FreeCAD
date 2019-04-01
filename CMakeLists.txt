@@ -4,13 +4,9 @@ project(FreeCAD)
 set(PACKAGE_VERSION_NAME "FreeCAD.0.2019.Path")
 configure_file(${CMAKE_SOURCE_DIR}/src/Version.h.cmake ${CMAKE_SOURCE_DIR}/src/Version.h)
 #compilator
-set(BUILD_ENABLE_CXX_STD "C++11"  CACHE STRING  "Enable C++ standard")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-set_property(CACHE BUILD_ENABLE_CXX_STD PROPERTY STRINGS "C++11" "C++14" "C++17")
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-write-strings ${CMAKE_CXX_FLAGS}")
+set(CMAKE_CXX_STANDARD 17) #CXX_STANDARD_REQUIRED YES  #CXX_EXTENSIONS NO
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-write-strings ${CMAKE_CXX_FLAGS}") #-Werror -Wno-deprecated -pedantic-errors
 set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--no-undefined")  # get linker errors
-# BUILD_USE_PCH
-# https://gcc.gnu.org/onlinedocs/gcc/Precompiled-Headers.html
 
 include(AddFileDependencies)
 include(${CMAKE_SOURCE_DIR}/Macros.cmake)
@@ -246,55 +242,3 @@ endif (BUILD_GUI)
 
 include_directories(${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
 add_subdirectory(src)
-
-
-# if you need this create precompiled
-# BUILD_USE_PCH
-# https://gcc.gnu.org/onlinedocs/gcc/Precompiled-Headers.html
-#    add_definitions(-D_PreComp_)
-add_custom_target(precompiled_gch)
-add_custom_command(
-  TARGET precompiled_gch
-  PRE_BUILD
-  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/src
-  COMMAND "${CMAKE_CXX_COMPILER}" -D_PreComp_ # -x c++-header
-    -I/usr/include
-    -I${CMAKE_SOURCE_DIR}/src
-    #${Boost_INCLUDE_DIRS}
-    -I${Python3_INCLUDE_DIRS}
-    #-I${XercesC_INCLUDE_DIRS}
-    #${ZLIB_INCLUDE_DIR}
-#        -I${Qt5Core_INCLUDE_DIRS}
-#        -I${Qt5Widgets_INCLUDE_DIRS}
-#        -I${Qt5Gui_INCLUDE_DIRS}  #
-#        -I${Qt5OpenGL_INCLUDE_DIRS}
-#        -I${Qt5PrintSupport_INCLUDE_DIRS}
-#        -I${Qt5Svg_INCLUDE_DIRS}
-#        -I${Qt5Network_INCLUDE_DIRS} # LocalSockets
-#        -I${Qt5UiTools_INCLUDE_DIRS}
-#    App/PreCompiled.h
-    Base/PreCompiled.h
-#    Gui/PreCompiled.h
-#    Mod/Mesh/App/PreCompiled.h
-  COMMENT "Precompiling C++ headers..."
-)
-#Base/PreCompiled.h
-#Gui/PreCompiled.h
-#App/PreCompiled.h
-#Mod/MeshPart/Gui/PreCompiled.h
-#Mod/MeshPart/App/PreCompiled.h
-#Mod/Part/Gui/PreCompiled.h
-#Mod/Part/App/PreCompiled.h
-#Mod/Import/Gui/PreCompiled.h
-#Mod/Import/App/PreCompiled.h
-#Mod/Sketcher/Gui/PreCompiled.h
-#Mod/Sketcher/App/PreCompiled.h
-#Mod/Path/Gui/PreCompiled.h
-#Mod/Path/App/PreCompiled.h
-#Mod/Mesh/Gui/PreCompiled.h
-#Mod/Mesh/App/PreCompiled.h
-#Mod/Points/Gui/PreCompiled.h
-#Mod/Points/App/PreCompiled.h
-#Tools/_TEMPLATE_/Gui/PreCompiled.h
-#Tools/_TEMPLATE_/App/PreCompiled.h
-
