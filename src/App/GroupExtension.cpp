@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "DocumentObjectGroup.h"
 #include "DocumentObjectGroupPy.h"
@@ -157,7 +154,6 @@ void GroupExtension::removeObjectsFromDocument()
     for (std::set<DocumentObject*>::iterator it = grpSet.begin(); it != grpSet.end(); ++it) {
         removeObjectFromDocument(*it);
     }
-#endif
 }
 
 void GroupExtension::removeObjectFromDocument(DocumentObject* obj)
@@ -355,3 +351,4 @@ EXTENSION_PROPERTY_SOURCE_TEMPLATE(App::GroupExtensionPython, App::GroupExtensio
 // explicit template instantiation
 template class AppExport ExtensionPythonT<GroupExtensionPythonT<GroupExtension>>;
 }
+

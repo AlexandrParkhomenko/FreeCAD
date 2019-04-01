@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepAdaptor_Curve.hxx>
 # include <BRepAdaptor_Surface.hxx>
 # include <GeomAbs_CurveType.hxx>
@@ -45,7 +43,6 @@
 # include <Inventor/nodes/SoSwitch.h>
 # include <QAction>
 # include <QMenu>
-#endif
 
 #include <boost/bind.hpp>
 
@@ -300,3 +297,4 @@ void ViewProviderSpline::showControlPointsOfFace(const TopoDS_Face& face)
 
     pcControlPoints->addChild(nodes);
 }
+

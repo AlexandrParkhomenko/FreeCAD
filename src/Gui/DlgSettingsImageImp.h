@@ -87,3 +87,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGSETTINGSIMAGE_IMP_H
+

@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "Workbench.h"
 #include <Gui/MenuManager.h>
@@ -62,3 +59,4 @@ Gui::ToolBarItem* Workbench::setupToolBars() const
     *test << "_TEMPLATE__Test"; 
     return root;
 }
+

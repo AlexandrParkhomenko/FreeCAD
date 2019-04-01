@@ -483,3 +483,4 @@ inline const ColorModel& ColorGradient::getColorModel (void) const
 } // namespace App
 
 #endif // APP_COLORMODEL_H 
+

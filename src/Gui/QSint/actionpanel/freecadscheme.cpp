@@ -334,3 +334,4 @@ QString SystemPanelScheme::systemStyle(const QPalette& p) const
 }
 
 }
+

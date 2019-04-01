@@ -21,9 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include "ProgressIndicator.h"
 
@@ -83,3 +80,4 @@ Standard_Boolean ProgressIndicator::UserBreak()
 {
     return myProgress->wasCanceled();
 }
+

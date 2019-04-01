@@ -291,3 +291,4 @@ template<> void _class_::init(void){\
 } // namespace App
 
 #endif // APP_PROPERTYCONTAINER_H
+

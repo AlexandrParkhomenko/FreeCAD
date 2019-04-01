@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Geom_BSplineCurve.hxx>
 # include <Geom_BSplineSurface.hxx>
 # include <Geom_BSplineCurve.hxx>
@@ -34,7 +32,6 @@
 # include <Precision.hxx>
 # include <GeomAPI_PointsToBSplineSurface.hxx>
 # include <GeomAbs_Shape.hxx>
-#endif
 
 #include <Base/GeometryPyCXX.h>
 #include <Base/VectorPy.h>
@@ -1647,3 +1644,4 @@ int BSplineSurfacePy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*
 {
     return 0; 
 }
+

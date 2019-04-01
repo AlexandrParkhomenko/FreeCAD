@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
-#endif
 
 #include <Base/Sequencer.h>
 #include <Base/Exception.h>
@@ -356,3 +353,4 @@ void MeshFastBuilder::Finish ()
 
     _meshKernel.Adopt(rPoints, rFacets, true);
 }
+

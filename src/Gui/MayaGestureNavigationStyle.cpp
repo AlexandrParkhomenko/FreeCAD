@@ -56,8 +56,6 @@
  * This style wasn't tested with space during development (I don't have one).
  */
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <cfloat>
 # include <QAction>
 # include <QActionGroup>
@@ -68,7 +66,6 @@
 # include <QMenu>
 # include <QMetaObject>
 # include <QRegExp>
-#endif
 
 #include <Inventor/sensors/SoTimerSensor.h>
 
@@ -610,3 +607,4 @@ SbBool MayaGestureNavigationStyle::processSoEvent(const SoEvent * const ev)
 finalize:
     return processed;
 }
+

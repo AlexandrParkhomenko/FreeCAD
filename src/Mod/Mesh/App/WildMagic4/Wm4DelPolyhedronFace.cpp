@@ -48,3 +48,4 @@ template WM4_FOUNDATION_ITEM
 class DelPolyhedronFace<double>;
 //----------------------------------------------------------------------------
 }
+

@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #include <sstream>
 #include <QDir>
 #include <QMessageBox>
@@ -171,3 +170,4 @@ void DlgProjectUtility::on_createButton_clicked()
 }
 
 #include "moc_DlgProjectUtility.cpp"
+

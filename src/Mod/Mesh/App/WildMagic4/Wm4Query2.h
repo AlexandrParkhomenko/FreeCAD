@@ -88,3 +88,4 @@ typedef Query2<double> Query2d;
 }
 
 #endif
+

@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QDir>
 # include <QFileInfo>
 # include <QLineEdit>
 # include <QInputDialog>
 # include <Standard_math.hxx>
-#endif
 
 #include <Base/Exception.h>
 #include <App/Document.h>
@@ -359,3 +356,4 @@ void CreateSimplePartCommands(void)
     rcCmdMgr.addCommand(new CmdPartRefineShape());
     rcCmdMgr.addCommand(new CmdPartDefeaturing());
 }
+

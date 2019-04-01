@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "TaskEditControl.h"
 
@@ -54,3 +51,4 @@ QDialogButtonBox* TaskEditControl::standardButtons() const
 }
 
 #include "moc_TaskEditControl.cpp"
+

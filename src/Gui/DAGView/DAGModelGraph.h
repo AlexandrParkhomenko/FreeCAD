@@ -291,3 +291,4 @@ namespace Gui
 }
 
 #endif // DAGMODELGRAPH_H
+

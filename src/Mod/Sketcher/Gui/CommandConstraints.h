@@ -126,3 +126,4 @@ void doEndpointTangency(Sketcher::SketchObject* Obj, Gui::SelectionObject &selec
 }
 #endif // SKETCHERGUI_DrawSketchHandler_H
 
+

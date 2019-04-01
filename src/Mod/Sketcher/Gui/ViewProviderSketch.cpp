@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Standard_math.hxx>
 # include <Poly_Polygon3D.hxx>
 # include <Geom_BSplineCurve.hxx>
@@ -70,11 +68,8 @@
 # include <QPainter>
 # include <QTextStream>
 # include <QKeyEvent>
-#endif
 
-#ifndef _PreComp_
 # include <boost/bind.hpp>
-#endif
 
 #include <Inventor/SbTime.h>
 #include <boost/scoped_ptr.hpp>
@@ -1200,7 +1195,6 @@ bool ViewProviderSketch::mouseMove(const SbVec2s &cursorPos, Gui::View3DInventor
             qreal dpr = viewer->getGLWidget()->devicePixelRatioF();
 #else
             qreal dpr = 1;
-#endif
             newCursorPos = cursorPos;
             rubberband->setCoords(prvCursorPos.getValue()[0],
                        viewer->getGLWidget()->height()*dpr - prvCursorPos.getValue()[1],
@@ -1228,7 +1222,6 @@ void ViewProviderSketch::moveConstraint(int constNum, const Base::Vector2d &toPo
 #ifdef _DEBUG
     int intGeoCount = getSketchObject()->getHighestCurveIndex() + 1;
     int extGeoCount = getSketchObject()->getExternalGeometryCount();
-#endif
 
     // with memory allocation
     const std::vector<Part::Geometry *> geomlist = getSketchObject()->getSolvedSketch().extractGeometry(true, true);
@@ -1237,7 +1230,6 @@ void ViewProviderSketch::moveConstraint(int constNum, const Base::Vector2d &toPo
     assert(int(geomlist.size()) == extGeoCount + intGeoCount);
     assert((Constr->First >= -extGeoCount && Constr->First < intGeoCount)
            || Constr->First != Constraint::GeoUndef);
-#endif
 
     if (Constr->Type == Distance || Constr->Type == DistanceX || Constr->Type == DistanceY ||
         Constr->Type == Radius || Constr->Type == Diameter) {
@@ -1750,7 +1742,6 @@ std::set<int> ViewProviderSketch::detectPreselectionConstr(const SoPickedPoint *
 
 #ifdef FC_DEBUG
                             Base::Console().Log("Abs(%f,%f),Trans(%f,%f),Coords(%d,%d),iCoords(%f,%f),icon(%d,%d),isize(%d,%d),boundingbox([%d,%d],[%d,%d])\n", absPos[0],absPos[1],trans[0], trans[1], cursorPos[0], cursorPos[1], iconCoords[0], iconCoords[1], iconX, iconY, iconSize[0], iconSize[1], b->first.topLeft().x(),b->first.topLeft().y(),b->first.bottomRight().x(),b->first.bottomRight().y());
-#endif
 
                             if (b->first.contains(iconX, iconY)) {
                                 // We've found a bounding box that contains the mouse pointer!
@@ -1966,7 +1957,6 @@ SbVec3s ViewProviderSketch::getDisplayedSize(const SoImage *iconPtr) const
     const unsigned char * bytes = iconPtr->image.getValue(size, nc);
     SbImage img (bytes, size, nc);
     SbVec3s iconSize = img.getSize();
-#endif
     if (iconPtr->width.getValue() != -1)
         iconSize[0] = iconPtr->width.getValue();
     if (iconPtr->height.getValue() != -1)
@@ -6424,3 +6414,4 @@ void ViewProviderSketch::showRestoreInformationLayer() {
     visibleInformationChanged = true ;
     draw(false,false);
 }
+

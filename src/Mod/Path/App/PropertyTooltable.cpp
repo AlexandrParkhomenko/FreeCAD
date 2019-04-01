@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
-#endif
 
 
 #include <Base/Console.h>
@@ -112,5 +109,6 @@ void PropertyTooltable::Restore(Base::XMLReader &reader)
     temp.Restore(reader);
     setValue(temp);
 }
+
 
 

@@ -21,15 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepFilletAPI_MakeFillet.hxx>
 # include <TopExp.hxx>
 # include <TopExp_Explorer.hxx>
 # include <TopoDS.hxx>
 # include <TopoDS_Edge.hxx>
 # include <TopTools_IndexedMapOfShape.hxx>
-#endif
 
 
 #include "FeatureFillet.h"
@@ -57,7 +54,6 @@ App::DocumentObjectExecReturn *Fillet::execute(void)
     try {
 #if defined(__GNUC__) && defined (FC_OS_LINUX)
         Base::SignalException se;
-#endif
         BRepFilletAPI_MakeFillet mkFillet(base->Shape.getValue());
         TopTools_IndexedMapOfShape mapOfShape;
         TopExp::MapShapes(base->Shape.getValue(), TopAbs_EDGE, mapOfShape);
@@ -92,3 +88,4 @@ App::DocumentObjectExecReturn *Fillet::execute(void)
         return new App::DocumentObjectExecReturn("A fatal error occurred when making fillets");
     }
 }
+

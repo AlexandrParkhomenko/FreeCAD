@@ -728,3 +728,4 @@ private:
 } // namespace Base 
 
 #endif // BASE_CONSOLE_H
+

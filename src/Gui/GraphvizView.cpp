@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QFile>
 # include <QPrinter>
@@ -38,7 +36,6 @@
 # include <QThread>
 # include <QProcess>
 # include <boost/bind.hpp>
-#endif
 #include "GraphicsViewZoom.h"
 #include "FileDialog.h"
 
@@ -70,7 +67,6 @@ public:
 #if QT_VERSION < 0x050000
         dotProc.moveToThread(this);
         unflattenProc.moveToThread(this);
-#endif
     }
 
     virtual ~GraphvizWorker()
@@ -78,7 +74,6 @@ public:
 #if QT_VERSION >= 0x050000
         dotProc.moveToThread(this);
         unflattenProc.moveToThread(this);
-#endif
     }
 
     void setData(const QByteArray & data)
@@ -97,7 +92,6 @@ public:
         emitFinished();
 #else
         start();
-#endif
     }
 
     void run() {
@@ -181,7 +175,6 @@ GraphvizView::GraphvizView(App::Document & _doc, QWidget* parent)
     thread = new GraphvizWorker(this);
 #if QT_VERSION >= 0x050000
     connect(thread, SIGNAL(emitFinished()), this, SLOT(done()));
-#endif
     connect(thread, SIGNAL(finished()), this, SLOT(done()));
     connect(thread, SIGNAL(error()), this, SLOT(error()));
     connect(thread, SIGNAL(svgFileRead(const QByteArray &)), this, SLOT(svgFileRead(const QByteArray &)));
@@ -219,7 +212,6 @@ void GraphvizView::updateSvgItem(const App::Document &doc)
     QString path = QString::fromUtf8(hGrp->GetASCII("Graphviz", "/usr/bin").c_str());
 #else
     QString path = QString::fromUtf8(hGrp->GetASCII("Graphviz").c_str());
-#endif
     bool pathChanged = false;
 #ifdef FC_OS_WIN32
     QString dot = QString::fromLatin1("\"%1/dot\"").arg(path);
@@ -227,7 +219,6 @@ void GraphvizView::updateSvgItem(const App::Document &doc)
 #else
     QString dot = QString::fromLatin1("%1/dot").arg(path);
     QString unflatten = QString::fromLatin1("%1/unflatten").arg(path);
-#endif
     dotProc->setEnvironment(QProcess::systemEnvironment());
     flatProc->setEnvironment(QProcess::systemEnvironment());
     do {
@@ -262,7 +253,6 @@ void GraphvizView::updateSvgItem(const App::Document &doc)
 #else
             dot = QString::fromLatin1("%1/dot").arg(path);
             unflatten = QString::fromLatin1("%1/unflatten").arg(path);
-#endif
         }
         else {
             if (pathChanged)
@@ -333,7 +323,6 @@ QByteArray GraphvizView::exportGraph(const QString& format)
     QString path = QString::fromUtf8(hGrp->GetASCII("Graphviz", "/usr/bin").c_str());
 #else
     QString path = QString::fromUtf8(hGrp->GetASCII("Graphviz").c_str());
-#endif
 
 #ifdef FC_OS_WIN32
     QString exe = QString::fromLatin1("\"%1/dot\"").arg(path);
@@ -341,7 +330,6 @@ QByteArray GraphvizView::exportGraph(const QString& format)
 #else
     QString exe = QString::fromLatin1("%1/dot").arg(path);
     QString unflatten = QString::fromLatin1("%1/unflatten").arg(path);
-#endif
        
     dotProc.setEnvironment(QProcess::systemEnvironment());
     dotProc.start(exe, args);
@@ -496,3 +484,4 @@ void GraphvizView::printPreview()
 
 #include "moc_GraphvizView.cpp"
 #include "moc_GraphvizView-internal.cpp"
+

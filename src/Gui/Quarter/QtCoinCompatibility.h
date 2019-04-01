@@ -48,3 +48,4 @@ namespace QtCoinCompatibility {
 }}} // namespace
 
 #endif // QUARTER_QTCOINCOMPATIBILITY_H
+

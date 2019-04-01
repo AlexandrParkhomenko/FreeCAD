@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include <App/Document.h>
 #include <App/PropertyStandard.h>
@@ -176,3 +175,4 @@ void DlgProjectInformationImp::open_url()
 }
 
 #include "moc_DlgProjectInformationImp.cpp"
+

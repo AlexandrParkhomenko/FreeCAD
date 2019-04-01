@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <cstdio>
 # include <algorithm>
 # include <QMutex>
 # include <QMutexLocker>
-#endif
 
 #include "Sequencer.h"
 #include "Console.h"
@@ -380,3 +377,4 @@ Py::Object ProgressIndicatorPy::stop(const Py::Tuple& args)
     _seq.reset();
     return Py::None();
 }
+

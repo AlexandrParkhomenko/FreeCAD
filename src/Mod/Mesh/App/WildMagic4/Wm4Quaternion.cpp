@@ -29,3 +29,4 @@ template<> double Quaternion<double>::ms_fTolerance = 1e-08;
 template<> double Quaternion<double>::ms_fRootTwo = sqrt(2.0);
 template<> double Quaternion<double>::ms_fRootHalf = sqrt(0.5);
 }
+

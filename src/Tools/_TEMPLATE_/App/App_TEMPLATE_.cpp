@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Python.h>
-#endif
 
 #include <Base/Console.h>
 #include <Base/PyObjectBase.h>
@@ -66,3 +63,4 @@ PyMOD_INIT_FUNC(_TEMPLATE_)
     Base::Console().Log("Loading _TEMPLATE_ module... done\n");
     PyMOD_Return(mod);
 }
+

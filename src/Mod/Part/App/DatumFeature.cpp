@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "DatumFeature.h"
 
@@ -66,3 +63,4 @@ void Datum::handleChangedPropertyName(Base::XMLReader &reader, const char* TypeN
 {
     extHandleChangedPropertyName(reader, TypeName, PropName); // AttachExtension
 }
+

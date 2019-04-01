@@ -225,3 +225,4 @@ typedef FeaturePythonT<GeoFeature    > GeometryPython;
 } //namespace App
 
 #endif // APP_FEATUREPYTHON_H
+

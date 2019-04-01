@@ -258,3 +258,4 @@ QSize ActionGroup::minimumSizeHint() const
 
 
 }
+

@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Inventor/actions/SoToVRML2Action.h>
 # include <Inventor/VRMLnodes/SoVRMLGroup.h>
 # include <Inventor/VRMLnodes/SoVRMLParent.h>
 # include <Inventor/SbString.h>
 # include <Inventor/nodes/SoGroup.h>
-#endif
 
 #include <Base/FileInfo.h>
 #include <Base/Stream.h>
@@ -371,3 +368,4 @@ SoGroup* Gui::SoFCDB::getStorage()
   assert(storage); //call init first.
   return storage;
 }
+

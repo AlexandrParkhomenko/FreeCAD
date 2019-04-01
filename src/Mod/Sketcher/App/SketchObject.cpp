@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <TopoDS_Shape.hxx>
 # include <TopoDS_Face.hxx>
 # include <TopoDS_Edge.hxx>
@@ -59,7 +57,6 @@
 # include <cmath>
 # include <vector>
 //# include <QtGlobal>
-#endif
 
 #include <boost/bind.hpp>
 
@@ -1434,7 +1431,6 @@ int SketchObject::fillet(int GeoId1, int GeoId2,
 #ifdef DEBUG
         Base::Console().Log("\n\nFILLET DEBUG\n\n");
         Base::Console().Log("Ref param: (%f);(%f)",refparam1,refparam2);
-#endif
 
         std::pair<Base::Vector3d, Base::Vector3d> interpoints;
         std::vector<std::pair<Base::Vector3d, Base::Vector3d>> points;
@@ -1593,7 +1589,6 @@ int SketchObject::fillet(int GeoId1, int GeoId2,
         Base::Vector3d c2pf = curve2->pointAtParameter(spc2);
 
         Base::Console().Log("start point curves: (%f,%f,%f);(%f,%f,%f)\n",c1pf.x,c1pf.y,c1pf.z,c2pf.x,c2pf.y,c2pf.z);
-#endif
         // We create Offset curves at the suggested radius, the direction of offset is estimated from the tangency vector
         Base::Vector3d tdir1 = curve1->firstDerivativeAtParameter(refparam1);
         Base::Vector3d tdir2 = curve2->firstDerivativeAtParameter(refparam2);
@@ -1601,7 +1596,6 @@ int SketchObject::fillet(int GeoId1, int GeoId2,
 #ifdef DEBUG
         Base::Console().Log("tangent vectors: (%f,%f,%f);(%f,%f,%f)\n",tdir1.x,tdir1.y,tdir1.z,tdir2.x,tdir2.y,tdir2.z);
         Base::Console().Log("inter-ref vector: (%f,%f,%f)\n",ref21.x,ref21.y,ref21.z);
-#endif
 
         Base::Vector3d vn(0,0,1);
 
@@ -1611,7 +1605,6 @@ int SketchObject::fillet(int GeoId1, int GeoId2,
 #ifdef DEBUG
         Base::Console().Log("sign of offset: (%f,%f)\n",sdir1,sdir2);
         Base::Console().Log("radius: %f\n",radius);
-#endif
 
         Part::GeomOffsetCurve * ocurve1 = new Part::GeomOffsetCurve(Handle(Geom_Curve)::DownCast(curve1->handle()), (sdir1<0)?radius:-radius, vn);
 
@@ -1632,7 +1625,6 @@ int SketchObject::fillet(int GeoId1, int GeoId2,
 
         printoffsetcurve(ocurve1);
         printoffsetcurve(ocurve2);*/
-#endif
 
         // Next we calculate the intersection of offset curves to get the center of the fillet
         std::pair<Base::Vector3d, Base::Vector3d> filletcenterpoint;
@@ -1642,7 +1634,6 @@ int SketchObject::fillet(int GeoId1, int GeoId2,
             if(!ocurve1->intersect(ocurve2,offsetintersectionpoints)) {
 #ifdef DEBUG
                 Base::Console().Log("No intersection between offset curves\n");
-#endif
                 return -1;
 
             }
@@ -1656,7 +1647,6 @@ int SketchObject::fillet(int GeoId1, int GeoId2,
         for(auto inter:offsetintersectionpoints) {
                 Base::Console().Log("offset int(%f,%f,0)\n",inter.first.x,inter.first.y);
         }
-#endif
 
         int res = selectintersection(offsetintersectionpoints,filletcenterpoint,refPnt1, refPnt2);
 
@@ -1665,7 +1655,6 @@ int SketchObject::fillet(int GeoId1, int GeoId2,
 
 #ifdef DEBUG
         Base::Console().Log("selected offset int(%f,%f,0)\n",filletcenterpoint.first.x,filletcenterpoint.first.y);
-#endif
 
         double refoparam1;
         double refoparam2;
@@ -1694,7 +1683,6 @@ int SketchObject::fillet(int GeoId1, int GeoId2,
 
 #ifdef DEBUG
         Base::Console().Log("refpoints: (%f,%f,%f);(%f,%f,%f)",refp1.x,refp1.y,refp1.z,refp2.x,refp2.y,refp2.z);
-#endif
         // Now we create arc for the fillet
         double startAngle, endAngle, range;
 
@@ -1800,7 +1788,6 @@ int SketchObject::fillet(int GeoId1, int GeoId2,
 
 #ifdef DEBUG
         Base::Console().Log("\n\nEND OF FILLET DEBUG\n\n");
-#endif
 
         if(noRecomputes) // if we do not have a recompute after the geometry creation, the sketch must be solved to update the DoF of the solver
             solve();
@@ -4439,7 +4426,6 @@ int SketchObject::exposeInternalGeometry(int GeoId)
                 incrgeo++;
             }
         }
-        #endif
 
         Q_UNUSED(isfirstweightconstrained);
         // constraint the first weight to allow for seamless weight modification and proper visualization
@@ -4892,7 +4878,6 @@ bool SketchObject::modifyBSplineKnotMultiplicity(int GeoId, int knotIndex, int m
 {
     #if OCC_VERSION_HEX < 0x060900
         THROWMT(Base::NotImplementedError, QT_TRANSLATE_NOOP("Exceptions", "This version of OCE/OCC does not support knot operation. You need 6.9.0 or higher."))
-    #endif
 
     if (GeoId < 0 || GeoId > getHighestCurveIndex())
         THROWMT(Base::ValueError,QT_TRANSLATE_NOOP("Exceptions", "BSpline Geometry Index (GeoID) is out of bounds."))
@@ -5574,7 +5559,6 @@ void SketchObject::rebuildExternalGeometry(void)
                   invMat[2][0],invMat[2][1],invMat[2][2],invMat[2][3]
 #if OCC_VERSION_HEX < 0x060800
                   , 0.00001, 0.00001
-#endif
                   ); //precision was removed in OCCT CR0025194
 
     gp_Ax3 sketchAx3(gp_Pnt(Pos.x,Pos.y,Pos.z),
@@ -6588,7 +6572,6 @@ void SketchObject::onChanged(const App::Property* prop)
             }
         }
     }
-#endif
     Part::Part2DObject::onChanged(prop);
 }
 
@@ -6997,3 +6980,4 @@ template<> PyObject* Sketcher::SketchObjectPython::getPyObject(void) {
 // explicit template instantiation
 template class SketcherExport FeaturePythonT<Sketcher::SketchObject>;
 }
+

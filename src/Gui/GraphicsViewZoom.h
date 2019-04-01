@@ -92,3 +92,4 @@ private:
 };
 
 #endif // GRAPHICSVIEWZOOM_H
+

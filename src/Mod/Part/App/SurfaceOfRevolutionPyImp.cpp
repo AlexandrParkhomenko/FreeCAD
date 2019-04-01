@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Geom_SurfaceOfRevolution.hxx>
-#endif
 
 #include "Geometry.h"
 #include "SurfaceOfRevolutionPy.h"
@@ -180,5 +177,6 @@ int SurfaceOfRevolutionPy::setCustomAttributes(const char* /*attr*/, PyObject* /
 {
     return 0; 
 }
+
 
 

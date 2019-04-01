@@ -125,3 +125,4 @@ protected:
 };
 
 #endif // SOTOUCHEVENTS_H
+

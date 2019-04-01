@@ -81,3 +81,4 @@ private:
 
 #endif // GUI_VIEWPROVIDER_DRAGGER_H
 
+

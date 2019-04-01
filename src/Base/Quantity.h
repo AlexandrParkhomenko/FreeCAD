@@ -271,3 +271,4 @@ protected:
 } // namespace Base
 
 #endif // BASE_Quantity_H
+

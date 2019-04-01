@@ -452,3 +452,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_WIDGETS_H
+

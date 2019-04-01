@@ -21,9 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include "Smoothing.h"
 #include "MeshKernel.h"
@@ -306,3 +303,4 @@ void TaubinSmoothing::SmoothPoints(unsigned int iterations, const std::vector<un
         Umbrella(vv_it, vf_it, -(lambda+micro), point_indices);
     }
 }
+

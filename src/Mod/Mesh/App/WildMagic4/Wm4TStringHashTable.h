@@ -83,3 +83,4 @@ private:
 #include "Wm4TStringHashTable.inl"
 
 #endif
+

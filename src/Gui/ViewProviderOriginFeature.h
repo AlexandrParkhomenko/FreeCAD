@@ -75,3 +75,4 @@ protected:
 } /* Gui */
 
 #endif /* end of include guard: VIEWPROVIDEORIGINFEATURE_H_BYJRZNDL */
+

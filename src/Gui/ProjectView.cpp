@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <boost/bind.hpp>
 # include <QAction>
 # include <QActionGroup>
@@ -35,7 +33,6 @@
 # include <QMenu>
 # include <QPixmap>
 # include <QTimer>
-#endif
 
 #include <QDirModel>
 #include <Base/Console.h>
@@ -71,4 +68,5 @@ ProjectWidget::~ProjectWidget()
 
 
 #include "moc_ProjectView.cpp"
+
 

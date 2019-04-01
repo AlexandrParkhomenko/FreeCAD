@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #include <QSignalMapper>
 #include <QDockWidget>
 #include <QMessageBox>
@@ -872,3 +871,4 @@ void TaskPlacement::clicked(int id)
 }
 
 #include "moc_Placement.cpp"
+

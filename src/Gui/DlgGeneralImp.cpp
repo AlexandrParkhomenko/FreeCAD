@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QApplication>
 # include <QLocale>
 # include <QStyleFactory>
 # include <QTextStream>
-#endif
 
 #include "DlgGeneralImp.h"
 #include "ui_DlgGeneral.h"
@@ -187,3 +184,4 @@ void DlgGeneralImp::changeEvent(QEvent *e)
 }
 
 #include "moc_DlgGeneralImp.cpp"
+

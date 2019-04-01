@@ -55,3 +55,4 @@ private:
 }}} // namespace
 
 #endif // QUARTER_IMAGELOADER_H
+

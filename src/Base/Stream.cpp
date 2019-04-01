@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QBuffer>
 # include <QByteArray>
 # include <QDataStream>
@@ -34,7 +32,6 @@
 # include <cstring>
 #ifdef __GNUC__
 # include <stdint.h>
-#endif
 #endif
 
 #include "Stream.h"
@@ -534,7 +531,6 @@ PyStreambuf::PyStreambuf(PyObject* o, std::size_t buf_size, std::size_t put_back
 #ifdef PYSTREAM_BUFFERED
     char *base = &buffer.front();
     setp(base, base + buffer.size());
-#endif
 }
 
 PyStreambuf::~PyStreambuf()
@@ -611,7 +607,6 @@ PyStreambuf::overflow(PyStreambuf::int_type ch)
     }
 
     return ch;
-#endif
 }
 
 int PyStreambuf::sync()
@@ -623,7 +618,6 @@ int PyStreambuf::sync()
     return 0;
 #else
     return std::streambuf::sync();
-#endif
 }
 
 bool PyStreambuf::flushBuffer()
@@ -661,7 +655,6 @@ std::streamsize PyStreambuf::xsputn (const char* s, std::streamsize num)
     }
 
     return num;
-#endif
 }
 
 PyStreambuf::pos_type
@@ -780,3 +773,4 @@ Streambuf::seekpos(std::streambuf::pos_type pos,
 {
     return seekoff(pos, std::ios_base::beg);
 }
+

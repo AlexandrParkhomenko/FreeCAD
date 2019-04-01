@@ -22,3 +22,4 @@
 #endif
 
 #endif // QSINT_GLOBAL_H
+

@@ -147,3 +147,4 @@
    #endif   //#if BOOST_PP_ITERATION() == BOOST_PP_ITERATION_FINISH()
 
 #endif   //!BOOST_PP_IS_ITERATING
+

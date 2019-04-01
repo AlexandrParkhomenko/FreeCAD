@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QMessageBox>
 # include <QDir>
 # include <QFile>
 # include <QFileInfo>
-#endif
 
 #include "Macro.h"
 #include "Application.h"
@@ -163,4 +160,5 @@ void DlgMacroRecordImp::on_lineEditMacroPath_textChanged (const QString & newDir
 
 
 #include "moc_DlgMacroRecordImp.cpp"
+
 

@@ -68,3 +68,4 @@ NativeEvent::~NativeEvent()
 #endif // HAVE_SPACENAV_LIB
 }
 
+

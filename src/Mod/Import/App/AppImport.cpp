@@ -23,9 +23,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include <Base/Console.h>
 #include <Base/Interpreter.h>
@@ -57,3 +54,4 @@ PyMOD_INIT_FUNC(Import)
     Base::Console().Log("Loading Import module... done\n");
     PyMOD_Return(importModule);
 }
+

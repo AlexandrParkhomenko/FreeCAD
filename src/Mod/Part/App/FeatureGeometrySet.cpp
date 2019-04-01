@@ -21,9 +21,6 @@
  ***************************************************************************/
 
  
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include "Geometry.h"
 
@@ -64,3 +61,4 @@ App::DocumentObjectExecReturn *FeatureGeometrySet::execute(void)
 
     return App::DocumentObject::StdReturn;
 }
+

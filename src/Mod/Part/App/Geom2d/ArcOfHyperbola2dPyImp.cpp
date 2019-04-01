@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <gp_Hypr2d.hxx>
 # include <Geom2d_Hyperbola.hxx>
 # include <GCE2d_MakeArcOfHyperbola.hxx>
 # include <GCE2d_MakeHyperbola.hxx>
 # include <Geom2d_TrimmedCurve.hxx>
-#endif
 
 #include <Mod/Part/App/Geometry2d.h>
 #include <Mod/Part/App/Geom2d/ArcOfHyperbola2dPy.h>
@@ -127,3 +124,4 @@ int ArcOfHyperbola2dPy::setCustomAttributes(const char* , PyObject *)
 {
     return 0; 
 }
+

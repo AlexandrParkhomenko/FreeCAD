@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <cassert>
 # include <algorithm>
-#endif
 
 #include "Extension.h"
 #include "DocumentObject.h"
@@ -343,7 +340,6 @@ void ExtensionContainer::saveExtensions(Base::Writer& writer) const {
         catch (...) {
             Base::Console().Error("ExtensionContainer::Save: Unknown C++ exception thrown. Try to continue...\n");
         }
-#endif
         writer.decInd(); // indentation for the actual extension
         writer.Stream() << writer.ind() << "</Extension>" << std::endl;    
         writer.decInd(); // indentation for 'Extension name'
@@ -410,9 +406,9 @@ void ExtensionContainer::restoreExtensions(Base::XMLReader& reader) {
         catch (...) {
             Base::Console().Error("ExtensionContainer::Restore: Unknown C++ exception thrown\n");
         }
-#endif
 
         reader.readEndElement("Extension");
     }
     reader.readEndElement("Extensions");
 }
+

@@ -27,9 +27,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <cassert>
 # include <cstdio>
@@ -394,3 +392,4 @@ std::vector<Base::FileInfo> FileInfo::getDirectoryContent(void) const
     closedir(dp);
     return List;
 }
+

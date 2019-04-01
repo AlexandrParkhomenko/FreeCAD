@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QMessageBox>
-#endif
 
 #include "Application.h"
 #include "MainWindow.h"
@@ -83,4 +80,5 @@ int DlgEditFileIncludePropertyExternal::Do(void)
 }
 
 #include "moc_DlgEditFileIncludeProptertyExternal.cpp"
+
 

@@ -52,3 +52,4 @@ protected:
 } // namespace Gui
 
 #endif // PARTGUI_DIALOG_DLGSETTINGSOBJECTCOLOR_H
+

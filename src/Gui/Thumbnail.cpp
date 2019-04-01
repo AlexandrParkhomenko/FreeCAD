@@ -21,15 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QBuffer>
 # include <QByteArray>
 # include <QDateTime>
 # include <QImage>
-#endif
 
 #include <QtOpenGL.h>
 #include "Thumbnail.h"
@@ -122,3 +119,4 @@ void Thumbnail::RestoreDocFile(Base::Reader &reader)
 {
     Q_UNUSED(reader); 
 }
+

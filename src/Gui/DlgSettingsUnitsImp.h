@@ -60,3 +60,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGSETTINGS3DVIEWIMP_H
+

@@ -117,3 +117,4 @@ template WM4_FOUNDATION_ITEM
 class DistVector3Segment3<double>;
 //----------------------------------------------------------------------------
 }
+

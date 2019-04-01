@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <QComboBox>
 # include <QFontDatabase>
@@ -35,7 +33,6 @@
 # include <QApplication>
 # include <QPalette>
 # include <QtGlobal>
-#endif
 
 #include <Base/Tools.h>
 #include <Base/Console.h>
@@ -3401,7 +3398,6 @@ LinkLabel::LinkLabel (QWidget * parent) : QWidget(parent)
     editButton = new QPushButton(QLatin1String("..."), this);
 #if defined (Q_OS_MAC)
     editButton->setAttribute(Qt::WA_LayoutUsesWidgetRect); // layout size from QMacStyle was not correct
-#endif
     editButton->setToolTip(tr("Change the linked object"));
     layout->addWidget(editButton);
     
@@ -3778,7 +3774,7 @@ QByteArray PropertyItemEditorFactory::valuePropertyName (QVariant::Type /*type*/
     // do not allow to set properties because we do that in subclasses of PropertyItem
     return "";
 }
-#endif
 
 #include "moc_PropertyItem.cpp"
+
 

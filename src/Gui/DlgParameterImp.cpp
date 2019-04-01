@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
 # include <QByteArray>
 # include <QContextMenuEvent>
@@ -31,7 +29,6 @@
 # include <QMessageBox>
 # include <QMenu>
 # include <QTreeWidget>
-#endif
 
 #include "ui_DlgParameter.h"
 #include "DlgParameterImp.h"
@@ -77,7 +74,6 @@ DlgParameterImp::DlgParameterImp( QWidget* parent,  Qt::WindowFlags fl )
     paramValue->header()->setSectionResizeMode(0, QHeaderView::Stretch);
 #else
     paramValue->header()->setResizeMode(0, QHeaderView::Stretch);
-#endif
 
     QSizePolicy policy = paramValue->sizePolicy();
     policy.setHorizontalStretch(3);
@@ -86,7 +82,6 @@ DlgParameterImp::DlgParameterImp( QWidget* parent,  Qt::WindowFlags fl )
 #if 0 // This is needed for Qt's lupdate
     qApp->translate( "Gui::Dialog::DlgParameterImp", "System parameter" );
     qApp->translate( "Gui::Dialog::DlgParameterImp", "User parameter" );
-#endif
 
     ParameterManager* sys = App::GetApplication().GetParameterSet("System parameter");
     const std::map<std::string,ParameterManager *>& rcList = App::GetApplication().GetParameterSetList();
@@ -1128,3 +1123,4 @@ void ParameterBool::appendToGroup()
 }
 
 #include "moc_DlgParameterImp.cpp"
+

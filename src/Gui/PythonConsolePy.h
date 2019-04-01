@@ -151,3 +151,4 @@ public:
 } // namespace Gui
 
 #endif // GUI_PYTHONCONSOLE_PY_H
+

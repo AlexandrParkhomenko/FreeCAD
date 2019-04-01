@@ -54,3 +54,4 @@ public:
 } // namespace Gui
 
 #endif // GUI_SOFCDB_H
+

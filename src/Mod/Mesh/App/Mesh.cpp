@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <sstream>
-#endif
 
 #include <CXX/Objects.hxx>
 #include <Base/Builder3D.h>
@@ -478,7 +475,6 @@ void MeshObject::swapKernel(MeshCore::MeshKernel& kernel,
         Base::Console().Log("Check for defects in mesh data structure failed\n");
     }
 #endif
-#endif
 }
 
 void MeshObject::save(std::ostream& out) const
@@ -509,7 +505,6 @@ void MeshObject::load(std::istream& in)
         // ignore memory exceptions and continue
         Base::Console().Log("Check for defects in mesh data structure failed\n");
     }
-#endif
 }
 
 void MeshObject::addFacet(const MeshCore::MeshGeomFacet& facet)
@@ -1861,3 +1856,4 @@ MeshObject::const_facet_iterator& MeshObject::const_facet_iterator::operator--()
     --(this->_f_it);
     return *this;
 }
+

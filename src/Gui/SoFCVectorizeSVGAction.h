@@ -77,3 +77,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_SOFCVECTORIZESVGACTION_H
+

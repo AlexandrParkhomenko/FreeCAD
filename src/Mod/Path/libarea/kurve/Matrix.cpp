@@ -622,3 +622,4 @@ namespace geoff_geometry {
 		tmMirrored->m_mirrored = true;
 	}
 }
+

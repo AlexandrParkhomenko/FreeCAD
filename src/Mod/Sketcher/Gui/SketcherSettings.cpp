@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QPainter>
 # include <QPixmap>
 # include <QMessageBox>
-#endif
 
 #include "SketcherSettings.h"
 #include "ui_SketcherSettings.h"
@@ -272,4 +269,5 @@ void SketcherSettingsColors::changeEvent(QEvent *e)
 }
 
 #include "moc_SketcherSettings.cpp"
+
 

@@ -54,3 +54,4 @@ private:
 }
 
 #endif // SKETCHERGUI_SketchRectangularArrayDialog_H
+

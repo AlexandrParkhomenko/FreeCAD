@@ -44,3 +44,4 @@ private:
 
 
 #endif  // MESH_DECIMATION_H
+

@@ -74,3 +74,4 @@ private:
 }
 
 #endif // BASE_DEBUGGER_H
+

@@ -20,11 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
-#endif
 
 #include <Inventor/SbBox.h>
 #include <Inventor/SoPrimitiveVertex.h>
@@ -274,4 +271,5 @@ void SoSkipBoundingGroup::getBoundingBox(SoGetBoundingBoxAction *action)
     if (mode.getValue() == INCLUDE_BBOX)
         inherited::getBoundingBox(action);
 }
+
 

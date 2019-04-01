@@ -89,3 +89,4 @@ private:
 #include "Wm4UniqueVerticesTriangles.inl"
 
 #endif
+

@@ -45,3 +45,4 @@ namespace GCS
 } //namespace GCS
 
 #endif // PLANEGCS_UTIL_H
+

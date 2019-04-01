@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <cassert>
 # include <algorithm>
-#endif
 
 #include "Extension.h"
 #include "DocumentObject.h"
@@ -193,3 +190,4 @@ EXTENSION_PROPERTY_SOURCE_TEMPLATE(App::ExtensionPython, App::ExtensionPython::I
 // explicit template instantiation
 template class AppExport ExtensionPythonT<Extension>;
 }
+

@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepAdaptor_Surface.hxx>
 # include <BRepAlgoAPI_Common.hxx>
 # include <BRepAlgoAPI_Cut.hxx>
@@ -42,7 +40,6 @@
 # include <TopoDS.hxx>
 # include <TopoDS_Edge.hxx>
 # include <TopoDS_Wire.hxx>
-#endif
 
 #include "CrossSection.h"
 
@@ -133,7 +130,6 @@ void CrossSection::sliceSolid(double d, const TopoDS_Shape& shape, std::list<Top
             }
         }
     }
-#endif
 }
 
 void CrossSection::connectEdges (const std::list<TopoDS_Edge>& edges, std::list<TopoDS_Wire>& wires) const
@@ -199,3 +195,4 @@ void CrossSection::connectWires (const TopTools_IndexedMapOfShape& wireMap, std:
         wires.push_back(aFix.Wire());
     }
 }
+

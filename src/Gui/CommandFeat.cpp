@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include <App/DocumentObject.h>
 
@@ -115,3 +114,4 @@ void CreateFeatCommands(void)
 }
 
 } // namespace Gui
+

@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <QDateTime>
-#endif
 
 #include "TimeInfo.h"
 
@@ -66,7 +63,6 @@ void TimeInfo::setCurrent(void)
     _ftime(&timebuffer);
 #else
     ftime(&timebuffer);
-#endif
 }
 
 void TimeInfo::setTime_t (uint64_t seconds)
@@ -87,7 +83,6 @@ std::string TimeInfo::currentDateTimeString()
     local.setUtcOffset(utcOffset);
     QString dm = local.toString(Qt::ISODate);
     return dm.toStdString();
-#endif
 }
 
 std::string TimeInfo::diffTime(const TimeInfo &timeStart,const TimeInfo &timeEnd )
@@ -117,3 +112,4 @@ bool TimeInfo::isNull() const
 {
     return (*this) == TimeInfo::null();
 }
+

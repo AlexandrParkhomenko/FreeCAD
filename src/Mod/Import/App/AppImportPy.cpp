@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Python.h>
 # include <climits>
 # include <Standard_Version.hxx>
@@ -48,7 +46,6 @@
 # include <XSControl_TransferReader.hxx>
 # include <APIHeaderSection_MakeHeader.hxx>
 # include <OSD_Exception.hxx>
-#endif
 
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
@@ -203,7 +200,6 @@ private:
 #else
             Import::ImportXCAF xcaf(hDoc, pcDoc, file.fileNamePure());
             xcaf.loadShapes();
-#endif
             pcDoc->recompute();
             hApp->Close(hDoc);
 
@@ -314,7 +310,6 @@ private:
 #if OCC_VERSION_HEX >= 0x070200
             // Update is not performed automatically anymore: https://tracker.dev.opencascade.org/view.php?id=28055
             XCAFDoc_DocumentTool::ShapeTool(hDoc->Main())->UpdateAssemblies();
-#endif
 
             Base::FileInfo file(Utf8Name.c_str());
             if (file.hasExtension("stp") || file.hasExtension("step")) {
@@ -329,7 +324,6 @@ private:
                 APIHeaderSection_MakeHeader makeHeader(writer.ChangeWriter().Model());
 #else
                 APIHeaderSection_MakeHeader makeHeader(writer.Writer().Model());
-#endif
                 Base::Reference<ParameterGrp> hGrp = App::GetApplication().GetUserParameter()
                     .GetGroup("BaseApp")->GetGroup("Preferences")->GetGroup("Mod/Part")->GetGroup("STEP");
 
@@ -758,3 +752,4 @@ PyObject* initModule()
 }
 
 } // namespace Import
+

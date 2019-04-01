@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "Mod/Part/App/BodyBase.h"
 
@@ -47,5 +46,6 @@ int BodyBasePy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
+
 
 

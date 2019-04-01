@@ -53,3 +53,4 @@ typedef Gui::ViewProviderPythonFeatureT<ViewProviderCustom> ViewProviderCustomPy
 
 #endif // SketcherGui_VIEWPROVIDERPYTHON_H
 
+

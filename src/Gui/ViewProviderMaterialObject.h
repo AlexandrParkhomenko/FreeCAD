@@ -55,3 +55,4 @@ typedef ViewProviderPythonFeatureT<ViewProviderMaterialObject> ViewProviderMater
 
 #endif // GUI_ViewProviderMaterialObject_H
 
+

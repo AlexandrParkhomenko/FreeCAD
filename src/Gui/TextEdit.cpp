@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QKeyEvent>
 # include <QPainter>
 # include <QShortcut>
 # include <QTextCursor>
-#endif
 
 #include "TextEdit.h"
 #include "SyntaxHighlighter.h"
@@ -427,7 +424,6 @@ void TextEditor::OnChange(Base::Subject<const char*> &rCaller,const char* sReaso
         int fontSize = hPrefGrp->GetInt("FontSize", 15);
 #else
         int fontSize = hPrefGrp->GetInt("FontSize", 10);
-#endif
         QString fontFamily = QString::fromLatin1(hPrefGrp->GetASCII( "Font", "Courier" ).c_str());
         
         QFont font(fontFamily, fontSize);
@@ -574,3 +570,4 @@ void CompletionList::completionItem(QListWidgetItem *item)
 }
 
 #include "moc_TextEdit.cpp" 
+

@@ -27,10 +27,7 @@
 **
 **************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QHeaderView>
-#endif
 
 #include "DlgCheckableMessageBox.h"
 #include "ui_DlgCheckableMessageBox.h"
@@ -236,3 +233,4 @@ QMessageBox::StandardButton DlgCheckableMessageBox::dialogButtonBoxToMessageBoxB
 } // namespace Gui
 
 #include "moc_DlgCheckableMessageBox.cpp"
+

@@ -216,3 +216,4 @@ template WM4_FOUNDATION_ITEM
 class ImplicitSurface<double>;
 //----------------------------------------------------------------------------
 }
+

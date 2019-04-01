@@ -354,3 +354,4 @@ protected:
 } // namespace MeshCore
 
 #endif // MESH_TOPOALGORITHM_H
+

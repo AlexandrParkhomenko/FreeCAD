@@ -51,3 +51,4 @@ protected:
 } // namespace Gui
 
 #endif // MESHGUI_DLGSETTINGSMESHVIEW_H
+

@@ -81,3 +81,4 @@ TRVector<VSIZE,ISIZE> operator* (const TRational<ISIZE>& rkR,
 #include "Wm4TRVector.inl"
 
 #endif
+

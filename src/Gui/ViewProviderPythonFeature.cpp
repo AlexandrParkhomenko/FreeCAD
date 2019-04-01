@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <QApplication>
 # include <QEvent>
@@ -48,7 +46,6 @@
 # include <Inventor/SoPickedPoint.h>
 # include <Inventor/actions/SoRayPickAction.h> 
 # include <Inventor/details/SoDetail.h> 
-#endif
 
 #include "ViewProviderPythonFeature.h"
 #include "Tree.h"
@@ -220,7 +217,6 @@ ViewProviderPythonFeatureObserver::ViewProviderPythonFeatureObserver()
 ViewProviderPythonFeatureObserver::~ViewProviderPythonFeatureObserver()
 {
 }
-#endif
 
 // ----------------------------------------------------------------------------
 
@@ -229,7 +225,6 @@ ViewProviderPythonFeatureImp::ViewProviderPythonFeatureImp(ViewProviderDocumentO
 {
 #if 0
     (void)ViewProviderPythonFeatureObserver::instance();
-#endif
 }
 
 ViewProviderPythonFeatureImp::~ViewProviderPythonFeatureImp()
@@ -1090,5 +1085,6 @@ PROPERTY_SOURCE_TEMPLATE(Gui::ViewProviderPythonGeometry, Gui::ViewProviderGeome
 // explicit template instantiation
 template class GuiExport ViewProviderPythonFeatureT<ViewProviderGeometryObject>;
 }
+
 
 

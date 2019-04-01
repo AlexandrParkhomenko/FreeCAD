@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #include <Gui/Application.h>
 #include <Gui/Control.h>
 #include <Gui/ViewProviderDocumentObject.h>
@@ -91,3 +90,4 @@ void PropertyEnumAttacherItem::openTask()
 }
 
 #include "moc_PropertyEnumAttacherItem.cpp"
+

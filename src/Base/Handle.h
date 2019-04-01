@@ -181,3 +181,4 @@ private:
 } // namespace Base
 
 #endif // BASE_HANDLE_H
+

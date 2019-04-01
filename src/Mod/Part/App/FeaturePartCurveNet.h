@@ -57,3 +57,4 @@ public:
 
 
 #endif // PART_FeaturePartCurveNet_H
+

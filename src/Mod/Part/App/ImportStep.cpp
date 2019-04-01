@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <fcntl.h>
 # include <BRep_Builder.hxx>
 # include <TopTools_HSequenceOfShape.hxx>
@@ -36,7 +34,6 @@
 # include <TopoDS_Compound.hxx>
 # include <TopExp_Explorer.hxx>
 # include <sstream>
-#endif
 
 #include <Standard_Version.hxx>
 #include <XSControl_WorkSession.hxx>
@@ -252,7 +249,6 @@ static void findStyledSR (const Handle(StepVisual_StyledItem) &style,
             break;
     }
 }
-#endif
 
 bool Part::ReadColors (const Handle(XSControl_WorkSession) &WS, std::map<int, Quantity_Color>& hash_col)
 {
@@ -385,7 +381,6 @@ bool Part::ReadColors (const Handle(XSControl_WorkSession) &WS, std::map<int, Qu
     }
   
     return Standard_True;
-#endif
 }
 
 bool Part::ReadNames (const Handle(XSControl_WorkSession) &WS)
@@ -450,5 +445,5 @@ bool Part::ReadNames (const Handle(XSControl_WorkSession) &WS)
     }
 
     return Standard_True;
-#endif
 }
+

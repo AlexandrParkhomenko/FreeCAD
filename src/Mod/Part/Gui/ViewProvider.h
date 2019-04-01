@@ -66,3 +66,4 @@ protected:
 
 #endif // PARTGUI_VIEWPROVIDERPART_H
 
+

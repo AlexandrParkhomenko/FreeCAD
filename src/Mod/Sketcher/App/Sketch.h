@@ -476,3 +476,4 @@ private:
 
 
 #endif // SKETCHER_SKETCH_H
+

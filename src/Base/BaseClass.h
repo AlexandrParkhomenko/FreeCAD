@@ -143,3 +143,4 @@ template<typename T> const T * freecad_dynamic_cast(const Base::BaseClass * t)
 
 #endif // BASE_BASECLASS_H
 
+

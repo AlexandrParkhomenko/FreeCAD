@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 #ifdef FC_OS_MACOSX
 #include <OpenGL/gl.h>
 #else
@@ -186,3 +185,4 @@ SoDrawingGrid::computeBBox(SoAction *action, SbBox3f &box, SbVec3f &center)
     Q_UNUSED(center); 
     //SoState*  state = action->getState();
 }
+

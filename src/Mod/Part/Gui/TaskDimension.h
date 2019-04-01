@@ -359,3 +359,4 @@ void goDimensionAngularNoTask(const VectorAdapter &vector1Adapter, const VectorA
 }
 
 #endif // TASKDIMENSION_H
+

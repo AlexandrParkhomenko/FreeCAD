@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <utility>
 # include <queue>
-#endif
 
 #include <Mod/Mesh/App/WildMagic4/Wm4MeshCurvature.h>
 #include <Mod/Mesh/App/WildMagic4/Wm4Vector3.h>
@@ -1221,7 +1218,6 @@ void MeshTopoAlgorithm::SplitNeighbourFacet(unsigned long ulFacetPos, unsigned s
   clFacet._aclPoints[2] = cP1;
   clFacet.CalcNormal();
   _aclNewFacets.push_back(clFacet);
-#endif
 
 void MeshTopoAlgorithm::RemoveDegeneratedFacet(unsigned long index)
 {
@@ -1550,3 +1546,4 @@ void MeshComponents::SearchForComponents(TMode tMode, const std::vector<unsigned
   std::sort(aclConnectComp.begin(), aclConnectComp.end(), CNofFacetsCompare());  
   aclT = aclConnectComp;
 }
+

@@ -21,13 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
-#endif
 #ifdef __GNUC__
 # include <unistd.h>
-#endif
 
 #include <QString>
 #include <QLocale>
@@ -392,4 +388,5 @@ QString UnitsSchemaImperialCivil::schemaTranslate(const Base::Quantity& quant, d
 
     return toLocale(quant, factor, unitString);
 }
+
 

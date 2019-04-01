@@ -277,3 +277,4 @@ private:
 
 
 #endif // GUI_DOCUMENT_H
+

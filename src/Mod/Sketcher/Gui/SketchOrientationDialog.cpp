@@ -20,12 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QPixmap>
 # include <QDialog>
-#endif
 
 #include <Gui/BitmapFactory.h>
 #include <Gui/MainWindow.h>
@@ -122,3 +119,4 @@ void SketchOrientationDialog::onPreview()
 }
 
 #include "moc_SketchOrientationDialog.cpp"
+

@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include <Base/Placement.h>
 
@@ -48,6 +45,7 @@ Placement::Placement(void)
 Placement::~Placement(void)
 {
 }
+
 
 
 

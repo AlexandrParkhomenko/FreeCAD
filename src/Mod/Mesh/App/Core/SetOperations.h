@@ -188,3 +188,4 @@ private:
 }; // namespace MeshCore
 
 #endif  // MESH_SETOPERATIONS_H
+

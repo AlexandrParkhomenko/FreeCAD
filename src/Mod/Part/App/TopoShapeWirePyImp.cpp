@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Approx_Curve3d.hxx>
 # include <ShapeAlgo_AlgoContainer.hxx>
 # include <BRepAdaptor_CompCurve.hxx>
@@ -36,7 +34,6 @@
 # include <TopoDS.hxx>
 # include <TopoDS_Wire.hxx>
 # include <gp_Ax1.hxx>
-#endif
 
 #include <BRepGProp.hxx>
 #include <GProp_GProps.hxx>
@@ -642,5 +639,6 @@ int TopoShapeWirePy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/
 {
     return 0; 
 }
+
 
 

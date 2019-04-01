@@ -59,3 +59,4 @@ private:
 }}} // namespace
 
 #endif // QUARTER_FOCUSHANDLER_H
+

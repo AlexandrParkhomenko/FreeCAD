@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Python.h>
-#endif
 
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
@@ -86,3 +83,4 @@ PyMOD_INIT_FUNC(MeshPartGui)
 
     PyMOD_Return(mod);
 }
+

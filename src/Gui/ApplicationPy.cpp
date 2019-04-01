@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <qfileinfo.h>
 # include <qdir.h>
@@ -32,7 +30,6 @@
 # include <Inventor/SoInput.h>
 # include <Inventor/actions/SoGetPrimitiveCountAction.h>
 # include <Inventor/nodes/SoSeparator.h>
-#endif
 
 #include <xercesc/util/XMLString.hpp>
 #include <xercesc/util/TranscodingException.hpp>
@@ -1262,3 +1259,4 @@ PyObject* Application::sRemoveDocObserver(PyObject * /*self*/, PyObject *args)
         Py_Return;
     } PY_CATCH;
 }
+

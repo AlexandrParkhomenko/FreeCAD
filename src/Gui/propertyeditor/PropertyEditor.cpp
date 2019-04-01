@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QPainter>
-#endif
 
 #include <Base/Console.h>
 #include <App/Application.h>
@@ -372,3 +369,4 @@ void PropertyEditor::removeProperty(const App::Property& prop)
 }
 
 #include "moc_PropertyEditor.cpp"
+

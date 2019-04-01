@@ -20,11 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 #include "OriginGroupExtension.h"
 
-#ifndef _PreComp_
-#endif
 
 #include <Base/Exception.h>
 
@@ -208,3 +205,4 @@ EXTENSION_PROPERTY_SOURCE_TEMPLATE(App::OriginGroupExtensionPython, App::OriginG
 // explicit template instantiation
 template class AppExport ExtensionPythonT<GroupExtensionPythonT<OriginGroupExtension>>;
 }
+

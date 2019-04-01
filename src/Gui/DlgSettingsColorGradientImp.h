@@ -82,3 +82,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGSETTINGSCOLORGRADIENT_IMP_H
+

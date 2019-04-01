@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Python.h>
 # include <Inventor/nodes/SoCamera.h>
 # include <Inventor/nodes/SoCoordinate3.h>
@@ -35,7 +33,6 @@
 # include <Inventor/nodes/SoNormal.h>
 # include <Inventor/errors/SoDebugError.h>
 # include <Inventor/events/SoMouseButtonEvent.h>
-#endif
 
 #include <boost/math/special_functions/fpclassify.hpp>
 #include <limits>
@@ -173,7 +170,6 @@ void ViewProviderPoints::setDisplayMode(const char* ModeName)
 #ifdef FC_DEBUG
                     SoDebugError::postWarning("ViewProviderPoints::setDisplayMode",
                                               "The number of points (%d) doesn't match with the number of colors (%d).", numPoints, colors->getSize());
-#endif
                     // fallback 
                     setDisplayMaskMode("Point");
                 }
@@ -196,7 +192,6 @@ void ViewProviderPoints::setDisplayMode(const char* ModeName)
 #ifdef FC_DEBUG
                     SoDebugError::postWarning("ViewProviderPoints::setDisplayMode",
                                               "The number of points (%d) doesn't match with the number of grey values (%d).", numPoints, greyValues->getSize());
-#endif
                     // Intensity mode is not possible then set the default () mode instead.
                     setDisplayMaskMode("Point");
                 }
@@ -219,7 +214,6 @@ void ViewProviderPoints::setDisplayMode(const char* ModeName)
 #ifdef FC_DEBUG
                     SoDebugError::postWarning("ViewProviderPoints::setDisplayMode",
                                               "The number of points (%d) doesn't match with the number of normals (%d).", numPoints, normals->getSize());
-#endif
                     // fallback 
                     setDisplayMaskMode("Point");
                 }
@@ -267,7 +261,6 @@ std::vector<std::string> ViewProviderPoints::getDisplayModes(void) const
                 StrList.push_back("Color");
         }
     }
-#endif
 
     return StrList;
 }
@@ -709,3 +702,4 @@ void ViewProviderPointsBuilder::createPoints(const App::Property* prop, SoCoordi
     }
     points->coordIndex.finishEditing();
 }
+

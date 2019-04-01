@@ -22,15 +22,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QPixmap>
 # include <Inventor/actions/SoGetBoundingBoxAction.h>
 # include <Inventor/nodes/SoSeparator.h>
 # include <boost/bind.hpp>
-#endif
 
 
 #include <Base/Vector3D.h>
@@ -219,3 +216,4 @@ bool ViewProviderOrigin::onDelete(const std::vector<std::string> &) {
 
     return true;
 }
+

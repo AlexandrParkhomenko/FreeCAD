@@ -21,9 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include "Command.h"
 #include "Application.h"
@@ -305,3 +302,4 @@ void CreateMacroCommands(void)
 }
 
 } // namespace Gui
+

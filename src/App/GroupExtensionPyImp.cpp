@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "DocumentObjectGroup.h"
 #include "Document.h"
@@ -294,3 +293,4 @@ int GroupExtensionPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*
 {
     return 0;
 }
+

@@ -20,11 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
 # include <Geom_TrimmedCurve.hxx>
-#endif
 
 #include <boost/shared_ptr.hpp>
 
@@ -1658,3 +1655,4 @@ int SketchObjectPy::setCustomAttributes(const char* attr, PyObject* obj)
 
     return 0;
 }
+

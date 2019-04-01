@@ -21,15 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <qfileinfo.h>
 # include <qsplitter.h>
 # include <Inventor/nodes/SoOrthographicCamera.h>
 # include <Inventor/nodes/SoPerspectiveCamera.h>
 # include <Inventor/nodes/SoDirectionalLight.h>
-#endif
 
 #include "SplitView3DInventor.h"
 #include "View3DInventorViewer.h"
@@ -718,7 +715,6 @@ SplitView3DInventor::SplitView3DInventor(int views, Gui::Document* pcDocument, Q
         glformat = true;
 #if !defined(HAVE_QT5_OPENGL)
         f.setSampleBuffers(true);
-#endif
         f.setSamples(samples);
     }
     else if (samples > 0) {
@@ -781,3 +777,4 @@ SplitView3DInventor::SplitView3DInventor(int views, Gui::Document* pcDocument, Q
 SplitView3DInventor::~SplitView3DInventor()
 {
 }
+

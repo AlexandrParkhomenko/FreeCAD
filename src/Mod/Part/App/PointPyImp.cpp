@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepBuilderAPI_MakeVertex.hxx>
 # include <gp.hxx>
 # include <Geom_CartesianPoint.hxx>
@@ -30,7 +28,6 @@
 # include <GC_MakeSegment.hxx>
 # include <Precision.hxx>
 # include <TopoDS_Vertex.hxx>
-#endif
 
 #include <Base/VectorPy.h>
 #include <Base/GeometryPyCXX.h>
@@ -198,3 +195,4 @@ int PointPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
+

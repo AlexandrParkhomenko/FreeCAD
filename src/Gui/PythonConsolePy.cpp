@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QByteArray>
 # include <QInputDialog>
 # include <QEventLoop>
 # include <QTimer>
-#endif
 
 #include "PythonConsolePy.h"
 #include "PythonConsole.h"
@@ -376,3 +373,4 @@ Py::Object PythonStdin::readline(const Py::Tuple& /*args*/)
 {
     return Py::String( (const char *)pyConsole->readline().toLatin1() );
 }
+

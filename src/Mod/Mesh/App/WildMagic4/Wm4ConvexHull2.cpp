@@ -486,3 +486,4 @@ template WM4_FOUNDATION_ITEM
 class ConvexHull2<double>;
 //----------------------------------------------------------------------------
 }
+

@@ -54,3 +54,4 @@ typedef Triangle2<double> Triangle2d;
 }
 
 #endif
+

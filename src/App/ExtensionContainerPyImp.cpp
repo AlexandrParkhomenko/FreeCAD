@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
-#endif
 
 #include "Application.h"
 #include "DocumentObject.h"
@@ -263,3 +260,4 @@ PyObject* ExtensionContainerPy::addExtension(PyObject *args) {
 
     Py_Return;
 }
+

@@ -512,3 +512,4 @@ protected:
 }; // namespace MeshCore 
 
 #endif  // MESH_ALGORITHM_H 
+

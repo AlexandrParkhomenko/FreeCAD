@@ -71,3 +71,4 @@ namespace Gui
 }
 
 #endif // DAGFILTER_H
+

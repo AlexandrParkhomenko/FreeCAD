@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "PartFeature.h"
 
@@ -46,3 +45,4 @@ int PartFeaturePy::setCustomAttributes(const char* , PyObject *)
 {
     return 0; 
 }
+

@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #include "Axis.h"
 #include "GeometryPyCXX.h"
@@ -144,4 +143,5 @@ int AxisPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0;
 }
+
 

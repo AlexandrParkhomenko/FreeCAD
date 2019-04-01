@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #ifdef __GNUC__
 # include <unistd.h>
 #endif
@@ -395,3 +394,4 @@ bool SelectionFilter::parse(void)
         return false;
     }
 }
+

@@ -37,3 +37,4 @@ public:
 #include "Wm4TriangleKey.inl"
 
 #endif
+

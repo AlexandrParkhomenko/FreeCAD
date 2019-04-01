@@ -58,3 +58,4 @@ typedef App::FeaturePythonT<DocumentObjectGroup> DocumentObjectGroupPython;
 
 
 #endif // APP_DOCUMENTOBJECTGROUP_H
+

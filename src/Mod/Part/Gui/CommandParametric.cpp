@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QDir>
 # include <QFileInfo>
 # include <QLineEdit>
-#endif
 
 #include <Gui/Application.h>
 #include <Gui/Command.h>
@@ -251,3 +248,4 @@ void CreateParamPartCommands(void)
     rcCmdMgr.addCommand(new CmdPartCone());
     rcCmdMgr.addCommand(new CmdPartTorus());
 }
+

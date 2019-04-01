@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Python.h>
 # include <Poly_Polygon3D.hxx>
 # include <BRepBndLib.hxx>
@@ -72,7 +70,6 @@
 # include <Inventor/nodes/SoGroup.h>
 # include <Inventor/nodes/SoSphere.h>
 # include <Inventor/nodes/SoScale.h>
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <Base/Console.h>
@@ -296,3 +293,4 @@ std::vector<std::string> ViewProviderPartReference::getDisplayModes(void) const
 void ViewProviderPartReference::updateData(const App::Property* )
 {
 }
+

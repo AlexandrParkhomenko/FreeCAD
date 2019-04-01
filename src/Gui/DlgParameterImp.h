@@ -340,3 +340,4 @@ protected:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGPARAMETER_H
+

@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "ViewProviderRegularPolygon.h"
 
@@ -63,3 +60,4 @@ std::vector<std::string> ViewProviderRegularPolygon::getDisplayModes(void) const
 
     return StrList;
 }
+

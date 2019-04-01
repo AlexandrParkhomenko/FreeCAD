@@ -21,15 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <limits>
 # include <QTextStream>
-#endif
 #if QT_VERSION >= 0x050200
 # include <QMetaType>
-#endif
 
 // Uncomment this block to remove PySide C++ support and switch to its Python interface
 //#undef HAVE_SHIBOKEN
@@ -45,7 +41,6 @@
 #elif defined (__GNUC__)
 # pragma GCC diagnostic push
 # pragma GCC diagnostic ignored "-Wunused-parameter"
-#endif
 
 #ifdef HAVE_SHIBOKEN
 # undef _POSIX_C_SOURCE
@@ -1487,3 +1482,4 @@ void SignalConnect::onExecute()
 }
 
 #include "moc_WidgetFactory.cpp"
+

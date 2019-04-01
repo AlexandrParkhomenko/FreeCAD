@@ -71,3 +71,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DlgActivateWindowImp_H
+

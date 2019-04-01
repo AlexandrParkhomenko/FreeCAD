@@ -93,3 +93,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_GRAPHVIZVIEW_H
+

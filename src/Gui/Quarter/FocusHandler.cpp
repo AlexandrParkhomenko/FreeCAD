@@ -85,3 +85,4 @@ FocusHandler::focusEvent(const SbName & focusevent)
     }
   }
 }
+

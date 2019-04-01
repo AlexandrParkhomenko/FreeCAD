@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "PropertyPage.h"
 #include "PrefWidgets.h"
@@ -248,3 +247,4 @@ void CustomizeActionPage::changeEvent(QEvent *e)
 }
 
 #include "moc_PropertyPage.cpp"
+

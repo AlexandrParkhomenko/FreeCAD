@@ -162,3 +162,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_PLACEMENT_H
+

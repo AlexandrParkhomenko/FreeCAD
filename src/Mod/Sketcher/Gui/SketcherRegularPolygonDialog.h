@@ -50,3 +50,4 @@ private:
 }
 
 #endif // SKETCHERGUI_SketcherRegularPolygonDialog_H
+

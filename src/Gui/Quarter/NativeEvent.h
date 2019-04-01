@@ -60,3 +60,4 @@ private:
 }}}
 
 #endif // !QUARTER_NATIVEEVENT_H
+

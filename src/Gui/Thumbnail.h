@@ -64,3 +64,4 @@ private:
 }
 
 #endif // GUI_THUMBNAIL_H
+

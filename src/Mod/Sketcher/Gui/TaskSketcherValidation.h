@@ -84,3 +84,4 @@ public:
 } //namespace SketcherGui
 
 #endif // SKETCHERGUI_TASKSKETCHERVALIDATION_H
+

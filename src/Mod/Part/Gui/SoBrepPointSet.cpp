@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # ifdef FC_OS_WIN32
 # include <windows.h>
 # endif
@@ -271,3 +269,4 @@ void SoBrepPointSet::doAction(SoAction* action)
 
     inherited::doAction(action);
 }
+

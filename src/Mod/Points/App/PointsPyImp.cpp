@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "Mod/Points/App/Points.h"
 #include <Base/Builder3D.h>
@@ -242,5 +241,6 @@ int PointsPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
+
 
 

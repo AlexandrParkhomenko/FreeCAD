@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #include <Inventor/nodes/SoAntiSquish.h>
 #include <Inventor/nodes/SoRotation.h>
@@ -394,3 +393,4 @@ RotTransDragger::setDefaultOnNonWritingFields()
 
    SoDragger::setDefaultOnNonWritingFields();
 }
+

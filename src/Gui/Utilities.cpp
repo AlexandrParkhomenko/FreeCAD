@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <Inventor/SbMatrix.h>
 # include <Inventor/SbTesselator.h>
@@ -30,7 +28,6 @@
 # include <QAbstractItemView>
 # include <QItemSelection>
 # include <QItemSelectionModel>
-#endif
 #include "Utilities.h"
 #include <App/DocumentObject.h>
 
@@ -182,3 +179,4 @@ void ItemViewSelection::applyFrom(const std::vector<App::DocumentObject*> objs)
 
     view->selectionModel()->select(range, QItemSelectionModel::Select);
 }
+

@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <vector>
-#endif
 
 #include <Mod/Mesh/App/WildMagic4/Wm4Matrix3.h>
 #include <Mod/Mesh/App/WildMagic4/Wm4Vector3.h>
@@ -456,7 +453,6 @@ bool MeshFixTopology::Fixup ()
         _rclMesh.DeleteFacets(deletedFaces);
         _rclMesh.RebuildNeighbours();
     }
-#endif
 
     return true;
 }
@@ -1170,3 +1166,4 @@ void MeshEigensystem::CalculateLocalSystem()
     if ((_cU%_cV)*_cW < 0.0f)
         _cW = -_cW; // make a right-handed system
 }
+

@@ -393,3 +393,4 @@ class clipperException : public std::exception
 #endif //clipper_hpp
 
 
+

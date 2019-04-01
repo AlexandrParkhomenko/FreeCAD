@@ -133,3 +133,4 @@ template WM4_FOUNDATION_ITEM
 class IntrSegment3Box3<double>;
 //----------------------------------------------------------------------------
 }
+

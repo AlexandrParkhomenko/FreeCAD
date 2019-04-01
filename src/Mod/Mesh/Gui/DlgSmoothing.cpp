@@ -20,11 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QButtonGroup>
 # include <QDialogButtonBox>
-#endif
 
 #include "DlgSmoothing.h"
 #include "ui_DlgSmoothing.h"
@@ -153,7 +150,6 @@ TaskSmoothing::TaskSmoothing()
     Gui::TaskView::TaskGroup* tasksel = new Gui::TaskView::TaskGroup();
 #else
     Gui::TaskView::TaskBox* tasksel = new Gui::TaskView::TaskBox();
-#endif
     tasksel->groupLayout()->addWidget(selection);
     tasksel->hide();
     Content.push_back(tasksel);
@@ -231,3 +227,4 @@ bool TaskSmoothing::accept()
 }
 
 #include "moc_DlgSmoothing.cpp"
+

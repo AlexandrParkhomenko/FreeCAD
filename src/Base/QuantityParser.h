@@ -81,3 +81,4 @@ extern YYSTYPE yylval;
 int yyparse (void);
 
 #endif /* !YY_YY_QUANTITYPARSER_H_INCLUDED  */
+

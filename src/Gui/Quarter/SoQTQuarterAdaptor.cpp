@@ -18,7 +18,6 @@
  *
  */
 
-#include "PreCompiled.h"
 #include "SoQTQuarterAdaptor.h"
 #include <Base/Console.h>
 #include <Inventor/nodes/SoPerspectiveCamera.h>
@@ -743,3 +742,4 @@ SbVec2f SIM::Coin3D::Quarter::SoQTQuarterAdaptor::addFrametime(double timeofday)
     this->starttime = timeofday;
     return SbVec2f(1000 * drawfps, 1.0f / drawfps);
 }
+

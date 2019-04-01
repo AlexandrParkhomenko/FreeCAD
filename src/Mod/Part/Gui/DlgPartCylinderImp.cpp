@@ -21,9 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include "DlgPartCylinderImp.h"
 
@@ -50,3 +47,4 @@ DlgPartCylinderImp::~DlgPartCylinderImp()
 }
 
 #include "moc_DlgPartCylinderImp.cpp"
+

@@ -48,3 +48,4 @@ private:
 }
 
 #endif // BASE_FUTUREWATCHER_H 
+

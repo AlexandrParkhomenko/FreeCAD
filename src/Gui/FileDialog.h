@@ -245,3 +245,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_FILEDIALOG_H
+

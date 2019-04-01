@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <Inventor/actions/SoGetBoundingBoxAction.h>
 # include <Inventor/events/SoMouseButtonEvent.h>
@@ -37,7 +35,6 @@
 # include <QPainter>
 # include <QTextStream>
 # include <boost/bind.hpp>
-#endif
 
 #include "Command.h"
 #include "Action.h"
@@ -500,7 +497,6 @@ Action * StdCmdToggleClipPlane::createAction(void)
     Action *pcAction = (Action*)Command::createAction();
 #if 0
     pcAction->setCheckable(true);
-#endif
     return pcAction;
 }
 
@@ -520,7 +516,6 @@ void StdCmdToggleClipPlane::activated(int iMsg)
     if (view) {
         Gui::Control().showDialog(new Gui::Dialog::TaskClipping(view));
     }
-#endif
 }
 
 bool StdCmdToggleClipPlane::isActive(void)
@@ -543,7 +538,6 @@ bool StdCmdToggleClipPlane::isActive(void)
     if (Gui::Control().activeDialog())
         return false;
     return true;
-#endif
 }
 
 //===========================================================================
@@ -1436,7 +1430,6 @@ StdCmdViewFitSelection::StdCmdViewFitSelection()
     sAccel        = "V, S";
 #if QT_VERSION >= 0x040200
     sPixmap       = "zoom-selection";
-#endif
     eType         = Alter3DView;
 }
 
@@ -1676,7 +1669,6 @@ void StdViewDockUndockFullscreen::activated(int iMsg)
         else
             view->setCurrentViewMode(MDIView::FullScreen);
     }
-#endif
 }
 
 bool StdViewDockUndockFullscreen::isActive(void)
@@ -2260,7 +2252,6 @@ StdViewZoomIn::StdViewZoomIn()
     sStatusTip    = QT_TR_NOOP("Zoom In");
 #if QT_VERSION >= 0x040200
     sPixmap       = "zoom-in";
-#endif
     sAccel        = keySequenceToAccel(QKeySequence::ZoomIn);
     eType         = Alter3DView;
 }
@@ -2295,7 +2286,6 @@ StdViewZoomOut::StdViewZoomOut()
     sStatusTip    = QT_TR_NOOP("Zoom Out");
 #if QT_VERSION >= 0x040200
     sPixmap       = "zoom-out";
-#endif
     sAccel        = keySequenceToAccel(QKeySequence::ZoomOut);
     eType         = Alter3DView;
 }
@@ -2330,7 +2320,6 @@ StdViewBoxZoom::StdViewBoxZoom()
     sStatusTip    = QT_TR_NOOP("Box zoom");
 #if QT_VERSION >= 0x040200
     sPixmap       = "zoom-border";
-#endif
     sAccel        = "Ctrl+B";
     eType         = Alter3DView;
 }
@@ -2361,7 +2350,6 @@ StdBoxSelection::StdBoxSelection()
     sStatusTip    = QT_TR_NOOP("Box selection");
 #if QT_VERSION >= 0x040200
     sPixmap       = "edit-select-box";
-#endif
     sAccel        = "Shift+B";
     eType         = AlterSelection;
 }
@@ -2925,3 +2913,4 @@ void CreateViewStdCommands(void)
 }
 
 } // namespace Gui
+

@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QMenu>
 # include <QMouseEvent>
 # include <Inventor/nodes/SoCamera.h>
-#endif
 #include <Inventor/SbVec2s.h>
 #include "View3DInventorViewer.h"
 
@@ -47,7 +44,6 @@ Flag::Flag(QWidget* parent)
     this->setFixedHeight(20);
 #if defined(HAVE_QT5_OPENGL)
     setAutoFillBackground(true);
-#endif
 }
 
 Flag::~Flag()
@@ -62,7 +58,6 @@ void Flag::initializeGL()
 #else
     QColor c(p.color(QPalette::Window));
     glClearColor(c.redF(), c.greenF(), c.blueF(), c.alphaF());
-#endif
 }
 
 void Flag::paintGL()
@@ -74,7 +69,6 @@ void Flag::paintGL()
     renderText(10,15,this->text);
 #else
     QOpenGLWidget::paintGL();
-#endif
 }
 
 void Flag::paintEvent(QPaintEvent* e)
@@ -92,7 +86,6 @@ void Flag::paintEvent(QPaintEvent* e)
     painter.setPen(c);
     painter.drawText(10, 15, this->text);
     painter.end();
-#endif
 }
 
 void Flag::resizeGL(int width, int height)
@@ -127,7 +120,6 @@ void Flag::drawLine (View3DInventorViewer* v, int tox, int toy)
     p.begin(v->getGLWidget());
 #if !defined(HAVE_QT5_OPENGL)
     p.setDrawBuffer(GL_BACK);
-#endif
 
     // the line
     p.setLineWidth(1.0f);
@@ -157,7 +149,6 @@ void Flag::mouseMoveEvent(QMouseEvent *e)
         View3DInventorViewer* viewer = dynamic_cast<View3DInventorViewer*>(parentWidget());
         if (viewer)
             viewer->getSoRenderManager()->scheduleRedraw();
-#endif
     }
 }
 
@@ -374,7 +365,6 @@ void GLFlagWindow::deleteFlags()
 #if defined(HAVE_QT5_OPENGL)
         if (ct > 0)
             _viewer->getSoRenderManager()->scheduleRedraw();
-#endif
     }
 }
 
@@ -397,7 +387,6 @@ void GLFlagWindow::removeFlag(Flag* item)
         _flagLayout->removeWidget(item);
 #if defined(HAVE_QT5_OPENGL)
         _viewer->getSoRenderManager()->scheduleRedraw();
-#endif
     }
 }
 
@@ -444,3 +433,4 @@ void GLFlagWindow::paintGL()
 }
 
 #include "moc_Flag.cpp"
+

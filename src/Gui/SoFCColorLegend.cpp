@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <Inventor/fields/SoMFString.h>
 # include <Inventor/nodes/SoBaseColor.h>
@@ -32,7 +30,6 @@
 # include <Inventor/nodes/SoMaterial.h>
 # include <Inventor/nodes/SoText2.h>
 # include <Inventor/nodes/SoTransform.h>
-#endif
 
 #include "SoFCColorLegend.h"
 
@@ -241,3 +238,4 @@ void SoFCColorLegend::setColorModel( App::ColorGradient::TColorModel tModel )
   addChild(matBinding);
   addChild(faceset);
 }
+

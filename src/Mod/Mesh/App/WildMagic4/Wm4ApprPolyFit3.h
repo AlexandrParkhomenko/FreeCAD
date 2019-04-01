@@ -56,3 +56,4 @@ Real* PolyFit3 (int iSamples, const Real* afX, const Real* afY,
 }
 
 #endif
+

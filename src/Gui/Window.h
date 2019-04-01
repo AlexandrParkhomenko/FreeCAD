@@ -55,3 +55,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_WINDOW_H
+

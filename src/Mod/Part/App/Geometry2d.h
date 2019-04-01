@@ -569,3 +569,4 @@ std::unique_ptr<Geom2dCurve> getCurve2dFromGeom2d(Handle(Geom2d_Curve));
 }
 
 #endif // PART_GEOMETRY2D_H
+

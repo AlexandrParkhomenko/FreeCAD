@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <sstream>
-#endif
 
 
 #include "Core/MeshKernel.h"
@@ -179,3 +176,4 @@ Segment::const_facet_iterator& Segment::const_facet_iterator::operator--()
     --(this->_it);
     return *this;
 }
+

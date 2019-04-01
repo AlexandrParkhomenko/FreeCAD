@@ -41,3 +41,4 @@ Q_SIGNALS:
 };
 
 #endif // QUANTITYSPINBOX_P_H
+

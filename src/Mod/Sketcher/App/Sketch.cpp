@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRep_Builder.hxx>
 # include <Precision.hxx>
 # include <ShapeFix_Wire.hxx>
 # include <TopoDS_Compound.hxx>
 # include <Standard_Version.hxx>
-#endif
 
 #include <Base/Writer.h>
 #include <Base/Reader.h>
@@ -3045,7 +3042,6 @@ bool Sketch::updateGeometry()
                         }
                     }
                 }
-                #endif
 
             }
         } catch (Base::Exception &e) {
@@ -3859,7 +3855,6 @@ TopoShape Sketch::toShape(void) const
     if (edge_list.size() > 0)
         Base::Console().Warning("Left over edges in Sketch. Only closed structures will be propagated at the moment!\n");
 
-#endif
 
     return result;
 }
@@ -3880,4 +3875,5 @@ void Sketch::Restore(XMLReader &)
 {
 
 }
+
 

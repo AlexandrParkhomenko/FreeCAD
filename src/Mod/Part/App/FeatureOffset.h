@@ -81,3 +81,4 @@ public:
 
 }
 #endif // PART_FEATUREOFFSET_H
+

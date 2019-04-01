@@ -175,3 +175,4 @@ typedef Gui::ViewProviderPythonFeatureT<ViewProviderScattered> ViewProviderPytho
 
 #endif // POINTSGUI_VIEWPROVIDERPOINTS_H
 
+

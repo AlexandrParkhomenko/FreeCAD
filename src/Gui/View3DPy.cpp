@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #ifndef __InventorAll__
 # include "InventorAll.h"
@@ -2451,3 +2450,4 @@ Py::Object View3DInventorPy::redraw(const Py::Tuple& args)
     _view->getViewer()->redraw();
     return Py::None();
 }
+

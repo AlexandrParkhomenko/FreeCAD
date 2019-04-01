@@ -166,3 +166,4 @@ private:
 }
 
 #endif // TASKCHECKGEOMETRY_H
+

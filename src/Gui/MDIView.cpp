@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <boost/signals2.hpp>
 # include <boost/bind.hpp>
 # include <qapplication.h>
@@ -32,7 +30,6 @@
 # include <QCloseEvent>
 # include <QMdiSubWindow>
 #include <iostream>
-#endif
 
 
 #include "MDIView.h"
@@ -97,7 +94,6 @@ void MDIView::deleteSelf()
 #if QT_VERSION < 0x050000
         // With Qt5 this would lead to some annoying flickering
         getMainWindow()->removeWindow(this);
-#endif
         parent->close();
     }
     else {
@@ -255,7 +251,6 @@ void MDIView::changeEvent(QEvent *e)
 #if defined(Q_WS_X11)
 // To fix bug #0000345 move function declaration to here
 extern void qt_x11_wait_for_window_manager( QWidget* w ); // defined in qwidget_x11.cpp
-#endif
 
 void MDIView::setCurrentViewMode(ViewMode mode)
 {
@@ -296,7 +291,6 @@ void MDIView::setCurrentViewMode(ViewMode mode)
 #if defined(Q_WS_X11)
                     //extern void qt_x11_wait_for_window_manager( QWidget* w ); // defined in qwidget_x11.cpp
                     qt_x11_wait_for_window_manager(this);
-#endif
                     activateWindow();
                 }
                 else if (this->currentMode == FullScreen) {
@@ -331,3 +325,4 @@ void MDIView::setCurrentViewMode(ViewMode mode)
 }
 
 #include "moc_MDIView.cpp"
+

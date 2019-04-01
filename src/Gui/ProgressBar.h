@@ -187,3 +187,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_PROGRESSBAR_H
+

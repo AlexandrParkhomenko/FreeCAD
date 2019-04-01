@@ -117,3 +117,4 @@ private:
 } // namespace PartGui
 
 #endif // PARTGUI_DLGPRIMITIVES_H
+

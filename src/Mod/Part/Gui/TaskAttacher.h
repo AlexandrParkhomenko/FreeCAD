@@ -176,3 +176,4 @@ protected:
 } //namespace PartDesignGui
 
 #endif // GUI_TASKVIEW_TASKAPPERANCE_H
+

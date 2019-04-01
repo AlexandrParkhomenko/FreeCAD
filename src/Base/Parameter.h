@@ -339,3 +339,4 @@ BaseExport PyObject* GetPyObject( const Base::Reference<ParameterGrp> &hcParamGr
 
 
 #endif // BASE__PARAMETER_H
+

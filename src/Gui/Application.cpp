@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include "InventorAll.h"
 # include <boost/signals2.hpp>
 # include <boost/bind.hpp>
@@ -43,13 +41,11 @@
 # include <QStatusBar>
 # include <QTextStream>
 # include <QTimer>
-#endif
 
 #include <boost/interprocess/sync/file_lock.hpp>
 #include <QtOpenGL.h>
 #if defined(HAVE_QT5_OPENGL)
 #include <QWindow>
-#endif
 
 // FreeCAD Base header
 #include <Base/Console.h>
@@ -381,7 +377,6 @@ Application::~Application()
 #else
     SoDB::cleanup();
 #endif
-#endif
     {
     Base::PyGILStateLocker lock;
     Py_DECREF(_pcWorkbenchDictionary);
@@ -591,7 +586,6 @@ void Application::slotNewDocument(const App::Document& Doc)
 #ifdef FC_DEBUG
     std::map<const App::Document*, Gui::Document*>::const_iterator it = d->documents.find(&Doc);
     assert(it==d->documents.end());
-#endif
     Gui::Document* pDoc = new Gui::Document(const_cast<App::Document*>(&Doc),this);
     d->documents[&Doc] = pDoc;
 
@@ -638,7 +632,6 @@ void Application::slotRelabelDocument(const App::Document& Doc)
     std::map<const App::Document*, Gui::Document*>::iterator doc = d->documents.find(&Doc);
 #ifdef FC_DEBUG
     assert(doc!=d->documents.end());
-#endif
 
     signalRelabelDocument(*doc->second);
     doc->second->onRelabel();
@@ -649,7 +642,6 @@ void Application::slotRenameDocument(const App::Document& Doc)
     std::map<const App::Document*, Gui::Document*>::iterator doc = d->documents.find(&Doc);
 #ifdef FC_DEBUG
     assert(doc!=d->documents.end());
-#endif
 
     signalRenameDocument(*doc->second);
 }
@@ -836,7 +828,6 @@ void Application::setActiveDocument(Gui::Document* pcDocument)
     else {
         Base::Console().Log("No active document\n");
     }
-#endif
 
     // notify all views attached to the application (not views belong to a special document)
     for(list<Gui::BaseView*>::iterator It=d->passive.begin();It!=d->passive.end();++It)
@@ -916,7 +907,6 @@ void Application::viewActivated(MDIView* pcView)
     // May be useful for error detection
     Base::Console().Log("Active view is %s (at %p)\n",
                  (const char*)pcView->windowTitle().toUtf8(),pcView);
-#endif
 
     signalActivateView(pcView);
 
@@ -948,7 +938,6 @@ void Application::tryClose(QCloseEvent * e)
             e->setAccepted(active->canClose());
 #else
             e->setAccepted(It->second->canClose());
-#endif
             if (!e->isAccepted())
                 return;
         }
@@ -1351,7 +1340,6 @@ CommandManager &Application::commandManager(void)
 typedef void (*_qt_msg_handler_old)(QtMsgType, const QMessageLogContext &, const QString &);
 #else
 typedef void (*_qt_msg_handler_old)(QtMsgType type, const char *msg);
-#endif
 _qt_msg_handler_old old_qtmsg_handler = 0;
 
 #if QT_VERSION >= 0x050000
@@ -1416,7 +1404,6 @@ void messageHandler(QtMsgType type, const char *msg)
     Base::Console().Log("%s\n", msg);
 #endif
 }
-#endif
 
 #ifdef FC_DEBUG // redirect Coin messages to FreeCAD
 void messageHandlerCoin(const SoError * error, void * /*userdata*/)
@@ -1451,7 +1438,6 @@ void messageHandlerCoin(const SoError * error, void * /*userdata*/)
     }
 }
 
-#endif
 
 // To fix bug #0000345 move Q_INIT_RESOURCE() outside initApplication()
 static void init_resources()
@@ -1476,7 +1462,6 @@ void Application::initApplication(void)
         old_qtmsg_handler = qInstallMessageHandler(messageHandler);
 #else
         old_qtmsg_handler = qInstallMsgHandler(messageHandler);
-#endif
         init = true;
     }
     catch (...) {
@@ -1579,7 +1564,6 @@ void Application::runApplication(void)
     // and issue #0002891
     // http://doc.qt.io/qt-5/qcoreapplication.html#locale-settings
     setlocale(LC_NUMERIC, "C");
-#endif
 
     // check if a single or multiple instances can run
     it = cfg.find("SingleInstance");
@@ -1611,11 +1595,9 @@ void Application::runApplication(void)
 #if QT_VERSION >= 0x050600
     //Enable automatic scaling based on pixel density to display (added in Qt 5.6)
     mainApp.setAttribute(Qt::AA_EnableHighDpiScaling);
-#endif
 #if QT_VERSION >= 0x050100
     //Enable support for highres images (added in Qt 5.1, but off by default)
     mainApp.setAttribute(Qt::AA_UseHighDpiPixmaps);
-#endif
     // set application icon and window title
     it = cfg.find("Application");
     if (it != cfg.end()) {
@@ -1626,7 +1608,6 @@ void Application::runApplication(void)
     }
 #ifndef Q_OS_MACX
     mainApp.setWindowIcon(Gui::BitmapFactory().pixmap(App::Application::Config()["AppIcon"].c_str()));
-#endif
     QString plugin;
     plugin = QString::fromUtf8(App::GetApplication().getHomePath());
     plugin += QLatin1String("/plugins");
@@ -1674,12 +1655,10 @@ void Application::runApplication(void)
         Base::Console().Log("OpenGL version 1.1 or higher is present\n");
     else if (version & QGLFormat::OpenGL_Version_None)
         Base::Console().Log("No OpenGL is present or no OpenGL context is current\n");
-#endif
 
 #if !defined(Q_OS_LINUX)
     QIcon::setThemeSearchPaths(QIcon::themeSearchPaths() << QString::fromLatin1(":/icons/FreeCAD-default"));
     QIcon::setThemeName(QLatin1String("FreeCAD-default"));
-#endif
 
     ParameterGrp::handle hTheme = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/Bitmaps/Theme");
     std::string searchpath = hTheme->GetASCII("SearchPath");
@@ -1701,7 +1680,6 @@ void Application::runApplication(void)
     FileDialog::saveLocation(path);
 #else
     FileDialog::setWorkingDirectory(FileDialog::restoreLocation());
-#endif
 
     Application app(true);
     MainWindow mw;
@@ -1758,7 +1736,6 @@ void Application::runApplication(void)
             Base::Console().Log("OpenGL version is: %d.%d (%s)\n", major, minor, glVersion);
         }
     }
-#endif
 
     // init the Inventor subsystem
     initOpenInventor();
@@ -1868,14 +1845,12 @@ void Application::runApplication(void)
                "}\n");
         qApp->setStyleSheet(qss);
     }
-#endif
 
     //initialize spaceball.
     mainApp.initSpaceball(&mw);
 
 #ifdef FC_DEBUG // redirect Coin messages to FreeCAD
     SoDebugError::setHandlerCallback( messageHandlerCoin, 0 );
-#endif
 
 
     Instance->d->startingUp = false;
@@ -2009,3 +1984,4 @@ void Application::checkForPreviousCrashes()
             dlg.exec();
     }
 }
+

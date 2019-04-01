@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <TopExp.hxx>
 # include <TopExp_Explorer.hxx>
 # include <TopTools_IndexedMapOfShape.hxx>
@@ -31,7 +29,6 @@
 # include <QMessageBox>
 # include <QTextStream>
 # include <sstream>
-#endif
 
 #include "ViewProviderExt.h"
 #include "ui_TaskShapeBuilder.h"
@@ -608,3 +605,4 @@ bool TaskShapeBuilder::reject()
 }
 
 #include "moc_TaskShapeBuilder.cpp"
+

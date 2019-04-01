@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Geom_TrimmedCurve.hxx>
-#endif
 
 #include "Geometry.h"
 #include <Mod/Part/App/ArcOfConicPy.h>
@@ -241,3 +238,4 @@ int ArcOfConicPy::setCustomAttributes(const char* , PyObject *)
 {
     return 0; 
 }
+

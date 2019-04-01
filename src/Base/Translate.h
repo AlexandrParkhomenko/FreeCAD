@@ -45,3 +45,4 @@ private:
 } // namespace Base 
 
 #endif // BASE_TRANSLATE_H
+

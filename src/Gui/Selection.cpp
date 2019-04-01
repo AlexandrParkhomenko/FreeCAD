@@ -21,16 +21,13 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <assert.h>
 # include <string>
 # include <boost/bind.hpp>
 # include <QApplication>
 # include <QString>
 # include <QStatusBar>
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Application.h"
@@ -708,7 +705,6 @@ bool SelectionSingleton::addSelection(const char* pDocName, const char* pObjectN
 
 #ifdef FC_DEBUG
         Base::Console().Log("Sel : Add Selection \"%s.%s.%s(%f,%f,%f)\"\n",pDocName,pObjectName,pSubName,x,y,z);
-#endif
 
         // allow selection
         return true;
@@ -836,7 +832,6 @@ void SelectionSingleton::rmvSelection(const char* pDocName, const char* pObjectN
 
 #ifdef FC_DEBUG
             Base::Console().Log("Sel : Rmv Selection \"%s.%s.%s\"\n",pDocName,pObjectName,pSubName);
-#endif
         }
         else {
             ++It;
@@ -952,7 +947,6 @@ void SelectionSingleton::clearSelection(const char* pDocName)
 
 #ifdef FC_DEBUG
         Base::Console().Log("Sel : Clear selection\n");
-#endif
     }
 }
 
@@ -973,7 +967,6 @@ void SelectionSingleton::clearCompleteSelection()
 
 #ifdef FC_DEBUG
     Base::Console().Log("Sel : Clear selection\n");
-#endif
 }
 
 bool SelectionSingleton::isSelected(const char* pDocName, const char* pObjectName, const char* pSubName) const
@@ -1416,3 +1409,4 @@ PyObject *SelectionSingleton::sRemoveSelectionGate(PyObject * /*self*/, PyObject
 
     Py_Return;
 }
+

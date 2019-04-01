@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
-#endif
 
 #include "GeometryPyCXX.h"
 #include <Base/VectorPy.h>
@@ -168,3 +165,4 @@ int Vector2dPy::setattro(const Py::String &name_, const Py::Object &value)
 }
 
 }
+

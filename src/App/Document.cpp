@@ -49,15 +49,12 @@ recompute path. Also enables more complicated dependencies beyond trees.
 
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <sstream>
 # include <climits>
 # include <bitset>
 # include <random>
-#endif
 
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/subgraph.hpp>
@@ -68,7 +65,6 @@ recompute path. Also enables more complicated dependencies beyond trees.
 #include <boost/graph/depth_first_search.hpp>
 #include <boost/graph/dijkstra_shortest_paths.hpp>
 #include <boost/graph/visitors.hpp>
-#endif //USE_OLD_DAG
 
 #include <boost/bind.hpp>
 #include <boost/regex.hpp>
@@ -117,7 +113,6 @@ using namespace zipios;
 
 #if FC_DEBUG
 #  define FC_LOGFEATUREUPDATE
-#endif
 
 // typedef boost::property<boost::vertex_root_t, DocumentObject* > VertexProperty;
 typedef boost::adjacency_list <
@@ -156,7 +151,6 @@ struct DocumentP
     DependencyList DepList;
     std::map<DocumentObject*,Vertex> VertexObjectList;
     std::map<Vertex,DocumentObject*> vertexMap;
-#endif //USE_OLD_DAG
 
     DocumentP() {
         activeObject = 0;
@@ -1190,7 +1184,6 @@ Document::Document(void)
 
 #ifdef FC_LOGUPDATECHAIN
     Console().Log("+App::Document: %p\n",this);
-#endif
     std::string CreationDateString = Base::TimeInfo::currentDateTimeString();
     std::string Author = App::GetApplication().GetParameterGroupByPath
         ("User parameter:BaseApp/Preferences/Document")->GetASCII("prefAuthor","");
@@ -1282,7 +1275,6 @@ Document::~Document()
 {
 #ifdef FC_LOGUPDATECHAIN
     Console().Log("-App::Document: %s %p\n",getName(), this);
-#endif
 
     try {
         clearUndos();
@@ -1294,7 +1286,6 @@ Document::~Document()
 
 #ifdef FC_LOGUPDATECHAIN
     Console().Log("-Delete Features of %s \n",getName());
-#endif
 
     d->objectArray.clear();
     for (it = d->objectMap.begin(); it != d->objectMap.end(); ++it) {
@@ -2049,7 +2040,6 @@ Document::getDependencyList(const std::vector<App::DocumentObject*>& objs) const
         ary.push_back(VertexMap[*it]);
     return ary;
 }
-#endif
 
 void Document::_rebuildDependencyList(void)
 {
@@ -2083,7 +2073,6 @@ void Document::_rebuildDependencyList(void)
                 add_edge(d->VertexObjectList[It->second],d->VertexObjectList[*It2],d->DepList);
         }
     }
-#endif
 }
 
 #ifndef USE_OLD_DAG
@@ -2105,7 +2094,6 @@ std::vector<App::DocumentObject*> Document::getDependencyList(const std::vector<
 
     return dep;
 }
-#endif // USE_OLD_DAG
 
 
 /**
@@ -2331,7 +2319,6 @@ int Document::recompute()
     return objectCount;
 }
 
-#endif // USE_OLD_DAG
 
 /*!
   Does almost the same as topologicalSort() until no object with an input degree of zero
@@ -2508,7 +2495,6 @@ bool Document::_recomputeFeature(DocumentObject* Feat)
 {
 #ifdef FC_LOGFEATUREUPDATE
     std::clog << "Solv: Executing Feature: " << Feat->getNameInDocument() << std::endl;;
-#endif
 
     DocumentObjectExecReturn  *returnCode = 0;
     try {
@@ -2518,7 +2504,6 @@ bool Document::_recomputeFeature(DocumentObject* Feat)
             _RecomputeLog.push_back(returnCode);
     #ifdef FC_DEBUG
             Base::Console().Error("Error in feature: %s\n%s\n",Feat->getNameInDocument(),returnCode->Why.c_str());
-    #endif
             Feat->setError();
             return true;
         }
@@ -2556,7 +2541,6 @@ bool Document::_recomputeFeature(DocumentObject* Feat)
         Feat->setError();
         return true;
     }
-#endif
 
     // error code
     if (returnCode == DocumentObject::StdReturn) {
@@ -2567,7 +2551,6 @@ bool Document::_recomputeFeature(DocumentObject* Feat)
         _RecomputeLog.push_back(returnCode);
 #ifdef FC_DEBUG
         Base::Console().Error("Error in feature: %s\n%s\n",Feat->getNameInDocument(),returnCode->Why.c_str());
-#endif
         Feat->setError();
     }
     return false;
@@ -2855,7 +2838,6 @@ void Document::removeObject(const char* sName)
             }
         }
     }
-#endif //USE_OLD_DAG
 
     // Before deleting we must nullify all dependent objects
     breakDependency(pos->second, true);
@@ -3334,3 +3316,4 @@ Document::getPathsByOutList(const App::DocumentObject* from, const App::Document
 
     return array;
 }
+

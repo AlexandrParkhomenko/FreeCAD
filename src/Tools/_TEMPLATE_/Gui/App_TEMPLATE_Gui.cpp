@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Python.h>
-#endif
 
 #include <Base/Console.h>
 #include <Base/PyObjectBase.h>
@@ -80,3 +77,4 @@ PyMOD_INIT_FUNC(_TEMPLATE_Gui)
     Base::Console().Log("Loading GUI of _TEMPLATE_ module... done\n");
     PyMOD_Return(mod);
 }
+

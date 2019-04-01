@@ -65,3 +65,4 @@ protected Q_SLOTS:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGUNDOREDO_H
+

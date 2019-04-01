@@ -374,3 +374,4 @@ static void isoRadius(Span& before, Span& blend, Span& after, double radius) {
 	before.p1 = blend.p0 = before.Near(blend.pc);
 	after.p0 = blend.p1 = after.Near(blend.pc);
 }
+

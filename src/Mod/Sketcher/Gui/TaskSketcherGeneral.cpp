@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "ui_TaskSketcherGeneral.h"
 #include "TaskSketcherGeneral.h"
@@ -310,3 +307,4 @@ void TaskSketcherGeneral::onRenderOrderChanged()
 }
 
 #include "moc_TaskSketcherGeneral.cpp"
+

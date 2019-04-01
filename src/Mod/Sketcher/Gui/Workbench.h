@@ -68,3 +68,4 @@ SketcherGuiExport void addSketcherWorkbenchGeometries( Gui::ToolBarItem& geom );
 
 
 #endif // IMAGE_WORKBENCH_H 
+

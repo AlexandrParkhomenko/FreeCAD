@@ -1518,3 +1518,4 @@ Kurve Kurve::Part(int fromSpanno, const Point& fromPt, int toSpanno, const Point
 	}
 
 }
+

@@ -142,3 +142,4 @@ typedef IntrTriangle3Triangle3<double> IntrTriangle3Triangle3d;
 }
 
 #endif
+

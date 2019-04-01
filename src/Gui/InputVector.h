@@ -388,3 +388,4 @@ protected:
 } // namespace Gui
 
 #endif // GUI_INPUTVECTOR_H
+

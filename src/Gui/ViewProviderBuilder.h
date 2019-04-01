@@ -70,3 +70,4 @@ public:
 
 
 #endif // GUI_VIEWPROVIDERBUILDER_H
+

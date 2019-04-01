@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <gp_Dir2d.hxx>
 # include <gp_Pnt2d.hxx>
 # include <gp_Vec2d.hxx>
@@ -32,7 +30,6 @@
 # include <Geom2d_Curve.hxx>
 # include <Precision.hxx>
 # include <Standard_Failure.hxx>
-#endif
 
 #include <Base/GeometryPyCXX.h>
 #include <Base/Matrix.h>
@@ -148,7 +145,6 @@ PyObject* Geometry2dPy::transform(PyObject *args)
                   0  ,   0, 1,   0
 #if OCC_VERSION_HEX < 0x060800
                   , 0.00001,0.00001
-#endif
                 ); //precision was removed in OCCT CR0025194
     gp_Trsf2d trf(mat);
 
@@ -207,3 +203,4 @@ int Geometry2dPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
+

@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <cmath>
 # include <iostream>
 # include <algorithm>
-#endif
 
 #include <Base/Exception.h>
 #include <Base/Matrix.h>
@@ -42,7 +39,6 @@
 #include <QtConcurrentMap>
 #ifdef _WIN32
 # include <ppl.h>
-#endif
 
 using namespace Points;
 using namespace std;
@@ -400,7 +396,6 @@ void PropertyNormalList::transformGeometry(const Base::Matrix4D &mat)
     QtConcurrent::blockingMap(_lValueList, [rot](Base::Vector3f& value) {
         rot.multVec(value, value);
     });
-#endif
 
     hasSetValue();
 }
@@ -639,3 +634,4 @@ unsigned int PropertyCurvatureList::getMemSize (void) const
 {
     return sizeof(CurvatureInfo) * this->_lValueList.size();
 }
+

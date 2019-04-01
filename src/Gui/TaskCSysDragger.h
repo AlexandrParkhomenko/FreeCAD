@@ -56,3 +56,4 @@ namespace Gui
 }
 
 #endif // TASKCSYSDRAGGER_H
+

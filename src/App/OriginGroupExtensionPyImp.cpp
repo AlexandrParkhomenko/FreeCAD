@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "App/OriginGroupExtension.h"
 
@@ -52,5 +51,6 @@ int OriginGroupExtensionPy::setCustomAttributes(const char* /*attr*/, PyObject* 
 {
     return 0; 
 }
+
 
 

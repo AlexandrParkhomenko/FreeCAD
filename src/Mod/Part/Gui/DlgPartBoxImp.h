@@ -40,3 +40,4 @@ public:
 } // namespace PartGui
 
 #endif // PARTGUI_DLGPARTBOXIMP_H
+

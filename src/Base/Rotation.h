@@ -119,3 +119,4 @@ private:
 }
 
 #endif // BASE_ROTATION_H
+

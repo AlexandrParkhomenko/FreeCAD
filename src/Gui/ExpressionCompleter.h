@@ -64,3 +64,4 @@ private:
 }
 
 #endif // EXPRESSIONCOMPLETER_H
+

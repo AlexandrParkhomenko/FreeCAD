@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "BitmapFactory.h"
 #include "WidgetFactory.h"
@@ -107,3 +106,4 @@ WidgetFactorySupplier::WidgetFactorySupplier()
     new WidgetProducer<Gui::UIntSpinBox>;
     new WidgetProducer<Gui::QuantitySpinBox>;
 }
+

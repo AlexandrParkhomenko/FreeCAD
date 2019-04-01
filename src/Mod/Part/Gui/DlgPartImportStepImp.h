@@ -45,3 +45,4 @@ public Q_SLOTS:
 } // namespace PartGui
 
 #endif // DlgPartImportStepImp_H
+

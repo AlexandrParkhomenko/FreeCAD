@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <gp_Circ2d.hxx>
 # include <Geom2d_Circle.hxx>
 # include <GCE2d_MakeCircle.hxx>
-#endif
 
 #include <Mod/Part/App/OCCError.h>
 #include <Mod/Part/App/Geom2d/Circle2dPy.h>
@@ -164,3 +161,4 @@ int Circle2dPy::setCustomAttributes(const char* , PyObject *)
 {
     return 0; 
 }
+

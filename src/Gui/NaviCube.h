@@ -60,3 +60,4 @@ public:
 };
 
 #endif /* SRC_GUI_NAVICUBE_H_ */
+

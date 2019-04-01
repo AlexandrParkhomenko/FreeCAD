@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QApplication>
 # include <QMessageBox>
 # include <QPushButton>
-#endif
 
 #include <Mod/Mesh/App/MeshFeature.h>
 
@@ -327,3 +324,4 @@ void CreateMeshPartCommands(void)
     rcCmdMgr.addCommand(new CmdMeshPartSection());
     rcCmdMgr.addCommand(new CmdMeshPartCurveOnMesh());
 }
+

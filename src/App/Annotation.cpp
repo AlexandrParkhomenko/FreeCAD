@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #include "Annotation.h"
 
 using namespace App;
@@ -54,3 +53,4 @@ AnnotationLabel::AnnotationLabel()
 AnnotationLabel::~AnnotationLabel()
 {
 }
+

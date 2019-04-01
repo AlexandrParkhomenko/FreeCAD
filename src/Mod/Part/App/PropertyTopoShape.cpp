@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <BRepAdaptor_Curve.hxx>
 # include <BRepAdaptor_Surface.hxx>
@@ -42,11 +40,9 @@
 # include <Standard_Version.hxx>
 # include <gp_GTrsf.hxx>
 # include <gp_Trsf.hxx>
-#endif
 
 #if OCC_VERSION_HEX >= 0x060800
 #include <OSD_OpenFile.hxx>
-#endif
 
 #include <Base/Console.h>
 #include <Base/Writer.h>
@@ -286,7 +282,6 @@ static Standard_Boolean  BRepTools_Write(const TopoDS_Shape& Sh,
   OSD_OpenStream(os, File, ios::out);
 #else
   os.open(File, ios::out);
-#endif
   if (!os.rdbuf()->is_open()) return Standard_False;
 
   Standard_Boolean isGood = (os.good() && !os.eof());
@@ -625,3 +620,4 @@ void PropertyFilletEdges::Paste(const Property &from)
     _lValueList = dynamic_cast<const PropertyFilletEdges&>(from)._lValueList;
     hasSetValue();
 }
+

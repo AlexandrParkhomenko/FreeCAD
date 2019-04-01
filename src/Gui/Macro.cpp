@@ -21,15 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <assert.h>
 # include <stdio.h>
 # include <QApplication>
 # include <QFile>
 # include <QTextStream>
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Macro.h"
@@ -86,7 +83,6 @@ void MacroManager::open(MacroType eType, const char *sName)
     assert(eType == File);
 #else
     Q_UNUSED(eType);
-#endif
 
     // Convert from Utf-8
     this->macroName = QString::fromUtf8(sName);
@@ -262,3 +258,4 @@ PythonDebugger* MacroManager::debugger() const
 {
     return pyDebugger;
 }
+

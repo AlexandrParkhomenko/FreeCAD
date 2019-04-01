@@ -100,3 +100,4 @@ private:
 } // namespace PartGui
 
 #endif // PARTGUI_CROSSSECTIONS_H
+

@@ -369,3 +369,4 @@ protected:
 } // namespace Gui
 
 #endif // GUI_PREFWIDGETS_H
+

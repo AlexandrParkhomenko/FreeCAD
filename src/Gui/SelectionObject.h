@@ -96,3 +96,4 @@ protected:
 
 
 #endif // GUI_SelectionObject_H 
+

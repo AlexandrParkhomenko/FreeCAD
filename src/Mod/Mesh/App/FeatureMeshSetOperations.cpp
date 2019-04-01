@@ -21,9 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>
@@ -109,4 +106,5 @@ App::DocumentObjectExecReturn *SetOperations::execute(void)
 
     return App::DocumentObject::StdReturn;
 }
+
 

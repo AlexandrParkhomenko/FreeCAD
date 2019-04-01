@@ -57,3 +57,4 @@ private:
 } // namespace Gui
 
 #endif // PROPERTYITEMDELEGATE_H
+

@@ -54,3 +54,4 @@ typedef Gui::ViewProviderPythonFeatureT<ViewProviderPathCompound> ViewProviderPa
 
 
 #endif // PATH_ViewProviderPathCompound_H
+

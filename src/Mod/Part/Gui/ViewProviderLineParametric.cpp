@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "ViewProviderLineParametric.h"
 
@@ -64,3 +61,4 @@ std::vector<std::string> ViewProviderLineParametric::getDisplayModes(void) const
 
   return StrList;
 }
+

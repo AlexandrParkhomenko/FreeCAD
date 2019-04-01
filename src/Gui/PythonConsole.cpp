@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QApplication>
 # include <QClipboard>
 # include <QDockWidget>
@@ -38,7 +36,6 @@
 # include <QTextStream>
 # include <QUrl>
 # include <QMimeData>
-#endif
 
 #include "PythonConsole.h"
 #include "PythonConsolePy.h"
@@ -1118,7 +1115,6 @@ void PythonConsole::runSourceFromMimeData(const QString& source)
 #elif defined(Q_OS_MAC)
     //need to convert CR to LF
     text.replace(QLatin1Char('\r'), QLatin1Char('\n'));
-#endif
 
     // separate the lines and get the last one
     QStringList lines = text.split(QLatin1Char('\n'));
@@ -1523,3 +1519,4 @@ void ConsoleHistory::doScratch( void )
 // -----------------------------------------------------
 
 #include "moc_PythonConsole.cpp"
+

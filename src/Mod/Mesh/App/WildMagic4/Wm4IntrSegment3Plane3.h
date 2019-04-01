@@ -66,3 +66,4 @@ typedef IntrSegment3Plane3<double> IntrSegment3Plane3d;
 }
 
 #endif
+

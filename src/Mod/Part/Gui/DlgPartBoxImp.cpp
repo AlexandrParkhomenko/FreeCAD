@@ -21,9 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include "DlgPartBoxImp.h"
 
@@ -50,3 +47,4 @@ DlgPartBoxImp::~DlgPartBoxImp()
 }
 
 #include "moc_DlgPartBoxImp.cpp"
+

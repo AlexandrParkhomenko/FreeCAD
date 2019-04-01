@@ -22,7 +22,6 @@
 
 
 
-#include "PreCompiled.h"
 #include <Mod/Part/App/TopoShapeFacePy.h>
 #include <Mod/Part/App/TopoShapeEdgePy.h>
 
@@ -165,3 +164,4 @@ PYBIND11_MODULE(flatmesh, m)
         .def_readonly("A", &FaceUnwrapper::A);
         
 };
+

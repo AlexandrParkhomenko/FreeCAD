@@ -20,9 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include <Base/Type.h>
 #include <Gui/ViewProviderDocumentObject.h>
@@ -83,5 +80,6 @@ bool FilterTyped::goFilter(const Gui::DAG::Vertex& vertexIn, const Graph& graphI
   
   return false;
 }
+
 
 

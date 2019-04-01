@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>
@@ -101,3 +98,4 @@ void ViewProviderShapeBuilder::buildNodes(const App::Property* , std::vector<SoN
 void ViewProviderShapeBuilder::createShape(const App::Property* , SoSeparator* ) const
 {
 }
+

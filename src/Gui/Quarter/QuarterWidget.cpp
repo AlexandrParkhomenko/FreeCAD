@@ -1327,3 +1327,4 @@ QuarterWidget::navigationModeFile(void) const
 }
 
 #undef PRIVATE
+

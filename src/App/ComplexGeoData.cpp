@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <cstdlib>
-#endif
 
 
 #include "ComplexGeoData.h"
@@ -153,3 +150,4 @@ bool ComplexGeoData::getCenterOfGravity(Base::Vector3d&) const
 {
     return false;
 }
+

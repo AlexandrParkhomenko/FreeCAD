@@ -363,3 +363,4 @@ template class Distance<double,Vector2d>;
 template class Distance<double,Vector3d>;
 //----------------------------------------------------------------------------
 }
+

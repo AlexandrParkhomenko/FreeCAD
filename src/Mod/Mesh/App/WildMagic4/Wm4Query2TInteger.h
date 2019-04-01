@@ -72,3 +72,4 @@ typedef Query2TInteger<double> Query2TIntegerd;
 }
 
 #endif
+

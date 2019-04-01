@@ -98,3 +98,4 @@ typedef Query3TRational<double> Query3TRationald;
 }
 
 #endif
+

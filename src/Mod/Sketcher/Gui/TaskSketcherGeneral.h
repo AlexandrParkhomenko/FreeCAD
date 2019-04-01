@@ -113,3 +113,4 @@ private:
 } //namespace SketcherGui
 
 #endif // GUI_TASKVIEW_TaskSketcherGerneral_H
+

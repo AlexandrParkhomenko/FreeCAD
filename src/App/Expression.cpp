@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 #ifdef __GNUC__
 # include <unistd.h>
 #endif
@@ -1980,3 +1979,4 @@ bool ExpressionParser::isTokenAUnit(const std::string & str)
     else
         return false;
 }
+

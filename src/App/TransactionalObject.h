@@ -59,3 +59,4 @@ protected:
 
 
 #endif // APP_TRANSACTIONALOBJECT_H
+

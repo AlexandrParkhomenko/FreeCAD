@@ -65,3 +65,4 @@ private:
 } //namespace Gui
 
 #endif // GUI_TASKVIEW_TASKAPPERANCE_H
+

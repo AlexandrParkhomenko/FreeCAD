@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #include "DocumentObject.h"
 #include "Document.h"
@@ -436,3 +435,4 @@ int DocumentObjectPy::setCustomAttributes(const char* attr, PyObject *obj)
 
     return 0;
 }
+

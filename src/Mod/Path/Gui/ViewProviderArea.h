@@ -81,3 +81,4 @@ typedef Gui::ViewProviderPythonFeatureT<ViewProviderAreaView> ViewProviderAreaVi
 
 
 #endif // PATH_ViewProviderArea_H
+

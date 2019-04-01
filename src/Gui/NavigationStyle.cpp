@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <cfloat>
 # include "InventorAll.h"
@@ -35,7 +33,6 @@
 # include <QMenu>
 # include <QMetaObject>
 # include <QRegExp>
-#endif
 
 #include <Inventor/sensors/SoTimerSensor.h>
 
@@ -548,7 +545,6 @@ void NavigationStyle::viewAll()
         box_height < 5.0f*box_width && box_height < 5.0f*box_depth && 
         box_depth < 5.0f*box_width && box_depth < 5.0f*box_height )
         return;
-#endif
 
     SoCamera* cam = viewer->getSoRenderManager()->getCamera();
     if (!cam) return;
@@ -1658,3 +1654,4 @@ std::map<Base::Type, std::string> UserNavigationStyle::getUserFriendlyNames()
     }
     return names;
 }
+

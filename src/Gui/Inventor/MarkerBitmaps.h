@@ -51,3 +51,4 @@ private:
 
 #endif // GUI_INVENTOR_MARKERBITMAPS_H
 
+

@@ -68,3 +68,4 @@ private:
 }}} // namespace
 
 #endif // QUARTER_CONTEXTMENUHANDLERP_H
+

@@ -70,3 +70,4 @@ typedef Query2Filtered<double> Query2Filteredd;
 }
 
 #endif
+

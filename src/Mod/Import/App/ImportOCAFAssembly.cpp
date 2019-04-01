@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <climits>
 # include <sstream>
 # include <Standard_Version.hxx>
@@ -316,5 +314,6 @@ void ImportOCAFAssembly::createShape(const TopoDS_Shape& aShape, const TopLoc_Lo
         applyColors(part, faceColors);
     }
 }
+
 
 

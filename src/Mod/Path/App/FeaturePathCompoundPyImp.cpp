@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "FeaturePathCompound.h"
 #include <CXX/Objects.hxx>
@@ -137,3 +136,4 @@ int FeaturePathCompoundPy::setCustomAttributes(const char* /*attr*/, PyObject* /
 {
     return 0;
 }
+

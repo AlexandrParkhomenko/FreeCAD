@@ -21,8 +21,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <TopoDS_Shape.hxx>
 # include <TopoDS_Face.hxx>
 # include <TopoDS_Edge.hxx>
@@ -55,7 +53,6 @@
 # include <GProp_PrincipalProps.hxx>
 # include <BRepGProp.hxx>
 # include <GeomLib_IsPlanarSurface.hxx>
-#endif
 #include <BRepLProp_SLProps.hxx>
 #include <GeomAPI_ProjectPointOnCurve.hxx>
 
@@ -494,7 +491,6 @@ eRefType AttachEngine::getShapeType(const TopoDS_Shape& sh)
         case GeomAbs_OtherCurve:
 #if OCC_VERSION_HEX >= 0x070000
         case GeomAbs_OffsetCurve:
-#endif
             return rtCurve;
         }
     }break;
@@ -2092,4 +2088,5 @@ Base::Placement AttachEnginePoint::calculateAttachedPlacement(Base::Placement or
     plm *= this->attachmentOffset;
     return plm;
 }
+
 

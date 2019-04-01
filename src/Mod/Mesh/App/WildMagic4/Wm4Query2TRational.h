@@ -90,3 +90,4 @@ typedef Query2TRational<double> Query2TRationald;
 }
 
 #endif
+

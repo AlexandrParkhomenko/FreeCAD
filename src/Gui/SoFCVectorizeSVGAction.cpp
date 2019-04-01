@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <iomanip>
 # include <ios>
-#endif
 #include <Inventor/SbBasic.h>
 #include <Inventor/SbBSPTree.h>
 
@@ -471,3 +468,4 @@ void SoFCVectorizeSVGAction::printItem(const SoVectorizeItem * item) const
         break;
     }
 }
+

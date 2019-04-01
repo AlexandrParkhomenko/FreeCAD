@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 //#include "ViewProviderGroupExtensionPy.h"
 #include "ViewProviderGroupExtension.h"
@@ -80,7 +77,6 @@ bool ViewProviderGroupExtension::extensionCanDropObject(App::DocumentObject* obj
 
 #ifdef FC_DEBUG
     Base::Console().Log("Check ViewProviderGroupExtension");
-#endif
 
     auto* group = getExtendedViewProvider()->getObject()->getExtensionByType<App::GroupExtension>();
 
@@ -222,3 +218,4 @@ EXTENSION_PROPERTY_SOURCE_TEMPLATE(Gui::ViewProviderGroupExtensionPython, Gui::V
 // explicit template instantiation
 template class GuiExport ViewProviderExtensionPythonT<ViewProviderGroupExtension>;
 }
+

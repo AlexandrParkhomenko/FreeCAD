@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "Workbench.h"
 
@@ -408,5 +407,6 @@ PyObject*  PythonWorkbenchPy::ListCommandbars(PyObject *args)
 {
     return listCommandbars(args);
 }
+
 
 

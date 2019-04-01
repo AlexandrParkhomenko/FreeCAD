@@ -70,3 +70,4 @@ protected:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGMACROEXECUTEIMP_H
+

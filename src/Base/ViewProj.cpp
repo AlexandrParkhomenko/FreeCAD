@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #include "ViewProj.h"
 
 using namespace Base;
@@ -135,3 +134,4 @@ Vector3d ViewProjMatrix::inverse (const Vector3d& src) const
 
     return dst;
 }
+

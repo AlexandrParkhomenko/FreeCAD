@@ -25,9 +25,7 @@
 // write a property to file only when it has been modified
 // implement xml meta file
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QCloseEvent>
 # include <QDateTime>
@@ -45,7 +43,6 @@
 # include <QList>
 # include <QVector>
 # include <sstream>
-#endif
 
 #include "DocumentRecovery.h"
 #include "ui_DocumentRecovery.h"
@@ -177,7 +174,6 @@ DocumentRecovery::DocumentRecovery(const QList<QFileInfo>& dirs, QWidget* parent
     d_ptr->ui.treeWidget->header()->setSectionResizeMode(QHeaderView::Stretch);
 #else
     d_ptr->ui.treeWidget->header()->setResizeMode(QHeaderView::Stretch);
-#endif
 
     d_ptr->recovered = false;
 
@@ -574,3 +570,4 @@ void DocumentRecovery::clearDirectory(const QFileInfo& dir)
 }
 
 #include "moc_DocumentRecovery.cpp"
+

@@ -260,3 +260,4 @@ struct BaseExport Tools
 } // namespace Base
 
 #endif // BASE_TOOLS_H
+

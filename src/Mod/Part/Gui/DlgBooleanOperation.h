@@ -95,3 +95,4 @@ private:
 } // namespace PartGui
 
 #endif // PARTGUI_DLGBOOLEANOPERATION_H
+

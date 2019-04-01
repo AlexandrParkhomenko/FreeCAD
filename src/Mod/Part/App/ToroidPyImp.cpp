@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Geom_Circle.hxx>
 # include <Geom_ToroidalSurface.hxx>
 # include <gp_Torus.hxx>
 # include <Standard_Failure.hxx>
-#endif
 
 #include <Base/VectorPy.h>
 #include <Base/GeometryPyCXX.h>
@@ -232,3 +229,4 @@ int ToroidPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
+

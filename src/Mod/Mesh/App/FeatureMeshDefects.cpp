@@ -22,10 +22,7 @@
 
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "FeatureMeshDefects.h"
 #include "Core/Degeneration.h"
@@ -351,3 +348,4 @@ App::DocumentObjectExecReturn *RemoveComponents::execute(void)
 
     return App::DocumentObject::StdReturn;
 }
+

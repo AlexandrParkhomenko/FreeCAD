@@ -21,16 +21,13 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Inventor/nodes/SoBaseColor.h>
 # include <Inventor/nodes/SoDrawStyle.h>
 # include <Inventor/nodes/SoMaterial.h>
 # include <Inventor/nodes/SoShapeHints.h>
 # include <Inventor/nodes/SoOrthographicCamera.h>
 # include <qmessagebox.h>
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <Base/Console.h>
@@ -399,5 +396,5 @@ void ViewProviderMeshNode::showOpenEdges(bool show)
     pcHighlight->removeChild(pcOpenEdge);
     pcOpenEdge = 0;
   }
-#endif
 }
+

@@ -20,10 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "DlgSettingsPathColor.h"
 #include <Gui/PrefWidgets.h>
@@ -97,4 +94,5 @@ void DlgSettingsPathColor::changeEvent(QEvent *e)
 }
 
 #include "moc_DlgSettingsPathColor.cpp"
+
 

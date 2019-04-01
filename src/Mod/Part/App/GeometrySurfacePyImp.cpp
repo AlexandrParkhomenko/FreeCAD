@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepBuilderAPI_MakeFace.hxx>
 # include <gp_Circ.hxx>
 # include <gp_Dir.hxx>
@@ -41,7 +39,6 @@
 # include <ShapeAnalysis_Surface.hxx>
 # include <GeomAPI_IntSS.hxx>
 # include <GeomLib_IsPlanarSurface.hxx>
-#endif
 
 #include <Base/GeometryPyCXX.h>
 #include <Base/VectorPy.h>
@@ -263,7 +260,6 @@ PyObject* GeometrySurfacePy::toShape(PyObject *args)
             BRepBuilderAPI_MakeFace mkBuilder(s, u1, u2, v1, v2
 #if OCC_VERSION_HEX >= 0x060502
               , Precision::Confusion()
-#endif
             );
             TopoDS_Shape sh = mkBuilder.Shape();
             return new TopoShapeFacePy(new TopoShape(sh));
@@ -855,3 +851,4 @@ PyObject* GeometrySurfacePy::intersect(PyObject *args)
     PyErr_SetString(PyExc_TypeError, "intersect(): Geometry is not a surface");
     return 0;
 }
+

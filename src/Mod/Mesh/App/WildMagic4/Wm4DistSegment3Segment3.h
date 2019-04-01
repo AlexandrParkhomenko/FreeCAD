@@ -68,3 +68,4 @@ typedef DistSegment3Segment3<double> DistSegment3Segment3d;
 }
 
 #endif
+

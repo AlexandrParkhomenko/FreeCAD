@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QContextMenuEvent>
 # include <QMenu>
 # include <QPainter>
 # include <QShortcut>
 # include <QTextCursor>
-#endif
 
 #include "PythonEditor.h"
 #include "PythonDebugger.h"
@@ -474,3 +471,4 @@ void PythonSyntaxHighlighter::highlightBlock (const QString & text)
 }
 
 #include "moc_PythonEditor.cpp"
+

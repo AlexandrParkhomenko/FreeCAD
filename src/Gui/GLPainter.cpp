@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "GLPainter.h"
 #include "View3DInventorViewer.h"
@@ -93,7 +90,6 @@ bool GLPainter::begin(QPaintDevice * device)
 
 #if !defined(HAVE_QT5_OPENGL)
     glDrawBuffer(GL_FRONT);
-#endif
 
     return true;
 }
@@ -465,3 +461,4 @@ void Polyline::paintGL()
 
     glDisable(GL_BLEND);
 }
+

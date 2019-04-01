@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "MaterialObject.h"
 #include "DocumentObjectPy.h"
@@ -57,3 +54,4 @@ template<> const char* App::MaterialObjectPython::getViewProviderName(void) cons
 // explicit template instantiation
 template class AppExport FeaturePythonT<App::MaterialObject>;
 }
+

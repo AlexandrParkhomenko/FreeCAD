@@ -1,5 +1,4 @@
 
-#include "PreCompiled.h"
 
 #include <Base/Unit.h>
 
@@ -303,3 +302,4 @@ PyObject * UnitPy::number_float_handler (PyObject* /*self*/)
     PyErr_SetString(PyExc_NotImplementedError, "Not implemented");
     return 0;
 }
+

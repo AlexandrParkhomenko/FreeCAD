@@ -21,15 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QInputDialog>
 # include <QHeaderView>
 # include <QMenu>
 # include <QMessageBox>
 # include <QToolBar>
 # include <QToolButton>
-#endif
 
 #include "DlgToolbarsImp.h"
 #include "Application.h"
@@ -136,7 +133,6 @@ DlgCustomToolbars::DlgCustomToolbars(DlgCustomToolbars::Type t, QWidget* parent)
     commandTreeWidget->header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
 #else
     commandTreeWidget->header()->setResizeMode(0, QHeaderView::ResizeToContents);
-#endif
 
     labels.clear(); labels << tr("Command");
     toolbarTreeWidget->setHeaderLabels(labels);
@@ -920,3 +916,4 @@ void DlgCustomToolBoxbarsImp::changeEvent(QEvent *e)
 }
 
 #include "moc_DlgToolbarsImp.cpp"
+

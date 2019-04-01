@@ -46,3 +46,4 @@ private:
 }
 
 #endif // PART_PROGRESSINDICATOR_H
+

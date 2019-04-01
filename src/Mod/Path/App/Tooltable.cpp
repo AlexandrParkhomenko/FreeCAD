@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 
-#endif
 #include <Base/Writer.h>
 #include <Base/Reader.h>
 #include <Base/Exception.h>
@@ -347,3 +344,4 @@ void Tooltable::Restore (XMLReader &reader)
         Tools[id] = tmp;
     }
 }
+

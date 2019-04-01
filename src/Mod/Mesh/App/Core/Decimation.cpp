@@ -21,9 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include "Decimation.h"
 #include "MeshKernel.h"
@@ -95,3 +92,4 @@ void MeshSimplify::simplify(float tolerance, float reduction)
 
     myKernel.Adopt(new_points, new_facets, true);
 }
+

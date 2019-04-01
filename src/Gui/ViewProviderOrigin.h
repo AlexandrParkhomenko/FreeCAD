@@ -90,3 +90,4 @@ private:
 
 #endif // GUI_VIEWPROVIDER_ViewProviderOrigin_H
 
+

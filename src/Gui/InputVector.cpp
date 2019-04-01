@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QComboBox>
-#endif
 
 #include "InputVector.h"
 #include "ui_InputVector.h"
@@ -257,3 +254,4 @@ void LocationDialog::on_direction_activated(int index)
 }
 
 #include "moc_InputVector.cpp"
+

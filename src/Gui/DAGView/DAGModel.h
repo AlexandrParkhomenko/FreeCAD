@@ -168,3 +168,4 @@ namespace Gui
 }
 
 #endif // DAGMODEL_H
+

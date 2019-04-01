@@ -54,3 +54,4 @@ protected:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGSETTINGSVIEWCOLOR_H
+

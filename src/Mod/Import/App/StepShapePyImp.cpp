@@ -1,5 +1,4 @@
 
-#include "PreCompiled.h"
 
 #include "Mod/Import/App/StepShape.h"
 
@@ -54,5 +53,6 @@ int StepShapePy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
+
 
 

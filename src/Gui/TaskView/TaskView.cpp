@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <boost/bind.hpp>
 # include <QAbstractSpinBox>
 # include <QActionEvent>
@@ -33,7 +31,6 @@
 # include <QPointer>
 # include <QPushButton>
 # include <QTimer>
-#endif
 
 #include "TaskView.h"
 #include "TaskDialog.h"
@@ -49,7 +46,6 @@
 #include <Gui/QSint/actionpanel/taskgroup_p.h>
 #include <Gui/QSint/actionpanel/taskheader_p.h>
 #include <Gui/QSint/actionpanel/freecadscheme.h>
-#endif
 
 using namespace Gui::TaskView;
 
@@ -185,7 +181,6 @@ void TaskGroup::actionEvent (QActionEvent* e)
         break;
     }
 }
-#endif
 //**************************************************************************
 //**************************************************************************
 // TaskBox
@@ -236,7 +231,6 @@ QSize TaskBox::minimumSizeHint() const
     QSize s2 = QWidget::minimumSizeHint();
     return QSize(qMax(s1.width(), s2.width()), qMax(s1.height(), s2.height()));
 }
-#endif
 
 TaskBox::~TaskBox()
 {
@@ -308,7 +302,6 @@ void TaskBox::actionEvent (QActionEvent* e)
 #else
             QSint::ActionLabel *label = new QSint::ActionLabel(action, this);
             this->addActionLabel(label, true, false);
-#endif
             break;
         }
     case QEvent::ActionChanged:
@@ -321,7 +314,6 @@ void TaskBox::actionEvent (QActionEvent* e)
             QWidgetItem* item = static_cast<QWidgetItem*>(bl->itemAt(index));
             TaskIconLabel* label = static_cast<TaskIconLabel*>(item->widget());
             label->setTitle(action->text());
-#endif
             break;
         }
     case QEvent::ActionRemoved:
@@ -363,7 +355,6 @@ QSize TaskPanel::minimumSizeHint() const
     QSize s2 = QWidget::minimumSizeHint();
     return QSize(qMax(s1.width(), s2.width()), qMax(s1.height(), s2.height()));
 }
-#endif
 
 //**************************************************************************
 //**************************************************************************
@@ -387,7 +378,6 @@ TaskView::TaskView(QWidget *parent)
     sizePolicy.setHeightForWidth(taskPanel->sizePolicy().hasHeightForWidth());
     taskPanel->setSizePolicy(sizePolicy);
     taskPanel->setScheme(QSint::FreeCADPanelScheme::defaultScheme());
-#endif
     this->setWidget(taskPanel);
     setWidgetResizable(true);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -466,11 +456,9 @@ void TaskView::keyPressEvent(QKeyEvent* ke)
                         // #0001354: Crash on using Enter-Key for confirmation of chamfer or fillet entries
                         QPoint pos = QCursor::pos();
                         QCursor::setPos(pb->parentWidget()->mapToGlobal(pb->pos()));
-#endif
                         pb->click();
 #if defined(FC_OS_MACOSX)
                         QCursor::setPos(pos);
-#endif
                     }
                     return;
                 }
@@ -488,11 +476,9 @@ void TaskView::keyPressEvent(QKeyEvent* ke)
                         // #0001354: Crash on using Enter-Key for confirmation of chamfer or fillet entries
                         QPoint pos = QCursor::pos();
                         QCursor::setPos(pb->parentWidget()->mapToGlobal(pb->pos()));
-#endif
                         pb->click();
 #if defined(FC_OS_MACOSX)
                         QCursor::setPos(pos);
-#endif
                     }
                     return;
                 }
@@ -604,7 +590,6 @@ void TaskView::showDialog(TaskDialog *dlg)
 
 #if defined (QSINT_ACTIONPANEL)
     taskPanel->setScheme(QSint::FreeCADPanelScheme::defaultScheme());
-#endif
 
     if (!dlg->needsFullSpace())
         taskPanel->addStretch();
@@ -721,7 +706,6 @@ void TaskView::addTaskWatcher(void)
 
 #if defined (QSINT_ACTIONPANEL)
     taskPanel->setScheme(QSint::FreeCADPanelScheme::defaultScheme());
-#endif
 }
 
 void TaskView::removeTaskWatcher(void)
@@ -792,7 +776,6 @@ void TaskView::clearActionStyle()
 #if defined (QSINT_ACTIONPANEL)
     static_cast<QSint::FreeCADPanelScheme*>(QSint::FreeCADPanelScheme::defaultScheme())->clearActionStyle();
     taskPanel->setScheme(QSint::FreeCADPanelScheme::defaultScheme());
-#endif
 }
 
 void TaskView::restoreActionStyle()
@@ -800,8 +783,8 @@ void TaskView::restoreActionStyle()
 #if defined (QSINT_ACTIONPANEL)
     static_cast<QSint::FreeCADPanelScheme*>(QSint::FreeCADPanelScheme::defaultScheme())->restoreActionStyle();
     taskPanel->setScheme(QSint::FreeCADPanelScheme::defaultScheme());
-#endif
 }
 
 
 #include "moc_TaskView.cpp"
+

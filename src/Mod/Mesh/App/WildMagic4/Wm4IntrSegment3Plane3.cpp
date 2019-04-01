@@ -121,3 +121,4 @@ template WM4_FOUNDATION_ITEM
 class IntrSegment3Plane3<double>;
 //----------------------------------------------------------------------------
 }
+

@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QApplication>
 # include <QBitmap>
 # include <QDir>
@@ -35,16 +33,13 @@
 # include <QSvgRenderer>
 # include <QStyleOption>
 # include <sstream>
-#endif
 
 #if defined (FC_OS_WIN32) && QT_VERSION < 0x050000
 #define QTWEBKIT
-#endif
 
 #ifdef QTWEBKIT
 #include <QWebView>
 #include <QWebFrame>
-#endif
 
 #include <string>
 #include <Inventor/fields/SoSFImage.h>
@@ -179,7 +174,6 @@ QStringList BitmapFactoryInst::findIconFiles() const
     QStringList paths = QDir::searchPaths(QString::fromLatin1("icons"));
 #if QT_VERSION >= 0x040500
     paths.removeDuplicates();
-#endif
     for (QStringList::ConstIterator pt = paths.begin(); pt != paths.end(); ++pt) {
         QDir d(*pt);
         d.setNameFilters(filters);
@@ -190,7 +184,6 @@ QStringList BitmapFactoryInst::findIconFiles() const
 
 #if QT_VERSION >= 0x040500
     files.removeDuplicates();
-#endif
     return files;
 }
 
@@ -431,7 +424,6 @@ QPixmap BitmapFactoryInst::pixmapFromSvg(const QByteArray& contents, const QSize
     p.end();
 
     return QPixmap::fromImage(image);
-#endif
 }
 
 QStringList BitmapFactoryInst::pixmapNames() const
@@ -577,7 +569,6 @@ QPixmap BitmapFactoryInst::merge(const QPixmap& p1, const QPixmap& p2, Position 
 #else
     qreal dpr1 = 1;
     qreal dpr2 = 1;
-#endif
 
     switch (pos)
     {
@@ -726,4 +717,5 @@ void BitmapFactoryInst::convert(const SoSFImage& p, QImage& img) const
         }
     }
 }
+
 

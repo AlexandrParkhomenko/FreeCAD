@@ -60,3 +60,4 @@ typedef Segment3<double> Segment3d;
 }
 
 #endif
+

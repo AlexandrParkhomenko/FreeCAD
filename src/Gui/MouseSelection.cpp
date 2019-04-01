@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <qapplication.h>
 # include <qevent.h>
 # include <qpainter.h>
@@ -34,7 +32,6 @@
 # include <Inventor/events/SoKeyboardEvent.h>
 # include <Inventor/events/SoLocation2Event.h>
 # include <Inventor/events/SoMouseButtonEvent.h>
-#endif
 
 #include <QtOpenGL.h>
 #include <Base/Console.h>
@@ -204,7 +201,6 @@ static const char* cursor_scissors[]= {
     "................................",
     "................................"
 };
-#endif
 static const char* cursor_cut_scissors[]= {
     "32 32 6 1",
     "a c #800000",
@@ -394,7 +390,6 @@ int PolyPickerSelection::locationEvent(const SoLocation2Event* const, const QPoi
         qreal dpr = _pcView3D->getGLWidget()->devicePixelRatioF();
 #else
         qreal dpr = 1.0;
-#endif
         QRect r = _pcView3D->getGLWidget()->rect();
         if (dpr != 1.0) {
             r.setHeight(r.height()*dpr);
@@ -417,7 +412,6 @@ int PolyPickerSelection::locationEvent(const SoLocation2Event* const, const QPoi
 #ifdef FC_OS_WINDOWS
             QPoint newPos = _pcView3D->getGLWidget()->mapToGlobal(clPoint);
             QCursor::setPos(newPos);
-#endif
         }
 
         if (!lastConfirmed)
@@ -612,7 +606,6 @@ int FreehandSelection::locationEvent(const SoLocation2Event* const e, const QPoi
         qreal dpr = _pcView3D->getGLWidget()->devicePixelRatioF();
 #else
         qreal dpr = 1.0;
-#endif
         QRect r = _pcView3D->getGLWidget()->rect();
         if (dpr != 1.0) {
             r.setHeight(r.height()*dpr);
@@ -782,3 +775,4 @@ void BoxZoomSelection::terminate()
     SbBox2s box(xmin, ymin, xmax, ymax);
     _pcView3D->boxZoom(box);
 }
+

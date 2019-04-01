@@ -69,3 +69,4 @@ private:
 } //namespace SketcherGui
 
 #endif // GUI_TASKVIEW_TaskSketcherMessages_H
+

@@ -78,3 +78,4 @@ private:
 
 
 #endif //GUI_DOCUMENTMODEL_H
+

@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QAbstractTextDocumentLayout>
 # include <QApplication>
 # include <QClipboard>
@@ -39,7 +37,6 @@
 # include <QTextCodec>
 # include <QTextStream>
 # include <QTimer>
-#endif
 
 #include "EditorView.h"
 #include "Application.h"
@@ -594,3 +591,4 @@ void PythonEditorView::hideDebugMarker()
 }
 
 #include "moc_EditorView.cpp"
+

@@ -20,15 +20,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <TopoDS.hxx>
 # include <TopoDS_Iterator.hxx>
 # include <BRep_Builder.hxx>
 # include <BRepBuilderAPI_MakeWire.hxx>
 # include <BRepBuilderAPI_MakeFace.hxx>
 # include <BRep_Tool.hxx>
-#endif
 
 #include "FaceMaker.h"
 
@@ -183,3 +180,4 @@ void Part::FaceMakerSimple::Build_Essence()
         this->myShapesToReturn.push_back(BRepBuilderAPI_MakeFace(w).Shape());
     }
 }
+

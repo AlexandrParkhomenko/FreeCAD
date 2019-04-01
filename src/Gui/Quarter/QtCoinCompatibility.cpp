@@ -120,3 +120,4 @@ QtCoinCompatibility::SbImageToQImage(const SbImage & sbimage, QImage & img)
     }
   }
 }
+

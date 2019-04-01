@@ -58,3 +58,4 @@ public:
 
 #endif // GUI_VIEWPROVIDER_FEATURE_H
 
+

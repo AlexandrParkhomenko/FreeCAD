@@ -158,3 +158,4 @@ template WM4_FOUNDATION_ITEM
 class DistLine3Segment3<double>;
 //----------------------------------------------------------------------------
 }
+

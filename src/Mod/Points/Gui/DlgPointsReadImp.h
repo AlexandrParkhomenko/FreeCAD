@@ -46,3 +46,4 @@ private:
 } // namespace PointsGui
 
 #endif // POINTSGUI_DLGREADPOINTS_H
+

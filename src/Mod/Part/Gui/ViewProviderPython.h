@@ -53,3 +53,4 @@ typedef Gui::ViewProviderPythonFeatureT<ViewProviderCustom> ViewProviderCustomPy
 
 #endif // PARTGUI_VIEWPROVIDERPYTHON_H
 
+

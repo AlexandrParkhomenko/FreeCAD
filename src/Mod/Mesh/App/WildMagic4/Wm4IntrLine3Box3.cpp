@@ -201,3 +201,4 @@ template WM4_FOUNDATION_ITEM
 class IntrLine3Box3<double>;
 //----------------------------------------------------------------------------
 }
+

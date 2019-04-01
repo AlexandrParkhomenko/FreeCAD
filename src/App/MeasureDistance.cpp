@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "MeasureDistance.h"
 
@@ -62,3 +59,4 @@ void MeasureDistance::onChanged(const App::Property* prop)
     }
     DocumentObject::onChanged(prop);
 }
+

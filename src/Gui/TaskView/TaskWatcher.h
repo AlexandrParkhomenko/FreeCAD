@@ -117,3 +117,4 @@ public:
 } //namespace Gui
 
 #endif // GUI_TASKVIEW_TASKWATCHER_H
+

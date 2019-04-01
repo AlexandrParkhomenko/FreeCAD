@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
-#endif
 
 
 #include <App/DocumentObject.h>
@@ -156,6 +153,7 @@ void PropertyPath::RestoreDocFile(Base::Reader &reader)
         obj->setStatus(App::ObjectStatus::Restore, false);
     }
 }
+
 
 
 

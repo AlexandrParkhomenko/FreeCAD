@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepAdaptor_Surface.hxx>
 # include <BRepAdaptor_Curve.hxx>
 # include <BRepLProp_SLProps.hxx>
@@ -38,7 +36,6 @@
 # include <QMessageBox>
 # include <Python.h>
 # include <Inventor/system/inttypes.h>
-#endif
 
 #include "ui_DlgExtrusion.h"
 #include "DlgExtrusion.h"
@@ -759,3 +756,4 @@ void TaskExtrusion::clicked(int id)
 }
 
 #include "moc_DlgExtrusion.cpp"
+

@@ -118,3 +118,4 @@ QSize ActionPanel::minimumSizeHint() const
 
 
 } // namespace
+

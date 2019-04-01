@@ -54,3 +54,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGACTIVATEWINDOW_IMP_H
+

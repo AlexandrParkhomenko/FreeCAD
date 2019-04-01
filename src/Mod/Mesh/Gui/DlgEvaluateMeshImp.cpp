@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QDockWidget>
 # include <QMessageBox>
-#endif
 
 #include "DlgEvaluateMeshImp.h"
 #include "ui_DlgEvaluateMesh.h"
@@ -456,7 +453,6 @@ void DlgEvaluateMeshImp::on_analyzeOrientationButton_clicked()
             }
         }
         else
-#endif
         if (inds.empty()) {
             d->ui.checkOrientationButton->setText( tr("No flipped normals") );
             d->ui.checkOrientationButton->setChecked(false);
@@ -964,7 +960,6 @@ void DlgEvaluateMeshImp::on_repairSelfIntersectionButton_clicked()
         const char* docName = App::GetApplication().getDocumentName(d->meshFeature->getDocument());
 #if 0
         const char* objName = d->meshFeature->getNameInDocument();
-#endif
         Gui::Document* doc = Gui::Application::Instance->getDocument(docName);
         doc->openCommand("Fix self-intersections");
 #if 0
@@ -980,7 +975,6 @@ void DlgEvaluateMeshImp::on_repairSelfIntersectionButton_clicked()
         Mesh::MeshObject* mesh = d->meshFeature->Mesh.startEditing();
         mesh->removeSelfIntersections(d->self_intersections);
         d->meshFeature->Mesh.finishEditing();
-#endif
 
         doc->commitCommand();
         doc->getDocument()->recompute();
@@ -1239,7 +1233,6 @@ void DlgEvaluateMeshImp::on_buttonBox_clicked(QAbstractButton* button)
 
 #if 0 // needed for Qt's lupdate utility
     qApp->translate("QDockWidget", "Evaluate & Repair Mesh");
-#endif
 
 DockEvaluateMeshImp* DockEvaluateMeshImp::_instance=0;
 
@@ -1312,4 +1305,5 @@ QSize DockEvaluateMeshImp::sizeHint () const
 }
 
 #include "moc_DlgEvaluateMeshImp.cpp"
+
 

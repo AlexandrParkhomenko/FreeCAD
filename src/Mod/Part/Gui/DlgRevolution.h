@@ -104,3 +104,4 @@ private:
 } // namespace PartGui
 
 #endif // PARTGUI_DLGREVOLUTION_H
+

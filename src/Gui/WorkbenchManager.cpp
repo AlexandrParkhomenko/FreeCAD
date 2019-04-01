@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
-#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>
@@ -147,3 +144,4 @@ std::list<std::string> WorkbenchManager::workbenches() const
         wb.push_back(it->first);
     return wb;
 }
+

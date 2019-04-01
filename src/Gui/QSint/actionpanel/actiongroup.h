@@ -173,3 +173,4 @@ protected:
 } // namespace
 
 #endif // ACTIONGROUP_H
+

@@ -383,3 +383,4 @@ private:
 } // namespace MeshCore
 
 #endif // MESH_EVALUATION_H
+

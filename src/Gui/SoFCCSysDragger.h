@@ -261,3 +261,4 @@ private:
 }
 
 #endif // CSYSDRAGGER_H
+

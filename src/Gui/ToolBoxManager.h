@@ -63,3 +63,4 @@ private:
 
 
 #endif // GUI_TOOLBOXMANAGER_H 
+

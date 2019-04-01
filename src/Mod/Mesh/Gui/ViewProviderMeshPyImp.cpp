@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
-#endif
 
 #include <Mod/Mesh/Gui/ViewProvider.h>
 
@@ -135,3 +132,4 @@ int ViewProviderMeshPy::setCustomAttributes(const char* /*attr*/, PyObject* /*ob
 {
     return 0;
 }
+

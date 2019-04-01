@@ -30,13 +30,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #   include <stdlib.h>
-#endif
 
 #include "PyExport.h"
 #include "PyObjectBase.h"
 
 using namespace Base;
+

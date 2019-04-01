@@ -122,3 +122,4 @@ typedef LinComp<double> LinCompd;
 }
 
 #endif
+

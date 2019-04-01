@@ -158,3 +158,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_TEXTEDIT_H
+

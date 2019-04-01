@@ -338,3 +338,4 @@ public:
 } // namespace Base
 
 #endif // BASE_STREAM_H
+

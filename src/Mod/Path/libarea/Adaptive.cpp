@@ -3139,3 +3139,4 @@ void Adaptive2d::ProcessPolyNode(Paths boundPaths, Paths toolBoundPaths)
 }
 
 } // namespace AdaptivePath
+

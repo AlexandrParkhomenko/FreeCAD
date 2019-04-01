@@ -66,3 +66,4 @@ typedef DistVector3Segment3<double> DistVector3Segment3d;
 }
 
 #endif
+

@@ -63,3 +63,4 @@ protected:
 
 
 #endif // PART_DATUMFEATURE_H
+

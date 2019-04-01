@@ -23,10 +23,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "ViewProviderGeoFeatureGroupExtension.h"
 #include "Command.h"
@@ -137,3 +134,4 @@ EXTENSION_PROPERTY_SOURCE_TEMPLATE(Gui::ViewProviderGeoFeatureGroupExtensionPyth
 // explicit template instantiation
 template class GuiExport ViewProviderExtensionPythonT<ViewProviderGeoFeatureGroupExtension>;
 }
+

@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <boost/bind.hpp>
 # include <QAction>
 # include <QActionGroup>
@@ -38,7 +36,6 @@
 # include <QTimer>
 # include <QToolTip>
 # include <QHeaderView>
-#endif
 
 #include <Base/Console.h>
 #include <App/Document.h>
@@ -85,7 +82,6 @@ TreeWidget::TreeWidget(QWidget* parent)
     this->relabelObjectAction->setStatusTip(tr("Rename object"));
 #ifndef Q_OS_MAC
     this->relabelObjectAction->setShortcut(Qt::Key_F2);
-#endif
     connect(this->relabelObjectAction, SIGNAL(triggered()),
             this, SLOT(onRelabelObject()));
 
@@ -129,7 +125,6 @@ TreeWidget::TreeWidget(QWidget* parent)
     this->header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
 #else
     this->header()->setResizeMode(0, QHeaderView::ResizeToContents);
-#endif
     this->header()->setStretchLastSection(false);
 
     // Add the first main label
@@ -321,7 +316,6 @@ void TreeWidget::onStartEditing()
             if (!ok) doc->abortCommand();
 #else
             doc->setEdit(objitem->object(), edit);
-#endif
         }
     }
 }
@@ -439,7 +433,6 @@ bool TreeWidget::event(QEvent *e)
                 ke->accept();
         }
     }
-#endif
     return QTreeWidget::event(e);
 }
 
@@ -449,7 +442,6 @@ void TreeWidget::keyPressEvent(QKeyEvent *event)
     if (event && event->matches(QKeySequence::Delete)) {
         event->ignore();
     }
-#endif
     QTreeWidget::keyPressEvent(event);
 }
 
@@ -1063,7 +1055,6 @@ TreePanel::TreePanel(QWidget* parent)
     this->searchBox->installEventFilter(this);
 #if QT_VERSION >= 0x040700
     this->searchBox->setPlaceholderText(tr("Search"));
-#endif
     connect(this->searchBox, SIGNAL(returnPressed()),
             this, SLOT(accept()));
     connect(this->searchBox, SIGNAL(textEdited(QString)),
@@ -1541,7 +1532,6 @@ void DocumentItem::slotActiveObject(const Gui::ViewProviderDocumentObject& obj)
     }
 #else
     Q_UNUSED(obj);
-#endif
 }
 
 void DocumentItem::slotHighlightObject (const Gui::ViewProviderDocumentObject& obj, const Gui::HighlightMode& high, bool set)
@@ -1897,7 +1887,6 @@ void DocumentObjectItem::testStatus()
         this->setData(0, Qt::ForegroundRole,QVariant());
 #else
         this->setData(0, Qt::TextColorRole,QVariant());
-#endif
     }
     else { // invisible
         QStyleOptionViewItem opt;
@@ -1908,7 +1897,6 @@ void DocumentObjectItem::testStatus()
         this->setForeground(0, opt.palette.color(QPalette::Disabled,QPalette::Text));
 #else
         this->setTextColor(0, opt.palette.color(QPalette::Disabled,QPalette::Text);
-#endif
         mode = QIcon::Disabled;
     }
 
@@ -2004,4 +1992,5 @@ void DocumentObjectItem::slotChangeStatusTip(const QString& tip)
 }
 
 #include "moc_Tree.cpp"
+
 

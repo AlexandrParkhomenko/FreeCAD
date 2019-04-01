@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <qlineedit.h>
-#endif
 
 #include <Gui/FileDialog.h>
 #include <Gui/MainWindow.h>
@@ -79,3 +76,4 @@ void DlgPartImportIgesImp::onChooseFileName()
 
 
 #include "moc_DlgPartImportIgesImp.cpp"
+

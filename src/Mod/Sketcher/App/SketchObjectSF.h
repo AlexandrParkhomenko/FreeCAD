@@ -65,3 +65,4 @@ public:
 
 
 #endif // SKETCH_SKETCHOBJECTSF_H
+

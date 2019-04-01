@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
-#endif
 
 #include "Grid.h"
 #include "Iterator.h"
@@ -1189,3 +1186,4 @@ bool MeshGridIterator::NextOnRay (std::vector<unsigned long> &raulElements)
 
   return _bValidRay;
 }
+

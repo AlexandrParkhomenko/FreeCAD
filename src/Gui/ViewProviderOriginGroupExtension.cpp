@@ -22,10 +22,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "ViewProviderOriginGroupExtension.h"
 #include "Application.h"
@@ -209,3 +206,4 @@ EXTENSION_PROPERTY_SOURCE_TEMPLATE(Gui::ViewProviderOriginGroupExtensionPython, 
 // explicit template instantiation
 template class GuiExport ViewProviderExtensionPythonT<ViewProviderOriginGroupExtension>;
 }
+

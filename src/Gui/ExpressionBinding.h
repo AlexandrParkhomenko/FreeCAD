@@ -82,3 +82,4 @@ protected:
 }
 
 #endif // EXPRESSIONBINDING_H
+

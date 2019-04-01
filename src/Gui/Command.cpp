@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
 # include <QApplication>
 # include <QByteArray>
@@ -32,7 +30,6 @@
 # include <Inventor/actions/SoGetBoundingBoxAction.h>
 # include <Inventor/nodes/SoOrthographicCamera.h>
 # include <Inventor/nodes/SoPerspectiveCamera.h>
-#endif
 
 #include "Command.h"
 #include "Action.h"
@@ -261,7 +258,6 @@ void Command::invoke(int i)
     // Do not query _pcAction since it isn't created necessarily
 #ifdef FC_LOGUSERACTION
     Base::Console().Log("CmdG: %s\n",sName);
-#endif
     // set the application module type for the macro
     getGuiApplication()->macroManager()->setModule(sAppModule);
     try {
@@ -297,7 +293,6 @@ void Command::invoke(int i)
     catch (...) {
         Base::Console().Error("Gui::Command::activated(%d): Unknown C++ exception thrown\n", i);
     }
-#endif
 }
 
 void Command::testActive(void)
@@ -430,7 +425,6 @@ void Command::doCommand(DoCmd_Type eType, const char* sCmd, ...)
 
 #ifdef FC_LOGUSERACTION
     Base::Console().Log("CmdC: %s\n", format.constData());
-#endif
 
     if (eType == Gui)
         Gui::Application::Instance->macroManager()->addLine(MacroManager::Gui, format.constData());
@@ -1346,7 +1340,6 @@ bool CommandManager::addTo(const char* Name, QWidget *pcWidget)
         Base::Console().Error("CommandManager::addTo() try to add an unknown command (%s) to a widget!\n",Name);
 #else
         Base::Console().Warning("Unknown command '%s'\n",Name);
-#endif
         return false;
     }
     else {
@@ -1429,3 +1422,4 @@ void CommandManager::updateCommands(const char* sContext, int mode)
         }
     }
 }
+

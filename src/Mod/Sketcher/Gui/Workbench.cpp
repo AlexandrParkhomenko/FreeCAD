@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <qobject.h>
-#endif
 
 #include "Workbench.h"
 #include <Gui/MenuManager.h>
@@ -39,7 +36,6 @@ using namespace SketcherGui;
     qApp->translate("Workbench", "Sketcher constraints");
     qApp->translate("Workbench", "Sketcher tools");
     qApp->translate("Workbench", "Sketcher virtual space");
-#endif
 
 /// @namespace SketcherGui @class Workbench
 TYPESYSTEM_SOURCE(SketcherGui::Workbench, Gui::StdWorkbench)
@@ -408,3 +404,4 @@ void addSketcherWorkbenchGeometries( Gui::ToolBarItem& geom ){
 }
 
 } /* namespace SketcherGui */
+

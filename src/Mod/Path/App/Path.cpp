@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include <boost/regex.hpp>
 
@@ -287,7 +284,6 @@ void Toolpath::recalculate(void) // recalculates the path cache
     } catch (KDL::Error &e) {
         throw Base::RuntimeError(e.Description());
     }
-#endif
 }
 
 // reimplemented from base class
@@ -362,3 +358,4 @@ void Toolpath::RestoreDocFile(Base::Reader &reader)
 
 
  
+

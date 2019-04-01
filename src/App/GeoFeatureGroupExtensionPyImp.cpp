@@ -22,7 +22,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "App/GeoFeatureGroupExtension.h"
 
@@ -48,5 +47,6 @@ int GeoFeatureGroupExtensionPy::setCustomAttributes(const char* /*attr*/, PyObje
 {
     return 0;
 }
+
 
 

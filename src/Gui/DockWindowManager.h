@@ -112,3 +112,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_DOCKWINDOWMANAGER_H 
+

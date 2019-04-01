@@ -530,3 +530,4 @@ inline PyObject * PyAsUnicodeObject(const std::string &str)
 
 
 #endif // BASE_PYOBJECTBASE_H
+

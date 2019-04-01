@@ -301,3 +301,4 @@ inline const XMLCh* XUTF8Str::unicodeForm() const
 }
 
 #endif // BASE_XMLTOOLS_H
+

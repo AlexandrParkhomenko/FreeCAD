@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "TopoShape.h"
 #include <BRep_Builder.hxx>
@@ -156,3 +155,4 @@ int TopoShapeCompoundPy::setCustomAttributes(const char* /*attr*/, PyObject* /*o
 {
     return 0; 
 }
+

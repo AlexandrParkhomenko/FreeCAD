@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QEventLoop>
 # include <QCoreApplication>
 # include <QFileInfo>
 # include <QTimer>
-#endif
 
 #include "PythonDebugger.h"
 #include "MainWindow.h"
@@ -428,7 +425,6 @@ void PythonDebugger::runFile(const QString& fn)
         FILE *fp = _wfopen(fi.toStdWString().c_str(),L"r");
 #else
         FILE *fp = fopen((const char*)pxFileName,"r");
-#endif
         if (!fp) return;
 
         Base::PyGILStateLocker locker;
@@ -626,3 +622,4 @@ int PythonDebugger::tracer_callback(PyObject *obj, PyFrameObject *frame, int wha
 }
 
 #include "moc_PythonDebugger.cpp"
+

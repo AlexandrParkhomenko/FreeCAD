@@ -70,3 +70,4 @@ typedef App::FeaturePythonT<FeatureCompound> FeatureCompoundPython;
 
 
 #endif // PATH_FeatureCompound_H
+

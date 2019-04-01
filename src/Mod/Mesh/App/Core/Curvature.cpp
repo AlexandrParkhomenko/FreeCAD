@@ -20,10 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
-#endif
 
 #include <QFuture>
 #include <QFutureWatcher>
@@ -36,7 +33,6 @@
 #else
 #include <Mod/Mesh/App/WildMagic4/Wm4Vector3.h>
 #include <Mod/Mesh/App/WildMagic4/Wm4MeshCurvature.h>
-#endif
 
 #include "Curvature.h"
 #include "Algorithm.h"
@@ -334,7 +330,6 @@ void MeshCurvature::ComputePerVertex()
         myCurvature.push_back(ci);
     }
 }
-#endif // OPTIMIZE_CURVATURE
 
 // --------------------------------------------------------
 
@@ -443,3 +438,4 @@ CurvatureInfo FacetCurvature::Compute(unsigned long index) const
 
     return info;
 }
+

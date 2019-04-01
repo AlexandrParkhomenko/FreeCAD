@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <Bnd_Box.hxx>
 # include <Poly_Polygon3D.hxx>
@@ -95,7 +93,6 @@
 # include <Inventor/nodes/SoLightModel.h>
 # include <QAction>
 # include <QMenu>
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <Base/Console.h>
@@ -772,7 +769,6 @@ void ViewProviderPartExt::setHighlightedPoints(const std::vector<App::Color>& co
             SoDebugError::postWarning("ViewProviderPartExt::setHighlightedPoints",
                                       "The number of points (%d) doesn't match with the number of colors (%d).", numPoints, size);
         }
-#endif
         pcPointBind->value = SoMaterialBinding::PER_VERTEX;
         pcPointMaterial->diffuseColor.setNum(size);
         SbColor* ca = pcPointMaterial->diffuseColor.startEditing();
@@ -929,7 +925,6 @@ void ViewProviderPartExt::updateVisual(const TopoDS_Shape& inputShape)
                 AngDeflectionRads,Standard_True);
 #else
         BRepMesh_IncrementalMesh(cShape,deflection);
-#endif
         // We must reset the location here because the transformation data
         // are set in the placement property
         TopLoc_Location aLoc;
@@ -1224,3 +1219,4 @@ void ViewProviderPartExt::updateVisual(const TopoDS_Shape& inputShape)
 #   endif
     VisualTouched = false;
 }
+

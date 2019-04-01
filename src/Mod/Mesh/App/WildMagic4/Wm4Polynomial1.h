@@ -105,3 +105,4 @@ typedef Polynomial1<double> Polynomial1d;
 }
 
 #endif
+

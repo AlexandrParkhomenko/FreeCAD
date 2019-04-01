@@ -69,3 +69,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGWORKBENCHES_IMP_H
+

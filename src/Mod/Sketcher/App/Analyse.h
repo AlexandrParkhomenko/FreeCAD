@@ -60,3 +60,4 @@ struct Constraint_Equal  : public std::unary_function<const struct Sketcher::Con
 } //namespace Sketcher
 
 #endif // SKETCHER_ANALYSE_H
+

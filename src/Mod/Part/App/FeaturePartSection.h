@@ -52,3 +52,4 @@ protected:
 }
 
 #endif // PART_FEATUREPARTSECTION_H
+

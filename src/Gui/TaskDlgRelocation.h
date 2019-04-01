@@ -104,3 +104,4 @@ protected:
 } //namespace Gui
 
 #endif // ROBOTGUI_TASKDLGSIMULATE_H
+

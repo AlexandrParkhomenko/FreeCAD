@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <memory>
 # include <cstring>
 # include <sstream>
-#endif
 
 
 #include "Matrix.h"
@@ -947,3 +944,4 @@ Matrix4D& Matrix4D::Hat(const Vector3d& rV)
 
     return *this;
 }
+

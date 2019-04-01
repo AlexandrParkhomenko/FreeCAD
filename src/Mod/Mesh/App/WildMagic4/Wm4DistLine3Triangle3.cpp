@@ -180,3 +180,4 @@ template WM4_FOUNDATION_ITEM
 class DistLine3Triangle3<double>;
 //----------------------------------------------------------------------------
 }
+

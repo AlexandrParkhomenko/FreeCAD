@@ -52,3 +52,4 @@ private:
 }
 
 #endif // SKETCHERGUI_SketchOrientationDialog_H
+

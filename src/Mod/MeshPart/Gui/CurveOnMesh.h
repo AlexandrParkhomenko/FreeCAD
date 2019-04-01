@@ -97,3 +97,4 @@ private:
 }
 
 #endif // MESHPARTGUI_CURVEONMESH_H
+

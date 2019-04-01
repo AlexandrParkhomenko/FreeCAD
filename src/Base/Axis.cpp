@@ -20,9 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include "Axis.h"
 
@@ -92,4 +89,5 @@ Axis& Axis::operator = (const Axis &New)
     this->_dir = New._dir;
     return *this;
 }
+
 

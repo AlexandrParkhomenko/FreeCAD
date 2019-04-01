@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <cstdlib>
-#endif
 
 #include "Approximation.h"
 
@@ -42,7 +39,6 @@
 #include <Eigen/QR>
 #ifdef FC_USE_EIGEN
 #include <Eigen/Eigenvalues>
-#endif
 
 using namespace MeshCore;
 
@@ -230,7 +226,6 @@ float PlaneFit::Fit()
     _vDirW.Set((float)W.X(), (float)W.Y(), (float)W.Z());
     _vBase.Set((float)(mx/nSize), (float)(my/nSize), (float)(mz/nSize));
     float sigma = (float)W.Dot(akMat * W);
-#endif
 
     // In case sigma is nan
     if (boost::math::isnan(sigma))
@@ -1009,3 +1004,4 @@ float PolynomialFit::Value(float x, float y) const
     _fCoeff[8] * x * x * y * y;
     return fValue;
 }
+

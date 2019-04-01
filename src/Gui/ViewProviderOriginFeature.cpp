@@ -20,9 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Inventor/nodes/SoAsciiText.h>
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/nodes/SoMaterial.h>
@@ -35,7 +33,6 @@
 # include <Inventor/nodes/SoFontStyle.h>
 # include <Inventor/nodes/SoScale.h>
 # include <Inventor/details/SoLineDetail.h>
-#endif
 
 #include <App/Document.h>
 #include <App/OriginFeature.h>
@@ -186,3 +183,4 @@ bool ViewProviderOriginFeature::onDelete(const std::vector<std::string> &) {
         return true;
     }
 }
+

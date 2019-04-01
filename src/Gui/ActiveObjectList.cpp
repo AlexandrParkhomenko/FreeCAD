@@ -22,11 +22,8 @@
 *   Juergen Riegel 2014                                                   *
 ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 
-#endif
 
 #include "ActiveObjectList.h"
 #include <Gui/Application.h>
@@ -87,3 +84,4 @@ void ActiveObjectList::objectDeleted(const ViewProviderDocumentObject& viewProvi
     }
   }
 }
+

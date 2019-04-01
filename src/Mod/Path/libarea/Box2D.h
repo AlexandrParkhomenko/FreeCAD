@@ -92,3 +92,4 @@ public:
 	double MaxY() const { return(m_maxxy.y); }
 };
 
+

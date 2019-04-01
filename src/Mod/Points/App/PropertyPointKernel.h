@@ -94,3 +94,4 @@ private:
 
 
 #endif // POINTS_PROPERTYPOINTKERNEL_H 
+

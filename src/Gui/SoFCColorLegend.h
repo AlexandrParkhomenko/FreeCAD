@@ -90,3 +90,4 @@ private:
 
 #endif // GUI_SOFCCOLORLEGEND_H
 
+

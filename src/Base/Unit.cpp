@@ -20,11 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
 # include <stdlib.h>
-#endif
 
 #include "Unit.h"
 #include "Quantity.h"
@@ -495,3 +492,4 @@ Unit Unit::ThermalTransferCoefficient  (0,1,-3,0,-1);
 Unit Unit::HeatFlux                    (0,1,-3,0,0);
 Unit Unit::DynamicViscosity            (-1,1,-1);  // SI unit: kg/m/s
 Unit Unit::KinematicViscosity          (2,0,-1);  // SI unit: m^2/s, https://en.wikipedia.org/wiki/Viscosity#Kinematic_viscosity
+

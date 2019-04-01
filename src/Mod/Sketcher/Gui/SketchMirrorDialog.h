@@ -49,3 +49,4 @@ private:
 }
 
 #endif // SKETCHERGUI_SketchMirrorDialog_H
+

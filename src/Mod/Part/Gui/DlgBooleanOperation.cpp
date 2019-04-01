@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QMessageBox>
 # include <QTreeWidget>
 # include <TopoDS_Shape.hxx>
 # include <TopExp_Explorer.hxx>
 # include <boost/bind.hpp>
-#endif
 
 #include "DlgBooleanOperation.h"
 #include "ui_DlgBooleanOperation.h"
@@ -515,3 +512,4 @@ void TaskBooleanOperation::clicked(int id)
 }
 
 #include "moc_DlgBooleanOperation.cpp"
+

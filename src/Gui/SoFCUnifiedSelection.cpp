@@ -20,14 +20,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <qstatusbar.h>
 # include <qstring.h>
 # include <Inventor/details/SoFaceDetail.h>
 # include <Inventor/details/SoLineDetail.h>
-#endif
 
 #include <Inventor/elements/SoOverrideElement.h>
 #include <Inventor/elements/SoLazyElement.h>
@@ -920,3 +917,4 @@ void SoVRMLAction::callDoAction(SoAction *action, SoNode *node)
 
     node->doAction(action);
 }
+

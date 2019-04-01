@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include "stdio.h"
 # ifdef FC_OS_WIN32
 #   include "io.h"
@@ -121,3 +119,4 @@ void GUIConsole::Error  (const char *sErr) { std::cerr<<"Error: "<<sErr;}
 void GUIConsole::Log  (const char *sLog)   { std::clog<<sLog;}
 
 #endif /* FC_OS_LINUX */
+

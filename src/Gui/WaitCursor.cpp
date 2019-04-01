@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QDateTime>
 # include <QMessageBox>
@@ -195,3 +193,4 @@ void WaitCursor::setIgnoreEvents(FilterEventsFlags flags)
 {
     WaitCursorP::getInstance()->setIgnoreEvents(flags);
 }
+

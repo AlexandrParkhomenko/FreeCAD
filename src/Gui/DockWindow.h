@@ -83,3 +83,4 @@ Q_SIGNALS:
 } // namespace Gui
 
 #endif // GUI_DOCKWINDOW_H 
+

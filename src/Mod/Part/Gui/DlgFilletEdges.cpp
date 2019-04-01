@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <climits>
 # include <sstream>
@@ -47,7 +45,6 @@
 # include <Python.h>
 # include <Inventor/actions/SoSearchAction.h>
 # include <Inventor/details/SoLineDetail.h>
-#endif
 
 #include "DlgFilletEdges.h"
 #include "ui_DlgFilletEdges.h"
@@ -288,7 +285,6 @@ DlgFilletEdges::DlgFilletEdges(FilletType type, Part::FilletBase* fillet, QWidge
     header->setResizeMode(0, QHeaderView::Stretch);
     header->setDefaultAlignment(Qt::AlignLeft);
     header->setMovable(false);
-#endif
     on_filletType_activated(0);
     findShapes();
 }
@@ -1088,3 +1084,4 @@ bool TaskChamferEdges::reject()
 }
 
 #include "moc_DlgFilletEdges.cpp"
+

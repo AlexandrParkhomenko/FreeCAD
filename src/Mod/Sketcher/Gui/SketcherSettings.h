@@ -81,3 +81,4 @@ private:
 } // namespace SketcherGui
 
 #endif // SKETCHERGUI_SKETCHERSETTINGS_H
+

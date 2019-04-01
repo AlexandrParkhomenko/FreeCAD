@@ -21,15 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Inventor/SoDB.h>
 # include <Inventor/SoInput.h>
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/nodes/SoTransform.h>
 # include <QFile>
-#endif
 
 #include "ViewProviderInventorObject.h"
 #include <Gui/SoFCSelection.h>
@@ -165,3 +162,4 @@ void ViewProviderInventorObject::adjustSelectionNodes(SoNode* child, const char*
         }
     }
 }
+

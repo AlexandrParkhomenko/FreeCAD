@@ -21,9 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include <TopExp_Explorer.hxx>
 
@@ -347,3 +344,4 @@ void CreatePathCommands(void)
     rcCmdMgr.addCommand(new CmdPathArea());
     rcCmdMgr.addCommand(new CmdPathAreaWorkplane());
 }
+

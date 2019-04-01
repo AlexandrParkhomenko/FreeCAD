@@ -112,3 +112,4 @@ template WM4_FOUNDATION_ITEM
 class IntrLine3Plane3<double>;
 //----------------------------------------------------------------------------
 }
+

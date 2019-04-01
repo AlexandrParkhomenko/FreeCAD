@@ -638,3 +638,4 @@ protected:
 } // namespace MeshCore
 
 #endif // MESH_APPROXIMATION_H
+

@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <gp.hxx>
 # include <gp_Lin.hxx>
 # include <Geom_Line.hxx>
@@ -30,7 +28,6 @@
 # include <GC_MakeLine.hxx>
 # include <GC_MakeSegment.hxx>
 # include <Precision.hxx>
-#endif
 
 #include <Base/VectorPy.h>
 #include <Base/GeometryPyCXX.h>
@@ -324,3 +321,4 @@ int LineSegmentPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
+

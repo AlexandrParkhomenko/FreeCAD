@@ -170,3 +170,4 @@ namespace Gui
 }
 
 #endif //GUI_DIALOG_DLGCUSTOMIZESPACEBALL_H
+

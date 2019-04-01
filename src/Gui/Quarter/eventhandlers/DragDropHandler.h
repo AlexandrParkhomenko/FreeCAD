@@ -60,3 +60,4 @@ private:
 }}} // namespace
 
 #endif // QUARTER_DRAGDROPHANDLER_H
+

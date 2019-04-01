@@ -64,3 +64,4 @@ int qp_eq(MatrixXd &H, VectorXd &g, MatrixXd &A, VectorXd &c,
 
     return 0;
 }
+

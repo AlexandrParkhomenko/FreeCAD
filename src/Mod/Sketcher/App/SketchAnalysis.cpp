@@ -22,11 +22,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Standard_math.hxx>
-#endif
 
 #include <BRep_Tool.hxx>
 #include <gp_Pnt.hxx>
@@ -822,3 +819,4 @@ std::vector<Base::Vector3d> SketchAnalysis::getOpenVertices(void) const
 
     return points;
 }
+

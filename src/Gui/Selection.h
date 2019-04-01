@@ -409,3 +409,4 @@ inline SelectionSingleton& Selection(void)
 } //namespace Gui
 
 #endif // GUI_SELECTION_H
+

@@ -21,15 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Inventor/nodes/SoEventCallback.h>
 # include <Inventor/actions/SoGLRenderAction.h>
 # include <Inventor/nodes/SoSwitch.h>
 # include <Inventor/events/SoMouseButtonEvent.h>
 # include <QApplication>
 # include <QMenu>
-#endif
 
 #include "SoFCColorBar.h"
 #include "SoFCColorGradient.h"
@@ -291,3 +288,4 @@ void SoFCColorBar::handleEvent (SoHandleEventAction *action)
         }
     }
 }
+

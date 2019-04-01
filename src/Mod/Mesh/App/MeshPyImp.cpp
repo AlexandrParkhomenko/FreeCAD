@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include <Base/VectorPy.h>
 #include <Base/Handle.h>
@@ -1900,5 +1899,6 @@ Py::Tuple MeshPy::getTopology(void) const
     tuple.setItem(1, facet);
     return tuple;
 }
+
 
 

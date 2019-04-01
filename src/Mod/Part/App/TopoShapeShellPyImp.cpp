@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <gp_Ax1.hxx>
 # include <BRep_Builder.hxx>
 # include <BRepCheck_Analyzer.hxx>
@@ -33,7 +31,6 @@
 # include <TopoDS_Shell.hxx>
 # include <ShapeUpgrade_ShellSewing.hxx>
 # include <ShapeAnalysis_Shell.hxx>
-#endif
 
 #include <BRepPrimAPI_MakeHalfSpace.hxx>
 
@@ -164,7 +161,6 @@ PyObject*  TopoShapeShellPy::getFreeEdges(PyObject *args)
     as.CheckOrientedShells(getTopoShapePtr()->getShape(), Standard_True);
 #else
     as.CheckOrientedShells(getTopoShapePtr()->getShape(), Standard_True, Standard_True);
-#endif
     TopoDS_Compound comp = as.FreeEdges();
     return new TopoShapeCompoundPy(new TopoShape(comp));
 }
@@ -179,7 +175,6 @@ PyObject*  TopoShapeShellPy::getBadEdges(PyObject *args)
     as.CheckOrientedShells(getTopoShapePtr()->getShape(), Standard_True);
 #else
     as.CheckOrientedShells(getTopoShapePtr()->getShape(), Standard_True, Standard_True);
-#endif
     TopoDS_Compound comp = as.BadEdges();
     return new TopoShapeCompoundPy(new TopoShape(comp));
 }
@@ -286,3 +281,4 @@ int TopoShapeShellPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*
 {
     return 0; 
 }
+

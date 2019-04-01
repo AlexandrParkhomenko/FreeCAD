@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <float.h>
 # ifdef FC_OS_MACOSX
 # include <OpenGL/gl.h>
@@ -3055,3 +3053,4 @@ void View3DInventorViewer::dragLeaveEvent(QDragLeaveEvent *e)
 {
     inherited::dragLeaveEvent(e);
 }
+

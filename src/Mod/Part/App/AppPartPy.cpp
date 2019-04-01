@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepAdaptor_Curve.hxx>
 # include <BRepCheck_Analyzer.hxx>
 # include <BRepFeat_SplitShape.hxx>
@@ -79,7 +77,6 @@
 # include <TopTools_ListIteratorOfListOfShape.hxx>
 # include <Precision.hxx>
 # include <Standard_Version.hxx>
-#endif
 
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
@@ -131,7 +128,6 @@
 
 #ifdef FCUseFreeType
 #  include "FT2FC.h"
-#endif
 
 extern const char* BRepBuilderAPI_FaceErrorText(BRepBuilderAPI_FaceError fe);
 
@@ -141,11 +137,9 @@ extern Py::Object shape2pyshape(const TopoDS_Shape &shape);
 
 #ifndef M_PI
 #define M_PI    3.14159265358979323846 /* pi */
-#endif
 
 #ifndef M_PI_2
 #define M_PI_2  1.57079632679489661923 /* pi/2 */
-#endif
 
 namespace Part {
 struct EdgePoints {
@@ -482,7 +476,6 @@ private:
 #else
             Part::ImportStep *pcFeature = (Part::ImportStep *)pcDoc->addObject("Part::ImportStep",file.fileNamePure().c_str());
             pcFeature->FileName.setValue(Name);
-#endif 
             pcDoc->recompute();
         }
 #if 1
@@ -491,7 +484,6 @@ private:
             ImportIgesParts(pcDoc,EncodedName.c_str());
             pcDoc->recompute();
         }
-#endif
         else {
             TopoShape shape;
             shape.read(EncodedName.c_str());
@@ -535,7 +527,6 @@ private:
             // add Import feature
             Part::ImportStep *pcFeature = (Part::ImportStep *)pcDoc->addObject("Part::ImportStep",file.fileNamePure().c_str());
             pcFeature->FileName.setValue(Name);
-#endif 
             pcDoc->recompute();
         }
 #if 1
@@ -543,7 +534,6 @@ private:
             ImportIgesParts(pcDoc,EncodedName.c_str());
             pcDoc->recompute();
         }
-#endif
         else {
             TopoShape shape;
             shape.read(EncodedName.c_str());
@@ -893,7 +883,6 @@ private:
             BRepBuilderAPI_MakeFace Face(aPlane, 0.0, length, 0.0, width
 #if OCC_VERSION_HEX >= 0x060502
               , Precision::Confusion()
-#endif
             );
             return Py::asObject(new TopoShapeFacePy(new TopoShape((Face.Face()))));
         }
@@ -1570,7 +1559,6 @@ private:
         Standard_Boolean anIsClosed = PyObject_IsTrue(pclosed) ? Standard_True : Standard_False;
         TopoDS_Shape aResult = myShape.makeLoft(profiles, anIsSolid, anIsRuled, anIsClosed, degMax);
         return Py::asObject(new TopoShapePy(new TopoShape(aResult)));
-#endif
     }
     Py::Object makeSplitShape(const Py::Tuple& args)
     {
@@ -1717,7 +1705,6 @@ private:
         return Py::asObject(CharList);
 #else
         throw Py::RuntimeError("FreeCAD compiled without FreeType support! This method is disabled...");
-#endif
     }
     Py::Object exportUnits(const Py::Tuple& args)
     {
@@ -1969,3 +1956,4 @@ PyObject* initModule()
 }
 
 } // namespace Part
+

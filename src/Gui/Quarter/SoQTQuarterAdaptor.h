@@ -148,3 +148,4 @@ protected:
 } //
 
 #endif // SIM_COIN3D_SOQTQUARTERADAPTOR_H
+

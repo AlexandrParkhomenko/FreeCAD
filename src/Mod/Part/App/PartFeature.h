@@ -150,3 +150,4 @@ bool checkIntersection(const TopoDS_Shape& first, const TopoDS_Shape& second,
 
 #endif // PART_FEATURE_H
 
+

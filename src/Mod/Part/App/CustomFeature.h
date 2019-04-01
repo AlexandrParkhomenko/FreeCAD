@@ -60,3 +60,4 @@ typedef App::FeaturePythonT<CustomFeature> CustomFeaturePython;
 
 
 #endif // PART_CUSTOMFEATURE_H
+

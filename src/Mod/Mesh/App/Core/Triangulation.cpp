@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <queue>
-#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>
@@ -779,4 +776,4 @@ void Triangulator::Discard()
 void Triangulator::Reset()
 {
 }
-#endif
+

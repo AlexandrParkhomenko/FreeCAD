@@ -157,3 +157,4 @@ private:
 
 
 #endif // GUI_SOFCOFFSCREENRENDERER_H 
+

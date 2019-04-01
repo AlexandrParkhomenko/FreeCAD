@@ -70,3 +70,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGEDITORSETTINGSIMP_H
+

@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepBuilderAPI_MakeEdge.hxx>
 # include <gp_Circ.hxx>
 # include <TopoDS.hxx>
 # include <TopoDS_Edge.hxx>
-#endif
 
 #include "FeaturePartCircle.h"
 #include <Base/Tools.h>
@@ -87,3 +84,4 @@ void Circle::onChanged(const App::Property* prop)
     }
     Part::Feature::onChanged(prop);
 }
+

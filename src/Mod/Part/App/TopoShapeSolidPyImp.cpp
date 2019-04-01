@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include <Standard_Version.hxx>
 #include <BRepGProp.hxx>
@@ -333,3 +332,4 @@ int TopoShapeSolidPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*
 {
     return 0; 
 }
+

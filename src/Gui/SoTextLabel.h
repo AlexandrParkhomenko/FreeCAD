@@ -128,3 +128,4 @@ private:
 
 #endif // GUI_SOTEXTLABEL_H
 
+

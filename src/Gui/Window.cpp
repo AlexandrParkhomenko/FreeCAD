@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include <qglobal.h>
 #include "Window.h"
@@ -91,3 +90,4 @@ ParameterGrp::handle  WindowParameter::getDefaultParameter(void)
 {
   return App::GetApplication().GetUserParameter().GetGroup("BaseApp")->GetGroup("Preferences");
 }
+

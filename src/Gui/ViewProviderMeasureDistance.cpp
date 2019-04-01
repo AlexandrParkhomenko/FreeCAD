@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <QApplication>
 # include <Inventor/SoPickedPoint.h>
@@ -39,7 +37,6 @@
 # include <Inventor/nodes/SoIndexedLineSet.h>
 # include <Inventor/nodes/SoMarkerSet.h>
 # include <Inventor/nodes/SoDrawStyle.h>
-#endif
 
 #include "ViewProviderMeasureDistance.h"
 #include "Application.h"
@@ -354,3 +351,4 @@ void ViewProviderMeasureDistance::measureDistanceCallback(void * ud, SoEventCall
         }
     }
 }
+

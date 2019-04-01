@@ -167,3 +167,4 @@ private Q_SLOTS:
 } // namespace Gui
 
 #endif // GUI_SPINBOX_H
+

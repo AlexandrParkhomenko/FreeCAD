@@ -20,11 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QPainter>
 #include <QApplication>
-#endif
 
 #include <QStyleOptionViewItem>
 
@@ -50,7 +47,6 @@ void RectItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, 
   QStyleOptionViewItem styleOption;
 #else
   QStyleOptionViewItemV4 styleOption;
-#endif
 
   styleOption.backgroundBrush = backgroundBrush;
   if (editing)
@@ -80,3 +76,4 @@ void RectItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, 
 
   painter->restore();
 }
+

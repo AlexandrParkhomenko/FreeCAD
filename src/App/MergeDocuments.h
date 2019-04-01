@@ -65,3 +65,4 @@ private:
 } // namespace App
 
 #endif // APP_MERGEDOCUMENTS_H
+

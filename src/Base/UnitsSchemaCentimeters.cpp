@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #ifdef __GNUC__
 # include <unistd.h>
 #endif
@@ -78,3 +77,4 @@ QString UnitsSchemaCentimeters::schemaTranslate(const Base::Quantity& quant, dou
 
     return toLocale(quant, factor, unitString);
 }
+

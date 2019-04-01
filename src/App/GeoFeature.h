@@ -86,3 +86,4 @@ public:
 
 
 #endif // APP_GEOFEATURE_H
+

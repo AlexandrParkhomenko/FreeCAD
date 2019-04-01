@@ -67,3 +67,4 @@ protected:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGINPUTDIALOGIMP_H
+

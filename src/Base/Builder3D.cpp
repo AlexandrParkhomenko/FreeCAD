@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <assert.h>
 # include <string>
-#endif
 
 #include <stdlib.h>
 
@@ -908,3 +905,6 @@ void InventorBuilder::addTransformation(const Vector3f& translation, const Vecto
          << " " << fAngle << std::endl;
     result << Base::blanks(indent) <<  "}" << std::endl;
 }
+
+
+

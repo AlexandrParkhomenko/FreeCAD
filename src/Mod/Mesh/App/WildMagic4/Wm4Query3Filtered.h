@@ -71,3 +71,4 @@ typedef Query3Filtered<double> Query3Filteredd;
 }
 
 #endif
+

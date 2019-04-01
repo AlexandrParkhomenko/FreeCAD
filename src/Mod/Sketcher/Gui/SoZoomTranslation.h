@@ -53,3 +53,4 @@ protected:
 
 }
 #endif // SKETCHERGUI_SOZOOMTRANSLATION_H
+

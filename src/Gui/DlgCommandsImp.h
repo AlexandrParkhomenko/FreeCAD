@@ -61,3 +61,4 @@ protected:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGCOMMANDS_IMP_H
+

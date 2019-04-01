@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QAction>
 # include <QMenu>
 # include <QTimer>
@@ -40,7 +38,6 @@
 # include <Inventor/nodes/SoMaterial.h>
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/manips/SoCenterballManip.h>
-#endif
 
 #include <Mod/Part/App/FeatureMirroring.h>
 #include <Mod/Part/App/FeatureFillet.h>
@@ -667,3 +664,4 @@ bool ViewProviderThickness::onDelete(const std::vector<std::string> &)
 
     return true;
 }
+

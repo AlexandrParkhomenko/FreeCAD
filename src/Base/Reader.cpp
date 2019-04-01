@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <xercesc/sax/SAXParseException.hpp>
 # include <xercesc/sax/SAXException.hpp>
 # include <xercesc/sax2/XMLReaderFactory.hpp>
 # include <xercesc/sax2/SAX2XMLReader.hpp>
-#endif
 
 #include <locale>
 
@@ -100,7 +97,6 @@ Base::XMLReader::XMLReader(const char* FileName, std::istream& str)
     catch (...) {
         cerr << "Unexpected Exception \n";
     }
-#endif
 }
 
 Base::XMLReader::~XMLReader()
@@ -197,7 +193,6 @@ bool Base::XMLReader::read(void)
         std::string what = message;
         XMLString::release(&message);
         throw Base::XMLBaseException(what);
-#endif
     }
     catch (const SAXParseException& toCatch) {
 #if 0
@@ -211,7 +206,6 @@ bool Base::XMLReader::read(void)
         std::string what = message;
         XMLString::release(&message);
         throw Base::XMLParseException(what);
-#endif
     }
     catch (...) {
 #if 0
@@ -219,7 +213,6 @@ bool Base::XMLReader::read(void)
         return false;
 #else
         throw Base::XMLBaseException("Unexpected XML exception");
-#endif
     }
 
     return true;
@@ -438,7 +431,6 @@ void Base::XMLReader::endCDATA ()
 void Base::XMLReader::characters(const   XMLCh* const chars, const unsigned int length)
 #else
 void Base::XMLReader::characters(const   XMLCh* const chars, const XMLSize_t length)
-#endif
 {
     Characters = StrX(chars).c_str();
     ReadType = Chars;
@@ -449,7 +441,6 @@ void Base::XMLReader::characters(const   XMLCh* const chars, const XMLSize_t len
 void Base::XMLReader::ignorableWhitespace( const   XMLCh* const /*chars*/, const unsigned int /*length*/)
 #else
 void Base::XMLReader::ignorableWhitespace( const   XMLCh* const /*chars*/, const XMLSize_t /*length*/)
-#endif
 {
     //fSpaceCount += length;
 }
@@ -557,4 +548,5 @@ std::istream& Base::Reader::getStream()
 {
     return this->_str;
 }
+
 

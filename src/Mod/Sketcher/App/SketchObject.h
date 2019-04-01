@@ -465,3 +465,4 @@ typedef App::FeaturePythonT<SketchObject> SketchObjectPython;
 
 
 #endif // SKETCHER_SKETCHOBJECT_H
+

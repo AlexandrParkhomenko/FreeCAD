@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <GeomPlate_MakeApprox.hxx>
 # include <GeomPlate_Surface.hxx>
 # include <GeomPlate_BuildPlateSurface.hxx>
 # include <GeomPlate_PointConstraint.hxx>
 # include <GeomPlate_CurveConstraint.hxx>
-#endif
 
 #include <Base/GeometryPyCXX.h>
 #include <Base/VectorPy.h>
@@ -194,3 +191,4 @@ int PlateSurfacePy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
+

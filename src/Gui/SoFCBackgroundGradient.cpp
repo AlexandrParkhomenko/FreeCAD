@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "SoFCBackgroundGradient.h"
 
@@ -116,3 +115,4 @@ void SoFCBackgroundGradient::setColorGradient(const SbColor& fromColor,
     tCol = toColor;
     mCol = midColor;
 }
+

@@ -205,3 +205,4 @@ template WM4_FOUNDATION_ITEM
 class MeshSmoother<double>;
 //----------------------------------------------------------------------------
 }
+

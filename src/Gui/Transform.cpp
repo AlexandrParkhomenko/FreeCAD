@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #include <QDialogButtonBox>
 #include <QSignalMapper>
 
@@ -464,3 +463,4 @@ void TaskTransform::clicked(int id)
 }
 
 #include "moc_Transform.cpp"
+

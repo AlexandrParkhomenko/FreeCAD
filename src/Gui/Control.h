@@ -136,3 +136,4 @@ inline ControlSingleton& Control(void)
 } //namespace Gui
 
 #endif // GUI_CONTROL_H
+

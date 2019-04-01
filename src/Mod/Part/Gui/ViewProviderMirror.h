@@ -197,3 +197,4 @@ protected:
 
 
 #endif // PARTGUI_VIEWPROVIDERMIRROR_H
+

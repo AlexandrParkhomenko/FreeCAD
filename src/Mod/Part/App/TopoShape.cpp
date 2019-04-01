@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <cmath>
 # include <cstdlib>
 # include <sstream>
@@ -155,7 +153,6 @@
 #if OCC_VERSION_HEX < 0x070300
 # include <BRepAlgo_Fuse.hxx>
 #endif
-#endif
 # include <BinTools.hxx>
 # include <BinTools_ShapeSet.hxx>
 # include <Poly_Polygon3D.hxx>
@@ -173,11 +170,9 @@
 #if OCC_VERSION_HEX >= 0x060600
 #include <BOPAlgo_ArgumentAnalyzer.hxx>
 #include <BOPAlgo_ListOfCheckResult.hxx>
-#endif
 
 #if OCC_VERSION_HEX >= 0x070300
 #include <BRepAlgoAPI_Defeaturing.hxx>
-#endif
 
 #include <Base/Builder3D.h>
 #include <Base/FileInfo.h>
@@ -217,7 +212,6 @@ const char* BRepBuilderAPI_FaceErrorText(BRepBuilderAPI_FaceError et)
 #if OCC_VERSION_HEX < 0x060500
     case BRepBuilderAPI_SurfaceNotC2:
         return "Surface not C2-continous";
-#endif
     default:
         return "Unknown creation error";
     }
@@ -414,7 +408,6 @@ void TopoShape::convertTogpTrsf(const Base::Matrix4D& mtrx, gp_Trsf& trsf)
                    mtrx[2][0],mtrx[2][1],mtrx[2][2],mtrx[2][3]
 #if OCC_VERSION_HEX < 0x060800
                   , 0.00001,0.00001
-#endif
                 ); //precision was removed in OCCT CR0025194
 }
 
@@ -465,7 +458,6 @@ void TopoShape::convertToMatrix(const gp_Trsf& trsf, Base::Matrix4D& mtrx)
     mtrx[0][3] = p._CSFDB_Getgp_XYZx();
     mtrx[1][3] = p._CSFDB_Getgp_XYZy();
     mtrx[2][3] = p._CSFDB_Getgp_XYZz();
-#endif
 }
 
 void TopoShape::setTransform(const Base::Matrix4D& rclTrf)
@@ -638,7 +630,6 @@ void TopoShape::importBrep(const char *FileName)
         pi->EndScope();
 #else
         BRepTools::Read(aShape,(const Standard_CString)FileName,aBuilder);
-#endif
         this->_Shape = aShape;
     }
     catch (Standard_Failure& e) {
@@ -663,7 +654,6 @@ void TopoShape::importBrep(std::istream& str, int indicator)
             BRepTools::Read(aShape,str,aBuilder);
 #else
         BRepTools::Read(aShape,str,aBuilder);
-#endif
         this->_Shape = aShape;
     }
     catch (Standard_Failure& e) {
@@ -823,7 +813,6 @@ void TopoShape::exportStl(const char *filename, double deflection) const
     }
 #else
     BRepMesh_IncrementalMesh aMesh(this->_Shape, deflection);
-#endif
     writer.Write(this->_Shape,encodeFilename(filename).c_str());
 }
 
@@ -1479,7 +1468,6 @@ bool TopoShape::analyze(bool runBopCheck, std::ostream& str) const
             }
 
             return false;
-#endif // 0x060600
         }
     }
 
@@ -1581,7 +1569,6 @@ TopoDS_Shape TopoShape::cut(const std::vector<TopoDS_Shape>& shapes, Standard_Re
 
     TopoDS_Shape resShape = mkCut.Shape();
     return makeShell(resShape);
-#endif
 }
 
 TopoDS_Shape TopoShape::common(TopoDS_Shape shape) const
@@ -1627,7 +1614,6 @@ TopoDS_Shape TopoShape::common(const std::vector<TopoDS_Shape>& shapes, Standard
 
     TopoDS_Shape resShape = mkCommon.Shape();
     return makeShell(resShape);
-#endif
 }
 
 TopoDS_Shape TopoShape::fuse(TopoDS_Shape shape) const
@@ -3605,3 +3591,4 @@ TopoDS_Shape TopoShape::makeShell(const TopoDS_Shape& input) const
         return input;
     }
 }
+

@@ -167,3 +167,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_QUANTITYSPINBOX_H
+

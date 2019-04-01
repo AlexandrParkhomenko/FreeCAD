@@ -157,3 +157,4 @@ typedef QuadricSurface<double> QuadricSurfaced;
 }
 
 #endif
+

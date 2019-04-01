@@ -69,3 +69,4 @@ protected:
 
 
 #endif // PART_FeatureReference_H
+

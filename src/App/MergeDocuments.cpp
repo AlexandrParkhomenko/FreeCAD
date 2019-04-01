@@ -20,11 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <stack>
 # include <boost/bind.hpp>
-#endif
 
 #include <QCoreApplication>
 
@@ -194,3 +191,4 @@ void MergeDocuments::RestoreDocFile(Base::Reader & r)
     // Restore view provider stuff
     appdoc->signalImportViewObjects(this->objects, r, this->nameMap);
 }
+

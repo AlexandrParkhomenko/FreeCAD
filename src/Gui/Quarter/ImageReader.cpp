@@ -78,3 +78,4 @@ ImageReader::readImageCB(const SbString & filename, SbImage * image, void * clos
 {
   return ((ImageReader*)closure)->readImage(filename, *image);
 }
+

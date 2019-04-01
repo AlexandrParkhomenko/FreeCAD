@@ -517,3 +517,4 @@ inline void MeshFacetGrid::AddFacet (const MeshGeomFacet &rclFacet, unsigned lon
 } // namespace MeshCore
 
 #endif // MESH_GRID_H
+

@@ -267,3 +267,4 @@ double QuadraticSphereFit3<double> (int, const Vector3<double>*,
     Vector3<double>&, double&);
 //----------------------------------------------------------------------------
 }
+

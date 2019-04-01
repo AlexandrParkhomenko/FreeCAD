@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "FeaturePathCompound.h"
 #include "Command.h"
@@ -129,3 +126,4 @@ template<> const char* Path::FeatureCompoundPython::getViewProviderName(void) co
 // explicit template instantiation
 template class PathExport FeaturePythonT<Path::FeatureCompound>;
 }
+

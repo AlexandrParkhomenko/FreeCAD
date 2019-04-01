@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "SyntaxHighlighter.h"
 #include "TextEdit.h"
@@ -172,3 +171,4 @@ int SyntaxHighlighter::maximumUserState() const
 {
     return 8;
 }
+

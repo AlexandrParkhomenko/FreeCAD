@@ -49,3 +49,4 @@ typedef Line3<double> Line3d;
 }
 
 #endif
+

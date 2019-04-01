@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QSplitter>
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 
@@ -137,3 +134,4 @@ void CombiView::changeEvent(QEvent *e)
 
 
 #include "moc_CombiView.cpp"
+

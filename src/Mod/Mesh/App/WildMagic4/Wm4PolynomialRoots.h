@@ -162,3 +162,4 @@ typedef PolynomialRoots<double> PolynomialRootsd;
 }
 
 #endif
+

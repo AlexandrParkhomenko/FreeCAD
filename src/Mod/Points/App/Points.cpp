@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <cmath>
 # include <iostream>
-#endif
 
 #include <boost/math/special_functions/fpclassify.hpp>
 #include <QtConcurrentMap>
@@ -42,7 +39,6 @@
 
 #ifdef _WIN32
 # include <ppl.h>
-#endif
 
 using namespace Points;
 using namespace std;
@@ -96,7 +92,6 @@ void PointKernel::transformGeometry(const Base::Matrix4D &rclMat)
     QtConcurrent::blockingMap(kernel, [rclMat](value_type& value) {
         rclMat.multVec(value, value);
     });
-#endif
 }
 
 Base::BoundBox3d PointKernel::getBoundBox(void)const
@@ -118,7 +113,6 @@ Base::BoundBox3d PointKernel::getBoundBox(void)const
 #else
     for (const_point_iterator it = begin(); it != end(); ++it)
         bnd.Add(*it);
-#endif
     return bnd;
 }
 
@@ -369,3 +363,4 @@ PointKernel::const_point_iterator::operator- (const PointKernel::const_point_ite
 {
     return this->_p_it - right._p_it;
 }
+

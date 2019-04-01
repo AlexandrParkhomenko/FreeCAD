@@ -24,9 +24,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #if 0
-#ifndef _PreComp_
 # include <assert.h>
 # include <sstream>
 # include <BRepTools.hxx>
@@ -42,7 +40,6 @@
 # include <StlAPI_Writer.hxx>
 # include <Interface_Static.hxx>
 # include <TopoDS_Iterator.hxx>
-#endif
 
 #include <Base/Exception.h>
 #include <Base/FileInfo.h>
@@ -445,7 +442,6 @@ public:
     return false;
   }
 };
-#endif
 
 PyObject *TopoShapePyOld::importIGES(PyObject *args)
 {
@@ -499,7 +495,6 @@ PyObject *TopoShapePyOld::importIGES(PyObject *args)
     //int ct = aList->Length();
     //Reader.TransferList(aList);
     //ct = aReader.NbShapes();
-#endif
 
     // one shape that contains all subshapes
     aReader.TransferRoots();
@@ -527,7 +522,6 @@ PyObject *TopoShapePyOld::exportIGES(PyObject *args)
 		writer.AddShape ( _cTopoShape );
 	  writer.ComputeModel();
 	  writer.Write( (const Standard_CString)filename );
-#endif
 
     // write iges file
     IGESControl_Controller::Init();
@@ -541,12 +535,10 @@ PyObject *TopoShapePyOld::exportIGES(PyObject *args)
     Standard_CString byvalue = Interface_Static::CVal("write.iges.header.author");
     Interface_Static::SetCVal ("write.iges.header.author", "FreeCAD");
     //Interface_Static::SetCVal ("write.iges.header.company", "FreeCAD");
-#endif
 
     aWriter.AddShape(_cTopoShape);
 #if 0
     aWriter.ComputeModel();
-#endif
 
     if (aWriter.Write((const Standard_CString)filename) != IFSelect_RetDone) {
       PyErr_SetString(PartExceptionOCCError,"Writing IGES failed");
@@ -596,7 +588,6 @@ PyObject *TopoShapePyOld::importSTEP(PyObject *args)
       }
       const char* type = igesEntity->DynamicType()->Name();
     }
-#endif
 
     aReader.TransferRoots();
     _cTopoShape = aReader.OneShape();
@@ -621,7 +612,6 @@ PyObject *TopoShapePyOld::importSTEP(PyObject *args)
 			  //map.Bind(tsh, ws->Model()->StringLabel(ent)->ShallowCopy() );
 		  }
 	  }
-#endif
 
   } PY_CATCH;
 
@@ -713,3 +703,4 @@ PyObject *TopoShapePyOld::exportSTL(PyObject *args)
 }
 
 #endif
+

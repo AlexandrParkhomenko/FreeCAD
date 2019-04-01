@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "DockWindow.h"
 
@@ -37,3 +36,4 @@ DockWindow::~DockWindow()
 }
 
 #include "moc_DockWindow.cpp"
+

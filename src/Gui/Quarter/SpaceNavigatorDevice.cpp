@@ -104,3 +104,4 @@ SpaceNavigatorDevice::translateEvent(QEvent * event)
 
 #undef PRIVATE
 #undef PUBLIC
+

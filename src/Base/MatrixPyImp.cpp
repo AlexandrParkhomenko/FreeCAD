@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include <climits>
 #include <cmath>
@@ -852,3 +851,4 @@ PyObject * MatrixPy::number_float_handler (PyObject * /*self*/)
     PyErr_SetString(PyExc_NotImplementedError, "Not implemented");
     return 0;
 }
+

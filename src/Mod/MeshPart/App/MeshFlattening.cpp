@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #include "MeshFlattening.h"
 #include "MeshFlatteningLscmRelax.h"
 #include <Poly_Triangulation.hxx>
@@ -268,3 +267,4 @@ std::vector<ColMat<double, 3>> FaceUnwrapper::getFlatBoundaryNodes()
     flat_vertices.col(1) << this->ze_nodes.col(1);
     return getBoundaries(flat_vertices, this->tris);
 }
+

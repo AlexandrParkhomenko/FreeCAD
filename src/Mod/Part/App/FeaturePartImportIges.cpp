@@ -21,10 +21,7 @@
  ***************************************************************************/
 
  
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <fcntl.h>
-#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>
@@ -64,5 +61,6 @@ App::DocumentObjectExecReturn *ImportIges::execute(void)
 
     return App::DocumentObject::StdReturn;
 }
+
 
 

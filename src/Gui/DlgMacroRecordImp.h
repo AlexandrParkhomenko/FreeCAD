@@ -61,3 +61,4 @@ protected:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGMACRORECORDIMP_H
+

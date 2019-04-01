@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <TopExp_Explorer.hxx>
 # include <QMessageBox>
 # include <QButtonGroup>
-#endif
 
 #include "Tessellation.h"
 #include "ui_Tessellation.h"
@@ -73,7 +70,6 @@ Tessellation::Tessellation(QWidget* parent)
     ui->radioButtonMefisto->setDisabled(true);
 #else
     ui->radioButtonMefisto->setChecked(true);
-#endif
 
     Gui::Command::doCommand(Gui::Command::Doc, "import Mesh");
     try {
@@ -315,3 +311,4 @@ bool TaskTessellation::reject()
 }
 
 #include "moc_Tessellation.cpp"
+

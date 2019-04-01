@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <cfloat>
-#endif
 
 #include "CoordinateSystem.h"
 #include "Exception.h"
@@ -151,7 +148,6 @@ Placement CoordinateSystem::displacement(const CoordinateSystem& cs) const
     Placement PB(B);
     Placement C = PB * PAt;
     return C;
-#endif
 }
 
 void CoordinateSystem::transformTo(Vector3d& p)
@@ -185,3 +181,4 @@ void CoordinateSystem::setPlacement(const Placement& p)
     p.getRotation().multVec(Vector3d(1,0,0), this->xdir);
     p.getRotation().multVec(Vector3d(0,1,0), this->ydir);
 }
+

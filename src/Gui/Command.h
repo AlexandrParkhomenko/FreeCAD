@@ -699,3 +699,4 @@ protected: \
 };
 
 #endif // GUI_COMMAND_H
+

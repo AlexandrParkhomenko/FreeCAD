@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <QApplication>
 # include <Inventor/SoPickedPoint.h>
@@ -38,7 +36,6 @@
 # include <Inventor/nodes/SoIndexedLineSet.h>
 # include <Inventor/nodes/SoMarkerSet.h>
 # include <Inventor/nodes/SoDrawStyle.h>
-#endif
 
 #include <Inventor/nodes/SoMaterial.h>
 #include <Inventor/nodes/SoAnnotation.h>
@@ -218,5 +215,6 @@ bool ViewProviderPlacement::isSelectable(void) const
     return true;
 }
 // ----------------------------------------------------------------------------
+
 
 

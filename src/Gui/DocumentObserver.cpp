@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
-#endif
 
 #include <boost/bind.hpp>
 
@@ -290,3 +287,4 @@ void DocumentObserver::slotEnterEditObject(const ViewProviderDocumentObject& /*O
 void DocumentObserver::slotResetEditObject(const ViewProviderDocumentObject& /*Obj*/)
 {
 }
+

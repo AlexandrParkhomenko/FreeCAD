@@ -20,10 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <algorithm>
-#endif
 
 #include "Segmentation.h"
 #include "Algorithm.h"
@@ -521,3 +518,4 @@ void MeshSegmentAlgorithm::FindSegments(std::vector<MeshSurfaceSegment*>& segm)
         }
     }
 }
+

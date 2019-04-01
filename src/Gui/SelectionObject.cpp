@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include <sstream>
 
@@ -116,3 +115,4 @@ PyObject* SelectionObject::getPyObject()
 {
     return new SelectionObjectPy(new SelectionObject(*this));
 }
+

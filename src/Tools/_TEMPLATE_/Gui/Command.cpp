@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include <Base/Console.h>
 #include <App/Document.h>
@@ -59,3 +58,4 @@ void Create_TEMPLATE_Commands(void)
     Gui::CommandManager &rcCmdMgr = Gui::Application::Instance->commandManager();
     rcCmdMgr.addCommand(new Cmd_TEMPLATE_Test());
 }
+

@@ -114,3 +114,4 @@ private:
 } // namespace Gui
 
 #endif // CHECKABLEMESSAGEBOX_H
+

@@ -33,3 +33,4 @@ template<> const Matrix2<double> Matrix2<double>::IDENTITY(
     1.0,0.0,
     0.0,1.0);
 }
+

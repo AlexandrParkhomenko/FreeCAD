@@ -119,3 +119,4 @@ private:
 
 #endif // MESHGUI_VIEWPROVIDER_MESH_CURVATURE_H
 
+

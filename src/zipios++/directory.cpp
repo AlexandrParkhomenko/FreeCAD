@@ -274,3 +274,4 @@ bool boost::filesystem::dir_it::operator!= (boost::filesystem::dir_it const &it)
 {
 	return !(*rep == *(it.rep));
 }
+

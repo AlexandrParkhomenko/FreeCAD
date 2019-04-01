@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepBuilderAPI_MakeEdge.hxx>
 # include <BRepBuilderAPI_MakeFace.hxx>
 # include <BRepBuilderAPI_MakeVertex.hxx>
@@ -99,7 +97,6 @@
 # include <GeomAPI_ExtremaCurveCurve.hxx>
 # include <ShapeConstruct_Curve.hxx>
 # include <LProp_NotDefined.hxx>
-#endif
 
 #include <Base/VectorPy.h>
 #include <Mod/Part/App/LinePy.h>
@@ -1754,7 +1751,6 @@ void GeomArcOfConic::setXAxisDir(const Base::Vector3d& newdir)
     if (newdir.Sqr() < Precision::SquareConfusion())
 #else
     if (newdir.Length() < Precision::Confusion())
-#endif
         return;//zero vector was passed. Keep the old orientation.
 
     try {
@@ -2338,7 +2334,6 @@ void GeomEllipse::setMajorAxisDir(Base::Vector3d newdir)
     if (newdir.Sqr() < Precision::SquareConfusion())
 #else
     if (newdir.Length() < Precision::Confusion())
-#endif
         return;//zero vector was passed. Keep the old orientation.
     try {
         gp_Ax2 pos = myCurve->Position();
@@ -2557,7 +2552,6 @@ void GeomArcOfEllipse::setMajorAxisDir(Base::Vector3d newdir)
     if (newdir.Sqr() < Precision::SquareConfusion())
 #else
     if (newdir.Length() < Precision::Confusion())
-#endif
         return;//zero vector was passed. Keep the old orientation.
     try {
         gp_Ax2 pos = c->Position();
@@ -2995,7 +2989,6 @@ void GeomArcOfHyperbola::setMajorAxisDir(Base::Vector3d newdir)
     if (newdir.Sqr() < Precision::SquareConfusion())
     #else
     if (newdir.Length() < Precision::Confusion())
-    #endif
         return;//zero vector was passed. Keep the old orientation.
 
     try {
@@ -3837,7 +3830,6 @@ TopoDS_Shape GeomSurface::toShape() const
     BRepBuilderAPI_MakeFace mkBuilder(s, u1, u2, v1, v2
 #if OCC_VERSION_HEX >= 0x060502
       , Precision::Confusion()
-#endif
       );
     return mkBuilder.Shape();
 }
@@ -4758,3 +4750,4 @@ GeomSurface* makeFromSurface(const Handle(Geom_Surface)& s)
 }
 
 }
+

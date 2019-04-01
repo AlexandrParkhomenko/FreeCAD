@@ -68,3 +68,4 @@ typedef ViewProviderExtensionPythonT<Gui::ViewProviderGeoFeatureGroupExtension> 
 } //namespace Gui
 
 #endif // GUI_VIEWPROVIDERGEOFEATUREGROUPEXTENSION_H
+

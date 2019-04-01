@@ -82,3 +82,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_SOFCVECTORIZEU3DACTION_H
+

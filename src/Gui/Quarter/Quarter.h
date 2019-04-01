@@ -46,3 +46,4 @@ namespace Quarter {
 }}} // namespace
 
 #endif // QUARTER_QUARTER_H
+

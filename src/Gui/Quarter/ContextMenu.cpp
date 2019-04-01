@@ -172,3 +172,4 @@ ContextMenu::changeTransparencyType(QAction * action)
   this->quarterwidget->setTransparencyType(type);
   this->quarterwidget->getSoRenderManager()->scheduleRedraw();
 }
+

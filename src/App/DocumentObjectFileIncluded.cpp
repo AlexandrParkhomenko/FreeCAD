@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "DocumentObjectFileIncluded.h"
 #include "Document.h"
@@ -42,4 +39,5 @@ DocumentObjectFileIncluded::DocumentObjectFileIncluded()
 DocumentObjectFileIncluded::~DocumentObjectFileIncluded()
 {
 }
+
 

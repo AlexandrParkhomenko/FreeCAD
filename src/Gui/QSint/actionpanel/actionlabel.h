@@ -92,3 +92,4 @@ protected:
 } // namespace
 
 #endif // ACTIONLABEL_H
+

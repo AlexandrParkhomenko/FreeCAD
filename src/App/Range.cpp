@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 #include "Range.h"
 #include <Base/Exception.h>
 #include <assert.h>
@@ -241,3 +240,4 @@ std::string App::CellAddress::toString() const
 
     return s.str();
 }
+

@@ -476,3 +476,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_WIDGETFACTORY_H
+

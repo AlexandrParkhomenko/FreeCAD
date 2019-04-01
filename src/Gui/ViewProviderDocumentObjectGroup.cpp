@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QPixmap>
 # include <QMessageBox>
-#endif
 
 #include <App/DocumentObjectGroup.h>
 #include <App/Document.h>
@@ -57,7 +54,6 @@ ViewProviderDocumentObjectGroup::ViewProviderDocumentObjectGroup()
 {
 #if 0
     setDefaultMode(SO_SWITCH_ALL);
-#endif
     ViewProviderGroupExtension::initExtension(this);
 
     sPixmap = "Group.svg";
@@ -107,3 +103,4 @@ PROPERTY_SOURCE_TEMPLATE(Gui::ViewProviderDocumentObjectGroupPython, Gui::ViewPr
 // explicit template instantiation
 template class GuiExport ViewProviderPythonFeatureT<ViewProviderDocumentObjectGroup>;
 }
+

@@ -403,3 +403,4 @@ private:
 } // namespace Base
 
 #endif // BASE_SEQUENCER_H
+

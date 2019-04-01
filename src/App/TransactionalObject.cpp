@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
-#endif
 
 #include <Base/Writer.h>
 #include <Base/Exception.h>
@@ -76,3 +73,4 @@ bool TransactionalObject::removeDynamicProperty(const char*)
     str << "Type " << this->getTypeId().getName() << " cannot dynamically remove properties";
     throw Base::RuntimeError(str.str());
 }
+

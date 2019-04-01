@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "DlgSettingsViewColor.h"
 #include "PrefWidgets.h"
@@ -103,4 +100,5 @@ void DlgSettingsViewColor::changeEvent(QEvent *e)
 }
 
 #include "moc_DlgSettingsViewColor.cpp"
+
 

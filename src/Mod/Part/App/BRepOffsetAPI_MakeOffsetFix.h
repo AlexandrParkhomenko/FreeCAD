@@ -83,3 +83,4 @@ private:
 }
 
 #endif // PART_BREPOFFSETAPI_MAKEOFFSETFIX_H
+

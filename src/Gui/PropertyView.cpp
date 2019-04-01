@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QGridLayout>
 # include <QHeaderView>
 # include <QEvent>
-#endif
 
 #include <boost/bind.hpp>
 
@@ -72,7 +69,6 @@ PropertyView::PropertyView(QWidget *parent)
     tabs->setTabPosition(QTabWidget::South);
 #if defined(Q_OS_WIN32)
     tabs->setTabShape(QTabWidget::Triangular);
-#endif
     pLayout->addWidget(tabs, 0, 0);
 
     propertyEditorView = new Gui::PropertyEditor::PropertyEditor();
@@ -353,3 +349,4 @@ PropertyDockView::~PropertyDockView()
 }
 
 #include "moc_PropertyView.cpp"
+

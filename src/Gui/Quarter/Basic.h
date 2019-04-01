@@ -75,3 +75,4 @@
 #endif // !QUARTER_DLL_API
 
 #endif // !QUARTER_BASIC_H
+

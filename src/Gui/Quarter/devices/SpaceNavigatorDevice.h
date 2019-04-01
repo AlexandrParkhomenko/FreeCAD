@@ -54,3 +54,4 @@ class QUARTER_DLL_API SpaceNavigatorDevice : public InputDevice {
 
 }}}
 #endif // !QUARTER_SPACENAVIGATORDEVICE_H
+

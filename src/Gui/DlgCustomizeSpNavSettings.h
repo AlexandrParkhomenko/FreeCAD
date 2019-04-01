@@ -85,3 +85,4 @@ namespace Gui
 }
 
 #endif // DLGCUSTOMIZESPNAVSETTINGS_H
+

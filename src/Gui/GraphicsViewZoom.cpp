@@ -30,14 +30,11 @@
  *
  */
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QGraphicsView>
 # include <QMouseEvent>
 # include <QApplication>
 # include <QScrollBar>
 # include <qmath.h>
-#endif
 
 #include <GraphicsViewZoom.h>
 
@@ -94,3 +91,4 @@ bool GraphicsViewZoom::eventFilter(QObject *object, QEvent *event) {
 }
 
 #include "moc_GraphicsViewZoom.cpp"
+

@@ -91,3 +91,4 @@ protected:
 
 #endif // PARTGUI_VIEWPROVIDERCURVENET_H
 
+

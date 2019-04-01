@@ -534,3 +534,4 @@ void CArea::MakeOnePocketCurve(std::list<CCurve> &curve_list, const CAreaPocketP
 #endif
 }
 
+

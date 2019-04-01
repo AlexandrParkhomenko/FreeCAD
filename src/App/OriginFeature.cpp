@@ -20,10 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "Document.h"
 #include "Origin.h"
@@ -62,3 +59,4 @@ Origin * OriginFeature::getOrigin () {
         return static_cast<App::Origin *> (*originIt);
     }
 }
+

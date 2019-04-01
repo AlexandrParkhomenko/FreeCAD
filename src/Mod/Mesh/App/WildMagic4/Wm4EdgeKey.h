@@ -37,3 +37,4 @@ public:
 #include "Wm4EdgeKey.inl"
 
 #endif
+

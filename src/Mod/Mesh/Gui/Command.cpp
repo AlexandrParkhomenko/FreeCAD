@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # ifdef FC_OS_WIN32
 # include <windows.h>
 # endif
@@ -1788,3 +1786,4 @@ void CreateMeshCommands(void)
     rcCmdMgr.addCommand(new CmdMeshMerge());
     rcCmdMgr.addCommand(new CmdMeshScale());
 }
+

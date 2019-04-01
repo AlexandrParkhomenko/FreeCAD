@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Python.h>
-#endif
 
 #include <Base/Console.h>
 #include <Base/PyObjectBase.h>
@@ -96,3 +93,4 @@ PyMOD_INIT_FUNC(Path)
 
     PyMOD_Return(pathModule);
 }
+

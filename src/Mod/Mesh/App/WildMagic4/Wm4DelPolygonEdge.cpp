@@ -47,3 +47,4 @@ template WM4_FOUNDATION_ITEM
 class DelPolygonEdge<double>;
 //----------------------------------------------------------------------------
 }
+

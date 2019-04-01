@@ -21,9 +21,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include "AttachExtension.h"
 
@@ -306,4 +303,5 @@ namespace App {
 // explicit template instantiation
   template class PartExport ExtensionPythonT<Part::AttachExtension>;
 }
+
 

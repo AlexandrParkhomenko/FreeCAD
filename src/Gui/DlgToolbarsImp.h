@@ -134,3 +134,4 @@ protected:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGTOOLBARS_IMP_H
+

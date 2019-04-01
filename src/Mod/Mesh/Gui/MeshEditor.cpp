@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <QMenu>
 # include <QTimer>
@@ -46,7 +44,6 @@
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/nodes/SoShapeHints.h>
 # include <boost/bind.hpp>
-#endif
 
 #include "MeshEditor.h"
 #include "SoFCMeshObject.h"
@@ -718,3 +715,4 @@ void MeshFillHole::fileHoleCallback(void * ud, SoEventCallback * n)
 }
 
 #include "moc_MeshEditor.cpp"
+

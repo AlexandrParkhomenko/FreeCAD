@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QEventLoop>
 # include <QMessageBox>
@@ -36,7 +34,6 @@
 # include <TopoDS.hxx>
 # include <TopoDS_Iterator.hxx>
 # include <TopTools_HSequenceOfShape.hxx>
-#endif
 
 #include "ui_TaskSweep.h"
 #include "TaskSweep.h"
@@ -485,3 +482,4 @@ bool TaskSweep::reject()
 }
 
 #include "moc_TaskSweep.cpp"
+

@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <boost/bind.hpp>
-#endif
 
 #include "ui_TaskSelectLinkProperty.h"
 #include "TaskSelectLinkProperty.h"
@@ -246,3 +243,4 @@ void TaskSelectLinkProperty::on_Help_clicked(bool)
 
 
 #include "moc_TaskSelectLinkProperty.cpp"
+

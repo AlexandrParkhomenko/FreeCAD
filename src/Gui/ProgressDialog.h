@@ -107,3 +107,4 @@ private:
 } // namespace Gui
 
 #endif // GUI_PROGRESSDIALOG_H
+

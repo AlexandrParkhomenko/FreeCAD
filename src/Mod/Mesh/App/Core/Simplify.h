@@ -538,3 +538,4 @@ double Simplify::calculate_error(int id_v1, int id_v2, vec3f &p_result)
 }
 
 ///////////////////////////////////////////
+

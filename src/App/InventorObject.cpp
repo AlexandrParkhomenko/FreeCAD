@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "InventorObject.h"
 #include "DocumentObjectPy.h"
@@ -57,3 +54,4 @@ PyObject *InventorObject::getPyObject()
     }
     return Py::new_reference_to(PythonObject); 
 }
+

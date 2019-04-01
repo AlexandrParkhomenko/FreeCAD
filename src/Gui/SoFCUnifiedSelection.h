@@ -218,3 +218,4 @@ private:
 } // namespace Gui
 
 #endif // !GUI_SOFCUNIFIEDSELECTION_H
+
