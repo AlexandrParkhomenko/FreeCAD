@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <BRep_Builder.hxx>
 # include <BRepBuilderAPI_MakeWire.hxx>
 # include <Standard_Version.hxx>
@@ -33,6 +35,7 @@
 # include <TopTools_ListOfShape.hxx>
 # include <TopTools_ListIteratorOfListOfShape.hxx>
 # include <TopTools_MapOfShape.hxx>
+#endif
 #include "BRepOffsetAPI_MakeOffsetFix.h"
 
 using namespace Part;
@@ -48,6 +51,7 @@ BRepOffsetAPI_MakeOffsetFix::BRepOffsetAPI_MakeOffsetFix(const GeomAbs_JoinType 
 #else
     (void)IsOpenResult;
     mkOffset.Init(Join);
+#endif
 }
 
 BRepOffsetAPI_MakeOffsetFix::~BRepOffsetAPI_MakeOffsetFix()
@@ -193,4 +197,3 @@ Standard_Boolean BRepOffsetAPI_MakeOffsetFix::IsDeleted (const TopoDS_Shape& S)
 {
     return mkOffset.IsDeleted(S);
 }
-

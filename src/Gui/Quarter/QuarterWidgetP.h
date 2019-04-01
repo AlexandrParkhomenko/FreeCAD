@@ -120,4 +120,3 @@ public:
 #endif // QUARTER_QUARTERWIDGETP_H
 
 }}} // namespace
-

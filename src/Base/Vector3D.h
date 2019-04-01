@@ -287,4 +287,3 @@ inline _Vec1 convertTo(const _Vec2& v)
 } // namespace Base
 
 #endif // BASE_VECTOR3D_H
-

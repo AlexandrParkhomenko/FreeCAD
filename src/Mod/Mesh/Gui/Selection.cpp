@@ -20,6 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 #include "Selection.h"
 #include "ui_Selection.h"
@@ -103,4 +106,3 @@ void Selection::on_screenTriangles_toggled(bool on)
 }
 
 #include "moc_Selection.cpp"
-

@@ -126,4 +126,3 @@ bool IsInside(const Point& p, const CCurve& c);
 bool IsInside(const Point& p, const CArea& a);
 
 #endif // #define AREA_HEADER
-

@@ -62,4 +62,3 @@ namespace Gui
 }
 
 #endif // DAGRECTITEM_H
-

@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <cstring>
 # include <algorithm>
 # include <QApplication>
@@ -30,6 +32,7 @@
 # include <QMessageBox>
 # include <QScrollArea>
 # include <QScrollBar>
+#endif
 
 #include <Base/Exception.h>
 #include <Base/Console.h> 
@@ -239,6 +242,7 @@ void DlgPreferencesImp::restoreDefaults()
         }
 #else
         reject();
+#endif
     }
 }
 
@@ -362,4 +366,3 @@ void DlgPreferencesImp::changeEvent(QEvent *e)
 }
 
 #include "moc_DlgPreferencesImp.cpp"
-

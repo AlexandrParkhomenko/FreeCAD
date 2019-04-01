@@ -54,4 +54,3 @@ protected:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGSETTINGSMACROIMP_H
-

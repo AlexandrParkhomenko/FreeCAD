@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "TaskDlgPathCompound.h"
 #include "ui_TaskDlgPathCompound.h"
@@ -155,4 +158,3 @@ void TaskDlgPathCompound::helpRequested()
 
 
 #include "moc_TaskDlgPathCompound.cpp"
-

@@ -34,4 +34,3 @@ template<> const Vector3<double> Vector3<double>::ONE(1.0,1.0,1.0);
 /// @endcond
 
 }
-

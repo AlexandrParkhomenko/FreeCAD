@@ -23,9 +23,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 #   include <sstream>
 #   include <boost/regex.hpp>
+#endif
 
 #include "Console.h"
 #include "Interpreter.h"
@@ -46,6 +49,7 @@ using namespace Base;
 
 #if PY_VERSION_HEX <= 0x03050000
 #error "Use Python3.5.x or higher"
+#endif
 
 
 PyException::PyException(void)
@@ -62,6 +66,7 @@ PyException::PyException(void)
         _sErrMsg = prefix + error;
     else
         _sErrMsg = error;
+#endif
     _sErrMsg = error;
     _errorType = prefix;
 
@@ -346,6 +351,7 @@ void InterpreterSingleton::runFile(const char*pxFileName, bool local)
     FILE *fp = _wfopen(fi.toStdWString().c_str(),L"r");
 #else
     FILE *fp = fopen(pxFileName,"r");
+#endif
     if (fp) {
         PyGILStateLocker locker;
         //std::string encoding = PyUnicode_GetDefaultEncoding();
@@ -710,11 +716,13 @@ int getSWIGVersionFromModule(const std::string& module)
 
 #if (defined(HAVE_SWIG) && (HAVE_SWIG == 1))
     moduleMap[module] = 0;
+#endif
     return 0;
 }
 
 #if (defined(HAVE_SWIG) && (HAVE_SWIG == 1))
 namespace Swig_python { extern int createSWIGPointerObj_T(const char* TypeName, void* obj, PyObject** ptr, int own); }
+#endif
 
 PyObject* InterpreterSingleton::createSWIGPointerObj(const char* Module, const char* TypeName, void* Pointer, int own)
 {
@@ -726,6 +734,7 @@ PyObject* InterpreterSingleton::createSWIGPointerObj(const char* Module, const c
     result = Swig_python::createSWIGPointerObj_T(TypeName, Pointer, &proxy, own);
 #else
     result = -1; // indicates error
+#endif
 
     if (result == 0)
         return proxy;
@@ -736,6 +745,7 @@ PyObject* InterpreterSingleton::createSWIGPointerObj(const char* Module, const c
 
 #if (defined(HAVE_SWIG) && (HAVE_SWIG == 1))
 namespace Swig_python { extern int convertSWIGPointerObj_T(const char* TypeName, PyObject* obj, void** ptr, int flags); }
+#endif
 
 bool InterpreterSingleton::convertSWIGPointerObj(const char* Module, const char* TypeName, PyObject* obj, void** ptr, int flags)
 {
@@ -746,6 +756,7 @@ bool InterpreterSingleton::convertSWIGPointerObj(const char* Module, const char*
         result = Swig_python::convertSWIGPointerObj_T(TypeName, obj, ptr, flags);
 #else
         result = -1; // indicates error
+#endif
 
     if (result == 0)
         return true;
@@ -756,11 +767,12 @@ bool InterpreterSingleton::convertSWIGPointerObj(const char* Module, const char*
 
 #if (defined(HAVE_SWIG) && (HAVE_SWIG == 1))
 namespace Swig_python { extern void cleanupSWIG_T(const char* TypeName); }
+#endif
 
 void InterpreterSingleton::cleanupSWIG(const char* TypeName)
 {
     PyGILStateLocker locker;
 #if (defined(HAVE_SWIG) && (HAVE_SWIG == 1))
     Swig_python::cleanupSWIG_T(TypeName);
+#endif
 }
-

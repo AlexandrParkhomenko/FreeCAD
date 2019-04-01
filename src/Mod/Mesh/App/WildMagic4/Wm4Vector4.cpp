@@ -34,4 +34,3 @@ template<> const Vector4<double> Vector4<double>::UNIT_W(0.0,0.0,0.0,1.0);
 template<> const Vector4<double> Vector4<double>::ONE(1.0,1.0,1.0,1.0);
 
 }
-

@@ -98,4 +98,3 @@ typedef Distance<double,Vector3d> Distance3d;
 }
 
 #endif
-

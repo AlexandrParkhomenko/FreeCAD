@@ -73,4 +73,3 @@ private:
 } // MeshCore
 
 #endif // MESHCORE_CURVATURE_H
-

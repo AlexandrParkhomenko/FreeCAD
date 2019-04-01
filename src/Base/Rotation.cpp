@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <cmath>
 # include <climits>
+#endif
 
 #include "Rotation.h"
 #include "Matrix.h"
@@ -674,4 +677,3 @@ bool Rotation::isNull() const
             this->quat[2] == 0 &&
             this->quat[3] == 0);
 }
-

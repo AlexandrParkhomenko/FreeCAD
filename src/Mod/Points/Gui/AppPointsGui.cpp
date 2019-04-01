@@ -21,6 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
@@ -101,4 +104,3 @@ PyMOD_INIT_FUNC(PointsGui)
 
     PyMOD_Return(mod);
 }
-

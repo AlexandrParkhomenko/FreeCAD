@@ -210,4 +210,3 @@ private:
 }}} // namespace
 
 #endif // QUARTER_QUARTERWIDGET_H
-

@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 
+#endif
 #include <cinttypes>
 #include <iomanip>
 #include <boost/algorithm/string.hpp>
@@ -317,5 +320,4 @@ void Command::Restore(XMLReader &reader)
     std::string gcode = reader.getAttribute("gcode");
     setFromGCode(gcode);
 }
-
 

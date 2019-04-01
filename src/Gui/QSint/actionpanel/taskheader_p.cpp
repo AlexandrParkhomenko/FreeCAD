@@ -308,4 +308,3 @@ void TaskHeader::keyReleaseEvent ( QKeyEvent * event )
 
 
 }
-

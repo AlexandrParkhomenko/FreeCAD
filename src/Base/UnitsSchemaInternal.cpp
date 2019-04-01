@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 #ifdef __GNUC__
 # include <unistd.h>
 #endif
@@ -194,4 +195,3 @@ QString UnitsSchemaInternal::schemaTranslate(const Quantity &quant, double &fact
 
     return toLocale(quant, factor, unitString);
 }
-

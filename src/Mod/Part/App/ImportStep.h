@@ -48,4 +48,3 @@ PartExport int ImportStepParts(App::Document *pcDoc, const char* Name);
 
 
 #endif
-

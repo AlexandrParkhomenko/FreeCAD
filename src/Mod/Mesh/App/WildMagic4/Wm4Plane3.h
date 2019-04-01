@@ -77,4 +77,3 @@ typedef Plane3<double> Plane3d;
 }
 
 #endif
-

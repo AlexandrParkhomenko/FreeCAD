@@ -57,4 +57,3 @@ protected:
 
 #endif // PARTGUI_VIEWPROVIDERBOX_H
 
-

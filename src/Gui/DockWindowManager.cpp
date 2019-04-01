@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QPointer>
 # include <QDockWidget>
 # include <QAction>
 # include <QMap>
+#endif
 
 #include "DockWindowManager.h"
 #include "MainWindow.h"
@@ -348,6 +351,7 @@ void DockWindowManager::setup(DockWindowItems* items)
             }
         }
     }
+#endif
 
 #if 0
     // hide all dock windows which we don't need for the moment
@@ -357,6 +361,7 @@ void DockWindowManager::setup(DockWindowItems* items)
         (*it)->hide();
         (*it)->toggleViewAction()->setVisible(false);
     }
+#endif
 }
 
 void DockWindowManager::saveState()
@@ -415,4 +420,3 @@ void DockWindowManager::onWidgetDestroyed(QObject* widget)
 }
 
 #include "moc_DockWindowManager.cpp"
-

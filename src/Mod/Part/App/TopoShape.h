@@ -297,4 +297,3 @@ private:
 
 
 #endif // PART_TOPOSHAPE_H
-

@@ -371,4 +371,3 @@ private:
 
 
 #endif // _SoFCSelectionAction_h 
-

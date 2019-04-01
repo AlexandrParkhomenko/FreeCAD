@@ -41,4 +41,3 @@ Plane3<Real> OrthogonalPlaneFit3 (int iQuantity,
 }
 
 #endif
-

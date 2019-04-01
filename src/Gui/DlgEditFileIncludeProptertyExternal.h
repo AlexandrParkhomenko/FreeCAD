@@ -53,4 +53,3 @@ protected:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DlgEditFileIncludePropertyExternal_H
-

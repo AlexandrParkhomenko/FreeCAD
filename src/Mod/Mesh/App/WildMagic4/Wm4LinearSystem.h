@@ -145,4 +145,3 @@ typedef LinearSystem<double> LinearSystemd;
 }
 
 #endif
-

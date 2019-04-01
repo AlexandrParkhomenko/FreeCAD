@@ -21,13 +21,16 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QApplication>
 # include <QKeyEvent>
 # include <QLabel>
 # include <QTextCursor>
 # include <QPlainTextEdit>
 # include <QToolTip>
+#endif
 
 #include <CXX/Objects.hxx>
 #include <Base/Interpreter.h>
@@ -241,6 +244,7 @@ QMap<QString, CallTip> CallTipsList::extractTips(const QString& context) const
             return tips;
         }
         Py::Object obj(eval, true);
+#endif
 
         // Checks whether the type is a subclass of PyObjectBase because to get the doc string
         // of a member we must get it by its type instead of its instance otherwise we get the
@@ -771,4 +775,3 @@ QString CallTipsList::stripWhiteSpace(const QString& str) const
 }
 
 #include "moc_CallTips.cpp"
-

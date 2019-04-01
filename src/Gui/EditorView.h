@@ -132,4 +132,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_EDITORVIEW_H
-

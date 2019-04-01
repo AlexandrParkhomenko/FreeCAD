@@ -124,4 +124,3 @@ private:
 } //namespace Gui
 
 #endif // GUI_TASKVIEW_TASKDIALOG_H
-

@@ -65,4 +65,3 @@ public:
 	void Insert(std::shared_ptr<CCurve> pcurve);
 	CArea ResultArea()const;
 };
-

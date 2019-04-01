@@ -21,11 +21,14 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <cfloat>
 # include <QMessageBox>
 # include <Precision.hxx>
 # include <QApplication>
 # include <Standard_Version.hxx>
+#endif
 
 # include <QMessageBox>
 
@@ -521,6 +524,7 @@ void CmdSketcherIncreaseKnotMultiplicity::activated(int iMsg)
     QMessageBox::warning(Gui::getMainWindow(), QObject::tr("Wrong OCE/OCC version"),
                          QObject::tr("This version of OCE/OCC does not support knot operation. You need 6.9.0 or higher"));
     return;
+    #endif
     
     // get the selection
     std::vector<Gui::SelectionObject> selection;
@@ -681,6 +685,7 @@ void CmdSketcherDecreaseKnotMultiplicity::activated(int iMsg)
     QMessageBox::warning(Gui::getMainWindow(), QObject::tr("Wrong OCE/OCC version"),
                          QObject::tr("This version of OCE/OCC does not support knot operation. You need 6.9.0 or higher"));
     return;
+    #endif
     
     // get the selection
     std::vector<Gui::SelectionObject> selection;
@@ -909,4 +914,3 @@ void CreateSketcherCommandsBSpline(void)
     rcCmdMgr.addCommand(new CmdSketcherDecreaseKnotMultiplicity());
     rcCmdMgr.addCommand(new CmdSketcherCompModifyKnotMultiplicity());
 }
-

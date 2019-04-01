@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <algorithm>
 # include <sstream>
 # include <QListWidgetItem>
 # include <QMessageBox>
+#endif
 
 #include <App/Application.h>
 #include <App/Document.h>
@@ -46,6 +49,7 @@ DlgPropertyLink::DlgPropertyLink(const QStringList& list, QWidget* parent, Qt::W
 {
 #ifdef FC_DEBUG
     assert(list.size() >= 5);
+#endif
     ui->setupUi(this);
     findObjects(ui->checkObjectType->isChecked(), QString());
 }
@@ -225,4 +229,3 @@ void DlgPropertyLink::on_searchBox_textChanged(const QString& search)
 }
 
 #include "moc_DlgPropertyLink.cpp"
-

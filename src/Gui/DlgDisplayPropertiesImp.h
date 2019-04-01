@@ -99,4 +99,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGDISPLAYPROPERTIES_IMP_H
-

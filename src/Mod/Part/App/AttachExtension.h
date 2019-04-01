@@ -137,4 +137,3 @@ typedef App::ExtensionPythonT<AttachExtension> AttachExtensionPython;
 } // namespace Part
 
 #endif // PARTATTACHABLEOBJECT_H
-

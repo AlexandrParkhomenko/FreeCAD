@@ -211,4 +211,3 @@ template <class T> void Deallocate (T***& raaatArray);
 #include "Wm4TTuple.h"  // tuples in any type and any dimension
 
 #endif
-

@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <gp_Trsf.hxx>
 # include <gp_Ax1.hxx>
 # include <NCollection_Vector.hxx>
@@ -699,4 +701,3 @@ void ImportXCAF::loadShapes(const TDF_Label& label)
         }
     }
 }
-

@@ -164,4 +164,3 @@ CArea CAreaOrderer::ResultArea()const
 	return a;
 }
 
-

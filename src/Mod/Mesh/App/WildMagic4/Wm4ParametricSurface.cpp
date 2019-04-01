@@ -191,4 +191,3 @@ template WM4_FOUNDATION_ITEM
 class ParametricSurface<double>;
 //----------------------------------------------------------------------------
 }
-

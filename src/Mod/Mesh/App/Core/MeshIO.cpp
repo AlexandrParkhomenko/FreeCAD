@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 #include "Definitions.h"
 #include "Iterator.h"
 
@@ -3260,4 +3261,3 @@ void MeshPointFacetAdjacency::SetFacetNeighbourhood()
         }
     }
 }
-

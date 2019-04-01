@@ -69,4 +69,3 @@ protected:
 }}} // namespace
 
 #endif // QUARTER_INPUTDEVICE_H
-

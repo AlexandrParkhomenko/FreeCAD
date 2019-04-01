@@ -58,4 +58,3 @@ private:
 } //namespace PartGui
 
 #endif // PARTGUI_BOXSELECTION_H
-

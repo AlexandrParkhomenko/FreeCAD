@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 #include "Tools.h"
 #include "Vector3D.h"
 
@@ -440,4 +441,3 @@ namespace Base {
 template class BaseExport Vector3<float>;
 template class BaseExport Vector3<double>;
 }
-

@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <gp_Elips2d.hxx>
 # include <Geom2d_Ellipse.hxx>
 # include <GCE2d_MakeEllipse.hxx>
+#endif
 
 #include <Base/GeometryPyCXX.h>
 
@@ -188,4 +191,3 @@ int Ellipse2dPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
-

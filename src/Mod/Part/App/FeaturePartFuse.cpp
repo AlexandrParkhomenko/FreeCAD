@@ -21,12 +21,15 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <BRepAlgoAPI_Fuse.hxx>
 # include <BRepCheck_Analyzer.hxx>
 # include <Standard_Failure.hxx>
 # include <TopoDS_Iterator.hxx>
 # include <TopTools_IndexedMapOfShape.hxx>
 # include <TopExp.hxx>
+#endif
 
 
 #include "FeaturePartFuse.h"
@@ -162,6 +165,7 @@ App::DocumentObjectExecReturn *MultiFuse::execute(void)
             for (std::vector<TopoDS_Shape>::iterator it = s.begin(); it != s.end(); ++it) {
                 history.push_back(buildHistory(mkFuse, TopAbs_FACE, resShape, *it));
             }
+#endif
             if (resShape.IsNull())
                 throw Base::RuntimeError("Resulting shape is null");
 
@@ -223,4 +227,3 @@ App::DocumentObjectExecReturn *MultiFuse::execute(void)
 
     return App::DocumentObject::StdReturn;
 }
-

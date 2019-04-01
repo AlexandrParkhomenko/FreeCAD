@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <sstream>
 # include <BRep_Tool.hxx>
 # include <BRepGProp.hxx>
@@ -41,6 +43,7 @@
 # include <Inventor/events/SoMouseButtonEvent.h>
 # include <Inventor/nodes/SoCamera.h>
 # include <Inventor/nodes/SoSeparator.h>
+#endif
 
 #include <boost/signals2.hpp>
 #include <boost/bind.hpp>
@@ -190,6 +193,7 @@ public:
 #if 0
                         // TODO
                         if (isVisibleFace(k-1, SbVec2f(pt2d.x, pt2d.y), viewer))
+#endif
                         {
                             std::stringstream str;
                             str << "Face" << k;
@@ -465,4 +469,3 @@ bool TaskFaceColors::reject()
 }
 
 #include "moc_TaskFaceColors.cpp"
-

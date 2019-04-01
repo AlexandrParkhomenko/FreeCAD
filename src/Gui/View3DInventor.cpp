@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QAction>
 # include <QApplication>
 # include <QFileInfo>
@@ -52,11 +54,13 @@
 # include <Inventor/events/SoEvent.h>
 # include <Inventor/fields/SoSFString.h>
 # include <Inventor/fields/SoSFColor.h>
+#endif
 # include <QStackedWidget>
 #include <QtOpenGL.h>
 
 #if defined(HAVE_QT5_OPENGL)
 # include <QWindow>
+#endif
 
 #include <Base/Exception.h>
 #include <Base/Console.h>
@@ -127,6 +131,7 @@ View3DInventor::View3DInventor(Gui::Document* pcDocument, QWidget* parent,
         glformat = true;
 #if !defined(HAVE_QT5_OPENGL)
         f.setSampleBuffers(true);
+#endif
         f.setSamples(samples);
     }
     else if (samples > 0) {
@@ -429,6 +434,7 @@ void View3DInventor::onUpdate(void)
 {
 #ifdef FC_LOGUPDATECHAIN
     Base::Console().Log("Acti: Gui::View3DInventor::onUpdate()");
+#endif
     update();
     _viewer->redraw();
 }
@@ -679,6 +685,7 @@ bool View3DInventor::onHasMsg(const char* pMsg) const
         return true;
 #else
         return false;
+#endif 
     else if(strcmp("ViewSelection",pMsg) == 0)
         return true;
     else if(strcmp("ViewBottom",pMsg) == 0)
@@ -885,6 +892,7 @@ void View3DInventor::setCurrentViewMode(ViewMode newmode)
         if (winHandle)
             winHandle->destroy();
     }
+#endif
 
     MDIView::setCurrentViewMode(newmode);
 
@@ -896,6 +904,7 @@ void View3DInventor::setCurrentViewMode(ViewMode newmode)
     //if (index >= 0) {
     //    _viewer->qt_metacall(QMetaObject::InvokeMetaMethod, index, 0);
     //}
+#endif
 
     // This widget becomes the focus proxy of the embedded GL widget if we leave 
     // the 'Child' mode. If we reenter 'Child' mode the focus proxy is reset to 0.
@@ -928,6 +937,7 @@ void View3DInventor::setCurrentViewMode(ViewMode newmode)
         QMdiSubWindow* mdi = qobject_cast<QMdiSubWindow*>(parentWidget());
         if (mdi && mdi->layout())
             mdi->layout()->invalidate();
+#endif
     }
 }
 
@@ -996,4 +1006,3 @@ void View3DInventor::customEvent(QEvent * e)
 
 
 #include "moc_View3DInventor.cpp"
-

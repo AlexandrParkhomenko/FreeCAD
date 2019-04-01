@@ -54,4 +54,3 @@ protected:
 } // namespace PartGui
 
 #endif // PART_PropertyEnumAttacherItem_H
-

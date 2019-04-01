@@ -182,4 +182,3 @@ private:
 } //namespace Gui
 
 #endif // GUI_DOCUMENTOBSERVER_H
-

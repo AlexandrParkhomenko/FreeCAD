@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 #include <climits>
 #include <zlib.h>
 
@@ -167,4 +168,3 @@ void DlgSettingsDocumentImp::onLicenseTypeChanged(int index)
 }
 
 #include "moc_DlgSettingsDocumentImp.cpp"
-

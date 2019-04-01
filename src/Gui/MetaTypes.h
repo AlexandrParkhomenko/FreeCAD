@@ -36,4 +36,3 @@ Q_DECLARE_METATYPE(Base::Quantity)
 Q_DECLARE_METATYPE(QList<Base::Quantity>)
 
 #endif // GUI_METATYPES_H
-

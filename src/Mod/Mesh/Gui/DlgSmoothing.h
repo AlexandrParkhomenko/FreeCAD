@@ -118,4 +118,3 @@ private:
 }
 
 #endif // MESHGUI_DLGSMOOTHING_H
-

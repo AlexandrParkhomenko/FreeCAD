@@ -85,4 +85,3 @@ private:
 } //namespace PartGui
 
 #endif // PARTGUI_TASKOFFSET_H
-

@@ -146,4 +146,3 @@ typedef Vector3<double> Vector3d;
 }
 
 #endif
-

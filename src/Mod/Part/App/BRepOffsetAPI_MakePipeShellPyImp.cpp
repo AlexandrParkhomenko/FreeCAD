@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <gp_Ax2.hxx>
 # include <gp_Dir.hxx>
 # include <gp_Pnt.hxx>
@@ -29,6 +31,7 @@
 # include <BRepOffsetAPI_MakePipeShell.hxx>
 # include <Standard_Version.hxx>
 # include <TopTools_ListIteratorOfListOfShape.hxx>
+#endif
 
 #include "TopoShapePy.h"
 #include "TopoShapeVertexPy.h"
@@ -199,6 +202,7 @@ PyObject* BRepOffsetAPI_MakePipeShellPy::setAuxiliarySpine(PyObject *args)
         PyErr_SetString(PartExceptionOCCError, e.GetMessageString());
         return 0;
     }
+#endif
 }
 
 PyObject* BRepOffsetAPI_MakePipeShellPy::add(PyObject *args, PyObject *kwds)
@@ -443,6 +447,7 @@ PyObject* BRepOffsetAPI_MakePipeShellPy::setMaxDegree(PyObject *args)
         (void)args;
         PyErr_SetString(PyExc_RuntimeError, "requires OCC >= 6.8");
         return 0;
+#endif
     }
     catch (Standard_Failure& e) {
         PyErr_SetString(PartExceptionOCCError, e.GetMessageString());
@@ -464,6 +469,7 @@ PyObject* BRepOffsetAPI_MakePipeShellPy::setMaxSegments(PyObject *args)
         (void)args;
         PyErr_SetString(PyExc_RuntimeError, "requires OCC >= 6.8");
         return 0;
+#endif
     }
     catch (Standard_Failure& e) {
         PyErr_SetString(PartExceptionOCCError, e.GetMessageString());
@@ -484,6 +490,7 @@ PyObject* BRepOffsetAPI_MakePipeShellPy::setForceApproxC1(PyObject *args)
 #else
         PyErr_SetString(PyExc_RuntimeError, "requires OCC >= 6.7");
         return 0;
+#endif
     }
     catch (Standard_Failure& e) {
         PyErr_SetString(PartExceptionOCCError, e.GetMessageString());
@@ -526,4 +533,3 @@ int BRepOffsetAPI_MakePipeShellPy::setCustomAttributes(const char* , PyObject *)
 {
     return 0; 
 }
-

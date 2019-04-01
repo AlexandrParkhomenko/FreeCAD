@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "App/GeoFeature.h"
 
@@ -80,4 +81,3 @@ int GeoFeaturePy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
-

@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Geom2d_BSplineCurve.hxx>
 # include <Geom2dAPI_PointsToBSpline.hxx>
 # include <Geom2dAPI_Interpolate.hxx>
@@ -37,6 +39,7 @@
 # include <TColStd_HArray1OfBoolean.hxx>
 
 # include <Precision.hxx>
+#endif
 
 #include <Base/GeometryPyCXX.h>
 
@@ -1345,4 +1348,3 @@ int BSplineCurve2dPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*
 {
     return 0; 
 }
-

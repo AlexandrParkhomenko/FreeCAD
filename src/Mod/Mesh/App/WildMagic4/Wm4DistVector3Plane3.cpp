@@ -94,4 +94,3 @@ template WM4_FOUNDATION_ITEM
 class DistVector3Plane3<double>;
 //----------------------------------------------------------------------------
 }
-

@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QVBoxLayout>
 # include <QListWidget>
 # include <QListWidgetItem>
@@ -29,6 +31,7 @@
 # include <QToolButton>
 # include <QMenu>
 # include <QLabel>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <App/Document.h>
@@ -60,6 +63,7 @@ SelectionView::SelectionView(Gui::Document* pcDocument, QWidget *parent)
     QLineEdit* searchBox = new QLineEdit(this);
 #if QT_VERSION >= 0x040700
     searchBox->setPlaceholderText(tr("Search"));
+#endif
     searchBox->setToolTip(tr("Searches object labels"));
     QHBoxLayout* hLayout = new QHBoxLayout();
     hLayout->setSpacing(2);
@@ -454,4 +458,3 @@ bool SelectionView::onMsg(const char* /*pMsg*/,const char** /*ppReturn*/)
 /// @endcond
 
 #include "moc_SelectionView.cpp"
-

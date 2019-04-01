@@ -20,8 +20,11 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <assert.h>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Type.h"
@@ -111,6 +114,7 @@ void Type::importModule(const char* TypeName)
       Interpreter().loadModule(Mod.c_str());
 #ifdef FC_LOGLOADMODULE
       Console().Log("Act: Module %s loaded through class %s \n",Mod.c_str(),TypeName);
+#endif
       loadModuleSet.insert(Mod);
     }
   }
@@ -230,4 +234,3 @@ int Type::getNumTypes(void)
 {
   return typedata.size();
 }
-

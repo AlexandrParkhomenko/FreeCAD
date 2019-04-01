@@ -21,11 +21,14 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <algorithm>
 # include <stdexcept>
 # include <map>
 # include <queue>
+#endif
 
 #include <Base/Exception.h>
 #include <Base/Sequencer.h>
@@ -176,6 +179,7 @@ unsigned long MeshKernel::AddFacets(const std::vector<MeshFacet> &rclFAry,
     // Build map of edges of the referencing facets we want to append
 #ifdef FC_DEBUG
     unsigned long countPoints = CountPoints();
+#endif
 
     // if the manifold check shouldn't be done then just add all faces
     if (!checkManifolds) {
@@ -201,6 +205,7 @@ unsigned long MeshKernel::AddFacets(const std::vector<MeshFacet> &rclFAry,
         for (int i=0; i<3; i++) {
 #ifdef FC_DEBUG
             assert( pF->_aulPoints[i] < countPoints );
+#endif
             this->_aclPointArray[pF->_aulPoints[i]].SetFlag(MeshPoint::INVALID);
             unsigned long ulT0 = pF->_aulPoints[i];
             unsigned long ulT1 = pF->_aulPoints[(i+1)%3];
@@ -1164,5 +1169,4 @@ unsigned long MeshKernel::CountEdges (void) const
 
     return (openEdges + (closedEdges / 2));
 }
-
 

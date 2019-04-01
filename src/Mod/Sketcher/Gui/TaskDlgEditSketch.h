@@ -86,4 +86,3 @@ protected:
 } //namespace SketcherGui
 
 #endif // SKETCHERGUI_TaskDlgEditSketch_H
-

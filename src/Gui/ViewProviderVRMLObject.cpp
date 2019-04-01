@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Inventor/SoDB.h>
 # include <Inventor/SoInput.h>
 # include <Inventor/SoFullPath.h>
@@ -30,6 +32,7 @@
 # include <Inventor/nodes/SoTransform.h>
 # include <QFile>
 # include <QFileInfo>
+#endif
 
 #include <Inventor/nodes/SoFile.h>
 #include <Inventor/VRMLnodes/SoVRMLInline.h>
@@ -271,4 +274,3 @@ void ViewProviderVRMLObject::updateData(const App::Property* prop)
         pcTransform->scaleFactor.setValue(1.0f,1.0f,1.0f);
     }
 }
-

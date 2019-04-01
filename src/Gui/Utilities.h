@@ -142,4 +142,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_UTILITIES_H
-

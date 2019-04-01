@@ -21,6 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 #include <CXX/Objects.hxx>
 #include <Base/Console.h>
@@ -636,4 +639,3 @@ void PropertyMeshKernel::Paste(const App::Property &from)
     *(this->_meshObject) = *(prop._meshObject);
     hasSetValue();
 }
-

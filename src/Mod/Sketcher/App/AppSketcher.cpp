@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Python.h>
+#endif
 
 #include <Base/Console.h>
 #include <Base/Interpreter.h>
@@ -73,4 +76,3 @@ PyMOD_INIT_FUNC(Sketcher)
 
     PyMOD_Return(sketcherModule);
 }
-

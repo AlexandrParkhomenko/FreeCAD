@@ -20,7 +20,10 @@
  *                                                                          *
  ****************************************************************************/
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include <Gui/Application.h>
 #include <Mod/Path/App/FeatureArea.h>
@@ -191,5 +194,4 @@ PROPERTY_SOURCE_TEMPLATE(PathGui::ViewProviderAreaViewPython, PathGui::ViewProvi
 template class PathGuiExport ViewProviderPythonFeatureT<PathGui::ViewProviderArea>;
 template class PathGuiExport ViewProviderPythonFeatureT<PathGui::ViewProviderAreaView>;
 }
-
 

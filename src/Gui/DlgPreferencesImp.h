@@ -148,4 +148,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGPREFERENCESIMP_H
-

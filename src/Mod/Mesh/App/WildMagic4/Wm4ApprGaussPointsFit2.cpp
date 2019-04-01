@@ -71,4 +71,3 @@ template WM4_FOUNDATION_ITEM
 Box2<double> GaussPointsFit2<double> (int, const Vector2<double>*);
 //----------------------------------------------------------------------------
 }
-

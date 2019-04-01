@@ -72,4 +72,3 @@ const char RotTransDragger::NavigationDraggerLayout[] =
 "	       Cone { height 0.4 bottomRadius 0.2 }\n"
 "   }\n"
 "}\n";
-

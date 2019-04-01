@@ -190,4 +190,3 @@ private:
 } // namespace Gui
 
 #endif //GUI_DOCKWND_REPORTVIEW_H
-

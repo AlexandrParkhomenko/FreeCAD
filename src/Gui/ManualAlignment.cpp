@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QAction>
 # include <QApplication>
 # include <QLabel>
@@ -45,6 +47,7 @@
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/nodes/SoTranslation.h>
 # include <Inventor/sensors/SoNodeSensor.h>
+#endif
 
 #include <boost/bind.hpp>
 
@@ -352,6 +355,7 @@ public:
             glformat = true;
 #if !defined(HAVE_QT5_OPENGL)
             f.setSampleBuffers(true);
+#endif
             f.setSamples(samples);
         }
         else if (samples > 0) {
@@ -1332,5 +1336,4 @@ bool ManualAlignment::applyPickedProbe(Gui::ViewProviderDocumentObject* prov, co
 }
 
 #include "moc_ManualAlignment.cpp"
-
 

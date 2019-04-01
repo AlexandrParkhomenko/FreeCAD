@@ -98,4 +98,3 @@ bool SphereFit3<double> (int, const Vector3<double>*, int, Sphere3<double>&,
     bool);
 //----------------------------------------------------------------------------
 }
-

@@ -77,4 +77,3 @@ typedef ParametricSurface<double> ParametricSurfaced;
 }
 
 #endif
-

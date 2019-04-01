@@ -111,4 +111,3 @@ private:
 
 #endif // PARTGUI_ViewProviderPartReference_H
 
-

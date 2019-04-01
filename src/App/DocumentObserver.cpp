@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <sstream>
+#endif
 
 #include <boost/bind.hpp>
 
@@ -347,4 +350,3 @@ void DocumentObjectObserver::slotChangedObject(const App::DocumentObject&,
 void DocumentObjectObserver::cancelObservation()
 {
 }
-

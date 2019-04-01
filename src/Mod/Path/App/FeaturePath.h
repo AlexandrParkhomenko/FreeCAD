@@ -70,4 +70,3 @@ typedef App::FeaturePythonT<Feature> FeaturePython;
 
 
 #endif // PATH_FeaturePath_H
-

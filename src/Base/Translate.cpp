@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
 #include "Translate.h"
 #include <QCoreApplication>
@@ -113,4 +114,3 @@ Py::Object Translate::trNoop(const Py::Tuple& args)
         throw Py::Exception();
     return Py::Object(arg1);
 }
-

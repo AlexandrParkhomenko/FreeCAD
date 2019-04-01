@@ -53,4 +53,3 @@ public:
 } //namespace Part
 
 #endif // PART_FEATUREPARTPOLYGON_H
-

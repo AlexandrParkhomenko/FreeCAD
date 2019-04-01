@@ -21,13 +21,16 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QApplication>
 # include <QDoubleSpinBox>
 # include <QRegExp>
 # include <QGridLayout>
 # include <QMessageBox>
 # include <memory>
+#endif
 
 #include "DlgSettings3DViewImp.h"
 #include "MainWindow.h"
@@ -390,5 +393,4 @@ void CameraDialog::on_currentView_clicked()
 
 
 #include "moc_DlgSettings3DViewImp.cpp"
-
 

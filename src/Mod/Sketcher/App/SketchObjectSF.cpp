@@ -21,6 +21,9 @@
  ***************************************************************************/
 
  
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 
 
@@ -53,4 +56,3 @@ App::DocumentObjectExecReturn *SketchObjectSF::execute(void)
     // do nothing 
     return App::DocumentObject::StdReturn;
 }
-

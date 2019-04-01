@@ -55,4 +55,3 @@ public:
 
 
 #endif // PATH_ViewProviderPathShape_H
-

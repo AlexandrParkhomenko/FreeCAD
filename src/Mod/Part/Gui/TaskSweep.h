@@ -86,4 +86,3 @@ private:
 } //namespace PartGui
 
 #endif // PARTGUI_TASKSWEEP_H
-

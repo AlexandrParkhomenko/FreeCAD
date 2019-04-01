@@ -354,4 +354,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_MAINWINDOW_H
-

@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "SoFCInteractiveElement.h"
 
@@ -268,4 +269,3 @@ SoElement * SoGLVBOActivatedElement::copyMatchInfo(void) const
 {
     return 0;
 }
-

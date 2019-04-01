@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QButtonGroup>
 # include <QRegExp>
 # include <QRegExpValidator>
+#endif
 
 #include <Interface_Static.hxx>
 
@@ -318,4 +321,3 @@ void DlgImportExportStep::changeEvent(QEvent *e)
 }
 
 #include "moc_DlgSettingsGeneral.cpp"
-

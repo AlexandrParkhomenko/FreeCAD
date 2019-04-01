@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <xercesc/sax/SAXParseException.hpp>
 # include <xercesc/sax/SAXException.hpp>
 # include <xercesc/sax2/XMLReaderFactory.hpp>
+#endif
 
 // ---------------------------------------------------------------------------
 //  Includes
@@ -135,6 +138,7 @@ XMLSize_t StdInputStream::readBytes( XMLByte* const  toFill, const XMLSize_t max
 
   return len;
 }
+#endif
 
 
 // ---------------------------------------------------------------------------
@@ -162,6 +166,4 @@ BinInputStream* StdInputSource::makeStream() const
   StdInputStream* retStrm = new StdInputStream(stream /*, getMemoryManager()*/);
   return retStrm;
 }
-
-
 

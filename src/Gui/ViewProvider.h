@@ -387,4 +387,3 @@ private:
 
 #endif // GUI_VIEWPROVIDER_H
 
-

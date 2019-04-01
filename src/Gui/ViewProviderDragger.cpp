@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <cfloat>
 # include <QAction>
 # include <QMenu>
@@ -40,6 +42,7 @@
 # include <Inventor/sensors/SoNodeSensor.h> 
 # include <Inventor/SoPickedPoint.h>
 # include <Inventor/actions/SoRayPickAction.h> 
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "ViewProviderDragger.h"
@@ -56,6 +59,7 @@
 #include <Inventor/nodes/SoResetTransform.h>
 #if (COIN_MAJOR_VERSION > 2)
 #include <Inventor/nodes/SoDepthBuffer.h>
+#endif
 #include "SoFCUnifiedSelection.h"
 #include "SoFCCSysDragger.h"
 #include "Control.h"
@@ -297,4 +301,3 @@ void ViewProviderDragger::updateTransform(const Base::Placement& from, SoTransfo
   to->center.setValue(0.0f,0.0f,0.0f);
   to->scaleFactor.setValue(1.0f,1.0f,1.0f);
 }
-

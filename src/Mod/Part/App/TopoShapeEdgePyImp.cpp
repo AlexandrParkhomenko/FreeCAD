@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <algorithm>
 # include <BRep_Builder.hxx>
 # include <BRep_Tool.hxx>
@@ -61,6 +63,7 @@
 # include <ShapeAnalysis_Edge.hxx>
 # include <Standard_Failure.hxx>
 # include <Standard_Version.hxx>
+#endif
 
 #include <BRepGProp.hxx>
 #include <GProp_GProps.hxx>
@@ -874,6 +877,7 @@ Py::Object TopoShapeEdgePy::getCurve() const
                 throw Py::RuntimeError("Failed to convert to offset curve");
             }
         }
+#endif
     case GeomAbs_OtherCurve:
         break;
     }
@@ -1014,4 +1018,3 @@ int TopoShapeEdgePy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/
 {
     return 0;
 }
-

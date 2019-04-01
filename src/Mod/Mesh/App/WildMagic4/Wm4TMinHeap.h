@@ -95,4 +95,3 @@ private:
 #include "Wm4TMinHeap.inl"
 
 #endif
-

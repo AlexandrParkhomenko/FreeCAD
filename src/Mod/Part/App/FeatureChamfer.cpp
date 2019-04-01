@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <BRepFilletAPI_MakeChamfer.hxx>
 # include <TopExp.hxx>
 # include <TopExp_Explorer.hxx>
@@ -29,6 +31,7 @@
 # include <TopTools_ListOfShape.hxx>
 # include <TopTools_IndexedMapOfShape.hxx>
 # include <TopTools_IndexedDataMapOfShapeListOfShape.hxx>
+#endif
 
 
 #include "FeatureChamfer.h"
@@ -87,5 +90,4 @@ App::DocumentObjectExecReturn *Chamfer::execute(void)
         return new App::DocumentObjectExecReturn(e.GetMessageString());
     }
 }
-
 

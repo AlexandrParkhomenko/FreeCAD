@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include <cmath>
 
@@ -51,4 +52,3 @@ void MeshDefinitions::SetMinPointDistance (float fMin)
 }
 
 }
-

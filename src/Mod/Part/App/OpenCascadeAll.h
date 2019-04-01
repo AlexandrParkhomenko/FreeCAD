@@ -254,4 +254,3 @@
 
 #endif // __OpenCascadeAll__
 
-

@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <cfloat>
 # include <BRepLib.hxx>
 # include <BRepPrimAPI_MakeCone.hxx>
@@ -57,6 +59,7 @@
 # include <TopoDS_Solid.hxx>
 # include <TopoDS_Vertex.hxx>
 # include <Standard_Version.hxx>
+#endif
 
 
 #include "PrimitiveFeature.h"
@@ -69,6 +72,7 @@
 
 #ifndef M_PI
 #define M_PI       3.14159265358979323846
+#endif
 
 
 namespace Part {
@@ -167,6 +171,7 @@ void Primitive::Restore(Base::XMLReader &reader)
         catch (...) {
             Base::Console().Error("Primitive::Restore: Unknown C++ exception thrown\n");
         }
+#endif
 
         reader.readEndElement("Property");
     }
@@ -339,6 +344,7 @@ App::DocumentObjectExecReturn *Plane::execute(void)
     BRepBuilderAPI_MakeFace mkFace(aPlane, 0.0, L, 0.0, W
 #if OCC_VERSION_HEX >= 0x060502
       , Precision::Confusion()
+#endif
     );
 
     const char *error=0;
@@ -361,6 +367,7 @@ App::DocumentObjectExecReturn *Plane::execute(void)
     case BRepBuilderAPI_SurfaceNotC2:
         error = "surface not C2";
         break;
+#endif
     default:
         error = "unknown error";
         break;
@@ -770,6 +777,7 @@ App::DocumentObjectExecReturn *Torus::execute(void)
                                       Angle2.getValue()/180.0f*Standard_PI,
                                       Angle3.getValue()/180.0f*Standard_PI);
         const TopoDS_Solid& ResultShape = mkTorus.Solid();
+#endif
         this->Shape.setValue(ResultShape);
     }
     catch (Standard_Failure& e) {
@@ -944,6 +952,7 @@ App::DocumentObjectExecReturn *Spiral::execute(void)
         BRepBuilderAPI_MakeFace mkFace(aPlane, -range, range, -range, range
 #if OCC_VERSION_HEX >= 0x060502
         , Precision::Confusion()
+#endif
         );
         BRepProj_Projection proj(wire, mkFace.Face(), gp::DZ());
         this->Shape.setValue(proj.Shape());
@@ -1115,4 +1124,3 @@ void Ellipse::onChanged(const App::Property* prop)
     }
     Part::Primitive::onChanged(prop);
 }
-

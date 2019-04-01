@@ -116,4 +116,3 @@ private:
 
 
 #endif //GUI_AUTOSAVER_H
-

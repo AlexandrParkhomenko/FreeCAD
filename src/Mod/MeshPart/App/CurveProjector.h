@@ -159,4 +159,3 @@ protected:
 } // namespace MeshPart
 
 #endif
-

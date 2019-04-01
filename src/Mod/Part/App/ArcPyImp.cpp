@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <gp_Circ.hxx>
 # include <Geom_Circle.hxx>
 # include <gp_Elips.hxx>
@@ -36,6 +38,7 @@
 # include <Geom_TrimmedCurve.hxx>
 # include <GC_MakeArcOfCircle.hxx>
 # include <GC_MakeArcOfHyperbola.hxx>
+#endif
 
 
 #include "ArcPy.h"
@@ -203,4 +206,3 @@ int ArcPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0;
 }
-

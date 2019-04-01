@@ -68,4 +68,3 @@ private:
 }}} // namespace
 
 #endif // QUARTER_SENSORMANAGER_H
-

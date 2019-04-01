@@ -57,4 +57,3 @@ protected:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGSETTINGSDOCUMENT_IMP_H
-

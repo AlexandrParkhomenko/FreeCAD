@@ -80,4 +80,3 @@ double Math<double>::FastInvSqrt (double dValue)
 #endif
 //----------------------------------------------------------------------------
 }
-

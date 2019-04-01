@@ -21,6 +21,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 #include "DlgPointsReadImp.h"
 
@@ -45,4 +48,3 @@ DlgPointsReadImp::~DlgPointsReadImp()
 
 
 #include "moc_DlgPointsReadImp.cpp"
-

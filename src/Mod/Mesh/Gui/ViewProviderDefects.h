@@ -218,4 +218,3 @@ protected:
 
 #endif // MESHGUI_VIEWPROVIDER_MESH_DEFECTS_H
 
-

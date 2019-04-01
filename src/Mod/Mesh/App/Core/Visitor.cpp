@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "MeshKernel.h"
 #include "Visitor.h"
@@ -214,4 +215,3 @@ bool MeshPlaneVisitor::Visit (const MeshFacet & face, const MeshFacet &,
     fitter->AddPoint(triangle.GetGravityPoint());
     return true;
 }
-

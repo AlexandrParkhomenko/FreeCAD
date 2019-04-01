@@ -73,4 +73,3 @@ public:
 };
 
 const Point operator*(const double &d, const Point &p);
-

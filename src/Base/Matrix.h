@@ -360,4 +360,3 @@ inline const double* Matrix4D::operator[] (unsigned short usNdx) const
 #endif // BASE_MATRIX_H 
 
 
-

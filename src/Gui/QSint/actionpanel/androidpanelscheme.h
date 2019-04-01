@@ -39,4 +39,3 @@ public:
 
 
 #endif // ANDROIDPANELSCHEME_H
-

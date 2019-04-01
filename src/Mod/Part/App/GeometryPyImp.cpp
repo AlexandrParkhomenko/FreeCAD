@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <gp_Ax1.hxx>
 # include <gp_Dir.hxx>
 # include <gp_Pnt.hxx>
@@ -31,6 +33,7 @@
 # include <Geom_Surface.hxx>
 # include <Precision.hxx>
 # include <Standard_Failure.hxx>
+#endif
 
 #include <boost/uuid/uuid_io.hpp>
 
@@ -153,6 +156,7 @@ PyObject* GeometryPy::transform(PyObject *args)
                   mat[2][0],mat[2][1],mat[2][2],mat[2][3]
 #if OCC_VERSION_HEX < 0x060800
                   , 0.00001,0.00001
+#endif
                 ); //precision was removed in OCCT CR0025194
     getGeometryPtr()->handle()->Transform(trf);
     Py_Return;
@@ -261,4 +265,3 @@ int GeometryPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0;
 }
-

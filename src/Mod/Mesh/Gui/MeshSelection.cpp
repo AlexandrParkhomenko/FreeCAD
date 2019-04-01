@@ -20,6 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <algorithm>
 # include <climits>
 # include <Inventor/SbBox2s.h>
@@ -29,6 +31,7 @@
 # include <Inventor/events/SoMouseButtonEvent.h>
 # include <Inventor/nodes/SoCamera.h>
 # include <QBitmap>
+#endif
 
 #include "MeshSelection.h"
 #include "ViewProvider.h"
@@ -555,4 +558,3 @@ void MeshSelection::pickFaceCallback(void * ud, SoEventCallback * n)
         }
     }
 }
-

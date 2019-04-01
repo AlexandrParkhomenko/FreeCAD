@@ -58,4 +58,3 @@ typedef Box3<double> Box3d;
 }
 
 #endif
-

@@ -61,4 +61,3 @@ protected:
 
 #endif // PARTGUI_VIEWPROVIDERPARTSPLINE_H
 
-

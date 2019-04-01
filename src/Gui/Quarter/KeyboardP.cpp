@@ -246,4 +246,3 @@ KeyboardP::initKeyMap(void)
 }
 
 #undef PUBLIC
-

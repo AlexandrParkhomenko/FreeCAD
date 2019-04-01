@@ -22,6 +22,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "edgecluster.h"
 #include <TopExp_Explorer.hxx>
@@ -242,5 +243,4 @@ bool Edgecluster::IsValidEdge(const TopoDS_Edge& edge)
 
     return true;
 }
-
 

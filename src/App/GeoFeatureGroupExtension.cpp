@@ -22,7 +22,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include <App/Document.h>
 
@@ -454,4 +457,3 @@ EXTENSION_PROPERTY_SOURCE_TEMPLATE(App::GeoFeatureGroupExtensionPython, App::Geo
 // explicit template instantiation
 template class AppExport ExtensionPythonT<GroupExtensionPythonT<GeoFeatureGroupExtension>>;
 }
-

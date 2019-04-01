@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <BRepAlgoAPI_BooleanOperation.hxx>
 # include <BRepCheck_Analyzer.hxx>
 # include <Standard_Failure.hxx>
 # include <memory>
+#endif
 
 #include "FeaturePartBoolean.h"
 #include "modelRefine.h"
@@ -69,6 +72,7 @@ App::DocumentObjectExecReturn *Boolean::execute(void)
     try {
 #if defined(__GNUC__) && defined (FC_OS_LINUX)
         Base::SignalException se;
+#endif
         Part::Feature *base = dynamic_cast<Part::Feature*>(Base.getValue());
         Part::Feature *tool = dynamic_cast<Part::Feature*>(Tool.getValue());
 
@@ -135,4 +139,3 @@ App::DocumentObjectExecReturn *Boolean::execute(void)
         return new App::DocumentObjectExecReturn("A fatal error occurred when running boolean operation");
     }
 }
-

@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
 #include "DlgCustomizeSpNavSettings.h"
 #include "GuiApplicationNativeEventAware.h"
@@ -319,4 +320,3 @@ void DlgCustomizeSpNavSettings::onModifyMacroAction(const QByteArray &macroName)
 }
 
 #include "moc_DlgCustomizeSpNavSettings.cpp"
-

@@ -76,4 +76,3 @@ private:
 
 #endif // MESHGUI_VIEWPROVIDERMESHFACESET_H
 
-

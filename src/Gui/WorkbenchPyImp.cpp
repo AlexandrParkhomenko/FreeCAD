@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "Workbench.h"
 #include "WorkbenchManager.h"
@@ -83,6 +84,5 @@ int WorkbenchPy::setCustomAttributes(const char*, PyObject *)
 {
     return 0; 
 }
-
 
 

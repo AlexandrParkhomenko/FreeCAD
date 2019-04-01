@@ -21,7 +21,10 @@
  ***************************************************************************/
 
  
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <fcntl.h>
+#endif
 
 #include <Base/Console.h>
 #include <Base/FileInfo.h>
@@ -60,6 +63,5 @@ App::DocumentObjectExecReturn *ImportStep::execute(void)
 
     return App::DocumentObject::StdReturn;
 }
-
 
 

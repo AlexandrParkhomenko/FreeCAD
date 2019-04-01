@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <BRepBuilderAPI_MakeEdge2d.hxx>
 # include <BRepBuilderAPI_MakeVertex.hxx>
 # include <Geom2dConvert_CompCurveToBSplineCurve.hxx>
@@ -56,6 +58,7 @@
 # include <GCE2d_MakeLine.hxx>
 # include <GCE2d_MakeSegment.hxx>
 # include <Precision.hxx>
+#endif
 
 #include <Base/VectorPy.h>
 
@@ -2285,4 +2288,3 @@ std::unique_ptr<Geom2dCurve> getCurve2dFromGeom2d(Handle(Geom2d_Curve) curve)
     return geo2d;
 }
 }
-

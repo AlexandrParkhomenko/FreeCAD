@@ -37,4 +37,3 @@ public:
 }
 
 #endif // MACPANELSCHEME_H
-

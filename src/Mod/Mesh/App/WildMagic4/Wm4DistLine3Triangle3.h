@@ -69,4 +69,3 @@ typedef DistLine3Triangle3<double> DistLine3Triangle3d;
 }
 
 #endif
-

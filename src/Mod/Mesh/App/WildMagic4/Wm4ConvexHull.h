@@ -98,4 +98,3 @@ typedef ConvexHull<double> ConvexHulld;
 }
 
 #endif
-

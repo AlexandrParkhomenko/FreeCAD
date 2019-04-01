@@ -89,4 +89,3 @@ template WM4_FOUNDATION_ITEM
 Line3<double> OrthogonalLineFit3<double> (int, const Vector3<double>*);
 //----------------------------------------------------------------------------
 }
-

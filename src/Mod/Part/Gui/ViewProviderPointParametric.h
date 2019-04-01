@@ -57,4 +57,3 @@ protected:
 
 #endif // PARTGUI_VIEWPROVIDERPOINTPARAMETRIC_H
 
-

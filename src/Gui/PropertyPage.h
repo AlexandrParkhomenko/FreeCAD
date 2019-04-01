@@ -130,4 +130,3 @@ protected Q_SLOTS:
 } // namespace Gui
 
 #endif // GUI_DIALOG_PROPERTYPAGE_H
-

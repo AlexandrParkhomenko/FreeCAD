@@ -58,4 +58,3 @@ private:
 } // namespace Gui
 
 #endif // PARTGUI_DLGSETTINGS3DVIEWIMP_H
-

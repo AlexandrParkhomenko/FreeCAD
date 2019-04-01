@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Geom_ConicalSurface.hxx>
 # include <Geom_Circle.hxx>
 # include <GC_MakeConicalSurface.hxx>
@@ -30,6 +32,7 @@
 # include <Geom_Line.hxx>
 # include <Geom_TrimmedCurve.hxx>
 # include <Standard_Failure.hxx>
+#endif
 
 #include <Base/GeometryPyCXX.h>
 #include <Base/VectorPy.h>
@@ -306,6 +309,5 @@ int ConePy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
-
 
 

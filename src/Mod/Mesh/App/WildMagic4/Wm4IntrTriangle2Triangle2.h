@@ -106,4 +106,3 @@ typedef IntrTriangle2Triangle2<double> IntrTriangle2Triangle2d;
 }
 
 #endif
-

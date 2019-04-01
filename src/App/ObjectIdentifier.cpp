@@ -20,8 +20,11 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 #	include <cassert>
+#endif
 
 #include <limits>
 #include <iomanip>
@@ -1157,4 +1160,3 @@ std::string ObjectIdentifier::ResolveResults::resolveErrorString() const
 
     return "";
 }
-

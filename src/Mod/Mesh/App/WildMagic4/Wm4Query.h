@@ -49,4 +49,3 @@ protected:
 #include "Wm4Query.inl"
 
 #endif
-

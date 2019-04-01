@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <cmath>
+#endif
 
 #include <Base/Writer.h>
 #include <Base/Reader.h>
@@ -230,4 +233,3 @@ void Constraint::Restore(XMLReader &reader)
     if (reader.hasAttribute("IsInVirtualSpace"))
         isInVirtualSpace = reader.getAttributeAsInteger("IsInVirtualSpace") ? true : false;
 }
-

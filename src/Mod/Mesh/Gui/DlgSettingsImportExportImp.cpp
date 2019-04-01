@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
 #include "DlgSettingsImportExportImp.h"
 #include "ui_DlgSettingsImportExport.h"
@@ -77,5 +78,4 @@ void DlgSettingsImportExport::changeEvent(QEvent *e)
 }
 
 #include "moc_DlgSettingsImportExportImp.cpp"
-
 

@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <sstream>
+#endif
 
 #include "Vector3D.h"
 
@@ -805,4 +808,3 @@ PyObject * VectorPy::number_float_handler (PyObject* self)
                  Py_TYPE(self)->tp_name);
     return 0;
 }
-

@@ -56,4 +56,3 @@ private:
 
 }
 #endif // GUI_SOAUTOZOOMTRANSLATION_H
-

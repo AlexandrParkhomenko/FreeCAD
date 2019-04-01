@@ -21,11 +21,14 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <gp_Parab.hxx>
 # include <Geom_Parabola.hxx>
 # include <GC_MakeArcOfParabola.hxx>
 # include <gce_MakeParab.hxx>
 # include <Geom_TrimmedCurve.hxx>
+#endif
 
 #include "Geometry.h"
 #include <Mod/Part/App/ArcOfParabolaPy.h>
@@ -142,4 +145,3 @@ int ArcOfParabolaPy::setCustomAttributes(const char* , PyObject *)
 {
     return 0; 
 }
-

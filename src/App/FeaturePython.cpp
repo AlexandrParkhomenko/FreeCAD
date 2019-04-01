@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <sstream>
+#endif
 
 
 #include <Base/Console.h>
@@ -230,4 +233,3 @@ template<> const char* App::GeometryPython::getViewProviderName(void) const {
 // explicit template instantiation
 template class AppExport FeaturePythonT<GeoFeature>;
 }
-

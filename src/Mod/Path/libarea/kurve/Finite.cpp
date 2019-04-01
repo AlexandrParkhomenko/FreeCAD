@@ -652,4 +652,3 @@ double tolerance = 10.0 * 1.0e-6;
 		return line;
 	}
 }
-

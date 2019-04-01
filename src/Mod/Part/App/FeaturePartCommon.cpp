@@ -22,12 +22,15 @@
 
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <BRepAlgoAPI_Common.hxx>
 # include <BRepCheck_Analyzer.hxx>
 # include <Standard_Failure.hxx>
 # include <TopoDS_Iterator.hxx>
 # include <TopTools_IndexedMapOfShape.hxx>
 # include <TopExp.hxx>
+#endif
 
 
 #include "FeaturePartCommon.h"
@@ -198,4 +201,3 @@ App::DocumentObjectExecReturn *MultiCommon::execute(void)
 
     return App::DocumentObject::StdReturn;
 }
-

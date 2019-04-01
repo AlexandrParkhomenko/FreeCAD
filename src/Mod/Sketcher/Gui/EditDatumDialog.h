@@ -50,4 +50,3 @@ private:
 
 }
 #endif // SKETCHERGUI_DrawSketchHandler_H
-

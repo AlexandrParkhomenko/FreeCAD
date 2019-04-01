@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <sstream>
 # include <boost/version.hpp>
 # include <boost/filesystem/path.hpp>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <boost/math/special_functions/round.hpp>
@@ -2720,4 +2723,3 @@ unsigned int PropertyMaterialList::getMemSize(void) const
 {
     return static_cast<unsigned int>(_lValueList.size() * sizeof(Material));
 }
-

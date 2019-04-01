@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include <Standard_math.hxx>
+#ifndef _PreComp_
 # include <Python.h>
 # include <Inventor/nodes/SoSeparator.h>
+#endif
 #include <Gui/ViewProviderBuilder.h>
 #include <Mod/Part/App/PartFeature.h>
 #include "ViewProviderPython.h"
@@ -96,5 +99,4 @@ PROPERTY_SOURCE_TEMPLATE(PartGui::ViewProviderCustomPython, PartGui::ViewProvide
 // explicit template instantiation
 template class PartGuiExport ViewProviderPythonFeatureT<PartGui::ViewProviderCustom>;
 }
-
 

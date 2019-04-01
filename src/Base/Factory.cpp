@@ -23,8 +23,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 #	include <list>
+#endif
 
 
 #include "Factory.h"
@@ -100,9 +103,9 @@ const char* ScriptFactorySingleton::ProduceScript (const char* sScriptName) cons
   {
 #ifdef FC_DEBUG
     Console().Warning("\"%s\" is not registered\n", sScriptName);
+#endif
     return ""; // no data
   }
 
   return script;
 }
-

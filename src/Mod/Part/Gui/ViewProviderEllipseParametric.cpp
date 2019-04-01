@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "ViewProviderEllipseParametric.h"
 
@@ -61,4 +64,3 @@ std::vector<std::string> ViewProviderEllipseParametric::getDisplayModes(void) co
 
   return StrList;
 }
-

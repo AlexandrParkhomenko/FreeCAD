@@ -240,4 +240,3 @@ private:
 
 
 #endif // POINTS_POINTPROPERTIES_H 
-

@@ -21,12 +21,15 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <gp.hxx>
 # include <gp_Ax2.hxx>
 # include <gp_Dir.hxx>
 # include <gp_Pnt.hxx>
 # include <gp_Trsf.hxx>
 # include <BRepBuilderAPI_Transform.hxx>
+#endif
 
 
 #include "FeatureMirroring.h"
@@ -116,4 +119,3 @@ App::DocumentObjectExecReturn *Mirroring::execute(void)
         return new App::DocumentObjectExecReturn(e.GetMessageString());
     }
 }
-

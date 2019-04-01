@@ -1320,4 +1320,3 @@ void tangential_arc(const Point &p0, const Point &p1, const Point &v0, Point &c,
 	geoff_geometry::tangential_arc(gp0, gp1, gv0, gc, dir);
 	c = Point(gc.x, gc.y);
 }
-

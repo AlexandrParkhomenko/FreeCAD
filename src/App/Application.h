@@ -414,4 +414,3 @@ inline App::Application &GetApplication(void){
 
 
 #endif // APP_APPLICATION_H
-

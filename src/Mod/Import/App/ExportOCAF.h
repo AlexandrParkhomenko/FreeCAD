@@ -115,4 +115,3 @@ private:
 }
 
 #endif //IMPORT_EXPORTOCAF_H
-

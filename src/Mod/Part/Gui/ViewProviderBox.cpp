@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "ViewProviderBox.h"
 
@@ -63,4 +66,3 @@ std::vector<std::string> ViewProviderBox::getDisplayModes(void) const
 
   return StrList;
 }
-

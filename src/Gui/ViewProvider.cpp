@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QApplication>
 # include <QPixmap>
 # include <QTimer>
@@ -34,6 +36,7 @@
 # include <Inventor/events/SoLocation2Event.h>
 # include <Inventor/actions/SoGetMatrixAction.h>
 # include <Inventor/actions/SoSearchAction.h>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <Base/Console.h>
@@ -678,9 +681,11 @@ bool ViewProvider::canDropObject(App::DocumentObject* obj) const
     auto vector = getExtensionsDerivedFromType<Gui::ViewProviderExtension>();
 #if FC_DEBUG
     Base::Console().Log("Check extensions for drop\n");
+#endif
     for (Gui::ViewProviderExtension* ext : vector){
 #if FC_DEBUG
         Base::Console().Log("Check extensions %s\n", ext->name().c_str());
+#endif
         if (ext->extensionCanDropObject(obj))
             return true;
     }
@@ -794,4 +799,3 @@ std::vector< App::DocumentObject* > ViewProvider::claimChildren3D(void) const
     }
     return vec;
 }
-

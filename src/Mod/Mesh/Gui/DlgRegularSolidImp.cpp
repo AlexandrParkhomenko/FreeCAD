@@ -21,11 +21,14 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <float.h>
 # include <qcheckbox.h>
 # include <qcombobox.h>
 # include <qmessagebox.h>
+#endif
 
 #include <Base/PyObjectBase.h>
 #include <Base/Interpreter.h>
@@ -264,4 +267,3 @@ SingleDlgRegularSolidImp::~SingleDlgRegularSolidImp()
 }
 
 #include "moc_DlgRegularSolidImp.cpp"
-

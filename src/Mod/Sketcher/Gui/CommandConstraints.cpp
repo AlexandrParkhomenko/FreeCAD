@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <cfloat>
 # include <QMessageBox>
 # include <Precision.hxx>
 # include <QPainter>
+#endif
 
 #include <Base/Tools.h>
 #include <Base/Tools2D.h>
@@ -7743,4 +7746,3 @@ void CreateSketcherCommandsConstraints(void)
     rcCmdMgr.addCommand(new CmdSketcherConstrainInternalAlignment());
     rcCmdMgr.addCommand(new CmdSketcherToggleDrivingConstraint());
 }
-

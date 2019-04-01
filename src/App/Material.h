@@ -237,4 +237,3 @@ private:
 } //namespace App
 
 #endif // APP_MATERIAL_H
-

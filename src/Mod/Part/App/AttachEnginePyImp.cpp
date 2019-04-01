@@ -1,4 +1,7 @@
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Standard_Failure.hxx>
+#endif
 
 #include "Mod/Part/App/Attacher.h"
 #include <Base/PlacementPy.h>
@@ -541,5 +544,4 @@ int AttachEnginePy::setCustomAttributes(const char*,PyObject*)
 {
     return 0;
 }
-
 

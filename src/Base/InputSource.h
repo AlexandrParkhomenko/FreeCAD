@@ -98,4 +98,3 @@ private:
 }
 
 #endif // BASE_IINPUTSOURCE_H
-

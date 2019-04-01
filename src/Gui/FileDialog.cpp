@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QApplication>
 # include <QButtonGroup>
 # include <QCompleter>
@@ -35,6 +37,7 @@
 # include <QStyle>
 # include <QUrl>
 # include <QResizeEvent>
+#endif
 
 #include <Base/Parameter.h>
 #include <App/Application.h>
@@ -52,6 +55,7 @@ bool dontUseNativeDialog()
     bool notNativeDialog = true;
 #else
     bool notNativeDialog = false;
+#endif
 
     ParameterGrp::handle group = App::GetApplication().GetUserParameter().
           GetGroup("BaseApp")->GetGroup("Preferences")->GetGroup("Dialog");
@@ -195,6 +199,7 @@ QString FileDialog::getSaveFileName (QWidget * parent, const QString & caption, 
         file = QFileDialog::getSaveFileName(parent, windowTitle, dirName, filter, selectedFilter, options);
 #if QT_VERSION >= 0x040600
         file = QDir::fromNativeSeparators(file);
+#endif
     }
 
     if (!file.isEmpty()) {
@@ -332,6 +337,7 @@ QStringList FileDialog::getOpenFileNames (QWidget * parent, const QString & capt
         for (QStringList::iterator it = files.begin(); it != files.end(); ++it) {
             *it = QDir::fromNativeSeparators(*it);
         }
+#endif
     }
 
     if (!files.isEmpty()) {
@@ -412,6 +418,7 @@ FileOptionsDialog::FileOptionsDialog( QWidget* parent, Qt::WindowFlags fl )
 
 #if QT_VERSION >= 0x050000
     setOption(QFileDialog::DontUseNativeDialog);
+#endif
 
     //search for the grid layout and add the new button
     QGridLayout* grid = this->findChild<QGridLayout*>();
@@ -583,6 +590,7 @@ FileChooser::FileChooser ( QWidget * parent )
 
 #if defined (Q_OS_MAC)
     button->setAttribute(Qt::WA_LayoutUsesWidgetRect); // layout size from QMacStyle was not correct
+#endif
 
     layout->addWidget(button);
 
@@ -953,5 +961,4 @@ SelectModule::Dict SelectModule::importHandler(const QStringList& fileNames, con
 
 
 #include "moc_FileDialog.cpp"
-
 

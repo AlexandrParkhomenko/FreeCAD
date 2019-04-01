@@ -714,4 +714,3 @@ BSpline* BSpline::Copy()
 }
 
 }//namespace GCS
-

@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QApplication>
 # include <QFile>
 # include <QRunnable>
@@ -29,6 +31,7 @@
 # include <QThreadPool>
 # include <boost/bind.hpp>
 # include <sstream>
+#endif
 
 #include "AutoSaver.h"
 #include <Base/Console.h>
@@ -365,8 +368,8 @@ void RecoveryWriter::writeFiles(void)
 
         index++;
     }
+#endif
 }
 
 
 #include "moc_AutoSaver.cpp"
-

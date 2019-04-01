@@ -736,4 +736,3 @@ private:
 
 #endif // BASE_EXCEPTION_H
 
-

@@ -4487,4 +4487,3 @@ std::ostream& operator <<(std::ostream &s, const Paths &p)
 //------------------------------------------------------------------------------
 
 } //ClipperLib namespace
-

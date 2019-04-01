@@ -20,6 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Inventor/actions/SoGLRenderAction.h>
 # include <Inventor/elements/SoGLCacheContextElement.h>
 # include <Inventor/fields/SoSFImage.h>
@@ -29,11 +31,13 @@
 # include <QFile>
 # include <QImage>
 # include <QImageWriter>
+#endif
 
 #if !defined(FC_OS_MACOSX)
 # include <GL/gl.h>
 # include <GL/glu.h>
 # include <GL/glext.h>
+#endif
 
 //gcc
 # include <iomanip>
@@ -51,6 +55,7 @@
 #if defined(HAVE_QT5_OPENGL)
 # include <QOffscreenSurface>
 # include <QOpenGLContext>
+#endif
 
 using namespace Gui;
 using namespace std;
@@ -197,6 +202,7 @@ void SoFCOffscreenRenderer::writeToImageFile(const char* filename, const char* c
             FILE* fd = _wfopen(file.toStdWString().c_str(), L"w");
 #else
             FILE* fd = fopen(filename, "w");
+#endif
             bool ok = writeToPostScript(fd);
             fclose(fd);
             if (!ok)
@@ -208,6 +214,7 @@ void SoFCOffscreenRenderer::writeToImageFile(const char* filename, const char* c
             FILE* fd = _wfopen(file.toStdWString().c_str(), L"w");
 #else
             FILE* fd = fopen(filename, "w");
+#endif
             bool ok = writeToRGB(fd);
             fclose(fd);
             if (!ok)
@@ -816,4 +823,3 @@ QStringList SoQtOffscreenRenderer::getWriteImageFiletypeInfo() const
 
 #undef PRIVATE
 #undef PUBLIC
-

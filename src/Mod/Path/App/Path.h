@@ -100,4 +100,3 @@ namespace Path
 
 
 #endif // PATH_Path_H
-

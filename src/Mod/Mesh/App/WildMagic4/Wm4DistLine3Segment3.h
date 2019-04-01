@@ -69,4 +69,3 @@ typedef DistLine3Segment3<double> DistLine3Segment3d;
 }
 
 #endif
-

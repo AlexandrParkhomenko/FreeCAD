@@ -265,4 +265,3 @@ private:
 
 #endif // GUI_MANUALALIGNMENT_H
 
-

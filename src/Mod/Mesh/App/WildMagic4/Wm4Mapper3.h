@@ -106,4 +106,3 @@ typedef Mapper3<double> Mapper3d;
 }
 
 #endif
-

@@ -41,4 +41,3 @@ template<> const Matrix4<double> Matrix4<double>::IDENTITY(
     0.0,0.0,1.0,0.0,
     0.0,0.0,0.0,1.0);
 }
-

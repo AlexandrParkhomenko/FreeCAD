@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Geom_RectangularTrimmedSurface.hxx>
 # include <Geom_Curve.hxx>
+#endif
 
 #include "Mod/Part/App/Geometry.h"
 #include "OCCError.h"
@@ -144,4 +147,3 @@ int RectangularTrimmedSurfacePy::setCustomAttributes(const char* /*attr*/, PyObj
 {
     return 0; 
 }
-

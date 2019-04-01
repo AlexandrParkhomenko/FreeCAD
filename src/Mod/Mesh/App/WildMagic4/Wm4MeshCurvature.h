@@ -66,4 +66,3 @@ typedef MeshCurvature<double> MeshCurvatured;
 }
 
 #endif
-

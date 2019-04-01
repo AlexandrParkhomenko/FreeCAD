@@ -21,8 +21,11 @@
  ***************************************************************************/
 
  
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <BRepPrimAPI_MakeBox.hxx>
 # include <Precision.hxx>
+#endif
 
 
 #include <Base/Console.h>
@@ -209,4 +212,3 @@ void Box::onChanged(const App::Property* prop)
     }
     Part::Primitive::onChanged(prop);
 }
-

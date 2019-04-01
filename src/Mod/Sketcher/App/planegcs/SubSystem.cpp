@@ -354,4 +354,3 @@ void SubSystem::printResidual()
 
 
 } //namespace GCS
-

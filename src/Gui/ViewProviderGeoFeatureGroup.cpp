@@ -22,8 +22,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Inventor/nodes/SoGroup.h>
+#endif
 
 #include <App/GeoFeatureGroupExtension.h>
 
@@ -55,4 +58,3 @@ PROPERTY_SOURCE_TEMPLATE(Gui::ViewProviderGeoFeatureGroupPython, Gui::ViewProvid
 // explicit template instantiation
 template class GuiExport ViewProviderPythonFeatureT<ViewProviderGeoFeatureGroup>;
 }
-

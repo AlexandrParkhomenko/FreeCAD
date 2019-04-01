@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include <iostream>
 #include <boost/bind.hpp>
@@ -195,4 +196,3 @@ void TextDocumentEditorView::saveToObject()
 
 
 #include "moc_TextDocumentEditorView.cpp"
-

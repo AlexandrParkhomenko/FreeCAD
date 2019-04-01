@@ -21,6 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>
@@ -60,5 +63,4 @@ App::DocumentObjectExecReturn *Transform::execute(void)
 */
   return App::DocumentObject::StdReturn;
 }
-
 

@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include <Standard_math.hxx>
+#ifndef _PreComp_
 # include <Inventor/nodes/SoSeparator.h>
+#endif
 #include <Gui/ViewProviderBuilder.h>
 #include <Mod/Sketcher/App/SketchObject.h>
 #include "ViewProviderPython.h"
@@ -95,5 +98,4 @@ PROPERTY_SOURCE_TEMPLATE(SketcherGui::ViewProviderCustomPython, SketcherGui::Vie
 // explicit template instantiation
 template class SketcherGuiExport ViewProviderPythonFeatureT<SketcherGui::ViewProviderCustom>;
 }
-
 

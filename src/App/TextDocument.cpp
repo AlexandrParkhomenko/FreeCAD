@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include <string>
 #include <fstream>
@@ -60,4 +61,3 @@ boost::signals2::connection TextDocument::connect(const TextSlot &sub)
 {
     return textChanged.connect(sub);
 }
-

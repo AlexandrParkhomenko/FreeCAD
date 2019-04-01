@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QApplication>
 # include <QClipboard>
 # include <QLocale>
+#endif
 
 #include "DlgUnitsCalculatorImp.h"
 #include "ui_DlgUnitsCalculator.h"
@@ -151,4 +154,3 @@ void DlgUnitsCalculator::on_unitsBox_activated(int index)
 }
 
 #include "moc_DlgUnitsCalculatorImp.cpp"
-

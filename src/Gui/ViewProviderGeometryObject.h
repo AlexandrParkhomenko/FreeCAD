@@ -107,4 +107,3 @@ protected:
 
 #endif // GUI_VIEWPROVIDER_GEOMETRYOBJECT_H
 
-

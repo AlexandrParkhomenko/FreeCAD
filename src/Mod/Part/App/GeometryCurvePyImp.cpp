@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <sstream>
 # include <BRepBuilderAPI_MakeEdge.hxx>
 # include <gp_Dir.hxx>
@@ -51,6 +53,7 @@
 # include <ShapeConstruct_Curve.hxx>
 # include <GeomAPI_IntCS.hxx>
 # include <GeomAPI_ExtremaCurveCurve.hxx>
+#endif
 
 #include <Base/GeometryPyCXX.h>
 #include <Base/VectorPy.h>
@@ -922,4 +925,3 @@ PyObject* GeometryCurvePy::isClosed(PyObject *args)
         return 0;
     }
 }
-

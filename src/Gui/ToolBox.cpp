@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QEvent>
 # include <QGridLayout>
 # include <QToolBox>
+#endif
 
 #include "ToolBox.h"
 
@@ -235,4 +238,3 @@ void ToolBox::changeEvent(QEvent *e)
 }
 
 #include "moc_ToolBox.cpp"
-

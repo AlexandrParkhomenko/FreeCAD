@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "ViewProviderPlaneParametric.h"
 #include <Mod/Part/App/FeatureFace.h>
@@ -123,4 +126,3 @@ void ViewProviderFace::dropObject(App::DocumentObject* obj)
     sources.push_back(obj);
     face->Sources.setValues(sources);
 }
-

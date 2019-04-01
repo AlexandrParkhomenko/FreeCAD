@@ -273,4 +273,3 @@ private:
 } //namespace Gui
 
 #endif
-

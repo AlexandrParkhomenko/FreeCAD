@@ -145,4 +145,3 @@ protected:
 } //namespace Sketcher
 
 #endif // SKETCHER_SKETCHANALYSIS_H
-

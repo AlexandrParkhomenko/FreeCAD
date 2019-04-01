@@ -2028,4 +2028,3 @@ double ConstraintSnell::grad(double *param)
 
 
 } //namespace GCS
-

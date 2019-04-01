@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "ui_DlgLocationPos.h"
 #include "ui_DlgLocationAngle.h"
@@ -147,4 +150,3 @@ void TaskDlgRelocation::helpRequested()
 
 
 #include "moc_TaskDlgRelocation.cpp"
-

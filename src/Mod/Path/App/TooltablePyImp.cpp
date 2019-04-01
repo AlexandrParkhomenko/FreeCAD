@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 #include "Base/Reader.h"
 #include "Mod/Path/App/Tooltable.h"
 
@@ -524,4 +525,3 @@ PyObject* TooltablePy::templateAttrs(PyObject * args)
     }
     return dict;
 }
-

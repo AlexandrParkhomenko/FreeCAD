@@ -290,4 +290,3 @@ struct type_rebinder                                                            
 #include <boost/intrusive/detail/config_end.hpp>
 
 #endif // ! defined(BOOST_INTRUSIVE_ALLOCATOR_MEMORY_UTIL_HPP)
-

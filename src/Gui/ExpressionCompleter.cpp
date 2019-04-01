@@ -1,8 +1,11 @@
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 #include <QStandardItem>
 #include <QStandardItemModel>
 #include <QLineEdit>
 #include <QAbstractItemView>
+#endif
 
 #include <Base/Tools.h>
 #include <App/Application.h>
@@ -342,4 +345,3 @@ void ExpressionLineEdit::slotCompleteText(const QString & completionPrefix)
 }
 
 #include "moc_ExpressionCompleter.cpp"
-

@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Writer.h"
@@ -320,4 +323,3 @@ void FileWriter::writeFiles(void)
         index++;
     }
 }
-

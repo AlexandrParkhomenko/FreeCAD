@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include <Python.h>
 #include <QMessageBox>
@@ -107,4 +108,3 @@ void DlgSettings3DViewPart::changeEvent(QEvent *e)
 }
 
 #include "moc_DlgSettings3DViewPartImp.cpp"
-

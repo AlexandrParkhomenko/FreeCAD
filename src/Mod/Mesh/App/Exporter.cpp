@@ -20,9 +20,12 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
     #include <algorithm>
     #include <vector>
     #include <boost/algorithm/string/replace.hpp>
+#endif  //  #ifndef _PreComp_
 
 #include "Exporter.h"
 
@@ -435,5 +438,4 @@ bool AmfExporter::addMesh(const MeshCore::MeshKernel &kernel,
     ++nextObjectIndex;
     return true;
 }
-
 

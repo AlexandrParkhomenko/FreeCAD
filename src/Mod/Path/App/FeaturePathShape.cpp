@@ -23,7 +23,10 @@
  *  Copyright (c) 2017 Zheng, Lei <realthunder.dev@gmail.com> 
  */
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "FeaturePathShape.h"
 #include "Command.h"
@@ -103,7 +106,6 @@ template<> const char* Path::FeatureShapePython::getViewProviderName(void) const
 // explicit template instantiation
 template class PathExport FeaturePythonT<Path::FeatureShape>;
 }
-
 
 
 

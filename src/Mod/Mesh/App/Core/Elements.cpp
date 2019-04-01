@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include <Mod/Mesh/App/WildMagic4/Wm4IntrSegment3Plane3.h>
 #include <Mod/Mesh/App/WildMagic4/Wm4IntrSegment3Box3.h>
@@ -1210,5 +1213,4 @@ bool MeshGeomFacet::IsPointOfSphere(const MeshGeomFacet& rFacet) const
 
   return false;
 }
-
 

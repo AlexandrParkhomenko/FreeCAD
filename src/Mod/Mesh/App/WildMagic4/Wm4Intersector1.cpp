@@ -294,4 +294,3 @@ template WM4_FOUNDATION_ITEM
 class Intersector1<double>;
 //----------------------------------------------------------------------------
 }
-

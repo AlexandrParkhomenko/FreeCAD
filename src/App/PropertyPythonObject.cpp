@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "PropertyPythonObject.h"
 #include "DocumentObjectPy.h"
@@ -414,4 +417,3 @@ void PropertyPythonObject::Paste(const Property &from)
         hasSetValue();
     }
 }
-

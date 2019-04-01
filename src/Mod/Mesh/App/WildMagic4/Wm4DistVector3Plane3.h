@@ -60,4 +60,3 @@ typedef DistVector3Plane3<double> DistVector3Plane3d;
 }
 
 #endif
-

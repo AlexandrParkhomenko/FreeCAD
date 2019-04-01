@@ -212,4 +212,3 @@ typedef GeometryT<Base::Placement, Base::PlacementPy,
 }
 
 #endif // PY_GEOMETRYPY_H
-

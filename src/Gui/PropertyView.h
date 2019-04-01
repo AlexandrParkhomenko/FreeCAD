@@ -111,4 +111,3 @@ public:
 } // namespace Gui
 
 #endif // GUI_DOCKWND_PROPERTYVIEW_H
-

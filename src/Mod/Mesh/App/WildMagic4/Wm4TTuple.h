@@ -68,4 +68,3 @@ private:
 #include "Wm4TTuple.inl"
 
 #endif
-

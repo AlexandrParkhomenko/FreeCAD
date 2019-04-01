@@ -47,4 +47,3 @@ public:
 
 #endif // PART_FEATUREPARTSPLINE_H
 
-

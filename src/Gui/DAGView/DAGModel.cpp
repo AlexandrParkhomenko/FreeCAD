@@ -20,6 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 #include <boost/bind.hpp>
 #include <boost/graph/topological_sort.hpp>
 #include <boost/graph/reverse_graph.hpp>
@@ -39,6 +41,7 @@
 #include <QKeyEvent>
 #include <QMenu>
 #include <QTimer>
+#endif
 
 #include <QAbstractEventDispatcher>
 
@@ -131,6 +134,7 @@ Model::Model(QObject *parentIn, const Gui::Document &documentIn) : QGraphicsScen
   renameAction->setStatusTip(tr("Rename object"));
 #ifndef Q_OS_MAC
   renameAction->setShortcut(Qt::Key_F2);
+#endif
   connect(renameAction, SIGNAL(triggered()), this, SLOT(onRenameSlot()));
   
   editingFinishedAction = new QAction(this);
@@ -1228,4 +1232,3 @@ void Model::visiblyIsolate(Gui::DAG::Vertex sourceIn)
 
 
 #include <moc_DAGModel.cpp>
-

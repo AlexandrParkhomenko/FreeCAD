@@ -108,4 +108,3 @@ public:
 
 
 #endif // PARTGUI_ViewProviderBoolean_H
-

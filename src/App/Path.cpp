@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "Path.h"
 #define new DEBUG_CLIENTBLOCK
@@ -40,5 +43,4 @@ Path::Path(const std::vector<Base::Persistence *> &PathVector)
 Path::~Path(void)
 {
 }
-
 

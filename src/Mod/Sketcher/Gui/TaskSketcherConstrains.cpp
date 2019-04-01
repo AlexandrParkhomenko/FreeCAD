@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <cmath>
 # include <QContextMenuEvent>
 # include <QMenu>
@@ -31,6 +33,7 @@
 # include <QStyledItemDelegate>
 # include <QPainter>
 # include <QPixmapCache>
+#endif
 
 #include "TaskSketcherConstrains.h"
 #include "ui_TaskSketcherConstrains.h"
@@ -369,6 +372,7 @@ protected:
         QStyleOptionViewItem options = option;
 #else
         QStyleOptionViewItemV4 options = option;
+#endif
         initStyleOption(&options, index);
 
         options.widget->style()->drawControl(QStyle::CE_ItemViewItem, &options, painter);
@@ -452,6 +456,7 @@ void ConstraintView::contextMenuEvent (QContextMenuEvent* event)
     QAction* rename = menu.addAction(tr("Rename"), this, SLOT(renameCurrentItem())
 #ifndef Q_OS_MAC // on Mac F2 doesn't seem to trigger an edit signal
         ,QKeySequence(Qt::Key_F2)
+#endif
         );
     rename->setEnabled(item != 0);
 
@@ -911,4 +916,3 @@ void TaskSketcherConstrains::changeEvent(QEvent *e)
 
 
 #include "moc_TaskSketcherConstrains.cpp"
-

@@ -57,4 +57,3 @@ private:
 } // namespace MeshGui
 
 #endif // MESHGUI_DLG_EVALUATE_SETTINGS_H
-

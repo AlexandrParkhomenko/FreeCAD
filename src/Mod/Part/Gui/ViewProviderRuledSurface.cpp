@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "ViewProviderRuledSurface.h"
 #include <Mod/Part/App/PartFeatures.h>
@@ -112,4 +115,3 @@ std::vector<std::string> ViewProviderRuledSurface::getDisplayModes(void) const
 
   return StrList;
 }
-

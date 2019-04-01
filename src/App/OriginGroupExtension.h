@@ -81,4 +81,3 @@ typedef ExtensionPythonT<GroupExtensionPythonT<OriginGroupExtension>> OriginGrou
 } /* App */
 
 #endif /* end of include guard: ORIGINGROUP_H_QHTU73IF */
-

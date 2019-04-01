@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Inventor/nodes/SoMaterial.h>
 # include <Inventor/nodes/SoShapeHints.h>
 # include <Inventor/SbClip.h>
@@ -37,6 +39,7 @@
 
 # include <float.h>
 # include <cstring>
+#endif
 
 #include "../Base/Console.h"
 
@@ -432,4 +435,3 @@ void AnimationTexture(SoSeparator * root)
   root->addChild(texnode);
   root->addChild(new SoCube);
 }
-

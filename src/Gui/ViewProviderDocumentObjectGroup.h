@@ -60,4 +60,3 @@ typedef ViewProviderPythonFeatureT<ViewProviderDocumentObjectGroup> ViewProvider
 
 #endif // GUI_VIEWPROVIDER_DOCUMENTOBJECTGROUP_H
 
-

@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
 #include "CoordinateSystem.h"
 #include "GeometryPyCXX.h"
@@ -182,4 +183,3 @@ int CoordinateSystemPy::setCustomAttributes(const char* /*attr*/, PyObject* /*ob
 {
     return 0; 
 }
-

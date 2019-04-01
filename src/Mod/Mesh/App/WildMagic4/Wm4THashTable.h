@@ -97,4 +97,3 @@ private:
 #include "Wm4THashTable.inl"
 
 #endif
-

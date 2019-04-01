@@ -86,4 +86,3 @@ private:
 }
 
 #endif // GUI_APPLICATION_H
-

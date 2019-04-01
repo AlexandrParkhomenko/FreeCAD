@@ -200,4 +200,3 @@ private:
 
 
 #endif // GUI_SOFCCOLORBAR_H
-

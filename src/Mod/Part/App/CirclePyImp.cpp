@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <gp_Circ.hxx>
 # include <Geom_Circle.hxx>
 # include <GC_MakeCircle.hxx>
+#endif
 
 #include "OCCError.h"
 #include <Mod/Part/App/CirclePy.h>
@@ -180,4 +183,3 @@ int CirclePy::setCustomAttributes(const char* , PyObject *)
 {
     return 0; 
 }
-

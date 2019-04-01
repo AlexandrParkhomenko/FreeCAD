@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "DocumentObjectGroup.h"
 #include "Document.h"
@@ -47,5 +48,4 @@ int DocumentObjectGroupPy::setCustomAttributes(const char* /*attr*/, PyObject* /
 {
     return 0;
 }
-
 

@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QDockWidget>
 # include <QStatusBar>
+#endif
 
 #include "Workbench.h"
 #include "WorkbenchPy.h"
@@ -520,6 +523,7 @@ MenuItem* StdWorkbench::setupMenuBar() const
           << "Std_TextureMapping" 
 #ifdef BUILD_VR
           << "Std_ViewVR"
+#endif 
           << "Separator" << visu
           << "Std_ToggleVisibility" << "Std_ToggleNavigation"
           << "Std_SetAppearance" << "Std_RandomColor" << "Separator"
@@ -536,6 +540,7 @@ MenuItem* StdWorkbench::setupMenuBar() const
           << "Std_DemoMode" << "Std_UnitsCalculator" << "Separator" << "Std_DlgCustomize";
 #ifdef BUILD_ADDONMGR
     *tool << "Std_AddonMgr";
+#endif
 
     // Macro
     MenuItem* macro = new MenuItem( menuBar );
@@ -1063,4 +1068,3 @@ void PythonWorkbench::createMainWindowPopupMenu(MenuItem* item) const
     StdWorkbench wb;
     wb.createMainWindowPopupMenu(item);
 }
-

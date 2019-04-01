@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <qobject.h>
+#endif
 
 #include "Workbench.h"
 #include <Gui/MenuManager.h>
@@ -41,6 +44,7 @@ using namespace PartGui;
     qApp->translate("Workbench", "Join");
     qApp->translate("Workbench", "Split");
     qApp->translate("Workbench", "Compound");
+#endif
 
 /// @namespace PartGui @class Workbench
 TYPESYSTEM_SOURCE(PartGui::Workbench, Gui::StdWorkbench)
@@ -154,6 +158,7 @@ Gui::MenuItem* Workbench::setupMenuBar() const
         face->setCommand("Part_ColorPerFace");
         view->insertItem(appr, face);
     }
+#endif
 
     return root;
 }
@@ -218,4 +223,3 @@ Gui::ToolBarItem* Workbench::setupCommandBars() const
     Gui::ToolBarItem* root = new Gui::ToolBarItem;
     return root;
 }
-

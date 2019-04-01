@@ -38,4 +38,3 @@ PartExport int ImportIgesParts(App::Document *pcDoc, const char* Name);
 } //namespace Part
 
 #endif // PART_IMPORT_IGES_H
-

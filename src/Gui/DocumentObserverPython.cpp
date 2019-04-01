@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "Application.h"
 #include "Document.h"
@@ -274,4 +277,3 @@ void DocumentObserverPython::slotResetEdit(const Gui::ViewProviderDocumentObject
         e.ReportException();
     }
 }
-

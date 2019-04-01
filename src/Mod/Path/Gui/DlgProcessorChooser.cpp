@@ -20,10 +20,13 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QPixmap>
 # include <QDialog>
 # include <QListIterator>
+#endif
 
 #include <Gui/Application.h>
 #include <Gui/BitmapFactory.h>
@@ -80,4 +83,3 @@ void DlgProcessorChooser::accept()
     QDialog::accept();
 }
 #include "moc_DlgProcessorChooser.cpp"
-

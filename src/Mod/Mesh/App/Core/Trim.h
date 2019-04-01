@@ -106,4 +106,3 @@ private:
 } //namespace MeshCore
 
 #endif //MESHTRIM_H
-

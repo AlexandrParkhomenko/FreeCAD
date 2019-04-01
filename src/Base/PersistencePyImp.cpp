@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 #include "Writer.h"
 #include "Persistence.h"
 #include <boost/iostreams/device/array.hpp>
@@ -150,5 +151,4 @@ int PersistencePy::setCustomAttributes(const char*,PyObject*)
 {
     return 0; 
 }
-
 

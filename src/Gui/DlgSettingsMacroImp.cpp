@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "DlgSettingsMacroImp.h"
 #include "Application.h"
@@ -92,4 +93,3 @@ void DlgSettingsMacroImp::changeEvent(QEvent *e)
 }
 
 #include "moc_DlgSettingsMacroImp.cpp"
-

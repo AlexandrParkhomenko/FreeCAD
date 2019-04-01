@@ -20,9 +20,12 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <cassert>
 # include <cstring>
 # include <cstdlib>
+#endif
 
 #include <Base/Exception.h>
 #include "Enumeration.h"
@@ -327,5 +330,4 @@ void Enumeration::findMaxVal(void)
 
     _maxVal = i;
 }
-
 

@@ -71,4 +71,3 @@ MacPanelScheme::MacPanelScheme() : ActionPanelScheme()
 
 
 }
-

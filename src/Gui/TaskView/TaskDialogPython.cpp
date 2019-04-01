@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <sstream>
 # include <QFile>
 # include <QPointer>
+#endif
 
 #include "TaskDialogPython.h"
 #include "TaskView.h"
@@ -258,6 +261,7 @@ TaskDialogPython::TaskDialogPython(const Py::Object& o) : dlg(o)
         UiLoader loader;
 #if QT_VERSION >= 0x040500
         loader.setLanguageChangeEnabled(true);
+#endif
         QString fn, icon;
         Py::String ui(dlg.getAttr(std::string("ui")));
         std::string path = (std::string)ui;
@@ -519,5 +523,4 @@ bool TaskDialogPython::needsFullSpace() const
 
     return TaskDialog::needsFullSpace();
 }
-
 

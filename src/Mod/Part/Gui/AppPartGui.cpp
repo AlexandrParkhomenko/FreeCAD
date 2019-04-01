@@ -10,9 +10,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Standard_math.hxx>
 # include <Python.h>
 # include <Inventor/system/inttypes.h>
+#endif
 
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
@@ -216,4 +219,3 @@ PyMOD_INIT_FUNC(PartGui)
 
     PyMOD_Return(partGuiModule);
 }
-

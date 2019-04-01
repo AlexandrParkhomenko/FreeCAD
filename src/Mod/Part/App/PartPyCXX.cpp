@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 #include "PartPyCXX.h"
 #include <CXX/Objects.hxx>
 #include <Mod/Part/App/TopoShapeFacePy.h>
@@ -91,5 +92,4 @@ namespace Py {
     // explicit template instantiation
     template class PartExport ExtensionObject<Part::TopoShapePy>;
 }
-
 

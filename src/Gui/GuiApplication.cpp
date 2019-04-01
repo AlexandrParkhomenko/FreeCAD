@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <sstream>
 # include <stdexcept>
 # include <QByteArray>
@@ -31,16 +33,19 @@
 # include <QFileOpenEvent>
 # include <QSessionManager>
 # include <QTimer>
+#endif
 
 #include <QLocalServer>
 #include <QLocalSocket>
 
 #if defined(Q_OS_WIN)
 # include <Windows.h>
+#endif
 #if defined(Q_OS_UNIX)
 # include <sys/types.h>
 # include <time.h>
 # include <unistd.h>
+#endif
 
 #include "GuiApplication.h"
 #include "Application.h"
@@ -61,8 +66,10 @@ GUIApplication::GUIApplication(int & argc, char ** argv)
     // In Qt 4.x 'commitData' is a virtual method
     connect(this, SIGNAL(commitDataRequest(QSessionManager &)),
             SLOT(commitData(QSessionManager &)), Qt::DirectConnection);
+#endif
 #if QT_VERSION >= 0x050600
     setFallbackSessionManagementEnabled(false);
+#endif
 }
 
 GUIApplication::~GUIApplication()
@@ -256,6 +263,7 @@ bool GUISingleApplication::sendMessage(const QByteArray &message, int timeout)
         Sleep(DWORD(ms));
 #else
         usleep(ms*1000);
+#endif
     }
     if (!connected)
         return false;
@@ -297,4 +305,3 @@ void GUISingleApplication::processMessages()
 }
 
 #include "moc_GuiApplication.cpp"
-

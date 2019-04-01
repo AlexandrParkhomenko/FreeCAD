@@ -111,4 +111,3 @@ double* PolyFit3<double> (int, const double*, const double*, const double*,
     int, int);
 //----------------------------------------------------------------------------
 }
-

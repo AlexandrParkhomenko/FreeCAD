@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include <Base/Rotation.h>
 #include <Base/Tools.h>
@@ -381,6 +382,5 @@ int RotationPy::setCustomAttributes(const char* attr, PyObject* obj)
     }
     return 0; 
 }
-
 
 

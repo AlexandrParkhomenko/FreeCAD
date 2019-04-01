@@ -148,4 +148,3 @@ inline BitmapFactoryInst& BitmapFactory(void)
 } // namespace Gui
 
 #endif // GUI_BITMAPFACTORY_H
-

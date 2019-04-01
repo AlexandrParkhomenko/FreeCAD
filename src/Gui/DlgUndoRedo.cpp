@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "DlgUndoRedo.h"
 #include "Application.h"
@@ -145,4 +146,3 @@ void RedoDialog::onSelected()
 }
 
 #include "moc_DlgUndoRedo.cpp"
-

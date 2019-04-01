@@ -66,4 +66,3 @@ typedef DistVector3Triangle3<double> DistVector3Triangle3d;
 }
 
 #endif
-

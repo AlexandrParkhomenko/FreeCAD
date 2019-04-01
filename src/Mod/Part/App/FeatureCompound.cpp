@@ -21,11 +21,14 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <BRep_Builder.hxx>
 # include <TopoDS_Compound.hxx>
 # include <TopExp.hxx>
 # include <TopTools_IndexedMapOfShape.hxx>
 # include <Standard_Failure.hxx>
+#endif
 
 
 #include "FeatureCompound.h"
@@ -96,5 +99,4 @@ App::DocumentObjectExecReturn *Compound::execute(void)
         return new App::DocumentObjectExecReturn(e.GetMessageString());
     }
 }
-
 

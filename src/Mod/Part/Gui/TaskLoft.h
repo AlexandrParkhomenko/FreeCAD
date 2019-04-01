@@ -79,4 +79,3 @@ private:
 } //namespace PartGui
 
 #endif // PARTGUI_TASKLOFT_H
-

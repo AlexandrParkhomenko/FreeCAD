@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 #ifndef _PreCpmp_
 # include <QButtonGroup>
 # include <QPushButton>
@@ -1683,4 +1684,3 @@ void PartGui::TaskMeasureAngular::clearAllSlot(bool)
 }
 
 #include "moc_TaskDimension.cpp"
-

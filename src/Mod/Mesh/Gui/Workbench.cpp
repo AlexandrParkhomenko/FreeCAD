@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <qobject.h>
 # include <QGroupBox>
 # include <QLabel>
+#endif
 
 #include "Workbench.h"
 #include <Gui/Application.h>
@@ -43,6 +46,7 @@ using namespace MeshGui;
     qApp->translate("Workbench", "Boolean");
     qApp->translate("Workbench", "&Meshes");
     qApp->translate("Workbench", "Mesh tools");
+#endif
 
 /// @namespace MeshGui @class Workbench
 TYPESYSTEM_SOURCE(MeshGui::Workbench, Gui::StdWorkbench)
@@ -253,5 +257,4 @@ Gui::ToolBarItem* Workbench::setupCommandBars() const
 
     return root;
 }
-
 

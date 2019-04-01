@@ -93,4 +93,3 @@ template WM4_FOUNDATION_ITEM
 class Intersector<double,Vector3d>;
 //----------------------------------------------------------------------------
 }
-

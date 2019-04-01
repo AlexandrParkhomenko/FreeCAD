@@ -87,4 +87,3 @@ public:
 } // namespace MeshCore
 
 #endif // MESH_DEFINITIONS_H 
-

@@ -63,4 +63,3 @@ public:
 }
 
 #endif // Curvature_H 
-

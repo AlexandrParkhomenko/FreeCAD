@@ -84,4 +84,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_TEXTUREMAPPING_H
-

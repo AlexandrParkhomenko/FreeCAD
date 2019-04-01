@@ -21,11 +21,14 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QApplication>
 # include <QMenu>
 # include <QPixmap>
 # include <boost/bind.hpp>
+#endif
 
 #include <App/Part.h>
 #include <App/Document.h>
@@ -117,4 +120,3 @@ PROPERTY_SOURCE_TEMPLATE(Gui::ViewProviderPartPython, Gui::ViewProviderPart)
 // explicit template instantiation
 template class GuiExport ViewProviderPythonFeatureT<ViewProviderPart>;
 }
-

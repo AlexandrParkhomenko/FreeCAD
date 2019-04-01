@@ -79,4 +79,3 @@ private:
 #include "Wm4TSmallUnorderedSet.inl"
 
 #endif
-

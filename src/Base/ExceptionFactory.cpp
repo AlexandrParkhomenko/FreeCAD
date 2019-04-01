@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
 #include "ExceptionFactory.h"
 #include <CXX/Objects.hxx>
@@ -57,6 +58,5 @@ void ExceptionFactory::raiseException (PyObject * pydict) const
             static_cast<AbstractExceptionProducer *>(pProd->second)->raiseException(pydict);
     }
 }
-
 
 

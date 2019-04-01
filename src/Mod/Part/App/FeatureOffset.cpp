@@ -19,7 +19,10 @@
  *   Suite 330, Boston, MA  02111-1307, USA                                *
  *                                                                         *
  ***************************************************************************/
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Precision.hxx>
+#endif
 
 
 #include "FeatureOffset.h"
@@ -141,4 +144,3 @@ App::DocumentObjectExecReturn *Offset2D::execute(void)
     this->Shape.setValue(shape.makeOffset2D(offset, join, fill, mode == 0, inter));
     return App::DocumentObject::StdReturn;
 }
-

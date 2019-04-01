@@ -87,4 +87,3 @@ typedef Gui::ViewProviderPythonFeatureT<ViewProvider2DObject> ViewProvider2DObje
 
 #endif // PARTGUI_IEWPROVIDER2DOBJECT_H
 
-

@@ -46,4 +46,3 @@ typedef DelTriangle<double> DelTriangled;
 }
 
 #endif
-

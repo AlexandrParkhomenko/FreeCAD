@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QCoreApplication>
 # include <QEvent>
+#endif
 
 #include "Debugger.h"
 #include "Console.h"
@@ -75,4 +78,3 @@ void Debugger::quit()
 }
 
 #include "moc_Debugger.cpp"
-

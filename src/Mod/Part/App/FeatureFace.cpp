@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Bnd_Box.hxx>
 # include <gp_Pln.hxx>
 # include <BRep_Builder.hxx>
@@ -37,6 +39,7 @@
 # include <TopExp_Explorer.hxx>
 # include <BRepAlgoAPI_Fuse.hxx>
 # include <gp_Pln.hxx>
+#endif
 
 #include <Base/Placement.h>
 
@@ -112,5 +115,4 @@ App::DocumentObjectExecReturn *Face::execute(void)
 
     return App::DocumentObject::StdReturn;
 }
-
 

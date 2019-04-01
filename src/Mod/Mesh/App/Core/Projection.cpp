@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <algorithm>
 # include <map>
+#endif
 #ifdef FC_USE_OCC
 # include <Bnd_Box.hxx>
 # include <BndLib_Add3dCurve.hxx>
@@ -36,6 +39,7 @@
 # include <TopExp_Explorer.hxx>
 # include <TopoDS.hxx>
 # include <TopoDS_Edge.hxx>
+#endif
 
 #include "Projection.h"
 #include "MeshKernel.h"
@@ -259,6 +263,7 @@ void MeshProjection::projectEdgeToEdge( const TopoDS_Edge &aEdge, float fMaxDist
     Base::Sequencer().stop();
 }
 
+#endif
 
 // ------------------------------------------------------------------------
 
@@ -431,4 +436,3 @@ bool MeshProjection::projectLineOnMesh(const MeshFacetGrid& grid,
 
     return connectLines(cutLine, v1, v2, polyline);
 }
-

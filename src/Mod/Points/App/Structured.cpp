@@ -22,7 +22,10 @@
 
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 #include <vector>
 
 #include <Base/Console.h>
@@ -95,4 +98,3 @@ PROPERTY_SOURCE_TEMPLATE(Points::StructuredCustom, Points::Structured)
 // explicit template instantiation
 template class PointsExport FeatureCustomT<Points::Structured>;
 }
-

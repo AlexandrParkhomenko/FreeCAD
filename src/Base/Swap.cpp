@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "Swap.h"
 
@@ -97,6 +98,5 @@ void Base::SwapVar (double& d)
     *(((char*) &dTmp) + i) = *(((char*) &d) + sizeof (double) - i - 1);
   d = dTmp;
 }
-
 
 

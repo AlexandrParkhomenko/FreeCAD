@@ -64,4 +64,3 @@ private:
 }
 
 #endif // MESHGUI_DLGREGULARSOLID_IMP_H
-

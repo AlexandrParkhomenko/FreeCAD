@@ -21,12 +21,15 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QAction>
 # include <QApplication>
 # include <QDebug>
 # include <QDockWidget>
 # include <QPointer>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Control.h"
@@ -260,5 +263,4 @@ void ControlSingleton::destruct (void)
 
 
 #include "moc_Control.cpp"
-
 

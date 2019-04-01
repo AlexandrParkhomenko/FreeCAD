@@ -62,4 +62,3 @@ void SwapEndian(T& v)
 
 
 #endif // BASE_SWAP_H 
-

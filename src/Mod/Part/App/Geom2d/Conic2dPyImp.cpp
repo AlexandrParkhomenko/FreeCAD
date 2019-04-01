@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Geom2d_Conic.hxx>
+#endif
 
 #include <Mod/Part/App/OCCError.h>
 #include <Mod/Part/App/Geom2d/Conic2dPy.h>
@@ -126,4 +129,3 @@ int Conic2dPy::setCustomAttributes(const char* , PyObject *)
 {
     return 0; 
 }
-

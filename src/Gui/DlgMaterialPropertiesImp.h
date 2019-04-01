@@ -58,4 +58,3 @@ private:
 
 #endif // GUI_DIALOG_DLGMATERIALPROPERTIES_IMP_H
 
-

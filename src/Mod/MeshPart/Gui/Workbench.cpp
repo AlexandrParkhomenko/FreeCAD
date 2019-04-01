@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <qobject.h>
+#endif
 
 #include "Workbench.h"
 #include <Gui/ToolBarManager.h>
@@ -31,6 +34,7 @@ using namespace MeshPartGui;
 
 #if 0 // needed for Qt's lupdate utility
     qApp->translate("Workbench", "MeshPart");
+#endif
 
 /// @namespace MeshPartGui @class Workbench
 TYPESYSTEM_SOURCE(MeshPartGui::Workbench, Gui::StdWorkbench)
@@ -58,5 +62,4 @@ Gui::ToolBarItem* Workbench::setupCommandBars() const
     Gui::ToolBarItem* root = new Gui::ToolBarItem;
     return root;
 }
-
 

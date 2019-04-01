@@ -131,4 +131,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_TRANSFORM_H
-

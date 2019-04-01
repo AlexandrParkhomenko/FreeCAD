@@ -73,4 +73,3 @@ public:
 }
 
 #endif // PART_FEATUREPARTFUSE_H
-

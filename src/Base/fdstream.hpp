@@ -190,4 +190,3 @@ class fdistream : public std::istream {
 } // END namespace boost
 
 #endif /*BOOST_FDSTREAM_HPP*/
-

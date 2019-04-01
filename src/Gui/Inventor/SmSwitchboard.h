@@ -66,4 +66,3 @@ protected:
 };
 
 #endif // !SMALLCHANGE_SWITCHBOARD_H
-

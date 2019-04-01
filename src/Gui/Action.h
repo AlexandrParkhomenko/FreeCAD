@@ -315,4 +315,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_ACTION_H
-

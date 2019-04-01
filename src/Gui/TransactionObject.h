@@ -44,4 +44,3 @@ public:
 
 
 #endif // GUI_TRANSACTIONOBJECT_H
-

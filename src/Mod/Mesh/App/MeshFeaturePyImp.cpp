@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
 #include <Base/Console.h>
 #include <Base/Handle.h>
@@ -228,4 +229,3 @@ int MeshFeaturePy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
-

@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "ui_TaskSketcherMessages.h"
 #include "TaskSketcherMessages.h"
@@ -136,4 +139,3 @@ void TaskSketcherMessages::on_manualUpdate_clicked(bool checked)
 }
 
 #include "moc_TaskSketcherMessages.cpp"
-

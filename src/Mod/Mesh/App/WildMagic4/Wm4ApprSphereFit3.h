@@ -43,4 +43,3 @@ bool SphereFit3 (int iQuantity, const Vector3<Real>* akPoint,
 }
 
 #endif
-

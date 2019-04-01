@@ -187,4 +187,3 @@ EventFilter::globalMousePosition(void) const
 }
 
 #undef PRIVATE
-

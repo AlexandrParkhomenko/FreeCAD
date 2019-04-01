@@ -1027,4 +1027,3 @@ template WM4_FOUNDATION_ITEM
 class TriangulateEC<double>;
 //----------------------------------------------------------------------------
 }
-

@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <sstream>
 # include <Python.h>
 # include <QString>
@@ -34,6 +36,7 @@
 # include <Inventor/events/SoMouseButtonEvent.h>
 # include <Standard_Version.hxx>
 # include <TopoDS_TCompound.hxx>
+#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>
@@ -761,6 +764,7 @@ bool CmdPartCompSplitFeatures::isActive(void)
         return false;
 #else
         return true;
+#endif
     else
         return false;
 }
@@ -1947,6 +1951,7 @@ void CmdShapeInfo::activated(int iMsg)
 
     Gui::Document* doc = Gui::Application::Instance->activeDocument();
     Gui::View3DInventor* view = static_cast<Gui::View3DInventor*>(doc->getActiveView());
+#endif
     //if (view) {
     //    Gui::View3DInventorViewer* viewer = view->getViewer();
     //    viewer->setEditing(true);
@@ -2415,4 +2420,3 @@ void CreatePartCommands(void)
     rcCmdMgr.addCommand(new CmdMeasureToggleDelta());
     rcCmdMgr.addCommand(new CmdBoxSelection());
 }
-

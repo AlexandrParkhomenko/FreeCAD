@@ -1057,4 +1057,3 @@ public:
 } // namespace Gui
 
 #endif // PROPERTYEDITORITEM_H
-

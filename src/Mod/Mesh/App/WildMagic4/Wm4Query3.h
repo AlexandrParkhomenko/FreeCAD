@@ -95,4 +95,3 @@ typedef Query3<double> Query3d;
 }
 
 #endif
-

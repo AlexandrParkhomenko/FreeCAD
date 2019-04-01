@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Inventor/SbColor.h>
 # include <Inventor/fields/SoSFColor.h> 
 # include <Inventor/nodes/SoCamera.h>
@@ -29,6 +31,7 @@
 # include <Inventor/nodes/SoDirectionalLight.h>
 # include <Inventor/SoPickedPoint.h>
 # include <Inventor/actions/SoRayPickAction.h> 
+#endif
 
 #include <Base/Parameter.h>
 #include <App/Document.h>
@@ -57,4 +60,3 @@ void ViewProviderFeature::attach(App::DocumentObject *pcObj)
 {
     ViewProviderDocumentObject::attach(pcObj);
 }
-

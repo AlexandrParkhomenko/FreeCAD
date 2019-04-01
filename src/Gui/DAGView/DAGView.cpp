@@ -20,8 +20,11 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 #include <QAbstractEventDispatcher>
 #include <QVBoxLayout>
+#endif
 
 #include <sstream>
 
@@ -116,4 +119,3 @@ void View::onSelectionChanged(const SelectionChanges& msg)
 
 
 #include "moc_DAGView.cpp"
-

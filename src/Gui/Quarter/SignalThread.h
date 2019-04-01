@@ -64,4 +64,3 @@ private:
 }}} // namespace
 
 #endif // QUARTER_SIGNALTHREAD_H
-

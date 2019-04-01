@@ -49,4 +49,3 @@ protected:
 }
 
 #endif // PART_FEATUREPARTCUT_H
-

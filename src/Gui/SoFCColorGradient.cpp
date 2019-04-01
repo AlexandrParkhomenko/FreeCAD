@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <sstream>
 # include <Inventor/fields/SoMFString.h>
 # include <Inventor/nodes/SoBaseColor.h>
@@ -31,6 +33,7 @@
 # include <Inventor/nodes/SoText2.h>
 # include <Inventor/nodes/SoTransform.h>
 # include <Inventor/nodes/SoTransparencyType.h>
+#endif
 
 #include "SoFCColorGradient.h"
 #include "DlgSettingsColorGradientImp.h"
@@ -352,4 +355,3 @@ bool SoFCColorGradient::customize()
 
     return false;
 }
-

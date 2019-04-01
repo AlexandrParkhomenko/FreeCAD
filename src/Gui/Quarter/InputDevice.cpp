@@ -111,4 +111,3 @@ InputDevice::setModifiers(SoEvent * soevent, const QInputEvent * qevent)
 */
 
 #undef PRIVATE
-

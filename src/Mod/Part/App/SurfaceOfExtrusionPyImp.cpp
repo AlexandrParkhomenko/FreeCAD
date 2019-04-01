@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Geom_SurfaceOfLinearExtrusion.hxx>
 # include <Geom_Curve.hxx>
 # include <Geom_Line.hxx>
 # include <gp_Lin.hxx>
+#endif
 
 #include "Geometry.h"
 #include "SurfaceOfExtrusionPy.h"
@@ -232,4 +235,3 @@ int SurfaceOfExtrusionPy::setCustomAttributes(const char* /*attr*/, PyObject* /*
 {
     return 0; 
 }
-

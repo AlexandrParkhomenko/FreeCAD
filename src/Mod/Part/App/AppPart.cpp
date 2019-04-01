@@ -9,6 +9,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Python.h>
 # include <Interface_Static.hxx>
 # include <IGESControl_Controller.hxx>
@@ -16,6 +18,7 @@
 # include <Standard_Version.hxx>
 # include <OSD.hxx>
 # include <sstream>
+#endif
 
 #include <Base/Console.h>
 #include <Base/Interpreter.h>
@@ -592,4 +595,3 @@ PyMOD_INIT_FUNC(Part)
 
     PyMOD_Return(partModule);
 }
-

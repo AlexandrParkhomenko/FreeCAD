@@ -73,4 +73,3 @@ namespace Gui
 }
 
 #endif // DAGVIEW_H
-

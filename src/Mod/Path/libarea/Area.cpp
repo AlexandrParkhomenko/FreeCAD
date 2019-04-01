@@ -826,4 +826,3 @@ void CArea::InsideCurves(const CCurve& curve, std::list<CCurve> &curves_inside)c
 		if(IsInside(mid_point, *this))curves_inside.push_back(curve);
 	}
 }
-

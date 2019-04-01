@@ -21,6 +21,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
 #include "SoTouchEvents.h"
 #include <QApplication>
@@ -200,4 +201,3 @@ const SoEvent* GesturesDevice::translateEvent(QEvent* event)
     }
     return 0;
 }
-

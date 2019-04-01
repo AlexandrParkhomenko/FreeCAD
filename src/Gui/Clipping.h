@@ -86,4 +86,3 @@ public:
 } // namespace Gui
 
 #endif // GUI_DIALOG_CLIPPING_H
-

@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <algorithm>
+#endif
 
 #include "Algorithm.h"
 #include "Approximation.h"
@@ -388,6 +391,7 @@ void MeshAlgorithm::GetFacetBorders (const std::vector<unsigned long> &raulInd, 
       }
     }
   }
+#endif
 }
 
 void MeshAlgorithm::GetFacetBorders (const std::vector<unsigned long> &raulInd, 
@@ -780,6 +784,7 @@ bool MeshAlgorithm::FillupHole(const std::vector<unsigned long>& boundary,
             for (MeshFacetArray::_TIterator it = rFaces.begin(); it != rFaces.end(); ++it)
                 it->FlipNormal();
         }
+#endif
 
         return true;
     }
@@ -1965,4 +1970,3 @@ MeshRefNormalToPoints::operator[] (unsigned long pos) const
 {
     return _norm[pos];
 }
-

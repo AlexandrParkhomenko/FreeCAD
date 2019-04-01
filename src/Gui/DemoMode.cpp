@@ -21,12 +21,15 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <cmath>
 # include <float.h>
 # include <climits>
 # include <QCursor>
 # include <QTimer>
 # include <Inventor/nodes/SoCamera.h>
+#endif
 
 #include "DemoMode.h"
 #include "ui_DemoMode.h"
@@ -266,4 +269,3 @@ void DemoMode::changeEvent(QEvent *e)
 }
 
 #include "moc_DemoMode.cpp"
-

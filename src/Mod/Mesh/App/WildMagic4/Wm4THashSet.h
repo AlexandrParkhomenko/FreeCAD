@@ -94,4 +94,3 @@ private:
 #include "Wm4THashSet.inl"
 
 #endif
-

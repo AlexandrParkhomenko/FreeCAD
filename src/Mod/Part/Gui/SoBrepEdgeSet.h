@@ -84,4 +84,3 @@ private:
 
 #endif // PARTGUI_SOBREPEDGESET_H
 
-

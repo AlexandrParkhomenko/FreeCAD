@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Standard_math.hxx>
 # include <QDoubleValidator>
 # include <QLocale>
@@ -32,6 +34,7 @@
 # include <Inventor/nodes/SoMarkerSet.h>
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/nodes/SoShapeHints.h>
+#endif
 
 #include <BRep_Tool.hxx>
 #include <gp_Pnt.hxx>
@@ -363,4 +366,3 @@ TaskSketcherValidation::~TaskSketcherValidation()
 }
 
 #include "moc_TaskSketcherValidation.cpp"
-

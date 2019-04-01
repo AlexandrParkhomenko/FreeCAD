@@ -57,4 +57,3 @@ protected:
 
 #endif // PARTGUI_VIEWPROVIDERCONEPARAMETRIC_H
 
-

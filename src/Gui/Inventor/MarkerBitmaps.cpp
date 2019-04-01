@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Inventor/nodes/SoMarkerSet.h>
 # include <vector>
+#endif
 
 #include "MarkerBitmaps.h"
 
@@ -562,4 +565,3 @@ std::list<int> MarkerBitmaps::getSupportedSizes(const std::string& name)
     }
     return sizes;
 }
-

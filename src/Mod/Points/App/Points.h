@@ -195,4 +195,3 @@ public:
 
 
 #endif // POINTS_POINTPROPERTIES_H 
-

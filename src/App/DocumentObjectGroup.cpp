@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "DocumentObjectGroup.h"
 #include "DocumentObjectGroupPy.h"
@@ -72,4 +75,3 @@ template<> PyObject* App::DocumentObjectGroupPython::getPyObject(void) {
 // explicit template instantiation
 template class AppExport FeaturePythonT<App::DocumentObjectGroup>;
 }
-

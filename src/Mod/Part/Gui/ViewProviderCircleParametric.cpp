@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "ViewProviderCircleParametric.h"
 
@@ -61,4 +64,3 @@ std::vector<std::string> ViewProviderCircleParametric::getDisplayModes(void) con
 
   return StrList;
 }
-

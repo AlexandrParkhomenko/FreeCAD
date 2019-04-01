@@ -79,4 +79,3 @@ private:
 
 
 #endif //PROPERTYMODEL_H
-

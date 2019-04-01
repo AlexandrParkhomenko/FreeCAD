@@ -21,11 +21,14 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <gp_Circ2d.hxx>
 # include <Geom2d_Circle.hxx>
 # include <GCE2d_MakeArcOfCircle.hxx>
 # include <GCE2d_MakeCircle.hxx>
 # include <Geom2d_TrimmedCurve.hxx>
+#endif
 
 #include <Mod/Part/App/OCCError.h>
 #include <Mod/Part/App/Geometry.h>
@@ -133,4 +136,3 @@ int ArcOfCircle2dPy::setCustomAttributes(const char* , PyObject *)
 {
     return 0; 
 }
-

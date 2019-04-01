@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QAction>
 # include <QHeaderView>
 # include <QMessageBox>
+#endif
 
 #include <Base/Parameter.h>
 
@@ -107,6 +110,7 @@ DlgCustomKeyboardImp::DlgCustomKeyboardImp( QWidget* parent  )
     commandTreeWidget->header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
 #else
     commandTreeWidget->header()->setResizeMode(0, QHeaderView::ResizeToContents);
+#endif
 
     assignedTreeWidget->setHeaderLabels(labels);
     assignedTreeWidget->header()->hide();
@@ -513,4 +517,3 @@ void DlgCustomKeyboardImp::changeEvent(QEvent *e)
 }
 
 #include "moc_DlgKeyboardImp.cpp"
-

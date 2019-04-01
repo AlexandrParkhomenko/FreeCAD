@@ -147,4 +147,3 @@ private:
 
 #endif  // GUI_VIEW3DINVENTOR_H
 
-

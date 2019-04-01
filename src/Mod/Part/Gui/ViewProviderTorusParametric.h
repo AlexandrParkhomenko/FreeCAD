@@ -57,4 +57,3 @@ protected:
 
 #endif // PARTGUI_VIEWPROVIDERTORUSPARAMETRIC_H
 
-

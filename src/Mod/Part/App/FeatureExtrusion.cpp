@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <cmath>
 # include <gp_Pln.hxx>
 # include <gp_Trsf.hxx>
@@ -40,6 +42,7 @@
 # include <TopExp_Explorer.hxx>
 # include <TopTools_IndexedMapOfShape.hxx>
 # include <BRepLib_FindSurface.hxx>
+#endif
 
 
 #include "FeatureExtrusion.h"
@@ -250,6 +253,7 @@ TopoShape Extrusion::extrudeShape(const TopoShape source, Extrusion::ExtrusionPa
         //Tapered extrusion!
 #if defined(__GNUC__) && defined (FC_OS_LINUX)
         Base::SignalException se;
+#endif
         TopoDS_Shape myShape = source.getShape();
         if (myShape.IsNull())
             Standard_Failure::Raise("Cannot extrude empty shape");
@@ -396,8 +400,10 @@ void Extrusion::makeDraft(ExtrusionParameters params, const TopoDS_Shape& shape,
             BRepOffsetAPI_MakeOffset mkOffset;
 #if OCC_VERSION_HEX >= 0x060800
             mkOffset.Init(GeomAbs_Arc);
+#endif
 #if OCC_VERSION_HEX >= 0x070000
             mkOffset.Init(GeomAbs_Intersection);
+#endif
             gp_Trsf mat;
             mat.SetTranslation(translation);
             TopLoc_Location loc(mat);
@@ -487,6 +493,7 @@ void Extrusion::makeDraft(ExtrusionParameters params, const TopoDS_Shape& shape,
         try {
 #if defined(__GNUC__) && defined (FC_OS_LINUX)
             Base::SignalException se;
+#endif
             mkGenerator.Build();
             drafts.push_back(mkGenerator.Shape());
         }
@@ -575,4 +582,3 @@ void Part::Extrusion::setupObject()
     Part::Feature::setupObject();
     this->FaceMakerClass.setValue("Part::FaceMakerBullseye"); //default for newly created features
 }
-

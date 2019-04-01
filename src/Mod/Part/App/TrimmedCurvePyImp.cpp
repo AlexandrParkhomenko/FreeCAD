@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <sstream>
+#endif
 
 #include <Base/GeometryPyCXX.h>
 #include <Base/VectorPy.h>
@@ -88,4 +91,3 @@ int TrimmedCurvePy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0;
 }
-

@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 #	include <assert.h>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 
@@ -1040,4 +1043,3 @@ PropertyComplexGeoData::~PropertyComplexGeoData()
 {
 
 }
-

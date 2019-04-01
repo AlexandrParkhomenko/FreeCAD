@@ -177,4 +177,3 @@ private:
 
 #endif // PARTGUI_VIEWPROVIDERPARTEXT_H
 
-

@@ -20,6 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 #include <assert.h>
 
 #include <Inventor/nodes/SoGroup.h>
@@ -41,6 +43,7 @@
 #include <Inventor/SbRotation.h>
 
 #include <Inventor/engines/SoComposeVec3f.h>
+#endif
 
 #include <math.h>
 
@@ -1126,4 +1129,3 @@ bool SoFCCSysDragger::isHiddenRotationZ()
   SoSwitch *sw = SO_GET_ANY_PART(this, "zRotatorSwitch", SoSwitch);
   return (sw->whichChild.getValue() == SO_SWITCH_NONE);
 }
-

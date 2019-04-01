@@ -23,8 +23,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QDebug>
 # include <QInputDialog>
+#endif
 
 #include "DlgWorkbenchesImp.h"
 #include "Application.h"
@@ -261,5 +264,4 @@ void DlgWorkbenchesImp::save_workbenches()
 }
 
 #include "moc_DlgWorkbenchesImp.cpp"
-
 

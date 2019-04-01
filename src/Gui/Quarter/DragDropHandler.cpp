@@ -160,4 +160,3 @@ DragDropHandlerP::dropEvent(QDropEvent * event)
 
 #undef PRIVATE
 #undef PUBLIC
-

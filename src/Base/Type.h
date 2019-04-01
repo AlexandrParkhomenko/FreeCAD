@@ -196,4 +196,3 @@ Type::isBad(void) const
 
 #endif // BASE_TYPE_H
 
-

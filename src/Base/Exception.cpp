@@ -23,6 +23,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include <typeinfo>
 
@@ -923,5 +924,4 @@ void SignalException::throw_signal(int signum)
     throw std::runtime_error ("throw_signal");
 }
 #endif
-
 

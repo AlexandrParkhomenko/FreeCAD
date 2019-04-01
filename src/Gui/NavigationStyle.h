@@ -436,4 +436,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_NAVIGATIONSTYLE_H 
-

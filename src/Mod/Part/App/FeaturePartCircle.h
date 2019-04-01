@@ -60,4 +60,3 @@ private:
 } //namespace Part
 
 #endif // PART_FEATUREPARTCIRCLE_H
-

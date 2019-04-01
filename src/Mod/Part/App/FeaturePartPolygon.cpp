@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <BRep_Builder.hxx>
 # include <BRepBuilderAPI_MakePolygon.hxx>
 # include <gp_Pnt.hxx>
 # include <TopoDS_Wire.hxx>
+#endif
 
 #include "FeaturePartPolygon.h"
 #include <Base/Exception.h>
@@ -69,4 +72,3 @@ App::DocumentObjectExecReturn *Part::Polygon::execute(void)
 
     return App::DocumentObject::StdReturn;
 }
-

@@ -21,12 +21,15 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QContextMenuEvent>
 # include <QMenu>
 # include <QRegExp>
 # include <QShortcut>
 # include <QString>
+#endif
 
 #include "TaskSketcherElements.h"
 #include "ui_TaskSketcherElements.h"
@@ -254,6 +257,7 @@ TaskSketcherElements::TaskSketcherElements(ViewProviderSketch *sketchView)
     // but avoid being picked up by lupdate
     const char* ctrlKey = "Ctrl";
     QString cmdKey = QShortcut::tr(ctrlKey);
+#endif
     QString zKey = QString::fromLatin1("Z");
     ui->Explanation->setText(tr("<html><head/><body><p>&quot;%1&quot;: multiple selection</p>"
                                 "<p>&quot;%2&quot;: switch to next valid type</p></body></html>")
@@ -1044,4 +1048,3 @@ void TaskSketcherElements::changeEvent(QEvent *e)
 
 
 #include "moc_TaskSketcherElements.cpp"
-

@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <cassert>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <Base/Writer.h>
@@ -362,6 +365,7 @@ void TransactionDocumentObject::applyDel(Document &Doc, TransactionalObject *pcO
         auto list = obj->getOutList();
         for (auto link : list)
             link->_removeBackLink(obj);
+#endif
 
         // simply filling in the saved object
         Doc._removeObject(obj);
@@ -379,6 +383,7 @@ void TransactionDocumentObject::applyNew(Document &Doc, TransactionalObject *pcO
         auto list = obj->getOutList();
         for (auto link : list)
             link->_addBackLink(obj);
+#endif
     }
 }
 
@@ -422,4 +427,3 @@ TransactionObject* TransactionFactory::createTransaction (const Base::Type& type
     assert(0);
     return nullptr;
 }
-

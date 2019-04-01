@@ -21,6 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 
 #include "Placement.h"
@@ -147,4 +150,3 @@ Placement Placement::slerp(const Placement & p0, const Placement & p1, double t)
     Vector3d pos = p0.getPosition() * (1.0-t) + p1.getPosition() * t;
     return Placement(pos, rot);
 }
-

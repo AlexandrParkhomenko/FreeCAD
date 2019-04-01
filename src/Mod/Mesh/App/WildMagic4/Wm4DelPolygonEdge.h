@@ -43,4 +43,3 @@ typedef DelPolygonEdge<double> DelPolygonEdged;
 }
 
 #endif
-

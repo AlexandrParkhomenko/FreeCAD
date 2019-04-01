@@ -147,4 +147,3 @@ inline Unit& Unit::operator /=(const Unit& that)
 } // namespace Base
 
 #endif // BASE_Unit_H
-

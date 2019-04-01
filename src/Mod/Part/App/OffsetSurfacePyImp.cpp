@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Geom_OffsetSurface.hxx>
 # include <memory>
+#endif
 
 #include <Base/VectorPy.h>
 #include <Base/Vector3D.h>
@@ -131,4 +134,3 @@ int OffsetSurfacePy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/
 {
     return 0; 
 }
-

@@ -20,6 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QBoxLayout>
 # include <QCoreApplication>
 # include <QHeaderView>
@@ -28,6 +30,7 @@
 # include <QThread>
 # include <QTreeWidget>
 # include <Python.h>
+#endif
 
 #include <Standard_Version.hxx>
 #include <BRepCheck_Analyzer.hxx>
@@ -39,6 +42,7 @@
 #if OCC_VERSION_HEX >= 0x060600
 #include <BOPAlgo_ArgumentAnalyzer.hxx>
 #include <BOPAlgo_ListOfCheckResult.hxx>
+#endif
 
 #include <TopoDS.hxx>
 #include <TopoDS_Compound.hxx>
@@ -178,6 +182,7 @@ QString getBOPCheckString(const BOPAlgo_CheckStatus &status)
     index = 0;
   return strings.at(index);
 }
+#endif
 
 ResultEntry::ResultEntry()
 {
@@ -349,6 +354,7 @@ void ResultModel::setResults(ResultEntry *resultsIn)
 {
 #if QT_VERSION >= 0x040600
     this->beginResetModel();
+#endif
     if (root)
         delete root;
     root = resultsIn;
@@ -356,6 +362,7 @@ void ResultModel::setResults(ResultEntry *resultsIn)
     this->endResetModel();
 #else
     this->reset();
+#endif
 }
 
 ResultEntry* ResultModel::getEntry(const QModelIndex &index)
@@ -415,6 +422,7 @@ void TaskCheckGeometryResults::goCheck()
     theProgress->NewScope("BOP check...");
 #if OCC_VERSION_HEX >= 0x060900
     theProgress->Show();
+#endif
 
     selectedCount = static_cast<int>(selection.size());
     for (it = selection.begin(); it != selection.end(); ++it)
@@ -698,6 +706,7 @@ BOPCheck.Perform();
   return 1;
 #else
   return 0;
+#endif
 }
 
 
@@ -1016,4 +1025,3 @@ Standard_Boolean BOPProgressIndicator::UserBreak()
 }
 
 #include "moc_TaskCheckGeometry.cpp"
-

@@ -88,4 +88,3 @@ private:
 } //namespace PartGui
 
 #endif // PARTGUI_TASKSHAPEBUILDER_H
-

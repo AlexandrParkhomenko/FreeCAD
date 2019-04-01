@@ -327,4 +327,3 @@ template WM4_FOUNDATION_ITEM
 class DistVector3Triangle3<double>;
 //----------------------------------------------------------------------------
 }
-

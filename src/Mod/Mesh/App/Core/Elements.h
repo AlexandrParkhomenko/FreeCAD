@@ -1061,4 +1061,3 @@ public:
 } // namespace MeshCore
 
 #endif // MESH_ELEMENTS_H 
-

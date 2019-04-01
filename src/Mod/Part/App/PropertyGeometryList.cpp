@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 #   include <assert.h>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 
@@ -224,4 +227,3 @@ unsigned int PropertyGeometryList::getMemSize(void) const
         size += _lValueList[i]->getMemSize();
     return size;
 }
-

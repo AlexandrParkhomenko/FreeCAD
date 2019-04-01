@@ -57,4 +57,3 @@ public:
 
 
 #endif // PART_FEATUREPARTIMPORTIGES_H
-

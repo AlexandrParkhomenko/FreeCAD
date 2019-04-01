@@ -22,7 +22,10 @@
 
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>
@@ -123,5 +126,4 @@ template<> PyObject* Mesh::FeaturePython::getPyObject(void) {
 // explicit template instantiation
 template class MeshExport FeaturePythonT<Mesh::Feature>;
 }
-
 

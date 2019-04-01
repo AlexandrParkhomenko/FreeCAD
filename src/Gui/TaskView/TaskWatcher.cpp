@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 #  include <QPixmap>
+#endif
 
 
 #include <QObject>
@@ -164,4 +167,3 @@ bool TaskWatcherCommandsEmptySelection::shouldShow()
 
 
 #include "moc_TaskWatcher.cpp"
-

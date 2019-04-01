@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <algorithm>
+#endif
 
 
 
@@ -819,4 +822,3 @@ bool PointsGridIterator::NextOnRay (std::vector<unsigned long> &raulElements)
 
   return _bValidRay;
 }
-

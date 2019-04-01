@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
 #include "SelectionObject.h"
 #include "Selection.h"
@@ -145,4 +146,3 @@ int SelectionObjectPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj
 {
     return 0; 
 }
-

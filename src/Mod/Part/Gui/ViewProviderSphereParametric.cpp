@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "ViewProviderSphereParametric.h"
 
@@ -81,4 +84,3 @@ std::vector<std::string> ViewProviderEllipsoid::getDisplayModes(void) const
 
   return StrList;
 }
-

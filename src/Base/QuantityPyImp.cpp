@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
 #include "Base/Quantity.h"
 #include "Base/Vector3D.h"
@@ -677,4 +678,3 @@ PyObject * QuantityPy::number_or_handler (PyObject* /*self*/, PyObject* /*other*
     PyErr_SetString(PyExc_TypeError, "unsupported operand type(s) for |");
     return 0;
 }
-

@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include <Base/Writer.h>
 #include <Base/Tools.h>
@@ -79,6 +82,7 @@ App::DocumentObjectExecReturn *DocumentObject::recompute(void)
         Base::Console().Warning("%s / %s: Links go out of the allowed scope\n", getTypeId().getName(), getNameInDocument());
 #else
         return new App::DocumentObjectExecReturn("Links go out of the allowed scope", this);
+#endif
     }
 
     // set/unset the execution bit
@@ -291,6 +295,7 @@ std::vector<App::DocumentObject*> DocumentObject::getInList(void) const
     return _inList;
 }
 
+#endif // if USE_OLD_DAG
 
 
 void _getInListRecursive(std::set<DocumentObject*>& objSet,
@@ -375,6 +380,7 @@ bool _isInInListRecursive(const DocumentObject* act,
     (void)act;
     (void)checkObj;
     (void)depth;
+#endif
 
     return false;
 }
@@ -395,6 +401,7 @@ bool DocumentObject::isInInList(DocumentObject *linkTo) const
 #else
     (void)linkTo;
     return false;
+#endif
 }
 
 // helper for isInOutListRecursive()
@@ -417,6 +424,7 @@ bool _isInOutListRecursive(const DocumentObject* act,
     (void)act;
     (void)checkObj;
     (void)depth;
+#endif
 
     return false;
 }
@@ -688,6 +696,7 @@ void App::DocumentObject::_removeBackLink(DocumentObject* rmvObj)
         _inList.erase(it);
 #else
     (void)rmvObj;
+#endif
 }
 
 void App::DocumentObject::_addBackLink(DocumentObject* newObj)
@@ -700,5 +709,5 @@ void App::DocumentObject::_addBackLink(DocumentObject* newObj)
     _inList.push_back(newObj);
 #else
     (void)newObj;
+#endif //USE_OLD_DAG    
 }
-

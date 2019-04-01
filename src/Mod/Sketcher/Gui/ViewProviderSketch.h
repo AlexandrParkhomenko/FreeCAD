@@ -431,4 +431,3 @@ protected:
 
 #endif // SKETCHERGUI_VIEWPROVIDERSKETCH_H
 
-

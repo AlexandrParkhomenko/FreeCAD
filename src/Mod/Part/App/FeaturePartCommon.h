@@ -72,4 +72,3 @@ public:
 }
 
 #endif // PART_FEATUREPARTCOMMON_H
-

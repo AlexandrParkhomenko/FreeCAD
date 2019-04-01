@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <algorithm>
+#endif
 
 #include "DynamicProperty.h"
 #include "Property.h"
@@ -355,6 +358,7 @@ void DynamicProperty::Save (Base::Writer &writer) const
         catch (...) {
             Base::Console().Error("DynamicProperty::Save: Unknown C++ exception thrown. Try to continue...\n");
         }
+#endif
         writer.decInd(); // indentation for the actual property
         writer.Stream() << writer.ind() << "</Property>" << std::endl;
         writer.decInd(); // indentation for 'Property name'
@@ -430,6 +434,7 @@ void DynamicProperty::Restore(Base::XMLReader &reader)
                 catch (...) {
                     Base::Console().Error("DynamicProperty::Restore: Unknown C++ exception thrown\n");
                 }
+#endif
             }
             else if (prop) {
                 //Base::Console().Warning("%s: Overread data for property %s of type %s, expected type is %s\n",
@@ -447,4 +452,3 @@ void DynamicProperty::Restore(Base::XMLReader &reader)
 
     reader.readEndElement("Properties");
 }
-

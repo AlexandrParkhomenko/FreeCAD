@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Inventor/nodes/SoSeparator.h>
 # include <QHeaderView>
+#endif
 
 #include "SceneInspector.h"
 #include "ui_SceneInspector.h"
@@ -163,6 +166,7 @@ void DlgInspector::setNode(SoNode* node)
 #else
     header->setResizeMode(0, QHeaderView::Stretch);
     header->setMovable(false);
+#endif
 }
 
 void DlgInspector::setNodeNames(Gui::Document* doc)
@@ -220,4 +224,3 @@ void DlgInspector::on_refreshButton_clicked()
 }
 
 #include "moc_SceneInspector.cpp"
-

@@ -21,11 +21,14 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Inventor/actions/SoGetBoundingBoxAction.h>
 # include <Inventor/nodes/SoClipPlane.h>
 # include <Inventor/nodes/SoGroup.h>
 # include <QPointer>
 # include <cmath>
+#endif
 # include <Inventor/sensors/SoTimerSensor.h>
 
 #include "Clipping.h"
@@ -352,4 +355,3 @@ TaskClipping::~TaskClipping()
 }
 
 #include "moc_Clipping.cpp"
-

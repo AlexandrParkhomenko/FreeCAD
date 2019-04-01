@@ -53,4 +53,3 @@ protected:
 } // namespace Gui
 
 #endif //GUI_DIALOG_DLG_REPORT_VIEW_IMP
-

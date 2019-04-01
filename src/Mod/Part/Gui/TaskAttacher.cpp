@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <sstream>
 # include <QRegExp>
 # include <QTextStream>
@@ -29,6 +31,7 @@
 # include <Precision.hxx>
 # include <Standard_Failure.hxx>
 # include <boost/bind.hpp>
+#endif
 
 #include <Base/Console.h>
 #include <Base/Interpreter.h>
@@ -1073,4 +1076,3 @@ bool TaskDlgAttacher::reject()
 }
 
 #include "moc_TaskAttacher.cpp"
-

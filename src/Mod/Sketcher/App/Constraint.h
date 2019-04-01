@@ -138,4 +138,3 @@ protected:
 
 
 #endif // SKETCHER_CONSTRAINT_H
-

@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #ifndef FC_OS_WIN32
 #define GL_GLEXT_PROTOTYPES
@@ -183,4 +184,3 @@ void OpenGLBuffer::buffer_delete(void * closure, uint32_t contextid)
     GLuint id = (GLuint) ((uintptr_t) closure);
     cc_glglue_glDeleteBuffers(glue, 1, &id);
 }
-

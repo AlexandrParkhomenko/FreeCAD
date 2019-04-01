@@ -52,4 +52,3 @@ private:
 }
 
 #endif // PART_CROSSSECTION_H
-

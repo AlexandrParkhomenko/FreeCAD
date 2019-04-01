@@ -98,4 +98,3 @@ typedef App::FeaturePythonT<FeatureAreaView> FeatureAreaViewPython;
 
 
 #endif // PATH_FeaturePath_H
-

@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <algorithm>
 # include <QApplication>
 # include <QBuffer>
@@ -47,6 +49,7 @@
 # include <QUrlQuery>
 #endif
 //# include <QWhatsThis>
+#endif
 
 #include <boost/bind.hpp>
 
@@ -116,6 +119,7 @@
 #define slots
 //#include <private/qmainwindowlayout_p.h>
 //#include <private/qwidgetresizehandler_p.h>
+#endif
 
 using namespace Gui;
 using namespace Gui::DockWnd;
@@ -155,6 +159,7 @@ public:
 #if QT_VERSION >= 0x040200
         setDrawBase(false);
         setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
+#endif
     }
 
     ~MDITabbar()
@@ -226,6 +231,7 @@ protected:
         }
     }
 };
+#endif
 
 } // namespace Gui
 
@@ -260,6 +266,7 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
         // The tabs might be very wide
         tab->setExpanding(false);
     }
+#endif
     d->mdiArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     d->mdiArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     d->mdiArea->setOption(QMdiArea::DontMaximizeSubWindowOnActivation, false);
@@ -322,6 +329,7 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
         pDockMgr->registerDockWindow("Std_ToolBox", toolBox);
         ToolBoxManager::getInstance()->setToolBox( toolBox );
     }
+#endif
 
     // Tree view
     if (hiddenDockWindows.find("Std_TreeView") == std::string::npos) {
@@ -448,6 +456,7 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
         connect(result, SIGNAL(currentChanged(int)), l, SLOT(tabChanged()));
         l->unusedTabBars << result;
     }
+#endif
 #endif
 
     // accept drops on the window, get handled in dropEvent, dragEnterEvent
@@ -1133,6 +1142,7 @@ void MainWindow::dragEnterEvent (QDragEnterEvent * e)
             }
         }
 #endif
+#endif
         e->accept();
     }
     else {
@@ -1348,6 +1358,7 @@ void MainWindow::loadUrls(App::Document* doc, const QList<QUrl>& url)
 #else
             if (it->hasEncodedQueryItem(QByteArray("sid"))) {
                 url.removeEncodedQueryItem(QByteArray("sid"));
+#endif
                 url.setScheme(QLatin1String("http"));
             }
             Gui::Dialog::DownloadManager* dm = Gui::Dialog::DownloadManager::getInstance();
@@ -1412,6 +1423,7 @@ void MainWindow::showMessage (const QString& message, int timeout)
         QGenericReturnArgument(),
         Q_ARG(QString,msg),
         Q_ARG(int, timeout));
+#endif
 }
 
 // -------------------------------------------------------------
@@ -1581,4 +1593,3 @@ ActionStyleEvent::Style ActionStyleEvent::getType() const
 
 
 #include "moc_MainWindow.cpp"
-

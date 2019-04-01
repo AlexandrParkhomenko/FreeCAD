@@ -89,4 +89,3 @@ protected:
 } //namespace RobotGui
 
 #endif // PATHGUI_TASKDLGPATHCOMPOUND_H
-

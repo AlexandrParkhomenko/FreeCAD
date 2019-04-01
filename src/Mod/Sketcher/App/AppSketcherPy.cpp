@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <BRepPrimAPI_MakeBox.hxx>
 # include <TopoDS_Face.hxx>
 # include <Geom_Plane.hxx>
+#endif
 
 #include <Base/Console.h>
 #include <Base/PyObjectBase.h>
@@ -124,4 +127,3 @@ PyObject* initModule()
 /// @endcond
 
 } // namespace Sketcher
-

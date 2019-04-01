@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include <App/PropertyStandard.h>
 #include <App/Material.h>
@@ -208,4 +209,3 @@ void DlgMaterialPropertiesImp::setViewProviders(const std::vector<Gui::ViewProvi
 }
 
 #include "moc_DlgMaterialPropertiesImp.cpp"
-

@@ -233,4 +233,3 @@ struct Node_Block
 
 #endif // GUI_SelectionFilter_H
 
-

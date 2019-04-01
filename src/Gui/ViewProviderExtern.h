@@ -64,4 +64,3 @@ protected:
 
 #endif // GUI_VIEWPROVIDER_EXTERN_H
 
-

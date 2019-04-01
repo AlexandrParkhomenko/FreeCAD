@@ -40,4 +40,3 @@ public:
 } // namespace PartGui
 
 #endif // PARTGUI_DLGPARTCYLINDERIMP_H
-

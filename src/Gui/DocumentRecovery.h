@@ -71,4 +71,3 @@ private:
 
 
 #endif //GUI_DIALOG_DOCUMENTRECOVERY_H
-

@@ -62,4 +62,3 @@ private:
 } // namespace Gui
 
 #endif  // GUI_GLBUFFER_H
-

@@ -405,4 +405,3 @@ inline void BoundBox2d::Add(const Vector2d &rclVct)
 #endif // BASE_TOOLS2D_H
 
 
-

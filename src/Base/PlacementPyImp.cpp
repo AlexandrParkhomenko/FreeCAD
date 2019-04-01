@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "Placement.h"
 #include "GeometryPyCXX.h"
@@ -261,4 +262,3 @@ int PlacementPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
-

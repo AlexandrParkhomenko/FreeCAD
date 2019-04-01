@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 #include <algorithm>
 #include "Mesher.h"
 
@@ -542,5 +543,4 @@ Mesh::MeshObject* Mesher::createMesh() const
     return meshdata;
 #endif // HAVE_SMESH
 }
-
 

@@ -104,4 +104,3 @@ private:
 } //namespace SketcherGui
 
 #endif // GUI_TASKVIEW_TASKAPPERANCE_H
-

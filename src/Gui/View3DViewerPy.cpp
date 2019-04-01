@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #ifndef __InventorAll__
 # include "InventorAll.h"
@@ -406,4 +407,3 @@ Py::Object View3DInventorViewerPy::setNaviCubeCorner(const Py::Tuple& args)
     _viewer->setNaviCubeCorner(pos);
     return Py::None();
 }
-

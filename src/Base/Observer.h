@@ -225,4 +225,3 @@ protected:
 
 
 #endif // BASE_OBSERVER_H
-

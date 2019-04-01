@@ -88,4 +88,3 @@ private:
 } // namespace Gui
 
 #endif // PARTGUI_DLGSETTINGSGENERAL_H
-

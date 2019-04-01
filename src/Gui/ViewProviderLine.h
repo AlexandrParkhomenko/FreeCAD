@@ -44,4 +44,3 @@ public:
 
 
 #endif // GUI_ViewProviderLine_H
-

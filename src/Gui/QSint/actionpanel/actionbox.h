@@ -256,4 +256,3 @@ protected:
 } // namespace
 
 #endif // ACTIONBOX_H
-

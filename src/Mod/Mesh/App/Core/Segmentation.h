@@ -272,4 +272,3 @@ private:
 } // MeshCore
 
 #endif // MESHCORE_SEGMENTATION_H
-

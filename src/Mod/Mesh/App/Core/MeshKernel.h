@@ -561,4 +561,3 @@ inline void MeshKernel::GetFacetPoints (unsigned long ulFaIndex, unsigned long &
 } // namespace MeshCore
 
 #endif // MESH_KERNEL_H 
-

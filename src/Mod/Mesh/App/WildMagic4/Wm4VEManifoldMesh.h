@@ -106,4 +106,3 @@ protected:
 #include "Wm4VEManifoldMesh.inl"
 
 #endif
-

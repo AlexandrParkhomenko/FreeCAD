@@ -51,4 +51,3 @@ protected:
 
 #endif // SKETCHERGUI_SHORTCUTLISTENER_H
 
-

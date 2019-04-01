@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <algorithm>
 # include <boost/bind.hpp>
+#endif
 
 #include "ui_TaskAppearance.h"
 #include "TaskAppearance.h"
@@ -307,4 +310,3 @@ std::vector<Gui::ViewProvider*> TaskAppearance::getSelection() const
 
 
 #include "moc_TaskAppearance.cpp"
-

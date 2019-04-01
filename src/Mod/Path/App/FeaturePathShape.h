@@ -78,4 +78,3 @@ typedef App::FeaturePythonT<FeatureShape> FeatureShapePython;
 
 
 #endif // PATH_FeaturePathShape_H
-

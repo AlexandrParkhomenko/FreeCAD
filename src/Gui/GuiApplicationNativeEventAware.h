@@ -80,4 +80,3 @@ namespace Gui
 } // end namespace Gui
 
 #endif // GUIAPPLICATIONNATIVEEVENTAWARE_H
-

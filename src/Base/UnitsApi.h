@@ -113,4 +113,3 @@ protected: // the python API wrapper methods
 
 
 #endif // BASE_UNITSAPI_H
-

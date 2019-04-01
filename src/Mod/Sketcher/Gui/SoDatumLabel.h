@@ -93,4 +93,3 @@ private:
 
 
 #endif // SKETCHERGUI_SODATUMLABEL_H
-

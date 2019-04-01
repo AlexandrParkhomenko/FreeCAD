@@ -48,4 +48,3 @@ public:
 
 
 #endif // BASE_UNITSSCHEMAINTERNAL_H
-

@@ -59,4 +59,3 @@ private:
 
 #endif // GUI_ProjectView_H
 
-

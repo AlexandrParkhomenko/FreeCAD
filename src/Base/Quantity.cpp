@@ -20,6 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <sstream>
 # ifdef FC_OS_WIN32
 # define _USE_MATH_DEFINES
@@ -383,4 +385,3 @@ Quantity Quantity::parse(const QString &string)
     //    throw Base::ParserError("Unknown error in Quantity expression");
     return QuantResult;
 }
-

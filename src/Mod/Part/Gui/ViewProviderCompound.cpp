@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <TopExp.hxx>
 # include <TopTools_IndexedMapOfShape.hxx>
+#endif
 
 #include <Gui/Application.h>
 #include <Mod/Part/App/FeatureCompound.h>
@@ -160,4 +163,3 @@ void ViewProviderCompound::replaceObject(App::DocumentObject* oldValue, App::Doc
     std::replace(pShapes.begin(), pShapes.end(), oldValue, newValue);
     pBool->Links.setValues(pShapes);
 }
-

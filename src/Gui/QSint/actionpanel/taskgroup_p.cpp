@@ -151,4 +151,3 @@ void TaskGroup::keyReleaseEvent ( QKeyEvent * event )
 
 
 }
-

@@ -184,4 +184,3 @@ protected:
 } // namespace Gui
 
 #endif // GUI_PYTHONCONSOLE_H
-

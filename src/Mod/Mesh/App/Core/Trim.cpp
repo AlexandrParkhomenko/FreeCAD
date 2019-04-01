@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 #include <algorithm>
 
 #include "Trim.h"
@@ -743,4 +744,3 @@ void MeshTrimming::TrimFacets(const std::vector<unsigned long>& raulFacets, std:
 
     aclNewFacets = myTriangles;
 }
-

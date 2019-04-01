@@ -89,4 +89,3 @@ protected:
 
 
 #endif // PART_FEATUREREVOLUTION_H
-

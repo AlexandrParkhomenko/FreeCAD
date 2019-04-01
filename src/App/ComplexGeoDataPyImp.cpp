@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "ComplexGeoData.h"
 
@@ -134,4 +135,3 @@ int ComplexGeoDataPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*
 {
     return 0; 
 }
-

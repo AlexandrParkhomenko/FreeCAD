@@ -270,4 +270,3 @@ inline bool PointsGrid::CheckPos (unsigned long ulX, unsigned long ulY, unsigned
 } // namespace Points
 
 #endif // POINTS_GRID_H
-

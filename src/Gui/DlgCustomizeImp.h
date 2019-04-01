@@ -81,4 +81,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DLGCUSTOMIZE_IMP_H
-

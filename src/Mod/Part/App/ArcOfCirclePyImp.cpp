@@ -21,11 +21,14 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <gp_Circ.hxx>
 # include <Geom_Circle.hxx>
 # include <GC_MakeArcOfCircle.hxx>
 # include <GC_MakeCircle.hxx>
 # include <Geom_TrimmedCurve.hxx>
+#endif
 
 #include "Geometry.h"
 #include <Mod/Part/App/ArcOfCirclePy.h>
@@ -154,4 +157,3 @@ int ArcOfCirclePy::setCustomAttributes(const char* , PyObject *)
 {
     return 0; 
 }
-

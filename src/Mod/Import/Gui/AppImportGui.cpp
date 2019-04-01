@@ -23,6 +23,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 #include <App/Application.h>
 #include <Base/Console.h>
@@ -63,4 +66,3 @@ PyMOD_INIT_FUNC(ImportGui)
 
     PyMOD_Return(mod);
 }
-

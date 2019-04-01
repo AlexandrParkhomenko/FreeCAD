@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 #ifdef __GNUC__
 # include <unistd.h>
 #endif
@@ -60,4 +61,3 @@ QString UnitsSchemaMmMin::schemaTranslate(const Quantity &quant, double &factor,
 
     return toLocale(quant, factor, unitString);
 }
-

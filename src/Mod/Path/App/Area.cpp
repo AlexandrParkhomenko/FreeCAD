@@ -19,8 +19,11 @@
  *   Suite 330, Boston, MA  02111-1307, USA                                 *
  *                                                                          *
  ****************************************************************************/
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <cfloat>
+#endif
 
 #include <boost/version.hpp>
 #include <boost/config.hpp>
@@ -106,6 +109,7 @@ BOOST_GEOMETRY_REGISTER_POINT_3D_GET_SET(
 #   define AREA_DBG FC_WARN
 #else
 #   define AREA_DBG(...) do{}while(0)
+#endif
 
 FC_LOG_LEVEL_INIT("Path.Area",true,true)
 
@@ -823,6 +827,7 @@ struct WireJoiner {
             add(it=edges.emplace(itNext,mkEdge1.Edge(),true));
             add(edges.emplace(itNext,mkEdge2.Edge(),true));
         }
+#endif
     }
 
     // This algorithm tries to find a set of closed wires that includes as many
@@ -999,6 +1004,7 @@ struct WireJoiner {
         }
         FC_TIME_LOG(t,"found " << count << " closed wires, skipped " << skips << "edges. ");
         return skips;
+#endif
     }
 
     //! make a clean wire with sorted, oriented, connected, etc edges
@@ -1886,6 +1892,7 @@ void Area::makeOffset(list<shared_ptr<CArea> > &areas,
     PARAM_ENUM_CONVERT(AREA_MY,PARAM_FNAME,PARAM_ENUM_EXCEPT,AREA_PARAMS_OFFSET_CONF);
 #ifdef AREA_OFFSET_ALGO
     PARAM_ENUM_CONVERT(AREA_MY,PARAM_FNAME,PARAM_ENUM_EXCEPT,AREA_PARAMS_CLIPPER_FILL);
+#endif
 
     if(offset<0) {
         stepover = -fabs(stepover);
@@ -1913,6 +1920,7 @@ void Area::makeOffset(list<shared_ptr<CArea> > &areas,
                     areaOpen.append(c);
             }
         }else
+#endif
             area = *myArea;
 
 #ifdef AREA_OFFSET_ALGO
@@ -1928,11 +1936,13 @@ void Area::makeOffset(list<shared_ptr<CArea> > &areas,
             }
             break;
         case Area::AlgoClipperOffset:
+#endif
             area.OffsetWithClipper(offset,JoinType,EndType,
                     myParams.MiterLimit,myParams.RoundPrecision);
 #ifdef AREA_OFFSET_ALGO
             break;
         }
+#endif
         if(count>1)
             FC_TIME_LOG(t1,"makeOffset " << i << '/' << count);
         if(area.m_curves.empty()) {
@@ -2189,6 +2199,7 @@ TopoDS_Shape Area::toShape(const CCurve &_c, const gp_Trsf *trsf, int reorient) 
             AREA_XYZ(p2)<<endl<<AREA_XYZ(pt)<<endl<<AREA_XYZ(pstart));
         mkWire.Add(BRepBuilderAPI_MakeEdge(pt,pstart).Edge());
     }
+#endif
 
     ShapeAnalysis_FreeBounds::ConnectEdgesToWires(
             hEdges, Precision::Confusion(), Standard_False, hWires);
@@ -3505,5 +3516,4 @@ void Area::setDefaultParams(const AreaStaticParams &params){
 const AreaStaticParams &Area::getDefaultParams() {
     return s_params;
 }
-
 

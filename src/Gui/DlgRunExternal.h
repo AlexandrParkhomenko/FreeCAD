@@ -69,4 +69,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DlgRunExternal_H
-

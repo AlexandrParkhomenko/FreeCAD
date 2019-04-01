@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "ui_TaskSketcherSolverAdvanced.h"
 #include "TaskSketcherSolverAdvanced.h"
@@ -578,4 +581,3 @@ void TaskSketcherSolverAdvanced::updateSketchObject(void)
 }
 
 #include "moc_TaskSketcherSolverAdvanced.cpp"
-

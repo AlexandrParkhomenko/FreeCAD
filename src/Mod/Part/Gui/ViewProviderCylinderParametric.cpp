@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "ViewProviderCylinderParametric.h"
 
@@ -63,4 +66,3 @@ std::vector<std::string> ViewProviderCylinderParametric::getDisplayModes(void) c
 
   return StrList;
 }
-

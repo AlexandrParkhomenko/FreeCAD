@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 #include <QApplication>
 #include <QPainter>
 #include <QDesktopWidget>
@@ -279,4 +280,3 @@ bool DlgExpressionInput::eventFilter(QObject *obj, QEvent *ev)
 
 
 #include "moc_DlgExpressionInput.cpp"
-

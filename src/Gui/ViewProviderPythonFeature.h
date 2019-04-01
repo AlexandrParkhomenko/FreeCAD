@@ -454,4 +454,3 @@ typedef ViewProviderPythonFeatureT<ViewProviderGeometryObject> ViewProviderPytho
 
 #endif // GUI_VIEWPROVIDERPYTHONFEATURE_H
 
-

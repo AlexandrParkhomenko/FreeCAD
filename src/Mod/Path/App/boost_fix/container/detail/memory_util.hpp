@@ -81,4 +81,3 @@ BOOST_INTRUSIVE_INSTANTIATE_DEFAULT_TYPE_TMPLT(difference_type)
 #include <boost/container/detail/config_end.hpp>
 
 #endif // ! defined(BOOST_CONTAINER_ALLOCATOR_MEMORY_UTIL_HPP)
-

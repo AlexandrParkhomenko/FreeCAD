@@ -93,4 +93,3 @@ typedef GVector<double> GVectord;
 }
 
 #endif
-

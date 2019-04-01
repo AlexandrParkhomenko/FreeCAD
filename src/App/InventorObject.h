@@ -58,4 +58,3 @@ public:
 
 
 #endif // APP_INVENTOROBJECT_H
-

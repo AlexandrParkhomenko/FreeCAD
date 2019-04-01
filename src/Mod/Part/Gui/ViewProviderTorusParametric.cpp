@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "ViewProviderTorusParametric.h"
 
@@ -63,4 +66,3 @@ std::vector<std::string> ViewProviderTorusParametric::getDisplayModes(void) cons
 
   return StrList;
 }
-

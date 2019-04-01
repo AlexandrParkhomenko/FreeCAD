@@ -59,4 +59,3 @@ protected:
 } // namespace Gui
 
 #endif //GUI_DIALOG_DLGONLINEHELP_IMP_H
-

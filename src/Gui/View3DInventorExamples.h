@@ -32,4 +32,3 @@ void AnimationTexture(SoSeparator * root);
 
 #endif  //GUI_VIEW3DINVENTOREXAMPLES_H
 
-

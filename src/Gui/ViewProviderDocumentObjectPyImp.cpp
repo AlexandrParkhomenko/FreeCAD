@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <sstream>
+#endif
 
 #include <Gui/ViewProviderDocumentObject.h>
 #include <Gui/Document.h>
@@ -74,4 +77,3 @@ int ViewProviderDocumentObjectPy::setCustomAttributes(const char* /*attr*/, PyOb
 {
     return 0; 
 }
-

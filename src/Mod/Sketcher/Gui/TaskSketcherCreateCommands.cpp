@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QEvent>
+#endif
 
 #include "TaskSketcherCreateCommands.h"
 #include <Gui/Application.h>
@@ -86,4 +89,3 @@ void TaskSketcherCreateCommands::OnChange(Gui::SelectionSingleton::SubjectType &
 
 
 #include "moc_TaskSketcherCreateCommands.cpp"
-

@@ -48,4 +48,3 @@ Box2<Real> MergeBoxes (const Box2<Real>& rkBox0, const Box2<Real>& rkBox1);
 }
 
 #endif
-

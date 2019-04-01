@@ -147,4 +147,3 @@ typedef GMatrix<double> GMatrixd;
 }
 
 #endif
-

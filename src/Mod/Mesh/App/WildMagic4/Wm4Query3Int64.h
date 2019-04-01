@@ -72,4 +72,3 @@ typedef Query3Int64<double> Query3Int64d;
 }
 
 #endif
-

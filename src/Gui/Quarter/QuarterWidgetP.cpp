@@ -341,4 +341,3 @@ QuarterWidgetP::nativeEventFilter(void * message, long * result)
   return false;
 }
 
-

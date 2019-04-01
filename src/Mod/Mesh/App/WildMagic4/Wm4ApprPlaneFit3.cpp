@@ -157,4 +157,3 @@ template WM4_FOUNDATION_ITEM
 Plane3<double> OrthogonalPlaneFit3<double> (int, const Vector3<double>*);
 //----------------------------------------------------------------------------
 }
-

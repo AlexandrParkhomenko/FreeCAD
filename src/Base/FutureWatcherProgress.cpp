@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "FutureWatcherProgress.h"
 
@@ -47,4 +48,3 @@ void FutureWatcherProgress::progressValueChanged(int v)
 }
 
 #include "moc_FutureWatcherProgress.cpp"
-

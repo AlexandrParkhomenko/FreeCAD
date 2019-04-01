@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QAction>
 # include <QMenu>
 # include <QFont>
@@ -41,6 +43,7 @@
 # include <Inventor/nodes/SoCoordinate3.h>
 # include <Inventor/nodes/SoLineSet.h>
 # include <Inventor/nodes/SoPointSet.h>
+#endif
 # include <Inventor/draggers/SoTranslate2Dragger.h>
 
 #include "ViewProviderAnnotation.h"
@@ -254,6 +257,7 @@ void ViewProviderAnnotation::updateData(const App::Property* prop)
 #else
             pLabel->string.set1Value(index, SbString(cs));
             pLabel3d->string.set1Value(index, SbString(cs));
+#endif
             index++;
         }
     }
@@ -525,4 +529,3 @@ void ViewProviderAnnotationLabel::drawImage(const std::vector<std::string>& s)
     Gui::BitmapFactory().convert(image, sfimage);
     pImage->image = sfimage;
 }
-

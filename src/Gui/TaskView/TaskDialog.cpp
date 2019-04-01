@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QMessageBox>
+#endif
 
 #include "TaskDialog.h"
 
@@ -100,4 +103,3 @@ void TaskDialog::helpRequested()
 
 
 #include "moc_TaskDialog.cpp"
-

@@ -62,4 +62,3 @@ namespace MeshCore
 
 
 #endif  // MESH_FUNCTIONAL_H 
-

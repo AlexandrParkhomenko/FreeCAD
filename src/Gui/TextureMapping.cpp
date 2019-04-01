@@ -21,13 +21,16 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Inventor/nodes/SoGroup.h>
 # include <Inventor/nodes/SoTexture2.h>
 # include <QImage>
 # include <QMessageBox>
 # include <QImageReader>
 # include <QKeyEvent>
+#endif
 
 #include <Inventor/nodes/SoTextureCoordinateEnvironment.h>
 #include <QDialogButtonBox>
@@ -201,4 +204,3 @@ bool TaskTextureMapping::reject()
 }
 
 #include "moc_TextureMapping.cpp"
-

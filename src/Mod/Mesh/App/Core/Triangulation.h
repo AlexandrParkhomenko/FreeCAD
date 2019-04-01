@@ -256,4 +256,3 @@ protected:
 
 
 #endif  // MESH_TRIANGULATION_H 
-

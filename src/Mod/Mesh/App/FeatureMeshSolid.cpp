@@ -21,6 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>
@@ -263,4 +266,3 @@ App::DocumentObjectExecReturn *Cube::execute(void)
         return new App::DocumentObjectExecReturn("Cannot create cube", this);
     }
 }
-

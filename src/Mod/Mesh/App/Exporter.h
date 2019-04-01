@@ -156,4 +156,3 @@ class AmfExporter : public Exporter
 
 } // namespace Mesh
 #endif // MESH_EXPORTER_H
-

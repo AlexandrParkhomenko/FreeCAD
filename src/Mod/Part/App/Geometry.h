@@ -1069,4 +1069,3 @@ GeomSurface *makeFromSurface(const Handle(Geom_Surface)&);
 }
 
 #endif // PART_GEOMETRY_H
-

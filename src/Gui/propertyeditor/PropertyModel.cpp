@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <cfloat>
+#endif
 
 #include "PropertyModel.h"
 #include "PropertyItem.h"
@@ -387,6 +390,7 @@ void PropertyModel::updateChildren(PropertyItem* item, int column, const QModelI
                 updateChildren(child, column, data);
             }
         }
+#endif
     }
 }
 
@@ -407,4 +411,3 @@ bool PropertyModel::removeRows(int row, int count, const QModelIndex& parent)
 }
 
 #include "moc_PropertyModel.cpp"
-

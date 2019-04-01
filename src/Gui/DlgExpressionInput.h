@@ -86,4 +86,3 @@ private:
 }
 
 #endif // GUI_DIALOG_EXPRESSIONINPUT_H
-

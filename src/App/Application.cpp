@@ -24,7 +24,9 @@
 
 
 
+#include "PreCompiled.h"
 /*
+#ifndef _PreComp_
 # include <iostream>
 # include <sstream>
 # include <exception>
@@ -2265,4 +2267,3 @@ ObjectLabelObserver::ObjectLabelObserver() : current(0)
 ObjectLabelObserver::~ObjectLabelObserver()
 {
 }
-

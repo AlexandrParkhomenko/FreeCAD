@@ -46,4 +46,3 @@ typedef DelTetrahedron<double> DelTetrahedrond;
 }
 
 #endif
-

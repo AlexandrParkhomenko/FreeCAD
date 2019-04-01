@@ -150,4 +150,3 @@ typedef ExtensionPythonT<GroupExtensionPythonT<GroupExtension>> GroupExtensionPy
 
 
 #endif // APP_GROUPEXTENSION_H
-

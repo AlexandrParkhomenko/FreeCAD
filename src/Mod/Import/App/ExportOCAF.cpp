@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <gp_Trsf.hxx>
 # include <gp_Ax1.hxx>
 # include <NCollection_Vector.hxx>
@@ -478,4 +480,3 @@ void ExportOCAFCmd::findColors(Part::Feature* part, std::vector<App::Color>& col
     if (it != partColors.end())
         colors = it->second;
 }
-

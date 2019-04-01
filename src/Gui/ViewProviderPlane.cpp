@@ -22,13 +22,16 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Inventor/nodes/SoAsciiText.h>
 # include <Inventor/nodes/SoCoordinate3.h>
 # include <Inventor/nodes/SoFont.h>
 # include <Inventor/nodes/SoIndexedLineSet.h>
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/nodes/SoTranslation.h>
+#endif
 
 #include "ViewProviderOrigin.h"
 
@@ -79,4 +82,3 @@ void ViewProviderPlane::attach ( App::DocumentObject *obj ) {
 
     sep->addChild ( getLabel () );
 }
-

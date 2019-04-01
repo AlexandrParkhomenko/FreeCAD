@@ -36,4 +36,3 @@ typedef Gui::ViewProviderPythonFeatureT<ViewProviderMeshFaceSet> ViewProviderPyt
 
 #endif // MESHGUI_VIEWPROVIDERPYTHON_H
 
-

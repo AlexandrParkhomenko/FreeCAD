@@ -58,4 +58,3 @@ typedef App::FeaturePythonT<MaterialObject> MaterialObjectPython;
 
 
 #endif // APP_MaterialObject_H
-

@@ -847,4 +847,3 @@ namespace geoff_geometry {
 		return false;
 	}
 }
-

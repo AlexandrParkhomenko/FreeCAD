@@ -113,4 +113,3 @@ private:
 
 
 #endif // GUI_VIEWPROVIDERMEASUREDISTANCE_H
-

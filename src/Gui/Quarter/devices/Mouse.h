@@ -57,4 +57,3 @@ private:
 }}} // namespace
 
 #endif // QUARTER_MOUSEHANDLER_H
-

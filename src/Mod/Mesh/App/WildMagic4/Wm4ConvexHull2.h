@@ -94,4 +94,3 @@ typedef ConvexHull2<double> ConvexHull2d;
 }
 
 #endif
-

@@ -62,4 +62,3 @@ private:
 
 #endif // PARTGUI_SOFCSHAPEOBJECT_H
 
-

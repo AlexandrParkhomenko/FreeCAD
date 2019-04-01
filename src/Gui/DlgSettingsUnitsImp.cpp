@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QRegExp>
+#endif
 
 #include <limits>
 
@@ -156,4 +159,3 @@ void DlgSettingsUnitsImp::changeEvent(QEvent *e)
 }
 
 #include "moc_DlgSettingsUnitsImp.cpp"
-

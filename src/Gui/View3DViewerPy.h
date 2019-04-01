@@ -88,4 +88,3 @@ private:
 } // namespace Gui
 
 #endif //GUI_VIEW3DPY_H
-

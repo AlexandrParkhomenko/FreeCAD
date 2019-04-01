@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include <Mod/Mesh/App/MeshFeature.h>
 #include "PropertyEditorMesh.h"
@@ -145,4 +148,3 @@ int PropertyMeshKernelItem::countFaces() const
 }
 
 #include "moc_PropertyEditorMesh.cpp"
-

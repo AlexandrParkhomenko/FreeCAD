@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include <Gui/Control.h>
 #include <Gui/BitmapFactory.h>
@@ -92,4 +95,3 @@ PROPERTY_SOURCE_TEMPLATE(PathGui::ViewProviderPathCompoundPython, PathGui::ViewP
 // explicit template instantiation
 template class PathGuiExport ViewProviderPythonFeatureT<PathGui::ViewProviderPathCompound>;
 }
-

@@ -258,4 +258,3 @@ private:
 
 #endif // MESH_MESHPROPERTIES_H
 
-

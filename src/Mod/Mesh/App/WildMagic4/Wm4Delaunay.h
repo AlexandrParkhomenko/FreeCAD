@@ -167,4 +167,3 @@ typedef Delaunay<double> Delaunayd;
 }
 
 #endif
-

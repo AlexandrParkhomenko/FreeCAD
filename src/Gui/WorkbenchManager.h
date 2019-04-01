@@ -75,4 +75,3 @@ private:
 
 
 #endif // GUI_WORKBENCHMANAGER_H 
-

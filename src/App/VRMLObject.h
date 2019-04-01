@@ -73,4 +73,3 @@ private:
 
 
 #endif // APP_INVENTOROBJECT_H
-

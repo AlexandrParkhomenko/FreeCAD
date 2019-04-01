@@ -102,4 +102,3 @@ private:
 }
 
 #endif // BASE_COORDINATESYSTEM_H
-

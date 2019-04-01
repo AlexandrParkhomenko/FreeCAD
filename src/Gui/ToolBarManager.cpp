@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QApplication>
 # include <QAction>
 # include <QToolBar>
 # include <QToolButton>
+#endif
 
 #include "ToolBarManager.h"
 #include "MainWindow.h"
@@ -356,4 +359,3 @@ QList<QToolBar*> ToolBarManager::toolBars() const
 
     return tb;
 }
-

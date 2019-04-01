@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Geom_BezierCurve.hxx>
 # include <gp_Pnt.hxx>
 # include <TColStd_Array1OfReal.hxx>
 # include <TColgp_Array1OfPnt.hxx>
+#endif
 
 #include <Base/VectorPy.h>
 #include <Base/GeometryPyCXX.h>
@@ -386,4 +389,3 @@ int BezierCurvePy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0;
 }
-

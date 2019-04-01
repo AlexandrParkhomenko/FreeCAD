@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <memory>
+#endif
 
 #include <CXX/Objects.hxx>
 #include "Exception.h"
@@ -241,4 +244,3 @@ PyObject* UnitsApi::sSchemaTranslate(PyObject * /*self*/, PyObject *args)
 
     return Py::new_reference_to(res);
 }
-

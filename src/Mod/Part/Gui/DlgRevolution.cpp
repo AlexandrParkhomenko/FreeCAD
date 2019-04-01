@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QMessageBox>
 # include <gp_Dir.hxx>
 # include <gp_Lin.hxx>
@@ -35,6 +37,7 @@
 # include <Python.h>
 # include <Inventor/system/inttypes.h>
 # include <Precision.hxx>
+#endif
 
 #include "ui_DlgRevolution.h"
 #include "DlgRevolution.h"
@@ -569,4 +572,3 @@ bool TaskRevolution::accept()
 }
 
 #include "moc_DlgRevolution.cpp"
-

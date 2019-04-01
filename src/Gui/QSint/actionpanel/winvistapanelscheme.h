@@ -39,4 +39,3 @@ public:
 
 
 #endif // WINVISTAPANELSCHEME_H
-

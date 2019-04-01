@@ -58,4 +58,3 @@ protected:
 
 #endif // GUI_SOFCBACKGROUNDGRADIENT_H
 
-

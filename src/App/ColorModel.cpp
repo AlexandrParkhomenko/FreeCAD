@@ -523,4 +523,3 @@ bool ColorLegend::setText (unsigned long ulPos, const std::string &rclName)
     else
         return false;
 }
-

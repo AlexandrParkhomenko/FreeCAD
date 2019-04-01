@@ -21,12 +21,15 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QDebug>
 # include <climits>
 # include <QStyle>
 # include <QLineEdit>
 # include <QKeyEvent>
+#endif
 
 #include "SpinBox.h"
 #include "DlgExpressionInput.h"
@@ -773,4 +776,3 @@ void DoubleSpinBox::keyPressEvent(QKeyEvent *event)
 }
 
 #include "moc_SpinBox.cpp"
-

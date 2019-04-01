@@ -46,4 +46,3 @@ inline std::string encodeFilename(std::string fn)
 } //namespace Part
 
 #endif // PART_ENCODEFILENAME_H
-

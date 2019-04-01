@@ -1011,4 +1011,3 @@ inline std::ostream& operator << (std::ostream& out, const Base::BoundBox3d& bb)
 
 #endif  // BASE_BOUNDBOX_H
 
-

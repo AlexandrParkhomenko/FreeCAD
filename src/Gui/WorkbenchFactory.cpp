@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "WorkbenchFactory.h"
 #include "Workbench.h"
@@ -65,4 +66,3 @@ std::list<std::string> WorkbenchFactoryInst::workbenches() const
       wb.push_back(it->first);
   return wb;
 }
-

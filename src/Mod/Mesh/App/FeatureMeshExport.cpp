@@ -21,6 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>
@@ -66,4 +69,3 @@ App::DocumentObjectExecReturn *Export::execute(void)
     pcFeat->Mesh.getValue().save(FileName.getValue());
     return App::DocumentObject::StdReturn;
 }
-

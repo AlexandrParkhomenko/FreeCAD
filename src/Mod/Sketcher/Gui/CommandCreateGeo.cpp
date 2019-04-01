@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Inventor/nodes/SoPickStyle.h>
 # include <QApplication>
+#endif
 
 # include <QMessageBox>
 
@@ -7750,4 +7753,3 @@ void CreateSketcherCommandsCreateGeo(void)
     rcCmdMgr.addCommand(new CmdSketcherExternal());
     rcCmdMgr.addCommand(new CmdSketcherCarbonCopy());
 }
-

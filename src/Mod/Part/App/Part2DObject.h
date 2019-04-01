@@ -106,4 +106,3 @@ typedef App::FeaturePythonT<Part2DObject> Part2DObjectPython;
 
 
 #endif // PART_PART2DOBJECT_H
-

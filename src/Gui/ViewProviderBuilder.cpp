@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Inventor/nodes/SoMaterial.h>
+#endif
 
 #include "ViewProviderBuilder.h"
 #include "SoFCSelection.h"
@@ -115,4 +118,3 @@ void ViewProviderColorBuilder::buildNodes(const App::Property* prop, std::vector
     material->diffuseColor.finishEditing();
     node.push_back(material);
 }
-

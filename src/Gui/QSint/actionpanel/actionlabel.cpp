@@ -119,4 +119,3 @@ QSize ActionLabel::minimumSizeHint() const
 
 } // namespace
 
-

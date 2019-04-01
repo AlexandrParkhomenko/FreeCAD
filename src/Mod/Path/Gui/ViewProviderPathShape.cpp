@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include <Gui/BitmapFactory.h>
 #include <Gui/Application.h>
@@ -109,4 +112,3 @@ bool ViewProviderPathShape::onDelete(const std::vector<std::string> &)
     }
     return true;
 }
-

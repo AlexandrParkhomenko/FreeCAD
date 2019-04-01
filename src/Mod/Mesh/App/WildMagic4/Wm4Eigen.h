@@ -113,4 +113,3 @@ typedef Eigen<double> Eigend;
 }
 
 #endif
-

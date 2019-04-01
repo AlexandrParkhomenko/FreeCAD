@@ -430,4 +430,3 @@ inline std::vector<T*> Document::getObjectsOfType() const
 } //namespace App
 
 #endif // APP_DOCUMENT_H
-

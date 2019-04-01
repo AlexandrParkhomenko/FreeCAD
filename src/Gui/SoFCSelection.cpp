@@ -20,11 +20,14 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <qstatusbar.h>
 # include <qstring.h>
 # include <Inventor/details/SoFaceDetail.h>
 # include <Inventor/details/SoLineDetail.h>
+#endif
 
 #include <Inventor/elements/SoOverrideElement.h>
 #include <Inventor/elements/SoLazyElement.h>
@@ -57,6 +60,7 @@
 // least it works.
 #if defined(_OCC64) // is set by configure or cmake
 # define NO_FRONTBUFFER
+#endif
 
 using namespace Gui;
 
@@ -610,6 +614,7 @@ SoFCSelection::handleEvent(SoHandleEventAction * action)
     // Let the base class traverse the children.
     if (action->getGrabber() != this)
         inherited::handleEvent(action);
+#endif
 }
 
 // doc from parent
@@ -642,6 +647,7 @@ SoFCSelection::GLRenderBelowPath(SoGLRenderAction * action)
     // Clean up state if needed
     if (drawHighlighted)
         action->getState()->pop();
+#endif
 }
 
 void SoFCSelection::GLRender(SoGLRenderAction * action)
@@ -679,6 +685,7 @@ SoFCSelection::GLRenderInPath(SoGLRenderAction * action)
     // Clean up state if needed
     if (drawHighlighted)
         action->getState()->pop();
+#endif
 }
 
 SbBool
@@ -827,6 +834,7 @@ SoFCSelection::redrawHighlighted(SoAction *  action , SbBool  doHighlight )
     glFlush();
 
     pathToRender->unref();
+#endif
 }
 
 SbBool 
@@ -896,6 +904,7 @@ SoFCSelection::turnoffcurrent(SoAction * action)
         currenthighlight->unref();
         currenthighlight = NULL;
     }
+#endif
 }
 
 SbBool
@@ -942,4 +951,3 @@ void SoFCSelection::applySettings ()
 }
 
 //#undef THIS
-

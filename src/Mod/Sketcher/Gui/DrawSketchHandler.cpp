@@ -21,13 +21,16 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Standard_math.hxx>
 # include <Inventor/nodes/SoTranslation.h>
 # include <Inventor/nodes/SoText2.h>
 # include <Inventor/nodes/SoFont.h>
 # include <QPainter>
 # include <cmath>
+#endif  // #ifndef _PreComp_
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <Base/Console.h>
@@ -578,4 +581,3 @@ void DrawSketchHandler::resetPositionText(void)
 {
     sketchgui->resetPositionText();
 }
-

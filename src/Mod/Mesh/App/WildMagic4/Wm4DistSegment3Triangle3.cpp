@@ -149,4 +149,3 @@ template WM4_FOUNDATION_ITEM
 class DistSegment3Triangle3<double>;
 //----------------------------------------------------------------------------
 }
-

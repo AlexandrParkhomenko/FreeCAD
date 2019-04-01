@@ -74,4 +74,3 @@ namespace Path
 } //namespace Path
 
 #endif // PATH_COMMAND_H
-

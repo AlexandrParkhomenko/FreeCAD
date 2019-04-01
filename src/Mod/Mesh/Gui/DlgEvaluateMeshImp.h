@@ -163,4 +163,3 @@ private:
 } // namespace MeshGui
 
 #endif // MESHGUI_DLG_EVALUATE_MESH_IMP_H
-

@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QMouseEvent>
+#endif
 
 #include "TreeView.h"
 #include "DocumentModel.h"
@@ -87,5 +90,4 @@ void TreeView::rowsInserted (const QModelIndex & parent, int start, int end)
 }
 
 #include "moc_TreeView.cpp"
-
 

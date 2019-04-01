@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Inventor/nodes/SoSeparator.h>
 # include <QByteArray>
 # include <QDataStream>
+#endif
 
 #include <Inventor/SoDB.h>
 #include <Inventor/actions/SoWriteAction.h>
@@ -347,5 +350,5 @@ Py::Object ViewProviderPy::getIcon(void) const
     wrap.loadWidgetsModule();
     QIcon icon = getViewProviderPtr()->getIcon();
     return wrap.fromQIcon(new QIcon(icon));
+#endif
 }
-

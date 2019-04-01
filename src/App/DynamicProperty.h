@@ -137,4 +137,3 @@ private:
 } // namespace App
 
 #endif // APP_DYNAMICPROPERTY_H
-

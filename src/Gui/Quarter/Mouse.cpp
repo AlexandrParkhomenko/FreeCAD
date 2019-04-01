@@ -217,4 +217,3 @@ MouseP::mouseButtonEvent(QMouseEvent * event)
 
 #undef PRIVATE
 #undef PUBLIC
-

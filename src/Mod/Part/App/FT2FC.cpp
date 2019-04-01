@@ -28,6 +28,7 @@
 
 #ifdef FCUseFreeType
 
+#include "PreCompiled.h"
 
 #include <iostream>
 #include <fstream>
@@ -344,4 +345,3 @@ TopoDS_Wire edgesToWire(std::vector<TopoDS_Edge> Edges) {
 
 
 #endif //#ifdef FCUseFreeType
-

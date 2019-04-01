@@ -21,6 +21,9 @@
  ***************************************************************************/
 
  
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 
 #include "FeaturePartSpline.h"
@@ -35,6 +38,5 @@ PROPERTY_SOURCE(Part::Spline, Part::Feature)
 Spline::Spline()
 {
 }
-
 
 

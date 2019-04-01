@@ -158,4 +158,3 @@ PartExport extern PyObject* PartExceptionOCCDimensionError;
 } //namespace Part
 #endif  // _OCCError_h_
 
-

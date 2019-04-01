@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <stdlib.h>
 # include <QAction>
 # include <QMenu>
@@ -50,6 +52,7 @@
 # include <Inventor/nodes/SoShapeHints.h>
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/nodes/SoTransform.h>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <Base/Console.h>
@@ -515,6 +518,7 @@ QIcon ViewProviderMesh::getIcon() const
         "................"};
     QPixmap px(Mesh_Feature_xpm);
     return px;
+#endif
 }
 
 App::PropertyColorList* ViewProviderMesh::getColorProperty() const
@@ -1330,6 +1334,7 @@ std::vector<unsigned long> ViewProviderMesh::getVisibleFacets(const SbViewportRe
     //root->addChild(hints);
     root->addChild(mat);
     root->addChild(bind);
+#endif
     root->addChild(this->getCoordNode());
     root->addChild(this->getShapeNode());
 
@@ -2232,4 +2237,3 @@ SoNode* ViewProviderMeshObject::getCoordNode() const
 {
     return this->pcMeshNode;
 }
-

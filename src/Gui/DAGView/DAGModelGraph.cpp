@@ -20,6 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 #include "DAGModelGraph.h"
 
@@ -115,4 +118,3 @@ void Gui::DAG::eraseRecord(const ViewProviderDocumentObject* VPDObjectIn, GraphL
   assert(it != list.end());
   containerIn.get<GraphLinkRecord::ByVPDObject>().erase(it);
 }
-

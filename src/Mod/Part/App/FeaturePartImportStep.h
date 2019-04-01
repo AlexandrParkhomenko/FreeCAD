@@ -61,4 +61,3 @@ public:
 
 
 #endif // PART_FEATUREPARTIMPORTSTEP_H
-

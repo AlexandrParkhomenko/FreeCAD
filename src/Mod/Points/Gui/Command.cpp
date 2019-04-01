@@ -21,11 +21,14 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <algorithm>
 # include <QFileInfo>
 # include <QInputDialog>
 # include <Python.h>
 # include <Inventor/events/SoMouseButtonEvent.h>
+#endif
 
 #include <Base/Exception.h>
 #include <Base/Matrix.h>
@@ -358,4 +361,3 @@ void CreatePointsCommands(void)
     rcCmdMgr.addCommand(new CmdPointsPolyCut());
     rcCmdMgr.addCommand(new CmdPointsMerge());
 }
-

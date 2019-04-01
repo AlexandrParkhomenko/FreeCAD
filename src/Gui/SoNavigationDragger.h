@@ -123,4 +123,3 @@ class RotTransDragger : public SoDragger
 
 #endif //SONAVIGATIONDRAGGER_H
 
-

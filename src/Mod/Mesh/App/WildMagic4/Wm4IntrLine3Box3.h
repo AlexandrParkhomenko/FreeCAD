@@ -74,4 +74,3 @@ typedef IntrLine3Box3<double> IntrLine3Box3d;
 }
 
 #endif
-

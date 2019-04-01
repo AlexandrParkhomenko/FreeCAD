@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <BRep_Tool.hxx>
 # include <Geom_Curve.hxx>
 # include <TColgp_Array1OfPnt.hxx>
@@ -39,6 +41,7 @@
 # include <Inventor/events/SoMouseButtonEvent.h>
 # include <Inventor/events/SoKeyboardEvent.h>
 # include <Inventor/events/SoLocation2Event.h>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <Base/Console.h>
@@ -343,4 +346,3 @@ Standard_Boolean ViewProviderCurveNet::computeVertices(SoSeparator* root, const 
 
     return true;
 }
-

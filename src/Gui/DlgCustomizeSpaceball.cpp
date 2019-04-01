@@ -20,7 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QLabel>
@@ -31,6 +33,7 @@
 #include <QPrinter>
 #include <QPainter>
 #include <QTableView>
+#endif
 
 #include "Base/Console.h"
 #include "Application.h"
@@ -634,6 +637,7 @@ void DlgCustomizeSpaceball::goPrint()
     view->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
 #else
     view->horizontalHeader()->setResizeMode(QHeaderView::Fixed);
+#endif
     view->setModel(model);
     view->horizontalHeader()->resizeSection(0, 150);
     view->horizontalHeader()->resizeSection(1, 300);
@@ -721,4 +725,3 @@ void DlgCustomizeSpaceball::onModifyMacroAction(const QByteArray &macroName)
 }
 
 #include "moc_DlgCustomizeSpaceball.cpp"
-

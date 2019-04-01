@@ -67,4 +67,3 @@ protected:
 
 #endif // PARTGUI_VIEWPROVIDERPRISM_H
 
-

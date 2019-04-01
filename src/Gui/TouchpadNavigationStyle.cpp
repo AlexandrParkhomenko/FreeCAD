@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <cfloat>
 # include "InventorAll.h"
 # include <QAction>
@@ -32,6 +34,7 @@
 # include <QMenu>
 # include <QMetaObject>
 # include <QRegExp>
+#endif
 
 #include <Inventor/sensors/SoTimerSensor.h>
 
@@ -346,4 +349,3 @@ SbBool TouchpadNavigationStyle::processSoEvent(const SoEvent * const ev)
 
     return processed;
 }
-

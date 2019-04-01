@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <sstream>
+#endif
 
 #include "StepShape.h"
 
@@ -99,4 +102,3 @@ int StepShape::read(const char* fileName)
 
     return 0;
 }
-

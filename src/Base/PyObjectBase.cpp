@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <sstream>
 # include <stdlib.h>
+#endif
 
 #include "PyObjectBase.h"
 #include "Console.h"
@@ -41,6 +44,7 @@ PyObjectBase::PyObjectBase(void* p,PyTypeObject *T)
     _Py_NewReference(this);
 #ifdef FC_LOGPYOBJECTS
     Base::Console().Log("PyO+: %s (%p)\n",T->tp_name, this);
+#endif
     StatusBits.set(Valid); // valid, the second bit is NOT set, i.e. it's mutable
     StatusBits.set(Notify);
 }
@@ -51,6 +55,7 @@ PyObjectBase::~PyObjectBase()
     PyGILStateLocker lock;
 #ifdef FC_LOGPYOBJECTS
     Base::Console().Log("PyO-: %s (%p)\n",Py_TYPE(this)->tp_name, this);
+#endif
     Py_XDECREF(attrDict);
 }
 
@@ -187,6 +192,7 @@ PyObject* PyObjectBase::__getattro(PyObject * obj, PyObject *attro)
             PyErr_Format(PyExc_AttributeError, "<no object bound to built-in method %s>", attr);
         }
     }
+#endif
     return value;
 }
 
@@ -223,6 +229,7 @@ int PyObjectBase::__setattro(PyObject *obj, PyObject *attro, PyObject *value)
     if (ret == 0) {
         static_cast<PyObjectBase*>(obj)->startNotify();
     }
+#endif
     return ret;
 }
 
@@ -404,4 +411,3 @@ void PyObjectBase::clearAttributes()
         PyDict_Clear(attrDict);
     }
 }
-

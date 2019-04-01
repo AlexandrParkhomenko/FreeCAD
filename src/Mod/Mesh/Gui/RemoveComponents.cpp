@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QPushButton>
+#endif
 
 #include "RemoveComponents.h"
 #include "ui_RemoveComponents.h"
@@ -244,4 +247,3 @@ void TaskRemoveComponents::clicked(int id)
 }
 
 #include "moc_RemoveComponents.cpp"
-

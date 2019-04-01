@@ -201,4 +201,3 @@ inline void MeshEdgeBuilder::Add (unsigned long ulInd1, unsigned long ulInd2,
 } // namespace MeshCore
 
 #endif // MESH_HELPERS_H 
-

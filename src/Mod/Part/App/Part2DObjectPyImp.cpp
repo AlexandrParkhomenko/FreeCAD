@@ -1,4 +1,5 @@
 
+#include "PreCompiled.h"
 
 #include "Mod/Part/App/Part2DObject.h"
 #include "OCCError.h"
@@ -26,6 +27,5 @@ int Part2DObjectPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
-
 
 

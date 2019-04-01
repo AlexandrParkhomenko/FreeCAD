@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QContextMenuEvent>
 # include <QMenu>
+#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>
@@ -72,6 +75,7 @@ void PrefWidget::setParamGrpPath( const QByteArray& path )
     if ( paramGrpPath() != path )
       Base::Console().Warning("Widget already attached\n");
   }
+#endif
 
   if ( paramGrpPath() != path )
   {
@@ -116,6 +120,7 @@ void PrefWidget::onSave()
 #ifdef FC_DEBUG
   else
     qFatal( "No parameter group specified!" );
+#endif
 }
 
 /**
@@ -126,6 +131,7 @@ void PrefWidget::onRestore()
 #ifdef FC_DEBUG
   if (getWindowParameter().isNull())
     qWarning( "No parameter group specified!" );
+#endif
   restorePreferences();
 }
 
@@ -710,4 +716,3 @@ void PrefFontBox::savePreferences()
 }
 
 #include "moc_PrefWidgets.cpp"
-

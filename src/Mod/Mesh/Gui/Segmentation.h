@@ -72,4 +72,3 @@ private:
 }
 
 #endif // MESHGUI_SEGMENTATION_H
-

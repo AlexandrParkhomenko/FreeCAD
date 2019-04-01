@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QFileDialog>
 # include <QMessageBox>
+#endif
 
 #include "Application.h"
 #include "MainWindow.h"
@@ -128,5 +131,4 @@ void DlgRunExternal::on_chooseProgram_clicked()
 }
 
 #include "moc_DlgRunExternal.cpp"
-
 

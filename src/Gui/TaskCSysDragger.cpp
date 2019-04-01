@@ -20,9 +20,12 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 #include <assert.h>
 #include <limits>
 #include <QApplication>
+#endif
 
 #include <QGridLayout>
 #include <QFontMetrics>
@@ -149,4 +152,3 @@ bool TaskCSysDragger::accept()
 }
 
 #include "moc_TaskCSysDragger.cpp"
-

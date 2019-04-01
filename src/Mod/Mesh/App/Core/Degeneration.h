@@ -686,4 +686,3 @@ public:
 } // namespace MeshCore
 
 #endif // MESH_DEGENERATION_H
-

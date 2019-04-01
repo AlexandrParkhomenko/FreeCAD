@@ -89,4 +89,3 @@ private:
 } //namespace PartGui
 
 #endif // PARTGUI_TASKSETCOLORS_H
-

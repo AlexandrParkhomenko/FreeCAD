@@ -56,4 +56,3 @@ public:
 
 
 #endif // APP_DOCUMENTOBJECTFILEINCLUDED_H
-

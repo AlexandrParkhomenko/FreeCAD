@@ -91,4 +91,3 @@ WinVistaPanelScheme::WinVistaPanelScheme() : ActionPanelScheme()
 
 }
 
-

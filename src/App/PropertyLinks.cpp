@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <assert.h>
 # include <sstream>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <CXX/Objects.hxx>
@@ -77,6 +80,7 @@ PropertyLink::~PropertyLink()
                 _pcLink->_removeBackLink(parent);
         }
     }
+#endif
     
 }
 
@@ -99,6 +103,7 @@ void PropertyLink::setValue(App::DocumentObject * lValue)
                 lValue->_addBackLink(parent);
         }
     }
+#endif
     _pcLink=lValue;
     hasSetValue();
 }
@@ -223,6 +228,7 @@ PropertyLinkList::~PropertyLinkList()
                 obj->_removeBackLink(parent);
         }
     }
+#endif
 
 }
 
@@ -251,6 +257,7 @@ void PropertyLinkList::setValue(DocumentObject* lValue)
                 lValue->_addBackLink(parent);
         }
     }
+#endif
     
     if (lValue){
         aboutToSetValue();
@@ -281,6 +288,7 @@ void PropertyLinkList::setValues(const std::vector<DocumentObject*>& lValue)
                 obj->_addBackLink(parent);
         }
     }
+#endif
     _lValueList = lValue;
     hasSetValue();
 }
@@ -292,6 +300,7 @@ PyObject *PropertyLinkList::getPyObject(void)
     Py::Tuple sequence(count);
 #else
     Py::List sequence(count);
+#endif
     for (int i = 0; i<count; i++) {
         sequence.setItem(i, Py::asObject(_lValueList[i]->getPyObject()));
     }
@@ -437,6 +446,7 @@ PropertyLinkSub::~PropertyLinkSub()
                 _pcLinkSub->_removeBackLink(parent);
         }
     }
+#endif
 }
 
 //**************************************************************************
@@ -457,6 +467,7 @@ void PropertyLinkSub::setValue(App::DocumentObject * lValue, const std::vector<s
                 lValue->_addBackLink(parent);
         }
     }
+#endif
     _pcLinkSub=lValue;
     _cSubList = SubList;
     hasSetValue();
@@ -644,6 +655,7 @@ PropertyLinkSubList::~PropertyLinkSubList()
                 obj->_removeBackLink(parent);
         }
     }
+#endif
 }
 
 void PropertyLinkSubList::setSize(int newSize)
@@ -672,6 +684,7 @@ void PropertyLinkSubList::setValue(DocumentObject* lValue,const char* SubName)
                 lValue->_addBackLink(parent);
         }
     }
+#endif
     
     if (lValue) {
         aboutToSetValue();
@@ -712,6 +725,7 @@ void PropertyLinkSubList::setValues(const std::vector<DocumentObject*>& lValue,c
                 obj->_addBackLink(parent);
         }
     }
+#endif
 
     aboutToSetValue();
     _lValueList = lValue;
@@ -747,6 +761,7 @@ void PropertyLinkSubList::setValues(const std::vector<DocumentObject*>& lValue,c
                 obj->_addBackLink(parent);
         }
     }
+#endif
 
     aboutToSetValue();
     _lValueList = lValue;
@@ -774,6 +789,7 @@ void PropertyLinkSubList::setValue(DocumentObject* lValue, const std::vector<str
                 lValue->_addBackLink(parent);
         }
     }
+#endif
 
     aboutToSetValue();
     std::size_t size = SubList.size();
@@ -932,6 +948,7 @@ PyObject *PropertyLinkSubList::getPyObject(void)
         sequence[i] = tup;
     }
     return Py::new_reference_to(sequence);
+#endif
 }
 
 void PropertyLinkSubList::setPyObject(PyObject *value)
@@ -1070,4 +1087,3 @@ unsigned int PropertyLinkSubList::getMemSize (void) const
 
    return size;
 }
-

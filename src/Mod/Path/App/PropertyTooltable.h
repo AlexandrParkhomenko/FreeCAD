@@ -73,4 +73,3 @@ private:
 
 
 #endif // PROPERTYTOOLTABLE_H
-

@@ -74,4 +74,3 @@ SignalThread::run(void)
     }
   }
 }
-

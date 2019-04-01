@@ -52,4 +52,3 @@ public:
 
 
 #endif // PART_FEATUREFILLET_H
-

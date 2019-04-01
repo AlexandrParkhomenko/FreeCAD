@@ -73,4 +73,3 @@ public:
 
 
 #endif // APP_ANNOTATION_H
-

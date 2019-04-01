@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 #include "MeshFlatteningLscmRelax.h"
 #include <Eigen/IterativeLinearSolvers>
 #include <Eigen/SparseCholesky>
@@ -715,4 +716,3 @@ Eigen::MatrixXd LscmRelax::get_nullspace()
 
 
 }
-

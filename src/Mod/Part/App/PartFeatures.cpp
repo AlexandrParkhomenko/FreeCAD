@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <BRepFill.hxx>
 # include <BRepAdaptor_Curve.hxx>
 # include <BRepAdaptor_HCurve.hxx>
@@ -42,6 +44,7 @@
 # include <TopoDS.hxx>
 # include <Precision.hxx>
 # include <Adaptor3d_HCurve.hxx>
+#endif
 
 
 #include "PartFeatures.h"
@@ -670,4 +673,3 @@ App::DocumentObjectExecReturn *Thickness::execute(void)
         this->Shape.setValue(shape);
     return App::DocumentObject::StdReturn;
 }
-

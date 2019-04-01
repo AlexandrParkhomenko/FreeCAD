@@ -24,6 +24,7 @@
 #ifndef GUI_TEXTDOCUMENTEDITORVIEW_H
 #define GUI_TEXTDOCUMENTEDITORVIEW_H
 
+#include "PreCompiled.h"
 
 #include <string>
 #include <boost/signals2.hpp>
@@ -68,4 +69,3 @@ private:
 }
 
 #endif
-

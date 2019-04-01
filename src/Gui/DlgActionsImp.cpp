@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QDialogButtonBox>
 # include <QDir>
 # include <QFileDialog>
@@ -32,6 +34,7 @@
 # include <QMessageBox>
 # include <QTextStream>
 # include <QVBoxLayout>
+#endif
 
 #include "DlgActionsImp.h"
 #include "Action.h"
@@ -81,6 +84,7 @@ DlgCustomActionsImp::DlgCustomActionsImp( QWidget* parent )
     actionListWidget->header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
 #else
     actionListWidget->header()->setResizeMode(0, QHeaderView::ResizeToContents);
+#endif
 
     showActions();
 }
@@ -668,4 +672,3 @@ QStringList IconFolders::getPaths() const
 }
 
 #include "moc_DlgActionsImp.cpp" 
-

@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "DlgSettingsMeshView.h"
 #include <Gui/PrefWidgets.h>
@@ -91,4 +92,3 @@ void DlgSettingsMeshView::changeEvent(QEvent *e)
 }
 
 #include "moc_DlgSettingsMeshView.cpp"
-

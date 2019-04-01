@@ -20,6 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <cassert>
 # include <gp_Pln.hxx>
 # include <gp_Lin.hxx>
@@ -42,6 +44,7 @@
 # include <TColStd_ListIteratorOfListOfTransient.hxx>
 # include <TColgp_SequenceOfXY.hxx>
 # include <TColgp_SequenceOfXYZ.hxx>
+#endif
 
 #include <Base/Vector3D.h>
 #include "Tools.h"
@@ -187,4 +190,3 @@ Part::Tools::makeSurface(const TColStd_ListOfTransient &theBoundaries,
 
     return aRes;
 }
-

@@ -64,4 +64,3 @@ typedef IntrSegment3Box3<double> IntrSegment3Box3d;
 }
 
 #endif
-

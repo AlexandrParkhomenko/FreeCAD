@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "DlgSettingsImageImp.h"
 #include "SpinBox.h"
@@ -221,4 +222,3 @@ void DlgSettingsImageImp::on_standardSizeBox_activated(int index)
 }
 
 #include "moc_DlgSettingsImageImp.cpp"
-

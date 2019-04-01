@@ -146,4 +146,3 @@ private:
 
 #endif // GUI_VIEWPROVIDER_DOCUMENTOBJECT_H
 
-

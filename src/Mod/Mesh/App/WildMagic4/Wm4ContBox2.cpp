@@ -543,4 +543,3 @@ template WM4_FOUNDATION_ITEM
 Box2<double> MergeBoxes<double> (const Box2<double>&, const Box2<double>&);
 //----------------------------------------------------------------------------
 }
-

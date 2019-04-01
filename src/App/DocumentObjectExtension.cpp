@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <cassert>
 # include <algorithm>
+#endif
 
 #include "DocumentObjectExtension.h"
 #include "DocumentObjectExtensionPy.h"
@@ -88,4 +91,3 @@ DocumentObject* DocumentObjectExtension::getExtendedObject() {
     assert(getExtendedContainer()->isDerivedFrom(DocumentObject::getClassTypeId())); 
     return static_cast<DocumentObject*>(getExtendedContainer());
 }
-

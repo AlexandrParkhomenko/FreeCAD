@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <algorithm>
 # include <map>
+#endif
 
 #include "Degeneration.h"
 #include "Definitions.h"
@@ -393,6 +396,7 @@ std::vector<unsigned long> MeshEvalDuplicateFacets::GetIndices() const
   }
 
   return aInds;
+#endif
 }
 
 bool MeshFixDuplicateFacets::Fixup()
@@ -1089,5 +1093,4 @@ bool MeshFixCorruptedFacets::Fixup()
 
   return true;
 }
-
 

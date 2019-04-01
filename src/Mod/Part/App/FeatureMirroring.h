@@ -64,4 +64,3 @@ protected:
 
 
 #endif // PART_FEATUREMIRRORING_H
-

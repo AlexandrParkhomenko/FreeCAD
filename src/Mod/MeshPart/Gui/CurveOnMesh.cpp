@@ -20,7 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QMenu>
 # include <QPointer>
 # include <QStatusBar>
@@ -38,6 +40,7 @@
 # include <Inventor/nodes/SoLineSet.h>
 # include <Inventor/nodes/SoPointSet.h>
 # include <Inventor/nodes/SoSeparator.h>
+#endif
 
 #include "CurveOnMesh.h"
 #include <App/Document.h>
@@ -56,10 +59,13 @@
 
 #ifndef HAVE_ACOSH
 #define HAVE_ACOSH
+#endif
 #ifndef HAVE_ASINH
 #define HAVE_ASINH
+#endif
 #ifndef HAVE_ATANH
 #define HAVE_ATANH
+#endif
 
 #include <gp_Pnt.hxx>
 #include <TColgp_Array1OfPnt.hxx>
@@ -608,4 +614,3 @@ void CurveOnMeshHandler::Private::vertexCallback(void * ud, SoEventCallback * n)
 }
 
 #include "moc_CurveOnMesh.cpp"
-

@@ -43,4 +43,3 @@ typedef DelPolyhedronFace<double> DelPolyhedronFaced;
 }
 
 #endif
-

@@ -324,4 +324,3 @@ typedef Quaternion<double> Quaterniond;
 }
 
 #endif
-

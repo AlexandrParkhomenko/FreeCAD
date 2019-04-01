@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Inventor/nodes/SoDrawStyle.h>
 # include <Inventor/nodes/SoIndexedFaceSet.h>
 # include <Inventor/nodes/SoMaterial.h>
@@ -31,6 +33,7 @@
 # include <Inventor/nodes/SoSurroundScale.h>
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/manips/SoTransformerManip.h>
+#endif
 
 #include "ViewProviderTransformDemolding.h"
 
@@ -220,4 +223,3 @@ std::vector<std::string> ViewProviderMeshTransformDemolding::getDisplayModes(voi
   StrList.push_back("Demold");
   return StrList;
 }
-

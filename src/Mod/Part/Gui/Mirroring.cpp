@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QMessageBox>
 # include <QRegExp>
 # include <QTreeWidget>
@@ -30,6 +32,7 @@
 # include <cfloat>
 # include <Python.h>
 # include <Inventor/system/inttypes.h>
+#endif
 
 #include "Mirroring.h"
 #include "ui_Mirroring.h"
@@ -204,4 +207,3 @@ bool TaskMirroring::accept()
 }
 
 #include "moc_Mirroring.cpp"
-

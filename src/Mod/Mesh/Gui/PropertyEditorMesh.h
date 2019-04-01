@@ -67,4 +67,3 @@ private:
 
 #endif // MESHGUI_PROPERTYEDITOR_MESH_H
 
-

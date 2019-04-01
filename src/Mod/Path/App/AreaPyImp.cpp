@@ -20,6 +20,7 @@
  *                                                                          *
  ****************************************************************************/
 
+#include "PreCompiled.h"
 
 #include <Mod/Part/App/TopoShapePy.h>
 #include <Base/VectorPy.h>
@@ -467,4 +468,3 @@ int AreaPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
-

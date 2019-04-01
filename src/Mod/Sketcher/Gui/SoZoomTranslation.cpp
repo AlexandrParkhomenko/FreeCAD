@@ -20,11 +20,14 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Inventor/actions/SoGLRenderAction.h>
 # include <Inventor/misc/SoState.h>
 # include <cmath>
 # include <cfloat>
+#endif
 
 #include <Inventor/actions/SoGetMatrixAction.h>
 #include <Inventor/actions/SoGLRenderAction.h>
@@ -159,4 +162,3 @@ void SoZoomTranslation::getPrimitiveCount(SoGetPrimitiveCountAction * action)
 {
     SoZoomTranslation::doAction((SoAction *)action);
 }
-

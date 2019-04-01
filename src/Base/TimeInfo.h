@@ -155,4 +155,3 @@ TimeInfo::operator >  (const TimeInfo &time) const
 
 #endif // BASE_TIMEINFO_H
 
-

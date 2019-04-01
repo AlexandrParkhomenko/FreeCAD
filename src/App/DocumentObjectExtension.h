@@ -72,4 +72,3 @@ public:
 } //App
 
 #endif // APP_DOCUMENTOBJECTEXTENSION_H
-

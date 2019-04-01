@@ -20,6 +20,7 @@
  *                                                                          *
  ****************************************************************************/
 
+#include "PreCompiled.h"
 
 #include <CXX/Objects.hxx>
 #include <Mod/Part/App/TopoShapePy.h>
@@ -105,5 +106,4 @@ int FeatureAreaPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0;
 }
-
 

@@ -75,4 +75,3 @@ private:
 
 
 #endif // GUI_ViewProviderPlacement_H
-

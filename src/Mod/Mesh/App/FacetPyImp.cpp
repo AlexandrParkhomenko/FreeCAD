@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "Mesh.h"
 #include "Facet.h"
@@ -228,6 +229,5 @@ int FacetPy::setCustomAttributes(const char* /*attr*/, PyObject * /*obj*/)
 {
     return 0; 
 }
-
 
 

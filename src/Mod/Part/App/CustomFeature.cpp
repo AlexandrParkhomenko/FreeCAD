@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <gp_Trsf.hxx>
 # include <gp_Ax1.hxx>
+#endif
 
 
 #include "CustomFeature.h"
@@ -65,5 +68,4 @@ template<> const char* Part::CustomFeaturePython::getViewProviderName(void) cons
 // explicit template instantiation
 template class PartExport FeaturePythonT<Part::CustomFeature>;
 }
-
 

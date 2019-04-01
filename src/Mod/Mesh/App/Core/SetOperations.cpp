@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 
+#ifndef _PreComp_
 # include <ios>
+#endif
 
 #include <fstream>
 #include "SetOperations.h"
@@ -615,4 +618,3 @@ bool SetOperations::CollectFacetVisitor::AllowVisit (const MeshFacet& rclFacet, 
 
     return true;
 }
-

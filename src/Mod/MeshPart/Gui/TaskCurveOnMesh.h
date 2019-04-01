@@ -82,4 +82,3 @@ private:
 } //namespace MeshPartGui
 
 #endif // MESHPART_GUI_TASKCURVEONMESH_H
-

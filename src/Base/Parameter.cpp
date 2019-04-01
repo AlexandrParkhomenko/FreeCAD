@@ -23,7 +23,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 #   include <assert.h>
 #   include <xercesc/util/PlatformUtils.hpp>
 #   include <xercesc/util/XercesVersion.hpp>
@@ -1521,4 +1523,3 @@ bool DOMPrintErrorHandler::handleError(const DOMError &domError)
     // Instructs the serializer to continue serialization if possible.
     return true;
 }
-

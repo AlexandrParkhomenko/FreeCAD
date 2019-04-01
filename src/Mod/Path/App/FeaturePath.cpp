@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "FeaturePath.h"
 #include <App/DocumentObjectPy.h>
@@ -73,4 +76,3 @@ template<> const char* Path::FeaturePython::getViewProviderName(void) const {
 // explicit template instantiation
 template class PathExport FeaturePythonT<Path::Feature>;
 }
-

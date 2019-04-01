@@ -21,13 +21,16 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QByteArray>
 # include <qpixmap.h>
 # include <Inventor/actions/SoSearchAction.h>
 # include <Inventor/nodes/SoDrawStyle.h>
 # include <Inventor/nodes/SoMaterial.h>
 # include <Inventor/nodes/SoSeparator.h>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <Base/Tools.h>
@@ -307,4 +310,3 @@ PyObject* ViewProviderDocumentObject::getPyObject()
     pyViewObject->IncRef();
     return pyViewObject;
 }
-

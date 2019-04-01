@@ -101,4 +101,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_DOCKWND_SELECTIONVIEW_H
-

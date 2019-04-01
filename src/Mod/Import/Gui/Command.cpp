@@ -21,6 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 #include <Base/Exception.h>
 #include <App/Document.h>
@@ -153,4 +156,3 @@ void CreateImportCommands(void)
     Gui::CommandManager &rcCmdMgr = Gui::Application::Instance->commandManager();
     rcCmdMgr.addCommand(new FCCmdImportReadBREP());
 }
-

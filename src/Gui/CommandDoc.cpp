@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QApplication>
 # include <QClipboard>
 # include <QEventLoop>
@@ -32,6 +34,7 @@
 # include <QProcess>
 # include <sstream>
 # include <Inventor/nodes/SoCamera.h>
+#endif
 #include <algorithm>
 
 #include <Base/Exception.h>
@@ -442,6 +445,7 @@ void StdCmdSave::activated(int iMsg)
   if ( pActiveDoc )
     pActiveDoc->save();
   else
+#endif
     doCommand(Command::Gui,"Gui.SendMsgToActiveView(\"Save\")");
 }
 
@@ -451,6 +455,7 @@ bool StdCmdSave::isActive(void)
   if( getActiveGuiDocument() )
     return true;
   else
+#endif
     return getGuiApplication()->sendHasMsgToActiveView("Save");
 }
 
@@ -469,6 +474,7 @@ StdCmdSaveAs::StdCmdSaveAs()
   sStatusTip    = QT_TR_NOOP("Save the active document under a new file name");
 #if QT_VERSION >= 0x040200
   sPixmap       = "document-save-as";
+#endif
   sAccel        = keySequenceToAccel(QKeySequence::SaveAs);
   eType         = 0;
 }
@@ -481,6 +487,7 @@ void StdCmdSaveAs::activated(int iMsg)
   if ( pActiveDoc )
     pActiveDoc->saveAs();
   else
+#endif
     doCommand(Command::Gui,"Gui.SendMsgToActiveView(\"SaveAs\")");
 }
 
@@ -490,6 +497,7 @@ bool StdCmdSaveAs::isActive(void)
   if( getActiveGuiDocument() )
     return true;
   else
+#endif
     return getGuiApplication()->sendHasMsgToActiveView("SaveAs");
 }
 
@@ -517,6 +525,7 @@ void StdCmdSaveCopy::activated(int iMsg)
   if ( pActiveDoc )
     pActiveDoc->saveCopy();
   else
+#endif
     doCommand(Command::Gui,"Gui.SendMsgToActiveView(\"SaveCopy\")");
 }
 
@@ -578,6 +587,7 @@ StdCmdProjectInfo::StdCmdProjectInfo()
   sStatusTip    = QT_TR_NOOP("Show details of the currently active project");
 #if QT_VERSION >= 0x040200
   sPixmap       = "document-properties";
+#endif
 }
 
 void StdCmdProjectInfo::activated(int iMsg)
@@ -726,6 +736,7 @@ StdCmdQuit::StdCmdQuit()
   sStatusTip    = QT_TR_NOOP("Quits the application");
 #if QT_VERSION >= 0x040200
   sPixmap       = "application-exit";
+#endif
   sAccel        = "Alt+F4";
 }
 
@@ -1019,6 +1030,7 @@ StdCmdSelectAll::StdCmdSelectAll()
     sStatusTip    = QT_TR_NOOP("Select all");
 #if QT_VERSION >= 0x040200
     sPixmap       = "edit-select-all";
+#endif
     //sAccel        = "Ctrl+A"; // superseeds shortcuts for text edits
 }
 
@@ -1051,6 +1063,7 @@ StdCmdDelete::StdCmdDelete()
   sStatusTip    = QT_TR_NOOP("Deletes the selected objects");
 #if QT_VERSION >= 0x040200
   sPixmap       = "edit-delete";
+#endif
   sAccel        = keySequenceToAccel(QKeySequence::Delete);
   eType         = ForEdit;
 }
@@ -1409,6 +1422,7 @@ StdCmdEdit::StdCmdEdit()
     sStatusTip    = QT_TR_NOOP("Activates or Deactivates the selected object's edit mode");
 #if QT_VERSION >= 0x040200
     sPixmap       = "edit-edit";
+#endif
     eType         = ForEdit;
 }
 
@@ -1475,4 +1489,3 @@ void CreateDocCommands(void)
 }
 
 } // namespace Gui
-

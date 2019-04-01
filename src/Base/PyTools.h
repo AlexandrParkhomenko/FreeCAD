@@ -189,4 +189,3 @@ extern PyObject *PP_last_traceback;   /* saved exception traceback object */
 #endif
 
 #endif /*PREEMBED_H*/
-

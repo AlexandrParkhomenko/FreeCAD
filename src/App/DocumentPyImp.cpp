@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <sstream>
+#endif
 
 #include "Document.h"
 #include <Base/FileInfo.h>
@@ -671,4 +674,3 @@ int DocumentPy::setCustomAttributes(const char* attr, PyObject *)
 
     return 0;
 }
-

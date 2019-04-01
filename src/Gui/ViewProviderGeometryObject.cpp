@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <cfloat>
 # include <QAction>
 # include <QMenu>
@@ -40,6 +42,7 @@
 # include <Inventor/sensors/SoNodeSensor.h> 
 # include <Inventor/SoPickedPoint.h>
 # include <Inventor/actions/SoRayPickAction.h> 
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "ViewProviderGeometryObject.h"
@@ -58,6 +61,7 @@
 #include <Inventor/nodes/SoResetTransform.h>
 #if (COIN_MAJOR_VERSION > 2)
 #include <Inventor/nodes/SoDepthBuffer.h>
+#endif
 #include "SoFCUnifiedSelection.h"
 #include "SoFCCSysDragger.h"
 #include "Control.h"
@@ -296,4 +300,3 @@ void ViewProviderGeometryObject::setSelectable(bool selectable)
         }
     }
 }
-

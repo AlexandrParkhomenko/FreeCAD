@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <sstream>
 # include <BRepMesh_IncrementalMesh.hxx>
 # include <BRepBuilderAPI_Copy.hxx>
@@ -56,6 +58,7 @@
 # include <TopLoc_Location.hxx>
 # include <TopExp.hxx>
 # include <Precision.hxx>
+#endif
 
 #include <HLRAppli_ReflectLines.hxx>
 #include <BRepGProp.hxx>
@@ -95,9 +98,11 @@ using namespace Part;
 
 #ifndef M_PI
     #define M_PI    3.14159265358979323846 /* pi */
+#endif
 
 #ifndef M_PI_2
     #define M_PI_2  1.57079632679489661923 /* pi/2 */
+#endif
 
 namespace Part {
 extern Py::Object shape2pyshape(const TopoDS_Shape &shape);
@@ -180,6 +185,7 @@ PyObject* TopoShapePy::copy(PyObject *args)
 #else
         BRepBuilderAPI_Copy c(shape,
                               PyObject_IsTrue(copyGeom) ? Standard_True : Standard_False);
+#endif
         static_cast<TopoShapePy*>(cpy)->getTopoShapePtr()->setShape(c.Shape());
     }
     return cpy;
@@ -1619,6 +1625,7 @@ PyObject* TopoShapePy::makeChamfer(PyObject *args)
                         mkChamfer.Add(radius, radius, TopoDS::Edge(edge), face);
 #else
                         mkChamfer.Add(radius, TopoDS::Edge(edge), face);
+#endif
                     }
                 }
             }
@@ -2509,6 +2516,7 @@ PyObject* TopoShapePy::proximity(PyObject *args)
     (void)args;
     PyErr_SetString(PyExc_NotImplementedError, "proximity requires OCCT >= 6.8.1");
     return 0;
+#endif
 }
 
 PyObject* TopoShapePy::distToShape(PyObject *args)
@@ -2669,6 +2677,7 @@ PyObject* TopoShapePy::optimalBoundingBox(PyObject *args)
         return Py::new_reference_to(pybox);
 #else
         throw Py::RuntimeError("Need OCCT 7.2.0 or higher");
+#endif
     }
     catch (const Standard_Failure& e) {
         throw Py::RuntimeError(e.GetMessageString());
@@ -2748,6 +2757,7 @@ void TopoShapePy::setLocation(Py::Object o)
         throw Py::TypeError(error);
     }
 }
+#endif
 
 Py::String TopoShapePy::getShapeType(void) const
 {
@@ -3099,4 +3109,3 @@ int TopoShapePy::setCustomAttributes(const char* , PyObject *)
 {
     return 0; 
 }
-

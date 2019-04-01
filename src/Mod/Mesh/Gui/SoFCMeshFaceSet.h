@@ -194,4 +194,3 @@ private:
 
 #endif // MESHGUI_SOFC_MESHFACESET_H
 
-

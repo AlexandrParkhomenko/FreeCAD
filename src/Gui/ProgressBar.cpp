@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QApplication>
 # include <QGenericReturnArgument>
 # include <QKeyEvent>
@@ -30,6 +32,7 @@
 # include <QThread>
 # include <QTime>
 # include <QTimer>
+#endif
 
 #include "ProgressBar.h"
 #include "MainWindow.h"
@@ -494,4 +497,3 @@ bool ProgressBar::eventFilter(QObject* o, QEvent* e)
 
 
 #include "moc_ProgressBar.cpp"
-

@@ -56,4 +56,3 @@ public:
 
 
 #endif // PART_FACE_H
-

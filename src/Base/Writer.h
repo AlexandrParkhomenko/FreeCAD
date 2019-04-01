@@ -209,4 +209,3 @@ protected:
 
 
 #endif // BASE_WRITER_H
-

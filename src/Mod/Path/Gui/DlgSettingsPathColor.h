@@ -47,4 +47,3 @@ protected:
 } // namespace PathGui
 
 #endif // PATHGUI_DIALOG_DLGSETTINGSPATHCOLOR_H
-

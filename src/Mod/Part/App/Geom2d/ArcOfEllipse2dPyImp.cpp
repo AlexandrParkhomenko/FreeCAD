@@ -21,11 +21,14 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <gp_Elips2d.hxx>
 # include <Geom2d_Ellipse.hxx>
 # include <GCE2d_MakeArcOfEllipse.hxx>
 # include <GCE2d_MakeEllipse.hxx>
 # include <Geom2d_TrimmedCurve.hxx>
+#endif
 
 #include <Mod/Part/App/Geometry2d.h>
 #include <Mod/Part/App/Geom2d/ArcOfEllipse2dPy.h>
@@ -123,4 +126,3 @@ int ArcOfEllipse2dPy::setCustomAttributes(const char* , PyObject *)
 {
     return 0; 
 }
-

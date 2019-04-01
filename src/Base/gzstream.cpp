@@ -25,6 +25,7 @@
 // Standard streambuf implementation following Nicolai Josuttis, "The 
 // Standard C++ Library".
 // ============================================================================
+#include "PreCompiled.h"
 
 #include "gzstream.h"
 #include <assert.h>
@@ -169,4 +170,3 @@ void gzstreambase::close() {
 
 // ============================================================================
 // EOF //
-

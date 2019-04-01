@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "ProgressDialog.h"
 #include "MainWindow.h"
@@ -365,4 +366,3 @@ bool ProgressDialog::eventFilter(QObject* o, QEvent* e)
 }
 
 #include "moc_ProgressDialog.cpp"
-

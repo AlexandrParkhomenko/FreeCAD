@@ -63,4 +63,3 @@ private:
 
 #endif // MESHGUI_SOPOLYGON_H
 
-

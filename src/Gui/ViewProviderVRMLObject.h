@@ -59,4 +59,3 @@ protected:
 
 
 #endif // GUI_VIEWPROVIDER_INVENTOROBJECT_H
-

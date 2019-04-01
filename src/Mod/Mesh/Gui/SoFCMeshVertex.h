@@ -98,4 +98,3 @@ protected:
 
 #endif // MESHGUI_SOFCMESHVERTEX_H
 
-

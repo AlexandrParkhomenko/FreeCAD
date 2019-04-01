@@ -60,4 +60,3 @@ public:
 
 
 #endif // MESH_FACET_H
-

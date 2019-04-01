@@ -129,4 +129,3 @@ private:
 } // namespace Gui
 
 #endif // !GUI_SOFCSELECTION_H
-

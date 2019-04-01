@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
 #include "Mod/Sketcher/App/SketchObjectSF.h"
 
@@ -46,6 +47,5 @@ int SketchObjectSFPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*
 {
     return 0; 
 }
-
 
 

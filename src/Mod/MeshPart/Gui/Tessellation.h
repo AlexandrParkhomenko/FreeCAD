@@ -85,4 +85,3 @@ private:
 } // namespace MeshPartGui
 
 #endif // MESHPARTGUI_TESSELLATION_H
-

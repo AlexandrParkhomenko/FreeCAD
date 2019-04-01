@@ -75,4 +75,3 @@ private:
 
 
 #endif // PROPERTYPATH_H
-

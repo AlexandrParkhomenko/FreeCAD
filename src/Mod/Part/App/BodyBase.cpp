@@ -21,6 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 #include <Mod/Part/App/BodyBasePy.h>
 #include <App/Application.h>
@@ -125,4 +128,3 @@ PyObject* BodyBase::getPyObject()
 }
 
 } /* Part */
-

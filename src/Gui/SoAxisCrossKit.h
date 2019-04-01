@@ -118,4 +118,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_SOSHAPESCALE_H
-

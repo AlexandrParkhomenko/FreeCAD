@@ -65,4 +65,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_SYNTAXHIGHLIGHTER_H
-

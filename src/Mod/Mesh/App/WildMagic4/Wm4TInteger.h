@@ -119,4 +119,3 @@ TInteger<N> operator* (int i, const TInteger<N>& rkI);
 #include "Wm4TInteger.inl"
 
 #endif
-

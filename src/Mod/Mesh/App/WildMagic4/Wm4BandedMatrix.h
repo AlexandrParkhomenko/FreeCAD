@@ -75,4 +75,3 @@ typedef BandedMatrix<double> BandedMatrixd;
 }
 
 #endif
-

@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Geom_CylindricalSurface.hxx>
 # include <Geom_Circle.hxx>
 # include <Geom_Line.hxx>
@@ -29,6 +31,7 @@
 # include <gp_Circ.hxx>
 # include <gp_Cylinder.hxx>
 # include <gp_Lin.hxx>
+#endif
 
 #include <Base/GeometryPyCXX.h>
 #include <Base/VectorPy.h>
@@ -303,6 +306,5 @@ int CylinderPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
-
 
 

@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Python.h>
+#endif
 
 #include "ViewProviderHelixParametric.h"
 
@@ -76,4 +79,3 @@ std::vector<std::string> ViewProviderSpiralParametric::getDisplayModes(void) con
 
     return StrList;
 }
-

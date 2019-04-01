@@ -1266,4 +1266,3 @@ template WM4_FOUNDATION_ITEM
 class IntrTriangle3Triangle3<double>;
 //----------------------------------------------------------------------------
 }
-

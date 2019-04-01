@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QApplication>
 # include <QModelIndex>
 # include <QPainter>
+#endif
 
 #include "PropertyItemDelegate.h"
 #include "PropertyItem.h"
@@ -173,4 +176,3 @@ void PropertyItemDelegate::setModelData(QWidget* editor, QAbstractItemModel* mod
 }
 
 #include "moc_PropertyItemDelegate.cpp"
-

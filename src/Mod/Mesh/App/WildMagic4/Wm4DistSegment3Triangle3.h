@@ -69,4 +69,3 @@ typedef DistSegment3Triangle3<double> DistSegment3Triangle3d;
 }
 
 #endif
-

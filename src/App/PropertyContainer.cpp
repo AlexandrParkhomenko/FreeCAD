@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <cassert>
 # include <algorithm>
 # include <functional>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <Base/Reader.h>
@@ -245,6 +248,7 @@ void PropertyContainer::Save (Base::Writer &writer) const
             catch (...) {
                 Base::Console().Error("PropertyContainer::Save: Unknown C++ exception thrown. Try to continue...\n");
             }
+#endif
             writer.decInd(); // indentation for the actual property
             writer.Stream() << writer.ind() << "</Property>" << endl;
             writer.decInd(); // indentation for 'Property name'
@@ -310,6 +314,7 @@ void PropertyContainer::Restore(Base::XMLReader &reader)
         catch (...) {
             Base::Console().Error("PropertyContainer::Restore: Unknown C++ exception thrown\n");
         }
+#endif
 
         reader.readEndElement("Property");
     }
@@ -579,5 +584,4 @@ void PropertyContainer::Restore(Base::Reader &reader)
 \endcode
 
 */
-
 

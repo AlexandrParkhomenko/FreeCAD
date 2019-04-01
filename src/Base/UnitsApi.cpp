@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 #ifdef __GNUC__
 # include <unistd.h>
 #endif
@@ -243,5 +244,4 @@ int UnitsApi::getDecimals()
 {
     return UserPrefDecimals;
 }
-
 

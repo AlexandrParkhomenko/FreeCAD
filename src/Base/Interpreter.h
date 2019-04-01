@@ -278,4 +278,3 @@ inline InterpreterSingleton &Interpreter(void)
 } //namespace Base 
 
 #endif // BASE_INTERPRETER_H
-

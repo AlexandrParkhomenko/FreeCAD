@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "ViewProviderPrism.h"
 
@@ -92,4 +95,3 @@ std::vector<std::string> ViewProviderWedge::getDisplayModes(void) const
 
     return StrList;
 }
-

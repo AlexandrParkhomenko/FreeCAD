@@ -65,4 +65,3 @@ typedef ViewProviderExtensionPythonT<Gui::ViewProviderOriginGroupExtension> View
 } //namespace Gui
 
 #endif // GUI_VIEWPROVIDERORIGINGROUPEXTENSION_H
-

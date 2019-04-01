@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 #ifdef __GNUC__
 # include <unistd.h>
 #endif
@@ -47,4 +48,3 @@ QString UnitsSchema::toLocale(const Base::Quantity& quant, double factor, const 
     QString Ln = Lc.toString((quant.getValue() / factor), format.toFormat(), format.precision);
     return QString::fromUtf8("%1 %2").arg(Ln, unitString);
 }
-

@@ -92,4 +92,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_SCENEINSPECTOR_H
-

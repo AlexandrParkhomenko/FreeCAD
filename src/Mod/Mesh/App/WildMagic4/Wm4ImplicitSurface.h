@@ -82,4 +82,3 @@ typedef ImplicitSurface<double> ImplicitSurfaced;
 }
 
 #endif
-

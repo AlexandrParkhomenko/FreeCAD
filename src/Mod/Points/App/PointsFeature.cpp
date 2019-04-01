@@ -22,7 +22,10 @@
 
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 #include <vector>
 
 #include <Base/Console.h>
@@ -115,5 +118,4 @@ template<> const char* Points::FeaturePython::getViewProviderName(void) const {
 // explicit template instantiation
 template class PointsExport FeaturePythonT<Points::Feature>;
 }
-
 

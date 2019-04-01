@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QHeaderView>
 # include <QTreeWidgetItemIterator>
 # include <algorithm>
 # include <vector>
+#endif
 
 #include "DlgCommandsImp.h"
 #include "Application.h"
@@ -117,6 +120,7 @@ DlgCustomCommandsImp::DlgCustomCommandsImp( QWidget* parent  )
     commandTreeWidget->header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
 #else
     commandTreeWidget->header()->setResizeMode(0, QHeaderView::ResizeToContents);
+#endif
 
     categoryTreeWidget->setCurrentItem(categoryTreeWidget->topLevelItem(0));
 }
@@ -272,4 +276,3 @@ void DlgCustomCommandsImp::changeEvent(QEvent *e)
 }
 
 #include "moc_DlgCommandsImp.cpp"
-

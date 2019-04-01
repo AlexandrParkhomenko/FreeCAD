@@ -20,11 +20,13 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
 #ifndef FC_OS_WIN32
 #define GL_GLEXT_PROTOTYPES
 #endif
 
+#ifndef _PreComp_
 #include <float.h>
 #include <algorithm>
 #include <map>
@@ -53,6 +55,7 @@
 #include <Inventor/details/SoLineDetail.h>
 #include <Inventor/misc/SoState.h>
 #include <Inventor/misc/SoContextHandler.h>
+#endif
 
 #include "SoBrepFaceSet.h"
 #include <Gui/SoFCUnifiedSelection.h>
@@ -70,6 +73,7 @@
 #else
 #include <GL/gl.h>
 #include <GL/glext.h>
+#endif
 #endif
 
 // Should come after glext.h to avoid warnings
@@ -145,6 +149,7 @@ public:
 #ifdef FC_OS_WIN32
             const cc_glglue * glue = cc_glglue_instance((int) context);
             PFNGLDELETEBUFFERSARBPROC glDeleteBuffersARB = (PFNGLDELETEBUFFERSARBPROC)cc_glglue_getprocaddress(glue, "glDeleteBuffersARB");
+#endif
             //cc_glglue_glDeleteBuffers(glue, buffer.size(), buffer.data());
             buffer = it->second;
             glDeleteBuffersARB(2, buffer.myvbo);
@@ -529,6 +534,7 @@ void SoBrepFaceSet::GLRender(SoGLRenderAction *action)
         renderSelection(action);
 //#endif
 }
+#endif
 
 void SoBrepFaceSet::GLRenderBelowPath(SoGLRenderAction * action)
 {
@@ -799,6 +805,7 @@ void SoBrepFaceSet::generatePrimitives(SoAction * action)
     if (this->vertexProperty.getValue()) {
         state->pop();
     }
+#endif
 }
 
 #undef DO_VERTEX
@@ -1024,6 +1031,7 @@ void SoBrepFaceSet::VBO::render(SoGLRenderAction * action,
 #ifdef FC_OS_WIN32
         const cc_glglue * glue = cc_glglue_instance(action->getCacheContext());
         PFNGLGENBUFFERSPROC glGenBuffersARB = (PFNGLGENBUFFERSPROC)cc_glglue_getprocaddress(glue, "glGenBuffersARB");
+#endif
         glGenBuffersARB(2, buf.myvbo);
         buf.vertex_array_size = 0;
         buf.index_array_size = 0;
@@ -1054,6 +1062,7 @@ void SoBrepFaceSet::VBO::render(SoGLRenderAction * action,
         PFNGLGENBUFFERSPROC glGenBuffersARB = (PFNGLGENBUFFERSPROC)cc_glglue_getprocaddress(glue, "glGenBuffersARB");
         PFNGLDELETEBUFFERSARBPROC glDeleteBuffersARB = (PFNGLDELETEBUFFERSARBPROC)cc_glglue_getprocaddress(glue, "glDeleteBuffersARB");
         PFNGLBUFFERDATAARBPROC glBufferDataARB = (PFNGLBUFFERDATAARBPROC)cc_glglue_getprocaddress(glue, "glBufferDataARB");
+#endif
         // We must manage buffer size increase let's clear everything and re-init to test the
         // clearing process
         glDeleteBuffersARB(2, buf.myvbo);
@@ -1274,6 +1283,7 @@ void SoBrepFaceSet::VBO::render(SoGLRenderAction * action,
 #ifdef FC_OS_WIN32
     const cc_glglue * glue = cc_glglue_instance(action->getCacheContext());
     PFNGLBINDBUFFERARBPROC glBindBufferARB = (PFNGLBINDBUFFERARBPROC)cc_glglue_getprocaddress(glue, "glBindBufferARB");
+#endif
 
     if (!this->updateVbo) {
         glBindBufferARB(GL_ARRAY_BUFFER_ARB, buf.myvbo[0]);
@@ -1576,4 +1586,3 @@ SoBrepFaceSet::findNormalBinding(SoState * const state) const
 }
 
 #undef PRIVATE
-

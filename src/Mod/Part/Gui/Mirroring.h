@@ -81,4 +81,3 @@ private:
 } // namespace PartGui
 
 #endif // PARTGUI_MIRRORING_H
-

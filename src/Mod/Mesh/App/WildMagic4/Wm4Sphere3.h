@@ -53,4 +53,3 @@ typedef Sphere3<double> Sphere3d;
 }
 
 #endif
-

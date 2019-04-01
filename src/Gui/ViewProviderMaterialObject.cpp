@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QApplication>
 # include <QPixmap>
+#endif
 
 #include <App/DocumentObjectGroup.h>
 #include <App/Document.h>
@@ -85,4 +88,3 @@ PROPERTY_SOURCE_TEMPLATE(Gui::ViewProviderMaterialObjectPython, Gui::ViewProvide
 // explicit template instantiation
 template class GuiExport ViewProviderPythonFeatureT<ViewProviderMaterialObject>;
 }
-

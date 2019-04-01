@@ -20,7 +20,10 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QPixmapCache>
+#endif
 #include "ExpressionBinding.h"
 #include "BitmapFactory.h"
 #include "Command.h"
@@ -190,4 +193,3 @@ void ExpressionBinding::expressionChange(const ObjectIdentifier& id) {
     if(id==path)
         onChange();
 }
-

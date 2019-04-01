@@ -110,4 +110,3 @@ TRational<N> operator/ (const TInteger<N>& rkI, const TRational<N>& rkR);
 #include "Wm4TRational.inl"
 
 #endif
-

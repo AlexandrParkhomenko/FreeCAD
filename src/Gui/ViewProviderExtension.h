@@ -113,4 +113,3 @@ typedef ViewProviderExtensionPythonT<Gui::ViewProviderExtension> ViewProviderExt
 } //Gui
 
 #endif // GUI_VIEWPROVIDEREXTENSION_H
-

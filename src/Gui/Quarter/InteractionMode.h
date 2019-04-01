@@ -77,4 +77,3 @@ private:
 }}} // namespace
 
 #endif // QUARTER_INTERACTIONMODE_H
-

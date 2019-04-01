@@ -112,4 +112,3 @@ private:
 
 
 #endif // GUI_SOFCCOLORGRADIENT_H
-

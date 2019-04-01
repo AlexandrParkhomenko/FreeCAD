@@ -20,7 +20,10 @@
  *                                                                          *
  ****************************************************************************/
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include <BRep_Builder.hxx>
 #include <TopoDS_Compound.hxx>
@@ -251,5 +254,4 @@ template<> const char* Path::FeatureAreaViewPython::getViewProviderName(void) co
 // explicit template instantiation
 template class PathExport FeaturePythonT<Path::FeatureArea>;
 }
-
 

@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QApplication>
 # include <QMessageBox>
 # include <QSharedPointer>
 # include <QDesktopServices>
+#endif
 
 #include <boost/scoped_ptr.hpp>
 
@@ -279,6 +282,7 @@ void StdCmdCommandLine::activated(int iMsg)
     // workaround for X11
     getMainWindow()->hide();
     getMainWindow()->show();
+#endif
 
     // pop up the main window
     show ? getMainWindow()->showMaximized () : getMainWindow()->showNormal () ;
@@ -380,4 +384,3 @@ void CreateStdCommands(void)
 }
 
 } // namespace Gui
-

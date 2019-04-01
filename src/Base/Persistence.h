@@ -168,4 +168,3 @@ private:
 
 
 #endif // APP_PERSISTENCE_H
-

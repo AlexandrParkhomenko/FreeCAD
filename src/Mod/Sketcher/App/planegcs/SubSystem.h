@@ -89,4 +89,3 @@ namespace GCS
 } //namespace GCS
 
 #endif // PLANEGCS_SUBSYSTEM_H
-

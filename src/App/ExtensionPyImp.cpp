@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <sstream>
+#endif
 
 #include "Application.h"
 
@@ -47,4 +50,3 @@ int ExtensionPy::setCustomAttributes(const char* /*attr*/, PyObject * /*obj*/)
 {
     return 0;
 }
-

@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Inventor/nodes/SoMaterial.h>
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/nodes/SoSwitch.h>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <Base/Exception.h>
@@ -148,4 +151,3 @@ std::vector<std::string> ViewProviderExtern::getDisplayModes(void) const
 {
     return modes;
 }
-

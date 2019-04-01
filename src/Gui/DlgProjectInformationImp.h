@@ -59,4 +59,3 @@ private:
 
 #endif // GUI_DIALOG_DLGPROJECTINFORMATIONIMP_H
 
-

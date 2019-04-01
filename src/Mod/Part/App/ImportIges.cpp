@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <fcntl.h>
 # include <BRep_Builder.hxx>
 # include <Interface_Static.hxx>
@@ -39,6 +41,7 @@
 # include <IGESBasic_Group.hxx>
 # include <IGESSolid_ManifoldSolid.hxx>
 # include <IGESBasic_SingularSubfigure.hxx>
+#endif
 
 #include <XSControl_WorkSession.hxx>
 #include <XSControl_TransferReader.hxx>
@@ -198,6 +201,7 @@ int Part::ImportIgesParts(App::Document *pcDoc, const char* FileName)
                 ("Part::Feature", name.c_str()));
             pcFeature->Shape.setValue(comp);
         }
+#endif
     }
     catch (Standard_Failure& e) {
         throw Base::CADKernelError(e.GetMessageString());
@@ -205,4 +209,3 @@ int Part::ImportIgesParts(App::Document *pcDoc, const char* FileName)
 
     return 0;
 }
-

@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 #	include <cassert>
+#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Property.h"
@@ -158,4 +161,3 @@ void Property::Paste(const Property& /*from*/)
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 TYPESYSTEM_SOURCE_ABSTRACT(App::PropertyLists , App::Property);
-

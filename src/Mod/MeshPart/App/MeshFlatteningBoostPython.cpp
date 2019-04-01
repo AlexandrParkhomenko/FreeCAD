@@ -22,6 +22,7 @@
 
 
 
+#include "PreCompiled.h"
 #include <Base/Interpreter.h>
 #include <Mod/Part/App/TopoShapeFacePy.h>
 #include <Mod/Part/App/TopoShapeEdgePy.h>
@@ -233,4 +234,3 @@ BOOST_PYTHON_MODULE(flatmesh)
         .def_readonly("ze_poles", &FaceUnwrapper::ze_poles)
         .def_readonly("A", &FaceUnwrapper::A);
 }
-

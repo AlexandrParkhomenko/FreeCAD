@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Python.h>
 # include <Inventor/SbVec3f.h>
 # include <Inventor/nodes/SoSeparator.h>
@@ -39,6 +41,7 @@
 # include <Inventor/nodes/SoSwitch.h>
 # include <Inventor/nodes/SoAnnotation.h>
 # include <QFile>
+#endif
 
 #include "ViewProviderPath.h"
 
@@ -61,9 +64,11 @@
 #ifndef M_PI
     #define M_PI 3.14159265358979323846
     #define M_PI    3.14159265358979323846 /* pi */
+#endif
 
 #ifndef M_PI_2
     #define M_PI_2  1.57079632679489661923 /* pi/2 */
+#endif
 
 using namespace Gui;
 using namespace PathGui;
@@ -814,4 +819,3 @@ PROPERTY_SOURCE_TEMPLATE(PathGui::ViewProviderPathPython, PathGui::ViewProviderP
 // explicit template instantiation
 template class PathGuiExport ViewProviderPythonFeatureT<PathGui::ViewProviderPath>;
 }
-

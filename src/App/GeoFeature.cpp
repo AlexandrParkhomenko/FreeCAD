@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "GeoFeature.h"
 #include "GeoFeatureGroupExtension.h"
@@ -76,4 +79,3 @@ PyObject* GeoFeature::getPyObject(void)
     }
     return Py::new_reference_to(PythonObject);
 }
-

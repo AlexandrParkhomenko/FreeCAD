@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QApplication>
 # include <QMenu>
 # include <QMenuBar>
+#endif
 
 #include "MenuManager.h"
 #include "Application.h"
@@ -192,6 +195,7 @@ void MenuManager::setup(MenuItem* menuItems) const
 #if defined(FC_OS_MACOSX) && QT_VERSION >= 0x050900
     // Unknown Qt macOS bug observed with Qt >= 5.9.4 causes random crashes when viewing reused top level menus.
     menuBar->clear();
+#endif
 
     // On Kubuntu 18.10 global menu has issues with FreeCAD 0.18 menu bar.
     // Optional parameter, clearing the menu bar, can be set as a workaround.
@@ -393,4 +397,3 @@ void MenuManager::setupContextMenu(MenuItem* item, QMenu &menu) const
 {
     setup(item, &menu);
 }
-

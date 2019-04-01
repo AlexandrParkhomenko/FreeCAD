@@ -1,4 +1,5 @@
 
+#include "PreCompiled.h"
 
 #include "Mod/Part/App/AttachExtension.h"
 #include "OCCError.h"
@@ -79,6 +80,5 @@ int AttachExtensionPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj
 {
     return 0;
 }
-
 
 

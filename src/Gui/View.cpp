@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
 #include "View.h"
 #include "Document.h"
@@ -96,4 +97,3 @@ App::Document* BaseView::getAppDocument() const
 {
     return _pcDocument ? _pcDocument->getDocument() : 0;
 }
-

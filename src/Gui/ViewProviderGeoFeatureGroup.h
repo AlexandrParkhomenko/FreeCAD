@@ -50,4 +50,3 @@ typedef ViewProviderPythonFeatureT<ViewProviderGeoFeatureGroup> ViewProviderGeoF
 
 #endif // GUI_VIEWPROVIDER_ViewProviderGeoFeatureGroup_H
 
-

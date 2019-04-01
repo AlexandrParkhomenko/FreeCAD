@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <algorithm>
 # include <QAbstractButton>
 # include <qapplication.h>
@@ -34,6 +36,7 @@
 # include <boost/bind.hpp>
 # include <Inventor/actions/SoSearchAction.h>
 # include <Inventor/nodes/SoSeparator.h>
+#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>
@@ -450,6 +453,7 @@ void Document::slotNewObject(const App::DocumentObject& Obj)
             catch(...){
                 Base::Console().Error("App::Document::_RecomputeFeature(): Unknown exception in Feature \"%s\" thrown\n",Obj.getNameInDocument());
             }
+#endif
         }
         else {
             Base::Console().Warning("Gui::Document::slotNewObject() no view provider for the object %s found\n",cName.c_str());
@@ -483,6 +487,7 @@ void Document::slotDeletedObject(const App::DocumentObject& Obj)
     ViewProvider* viewProvider = getViewProvider(&Obj);
 #if 0 // With this we can show child objects again if this method was called by undo
     viewProvider->onDelete(std::vector<std::string>());
+#endif
     if (viewProvider && viewProvider->getTypeId().isDerivedFrom
         (ViewProviderDocumentObject::getClassTypeId())) {
         // go through the views
@@ -1202,6 +1207,7 @@ void Document::onUpdate(void)
 {
 #ifdef FC_LOGUPDATECHAIN
     Base::Console().Log("Acti: Gui::Document::onUpdate()");
+#endif
 
     std::list<Gui::BaseView*>::iterator it;
 
@@ -1218,6 +1224,7 @@ void Document::onRelabel(void)
 {
 #ifdef FC_LOGUPDATECHAIN
     Base::Console().Log("Acti: Gui::Document::onRelabel()");
+#endif
 
     std::list<Gui::BaseView*>::iterator it;
 
@@ -1607,4 +1614,3 @@ void Document::rebuildRootNodes()
         }
     }
 }
-

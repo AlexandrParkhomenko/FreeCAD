@@ -288,4 +288,3 @@ private:
 
 #endif // MESHGUI_VIEWPROVIDERMESH_H
 
-

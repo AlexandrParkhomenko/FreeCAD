@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <cfloat>
 # include "InventorAll.h"
 # include <QAction>
@@ -32,6 +34,7 @@
 # include <QMenu>
 # include <QMetaObject>
 # include <QRegExp>
+#endif
 
 #include <Inventor/sensors/SoTimerSensor.h>
 
@@ -86,6 +89,7 @@ SbBool CADNavigationStyle::processSoEvent(const SoEvent * const ev)
     // Switch off viewing mode (Bug #0000911)
     if (!this->isSeekMode() && !this->isAnimating() && this->isViewing())
         this->setViewing(false); // by default disable viewing mode to render the scene
+#endif
 
     const SoType type(ev->getTypeId());
 
@@ -195,6 +199,7 @@ SbBool CADNavigationStyle::processSoEvent(const SoEvent * const ev)
                 }
             }
             else
+#endif
             if (press && (this->currentmode == NavigationStyle::SEEK_WAIT_MODE)) {
                 newmode = NavigationStyle::SEEK_MODE;
                 this->seekToPoint(pos); // implicitly calls interactiveCountInc()
@@ -455,4 +460,3 @@ SbBool CADNavigationStyle::processSoEvent(const SoEvent * const ev)
 
     return processed;
 }
-

@@ -21,6 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 
 #include <Base/Console.h>
@@ -166,6 +169,7 @@ doc.recompute()
         case 7: s = malloc(3600000000ul); free(s); break; // out-of-memory
 #else
         default: (void)i; (void)j; (void)f; (void)s; (void)t; break;
+#endif
     }
 
     ExecCount.setValue(ExecCount.getValue() + 1);
@@ -191,4 +195,3 @@ DocumentObjectExecReturn *FeatureTestException::execute(void)
 
     return 0;
 }
-

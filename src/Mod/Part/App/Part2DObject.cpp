@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <TopoDS_Shape.hxx>
 # include <TopoDS_Face.hxx>
 # include <TopoDS.hxx>
@@ -35,9 +37,11 @@
 # include <Geom2dAPI_ProjectPointOnCurve.hxx>
 # include <GeomAPI.hxx>
 # include <BRepAdaptor_Surface.hxx>
+#endif
 
 #ifndef M_PI
 #define M_PI       3.14159265358979323846
+#endif
 
 
 #include <Base/Console.h>
@@ -283,4 +287,3 @@ namespace App {
 // explicit template instantiation
   template class PartExport FeaturePythonT<Part::Part2DObject>;
 }
-

@@ -87,4 +87,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_DIALOG_DEMOMODE_H
-

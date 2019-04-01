@@ -98,4 +98,3 @@ private:
 
 
 #endif // GUI_TOOLBARMANAGER_H 
-

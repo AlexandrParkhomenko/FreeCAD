@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <TopoDS_Shape.hxx>
 # include <TopoDS_Face.hxx>
 # include <TopoDS.hxx>
@@ -28,6 +30,7 @@
 # include <QApplication>
 # include <QInputDialog>
 # include <QMessageBox>
+#endif
 
 #include <App/DocumentObjectGroup.h>
 #include <App/OriginFeature.h>
@@ -900,4 +903,3 @@ void CreateSketcherCommands(void)
     rcCmdMgr.addCommand(new CmdSketcherMergeSketches());
     rcCmdMgr.addCommand(new CmdSketcherViewSection());
 }
-

@@ -21,8 +21,11 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <BRepAlgoAPI_Section.hxx>
 # include <Standard_Version.hxx>
+#endif
 
 #include "FeaturePartSection.h"
 
@@ -60,5 +63,5 @@ BRepAlgoAPI_BooleanOperation* Section::makeOperation(const TopoDS_Shape& base, c
     if (!mkSection->IsDone())
         throw Base::RuntimeError("Section failed");
     return mkSection;
+#endif
 }
-

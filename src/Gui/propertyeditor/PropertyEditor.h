@@ -113,4 +113,3 @@ private:
 } //namespace Gui
 
 #endif // PROPERTYEDITOR_H
-

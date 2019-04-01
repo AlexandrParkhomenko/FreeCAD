@@ -40,4 +40,3 @@ enum SelectionRole {
 } // namespace Gui
 
 #endif // GUI_NAMESPACE_H
-

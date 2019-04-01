@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Geom_OffsetCurve.hxx>
+#endif
 
 #include "OCCError.h"
 #include "Geometry.h"
@@ -156,4 +159,3 @@ int OffsetCurvePy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
-

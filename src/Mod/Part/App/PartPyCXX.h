@@ -33,4 +33,3 @@ namespace Py {
 }
 
 #endif //PART_PYCXX_H
-

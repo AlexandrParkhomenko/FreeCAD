@@ -82,4 +82,3 @@ private:
 } //namespace SketcherGui
 
 #endif // GUI_TASKVIEW_TaskSketcherSolverAdvanced_H
-

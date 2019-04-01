@@ -175,4 +175,3 @@ WinXPPanelScheme2::WinXPPanelScheme2() : ActionPanelScheme()
 
 
 }
-

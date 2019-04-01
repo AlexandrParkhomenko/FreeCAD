@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <cstdlib>
 # include <set>
+#endif
 
 #include "Tools2D.h"
 #include "Vector3D.h"
@@ -444,4 +447,3 @@ bool Polygon2d::Intersect (const Vector2d &rclV, double eps) const
 
     return false;
 }
-

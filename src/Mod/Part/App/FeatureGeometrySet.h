@@ -58,4 +58,3 @@ public:
 
 
 #endif // PART_FeatureGeometrySet_H
-

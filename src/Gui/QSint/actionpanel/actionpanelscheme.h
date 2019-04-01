@@ -82,4 +82,3 @@ public:
 }
 
 #endif // TASKPANELSCHEME_H
-

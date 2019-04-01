@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <Inventor/SoPickedPoint.h>
 # include <Inventor/details/SoFaceDetail.h>
 # include <Inventor/details/SoPointDetail.h>
@@ -42,6 +44,7 @@
 # include <QCursor>
 # include <QToolTip>
 # include <QWhatsThis>
+#endif
 
 # include <iomanip>
 # include <ios>
@@ -308,6 +311,7 @@ void ViewProviderMeshCurvature::updateData(const App::Property* prop)
         if (curv->getSize() < 3) return; // invalid array
 #if 0 // FIXME: Do not always change the range
         init(curv); // init color bar
+#endif
         setActiveMode();
     }
 }
@@ -622,4 +626,3 @@ std::string ViewProviderMeshCurvature::curvatureInfo(bool detail, int index1, in
 
     return str.str();
 }
-

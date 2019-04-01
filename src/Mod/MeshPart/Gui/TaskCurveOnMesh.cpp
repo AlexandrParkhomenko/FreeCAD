@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
 
 #include "TaskCurveOnMesh.h"
@@ -115,4 +116,3 @@ bool TaskCurveOnMesh::reject()
 }
 
 #include "moc_TaskCurveOnMesh.cpp"
-

@@ -89,4 +89,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_CALLTIPS_H
-

@@ -51,4 +51,3 @@ protected:
 
 #endif // PARTGUI_VIEWPROVIDERREGULARPOLYGON_H
 
-

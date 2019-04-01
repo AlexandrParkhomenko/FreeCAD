@@ -78,4 +78,3 @@ typedef Query3TInteger<double> Query3TIntegerd;
 }
 
 #endif
-

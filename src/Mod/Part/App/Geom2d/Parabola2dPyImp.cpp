@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Geom2d_Parabola.hxx>
+#endif
 
 #include <Base/GeometryPyCXX.h>
 
@@ -97,4 +100,3 @@ int Parabola2dPy::setCustomAttributes(const char* /*attr*/, PyObject* /*obj*/)
 {
     return 0; 
 }
-

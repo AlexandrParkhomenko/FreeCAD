@@ -112,4 +112,3 @@ protected:
 
 
 #endif // GUI_MACRO_H
-

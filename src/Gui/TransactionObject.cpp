@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "Application.h"
 #include "Document.h"
@@ -58,4 +61,3 @@ void TransactionViewProvider::applyDel(App::Document& Doc, App::TransactionalObj
     Q_UNUSED(Doc); 
     Q_UNUSED(pcObj); 
 }
-

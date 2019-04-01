@@ -21,10 +21,13 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <cfloat>
 # include <QMessageBox>
 # include <Precision.hxx>
 # include <QApplication>
+#endif
 
 # include <QMessageBox>
 
@@ -2100,4 +2103,3 @@ void CreateSketcherCommandsConstraintAccel(void)
     rcCmdMgr.addCommand(new CmdSketcherDeleteAllGeometry());
     rcCmdMgr.addCommand(new CmdSketcherDeleteAllConstraints());
 }
-

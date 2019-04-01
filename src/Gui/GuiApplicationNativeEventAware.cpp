@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
 #include <QGlobalStatic>
 #include <QMainWindow>
@@ -249,4 +250,3 @@ bool Gui::GUIApplicationNativeEventAware::xcbEventFilter(const xcb_client_messag
 }
 
 #include "moc_GuiApplicationNativeEventAware.cpp"
-

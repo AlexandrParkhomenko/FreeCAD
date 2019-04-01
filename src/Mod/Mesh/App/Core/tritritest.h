@@ -704,4 +704,3 @@ int tri_tri_intersect_with_isectline(float V0[3],float V1[3],float V2[3],
   return 1;
 }
 
-

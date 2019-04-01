@@ -620,4 +620,3 @@ namespace GCS
 } //namespace GCS
 
 #endif // PLANEGCS_CONSTRAINTS_H
-

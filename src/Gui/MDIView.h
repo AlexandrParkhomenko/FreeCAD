@@ -157,4 +157,3 @@ private:
 } // namespace Gui
 
 #endif // GUI_MDIVIEW_H 
-

@@ -21,7 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # ifdef FC_OS_WIN32
 # include <windows.h>
 # endif
@@ -171,4 +173,3 @@ void SoPolygon::computeBBox(SoAction *action, SbBox3f &box, SbVec3f &center)
         center.setValue(0.0f,0.0f,0.0f);
     }
 }
-

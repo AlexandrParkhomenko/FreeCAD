@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 #include "MeshFlatteningNurbs.h"
 #include <iostream>
 #include "math.h"
@@ -512,4 +513,3 @@ Eigen::VectorXd NurbsBase1D::getUMesh(int num_u_points)
 
 
 }
-

@@ -65,4 +65,3 @@ private:
 }}} // namespace
 
 #endif // QUARTER_EVENTFILTER_H
-

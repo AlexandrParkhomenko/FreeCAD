@@ -475,4 +475,3 @@ inline MeshPointIterator& MeshPointIterator::operator = (const MeshPointIterator
 
 
 #endif // MESH_ITERATOR_H 
-

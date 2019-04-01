@@ -23,9 +23,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <iostream>
 # include <assert.h>
+#endif
 
 #include <QAtomicInt>
 
@@ -72,4 +75,3 @@ const Handled& Handled::operator = (const Handled&)
     // we must not assign _lRefCount
     return *this;
 }
-

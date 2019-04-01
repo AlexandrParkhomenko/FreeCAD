@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 #include <gp_Ax1.hxx>
 #include <gp_Ax3.hxx>
 #include <gp_Dir.hxx>
@@ -31,6 +33,7 @@
 #include <Python.h>
 #include <Inventor/SoPickedPoint.h>
 #include <Inventor/events/SoMouseButtonEvent.h>
+#endif
 
 #include <CXX/WrapPython.h>
 #include <Base/Interpreter.h>
@@ -865,4 +868,3 @@ bool TaskPrimitives::reject()
 }
 
 #include "moc_DlgPrimitives.cpp"
-

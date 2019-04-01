@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QInputDialog>
 # include <QHeaderView>
 # include <QMessageBox>
+#endif
 
 #include "DlgMacroExecuteImp.h"
 #include "Application.h"
@@ -542,4 +545,3 @@ void DlgMacroExecuteImp::on_addonsButton_clicked()
 }
 
 #include "moc_DlgMacroExecuteImp.cpp"
-

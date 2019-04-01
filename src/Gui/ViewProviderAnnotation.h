@@ -138,4 +138,3 @@ private:
 
 
 #endif // GUI_VIEWPROVIDERANNOTATION_H
-

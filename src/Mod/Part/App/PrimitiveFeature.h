@@ -422,4 +422,3 @@ private:
 
 
 #endif // PART_PRIMITIVEFEATURE_H
-

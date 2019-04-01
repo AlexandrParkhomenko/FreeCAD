@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Python.h>
 # include <iostream>
 # include <climits>
@@ -675,4 +677,3 @@ PyObject* initModule()
 }
 
 } // namespace ImportGui
-

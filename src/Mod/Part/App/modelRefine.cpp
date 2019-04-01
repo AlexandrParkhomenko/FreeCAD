@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 #include <Base/Tools.h>
 #include <algorithm>
 #include <iterator>
@@ -1326,5 +1327,4 @@ Standard_Boolean Part::BRepBuilderAPI_RefineModel::IsDeleted(const TopoDS_Shape&
 
     return Standard_False;
 }
-
 

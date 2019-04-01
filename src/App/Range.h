@@ -137,4 +137,3 @@ private:
 }
 
 #endif // RANGE_H
-

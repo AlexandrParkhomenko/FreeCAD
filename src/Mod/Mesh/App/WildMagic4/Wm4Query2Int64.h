@@ -68,4 +68,3 @@ typedef Query2Int64<double> Query2Int64d;
 }
 
 #endif
-

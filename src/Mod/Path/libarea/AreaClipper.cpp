@@ -567,4 +567,3 @@ void UnFitArcs(CCurve &curve)
 		curve.m_vertices.push_back(vertex);
 	}
 }
-

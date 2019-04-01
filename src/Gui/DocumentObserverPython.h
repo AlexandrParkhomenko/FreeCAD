@@ -91,4 +91,3 @@ private:
 } //namespace Gui
 
 #endif // GUI_DOCUMENTOBSERVERPYTHON_H
-

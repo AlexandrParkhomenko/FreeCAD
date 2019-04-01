@@ -164,4 +164,3 @@ private:
 
 
 #endif // GUI_FLAG_H
-

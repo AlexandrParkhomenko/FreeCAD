@@ -21,6 +21,9 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>
@@ -56,5 +59,4 @@ App::DocumentObjectExecReturn *Mesh::Import::execute(void)
 
     return App::DocumentObject::StdReturn;
 }
-
 

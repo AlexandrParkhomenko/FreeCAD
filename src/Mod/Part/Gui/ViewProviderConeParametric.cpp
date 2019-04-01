@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "ViewProviderConeParametric.h"
 
@@ -63,4 +66,3 @@ std::vector<std::string> ViewProviderConeParametric::getDisplayModes(void) const
 
   return StrList;
 }
-

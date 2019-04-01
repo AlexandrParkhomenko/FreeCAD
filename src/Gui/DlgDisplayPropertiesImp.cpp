@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <algorithm>
 # include <boost/bind.hpp>
 # include <QDockWidget>
+#endif
 
 #include "DlgDisplayPropertiesImp.h"
 #include "DlgMaterialPropertiesImp.h"
@@ -52,6 +55,7 @@ using namespace std;
 
 #if 0 // needed for Qt's lupdate utility
     qApp->translate("QDockWidget", "Display properties");
+#endif
 
 /**
  *  Constructs a DlgDisplayPropertiesImp which is a child of 'parent', with the 
@@ -610,5 +614,4 @@ std::vector<Gui::ViewProvider*> DlgDisplayPropertiesImp::getSelection() const
 }
 
 #include "moc_DlgDisplayPropertiesImp.cpp"
-
 

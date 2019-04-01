@@ -186,4 +186,3 @@ typedef Matrix2<double> Matrix2d;
 }
 
 #endif
-

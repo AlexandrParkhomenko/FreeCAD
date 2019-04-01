@@ -108,4 +108,3 @@ protected:
 
 
 #endif //COIN_SOFCBOUNDINGBOX_H
-

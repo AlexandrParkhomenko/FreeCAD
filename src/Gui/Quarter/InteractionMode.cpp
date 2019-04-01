@@ -129,4 +129,3 @@ InteractionMode::focusOutEvent(QFocusEvent * event)
   }
   return false;
 }
-

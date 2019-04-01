@@ -20,9 +20,12 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <QPixmap>
 # include <QDialog>
+#endif
 
 #include <Gui/BitmapFactory.h>
 #include <Gui/MainWindow.h>
@@ -76,4 +79,3 @@ void SketchRectangularArrayDialog::updateValues(void)
 }
 
 #include "moc_SketchRectangularArrayDialog.cpp"
-

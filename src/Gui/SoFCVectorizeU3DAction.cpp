@@ -21,9 +21,12 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <qglobal.h>
 # include <iomanip>
 # include <ios>
+#endif
 #include <Inventor/SbBasic.h>
 #include <Inventor/SbBSPTree.h>
 
@@ -399,4 +402,3 @@ void SoFCVectorizeU3DAction::printItem(const SoVectorizeItem * item) const
         break;
     }
 }
-

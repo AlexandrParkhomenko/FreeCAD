@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include "Application.h"
 #include "Document.h"
@@ -558,4 +561,3 @@ void DocumentObserverPython::slotFinishSaveDocument(const App::Document& doc, co
         e.ReportException();
     }
 }
-

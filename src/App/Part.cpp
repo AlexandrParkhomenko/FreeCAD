@@ -21,7 +21,10 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
+#endif
 
 #include <App/Document.h>
 
@@ -110,4 +113,3 @@ PyObject *Part::getPyObject()
 //// explicit template instantiation
 //template class AppExport FeaturePythonT<App::Part>;
 //}
-

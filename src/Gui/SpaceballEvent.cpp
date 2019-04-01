@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "PreCompiled.h"
 #include "SpaceballEvent.h"
 #include "Application.h"
 
@@ -109,4 +110,3 @@ void ButtonEvent::setButtonNumber(const int &buttonNumberIn)
 {
     button = buttonNumberIn;
 }
-

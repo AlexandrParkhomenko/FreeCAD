@@ -67,4 +67,3 @@ public:
 } //namespace App
 
 #endif /* end of include guard: ORIGINFEATURE_H_6ZWJPB5V */
-

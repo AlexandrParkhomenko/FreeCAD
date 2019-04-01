@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <Standard_math.hxx>
 # include <BRep_Builder.hxx>
 # include <BRepAlgoAPI_Section.hxx>
@@ -42,6 +44,7 @@
 # include <Inventor/nodes/SoFaceSet.h>
 # include <Inventor/nodes/SoLineSet.h>
 # include <Inventor/nodes/SoSeparator.h>
+#endif
 
 #include "ui_CrossSections.h"
 #include "CrossSections.h"
@@ -271,6 +274,7 @@ void CrossSections::apply()
 
         seq.next();
     }
+#endif
 }
 
 void CrossSections::on_xyPlane_clicked()
@@ -536,4 +540,3 @@ void TaskCrossSections::clicked(int id)
 }
 
 #include "moc_CrossSections.cpp"
-

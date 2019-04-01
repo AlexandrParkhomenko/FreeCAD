@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
+#ifndef _PreComp_
 # include <QAction>
 # include <QColorDialog>
 # include <QDesktopWidget>
@@ -36,6 +38,7 @@
 # include <QTextBlock>
 # include <QTimer>
 # include <QToolTip>
+#endif
 
 #include <Base/Exception.h>
 #include <Base/Interpreter.h>
@@ -498,6 +501,7 @@ void ClearLineEdit::updateClearButton(const QString& text)
 {
     clearButton->setVisible(!text.isEmpty());
 }
+#endif
 
 // ------------------------------------------------------------------------------
 
@@ -609,6 +613,7 @@ ColorButton::ColorButton(QWidget* parent)
 #if 1
     int e = style()->pixelMetric(QStyle::PM_ButtonIconSize);
     setIconSize(QSize(2*e, e));
+#endif
 }
 
 /**
@@ -735,6 +740,7 @@ void ColorButton::paintEvent (QPaintEvent * e)
     }
 
     QPushButton::paintEvent(e);
+#endif
 }
 
 /**
@@ -746,10 +752,12 @@ void ColorButton::onChooseColor()
         return;
 #if QT_VERSION >= 0x040500
     if (d->modal) {
+#endif
         QColor currentColor = d->col;
         QColorDialog cd(d->col, this);
 #if QT_VERSION >= 0x050000
         cd.setOptions(QColorDialog::DontUseNativeDialog);
+#endif
 
         if (d->autoChange) {
             connect(&cd, SIGNAL(currentColorChanged(const QColor &)),
@@ -784,6 +792,7 @@ void ColorButton::onChooseColor()
         }
         d->cd->show();
     }
+#endif
 }
 
 void ColorButton::onColorChosen(const QColor& c)
@@ -873,6 +882,7 @@ LabelButton::LabelButton (QWidget * parent)
     button = new QPushButton(QLatin1String("..."), this);
 #if defined (Q_OS_MAC)
     button->setAttribute(Qt::WA_LayoutUsesWidgetRect); // layout size from QMacStyle was not correct
+#endif
     layout->addWidget(button);
 
     connect(button, SIGNAL(clicked()), this, SLOT(browse()));
@@ -1305,6 +1315,7 @@ LabelEditor::LabelEditor (QWidget * parent)
     button = new QPushButton(QLatin1String("..."), this);
 #if defined (Q_OS_MAC)
     button->setAttribute(Qt::WA_LayoutUsesWidgetRect); // layout size from QMacStyle was not correct
+#endif
     layout->addWidget(button);
 
     connect(button, SIGNAL(clicked()), this, SLOT(changeText()));
@@ -1393,4 +1404,3 @@ void LabelEditor::setInputType(InputType t)
 }
 
 #include "moc_Widgets.cpp"
-

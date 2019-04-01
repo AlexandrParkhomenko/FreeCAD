@@ -21,13 +21,16 @@
  ***************************************************************************/
 
 
+#include "PreCompiled.h"
 
+#ifndef _PreComp_
 # include <sstream>
 # include <QDialog>
 # include <QDoubleSpinBox>
 # include <QVBoxLayout>
 # include <QMessageBox>
 # include <QPointer>
+#endif
 
 #include "SegmentationBestFit.h"
 #include "ui_SegmentationBestFit.h"
@@ -484,4 +487,3 @@ bool TaskSegmentationBestFit::accept()
 }
 
 #include "moc_SegmentationBestFit.cpp"
-

@@ -26,4 +26,3 @@ Box3<Real> GaussPointsFit3 (int iQuantity, const Vector3<Real>* akPoint);
 }
 
 #endif
-

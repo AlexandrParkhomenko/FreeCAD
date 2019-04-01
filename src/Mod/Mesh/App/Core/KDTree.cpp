@@ -22,6 +22,7 @@
 
 
 #ifdef _PreComp_
+#include "PreCompiled.h"
 #endif
 
 #include "KDTree.h"
@@ -149,4 +150,3 @@ void MeshKDTree::FindInRange(const Base::Vector3f& p, float range, std::vector<u
     for (std::vector<Point3d>::iterator it = v.begin(); it != v.end(); ++it)
         indices.push_back(it->i);
 }
-
