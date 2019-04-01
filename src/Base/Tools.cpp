@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
 # include <locale>
 # include <iostream>
-#endif
 
 # include <QTime>
 #include "PyExport.h"

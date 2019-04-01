@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <sstream>
-#endif
 
 #include <CXX/Objects.hxx>
 #include <Base/Builder3D.h>

@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QApplication>
 # include <QStyle>
 # include <QToolBar>
 # include <QToolButton>
-#endif
 
 #include "ToolBoxManager.h"
 #include "ToolBarManager.h"

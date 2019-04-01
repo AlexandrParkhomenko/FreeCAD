@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #ifdef FC_OS_LINUX
 # include <unistd.h>
 #endif
 # include <sstream>
-#endif
 
 
 #include "PointsAlgos.h"

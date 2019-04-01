@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include <Base/VectorPy.h>
 #include <Base/Handle.h>

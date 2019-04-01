@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QAction>
 # include <QColorDialog>
 # include <QDesktopWidget>
@@ -38,7 +36,6 @@
 # include <QTextBlock>
 # include <QTimer>
 # include <QToolTip>
-#endif
 
 #include <Base/Exception.h>
 #include <Base/Interpreter.h>

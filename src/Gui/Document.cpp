@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <QAbstractButton>
 # include <qapplication.h>
@@ -36,7 +34,6 @@
 # include <boost/bind.hpp>
 # include <Inventor/actions/SoSearchAction.h>
 # include <Inventor/nodes/SoSeparator.h>
-#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>

@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <BRep_Builder.hxx>
 # include <BRep_Tool.hxx>
@@ -63,7 +61,6 @@
 # include <ShapeAnalysis_Edge.hxx>
 # include <Standard_Failure.hxx>
 # include <Standard_Version.hxx>
-#endif
 
 #include <BRepGProp.hxx>
 #include <GProp_GProps.hxx>

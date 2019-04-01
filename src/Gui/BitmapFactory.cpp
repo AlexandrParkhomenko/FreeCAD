@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QApplication>
 # include <QBitmap>
 # include <QDir>
@@ -35,7 +33,6 @@
 # include <QSvgRenderer>
 # include <QStyleOption>
 # include <sstream>
-#endif
 
 #if defined (FC_OS_WIN32) && QT_VERSION < 0x050000
 #define QTWEBKIT

@@ -22,10 +22,7 @@
 
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 #include <vector>
 
 #include <Base/Console.h>

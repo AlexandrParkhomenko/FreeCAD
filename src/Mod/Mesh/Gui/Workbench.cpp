@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <qobject.h>
 # include <QGroupBox>
 # include <QLabel>
-#endif
 
 #include "Workbench.h"
 #include <Gui/Application.h>

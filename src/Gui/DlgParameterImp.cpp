@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
 # include <QByteArray>
 # include <QContextMenuEvent>
@@ -31,7 +29,6 @@
 # include <QMessageBox>
 # include <QMenu>
 # include <QTreeWidget>
-#endif
 
 #include "ui_DlgParameter.h"
 #include "DlgParameterImp.h"

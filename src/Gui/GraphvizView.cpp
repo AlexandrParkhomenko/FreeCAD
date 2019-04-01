@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QFile>
 # include <QPrinter>
@@ -38,7 +36,6 @@
 # include <QThread>
 # include <QProcess>
 # include <boost/bind.hpp>
-#endif
 #include "GraphicsViewZoom.h"
 #include "FileDialog.h"
 

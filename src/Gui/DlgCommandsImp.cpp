@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QHeaderView>
 # include <QTreeWidgetItemIterator>
 # include <algorithm>
 # include <vector>
-#endif
 
 #include "DlgCommandsImp.h"
 #include "Application.h"

@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRep_Builder.hxx>
 # include <Precision.hxx>
 # include <ShapeFix_Wire.hxx>
 # include <TopoDS_Compound.hxx>
 # include <Standard_Version.hxx>
-#endif
 
 #include <Base/Writer.h>
 #include <Base/Reader.h>

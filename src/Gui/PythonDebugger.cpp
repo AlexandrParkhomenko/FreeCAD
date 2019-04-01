@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QEventLoop>
 # include <QCoreApplication>
 # include <QFileInfo>
 # include <QTimer>
-#endif
 
 #include "PythonDebugger.h"
 #include "MainWindow.h"

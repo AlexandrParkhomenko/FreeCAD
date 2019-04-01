@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QInputDialog>
 # include <QHeaderView>
 # include <QMessageBox>
-#endif
 
 #include "DlgMacroExecuteImp.h"
 #include "Application.h"

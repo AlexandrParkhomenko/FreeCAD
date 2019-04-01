@@ -23,9 +23,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <assert.h>
 # include <fcntl.h>
 # include <sys/types.h>

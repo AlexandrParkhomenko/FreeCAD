@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepAdaptor_Curve.hxx>
 # include <BRepCheck_Analyzer.hxx>
 # include <BRepFeat_SplitShape.hxx>
@@ -79,7 +77,6 @@
 # include <TopTools_ListIteratorOfListOfShape.hxx>
 # include <Precision.hxx>
 # include <Standard_Version.hxx>
-#endif
 
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>

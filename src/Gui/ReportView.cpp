@@ -21,15 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QGridLayout>
 # include <QApplication>
 # include <QMenu>
 # include <QContextMenuEvent>
 # include <QTextCursor>
 # include <QTextStream>
-#endif
 
 #include <Base/Interpreter.h>
 #include "ReportView.h"

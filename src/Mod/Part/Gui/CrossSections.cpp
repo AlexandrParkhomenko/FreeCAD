@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Standard_math.hxx>
 # include <BRep_Builder.hxx>
 # include <BRepAlgoAPI_Section.hxx>
@@ -44,7 +42,6 @@
 # include <Inventor/nodes/SoFaceSet.h>
 # include <Inventor/nodes/SoLineSet.h>
 # include <Inventor/nodes/SoSeparator.h>
-#endif
 
 #include "ui_CrossSections.h"
 #include "CrossSections.h"

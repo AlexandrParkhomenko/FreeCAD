@@ -22,11 +22,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #include <string>
-#endif
 
 #include <Base/Exception.h>
 #include <Base/Placement.h>

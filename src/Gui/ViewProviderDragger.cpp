@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <cfloat>
 # include <QAction>
 # include <QMenu>
@@ -42,7 +40,6 @@
 # include <Inventor/sensors/SoNodeSensor.h> 
 # include <Inventor/SoPickedPoint.h>
 # include <Inventor/actions/SoRayPickAction.h> 
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "ViewProviderDragger.h"

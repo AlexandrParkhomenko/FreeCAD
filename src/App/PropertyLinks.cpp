@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <assert.h>
 # include <sstream>
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <CXX/Objects.hxx>

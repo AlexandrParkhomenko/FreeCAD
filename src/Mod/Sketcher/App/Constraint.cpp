@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <cmath>
-#endif
 
 #include <Base/Writer.h>
 #include <Base/Reader.h>

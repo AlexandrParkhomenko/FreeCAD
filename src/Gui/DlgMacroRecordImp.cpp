@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QMessageBox>
 # include <QDir>
 # include <QFile>
 # include <QFileInfo>
-#endif
 
 #include "Macro.h"
 #include "Application.h"

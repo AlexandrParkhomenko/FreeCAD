@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QBoxLayout>
 # include <QCoreApplication>
 # include <QHeaderView>
@@ -30,7 +28,6 @@
 # include <QThread>
 # include <QTreeWidget>
 # include <Python.h>
-#endif
 
 #include <Standard_Version.hxx>
 #include <BRepCheck_Analyzer.hxx>

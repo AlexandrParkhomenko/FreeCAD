@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "DlgSettingsMacroImp.h"
 #include "Application.h"

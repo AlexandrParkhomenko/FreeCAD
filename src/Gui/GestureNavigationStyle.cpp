@@ -46,8 +46,6 @@
  * This style wasn't tested with space during development (I don't have one).
  */
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <cfloat>
 # include <QAction>
 # include <QActionGroup>
@@ -62,7 +60,6 @@
 # include <Inventor/SoPickedPoint.h>
 # include <Inventor/SoFullPath.h>
 # include <Inventor/draggers/SoDragger.h>
-#endif
 
 #include <Inventor/sensors/SoTimerSensor.h>
 

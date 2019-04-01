@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <boost/bind.hpp>
 # include <QAction>
 # include <QActionGroup>
@@ -38,7 +36,6 @@
 # include <QTimer>
 # include <QToolTip>
 # include <QHeaderView>
-#endif
 
 #include <Base/Console.h>
 #include <App/Document.h>

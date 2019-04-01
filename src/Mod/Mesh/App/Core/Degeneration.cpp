@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <map>
-#endif
 
 #include "Degeneration.h"
 #include "Definitions.h"

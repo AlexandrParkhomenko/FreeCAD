@@ -20,11 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 #include "OriginGroupExtension.h"
 
-#ifndef _PreComp_
-#endif
 
 #include <Base/Exception.h>
 

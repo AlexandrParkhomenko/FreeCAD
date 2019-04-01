@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Python.h>
 # include <climits>
 # include <Standard_Version.hxx>
@@ -48,7 +46,6 @@
 # include <XSControl_TransferReader.hxx>
 # include <APIHeaderSection_MakeHeader.hxx>
 # include <OSD_Exception.hxx>
-#endif
 
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>

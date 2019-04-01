@@ -25,7 +25,6 @@
 #define GUI_ViewProviderTextDocument_H
 
 
-#include "PreCompiled.h"
 #include "ViewProviderDocumentObject.h"
 
 

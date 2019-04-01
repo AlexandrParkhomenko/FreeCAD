@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
 # include <BRepMesh_IncrementalMesh.hxx>
 # include <BRepBuilderAPI_Copy.hxx>
@@ -58,7 +56,6 @@
 # include <TopLoc_Location.hxx>
 # include <TopExp.hxx>
 # include <Precision.hxx>
-#endif
 
 #include <HLRAppli_ReflectLines.hxx>
 #include <BRepGProp.hxx>

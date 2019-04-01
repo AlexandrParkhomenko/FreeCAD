@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QCoreApplication>
 # include <QStatusBar>
-#endif
 
 #include "Command.h"
 #include "Action.h"

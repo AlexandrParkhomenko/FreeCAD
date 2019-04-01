@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QApplication>
 # include <QClipboard>
 # include <QEventLoop>
@@ -34,7 +32,6 @@
 # include <QProcess>
 # include <sstream>
 # include <Inventor/nodes/SoCamera.h>
-#endif
 #include <algorithm>
 
 #include <Base/Exception.h>

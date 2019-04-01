@@ -23,11 +23,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QDebug>
 # include <QInputDialog>
-#endif
 
 #include "DlgWorkbenchesImp.h"
 #include "Application.h"

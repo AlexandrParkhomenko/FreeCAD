@@ -1,5 +1,4 @@
 
-#include "PreCompiled.h"
 
 #include "Mod/Part/App/Part2DObject.h"
 #include "OCCError.h"

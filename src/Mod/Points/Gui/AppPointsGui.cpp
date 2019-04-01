@@ -21,9 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>

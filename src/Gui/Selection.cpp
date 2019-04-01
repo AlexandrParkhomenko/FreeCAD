@@ -21,16 +21,13 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <assert.h>
 # include <string>
 # include <boost/bind.hpp>
 # include <QApplication>
 # include <QString>
 # include <QStatusBar>
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Application.h"

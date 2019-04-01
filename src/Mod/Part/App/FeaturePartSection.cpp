@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepAlgoAPI_Section.hxx>
 # include <Standard_Version.hxx>
-#endif
 
 #include "FeaturePartSection.h"
 

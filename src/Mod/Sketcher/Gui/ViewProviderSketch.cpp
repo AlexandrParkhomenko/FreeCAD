@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Standard_math.hxx>
 # include <Poly_Polygon3D.hxx>
 # include <Geom_BSplineCurve.hxx>
@@ -70,11 +68,8 @@
 # include <QPainter>
 # include <QTextStream>
 # include <QKeyEvent>
-#endif
 
-#ifndef _PreComp_
 # include <boost/bind.hpp>
-#endif
 
 #include <Inventor/SbTime.h>
 #include <boost/scoped_ptr.hpp>

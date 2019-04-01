@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #include "Base/Quantity.h"
 #include "Base/Vector3D.h"

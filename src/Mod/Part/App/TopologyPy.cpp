@@ -24,9 +24,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #if 0
-#ifndef _PreComp_
 # include <assert.h>
 # include <sstream>
 # include <BRepTools.hxx>
@@ -42,7 +40,6 @@
 # include <StlAPI_Writer.hxx>
 # include <Interface_Static.hxx>
 # include <TopoDS_Iterator.hxx>
-#endif
 
 #include <Base/Exception.h>
 #include <Base/FileInfo.h>

@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QBuffer>
 # include <QByteArray>
 # include <QDataStream>
@@ -34,7 +32,6 @@
 # include <cstring>
 #ifdef __GNUC__
 # include <stdint.h>
-#endif
 #endif
 
 #include "Stream.h"

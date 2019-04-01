@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <QApplication>
 # include <QEvent>
@@ -48,7 +46,6 @@
 # include <Inventor/SoPickedPoint.h>
 # include <Inventor/actions/SoRayPickAction.h> 
 # include <Inventor/details/SoDetail.h> 
-#endif
 
 #include "ViewProviderPythonFeature.h"
 #include "Tree.h"

@@ -28,7 +28,6 @@
 
 #ifdef FCUseFreeType
 
-#include "PreCompiled.h"
 
 #include <iostream>
 #include <fstream>

@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include <Standard_Version.hxx>
 #include <BRepGProp.hxx>

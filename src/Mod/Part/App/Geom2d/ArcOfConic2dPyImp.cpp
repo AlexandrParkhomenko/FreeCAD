@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Geom2d_Conic.hxx>
 # include <Geom2d_TrimmedCurve.hxx>
-#endif
 
 #include <Mod/Part/App/Geometry2d.h>
 #include <Mod/Part/App/Geom2d/ArcOfConic2dPy.h>

@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepBuilderAPI_MakeFace.hxx>
 # include <gp_Circ.hxx>
 # include <gp_Dir.hxx>
@@ -41,7 +39,6 @@
 # include <ShapeAnalysis_Surface.hxx>
 # include <GeomAPI_IntSS.hxx>
 # include <GeomLib_IsPlanarSurface.hxx>
-#endif
 
 #include <Base/GeometryPyCXX.h>
 #include <Base/VectorPy.h>

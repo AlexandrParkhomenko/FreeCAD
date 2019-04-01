@@ -21,10 +21,7 @@
  ***************************************************************************/
 
  
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepAlgoAPI_Cut.hxx>
-#endif
 
 
 #include "FeaturePartCut.h"

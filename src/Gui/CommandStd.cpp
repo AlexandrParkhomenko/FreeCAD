@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QApplication>
 # include <QMessageBox>
 # include <QSharedPointer>
 # include <QDesktopServices>
-#endif
 
 #include <boost/scoped_ptr.hpp>
 

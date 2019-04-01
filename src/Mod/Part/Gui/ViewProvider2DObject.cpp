@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Standard_math.hxx>
 # include <Python.h>
 # include <Inventor/nodes/SoBaseColor.h>
@@ -35,7 +33,6 @@
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/nodes/SoVertexProperty.h>
 # include <cfloat>
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <Base/Console.h>

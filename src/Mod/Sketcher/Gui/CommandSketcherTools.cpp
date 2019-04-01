@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <cfloat>
 # include <QMessageBox>
 # include <Precision.hxx>
 # include <QApplication>
-#endif
 
 # include <QMessageBox>
 

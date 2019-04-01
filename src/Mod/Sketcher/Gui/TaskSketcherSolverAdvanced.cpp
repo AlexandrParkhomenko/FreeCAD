@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "ui_TaskSketcherSolverAdvanced.h"
 #include "TaskSketcherSolverAdvanced.h"

@@ -22,9 +22,7 @@
  *   Juergen Riegel 2002                                                   *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <time.h>
 # include <stdio.h>
 # if defined(FC_OS_WIN32)

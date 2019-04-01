@@ -24,12 +24,9 @@
    René Nyffenegger rene.nyffenegger@adp-gmbh.ch
 
 */
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <iostream>
 # include <string>
-#endif
 
 #include "Base64.h"
 

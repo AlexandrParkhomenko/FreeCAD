@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 #include <sstream>
 #include "Constraint.h"
 #include "ConstraintPy.h"

@@ -20,11 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QButtonGroup>
 # include <QDialogButtonBox>
-#endif
 
 #include "DlgSmoothing.h"
 #include "ui_DlgSmoothing.h"

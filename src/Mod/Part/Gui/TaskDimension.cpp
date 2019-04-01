@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #ifndef _PreCpmp_
 # include <QButtonGroup>
 # include <QPushButton>

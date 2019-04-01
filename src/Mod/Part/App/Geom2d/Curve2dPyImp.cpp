@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
 # include <gp_Dir2d.hxx>
 # include <gp_Vec2d.hxx>
@@ -56,7 +54,6 @@
 # include <BRepLib.hxx>
 # include <BRepAdaptor_Curve.hxx>
 # include <TopoDS.hxx>
-#endif
 
 #include <Base/GeometryPyCXX.h>
 

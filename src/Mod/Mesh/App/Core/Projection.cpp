@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <map>
-#endif
 #ifdef FC_USE_OCC
 # include <Bnd_Box.hxx>
 # include <BndLib_Add3dCurve.hxx>

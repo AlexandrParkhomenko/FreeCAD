@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QAction>
 # include <QApplication>
 # include <QFileInfo>
@@ -54,7 +52,6 @@
 # include <Inventor/events/SoEvent.h>
 # include <Inventor/fields/SoSFString.h>
 # include <Inventor/fields/SoSFColor.h>
-#endif
 # include <QStackedWidget>
 #include <QtOpenGL.h>
 

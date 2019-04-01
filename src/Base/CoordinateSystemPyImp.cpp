@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #include "CoordinateSystem.h"
 #include "GeometryPyCXX.h"

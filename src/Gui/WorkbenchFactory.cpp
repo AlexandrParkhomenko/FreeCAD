@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "WorkbenchFactory.h"
 #include "Workbench.h"

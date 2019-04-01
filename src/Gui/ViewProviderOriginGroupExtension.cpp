@@ -22,10 +22,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "ViewProviderOriginGroupExtension.h"
 #include "Application.h"

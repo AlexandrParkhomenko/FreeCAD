@@ -23,10 +23,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "ViewProviderGeoFeatureGroupExtension.h"
 #include "Command.h"

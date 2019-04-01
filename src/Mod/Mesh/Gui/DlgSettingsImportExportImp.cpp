@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #include "DlgSettingsImportExportImp.h"
 #include "ui_DlgSettingsImportExport.h"

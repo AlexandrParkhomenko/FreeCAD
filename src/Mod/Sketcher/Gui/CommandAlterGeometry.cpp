@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QMessageBox>
-#endif
 
 #include <Gui/Action.h>
 #include <Gui/Application.h>

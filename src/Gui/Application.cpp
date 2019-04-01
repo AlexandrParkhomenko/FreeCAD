@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include "InventorAll.h"
 # include <boost/signals2.hpp>
 # include <boost/bind.hpp>
@@ -43,7 +41,6 @@
 # include <QStatusBar>
 # include <QTextStream>
 # include <QTimer>
-#endif
 
 #include <boost/interprocess/sync/file_lock.hpp>
 #include <QtOpenGL.h>

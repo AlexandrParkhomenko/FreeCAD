@@ -21,15 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QContextMenuEvent>
 # include <QMenu>
 # include <QRegExp>
 # include <QShortcut>
 # include <QString>
-#endif
 
 #include "TaskSketcherElements.h"
 #include "ui_TaskSketcherElements.h"

@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "FeaturePathCompound.h"
 #include <CXX/Objects.hxx>

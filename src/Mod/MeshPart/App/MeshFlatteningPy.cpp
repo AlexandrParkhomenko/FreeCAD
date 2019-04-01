@@ -22,7 +22,6 @@
 
 
 
-#include "PreCompiled.h"
 #include <Mod/Part/App/TopoShapeFacePy.h>
 #include <Mod/Part/App/TopoShapeEdgePy.h>
 

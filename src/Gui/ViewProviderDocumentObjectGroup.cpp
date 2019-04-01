@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QPixmap>
 # include <QMessageBox>
-#endif
 
 #include <App/DocumentObjectGroup.h>
 #include <App/Document.h>

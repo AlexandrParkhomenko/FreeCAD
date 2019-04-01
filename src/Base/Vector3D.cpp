@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #include "Tools.h"
 #include "Vector3D.h"
 

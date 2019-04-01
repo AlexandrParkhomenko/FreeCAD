@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #include <Gui/Application.h>
 #include <Gui/Control.h>
 #include <Gui/ViewProviderDocumentObject.h>

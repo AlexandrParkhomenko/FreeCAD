@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Inventor/actions/SoGLRenderAction.h>
 # include <Inventor/elements/SoGLCacheContextElement.h>
 # include <Inventor/fields/SoSFImage.h>
@@ -31,7 +29,6 @@
 # include <QFile>
 # include <QImage>
 # include <QImageWriter>
-#endif
 
 #if !defined(FC_OS_MACOSX)
 # include <GL/gl.h>

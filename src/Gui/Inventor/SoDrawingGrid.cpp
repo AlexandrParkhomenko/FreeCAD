@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 #ifdef FC_OS_MACOSX
 #include <OpenGL/gl.h>
 #else

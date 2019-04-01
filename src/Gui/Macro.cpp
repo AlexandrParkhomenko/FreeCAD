@@ -21,15 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <assert.h>
 # include <stdio.h>
 # include <QApplication>
 # include <QFile>
 # include <QTextStream>
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Macro.h"

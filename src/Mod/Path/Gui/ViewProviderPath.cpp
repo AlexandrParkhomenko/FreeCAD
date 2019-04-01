@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Python.h>
 # include <Inventor/SbVec3f.h>
 # include <Inventor/nodes/SoSeparator.h>
@@ -41,7 +39,6 @@
 # include <Inventor/nodes/SoSwitch.h>
 # include <Inventor/nodes/SoAnnotation.h>
 # include <QFile>
-#endif
 
 #include "ViewProviderPath.h"
 

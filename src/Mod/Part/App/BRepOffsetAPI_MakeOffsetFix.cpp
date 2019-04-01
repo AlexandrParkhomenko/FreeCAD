@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRep_Builder.hxx>
 # include <BRepBuilderAPI_MakeWire.hxx>
 # include <Standard_Version.hxx>
@@ -35,7 +33,6 @@
 # include <TopTools_ListOfShape.hxx>
 # include <TopTools_ListIteratorOfListOfShape.hxx>
 # include <TopTools_MapOfShape.hxx>
-#endif
 #include "BRepOffsetAPI_MakeOffsetFix.h"
 
 using namespace Part;

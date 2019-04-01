@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <assert.h>
 
 #include <Inventor/nodes/SoGroup.h>
@@ -43,7 +41,6 @@
 #include <Inventor/SbRotation.h>
 
 #include <Inventor/engines/SoComposeVec3f.h>
-#endif
 
 #include <math.h>
 

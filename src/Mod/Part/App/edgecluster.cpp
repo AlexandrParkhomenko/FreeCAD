@@ -22,7 +22,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "edgecluster.h"
 #include <TopExp_Explorer.hxx>

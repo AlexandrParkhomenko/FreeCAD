@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <gp_Dir2d.hxx>
 # include <gp_Pnt2d.hxx>
 # include <gp_Vec2d.hxx>
@@ -32,7 +30,6 @@
 # include <Geom2d_Curve.hxx>
 # include <Precision.hxx>
 # include <Standard_Failure.hxx>
-#endif
 
 #include <Base/GeometryPyCXX.h>
 #include <Base/Matrix.h>

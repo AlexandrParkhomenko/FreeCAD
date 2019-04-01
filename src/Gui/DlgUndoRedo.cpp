@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "DlgUndoRedo.h"
 #include "Application.h"

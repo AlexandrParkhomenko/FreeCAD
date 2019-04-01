@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Bnd_Box.hxx>
 # include <BRepBndLib.hxx>
 # include <BRep_Builder.hxx>
@@ -45,7 +43,6 @@
 # include <TopExp_Explorer.hxx>
 # include <TopTools_IndexedMapOfShape.hxx>
 # include <TopTools_HSequenceOfShape.hxx>
-#endif
 
 #include "FaceMakerBullseye.h"
 #include "FaceMakerCheese.h"

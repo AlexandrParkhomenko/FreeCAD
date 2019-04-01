@@ -20,7 +20,6 @@
  *                                                                          *
  ****************************************************************************/
 
-#include "PreCompiled.h"
 
 #include <CXX/Objects.hxx>
 #include <Mod/Part/App/TopoShapePy.h>

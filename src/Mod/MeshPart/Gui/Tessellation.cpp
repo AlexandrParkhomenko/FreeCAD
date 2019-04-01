@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <TopExp_Explorer.hxx>
 # include <QMessageBox>
 # include <QButtonGroup>
-#endif
 
 #include "Tessellation.h"
 #include "ui_Tessellation.h"

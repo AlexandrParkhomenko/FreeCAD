@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <cmath>
 # include <cstdlib>
 # include <sstream>
@@ -154,7 +152,6 @@
 # include <Standard_Version.hxx>
 #if OCC_VERSION_HEX < 0x070300
 # include <BRepAlgo_Fuse.hxx>
-#endif
 #endif
 # include <BinTools.hxx>
 # include <BinTools_ShapeSet.hxx>

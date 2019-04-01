@@ -49,15 +49,12 @@ recompute path. Also enables more complicated dependencies beyond trees.
 
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <sstream>
 # include <climits>
 # include <bitset>
 # include <random>
-#endif
 
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/subgraph.hpp>

@@ -20,7 +20,6 @@
  *                                                                          *
  ****************************************************************************/
 
-#include "PreCompiled.h"
 
 #include <Mod/Part/App/TopoShapePy.h>
 #include <Base/VectorPy.h>

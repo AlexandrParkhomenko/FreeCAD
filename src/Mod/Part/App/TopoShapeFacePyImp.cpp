@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRep_Builder.hxx>
 # include <BRep_Tool.hxx>
 # include <BRepCheck_Analyzer.hxx>
@@ -60,7 +58,6 @@
 # include <TColgp_Array1OfPnt2d.hxx>
 # include <TopExp_Explorer.hxx>
 # include <TopTools_IndexedMapOfShape.hxx>
-#endif
 
 #include <BRepTopAdaptor_FClass2d.hxx>
 #include <BRepPrimAPI_MakeHalfSpace.hxx>

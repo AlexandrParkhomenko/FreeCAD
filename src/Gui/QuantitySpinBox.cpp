@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QDebug>
 # include <QLineEdit>
 # include <QFocusEvent>
@@ -33,7 +31,6 @@
 # include <QMouseEvent>
 # include <QToolTip>
 # include <QApplication>
-#endif
 
 #include "QuantitySpinBox.h"
 #include "QuantitySpinBox_p.h"

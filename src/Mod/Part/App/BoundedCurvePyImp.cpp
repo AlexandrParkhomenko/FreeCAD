@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
-#endif
 
 #include <Base/GeometryPyCXX.h>
 #include <Base/VectorPy.h>

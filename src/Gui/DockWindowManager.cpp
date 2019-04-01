@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QPointer>
 # include <QDockWidget>
 # include <QAction>
 # include <QMap>
-#endif
 
 #include "DockWindowManager.h"
 #include "MainWindow.h"

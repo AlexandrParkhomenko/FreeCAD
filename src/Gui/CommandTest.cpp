@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QApplication>
 # include <QEventLoop>
 # include <QFileDialog>
@@ -35,7 +33,6 @@
 # include <QWaitCondition>
 # include <QRunnable>
 # include <QThreadPool>
-#endif
 
 #include <Base/Console.h>
 #include "Application.h"

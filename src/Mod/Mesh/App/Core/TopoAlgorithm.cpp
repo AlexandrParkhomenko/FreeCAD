@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <utility>
 # include <queue>
-#endif
 
 #include <Mod/Mesh/App/WildMagic4/Wm4MeshCurvature.h>
 #include <Mod/Mesh/App/WildMagic4/Wm4Vector3.h>

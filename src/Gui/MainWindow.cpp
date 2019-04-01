@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <QApplication>
 # include <QBuffer>
@@ -49,7 +47,6 @@
 # include <QUrlQuery>
 #endif
 //# include <QWhatsThis>
-#endif
 
 #include <boost/bind.hpp>
 

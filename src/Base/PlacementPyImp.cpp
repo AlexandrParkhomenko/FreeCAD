@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "Placement.h"
 #include "GeometryPyCXX.h"

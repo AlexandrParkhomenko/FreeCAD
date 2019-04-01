@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #include "Base/Reader.h"
 #include "Mod/Path/App/Tooltable.h"
 

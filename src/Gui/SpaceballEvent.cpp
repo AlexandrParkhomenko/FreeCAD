@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 #include "SpaceballEvent.h"
 #include "Application.h"
 

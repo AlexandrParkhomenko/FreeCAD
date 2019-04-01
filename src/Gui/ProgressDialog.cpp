@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "ProgressDialog.h"
 #include "MainWindow.h"

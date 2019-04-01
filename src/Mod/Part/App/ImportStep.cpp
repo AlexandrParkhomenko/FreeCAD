@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <fcntl.h>
 # include <BRep_Builder.hxx>
 # include <TopTools_HSequenceOfShape.hxx>
@@ -36,7 +34,6 @@
 # include <TopoDS_Compound.hxx>
 # include <TopExp_Explorer.hxx>
 # include <sstream>
-#endif
 
 #include <Standard_Version.hxx>
 #include <XSControl_WorkSession.hxx>

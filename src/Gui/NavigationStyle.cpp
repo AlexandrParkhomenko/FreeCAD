@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <cfloat>
 # include "InventorAll.h"
@@ -35,7 +33,6 @@
 # include <QMenu>
 # include <QMetaObject>
 # include <QRegExp>
-#endif
 
 #include <Inventor/sensors/SoTimerSensor.h>
 

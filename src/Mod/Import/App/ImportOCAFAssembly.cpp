@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <climits>
 # include <sstream>
 # include <Standard_Version.hxx>

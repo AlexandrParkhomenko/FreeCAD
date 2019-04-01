@@ -21,12 +21,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QListWidget>
 # include <QDragMoveEvent>
 # include <QString>
-#endif
 
 #include "QListWidgetCustom.h" 
 

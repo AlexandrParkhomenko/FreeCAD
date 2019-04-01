@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #include "Writer.h"
 #include "Reader.h"
 #include "PyObjectBase.h"
 
-#ifndef _PreComp_
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Persistence.h"

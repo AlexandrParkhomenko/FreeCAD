@@ -19,15 +19,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Standard_math.hxx>
 /// Qt Include Files
 # include <QApplication>
 # include <QDialog>
 # include <QMessageBox>
-#endif
 
 # include <Inventor/sensors/SoSensor.h>
 

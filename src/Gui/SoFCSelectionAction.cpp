@@ -21,9 +21,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #  include <cassert>
 #  include <float.h>
 #  include <Inventor/actions/SoSearchAction.h>
@@ -48,7 +46,6 @@
 #  include <Inventor/nodes/SoComplexity.h>
 #  include <Inventor/nodes/SoLightModel.h>
 #  include <Inventor/nodes/SoBaseColor.h>
-#endif
 
 #include <Base/Console.h>
 

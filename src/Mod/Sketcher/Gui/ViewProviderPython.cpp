@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include <Standard_math.hxx>
-#ifndef _PreComp_
 # include <Inventor/nodes/SoSeparator.h>
-#endif
 #include <Gui/ViewProviderBuilder.h>
 #include <Mod/Sketcher/App/SketchObject.h>
 #include "ViewProviderPython.h"

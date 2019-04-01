@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <gp_Ax1.hxx>
 # include <BRep_Builder.hxx>
 # include <BRepCheck_Analyzer.hxx>
@@ -33,7 +31,6 @@
 # include <TopoDS_Shell.hxx>
 # include <ShapeUpgrade_ShellSewing.hxx>
 # include <ShapeAnalysis_Shell.hxx>
-#endif
 
 #include <BRepPrimAPI_MakeHalfSpace.hxx>
 

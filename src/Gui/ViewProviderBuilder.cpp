@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Inventor/nodes/SoMaterial.h>
-#endif
 
 #include "ViewProviderBuilder.h"
 #include "SoFCSelection.h"

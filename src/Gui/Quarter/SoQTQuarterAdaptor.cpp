@@ -18,7 +18,6 @@
  *
  */
 
-#include "PreCompiled.h"
 #include "SoQTQuarterAdaptor.h"
 #include <Base/Console.h>
 #include <Inventor/nodes/SoPerspectiveCamera.h>

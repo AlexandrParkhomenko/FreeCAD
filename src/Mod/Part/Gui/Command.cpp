@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
 # include <Python.h>
 # include <QString>
@@ -36,7 +34,6 @@
 # include <Inventor/events/SoMouseButtonEvent.h>
 # include <Standard_Version.hxx>
 # include <TopoDS_TCompound.hxx>
-#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>

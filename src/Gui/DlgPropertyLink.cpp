@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <sstream>
 # include <QListWidgetItem>
 # include <QMessageBox>
-#endif
 
 #include <App/Application.h>
 #include <App/Document.h>

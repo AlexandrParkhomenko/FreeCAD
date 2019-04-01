@@ -43,7 +43,6 @@
 // FIXME: implement proper searching / SearchAction handling  2002-02-07 larsa
 // FIXME: implement proper writing / WriteAction handling  2002-02-07 larsa
 
-#include "PreCompiled.h"
 #include "SmSwitchboard.h"
 #include <Inventor/nodes/SoSubNode.h>
 #include <Inventor/misc/SoChildList.h>

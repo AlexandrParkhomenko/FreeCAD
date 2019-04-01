@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "DlgSettingsImageImp.h"
 #include "SpinBox.h"

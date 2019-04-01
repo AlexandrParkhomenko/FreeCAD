@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QComboBox>
 # include <QFontDatabase>
 # include <QHeaderView>
-#endif
 
 #include "DlgEditorImp.h"
 #include "PrefWidgets.h"

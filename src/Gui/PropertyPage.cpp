@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "PropertyPage.h"
 #include "PrefWidgets.h"

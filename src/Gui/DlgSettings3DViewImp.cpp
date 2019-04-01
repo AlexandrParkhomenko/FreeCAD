@@ -21,16 +21,13 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QDoubleSpinBox>
 # include <QRegExp>
 # include <QGridLayout>
 # include <QMessageBox>
 # include <memory>
-#endif
 
 #include "DlgSettings3DViewImp.h"
 #include "MainWindow.h"

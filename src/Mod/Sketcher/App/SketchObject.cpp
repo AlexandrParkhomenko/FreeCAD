@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <TopoDS_Shape.hxx>
 # include <TopoDS_Face.hxx>
 # include <TopoDS_Edge.hxx>
@@ -59,7 +57,6 @@
 # include <cmath>
 # include <vector>
 //# include <QtGlobal>
-#endif
 
 #include <boost/bind.hpp>
 

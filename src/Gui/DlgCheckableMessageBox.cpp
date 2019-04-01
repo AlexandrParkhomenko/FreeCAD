@@ -27,10 +27,7 @@
 **
 **************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QHeaderView>
-#endif
 
 #include "DlgCheckableMessageBox.h"
 #include "ui_DlgCheckableMessageBox.h"

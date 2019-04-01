@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <gp_Hypr.hxx>
 # include <Geom_Hyperbola.hxx>
 # include <GC_MakeHyperbola.hxx>
-#endif
 
 #include <Base/GeometryPyCXX.h>
 #include <Base/VectorPy.h>

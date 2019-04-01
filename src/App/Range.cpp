@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 #include "Range.h"
 #include <Base/Exception.h>
 #include <assert.h>

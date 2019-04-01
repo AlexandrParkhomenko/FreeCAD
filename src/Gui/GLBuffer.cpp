@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #ifndef FC_OS_WIN32
 #define GL_GLEXT_PROTOTYPES

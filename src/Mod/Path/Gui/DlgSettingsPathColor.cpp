@@ -20,10 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "DlgSettingsPathColor.h"
 #include <Gui/PrefWidgets.h>

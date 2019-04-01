@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <cmath>
 # include <iostream>
 # include <algorithm>
-#endif
 
 #include <Base/Exception.h>
 #include <Base/Matrix.h>

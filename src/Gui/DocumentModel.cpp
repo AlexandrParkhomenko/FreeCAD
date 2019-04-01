@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <algorithm>
 # include <boost/signals2.hpp>
 # include <boost/bind.hpp>
-#endif
 
 #include <boost/unordered_set.hpp>
 

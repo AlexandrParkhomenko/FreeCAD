@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #ifndef __InventorAll__
 # include "InventorAll.h"

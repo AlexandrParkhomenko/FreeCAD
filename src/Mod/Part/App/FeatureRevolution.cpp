@@ -21,15 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <gp_Ax1.hxx>
 # include <TopoDS.hxx>
 # include <BRepAdaptor_Curve.hxx>
 # include <gp_Lin.hxx>
 # include <gp_Circ.hxx>
 # include <TopExp_Explorer.hxx>
-#endif
 
 
 #include "FeatureRevolution.h"

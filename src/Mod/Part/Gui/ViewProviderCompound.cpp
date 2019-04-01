@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <TopExp.hxx>
 # include <TopTools_IndexedMapOfShape.hxx>
-#endif
 
 #include <Gui/Application.h>
 #include <Mod/Part/App/FeatureCompound.h>

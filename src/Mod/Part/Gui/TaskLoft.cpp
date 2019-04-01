@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QMessageBox>
 # include <QTextStream>
 # include <Precision.hxx>
@@ -32,7 +30,6 @@
 # include <TopoDS.hxx>
 # include <TopoDS_Edge.hxx>
 # include <TopTools_HSequenceOfShape.hxx>
-#endif
 
 #include "ui_TaskLoft.h"
 #include "TaskLoft.h"

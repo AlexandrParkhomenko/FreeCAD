@@ -20,13 +20,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #ifndef FC_OS_WIN32
 #define GL_GLEXT_PROTOTYPES
 #endif
 
-#ifndef _PreComp_
 #include <float.h>
 #include <algorithm>
 #include <map>
@@ -55,7 +53,6 @@
 #include <Inventor/details/SoLineDetail.h>
 #include <Inventor/misc/SoState.h>
 #include <Inventor/misc/SoContextHandler.h>
-#endif
 
 #include "SoBrepFaceSet.h"
 #include <Gui/SoFCUnifiedSelection.h>

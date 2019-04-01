@@ -21,15 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <BRepAlgoAPI_BooleanOperation.hxx>
 # include <TopExp.hxx>
 # include <TopTools_IndexedMapOfShape.hxx>
 # include <TopTools_ListOfShape.hxx>
 # include <TopTools_ListIteratorOfListOfShape.hxx>
-#endif
 
 #include "ViewProviderBoolean.h"
 #include <Gui/Application.h>

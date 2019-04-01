@@ -21,15 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QInputDialog>
 # include <QHeaderView>
 # include <QMenu>
 # include <QMessageBox>
 # include <QToolBar>
 # include <QToolButton>
-#endif
 
 #include "DlgToolbarsImp.h"
 #include "Application.h"

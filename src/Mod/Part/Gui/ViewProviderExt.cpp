@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <Bnd_Box.hxx>
 # include <Poly_Polygon3D.hxx>
@@ -95,7 +93,6 @@
 # include <Inventor/nodes/SoLightModel.h>
 # include <QAction>
 # include <QMenu>
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <Base/Console.h>

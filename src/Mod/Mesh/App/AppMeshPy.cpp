@@ -20,12 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <memory>
 # include <map>
-#endif
 
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>

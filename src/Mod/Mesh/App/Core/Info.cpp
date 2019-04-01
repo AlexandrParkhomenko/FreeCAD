@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <iomanip>
 # include <ios>
 # include <map>
 # include <set>
-#endif
 
 #include "Info.h"
 #include "Algorithm.h"

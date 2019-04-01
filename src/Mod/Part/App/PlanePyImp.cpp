@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <gp_Ax1.hxx>
 # include <gp_Dir.hxx>
 # include <gp_Pnt.hxx>
@@ -33,7 +31,6 @@
 # include <Geom_TrimmedCurve.hxx>
 # include <GC_MakePlane.hxx>
 # include <Standard_Failure.hxx>
-#endif
 
 #include <Base/VectorPy.h>
 #include <Base/GeometryPyCXX.h>

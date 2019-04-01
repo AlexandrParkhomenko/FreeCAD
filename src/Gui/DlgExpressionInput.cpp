@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 #include <QApplication>
 #include <QPainter>
 #include <QDesktopWidget>

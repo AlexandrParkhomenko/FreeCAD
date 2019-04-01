@@ -20,11 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #	include <cassert>
-#endif
 
 #include <limits>
 #include <iomanip>

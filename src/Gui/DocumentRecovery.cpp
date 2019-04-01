@@ -25,9 +25,7 @@
 // write a property to file only when it has been modified
 // implement xml meta file
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QCloseEvent>
 # include <QDateTime>
@@ -45,7 +43,6 @@
 # include <QList>
 # include <QVector>
 # include <sstream>
-#endif
 
 #include "DocumentRecovery.h"
 #include "ui_DocumentRecovery.h"

@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "TopoShape.h"
 #include <BRep_Builder.hxx>

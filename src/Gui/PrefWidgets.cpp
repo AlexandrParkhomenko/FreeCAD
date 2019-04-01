@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QContextMenuEvent>
 # include <QMenu>
-#endif
 
 #include <Base/Console.h>
 #include <Base/Exception.h>

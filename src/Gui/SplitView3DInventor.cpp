@@ -21,15 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <qfileinfo.h>
 # include <qsplitter.h>
 # include <Inventor/nodes/SoOrthographicCamera.h>
 # include <Inventor/nodes/SoPerspectiveCamera.h>
 # include <Inventor/nodes/SoDirectionalLight.h>
-#endif
 
 #include "SplitView3DInventor.h"
 #include "View3DInventorViewer.h"

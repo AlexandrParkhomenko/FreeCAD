@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <boost/signals2.hpp>
 # include <boost/bind.hpp>
 # include <QAbstractItemView>
@@ -35,7 +33,6 @@
 # include <QTimer>
 # include <QToolBar>
 # include <QToolButton>
-#endif
 
 #include "Action.h"
 #include "Application.h"

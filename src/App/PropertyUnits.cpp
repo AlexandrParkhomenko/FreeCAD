@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <boost/version.hpp>
 # include <boost/filesystem/path.hpp>
 # include <cfloat>
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 

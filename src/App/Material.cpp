@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <cstring>
-#endif
 
 #include <Base/Exception.h>
 #include "Material.h"

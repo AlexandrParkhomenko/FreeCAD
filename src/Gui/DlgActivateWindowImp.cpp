@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QApplication>
 # include <QHeaderView>
 # include <QPushButton>
-#endif
 
 #include "DlgActivateWindowImp.h"
 #include "ui_DlgActivateWindow.h"

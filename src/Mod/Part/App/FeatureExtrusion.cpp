@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <cmath>
 # include <gp_Pln.hxx>
 # include <gp_Trsf.hxx>
@@ -42,7 +40,6 @@
 # include <TopExp_Explorer.hxx>
 # include <TopTools_IndexedMapOfShape.hxx>
 # include <BRepLib_FindSurface.hxx>
-#endif
 
 
 #include "FeatureExtrusion.h"

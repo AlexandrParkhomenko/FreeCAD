@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <gp_Pnt.hxx>
 # include <gp_Ax1.hxx>
 # include <BRep_Tool.hxx>
@@ -33,7 +31,6 @@
 # include <BRepBuilderAPI_MakeVertex.hxx>
 # include <Geom_CartesianPoint.hxx>
 # include <Standard_Failure.hxx>
-#endif
 
 #include <Mod/Part/App/TopoShape.h>
 #include <Base/VectorPy.h>

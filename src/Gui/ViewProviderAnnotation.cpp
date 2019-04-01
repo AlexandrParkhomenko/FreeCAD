@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QAction>
 # include <QMenu>
 # include <QFont>
@@ -43,7 +41,6 @@
 # include <Inventor/nodes/SoCoordinate3.h>
 # include <Inventor/nodes/SoLineSet.h>
 # include <Inventor/nodes/SoPointSet.h>
-#endif
 # include <Inventor/draggers/SoTranslate2Dragger.h>
 
 #include "ViewProviderAnnotation.h"

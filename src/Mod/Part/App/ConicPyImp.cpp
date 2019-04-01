@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Geom_Conic.hxx>
-#endif
 
 #include <Mod/Part/App/OCCError.h>
 #include <Mod/Part/App/ConicPy.h>

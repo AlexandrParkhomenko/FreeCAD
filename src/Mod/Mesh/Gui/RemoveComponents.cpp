@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QPushButton>
-#endif
 
 #include "RemoveComponents.h"
 #include "ui_RemoveComponents.h"

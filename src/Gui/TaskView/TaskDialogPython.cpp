@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <QFile>
 # include <QPointer>
-#endif
 
 #include "TaskDialogPython.h"
 #include "TaskView.h"

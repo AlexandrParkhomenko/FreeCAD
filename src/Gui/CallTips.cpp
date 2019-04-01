@@ -21,16 +21,13 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QKeyEvent>
 # include <QLabel>
 # include <QTextCursor>
 # include <QPlainTextEdit>
 # include <QToolTip>
-#endif
 
 #include <CXX/Objects.hxx>
 #include <Base/Interpreter.h>

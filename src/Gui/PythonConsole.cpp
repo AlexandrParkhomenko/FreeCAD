@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QApplication>
 # include <QClipboard>
 # include <QDockWidget>
@@ -38,7 +36,6 @@
 # include <QTextStream>
 # include <QUrl>
 # include <QMimeData>
-#endif
 
 #include "PythonConsole.h"
 #include "PythonConsolePy.h"

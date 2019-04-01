@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <stdexcept>
 # include <map>
 # include <queue>
-#endif
 
 #include <Base/Exception.h>
 #include <Base/Sequencer.h>

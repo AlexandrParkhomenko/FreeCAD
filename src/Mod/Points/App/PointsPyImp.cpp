@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "Mod/Points/App/Points.h"
 #include <Base/Builder3D.h>

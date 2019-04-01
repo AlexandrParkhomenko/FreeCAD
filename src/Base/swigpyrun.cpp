@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #include "PyExport.h"
 #include "Exception.h"
 #if (defined(HAVE_SWIG) && (HAVE_SWIG == 1))

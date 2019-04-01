@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <boost/bind.hpp>
-#endif
 
 #include "TaskDlgEditSketch.h"
 #include "ViewProviderSketch.h"

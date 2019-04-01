@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <BRep_Tool.hxx>
 # include <BRepGProp.hxx>
@@ -43,7 +41,6 @@
 # include <Inventor/events/SoMouseButtonEvent.h>
 # include <Inventor/nodes/SoCamera.h>
 # include <Inventor/nodes/SoSeparator.h>
-#endif
 
 #include <boost/signals2.hpp>
 #include <boost/bind.hpp>

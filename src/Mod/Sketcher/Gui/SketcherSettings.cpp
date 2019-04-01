@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QPainter>
 # include <QPixmap>
 # include <QMessageBox>
-#endif
 
 #include "SketcherSettings.h"
 #include "ui_SketcherSettings.h"

@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QEventLoop>
 # include <QMessageBox>
 # include <QTextStream>
-#endif
 
 #include "ui_TaskOffset.h"
 #include "TaskThickness.h"

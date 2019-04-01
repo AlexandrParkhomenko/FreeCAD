@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <stdexcept>
 # include <QByteArray>
@@ -33,7 +31,6 @@
 # include <QFileOpenEvent>
 # include <QSessionManager>
 # include <QTimer>
-#endif
 
 #include <QLocalServer>
 #include <QLocalSocket>

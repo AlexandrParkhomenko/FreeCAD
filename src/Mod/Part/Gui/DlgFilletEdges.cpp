@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <climits>
 # include <sstream>
@@ -47,7 +45,6 @@
 # include <Python.h>
 # include <Inventor/actions/SoSearchAction.h>
 # include <Inventor/details/SoLineDetail.h>
-#endif
 
 #include "DlgFilletEdges.h"
 #include "ui_DlgFilletEdges.h"

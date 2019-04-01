@@ -22,7 +22,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include "App/GeoFeatureGroupExtension.h"
 

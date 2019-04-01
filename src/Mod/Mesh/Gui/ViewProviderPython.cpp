@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #include "ViewProviderPython.h"
 
 namespace Gui {

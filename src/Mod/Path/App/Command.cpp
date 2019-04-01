@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 
-#endif
 #include <cinttypes>
 #include <iomanip>
 #include <boost/algorithm/string.hpp>

@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "TaskDlgPathCompound.h"
 #include "ui_TaskDlgPathCompound.h"

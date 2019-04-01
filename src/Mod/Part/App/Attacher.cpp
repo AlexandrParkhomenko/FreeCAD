@@ -21,8 +21,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <TopoDS_Shape.hxx>
 # include <TopoDS_Face.hxx>
 # include <TopoDS_Edge.hxx>
@@ -55,7 +53,6 @@
 # include <GProp_PrincipalProps.hxx>
 # include <BRepGProp.hxx>
 # include <GeomLib_IsPlanarSurface.hxx>
-#endif
 #include <BRepLProp_SLProps.hxx>
 #include <GeomAPI_ProjectPointOnCurve.hxx>
 

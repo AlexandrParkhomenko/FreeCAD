@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <cmath>
 # include <QContextMenuEvent>
 # include <QMenu>
@@ -33,7 +31,6 @@
 # include <QStyledItemDelegate>
 # include <QPainter>
 # include <QPixmapCache>
-#endif
 
 #include "TaskSketcherConstrains.h"
 #include "ui_TaskSketcherConstrains.h"

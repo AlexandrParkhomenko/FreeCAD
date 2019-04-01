@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QDockWidget>
 # include <QMessageBox>
-#endif
 
 #include "DlgEvaluateMeshImp.h"
 #include "ui_DlgEvaluateMesh.h"

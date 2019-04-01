@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <BRepAdaptor_Curve.hxx>
 # include <BRepAdaptor_Surface.hxx>
@@ -42,7 +40,6 @@
 # include <Standard_Version.hxx>
 # include <gp_GTrsf.hxx>
 # include <gp_Trsf.hxx>
-#endif
 
 #if OCC_VERSION_HEX >= 0x060800
 #include <OSD_OpenFile.hxx>

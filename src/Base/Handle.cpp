@@ -23,12 +23,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <iostream>
 # include <assert.h>
-#endif
 
 #include <QAtomicInt>
 

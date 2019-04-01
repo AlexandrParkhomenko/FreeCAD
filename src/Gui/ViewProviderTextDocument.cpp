@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QMenu>
 # include <QPlainTextEdit>
 # include <boost/bind.hpp>
-#endif
 
 #include <Base/Type.h>
 #include <Gui/ViewProviderDocumentObject.h>

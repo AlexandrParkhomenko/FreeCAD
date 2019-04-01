@@ -21,16 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QLocale>
 # include <QMessageBox>
 # include <QDoubleValidator>
-#endif
 
-#ifndef _PreComp_
 #include <cmath>
-#endif
 
 #include "DlgSettingsColorGradientImp.h"
 #include "SpinBox.h"

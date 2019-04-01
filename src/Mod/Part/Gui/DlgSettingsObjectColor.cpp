@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include "DlgSettingsObjectColor.h"
 #include <Gui/PrefWidgets.h>

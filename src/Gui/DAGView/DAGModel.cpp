@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <boost/bind.hpp>
 #include <boost/graph/topological_sort.hpp>
 #include <boost/graph/reverse_graph.hpp>
@@ -41,7 +39,6 @@
 #include <QKeyEvent>
 #include <QMenu>
 #include <QTimer>
-#endif
 
 #include <QAbstractEventDispatcher>
 

@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #include "DlgCustomizeSpNavSettings.h"
 #include "GuiApplicationNativeEventAware.h"

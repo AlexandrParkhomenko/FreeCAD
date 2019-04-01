@@ -1,5 +1,4 @@
 
-#include "PreCompiled.h"
 
 #include "Mod/Part/App/AttachExtension.h"
 #include "OCCError.h"

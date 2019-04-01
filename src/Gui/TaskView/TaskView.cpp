@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <boost/bind.hpp>
 # include <QAbstractSpinBox>
 # include <QActionEvent>
@@ -33,7 +31,6 @@
 # include <QPointer>
 # include <QPushButton>
 # include <QTimer>
-#endif
 
 #include "TaskView.h"
 #include "TaskDialog.h"

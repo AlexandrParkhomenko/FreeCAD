@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <boost/bind.hpp>
 # include <QDockWidget>
-#endif
 
 #include "DlgDisplayPropertiesImp.h"
 #include "DlgMaterialPropertiesImp.h"

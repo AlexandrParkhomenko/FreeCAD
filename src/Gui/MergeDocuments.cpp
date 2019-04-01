@@ -20,11 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <stack>
 # include <boost/bind.hpp>
-#endif
 #include "MergeDocuments.h"
 #include <Base/Console.h>
 #include <Base/Reader.h>

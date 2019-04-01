@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QGridLayout>
 # include <QHeaderView>
 # include <QEvent>
-#endif
 
 #include <boost/bind.hpp>
 

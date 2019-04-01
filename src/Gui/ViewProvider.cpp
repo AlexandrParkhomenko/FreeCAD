@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QPixmap>
 # include <QTimer>
@@ -36,7 +34,6 @@
 # include <Inventor/events/SoLocation2Event.h>
 # include <Inventor/actions/SoGetMatrixAction.h>
 # include <Inventor/actions/SoSearchAction.h>
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <Base/Console.h>

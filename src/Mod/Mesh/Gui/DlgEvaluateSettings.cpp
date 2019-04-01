@@ -21,9 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include "DlgEvaluateSettings.h"
 #include "ui_DlgEvaluateSettings.h"

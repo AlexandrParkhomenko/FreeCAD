@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QEvent>
-#endif
 
 #include "TaskSketcherCreateCommands.h"
 #include <Gui/Application.h>

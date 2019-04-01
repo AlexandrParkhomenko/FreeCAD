@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <cmath>
 # include <iostream>
-#endif
 
 #include <boost/math/special_functions/fpclassify.hpp>
 #include <QtConcurrentMap>

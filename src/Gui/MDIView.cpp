@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <boost/signals2.hpp>
 # include <boost/bind.hpp>
 # include <qapplication.h>
@@ -32,7 +30,6 @@
 # include <QCloseEvent>
 # include <QMdiSubWindow>
 #include <iostream>
-#endif
 
 
 #include "MDIView.h"

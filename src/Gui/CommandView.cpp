@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 # include <Inventor/actions/SoGetBoundingBoxAction.h>
 # include <Inventor/events/SoMouseButtonEvent.h>
@@ -37,7 +35,6 @@
 # include <QPainter>
 # include <QTextStream>
 # include <boost/bind.hpp>
-#endif
 
 #include "Command.h"
 #include "Action.h"

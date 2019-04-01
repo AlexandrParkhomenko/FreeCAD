@@ -20,9 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-#endif
 
 #include <Base/Type.h>
 #include <Gui/ViewProviderDocumentObject.h>

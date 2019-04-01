@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QMessageBox>
 # include <QTextStream>
-#endif
 
 #include "ui_TaskOffset.h"
 #include "TaskOffset.h"

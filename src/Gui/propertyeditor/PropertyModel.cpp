@@ -21,11 +21,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <cfloat>
-#endif
 
 #include "PropertyModel.h"
 #include "PropertyItem.h"

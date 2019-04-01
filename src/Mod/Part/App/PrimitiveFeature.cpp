@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <cfloat>
 # include <BRepLib.hxx>
 # include <BRepPrimAPI_MakeCone.hxx>
@@ -59,7 +57,6 @@
 # include <TopoDS_Solid.hxx>
 # include <TopoDS_Vertex.hxx>
 # include <Standard_Version.hxx>
-#endif
 
 
 #include "PrimitiveFeature.h"

@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QVBoxLayout>
 # include <QListWidget>
 # include <QListWidgetItem>
@@ -31,7 +29,6 @@
 # include <QToolButton>
 # include <QMenu>
 # include <QLabel>
-#endif
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <App/Document.h>

@@ -22,7 +22,6 @@
 
 
 #ifdef _PreComp_
-#include "PreCompiled.h"
 #endif
 
 #include "KDTree.h"

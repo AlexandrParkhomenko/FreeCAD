@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
-#endif
 
 #include "DynamicProperty.h"
 #include "Property.h"

@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <gp_Ax2.hxx>
 # include <gp_Dir.hxx>
 # include <gp_Pnt.hxx>
@@ -31,7 +29,6 @@
 # include <BRepOffsetAPI_MakePipeShell.hxx>
 # include <Standard_Version.hxx>
 # include <TopTools_ListIteratorOfListOfShape.hxx>
-#endif
 
 #include "TopoShapePy.h"
 #include "TopoShapeVertexPy.h"

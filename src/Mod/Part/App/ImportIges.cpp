@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <fcntl.h>
 # include <BRep_Builder.hxx>
 # include <Interface_Static.hxx>
@@ -41,7 +39,6 @@
 # include <IGESBasic_Group.hxx>
 # include <IGESSolid_ManifoldSolid.hxx>
 # include <IGESBasic_SingularSubfigure.hxx>
-#endif
 
 #include <XSControl_WorkSession.hxx>
 #include <XSControl_TransferReader.hxx>

@@ -1,5 +1,4 @@
 
-#include "PreCompiled.h"
 
 #include "Mod/Import/App/StepShape.h"
 

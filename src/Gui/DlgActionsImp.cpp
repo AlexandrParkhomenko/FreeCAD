@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QDialogButtonBox>
 # include <QDir>
 # include <QFileDialog>
@@ -34,7 +32,6 @@
 # include <QMessageBox>
 # include <QTextStream>
 # include <QVBoxLayout>
-#endif
 
 #include "DlgActionsImp.h"
 #include "Action.h"

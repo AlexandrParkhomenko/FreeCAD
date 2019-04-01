@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QMenu>
 # include <QPixmap>
 # include <boost/bind.hpp>
-#endif
 
 #include <App/Part.h>
 #include <App/Document.h>

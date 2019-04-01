@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QContextMenuEvent>
 # include <QMenu>
 # include <QPixmapCache>
-#endif
 
 #include <Base/Console.h>
 #include <Base/Quantity.h>

@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 #include <QSignalMapper>
 #include <QDockWidget>
 #include <QMessageBox>

@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <QComboBox>
 # include <QFontDatabase>
@@ -35,7 +33,6 @@
 # include <QApplication>
 # include <QPalette>
 # include <QtGlobal>
-#endif
 
 #include <Base/Tools.h>
 #include <Base/Console.h>

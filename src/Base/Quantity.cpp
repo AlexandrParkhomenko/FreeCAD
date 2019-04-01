@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
 # ifdef FC_OS_WIN32
 # define _USE_MATH_DEFINES

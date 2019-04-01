@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <limits>
 # include <QTextStream>
-#endif
 #if QT_VERSION >= 0x050200
 # include <QMetaType>
 #endif

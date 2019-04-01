@@ -22,11 +22,8 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Standard_math.hxx>
-#endif
 
 #include <BRep_Tool.hxx>
 #include <gp_Pnt.hxx>

@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QPushButton>
-#endif
 
 #include "DlgInputDialogImp.h"
 #include "SpinBox.h"

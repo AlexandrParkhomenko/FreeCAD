@@ -20,10 +20,7 @@
  *                                                                          *
  ****************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
-#endif
 
 #include <BRep_Builder.hxx>
 #include <TopoDS_Compound.hxx>

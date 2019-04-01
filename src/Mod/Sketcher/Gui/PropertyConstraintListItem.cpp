@@ -20,12 +20,9 @@
 *                                                                          *
 ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QDebug>
 # include <QTextStream>
-#endif
 
 #include <Base/Tools.h>
 

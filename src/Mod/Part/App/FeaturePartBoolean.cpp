@@ -21,13 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepAlgoAPI_BooleanOperation.hxx>
 # include <BRepCheck_Analyzer.hxx>
 # include <Standard_Failure.hxx>
 # include <memory>
-#endif
 
 #include "FeaturePartBoolean.h"
 #include "modelRefine.h"
