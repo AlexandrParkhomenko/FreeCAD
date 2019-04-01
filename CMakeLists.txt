@@ -4,13 +4,9 @@ project(FreeCAD)
 set(PACKAGE_VERSION_NAME "FreeCAD.0.2019.Path")
 configure_file(${CMAKE_SOURCE_DIR}/src/Version.h.cmake ${CMAKE_SOURCE_DIR}/src/Version.h)
 #compilator
-set(BUILD_ENABLE_CXX_STD "C++11"  CACHE STRING  "Enable C++ standard")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-set_property(CACHE BUILD_ENABLE_CXX_STD PROPERTY STRINGS "C++11" "C++14" "C++17")
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-write-strings ${CMAKE_CXX_FLAGS}")
+set(CMAKE_CXX_STANDARD 17) #CXX_STANDARD_REQUIRED YES  #CXX_EXTENSIONS NO
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-write-strings ${CMAKE_CXX_FLAGS}") #-Werror -Wno-deprecated -pedantic-errors
 set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--no-undefined")  # get linker errors
-# BUILD_USE_PCH
-# https://gcc.gnu.org/onlinedocs/gcc/Precompiled-Headers.html
 
 include(AddFileDependencies)
 include(${CMAKE_SOURCE_DIR}/Macros.cmake)
@@ -246,3 +242,4 @@ endif (BUILD_GUI)
 
 include_directories(${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
 add_subdirectory(src)
+

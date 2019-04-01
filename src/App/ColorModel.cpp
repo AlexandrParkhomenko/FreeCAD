@@ -21,10 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-# include <cstdlib>
-#endif
+#include <cstdlib>
 
 #include "ColorModel.h"
 

@@ -35,8 +35,6 @@
 # define _TEMPLATE_GuiExport
 #endif
 
-#ifdef _PreComp_
-
 // standard
 #include <cstdio>
 #include <cassert>
@@ -65,6 +63,5 @@
 # include <Gui/Qt4All.h>
 #endif
 
-#endif  //_PreComp_
 
 #endif // GUI_PRECOMPILED_H 

@@ -24,12 +24,7 @@
 
 
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
-# include <stdexcept>
-#endif
-
+#include <stdexcept>
 
 #include "Application.h"
 #include "Document.h"

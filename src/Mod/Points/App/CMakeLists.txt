@@ -38,7 +38,6 @@ SET(Points_SRCS
     PointsFeature.h
     PointsGrid.cpp
     PointsGrid.h
-    PreCompiled.cpp
     PreCompiled.h
     Properties.cpp
     Properties.h

@@ -51,7 +51,6 @@ SET(Python_SRCS
 SET(Mod_SRCS
     AppPath.cpp
     AppPathPy.cpp
-    PreCompiled.cpp
     PreCompiled.h
 )
 

@@ -46,7 +46,6 @@ SET(PointsGui_SRCS
     ${Resource_SRCS}
     AppPointsGui.cpp
     Command.cpp
-    PreCompiled.cpp
     PreCompiled.h
     ViewProvider.cpp
     ViewProvider.h

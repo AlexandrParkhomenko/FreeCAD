@@ -349,21 +349,13 @@ SET(Mesh_SRCS
     MeshProperties.cpp
     MeshProperties.h
     MeshPyImp.cpp
-    PreCompiled.cpp
     PreCompiled.h
     Segment.cpp
     Segment.h
 )
 
-if(BUILD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${Core_SRCS} ${Mesh_SRCS})
-    ADD_PRECOMPILED_HEADER(Mesh PreCompiled.h PreCompiled.cpp PCH_SRCS)
-endif(BUILD_USE_PCH)
-
 add_library(Mesh SHARED ${Core_SRCS} ${WildMagic4_SRCS} ${Mesh_SRCS})
 target_link_libraries(Mesh ${Mesh_LIBS})
-
 
 SET_BIN_DIR(Mesh Mesh /Mod/Mesh)
 SET_PYTHON_PREFIX_SUFFIX(Mesh)

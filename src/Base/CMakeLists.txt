@@ -276,7 +276,6 @@ SET(FreeCADBase_SRCS
     ${FreeCADBase_UNITAPI_SRCS}
     PyTools.c
     PyTools.h
-    PreCompiled.cpp
     PreCompiled.h
 )
 
@@ -299,12 +298,6 @@ if(FREECAD_USE_EXTERNAL_ZIPIOS)
 else(FREECAD_USE_EXTERNAL_ZIPIOS)
     list(APPEND FreeCADBase_SRCS ${zipios_SRCS})
 endif(FREECAD_USE_EXTERNAL_ZIPIOS)
-
-
-if(BUILD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    ADD_PRECOMPILED_HEADER(FreeCADBase PreCompiled.h PreCompiled.cpp FreeCADBase_CPP_SRCS)
-endif(BUILD_USE_PCH)
 
 add_library(FreeCADBase SHARED ${FreeCADBase_SRCS})
 

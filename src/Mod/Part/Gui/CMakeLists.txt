@@ -142,7 +142,6 @@ SET(PartGui_SRCS
     DlgSettingsObjectColor.h
     DlgSettingsObjectColor.ui
     Resources/Part.qrc
-    PreCompiled.cpp
     PreCompiled.h
     PropertyEnumAttacherItem.cpp
     PropertyEnumAttacherItem.h

@@ -25,7 +25,7 @@
 
 
 #include "PreCompiled.h"
-
+/*
 #ifndef _PreComp_
 # include <iostream>
 # include <sstream>
@@ -40,7 +40,7 @@
 # include <csignal>
 # include <boost/program_options.hpp>
 #endif
-
+*/
 #include "Application.h"
 #include "Document.h"
 

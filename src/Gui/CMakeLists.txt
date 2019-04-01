@@ -961,7 +961,6 @@ SET(FreeCADGui_SRCS
     Macro.h
     MergeDocuments.h
     MetaTypes.h
-    PreCompiled.cpp
     PreCompiled.h
     Qt4All.h
     Control.h
@@ -1003,12 +1002,6 @@ SET(FreeCADGui_SRCS
     ${Selection_SRCS}
     ${FreeCADGui_SRCS}
 )
-
-if (BUILD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    ADD_PRECOMPILED_HEADER(FreeCADGui PreCompiled.h PreCompiled.cpp FreeCADGui_CPP_SRCS)
-endif(BUILD_USE_PCH)
-
 if (FREECAD_USE_QT_FILEDIALOG)
     set_source_files_properties(FileDialog.cpp PROPERTIES COMPILE_FLAGS -DUSE_QT_FILEDIALOG)
 endif()

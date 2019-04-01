@@ -26,13 +26,12 @@
 
 #include <FCConfig.h>
 
-#ifdef _PreComp_
-
 // standard
 #include <cstdio>
 #include <cassert>
 #include <ctime>
 #include <csignal>
+#include <stdexcept> //ApplicationPy.cpp
 
 // Streams
 #include <iostream>
@@ -67,6 +66,5 @@
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/exception.hpp>
 
-#endif //_PreComp_
 
 #endif // APP_PRECOMPILED_H

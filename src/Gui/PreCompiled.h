@@ -26,8 +26,6 @@
  
 #include <FCConfig.h>
 
-#ifdef _PreComp_
-
 // standard
 #include <stdio.h>
 #include <assert.h>
@@ -72,6 +70,5 @@
 #include "InventorAll.h"
 #include "Qt4All.h"
 
-#endif  //_PreComp_
 
 #endif // GUI_PRECOMPILED_H

@@ -1,7 +1,7 @@
 # Turn compiler warnings on for gcc 
 if (CMAKE_BUILD_TOOL MATCHES "make")
-    MESSAGE(STATUS "setting gcc options: -Wall -Werror -Wno-deprecated -pedantic-errors")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+#    MESSAGE(STATUS "setting gcc options: -Wall -Werror -Wno-deprecated -pedantic-errors")
+#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
 endif (CMAKE_BUILD_TOOL MATCHES "make")
 
 include_directories(${Python3_INCLUDE_DIRS})

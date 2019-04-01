@@ -61,7 +61,6 @@
 #include <Standard_Character.hxx>
 #include <Standard_ConstructionError.hxx>
 #include <Standard_CString.hxx>
-#include <Standard_ctype.hxx>
 #include <Standard_DefineHandle.hxx>
 #include <Standard_DimensionError.hxx>
 #include <Standard_DimensionMismatch.hxx>
@@ -74,9 +73,7 @@
 #include <Standard_GUID.hxx>
 #include <Standard_ImmutableObject.hxx>
 #include <Standard_Integer.hxx>
-#include <Standard_InternalType.hxx>
 #include <Standard_IStream.hxx>
-#include <Standard_KindOfType.hxx>
 #include <Standard_LicenseError.hxx>
 #include <Standard_LicenseNotFound.hxx>
 #include <Standard_Macro.hxx>

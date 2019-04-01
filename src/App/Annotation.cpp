@@ -22,10 +22,6 @@
 
 
 #include "PreCompiled.h"
-
-#ifndef _PreComp_
-#endif
-
 #include "Annotation.h"
 
 using namespace App;
