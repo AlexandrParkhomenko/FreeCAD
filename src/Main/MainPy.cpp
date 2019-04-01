@@ -21,6 +21,8 @@
  *                                                                         *
  *   Juergen Riegel 2002                                                   *
  ***************************************************************************/
+//# OSDEPENDENT
+
 #include <FCConfig.h>
 
 #ifdef _PreComp_

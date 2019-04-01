@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR) #https://cmake.org/cmake/help/v3.12/module/FindPython3.html#module:FindPython3
 #name
 project(FreeCAD)
-set(PACKAGE_VERSION_NAME "FreeCAD.0.2019.Path")
+set(PACKAGE_VERSION_NAME "FreeCAD.0.19.Path")
 configure_file(${CMAKE_SOURCE_DIR}/src/Version.h.cmake ${CMAKE_SOURCE_DIR}/src/Version.h)
 #compilator
-set(CMAKE_CXX_STANDARD 17) #CXX_STANDARD_REQUIRED YES  #CXX_EXTENSIONS NO
+set(CMAKE_CXX_STANDARD 20) #CXX_STANDARD_REQUIRED YES  #CXX_EXTENSIONS NO
 set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-write-strings ${CMAKE_CXX_FLAGS}") #-Werror -Wno-deprecated -pedantic-errors
 set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--no-undefined")  # get linker errors
 

@@ -12,3 +12,9 @@ git apply --ignore-space-change --ignore-whitespace changes.patch
 git stash save --keep-index
 git stash drop
 
+# vim force quit
+: q!
+
+#move master ref
+git reset --soft HEAD~1
+
