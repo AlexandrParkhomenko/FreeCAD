@@ -21,16 +21,8 @@
  ***************************************************************************/
 
 
-# ifdef FC_OS_WIN32
-# include <windows.h>
-# undef min
-# undef max
-# endif
-# ifdef FC_OS_MACOSX
-# include <OpenGL/gl.h>
-# else
 # include <GL/gl.h>
-# endif
+
 # include <cfloat>
 # include <algorithm>
 # include <QFontMetrics>
@@ -41,7 +33,7 @@
 # include <Inventor/actions/SoGLRenderAction.h>
 # include <Inventor/misc/SoState.h>
 # include <cmath>
-#endif
+
 #include <Inventor/actions/SoGetMatrixAction.h>
 #include <Inventor/elements/SoFontNameElement.h>
 #include <Inventor/elements/SoFontSizeElement.h>

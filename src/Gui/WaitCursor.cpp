@@ -26,10 +26,6 @@
 # include <QDateTime>
 # include <QMessageBox>
 # include <QProgressDialog>
-# ifdef FC_OS_WIN32
-#   include <windows.h>
-# endif
-#endif
 
 #if QT_VERSION >= 0x050000
 # include <QWindow>

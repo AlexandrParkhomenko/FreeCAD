@@ -19,7 +19,7 @@
  *   Suite 330, Boston, MA  02111-1307, USA                                *
  *                                                                         *
  ***************************************************************************/
-
+//#OSDEPENDENT
 
 
 # include <sstream>
@@ -35,9 +35,6 @@
 #include <QLocalServer>
 #include <QLocalSocket>
 
-#if defined(Q_OS_WIN)
-# include <Windows.h>
-#endif
 #if defined(Q_OS_UNIX)
 # include <sys/types.h>
 # include <time.h>

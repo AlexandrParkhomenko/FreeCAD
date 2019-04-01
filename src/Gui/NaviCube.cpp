@@ -22,14 +22,8 @@
 
 
 # include <float.h>
-# ifdef FC_OS_WIN32
-#  include <windows.h>
-# endif
-# ifdef FC_OS_MACOSX
-# include <OpenGL/gl.h>
-# else
+
 # include <GL/gl.h>
-# endif
 # include <Inventor/SbBox.h>
 # include <Inventor/actions/SoGetBoundingBoxAction.h>
 # include <Inventor/actions/SoGetMatrixAction.h>
@@ -80,7 +74,6 @@
 # include <QStatusBar>
 # include <QBitmap>
 # include <QMimeData>
-#endif
 
 #include <sstream>
 #include <Base/Console.h>

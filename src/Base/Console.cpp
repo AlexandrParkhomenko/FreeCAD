@@ -21,18 +21,15 @@
  *                                                                         *
  *   Juergen Riegel 2002                                                   *
  ***************************************************************************/
-
+//#OSDEPENDENT
+#include "FCConfig.h"
 
 # include <time.h>
 # include <stdio.h>
-# if defined(FC_OS_WIN32)
-#  include <io.h>
-#  include <windows.h>
-# elif defined(FC_OS_LINUX) || defined(FC_OS_MACOSX)
+#if defined(FC_OS_LINUX) || defined(FC_OS_MACOSX)
 #  include <unistd.h>
-# endif
-# include "fcntl.h"
 #endif
+# include "fcntl.h"
 
 #include "Console.h"
 #include "Exception.h"
