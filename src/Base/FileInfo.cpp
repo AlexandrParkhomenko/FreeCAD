@@ -25,7 +25,7 @@
  *                                                                         *
  *   Juergen Riegel 2002                                                   *
  ***************************************************************************/
-
+//#OSDEPENDENT
 
 
 # include <algorithm>
@@ -40,7 +40,6 @@
 # include <unistd.h>
 # include <sys/stat.h>
 # endif
-#endif
 
 
 #include "FileInfo.h"

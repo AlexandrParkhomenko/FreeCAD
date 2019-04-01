@@ -113,7 +113,7 @@ bool Gui::GUIApplicationNativeEventAware::setOSIndependentMotionData()
 
 void Gui::GUIApplicationNativeEventAware::importSettings()
 {
-    ParameterGrp::handle group = App::GetApplication().GetUserParameter().GetGroup("BaseApp")->GetGroup("Spaceball")->GetGroup("Motion");
+/*    ParameterGrp::handle group = App::GetApplication().GetUserParameter().GetGroup("BaseApp")->GetGroup("Spaceball")->GetGroup("Motion");
 
     // here I import settings from a dialog. For now they are set as is
     bool  dominant           = group->GetBool("Dominant"); // Is dominant checked
@@ -170,7 +170,6 @@ void Gui::GUIApplicationNativeEventAware::importSettings()
         motionDataArray[4] = motionDataArray[4] - group->GetInt("CalibrationYr");
         motionDataArray[5] = motionDataArray[5] - group->GetInt("CalibrationZr");
     }
-
     int i;
 
     if (flipXY) {
@@ -239,6 +238,7 @@ void Gui::GUIApplicationNativeEventAware::importSettings()
             }
         }
     }
+*/
 }
 
 

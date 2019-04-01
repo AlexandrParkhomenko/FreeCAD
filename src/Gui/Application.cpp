@@ -1569,6 +1569,7 @@ void Application::runApplication(void)
     GUISingleApplication mainApp(argc, App::Application::GetARGV());
     // http://forum.freecadweb.org/viewtopic.php?f=3&t=15540
     mainApp.setAttribute(Qt::AA_DontShowIconsInMenus, false);
+    mainApp.setAttribute(Qt::AA_UseDesktopOpenGL);
 
 #ifdef Q_OS_UNIX
     // Make sure that we use '.' as decimal point. See also
