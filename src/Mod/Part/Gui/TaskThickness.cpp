@@ -57,7 +57,7 @@ public:
     QString text;
     std::string selection;
     Part::Thickness* thickness;
-    Private()
+    Private() : thickness(nullptr)
     {
     }
     ~Private()

@@ -60,7 +60,10 @@ public:
     Redirection(FILE* f)
         : fi(Base::FileInfo::getTempFileName()), file(f)
     {
-        freopen(fi.filePath().c_str(),"w",file);
+        FILE* ptr = freopen(fi.filePath().c_str(),"w",file);
+        if (!ptr) {
+            std::cerr << "Failed to reopen file" << std::endl;
+        }
     }
     ~Redirection()
     {

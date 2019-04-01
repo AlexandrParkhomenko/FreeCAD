@@ -52,7 +52,7 @@ class OffsetWidget::Private
 public:
     Ui_TaskOffset ui;
     Part::Offset* offset;
-    Private()
+    Private() : offset(nullptr)
     {
     }
     ~Private()
