@@ -116,6 +116,8 @@ ThicknessWidget::ThicknessWidget(Part::Thickness* thickness, QWidget* parent)
     QSignalBlocker blockSelfInt(d->ui.selfIntersection);
     bool selfint = d->thickness->SelfIntersection.getValue();
     d->ui.selfIntersection->setChecked(selfint);
+
+    d->ui.spinOffset->bind(d->thickness->Value);
 }
 
 ThicknessWidget::~ThicknessWidget()
