@@ -961,7 +961,6 @@ SET(FreeCADGui_SRCS
     Macro.h
     MergeDocuments.h
     MetaTypes.h
-    PreCompiled.h
     Qt4All.h
     Control.h
     SpaceballEvent.h

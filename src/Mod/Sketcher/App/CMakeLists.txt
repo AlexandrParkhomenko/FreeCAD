@@ -94,7 +94,6 @@ SOURCE_GROUP("PlaneGCS" FILES ${PlaneGCS_SRCS})
 SET(SketchModule_SRCS
     AppSketcher.cpp
     AppSketcherPy.cpp
-    PreCompiled.h
 )
 SOURCE_GROUP("Module" FILES ${SketchModule_SRCS})
 

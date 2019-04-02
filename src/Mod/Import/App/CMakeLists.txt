@@ -29,7 +29,6 @@ SET(Import_SRCS
     StepShape.h
     StepShape.cpp
     StepShapePyImp.cpp
-    PreCompiled.h
     #ImpExpDxf.cpp
     #ImpExpDxf.h
     #dxf.cpp

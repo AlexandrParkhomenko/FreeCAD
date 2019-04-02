@@ -131,7 +131,6 @@ SET(MeshGui_SRCS
     ${ViewProvider_SRCS}
     AppMeshGui.cpp
     Command.cpp
-    PreCompiled.h
     MeshEditor.cpp
     MeshEditor.h
     MeshSelection.cpp

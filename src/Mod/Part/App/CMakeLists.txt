@@ -344,7 +344,6 @@ SET(Part_SRCS
     ImportIges.h
     ImportStep.cpp
     ImportStep.h
-    PreCompiled.h
     ProgressIndicator.cpp
     ProgressIndicator.h
     TopoShape.cpp

@@ -257,7 +257,6 @@ SET(FreeCADApp_SRCS
     ${FreeCADApp_XML_SRCS}
     FreeCADInit.py
     FreeCADTest.py
-    PreCompiled.h
 )
 add_library(FreeCADApp SHARED ${FreeCADApp_SRCS})
 

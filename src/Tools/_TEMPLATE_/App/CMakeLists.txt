@@ -13,7 +13,6 @@ set(_TEMPLATE__LIBS
 
 SET(_TEMPLATE__SRCS
     App_TEMPLATE_.cpp
-    PreCompiled.h
 )
 
 add_library(_TEMPLATE_ SHARED ${_TEMPLATE__SRCS})

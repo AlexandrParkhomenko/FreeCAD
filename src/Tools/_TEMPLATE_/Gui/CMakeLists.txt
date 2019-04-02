@@ -20,7 +20,6 @@ SET(_TEMPLATE_Gui_SRCS
     ${_TEMPLATE__QRC_SRCS}
     App_TEMPLATE_Gui.cpp
     Command.cpp
-    PreCompiled.h
     Workbench.cpp
     Workbench.h
 )

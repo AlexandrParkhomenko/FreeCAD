@@ -349,7 +349,6 @@ SET(Mesh_SRCS
     MeshProperties.cpp
     MeshProperties.h
     MeshPyImp.cpp
-    PreCompiled.h
     Segment.cpp
     Segment.h
 )

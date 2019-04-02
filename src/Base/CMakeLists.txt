@@ -276,7 +276,6 @@ SET(FreeCADBase_SRCS
     ${FreeCADBase_UNITAPI_SRCS}
     PyTools.c
     PyTools.h
-    PreCompiled.h
 )
 
 # Use external zipios++ if specified.

@@ -50,7 +50,6 @@ SET(MeshPartGui_SRCS
     CurveOnMesh.cpp
     CurveOnMesh.h
     Resources/MeshPart.qrc
-    PreCompiled.h
     TaskCurveOnMesh.ui
     TaskCurveOnMesh.cpp
     TaskCurveOnMesh.h
