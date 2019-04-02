@@ -24,6 +24,7 @@
 #ifndef GUI_VIEW3DINVENTOR_H
 #define GUI_VIEW3DINVENTOR_H
 
+#include "stdexport.h"
 #include "MDIView.h"
 
 #include <Base/Parameter.h>

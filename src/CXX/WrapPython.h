@@ -46,7 +46,9 @@
 #undef _POSIX_C_SOURCE
 
 // pull in python definitions
-#include <Python.h>
+#undef slots
+#include "FCConfig.h"
+#define slots
 
 // fix issue with Python assuming that isspace, toupper etc are macros
 #if defined(isspace)

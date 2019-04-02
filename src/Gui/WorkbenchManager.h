@@ -24,6 +24,7 @@
 #ifndef GUI_WORKBENCHMANAGER_H
 #define GUI_WORKBENCHMANAGER_H
 
+#include "stdexport.h"
 #include <list>
 
 namespace Gui {

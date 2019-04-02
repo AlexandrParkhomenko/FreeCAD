@@ -25,6 +25,7 @@
 #define GUI_ViewProviderTextDocument_H
 
 
+#include "stdexport.h"
 #include "ViewProviderDocumentObject.h"
 
 

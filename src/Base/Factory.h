@@ -26,11 +26,11 @@
 #ifndef BASE_FACTORY_H
 #define BASE_FACTORY_H
 
-#include<typeinfo>
-#include<string>
-#include<map>
-#include<list>
-#include"../FCConfig.h"
+#include "stdexport.h"
+#include <typeinfo>
+#include <string>
+#include <map>
+#include <list>
 
 
 namespace Base

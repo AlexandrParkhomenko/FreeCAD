@@ -23,6 +23,7 @@
 #ifndef PATH_FeatureArea_H
 #define PATH_FeatureArea_H
 
+#include "stdexport.h"
 #include <App/DocumentObject.h>
 #include <App/GeoFeature.h>
 #include <App/PropertyUnits.h>
@@ -34,7 +35,7 @@
 namespace Path
 {
 
-class PathExport FeatureArea : public Part::Feature
+class Standard_EXPORT FeatureArea : public Part::Feature
 {
     PROPERTY_HEADER(Path::FeatureArea);
 
@@ -72,7 +73,7 @@ private:
 
 typedef App::FeaturePythonT<FeatureArea> FeatureAreaPython;
 
-class PathExport FeatureAreaView : public Part::Feature
+class Standard_EXPORT FeatureAreaView : public Part::Feature
 {
     PROPERTY_HEADER(Path::FeatureAreaView);
 

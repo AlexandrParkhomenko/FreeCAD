@@ -24,6 +24,7 @@
 #ifndef GUI_DIALOG_DlgRunExternal_H
 #define GUI_DIALOG_DlgRunExternal_H
 
+#include "stdexport.h"
 #include <QProcess>
 #include <QDialog>
 

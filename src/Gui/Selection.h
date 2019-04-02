@@ -24,8 +24,8 @@
 #ifndef GUI_SELECTION_H
 #define GUI_SELECTION_H
 
-// Std. configurations
 
+#include "stdexport.h"
 #include <string>
 #include <vector>
 #include <list>

@@ -23,6 +23,7 @@
 #ifndef SRC_GUI_NAVICUBE_H_
 #define SRC_GUI_NAVICUBE_H_
 
+#include "stdexport.h"
 #include <CXX/Extensions.hxx>
 
 class SoEvent;

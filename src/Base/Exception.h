@@ -26,11 +26,12 @@
 #ifndef BASE_EXCEPTION_H
 #define BASE_EXCEPTION_H
 
+#include "stdexport.h"
 #include <exception>
 #include <stdexcept>
 #include <string>
 #include <signal.h>
-#include <Python.h>
+#include "FCConfig.h"
 #include "FileInfo.h"
 #include "BaseClass.h"
 

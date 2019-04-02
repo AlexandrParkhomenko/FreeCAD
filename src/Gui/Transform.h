@@ -23,6 +23,7 @@
 #ifndef GUI_TRANSFORM_H
 #define GUI_TRANSFORM_H
 
+#include "stdexport.h"
 #include <Gui/InputVector.h>
 #include <Gui/Selection.h>
 #include <Gui/TaskView/TaskDialog.h>

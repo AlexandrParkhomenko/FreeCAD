@@ -24,6 +24,7 @@
 #ifndef MESH_APPROXIMATION_H
 #define MESH_APPROXIMATION_H
 
+#include "stdexport.h"
 #include <Mod/Mesh/App/WildMagic4/Wm4Vector3.h>
 #include <Mod/Mesh/App/WildMagic4/Wm4QuadricSurface.h>
 #include <Mod/Mesh/App/WildMagic4/Wm4Eigen.h>
@@ -98,7 +99,7 @@ namespace MeshCore {
 /**
  * Abstract base class for approximation of a geometry to a given set of points.
  */
-class MeshExport Approximation
+class Standard_EXPORT Approximation
 {
 public:
     /**
@@ -183,7 +184,7 @@ protected:
 /**
  * Approximation of a plane into a given set of points.
  */
-class MeshExport PlaneFit : public Approximation
+class Standard_EXPORT PlaneFit : public Approximation
 {
 public:
     /**
@@ -255,7 +256,7 @@ protected:
  * Depending on the parameters (a,..,k) this surface defines a sphere, ellipsoid, cylinder, cone
  * and so on.
  */
-class MeshExport QuadraticFit : public Approximation
+class Standard_EXPORT QuadraticFit : public Approximation
 {
 public:
     /**
@@ -332,7 +333,7 @@ protected:
  * This approach was developed as an alternative for the 3D approach with quadrics because
  * the latter suffers from strange artifacts in planar areas.
  */
-class MeshExport SurfaceFit : public PlaneFit
+class Standard_EXPORT SurfaceFit : public PlaneFit
 {
 public:
     /**
@@ -361,7 +362,7 @@ protected:
 /**
  * Approximation of a cylinder into a given set of points.
  */
-class MeshExport CylinderFit : public Approximation
+class Standard_EXPORT CylinderFit : public Approximation
 {
 public:
     /**
@@ -409,7 +410,7 @@ protected:
 /**
  * Approximation of a sphere into a given set of points.
  */
-class MeshExport SphereFit : public Approximation
+class Standard_EXPORT SphereFit : public Approximation
 {
 public:
     /**
@@ -616,7 +617,7 @@ private:
     FunctionContainer(){};
 };
 
-class MeshExport PolynomialFit : public Approximation
+class Standard_EXPORT PolynomialFit : public Approximation
 {
 public:
     /**

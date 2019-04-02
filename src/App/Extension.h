@@ -24,6 +24,7 @@
 #ifndef APP_EXTENSION_H
 #define APP_EXTENSION_H
 
+#include "stdexport.h"
 #include "PropertyContainer.h"
 #include "PropertyPythonObject.h"
 #include "ExtensionContainer.h"

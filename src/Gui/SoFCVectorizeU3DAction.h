@@ -24,6 +24,7 @@
 #ifndef GUI_SOFCVECTORIZEU3DACTION_H
 #define GUI_SOFCVECTORIZEU3DACTION_H
 
+#include "stdexport.h"
 #ifndef __InventorAll__
 # include "InventorAll.h"
 #endif

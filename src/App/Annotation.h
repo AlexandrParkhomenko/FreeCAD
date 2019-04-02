@@ -24,6 +24,7 @@
 #ifndef APP_ANNOTATION_H
 #define APP_ANNOTATION_H
 
+#include "stdexport.h"
 #include "DocumentObject.h"
 #include "PropertyGeo.h"
 #include "PropertyStandard.h"

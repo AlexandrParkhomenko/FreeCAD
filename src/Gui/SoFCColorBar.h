@@ -24,6 +24,7 @@
 #ifndef GUI_SOFCCOLORBAR_H
 #define GUI_SOFCCOLORBAR_H
 
+#include "stdexport.h"
 #include <Inventor/SbVec2s.h>
 #include <Inventor/nodes/SoSeparator.h>
 #include <QTime>

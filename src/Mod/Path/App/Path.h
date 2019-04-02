@@ -24,6 +24,7 @@
 #ifndef PATH_Path_H
 #define PATH_Path_H
 
+#include "stdexport.h"
 #include "Command.h"
 //#include "Mod/Robot/App/kdl_cp/path_composite.hpp"
 //#include "Mod/Robot/App/kdl_cp/frames_io.hpp"
@@ -35,7 +36,7 @@ namespace Path
 
     /** The representation of a CNC Toolpath */
     
-    class PathExport Toolpath : public Base::Persistence
+    class Standard_EXPORT Toolpath : public Base::Persistence
     {
         TYPESYSTEM_HEADER();
     

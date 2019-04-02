@@ -25,6 +25,7 @@
 
 
 
+#include "stdexport.h"
 #include "ViewProviderGeoFeatureGroupExtension.h"
 #include "Command.h"
 #include "Application.h"

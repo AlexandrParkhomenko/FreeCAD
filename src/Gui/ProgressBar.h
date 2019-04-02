@@ -24,6 +24,7 @@
 #ifndef GUI_PROGRESSBAR_H
 #define GUI_PROGRESSBAR_H
 
+#include "stdexport.h"
 #include <QProgressBar>
 
 #include <Base/Sequencer.h>

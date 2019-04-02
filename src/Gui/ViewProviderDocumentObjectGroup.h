@@ -25,6 +25,7 @@
 #define GUI_VIEWPROVIDER_DOCUMENTOBJECTGROUP_H
 
 
+#include "stdexport.h"
 #include "ViewProviderDocumentObject.h"
 #include "ViewProviderPythonFeature.h"
 #include "ViewProviderGroupExtension.h"

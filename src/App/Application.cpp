@@ -23,21 +23,20 @@
  ***************************************************************************/
 //# OSDEPENDENT
 
-
+#include "stdexport.h"
 
 # include <iostream>
 # include <sstream>
 # include <exception>
 # include <ios>
-# if defined(FC_OS_LINUX) || defined(FC_OS_MACOSX) || defined(FC_OS_BSD)
+//linux, macos
 # include <unistd.h>
 # include <pwd.h>
 # include <sys/types.h>
-# endif
+
 # include <ctime>
 # include <csignal>
 # include <boost/program_options.hpp>
-#endif
 
 #include "Application.h"
 #include "Document.h"
@@ -127,6 +126,12 @@ using namespace boost::program_options;
 using namespace Base;
 using namespace App;
 using namespace std;
+
+#ifdef FC_OS_WIN32
+#   define PATHSEP '\\'
+#else
+#   define PATHSEP '/'
+#endif
 
 /** Observer that watches relabeled objects and make sure that the labels inside
  * a document are unique.

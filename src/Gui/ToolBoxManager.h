@@ -24,6 +24,7 @@
 #ifndef GUI_TOOLBOXMANAGER_H
 #define GUI_TOOLBOXMANAGER_H
 
+#include "stdexport.h"
 namespace Gui {
 
 class ToolBarItem;

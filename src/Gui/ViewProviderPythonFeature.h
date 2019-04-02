@@ -24,6 +24,7 @@
 #ifndef GUI_VIEWPROVIDERPYTHONFEATURE_H
 #define GUI_VIEWPROVIDERPYTHONFEATURE_H
 
+#include "stdexport.h"
 #include <Gui/ViewProviderGeometryObject.h>
 #include <App/PropertyPythonObject.h>
 #include <App/DynamicProperty.h>

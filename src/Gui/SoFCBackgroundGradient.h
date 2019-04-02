@@ -24,6 +24,8 @@
 #ifndef GUI_SOFCBACKGROUNDGRADIENT_H
 #define GUI_SOFCBACKGROUNDGRADIENT_H
 
+#include "stdexport.h"
+
 #ifndef __InventorAll__
 # include "InventorAll.h"
 #endif

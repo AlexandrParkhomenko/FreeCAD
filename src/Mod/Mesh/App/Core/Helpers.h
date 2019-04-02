@@ -24,6 +24,7 @@
 #ifndef MESH_HELPERS_H
 #define MESH_HELPERS_H
 
+#include "stdexport.h"
 #include "Elements.h"
 
 #include <Base/Vector3D.h>
@@ -34,7 +35,7 @@ namespace MeshCore {
 /**
  * Helper class for points.
  */
-struct MeshExport MeshHelpPoint
+struct Standard_EXPORT MeshHelpPoint
 {
   inline void Set (unsigned long ulCorner, unsigned long ulFacet, const Base::Vector3f &rclPt);
 
@@ -62,7 +63,7 @@ struct MeshPointBuilder: public std::vector<MeshHelpPoint>
 /**
  * Helper class for edges.
  */
-struct MeshExport MeshHelpBuilderEdge
+struct Standard_EXPORT MeshHelpBuilderEdge
 {
   unsigned long Side (void) const
   { return _ulFIndex & 3; }

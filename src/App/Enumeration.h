@@ -24,6 +24,7 @@
 #ifndef BASE_ENUMERATION_H
 #define BASE_ENUMERATION_H
 
+#include "stdexport.h"
 #include <string>
 #include <vector>
 

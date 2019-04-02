@@ -24,6 +24,7 @@
 #ifndef APP_INVENTOROBJECT_H
 #define APP_INVENTOROBJECT_H
 
+#include "stdexport.h"
 #include "GeoFeature.h"
 #include "PropertyStandard.h"
 

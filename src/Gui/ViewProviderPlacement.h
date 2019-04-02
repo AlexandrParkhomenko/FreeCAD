@@ -24,6 +24,7 @@
 #ifndef GUI_ViewProviderPlacement_H
 #define GUI_ViewProviderPlacement_H
 
+#include "stdexport.h"
 #include "ViewProviderGeometryObject.h"
 #include <QObject>
 

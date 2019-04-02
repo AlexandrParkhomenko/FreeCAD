@@ -24,6 +24,7 @@
 #ifndef GUI_PYTHONDEBUG_H
 #define GUI_PYTHONDEBUG_H
 
+#include "stdexport.h"
 #include <CXX/Extensions.hxx>
 #include <frameobject.h>
 #include <string>

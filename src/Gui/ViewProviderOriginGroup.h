@@ -23,6 +23,7 @@
 #ifndef VIEWPROVIDERORIGINGROUP_H_JIXBOPA7
 #define VIEWPROVIDERORIGINGROUP_H_JIXBOPA7
 
+#include "stdexport.h"
 #include "ViewProviderGeoFeatureGroup.h"
 #include "ViewProviderOriginGroupExtension.h"
 
@@ -37,7 +38,7 @@ public:
     virtual ~ViewProviderOriginGroup ();
 };
 
-} /* Gui  */
+} //namespace Gui
 
 
 #endif /* end of include guard: VIEWPROVIDERORIGINGROUP_H_JIXBOPA7 */

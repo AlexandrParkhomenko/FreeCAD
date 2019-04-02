@@ -24,6 +24,7 @@
 #ifndef APP_DOCUMENTOBJECTEXTENSION_H
 #define APP_DOCUMENTOBJECTEXTENSION_H
 
+#include "stdexport.h"
 #include "Extension.h"
 #include "DocumentObject.h"
 

@@ -30,8 +30,8 @@
 #ifndef CHECKABLEMESSAGEBOX_H
 #define CHECKABLEMESSAGEBOX_H
 
-//#include "utils_global.h"
 
+#include "stdexport.h"
 #include <QDialogButtonBox>
 #include <QMessageBox>
 #include <QDialog>

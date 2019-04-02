@@ -24,9 +24,8 @@
 #ifndef APP_PROPERTYUNITS_H
 #define APP_PROPERTYUNITS_H
 
-// Std. configurations
 
-
+#include "stdexport.h"
 #include <string>
 #include <list>
 #include <vector>

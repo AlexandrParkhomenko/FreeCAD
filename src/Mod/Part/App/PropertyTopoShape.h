@@ -24,6 +24,7 @@
 #ifndef PART_PROPERTYTOPOSHAPE_H
 #define PART_PROPERTYTOPOSHAPE_H
 
+#include "stdexport.h"
 #include "TopoShape.h"
 #include <TopAbs_ShapeEnum.hxx>
 #include <App/DocumentObject.h>
@@ -37,7 +38,7 @@ namespace Part
 /** The part shape property class.
  * @author Werner Mayer
  */
-class PartExport PropertyPartShape : public App::PropertyComplexGeoData
+class Standard_EXPORT PropertyPartShape : public App::PropertyComplexGeoData
 {
     TYPESYSTEM_HEADER();
 
@@ -95,7 +96,7 @@ private:
     TopoShape _Shape;
 };
 
-struct PartExport ShapeHistory {
+struct Standard_EXPORT ShapeHistory {
     /**
     * @brief MapList: key is index of subshape (of type 'type') in source
     * shape. Value is list of indexes of subshapes in result shape.
@@ -107,7 +108,7 @@ struct PartExport ShapeHistory {
     MapList shapeMap;
 };
 
-class PartExport PropertyShapeHistory : public App::PropertyLists
+class Standard_EXPORT PropertyShapeHistory : public App::PropertyLists
 {
     TYPESYSTEM_HEADER();
 
@@ -155,12 +156,12 @@ private:
 /** A property class to store hash codes and two radii for the fillet algorithm.
  * @author Werner Mayer
  */
-struct PartExport FilletElement {
+struct Standard_EXPORT FilletElement {
     int edgeid;
     double radius1, radius2;
 };
 
-class PartExport PropertyFilletEdges : public App::PropertyLists
+class Standard_EXPORT PropertyFilletEdges : public App::PropertyLists
 {
     TYPESYSTEM_HEADER();
 

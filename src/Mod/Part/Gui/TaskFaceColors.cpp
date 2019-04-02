@@ -33,7 +33,7 @@
 # include <QFontMetrics>
 # include <QMessageBox>
 # include <QSet>
-# include <Python.h>
+# include "FCConfig.h"
 # include <Inventor/SoPickedPoint.h>
 # include <Inventor/actions/SoRayPickAction.h>
 # include <Inventor/actions/SoSearchAction.h>

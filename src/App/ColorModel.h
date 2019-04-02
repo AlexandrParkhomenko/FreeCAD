@@ -24,6 +24,7 @@
 #ifndef APP_COLORMODEL_H
 #define APP_COLORMODEL_H
 
+#include "stdexport.h"
 #include "Material.h"
 
 #include <algorithm>

@@ -25,6 +25,7 @@
 #ifndef PART_FEATUREPARTBOX_H
 #define PART_FEATUREPARTBOX_H
 
+#include "stdexport.h"
 #include <App/PropertyStandard.h>
 
 #include "PrimitiveFeature.h"
@@ -32,7 +33,7 @@
 namespace Part
 {
 
-class PartExport Box :public Part::Primitive
+class Standard_EXPORT Box :public Part::Primitive
 {
     PROPERTY_HEADER(Part::Box);
 

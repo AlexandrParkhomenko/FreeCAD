@@ -24,6 +24,7 @@
 #ifndef GUI_INVENTOR_SODRAWINGGRID_H
 #define GUI_INVENTOR_SODRAWINGGRID_H
 
+#include "stdexport.h"
 #include <Inventor/nodes/SoSubNode.h>
 #include <Inventor/nodes/SoShape.h>
 

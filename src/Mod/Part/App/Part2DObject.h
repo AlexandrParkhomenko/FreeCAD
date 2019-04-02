@@ -25,6 +25,7 @@
 #ifndef PART_PART2DOBJECT_H
 #define PART_PART2DOBJECT_H
 
+#include "stdexport.h"
 #include <App/PropertyStandard.h>
 #include <Base/Axis.h>
 
@@ -50,7 +51,7 @@ class Geometry;
   * geometry as its descend Sketcher::SketchObject .
   */
 
-class PartExport Part2DObject : public Part::Feature, public Part::AttachExtension
+class Standard_EXPORT Part2DObject : public Part::Feature, public Part::AttachExtension
 {
     PROPERTY_HEADER_WITH_EXTENSIONS(Part::Part2DObject);
 

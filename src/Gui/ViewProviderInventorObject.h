@@ -24,6 +24,7 @@
 #ifndef GUI_VIEWPROVIDER_INVENTOROBJECT_H
 #define GUI_VIEWPROVIDER_INVENTOROBJECT_H
 
+#include "stdexport.h"
 #include "ViewProviderDocumentObject.h"
 
 
@@ -35,10 +36,7 @@ class GuiExport ViewProviderInventorObject : public ViewProviderDocumentObject
     PROPERTY_HEADER(Gui::ViewProviderInventorObject);
 
 public:
-    /// constructor.
     ViewProviderInventorObject();
-
-    /// destructor.
     ~ViewProviderInventorObject();
 
     void attach(App::DocumentObject *pcObject);

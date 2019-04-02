@@ -22,7 +22,7 @@
 
 
 
-#include <Python.h>
+#include "FCConfig.h"
 #include <QMessageBox>
 #include "ViewProvider.h"
 #include "DlgSettings3DViewPartImp.h"

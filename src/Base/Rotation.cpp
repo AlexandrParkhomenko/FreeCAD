@@ -25,8 +25,6 @@
 # include <climits>
 
 #include "Rotation.h"
-#include "Matrix.h"
-#include "Base/Exception.h"
 
 using namespace Base;
 

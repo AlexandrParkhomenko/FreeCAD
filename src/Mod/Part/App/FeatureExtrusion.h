@@ -24,6 +24,7 @@
 #ifndef PART_FEATUREEXTRUSION_H
 #define PART_FEATUREEXTRUSION_H
 
+#include "stdexport.h"
 #include <App/PropertyStandard.h>
 #include <App/PropertyUnits.h>
 #include "PartFeature.h"
@@ -33,7 +34,7 @@
 namespace Part
 {
 
-class PartExport Extrusion : public Part::Feature
+class Standard_EXPORT Extrusion : public Part::Feature
 {
     PROPERTY_HEADER_WITH_OVERRIDE(Part::Extrusion);
 

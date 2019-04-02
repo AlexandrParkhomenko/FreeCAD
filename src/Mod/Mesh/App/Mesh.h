@@ -24,6 +24,7 @@
 #ifndef MESH_MESH_H
 #define MESH_MESH_H
 
+#include "stdexport.h"
 #include <vector>
 #include <list>
 #include <set>
@@ -66,7 +67,7 @@ namespace Mesh
  * @note Each instance of MeshObject has its own instance of a MeshKernel so it's not possible
  * that several instances of MeshObject manage one instance of MeshKernel.
  */
-class MeshExport MeshObject : public Data::ComplexGeoData
+class Standard_EXPORT MeshObject : public Data::ComplexGeoData
 {
     TYPESYSTEM_HEADER();
 
@@ -314,7 +315,7 @@ public:
     //@}
 
 public:
-    class MeshExport const_point_iterator
+    class Standard_EXPORT const_point_iterator
     {
     public:
         const_point_iterator(const MeshObject*, unsigned long index);
@@ -335,7 +336,7 @@ public:
         MeshCore::MeshPointIterator _p_it;
     };
 
-    class MeshExport const_facet_iterator
+    class Standard_EXPORT const_facet_iterator
     {
     public:
         const_facet_iterator(const MeshObject*, unsigned long index);

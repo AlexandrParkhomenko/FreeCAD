@@ -24,6 +24,7 @@
 #ifndef BASE_TOOLS_H
 #define BASE_TOOLS_H
 
+#include "stdexport.h"
 #include <functional>
 #include <algorithm>
 #include <cmath>

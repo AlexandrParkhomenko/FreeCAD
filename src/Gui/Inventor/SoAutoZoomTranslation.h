@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "stdexport.h"
 #ifndef GUI_SOAUTOZOOMTRANSLATION_H
 #define GUI_SOAUTOZOOMTRANSLATION_H
 

@@ -24,6 +24,7 @@
 #ifndef PART_GEOMETRY2D_H
 #define PART_GEOMETRY2D_H
 
+#include "stdexport.h"
 #include <Geom2d_CartesianPoint.hxx>
 #include <Geom2d_BezierCurve.hxx>
 #include <Geom2d_BSplineCurve.hxx>
@@ -45,7 +46,7 @@
 
 namespace Part {
 
-class PartExport Geometry2d : public Base::Persistence
+class Standard_EXPORT Geometry2d : public Base::Persistence
 {
     TYPESYSTEM_HEADER();
 public:
@@ -68,7 +69,7 @@ private:
     Geometry2d& operator = (const Geometry2d&);
 };
 
-class PartExport Geom2dPoint : public Geometry2d
+class Standard_EXPORT Geom2dPoint : public Geometry2d
 {
     TYPESYSTEM_HEADER();
 public:
@@ -95,7 +96,7 @@ private:
     Handle(Geom2d_CartesianPoint) myPoint;
 };
 
-class PartExport Geom2dCurve : public Geometry2d
+class Standard_EXPORT Geom2dCurve : public Geometry2d
 {
     TYPESYSTEM_HEADER();
 public:
@@ -112,7 +113,7 @@ public:
     bool closestParameterToBasicCurve(const Base::Vector2d& point, double &u) const;
 };
 
-class PartExport Geom2dBezierCurve : public Geom2dCurve
+class Standard_EXPORT Geom2dBezierCurve : public Geom2dCurve
 {
     TYPESYSTEM_HEADER();
 public:
@@ -135,7 +136,7 @@ private:
     Handle(Geom2d_BezierCurve) myCurve;
 };
 
-class PartExport Geom2dBSplineCurve : public Geom2dCurve
+class Standard_EXPORT Geom2dBSplineCurve : public Geom2dCurve
 {
     TYPESYSTEM_HEADER();
 public:
@@ -191,7 +192,7 @@ private:
     Handle(Geom2d_BSplineCurve) myCurve;
 };
 
-class PartExport Geom2dConic : public Geom2dCurve
+class Standard_EXPORT Geom2dConic : public Geom2dCurve
 {
     TYPESYSTEM_HEADER();
 protected:
@@ -215,7 +216,7 @@ protected:
     void RestoreAxis(Base::XMLReader& reader, gp_Ax22d&);
 };
 
-class PartExport Geom2dArcOfConic : public Geom2dCurve
+class Standard_EXPORT Geom2dArcOfConic : public Geom2dCurve
 {
     TYPESYSTEM_HEADER();
 protected:
@@ -245,7 +246,7 @@ protected:
     void RestoreAxis(Base::XMLReader& reader, gp_Ax22d&, double& u, double& v);
 };
 
-class PartExport Geom2dCircle : public Geom2dConic
+class Standard_EXPORT Geom2dCircle : public Geom2dConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -270,7 +271,7 @@ private:
     Handle(Geom2d_Circle) myCurve;
 };
 
-class PartExport Geom2dArcOfCircle : public Geom2dArcOfConic
+class Standard_EXPORT Geom2dArcOfCircle : public Geom2dArcOfConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -296,7 +297,7 @@ private:
     Handle(Geom2d_TrimmedCurve) myCurve;
 };
 
-class PartExport Geom2dEllipse : public Geom2dConic
+class Standard_EXPORT Geom2dEllipse : public Geom2dConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -326,7 +327,7 @@ private:
     Handle(Geom2d_Ellipse) myCurve;
 };
 
-class PartExport Geom2dArcOfEllipse : public Geom2dArcOfConic
+class Standard_EXPORT Geom2dArcOfEllipse : public Geom2dArcOfConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -356,7 +357,7 @@ private:
     Handle(Geom2d_TrimmedCurve) myCurve;
 };
 
-class PartExport Geom2dHyperbola : public Geom2dConic
+class Standard_EXPORT Geom2dHyperbola : public Geom2dConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -383,7 +384,7 @@ private:
     Handle(Geom2d_Hyperbola) myCurve;
 };
 
-class PartExport Geom2dArcOfHyperbola : public Geom2dArcOfConic
+class Standard_EXPORT Geom2dArcOfHyperbola : public Geom2dArcOfConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -411,7 +412,7 @@ private:
     Handle(Geom2d_TrimmedCurve) myCurve;
 };
 
-class PartExport Geom2dParabola : public Geom2dConic
+class Standard_EXPORT Geom2dParabola : public Geom2dConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -436,7 +437,7 @@ private:
     Handle(Geom2d_Parabola) myCurve;
 };
 
-class PartExport Geom2dArcOfParabola : public Geom2dArcOfConic
+class Standard_EXPORT Geom2dArcOfParabola : public Geom2dArcOfConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -462,7 +463,7 @@ private:
     Handle(Geom2d_TrimmedCurve) myCurve;
 };
 
-class PartExport Geom2dLine : public Geom2dCurve
+class Standard_EXPORT Geom2dLine : public Geom2dCurve
 {
     TYPESYSTEM_HEADER();
 public:
@@ -489,7 +490,7 @@ private:
     Handle(Geom2d_Line) myCurve;
 };
 
-class PartExport Geom2dLineSegment : public Geom2dCurve
+class Standard_EXPORT Geom2dLineSegment : public Geom2dCurve
 {
     TYPESYSTEM_HEADER();
 public:
@@ -517,7 +518,7 @@ private:
     Handle(Geom2d_TrimmedCurve) myCurve;
 };
 
-class PartExport Geom2dOffsetCurve : public Geom2dCurve
+class Standard_EXPORT Geom2dOffsetCurve : public Geom2dCurve
 {
     TYPESYSTEM_HEADER();
 public:
@@ -541,7 +542,7 @@ private:
     Handle(Geom2d_OffsetCurve) myCurve;
 };
 
-class PartExport Geom2dTrimmedCurve : public Geom2dCurve
+class Standard_EXPORT Geom2dTrimmedCurve : public Geom2dCurve
 {
     TYPESYSTEM_HEADER();
 public:

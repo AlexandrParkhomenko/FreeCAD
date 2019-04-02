@@ -23,6 +23,7 @@
 #ifndef EXPRESSIONBINDING_H
 #define EXPRESSIONBINDING_H
 
+#include "stdexport.h"
 #include <string>
 #include <App/ObjectIdentifier.h>
 #include <boost/shared_ptr.hpp>

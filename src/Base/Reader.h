@@ -24,6 +24,7 @@
 #define BASE_READER_H
 
 
+#include "stdexport.h"
 #include <string>
 #include <map>
 #include <bitset>

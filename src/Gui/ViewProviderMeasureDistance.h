@@ -24,6 +24,7 @@
 #ifndef GUI_VIEWPROVIDERMEASUREDISTANCE_H
 #define GUI_VIEWPROVIDERMEASUREDISTANCE_H
 
+#include "stdexport.h"
 #include "ViewProviderDocumentObject.h"
 #include <QObject>
 

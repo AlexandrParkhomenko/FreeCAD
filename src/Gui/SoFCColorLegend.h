@@ -24,6 +24,7 @@
 #ifndef GUI_SOFCCOLORLEGEND_H
 #define GUI_SOFCCOLORLEGEND_H
 
+#include "stdexport.h"
 #include <Inventor/nodes/SoSeparator.h>
 #include "SoFCColorBar.h"
 #include <App/ColorModel.h>

@@ -27,6 +27,7 @@
 #ifndef BASE_BASE64_H
 #define BASE_BASE64_H
 
+#include "stdexport.h"
 
 namespace Base
 {

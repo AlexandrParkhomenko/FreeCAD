@@ -24,6 +24,7 @@
 #ifndef APP_DYNAMICPROPERTY_H
 #define APP_DYNAMICPROPERTY_H
 
+#include "stdexport.h"
 #include <Base/Persistence.h>
 #include <map>
 #include <vector>

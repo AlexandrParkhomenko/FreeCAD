@@ -24,6 +24,7 @@
 #ifndef PART_CROSSSECTION_H
 #define PART_CROSSSECTION_H
 
+#include "stdexport.h"
 #include <list>
 #include <TopTools_IndexedMapOfShape.hxx>
 
@@ -32,7 +33,7 @@ class TopoDS_Wire;
 
 namespace Part {
 
-class PartExport CrossSection
+class Standard_EXPORT CrossSection
 {
 public:
     CrossSection(double a, double b, double c, const TopoDS_Shape& s);

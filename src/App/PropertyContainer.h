@@ -24,6 +24,7 @@
 #ifndef APP_PROPERTYCONTAINER_H
 #define APP_PROPERTYCONTAINER_H
 
+#include "stdexport.h"
 #include <map>
 #include <climits>
 #include <Base/Persistence.h>

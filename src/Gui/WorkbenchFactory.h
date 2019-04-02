@@ -24,6 +24,7 @@
 #ifndef GUI_WORKBENCHFACTORY_H
 #define GUI_WORKBENCHFACTORY_H
 
+#include "stdexport.h"
 #include <Base/Factory.h>
 #include <string>
 #include <list>

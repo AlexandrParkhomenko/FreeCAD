@@ -24,6 +24,7 @@
 #ifndef PROPERTYTOOLTABLE_H
 #define PROPERTYTOOLTABLE_H
 
+#include "stdexport.h"
 #include "Tooltable.h"
 #include <App/Property.h>
 
@@ -32,7 +33,7 @@ namespace Path
 
 
 /** The tooltable property class.  */
-class PathExport PropertyTooltable : public App::Property
+class Standard_EXPORT PropertyTooltable : public App::Property
 {
     TYPESYSTEM_HEADER();
 

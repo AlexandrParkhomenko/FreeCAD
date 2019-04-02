@@ -24,6 +24,7 @@
 #ifndef _MeshAlgos_h_
 #define _MeshAlgos_h_
 
+#include "stdexport.h"
 #ifdef FC_USE_GTS
 #  include <gts.h>
 #endif
@@ -49,7 +50,7 @@ namespace MeshPart
 
 /** The mesh algorithms container class
  */
-class MeshPartExport MeshAlgos
+class Standard_EXPORT MeshAlgos
 {
 public:
   /** Calculate per Vertex normals and adds the Normal property bag

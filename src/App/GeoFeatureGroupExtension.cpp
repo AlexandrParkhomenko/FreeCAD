@@ -24,6 +24,7 @@
 
 
 
+#include "stdexport.h"
 #include <App/Document.h>
 
 #include "GeoFeatureGroupExtension.h"

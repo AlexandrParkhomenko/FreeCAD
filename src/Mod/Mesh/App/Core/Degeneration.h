@@ -24,6 +24,7 @@
 #ifndef MESH_DEGENERATION_H
 #define MESH_DEGENERATION_H
 
+#include "stdexport.h"
 #include <bitset>
 #include <string>
 #include <vector>
@@ -44,7 +45,7 @@ class MeshFacetIterator;
  * @see MeshFixInvalids
  * @author Werner Mayer
  */
-class MeshExport MeshEvalInvalids : public MeshEvaluation
+class Standard_EXPORT MeshEvalInvalids : public MeshEvaluation
 {
 public:
   /**
@@ -70,7 +71,7 @@ public:
  * @see MeshEvalInvalids
  * @author Werner Mayer
  */
-class MeshExport MeshFixInvalids : public MeshValidation
+class Standard_EXPORT MeshFixInvalids : public MeshValidation
 {
 public:
   /**
@@ -95,7 +96,7 @@ public:
  * @see MeshEvalDegeneratedFacets
  * @author Werner Mayer
  */
-class MeshExport MeshEvalDuplicatePoints : public MeshEvaluation
+class Standard_EXPORT MeshEvalDuplicatePoints : public MeshEvaluation
 {
 public:
   /**
@@ -121,7 +122,7 @@ public:
  * @see MeshEvalDuplicatePoints
  * @author Werner Mayer
  */
-class MeshExport MeshFixDuplicatePoints : public MeshValidation
+class Standard_EXPORT MeshFixDuplicatePoints : public MeshValidation
 {
 public:
   /**
@@ -143,7 +144,7 @@ public:
  * @see MeshFixNaNPoints
  * @author Werner Mayer
  */
-class MeshExport MeshEvalNaNPoints : public MeshEvaluation
+class Standard_EXPORT MeshEvalNaNPoints : public MeshEvaluation
 {
 public:
   /**
@@ -169,7 +170,7 @@ public:
  * @see MeshEvalNaNPoints
  * @author Werner Mayer
  */
-class MeshExport MeshFixNaNPoints : public MeshValidation
+class Standard_EXPORT MeshFixNaNPoints : public MeshValidation
 {
 public:
   /**
@@ -193,7 +194,7 @@ public:
  * @see MeshFixDuplicateFacets
  * @author Werner Mayer
  */
-class MeshExport MeshEvalDuplicateFacets : public MeshEvaluation
+class Standard_EXPORT MeshEvalDuplicateFacets : public MeshEvaluation
 {
 public:
   /**
@@ -219,7 +220,7 @@ public:
  * @see MeshEvalDuplicateFacets
  * @author Werner Mayer
  */
-class MeshExport MeshFixDuplicateFacets : public MeshValidation
+class Standard_EXPORT MeshFixDuplicateFacets : public MeshValidation
 {
 public:
   /**
@@ -240,7 +241,7 @@ public:
  * The MeshEvalInternalFacets class identifies internal facets of a volume mesh.
  * @author Werner Mayer
  */
-class MeshExport MeshEvalInternalFacets : public MeshEvaluation
+class Standard_EXPORT MeshEvalInternalFacets : public MeshEvaluation
 {
 public:
   /**
@@ -274,7 +275,7 @@ private:
  * @see MeshFixDegeneratedFacets
  * @author Werner Mayer
  */
-class MeshExport MeshEvalDegeneratedFacets : public MeshEvaluation
+class Standard_EXPORT MeshEvalDegeneratedFacets : public MeshEvaluation
 {
 public:
   /**
@@ -308,7 +309,7 @@ private:
  * @see MeshEvalDegeneratedFacets
  * @author Werner Mayer
  */
-class MeshExport MeshFixDegeneratedFacets : public MeshValidation
+class Standard_EXPORT MeshFixDegeneratedFacets : public MeshValidation
 {
 public:
   /**
@@ -334,7 +335,7 @@ private:
  * @see MeshFixDegeneratedFacets
  * @author Werner Mayer
  */
-class MeshExport MeshRemoveSmallEdges : public MeshValidation
+class Standard_EXPORT MeshRemoveSmallEdges : public MeshValidation
 {
 public:
   /**
@@ -362,7 +363,7 @@ private:
  * @see MeshFixDegeneratedFacets
  * @author Werner Mayer
  */
-class MeshExport MeshEvalDeformedFacets : public MeshEvaluation
+class Standard_EXPORT MeshEvalDeformedFacets : public MeshEvaluation
 {
 public:
   /**
@@ -395,7 +396,7 @@ private:
  * @see MeshEvalDeformedFacets
  * @author Werner Mayer
  */
-class MeshExport MeshFixDeformedFacets : public MeshValidation
+class Standard_EXPORT MeshFixDeformedFacets : public MeshValidation
 {
 public:
   /**
@@ -428,7 +429,7 @@ private:
  * Effectively this algorithm does the opposite of \ref MeshTopoAlgorithm::InsertVertex
  * @author Werner Mayer
  */
-class MeshExport MeshFixMergeFacets : public MeshValidation
+class Standard_EXPORT MeshFixMergeFacets : public MeshValidation
 {
 public:
   /**
@@ -450,7 +451,7 @@ public:
  * If an adjacent point (A) of a point (P) can be projected onto a triangle shared
  * by (P) but not by (A) then we have a local dent. The topology is not affected.
  */
-class MeshExport MeshEvalDentsOnSurface : public MeshEvaluation
+class Standard_EXPORT MeshEvalDentsOnSurface : public MeshEvaluation
 {
 public:
     MeshEvalDentsOnSurface (const MeshKernel &rclM) : MeshEvaluation( rclM ) { }
@@ -463,7 +464,7 @@ private:
     std::vector<unsigned long> indices;
 };
 
-class MeshExport MeshFixDentsOnSurface : public MeshValidation
+class Standard_EXPORT MeshFixDentsOnSurface : public MeshValidation
 {
 public:
     MeshFixDentsOnSurface (MeshKernel &rclM) : MeshValidation( rclM ) { }
@@ -477,7 +478,7 @@ public:
  * but the angles between both of these adjacent triangles is higher than 90 deg
  * we have a fold. The topology is not affected but the geometry is broken.
  */
-class MeshExport MeshEvalFoldsOnSurface : public MeshEvaluation
+class Standard_EXPORT MeshEvalFoldsOnSurface : public MeshEvaluation
 {
 public:
     MeshEvalFoldsOnSurface (const MeshKernel &rclM) : MeshEvaluation( rclM ) { }
@@ -496,7 +497,7 @@ private:
  * The topology is not affected there but such triangles can lead to problems
  * on some hole-filling algorithms.
  */
-class MeshExport MeshEvalFoldsOnBoundary : public MeshEvaluation
+class Standard_EXPORT MeshEvalFoldsOnBoundary : public MeshEvaluation
 {
 public:
     MeshEvalFoldsOnBoundary (const MeshKernel &rclM) : MeshEvaluation( rclM ) { }
@@ -509,7 +510,7 @@ private:
     std::vector<unsigned long> indices;
 };
 
-class MeshExport MeshFixFoldsOnBoundary : public MeshValidation
+class Standard_EXPORT MeshFixFoldsOnBoundary : public MeshValidation
 {
 public:
     MeshFixFoldsOnBoundary (MeshKernel &rclM) : MeshValidation( rclM ) { }
@@ -522,7 +523,7 @@ public:
  * Considers two adjacent triangles with an angle higher than 120 deg of their
  * normals as a fold-over. The topology is not affected there.
  */
-class MeshExport MeshEvalFoldOversOnSurface : public MeshEvaluation
+class Standard_EXPORT MeshEvalFoldOversOnSurface : public MeshEvaluation
 {
 public:
     MeshEvalFoldOversOnSurface (const MeshKernel &rclM) : MeshEvaluation( rclM ) { }
@@ -541,7 +542,7 @@ private:
  * part of a boundary.
  * @see MeshEvalSingleFacet
  */
-class MeshExport MeshEvalBorderFacet : public MeshEvaluation
+class Standard_EXPORT MeshEvalBorderFacet : public MeshEvaluation
 {
 public:
   MeshEvalBorderFacet (const MeshKernel &rclB, std::vector<unsigned long>& f)
@@ -564,7 +565,7 @@ protected:
  * @see MeshFixRangeFacet
  * @author Werner Mayer
  */
-class MeshExport MeshEvalRangeFacet : public MeshEvaluation
+class Standard_EXPORT MeshEvalRangeFacet : public MeshEvaluation
 {
 public:
   /**
@@ -590,7 +591,7 @@ public:
  * @see MeshEvalRangeFacet
  * @author Werner Mayer
  */
-class MeshExport MeshFixRangeFacet : public MeshValidation
+class Standard_EXPORT MeshFixRangeFacet : public MeshValidation
 {
 public:
   /**
@@ -612,7 +613,7 @@ public:
  * @see MeshFixRangePoint
  * @author Werner Mayer
  */
-class MeshExport MeshEvalRangePoint : public MeshEvaluation
+class Standard_EXPORT MeshEvalRangePoint : public MeshEvaluation
 {
 public:
   /**
@@ -638,7 +639,7 @@ public:
  * @see MeshFixRangePoint
  * @author Werner Mayer
  */
-class MeshExport MeshFixRangePoint : public MeshValidation
+class Standard_EXPORT MeshFixRangePoint : public MeshValidation
 {
 public:
   /**
@@ -661,7 +662,7 @@ public:
  * @see MeshFixCorruptedFacets
  * @author Werner Mayer
  */
-class MeshExport MeshEvalCorruptedFacets : public MeshEvaluation
+class Standard_EXPORT MeshEvalCorruptedFacets : public MeshEvaluation
 {
 public:
   /**
@@ -688,7 +689,7 @@ public:
  * @see MeshEvalCorruptedFacets
  * @author Werner Mayer
  */
-class MeshExport MeshFixCorruptedFacets : public MeshValidation
+class Standard_EXPORT MeshFixCorruptedFacets : public MeshValidation
 {
 public:
   /**

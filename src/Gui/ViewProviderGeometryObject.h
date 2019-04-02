@@ -24,6 +24,7 @@
 #ifndef GUI_VIEWPROVIDER_GEOMETRYOBJECT_H
 #define GUI_VIEWPROVIDER_GEOMETRYOBJECT_H
 
+#include "stdexport.h"
 #include "ViewProviderDragger.h"
 #include <Inventor/lists/SoPickedPointList.h>
 

@@ -23,6 +23,7 @@
 #ifndef MESHCORE_CURVATURE_H
 #define MESHCORE_CURVATURE_H
 
+#include "stdexport.h"
 #include <vector>
 #include <Base/Vector3D.h>
 
@@ -32,13 +33,13 @@ class MeshKernel;
 class MeshRefPointToFacets;
 
 /** Curvature information. */
-struct MeshExport CurvatureInfo
+struct Standard_EXPORT CurvatureInfo
 {
     float fMaxCurvature, fMinCurvature;
     Base::Vector3f cMaxCurvDir, cMinCurvDir;
 };
 
-class MeshExport FacetCurvature
+class Standard_EXPORT FacetCurvature
 {
 public:
     FacetCurvature(const MeshKernel& kernel, const MeshRefPointToFacets& search, float, unsigned long);
@@ -51,7 +52,7 @@ private:
     float myRadius;
 };
 
-class MeshExport MeshCurvature
+class Standard_EXPORT MeshCurvature
 {
 public:
     MeshCurvature(const MeshKernel& kernel);

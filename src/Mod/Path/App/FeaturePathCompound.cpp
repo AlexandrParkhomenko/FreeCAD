@@ -20,9 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-
-
-
+#include "stdexport.h"
 #include "FeaturePathCompound.h"
 #include "Command.h"
 #include "Path.h"
@@ -124,5 +122,5 @@ template<> const char* Path::FeatureCompoundPython::getViewProviderName(void) co
 /// @endcond
 
 // explicit template instantiation
-template class PathExport FeaturePythonT<Path::FeatureCompound>;
+template class Standard_EXPORT FeaturePythonT<Path::FeatureCompound>;
 }

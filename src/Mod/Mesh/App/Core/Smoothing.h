@@ -24,6 +24,7 @@
 #ifndef MESH_SMOOTHING_H
 #define MESH_SMOOTHING_H
 
+#include "stdexport.h"
 #include <vector>
 
 namespace MeshCore
@@ -33,7 +34,7 @@ class MeshRefPointToPoints;
 class MeshRefPointToFacets;
 
 /** Base class for smoothing algorithms. */
-class MeshExport AbstractSmoothing
+class Standard_EXPORT AbstractSmoothing
 {
 public:
     enum Component { 
@@ -64,7 +65,7 @@ protected:
     Continuity  continuity;
 };
 
-class MeshExport PlaneFitSmoothing : public AbstractSmoothing
+class Standard_EXPORT PlaneFitSmoothing : public AbstractSmoothing
 {
 public:
     PlaneFitSmoothing(MeshKernel&);
@@ -73,7 +74,7 @@ public:
     void SmoothPoints(unsigned int, const std::vector<unsigned long>&);
 };
 
-class MeshExport LaplaceSmoothing : public AbstractSmoothing
+class Standard_EXPORT LaplaceSmoothing : public AbstractSmoothing
 {
 public:
     LaplaceSmoothing(MeshKernel&);
@@ -93,7 +94,7 @@ protected:
     double lambda;
 };
 
-class MeshExport TaubinSmoothing : public LaplaceSmoothing
+class Standard_EXPORT TaubinSmoothing : public LaplaceSmoothing
 {
 public:
     TaubinSmoothing(MeshKernel&);

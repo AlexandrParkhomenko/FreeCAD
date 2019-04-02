@@ -23,6 +23,7 @@
 #ifndef PATH_AREA_H
 #define PATH_AREA_H
 
+#include "stdexport.h"
 #include <QCoreApplication>
 #include <chrono>
 #include <memory>
@@ -39,7 +40,7 @@
 #include "AreaParams.h"
 
 namespace Part {
-extern PartExport Py::Object shape2pyshape(const TopoDS_Shape &shape);
+extern Standard_EXPORT Py::Object shape2pyshape(const TopoDS_Shape &shape);
 }
 
 class CArea;
@@ -50,13 +51,13 @@ namespace Path
 {
 
 /** Store libarea algorithm configuration */
-struct PathExport CAreaParams {
+struct Standard_EXPORT CAreaParams {
     PARAM_DECLARE(PARAM_FNAME,AREA_PARAMS_CAREA)
     CAreaParams();
 };
 
 /** Store all Area configurations */
-struct PathExport AreaParams: CAreaParams {
+struct Standard_EXPORT AreaParams: CAreaParams {
 
     PARAM_DECLARE(PARAM_FNAME,AREA_PARAMS_AREA)
 
@@ -74,7 +75,7 @@ struct PathExport AreaParams: CAreaParams {
     AreaParams();
 };
 
-struct PathExport AreaStaticParams: AreaParams {
+struct Standard_EXPORT AreaStaticParams: AreaParams {
     AreaStaticParams();
 };
 
@@ -83,7 +84,7 @@ struct PathExport AreaStaticParams: AreaParams {
  * It is kind of troublesome with the fact that libarea uses static variables to
  * config its algorithm. CAreaConfig makes it easy to safely customize libarea.
  */
-struct PathExport CAreaConfig {
+struct Standard_EXPORT CAreaConfig {
 
     /** For saving current libarea settings */
     PARAM_DECLARE(PARAM_FNAME,AREA_PARAMS_CAREA)
@@ -103,7 +104,7 @@ struct PathExport CAreaConfig {
 
 
 /** Base class for FreeCAD wrapping of libarea */
-class PathExport Area: public Base::BaseClass {
+class Standard_EXPORT Area: public Base::BaseClass {
 
     TYPESYSTEM_HEADER();
 

@@ -23,6 +23,7 @@
 #ifndef GUI_UTILITIES_H
 #define GUI_UTILITIES_H
 
+#include "stdexport.h"
 #include <Base/ViewProj.h>
 #include <App/Material.h>
 #include <vector>

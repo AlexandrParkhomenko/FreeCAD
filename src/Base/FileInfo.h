@@ -26,6 +26,7 @@
 #ifndef BASE_FILEINFO_H
 #define BASE_FILEINFO_H
 
+#include "stdexport.h"
 #include <string>
 #include <vector>
 #include <Base/TimeInfo.h>

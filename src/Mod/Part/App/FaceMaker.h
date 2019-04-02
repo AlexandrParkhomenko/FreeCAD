@@ -23,6 +23,7 @@
 #ifndef PART_FACEMAKER_H
 #define PART_FACEMAKER_H
 
+#include "stdexport.h"
 #include <BRepBuilderAPI_MakeShape.hxx>
 #include <Base/BaseClass.h>
 #include <TopoDS_Wire.hxx>
@@ -42,7 +43,7 @@ namespace Part
  * and one in PartDesign (there, it is used in every sketch-based feature).
  * Plus, another one (new) was needed for filling 2D offset.
  */
-class PartExport FaceMaker: public BRepBuilderAPI_MakeShape, public Base::BaseClass
+class Standard_EXPORT FaceMaker: public BRepBuilderAPI_MakeShape, public Base::BaseClass
 {
     TYPESYSTEM_HEADER();
 
@@ -106,7 +107,7 @@ protected:
 /**
  * @brief The FaceMakerPublic class: derive from it if you want the face maker to be listed in tools that allow choosing one.
  */
-class PartExport FaceMakerPublic : public FaceMaker
+class Standard_EXPORT FaceMakerPublic : public FaceMaker
 {
     TYPESYSTEM_HEADER();
 public:
@@ -130,7 +131,7 @@ public:
  * for BOPs, but the faces themselves are valid, provided that the source wires
  * are valid.
  */
-class PartExport FaceMakerSimple : public FaceMakerPublic
+class Standard_EXPORT FaceMakerSimple : public FaceMakerPublic
 {
     TYPESYSTEM_HEADER_WITH_OVERRIDE();
 public:

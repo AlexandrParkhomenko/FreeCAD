@@ -24,6 +24,7 @@
 #ifndef GUI_FILEDIALOG_H
 #define GUI_FILEDIALOG_H
 
+#include "stdexport.h"
 #include <QFileDialog>
 #include <QFileIconProvider>
 #include <QFileSystemModel>

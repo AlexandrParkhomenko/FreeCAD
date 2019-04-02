@@ -24,6 +24,7 @@
 #ifndef PATH_COMMAND_H
 #define PATH_COMMAND_H
 
+#include "stdexport.h"
 #include <map>
 #include <string>
 #include <Base/Persistence.h>
@@ -33,7 +34,7 @@
 namespace Path
 {
     /** The representation of a cnc command in a path */
-    class PathExport Command : public Base::Persistence
+    class Standard_EXPORT Command : public Base::Persistence
     {
     TYPESYSTEM_HEADER();
     

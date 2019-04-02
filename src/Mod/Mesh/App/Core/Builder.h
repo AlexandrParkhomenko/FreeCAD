@@ -23,6 +23,7 @@
 #ifndef MESH_BUILDER_H
 #define MESH_BUILDER_H
 
+#include "stdexport.h"
 #include <set>
 #include <vector>
 
@@ -56,7 +57,7 @@ class MeshGeomFacet;
  * \endcode
  * @author Berthold Grupp
  */
-class MeshExport MeshBuilder
+class Standard_EXPORT MeshBuilder
 {
 private:
     /** @name Helper class */
@@ -181,7 +182,7 @@ private:
  * \endcode
  * @author Werner Mayer
  */
-class MeshExport MeshFastBuilder
+class Standard_EXPORT MeshFastBuilder
 {
 private:
     MeshKernel& _meshKernel;

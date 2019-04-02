@@ -25,6 +25,7 @@
 #define GUI_DOCKWINDOW_H
 
 
+#include "stdexport.h"
 #include <Base/Parameter.h>
 #include <Gui/View.h>
 #include <QWidget>

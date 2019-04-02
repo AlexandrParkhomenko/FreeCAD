@@ -23,13 +23,12 @@
 #ifndef _OCCError_h_
 #define _OCCError_h_
 
+#include "stdexport.h"
 # include <Standard_Version.hxx>
 # include <Standard_Failure.hxx>
 # include <Standard_AbortiveTransaction.hxx>
 # include <Standard_ConstructionError.hxx>
-# if OCC_VERSION_HEX >= 0x060500
 # include <Standard_DefineException.hxx>
-# endif
 # include <Standard_DimensionError.hxx>
 # include <Standard_DimensionMismatch.hxx>
 # include <Standard_DivideByZero.hxx>
@@ -61,11 +60,11 @@
 #include <App/Application.h>
 
 namespace Part {
-PartExport extern PyObject* PartExceptionOCCError;
-PartExport extern PyObject* PartExceptionOCCDomainError;
-PartExport extern PyObject* PartExceptionOCCRangeError;
-PartExport extern PyObject* PartExceptionOCCConstructionError;
-PartExport extern PyObject* PartExceptionOCCDimensionError;
+Standard_EXPORT extern PyObject* PartExceptionOCCError;
+Standard_EXPORT extern PyObject* PartExceptionOCCDomainError;
+Standard_EXPORT extern PyObject* PartExceptionOCCRangeError;
+Standard_EXPORT extern PyObject* PartExceptionOCCConstructionError;
+Standard_EXPORT extern PyObject* PartExceptionOCCDimensionError;
 
 
 #define PY_TRY	try 

@@ -25,7 +25,8 @@
 #define BASE_EXCEPTIONFACTORY_H
 
 
-#include <Python.h>
+#include "stdexport.h"
+#include "FCConfig.h"
 
 #include "Factory.h"
 

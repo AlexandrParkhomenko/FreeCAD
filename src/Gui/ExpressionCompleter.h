@@ -1,6 +1,7 @@
 #ifndef EXPRESSIONCOMPLETER_H
 #define EXPRESSIONCOMPLETER_H
 
+#include "stdexport.h"
 #include <QObject>
 #include <QCompleter>
 #include <QLineEdit>

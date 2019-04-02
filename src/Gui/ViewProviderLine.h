@@ -25,6 +25,7 @@
 #ifndef GUI_ViewProviderLine_H
 #define GUI_ViewProviderLine_H
 
+#include "stdexport.h"
 #include "ViewProviderOriginFeature.h"
 
 namespace Gui

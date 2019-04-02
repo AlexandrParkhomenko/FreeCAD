@@ -35,7 +35,7 @@
 # include <QKeyEvent>
 # include <QtConcurrentMap>
 # include <boost/bind.hpp>
-# include <Python.h>
+# include "FCConfig.h"
 # include <Inventor/nodes/SoBaseColor.h>
 # include <Inventor/nodes/SoCoordinate3.h>
 # include <Inventor/nodes/SoDrawStyle.h>

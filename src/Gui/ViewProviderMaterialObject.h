@@ -25,6 +25,7 @@
 #define GUI_ViewProviderMaterialObject_H
 
 
+#include "stdexport.h"
 #include "ViewProviderDocumentObject.h"
 #include "ViewProviderPythonFeature.h"
 

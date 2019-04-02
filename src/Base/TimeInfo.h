@@ -24,8 +24,7 @@
 #ifndef BASE_TIMEINFO_H
 #define BASE_TIMEINFO_H
 
-// Std. configurations
-
+#include "stdexport.h"
 
 #include <stdio.h>
 #if defined(FC_OS_BSD)

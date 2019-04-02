@@ -24,6 +24,7 @@
 #ifndef GUI_PREFWIDGETS_H
 #define GUI_PREFWIDGETS_H
 
+#include "stdexport.h"
 #include <QCheckBox>
 #include <QComboBox>
 #include <QRadioButton>

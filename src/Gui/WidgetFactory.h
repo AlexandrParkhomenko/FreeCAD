@@ -24,6 +24,7 @@
 #ifndef GUI_WIDGETFACTORY_H
 #define GUI_WIDGETFACTORY_H
 
+#include "stdexport.h"
 #include <vector>
 #include <QUiLoader>
 

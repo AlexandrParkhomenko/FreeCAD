@@ -24,7 +24,10 @@
 #ifndef BASE_ROTATION_H
 #define BASE_ROTATION_H
 
+#include "stdexport.h"
 #include "Vector3D.h"
+#include "Matrix.h"
+#include "Base/Exception.h"
 
 namespace Base {
 

@@ -24,7 +24,7 @@
 #ifndef BASE_BUILDER3D_H
 #define BASE_BUILDER3D_H
 
-// Std. configurations
+#include "stdexport.h"
 
 #include <sstream>
 #include <vector>

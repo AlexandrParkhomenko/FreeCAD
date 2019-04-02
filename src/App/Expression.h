@@ -23,6 +23,7 @@
 #ifndef EXPRESSION_H
 #define EXPRESSION_H
 
+#include "stdexport.h"
 #include <string>
 #include <boost/tuple/tuple.hpp>
 #include <Base/Exception.h>

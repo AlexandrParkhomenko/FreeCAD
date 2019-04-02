@@ -24,12 +24,13 @@
 #ifndef MESH_KDTREE_H
 #define MESH_KDTREE_H
 
+#include "stdexport.h"
 #include "Elements.h"
 
 namespace MeshCore
 {
 
-class MeshExport MeshKDTree
+class Standard_EXPORT MeshKDTree
 {
 public:
     MeshKDTree(const std::vector<Base::Vector3f>& points);

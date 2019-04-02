@@ -24,6 +24,7 @@
 #ifndef APP_PROPERTYPYTHONOBJECT_H
 #define APP_PROPERTYPYTHONOBJECT_H
 
+#include "stdexport.h"
 #include <string>
 #include <list>
 #include <vector>

@@ -24,6 +24,7 @@
 #ifndef PATH_TOOLTABLE_H
 #define PATH_TOOLTABLE_H
 
+#include "stdexport.h"
 #include <vector>
 #include <string>
 #include <map>
@@ -33,7 +34,7 @@ namespace Path
 {
 
     /** The representation of a single tool */
-    class PathExport Tool : public Base::Persistence
+    class Standard_EXPORT Tool : public Base::Persistence
     {
     TYPESYSTEM_HEADER();
 
@@ -102,7 +103,7 @@ namespace Path
     };
 
     /** The representation of a table of tools */
-    class PathExport Tooltable : public Base::Persistence
+    class Standard_EXPORT Tooltable : public Base::Persistence
     {
     TYPESYSTEM_HEADER();
 

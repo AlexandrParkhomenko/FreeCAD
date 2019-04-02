@@ -24,12 +24,13 @@
 #ifndef MESH_DECIMATION_H
 #define MESH_DECIMATION_H
 
+#include "stdexport.h"
 
 namespace MeshCore
 {
 class MeshKernel;
 
-class MeshExport MeshSimplify
+class Standard_EXPORT MeshSimplify
 {
 public:
     MeshSimplify(MeshKernel&);

@@ -25,6 +25,7 @@
 #define GUI_VIEWPROVIDER_ViewProviderPart_H
 
 
+#include "stdexport.h"
 #include "ViewProviderOriginGroup.h"
 #include "ViewProviderDragger.h"
 #include "ViewProviderPythonFeature.h"

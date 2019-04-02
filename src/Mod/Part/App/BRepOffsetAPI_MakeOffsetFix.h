@@ -24,6 +24,7 @@
 #ifndef PART_BREPOFFSETAPI_MAKEOFFSETFIX_H
 #define PART_BREPOFFSETAPI_MAKEOFFSETFIX_H
 
+#include "stdexport.h"
 #include <BRepOffsetAPI_MakeOffset.hxx>
 #include <list>
 #include <map>
@@ -35,7 +36,7 @@ namespace Part {
  * returns unexpected results when an input wire has set a placement and consists
  * of a single edge only.
  */
-class PartExport BRepOffsetAPI_MakeOffsetFix : public BRepBuilderAPI_MakeShape
+class Standard_EXPORT BRepOffsetAPI_MakeOffsetFix : public BRepBuilderAPI_MakeShape
 {
 public:
     BRepOffsetAPI_MakeOffsetFix();

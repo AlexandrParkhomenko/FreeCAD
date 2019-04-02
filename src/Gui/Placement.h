@@ -23,6 +23,7 @@
 #ifndef GUI_PLACEMENT_H
 #define GUI_PLACEMENT_H
 
+#include "stdexport.h"
 #include <Gui/InputVector.h>
 #include <Gui/SelectionObject.h>
 #include <Gui/TaskView/TaskDialog.h>

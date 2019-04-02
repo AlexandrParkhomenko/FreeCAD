@@ -24,6 +24,7 @@
 #ifndef IMPORT_ImportOCAFAssembly_H
 #define IMPORT_ImportOCAFAssembly_H
 
+#include "stdexport.h"
 #include <Quantity_Color.hxx>
 #include <TopoDS_Shape.hxx>
 #include <climits>
@@ -46,7 +47,7 @@ class Feature;
 
 namespace Import {
 
-class ImportExport ImportOCAFAssembly
+class Standard_EXPORT ImportOCAFAssembly
 {
 public:
     ImportOCAFAssembly(Handle(TDocStd_Document) h, App::Document* d, const std::string& name, App::DocumentObject *target);

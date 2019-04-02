@@ -24,6 +24,7 @@
 #ifndef MESH_MESHPROPERTIES_H
 #define MESH_MESHPROPERTIES_H
 
+#include "stdexport.h"
 #include <vector>
 #include <list>
 #include <set>
@@ -50,7 +51,7 @@ class MeshPy;
  * Note: We need an own class for that to distinguish from the base vector list.
  * @author Werner Mayer
  */
-class MeshExport PropertyNormalList: public App::PropertyLists
+class Standard_EXPORT PropertyNormalList: public App::PropertyLists
 {
     TYPESYSTEM_HEADER();
 
@@ -99,7 +100,7 @@ private:
 };
 
 /** Curvature information. */
-struct MeshExport CurvatureInfo
+struct Standard_EXPORT CurvatureInfo
 {
     float fMaxCurvature, fMinCurvature;
     Base::Vector3f cMaxCurvDir, cMinCurvDir;
@@ -108,7 +109,7 @@ struct MeshExport CurvatureInfo
 /** The Curvature property class.
  * @author Werner Mayer
  */
-class MeshExport PropertyCurvatureList: public App::PropertyLists
+class Standard_EXPORT PropertyCurvatureList: public App::PropertyLists
 {
     TYPESYSTEM_HEADER();
 
@@ -167,7 +168,7 @@ private:
 /** The mesh kernel property class.
  * @author Werner Mayer
  */
-class MeshExport PropertyMeshKernel : public App::PropertyComplexGeoData
+class Standard_EXPORT PropertyMeshKernel : public App::PropertyComplexGeoData
 {
     TYPESYSTEM_HEADER();
 

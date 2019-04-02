@@ -24,6 +24,7 @@
 #ifndef BASE_COORDINATESYSTEM_H
 #define BASE_COORDINATESYSTEM_H
 
+#include "stdexport.h"
 #include "Axis.h"
 
 namespace Base {

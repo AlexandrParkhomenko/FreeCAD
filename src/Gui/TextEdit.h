@@ -24,6 +24,7 @@
 #ifndef GUI_TEXTEDIT_H
 #define GUI_TEXTEDIT_H
 
+#include "stdexport.h"
 #include <QListWidget>
 #include <QPlainTextEdit>
 #include "View.h"

@@ -24,6 +24,7 @@
 #ifndef PROPERTYTOOL_H
 #define PROPERTYTOOL_H
 
+#include "stdexport.h"
 #include "Tooltable.h"
 #include <App/Property.h>
 
@@ -32,7 +33,7 @@ namespace Path
 
 
 /** The tool property class.  */
-class PathExport PropertyTool : public App::Property
+class Standard_EXPORT PropertyTool : public App::Property
 {
     TYPESYSTEM_HEADER();
 

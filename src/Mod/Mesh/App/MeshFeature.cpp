@@ -20,10 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-
-
-
-
+#include "stdexport.h"
 #include <Base/Console.h>
 #include <Base/Exception.h>
 #include <Base/Reader.h>
@@ -100,7 +97,7 @@ PROPERTY_SOURCE_TEMPLATE(Mesh::FeatureCustom, Mesh::Feature)
 /// @endcond
 
 // explicit template instantiation
-template class MeshExport FeatureCustomT<Mesh::Feature>;
+template class Standard_EXPORT FeatureCustomT<Mesh::Feature>;
 }
 
 // ---------------------------------------------------------
@@ -121,6 +118,6 @@ template<> PyObject* Mesh::FeaturePython::getPyObject(void) {
 /// @endcond
 
 // explicit template instantiation
-template class MeshExport FeaturePythonT<Mesh::Feature>;
+template class Standard_EXPORT FeaturePythonT<Mesh::Feature>;
 }
 

@@ -23,6 +23,7 @@
 #ifndef GUI_SOTEXTLABEL_H
 #define GUI_SOTEXTLABEL_H
 
+#include "stdexport.h"
 #include <Inventor/fields/SoSubField.h>
 #include <Inventor/nodes/SoSubNode.h>
 #include <Inventor/nodes/SoImage.h>

@@ -93,5 +93,5 @@ PROPERTY_SOURCE_TEMPLATE(Points::StructuredCustom, Points::Structured)
 /// @endcond
 
 // explicit template instantiation
-template class PointsExport FeatureCustomT<Points::Structured>;
+template class Standard_EXPORT FeatureCustomT<Points::Structured>;
 }

@@ -23,6 +23,7 @@
 #ifndef GUI_TEXTUREMAPPING_H
 #define GUI_TEXTUREMAPPING_H
 
+#include "stdexport.h"
 #include <Gui/TaskView/TaskDialog.h>
 #include <Gui/TaskView/TaskView.h>
 

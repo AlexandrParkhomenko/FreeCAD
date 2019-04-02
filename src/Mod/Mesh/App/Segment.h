@@ -24,6 +24,7 @@
 #ifndef MESH_SEGMENT_H
 #define MESH_SEGMENT_H
 
+#include "stdexport.h"
 #include <vector>
 #include <string>
 #include "Facet.h"
@@ -34,7 +35,7 @@ namespace Mesh
 
 class MeshObject;
 
-class MeshExport Segment
+class Standard_EXPORT Segment
 {
 public:
     Segment(MeshObject*, bool mod);
@@ -65,7 +66,7 @@ private:
     bool _modifykernel;
 
 public:
-    class MeshExport const_facet_iterator
+    class Standard_EXPORT const_facet_iterator
     {
     public:
         const_facet_iterator(const Segment*, std::vector<unsigned long>::const_iterator);

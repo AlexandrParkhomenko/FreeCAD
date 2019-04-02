@@ -24,7 +24,7 @@
 # include <algorithm>
 # include <QFileInfo>
 # include <QInputDialog>
-# include <Python.h>
+# include "FCConfig.h"
 # include <Inventor/events/SoMouseButtonEvent.h>
 
 #include <Base/Exception.h>

@@ -24,6 +24,7 @@
 #ifndef GUI_WIDGETS_H
 #define GUI_WIDGETS_H
 
+#include "stdexport.h"
 #include <Gui/ui_DlgTreeWidget.h>
 #include <QListWidget>
 #include <QLabel>

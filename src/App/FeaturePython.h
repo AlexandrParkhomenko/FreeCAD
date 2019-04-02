@@ -26,6 +26,7 @@
 #define APP_FEATUREPYTHON_H
 
 
+#include "stdexport.h"
 #include <Base/Exception.h>
 #include <Base/Writer.h>
 #include <App/GeoFeature.h>

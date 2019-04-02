@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "stdexport.h"
 # include <TopoDS_Shape.hxx>
 # include <TopoDS_Face.hxx>
 # include <TopoDS.hxx>
@@ -282,5 +283,5 @@ namespace App {
 /// @endcond
 
 // explicit template instantiation
-  template class PartExport FeaturePythonT<Part::Part2DObject>;
+  template class Standard_EXPORT FeaturePythonT<Part::Part2DObject>;
 }

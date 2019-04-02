@@ -25,12 +25,13 @@
 #ifndef PART_FEATUREPARTSPLINE_H
 #define PART_FEATUREPARTSPLINE_H
 
+#include "stdexport.h"
 #include "PartFeature.h"
 
 namespace Part
 {
 
-class PartExport Spline :public Part::Feature
+class Standard_EXPORT Spline :public Part::Feature
 {
     PROPERTY_HEADER(Part::Spline);
 

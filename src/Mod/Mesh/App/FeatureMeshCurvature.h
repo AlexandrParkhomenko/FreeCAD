@@ -24,6 +24,7 @@
 #ifndef FeatureMeshCurvature_H
 #define FeatureMeshCurvature_H
 
+#include "stdexport.h"
 #include <App/DocumentObject.h>
 #include <App/PropertyLinks.h>
 #include <App/PropertyGeo.h>
@@ -38,7 +39,7 @@ namespace Mesh
  * The Curvature class calculates the curvature values of a related mesh feature.
  * @author Werner Mayer
  */
-class MeshExport Curvature : public App::DocumentObject
+class Standard_EXPORT Curvature : public App::DocumentObject
 {
     PROPERTY_HEADER(Mesh::Curvature);
 

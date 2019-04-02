@@ -22,7 +22,7 @@
 
 
 # include <sstream>
-# include <Python.h>
+# include "FCConfig.h"
 # include <QString>
 # include <QDir>
 # include <QFileInfo>

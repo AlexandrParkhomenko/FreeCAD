@@ -24,6 +24,7 @@
 #ifndef GUI_SOFCINTERACTIVEELEMENT_H
 #define GUI_SOFCINTERACTIVEELEMENT_H
 
+#include "stdexport.h"
 #ifndef __InventorAll__
 # include "InventorAll.h"
 #endif

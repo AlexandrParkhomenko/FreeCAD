@@ -24,6 +24,7 @@
 #ifndef GUI_TOOLBARMANAGER_H
 #define GUI_TOOLBARMANAGER_H
 
+#include "stdexport.h"
 #include <string>
 #include <QStringList>
 

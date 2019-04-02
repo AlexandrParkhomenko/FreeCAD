@@ -24,6 +24,7 @@
 #ifndef PART_GEOMETRY_H
 #define PART_GEOMETRY_H
 
+#include "stdexport.h"
 #include <Geom_CartesianPoint.hxx>
 #include <Geom_BezierCurve.hxx>
 #include <Geom_BSplineCurve.hxx>
@@ -64,7 +65,7 @@
 
 namespace Part {
 
-class PartExport Geometry: public Base::Persistence
+class Standard_EXPORT Geometry: public Base::Persistence
 {
     TYPESYSTEM_HEADER();
 public:
@@ -110,7 +111,7 @@ private:
     Geometry& operator = (const Geometry&);
 };
 
-class PartExport GeomPoint : public Geometry
+class Standard_EXPORT GeomPoint : public Geometry
 {
     TYPESYSTEM_HEADER();
 public:
@@ -139,7 +140,7 @@ private:
 };
 
 class GeomBSplineCurve;
-class PartExport GeomCurve : public Geometry
+class Standard_EXPORT GeomCurve : public Geometry
 {
     TYPESYSTEM_HEADER();
 public:
@@ -184,7 +185,7 @@ protected:
                           double tol = Precision::Confusion());
 };
 
-class PartExport GeomBoundedCurve : public GeomCurve
+class Standard_EXPORT GeomBoundedCurve : public GeomCurve
 {
     TYPESYSTEM_HEADER();
 public:
@@ -196,7 +197,7 @@ public:
     virtual Base::Vector3d getEndPoint() const;
 };
 
-class PartExport GeomBezierCurve : public GeomBoundedCurve
+class Standard_EXPORT GeomBezierCurve : public GeomBoundedCurve
 {
     TYPESYSTEM_HEADER();
 public:
@@ -222,7 +223,7 @@ private:
     Handle(Geom_BezierCurve) myCurve;
 };
 
-class PartExport GeomBSplineCurve : public GeomBoundedCurve
+class Standard_EXPORT GeomBSplineCurve : public GeomBoundedCurve
 {
     TYPESYSTEM_HEADER();
 public:
@@ -301,7 +302,7 @@ private:
     Handle(Geom_BSplineCurve) myCurve;
 };
 
-class PartExport GeomConic : public GeomCurve
+class Standard_EXPORT GeomConic : public GeomCurve
 {
     TYPESYSTEM_HEADER();
 
@@ -334,7 +335,7 @@ public:
     const Handle(Geom_Geometry)& handle() const = 0;
 };
 
-class PartExport GeomTrimmedCurve : public GeomBoundedCurve
+class Standard_EXPORT GeomTrimmedCurve : public GeomBoundedCurve
 {
     TYPESYSTEM_HEADER();
 public:
@@ -366,7 +367,7 @@ protected:
 
 
 
-class PartExport GeomArcOfConic : public GeomTrimmedCurve
+class Standard_EXPORT GeomArcOfConic : public GeomTrimmedCurve
 {
     TYPESYSTEM_HEADER();
 
@@ -414,7 +415,7 @@ public:
     const Handle(Geom_Geometry)& handle() const = 0;
 };
 
-class PartExport GeomCircle : public GeomConic
+class Standard_EXPORT GeomCircle : public GeomConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -442,7 +443,7 @@ private:
     Handle(Geom_Circle) myCurve;
 };
 
-class PartExport GeomArcOfCircle : public GeomArcOfConic
+class Standard_EXPORT GeomArcOfCircle : public GeomArcOfConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -471,7 +472,7 @@ public:
 
 };
 
-class PartExport GeomEllipse : public GeomConic
+class Standard_EXPORT GeomEllipse : public GeomConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -502,7 +503,7 @@ private:
     Handle(Geom_Ellipse) myCurve;
 };
 
-class PartExport GeomArcOfEllipse : public GeomArcOfConic
+class Standard_EXPORT GeomArcOfEllipse : public GeomArcOfConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -535,7 +536,7 @@ public:
 };
 
 
-class PartExport GeomHyperbola : public GeomConic
+class Standard_EXPORT GeomHyperbola : public GeomConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -564,7 +565,7 @@ private:
     Handle(Geom_Hyperbola) myCurve;
 };
 
-class PartExport GeomArcOfHyperbola : public GeomArcOfConic
+class Standard_EXPORT GeomArcOfHyperbola : public GeomArcOfConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -596,7 +597,7 @@ public:
     const Handle(Geom_Geometry)& handle() const;
 };
 
-class PartExport GeomParabola : public GeomConic
+class Standard_EXPORT GeomParabola : public GeomConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -623,7 +624,7 @@ private:
     Handle(Geom_Parabola) myCurve;
 };
 
-class PartExport GeomArcOfParabola : public GeomArcOfConic
+class Standard_EXPORT GeomArcOfParabola : public GeomArcOfConic
 {
     TYPESYSTEM_HEADER();
 public:
@@ -653,7 +654,7 @@ public:
     const Handle(Geom_Geometry)& handle() const;
 };
 
-class PartExport GeomLine : public GeomCurve
+class Standard_EXPORT GeomLine : public GeomCurve
 {
     TYPESYSTEM_HEADER();
 public:
@@ -681,7 +682,7 @@ private:
     Handle(Geom_Line) myCurve;
 };
 
-class PartExport GeomLineSegment : public GeomTrimmedCurve
+class Standard_EXPORT GeomLineSegment : public GeomTrimmedCurve
 {
     TYPESYSTEM_HEADER();
 public:
@@ -709,7 +710,7 @@ public:
 
 };
 
-class PartExport GeomOffsetCurve : public GeomCurve
+class Standard_EXPORT GeomOffsetCurve : public GeomCurve
 {
     TYPESYSTEM_HEADER();
 public:
@@ -734,7 +735,7 @@ private:
     Handle(Geom_OffsetCurve) myCurve;
 };
 
-class PartExport GeomSurface : public Geometry
+class Standard_EXPORT GeomSurface : public Geometry
 {
     TYPESYSTEM_HEADER();
 public:
@@ -761,7 +762,7 @@ public:
     //@}
 };
 
-class PartExport GeomBezierSurface : public GeomSurface
+class Standard_EXPORT GeomBezierSurface : public GeomSurface
 {
     TYPESYSTEM_HEADER();
 public:
@@ -784,7 +785,7 @@ private:
     Handle(Geom_BezierSurface) mySurface;
 };
 
-class PartExport GeomBSplineSurface : public GeomSurface
+class Standard_EXPORT GeomBSplineSurface : public GeomSurface
 {
     TYPESYSTEM_HEADER();
 public:
@@ -807,7 +808,7 @@ private:
     Handle(Geom_BSplineSurface) mySurface;
 };
 
-class PartExport GeomCylinder : public GeomSurface
+class Standard_EXPORT GeomCylinder : public GeomSurface
 {
     TYPESYSTEM_HEADER();
 public:
@@ -830,7 +831,7 @@ private:
     Handle(Geom_CylindricalSurface) mySurface;
 };
 
-class PartExport GeomCone : public GeomSurface
+class Standard_EXPORT GeomCone : public GeomSurface
 {
     TYPESYSTEM_HEADER();
 public:
@@ -853,7 +854,7 @@ private:
     Handle(Geom_ConicalSurface) mySurface;
 };
 
-class PartExport GeomSphere : public GeomSurface
+class Standard_EXPORT GeomSphere : public GeomSurface
 {
     TYPESYSTEM_HEADER();
 public:
@@ -876,7 +877,7 @@ private:
     Handle(Geom_SphericalSurface) mySurface;
 };
 
-class PartExport GeomToroid : public GeomSurface
+class Standard_EXPORT GeomToroid : public GeomSurface
 {
     TYPESYSTEM_HEADER();
 public:
@@ -899,7 +900,7 @@ private:
     Handle(Geom_ToroidalSurface) mySurface;
 };
 
-class PartExport GeomPlane : public GeomSurface
+class Standard_EXPORT GeomPlane : public GeomSurface
 {
     TYPESYSTEM_HEADER();
 public:
@@ -922,7 +923,7 @@ private:
     Handle(Geom_Plane) mySurface;
 };
 
-class PartExport GeomOffsetSurface : public GeomSurface
+class Standard_EXPORT GeomOffsetSurface : public GeomSurface
 {
     TYPESYSTEM_HEADER();
 public:
@@ -946,7 +947,7 @@ private:
     Handle(Geom_OffsetSurface) mySurface;
 };
 
-class PartExport GeomPlateSurface : public GeomSurface
+class Standard_EXPORT GeomPlateSurface : public GeomSurface
 {
     TYPESYSTEM_HEADER();
 public:
@@ -971,7 +972,7 @@ private:
     Handle(GeomPlate_Surface) mySurface;
 };
 
-class PartExport GeomTrimmedSurface : public GeomSurface
+class Standard_EXPORT GeomTrimmedSurface : public GeomSurface
 {
     TYPESYSTEM_HEADER();
 public:
@@ -994,7 +995,7 @@ private:
     Handle(Geom_RectangularTrimmedSurface) mySurface;
 };
 
-class PartExport GeomSurfaceOfRevolution : public GeomSurface
+class Standard_EXPORT GeomSurfaceOfRevolution : public GeomSurface
 {
     TYPESYSTEM_HEADER();
 public:
@@ -1018,7 +1019,7 @@ private:
     Handle(Geom_SurfaceOfRevolution) mySurface;
 };
 
-class PartExport GeomSurfaceOfExtrusion : public GeomSurface
+class Standard_EXPORT GeomSurfaceOfExtrusion : public GeomSurface
 {
     TYPESYSTEM_HEADER();
 public:
@@ -1044,27 +1045,27 @@ private:
 
 
 // Helper functions for fillet tools
-PartExport
+Standard_EXPORT
 bool find2DLinesIntersection(const Base::Vector3d &orig1, const Base::Vector3d &dir1,
                              const Base::Vector3d &orig2, const Base::Vector3d &dir2,
                              Base::Vector3d &point);
-PartExport
+Standard_EXPORT
 bool find2DLinesIntersection(const GeomLineSegment *lineSeg1, const GeomLineSegment *lineSeg2,
                              Base::Vector3d &point);
-PartExport
+Standard_EXPORT
 bool findFilletCenter(const GeomLineSegment *lineSeg1, const GeomLineSegment *lineSeg2, double radius,
                       Base::Vector3d &center);
-PartExport
+Standard_EXPORT
 bool findFilletCenter(const GeomLineSegment *lineSeg1, const GeomLineSegment *lineSeg2, double radius,
                       const Base::Vector3d& refPnt1, const Base::Vector3d& refPnt2,
                       Base::Vector3d &center);
-PartExport
+Standard_EXPORT
 double suggestFilletRadius(const GeomLineSegment *lineSeg1, const GeomLineSegment *lineSeg2,
                            const Base::Vector3d &refPnt1, const Base::Vector3d &refPnt2);
-PartExport
+Standard_EXPORT
 GeomArcOfCircle *createFilletGeometry(const GeomLineSegment *lineSeg1, const GeomLineSegment *lineSeg2,
                                       const Base::Vector3d &center, double radius);
-PartExport
+Standard_EXPORT
 GeomSurface *makeFromSurface(const Handle(Geom_Surface)&);
 }
 

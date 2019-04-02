@@ -25,6 +25,8 @@
 #define BASE_STREAM_H
 
 
+#include "stdexport.h"
+
 #ifdef __GNUC__
 # include <stdint.h>
 #endif

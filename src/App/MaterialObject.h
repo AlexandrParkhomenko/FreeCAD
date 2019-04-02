@@ -24,6 +24,7 @@
 #ifndef APP_MaterialObject_H
 #define APP_MaterialObject_H
 
+#include "stdexport.h"
 #include "DocumentObject.h"
 #include "PropertyStandard.h"
 #include "FeaturePython.h"

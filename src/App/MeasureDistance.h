@@ -24,6 +24,7 @@
 #ifndef APP_MEASUREDISTANCE_H
 #define APP_MEASUREDISTANCE_H
 
+#include "stdexport.h"
 #include "DocumentObject.h"
 #include "PropertyGeo.h"
 #include "PropertyUnits.h"

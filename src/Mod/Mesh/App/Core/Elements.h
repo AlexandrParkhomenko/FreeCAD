@@ -24,6 +24,7 @@
 #ifndef MESH_ELEMENTS_H
 #define MESH_ELEMENTS_H
 
+#include "stdexport.h"
 #include <functional>
 #include <vector>
 #include <climits>
@@ -45,7 +46,7 @@ class MeshPoint;
  * of two edges. The class holds the point indices of the
  * underlying edge.
  */
-class MeshExport MeshHelpEdge
+class Standard_EXPORT MeshHelpEdge
 {
 public:
   inline bool operator == (const MeshHelpEdge &rclEdge) const;
@@ -56,7 +57,7 @@ public:
  * Structure that holds the facet index with the two corner point
  * indices of the facet's orientation this edge is attached to.
  */
-class MeshExport MeshIndexEdge
+class Standard_EXPORT MeshIndexEdge
 {
 public:
   unsigned long  _ulFacetIndex;  // Facet index
@@ -66,7 +67,7 @@ public:
 /** MeshEdge just a pair of two point indices */
 typedef std::pair<unsigned long, unsigned long> MeshEdge;
 
-struct MeshExport EdgeCollapse
+struct Standard_EXPORT EdgeCollapse
 {
   unsigned long _fromPoint;
   unsigned long _toPoint;
@@ -74,7 +75,7 @@ struct MeshExport EdgeCollapse
   std::vector<unsigned long> _changeFacets;
 };
 
-struct MeshExport VertexCollapse
+struct Standard_EXPORT VertexCollapse
 {
   unsigned long _point;
   std::vector<unsigned long> _circumPoints;
@@ -94,7 +95,7 @@ struct MeshExport VertexCollapse
  * Note: The status flag SELECTED mark a point to be selected which is e.g. used in the GUI.
  * This flag must not be set by any algorithm unless it adds or removes points to the selection.
  */
-class MeshExport MeshPoint: public Base::Vector3f
+class Standard_EXPORT MeshPoint: public Base::Vector3f
 {
 public:
   enum TFlagType {INVALID=1, VISIT=2, SEGMENT=4, MARKED=8, SELECTED=16, REV=32, TMP0=64, TMP1=128};
@@ -146,7 +147,7 @@ public:
  * The MeshGeomEdge class is geometric counterpart to MeshEdge that holds the 
  * geometric data points of an edge.
  */
-class MeshExport MeshGeomEdge
+class Standard_EXPORT MeshGeomEdge
 {
 public:
   MeshGeomEdge (void) : _bBorder(false) {}
@@ -305,7 +306,7 @@ public:
  * The MeshGeomFacet class is geometric counterpart to MeshFacet that holds the 
  * geometric data points of a triangle.
  */
-class MeshExport MeshGeomFacet 
+class Standard_EXPORT MeshGeomFacet 
 {
 public:
   /** @name Construction */
@@ -497,7 +498,7 @@ typedef  std::vector<MeshPoint>  TMeshPointArray;
 /**
  * Stores all data points of the mesh structure.
  */
-class MeshExport MeshPointArray: public TMeshPointArray
+class Standard_EXPORT MeshPointArray: public TMeshPointArray
 {
 public:
   // Iterator interface
@@ -549,7 +550,7 @@ typedef std::vector<MeshFacet>  TMeshFacetArray;
 /**
  * Stores all facets of the mesh data-structure.
  */
-class MeshExport MeshFacetArray: public TMeshFacetArray
+class Standard_EXPORT MeshFacetArray: public TMeshFacetArray
 {
 public:
     // Iterator interface
@@ -603,7 +604,7 @@ public:
  * MeshPointModifier is a helper class that allows to modify the
  * point array of a mesh kernel but with limited access.
  */
-class MeshExport MeshPointModifier
+class Standard_EXPORT MeshPointModifier
 {
 public:
     MeshPointModifier(MeshPointArray& points)
@@ -624,7 +625,7 @@ private:
  * MeshFacetModifier is a helper class that allows to modify the
  * facet array of a mesh kernel but with limited access.
  */
-class MeshExport MeshFacetModifier
+class Standard_EXPORT MeshFacetModifier
 {
 public:
     MeshFacetModifier(MeshFacetArray& facets)

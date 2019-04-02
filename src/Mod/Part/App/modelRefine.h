@@ -24,6 +24,7 @@
 #ifndef MODELREFINE_H
 #define MODELREFINE_H
 
+#include "stdexport.h"
 #include <vector>
 #include <map>
 #include <list>
@@ -193,7 +194,7 @@ GeomAbs_OtherSurface
 };
 */
 namespace Part {
-class PartExport BRepBuilderAPI_RefineModel : public BRepBuilderAPI_MakeShape
+class Standard_EXPORT BRepBuilderAPI_RefineModel : public BRepBuilderAPI_MakeShape
 {
 public:
     BRepBuilderAPI_RefineModel(const TopoDS_Shape&);

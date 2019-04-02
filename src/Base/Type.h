@@ -24,8 +24,7 @@
 #ifndef BASE_TYPE_H
 #define BASE_TYPE_H
 
-// Std. configurations
-
+#include "stdexport.h"
 #include <string>
 #include <map>
 #include <set>

@@ -24,8 +24,7 @@
 #ifndef BASE_UUID_H
 #define BASE_UUID_H
 
-// Std. configurations
-
+#include "stdexport.h"
 #include <string>
 
 namespace Base

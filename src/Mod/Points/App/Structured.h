@@ -34,7 +34,7 @@ namespace Points
   and that with respect to their x,y coordinates they are ordered in a grid structure.
   If a point is marked invalid then one of its coordinates is set to NaN.
  */
-class PointsExport Structured : public Feature
+class Standard_EXPORT Structured : public Feature
 {
     PROPERTY_HEADER(Points::Structured);
 

@@ -24,6 +24,7 @@
 #ifndef APP_PATH_H
 #define APP_PATH_H
 
+#include "stdexport.h"
 #include <vector>
 #include <string>
 #include <boost/any.hpp>

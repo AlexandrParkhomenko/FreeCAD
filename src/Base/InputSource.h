@@ -24,6 +24,7 @@
 #define BASE_IINPUTSOURCE_H
 
 
+#include "stdexport.h"
 #include <iostream>
 
 #include <xercesc/sax2/Attributes.hpp>

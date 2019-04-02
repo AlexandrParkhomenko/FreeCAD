@@ -25,8 +25,8 @@
 #ifndef APP_APPLICATION_H
 #define APP_APPLICATION_H
 
+#include "stdexport.h"
 #include <boost/signals2.hpp>
-
 #include <vector>
 
 #include <Base/PyObjectBase.h>

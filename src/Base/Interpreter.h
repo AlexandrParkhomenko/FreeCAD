@@ -25,6 +25,8 @@
 #ifndef BASE_INTERPRETER_H
 #define BASE_INTERPRETER_H
 
+#include "stdexport.h"
+
 #if defined (_POSIX_C_SOURCE)
 #   undef  _POSIX_C_SOURCE
 #endif // (re-)defined in pyconfig.h
@@ -33,7 +35,7 @@
 #endif // (re-)defined in pyconfig.h
 
 
-#include <Python.h>
+#include "FCConfig.h"
 #include <CXX/Extensions.hxx>
 
 

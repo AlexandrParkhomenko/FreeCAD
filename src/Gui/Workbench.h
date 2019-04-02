@@ -24,6 +24,7 @@
 #ifndef GUI_WORKBENCH_H
 #define GUI_WORKBENCH_H
 
+#include "stdexport.h"
 #include <list>
 #include <string>
 #include <Base/BaseClass.h>

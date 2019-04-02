@@ -24,6 +24,7 @@
 #ifndef PART_DATUMFEATURE_H
 #define PART_DATUMFEATURE_H
 
+#include "stdexport.h"
 #include <QString>
 #include <App/PropertyLinks.h>
 
@@ -36,7 +37,7 @@ namespace Part
 // This generic class is defined here so that the Sketcher module can access datum features
 // without creating a dependency on PartDesign
 
-class PartExport Datum : public Part::Feature, public Part::AttachExtension
+class Standard_EXPORT Datum : public Part::Feature, public Part::AttachExtension
 {
     PROPERTY_HEADER_WITH_EXTENSIONS(Part::Datum);
 

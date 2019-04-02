@@ -24,9 +24,8 @@
 #ifndef APP_PROPERTYLINKS_H
 #define APP_PROPERTYLINKS_H
 
-// Std. configurations
 
-
+#include "stdexport.h"
 #include <vector>
 #include <string>
 #include "Property.h"

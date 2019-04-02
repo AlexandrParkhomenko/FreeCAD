@@ -24,6 +24,7 @@
 #ifndef MESH_PROJECTION_H
 #define MESH_PROJECTION_H
 
+#include "stdexport.h"
 #include <vector>
 #include <Base/BoundBox.h>
 #include <Base/Vector3D.h>
@@ -42,7 +43,7 @@ class MeshFacetGrid;
 class MeshKernel;
 class MeshGeomFacet;
 
-class MeshExport MeshProjection
+class Standard_EXPORT MeshProjection
 {
 public:
     MeshProjection(const MeshKernel&);
@@ -73,7 +74,7 @@ struct SplitEdge
  * The MeshProjection class projects a shape onto a mesh.
  * @author Werner Mayer
  */
-class MeshExport MeshProjection
+class Standard_EXPORT MeshProjection
 {
 public:
   /// Construction

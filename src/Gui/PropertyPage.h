@@ -24,6 +24,7 @@
 #ifndef GUI_DIALOG_PROPERTYPAGE_H
 #define GUI_DIALOG_PROPERTYPAGE_H
 
+#include "stdexport.h"
 #include <QWidget>
 
 namespace Gui {

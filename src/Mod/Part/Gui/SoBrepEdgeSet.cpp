@@ -26,7 +26,7 @@
 
 # include <float.h>
 # include <algorithm>
-# include <Python.h>
+# include "FCConfig.h"
 # include <Inventor/SoPickedPoint.h>
 # include <Inventor/SoPrimitiveVertex.h>
 # include <Inventor/actions/SoCallbackAction.h>

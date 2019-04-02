@@ -22,6 +22,7 @@
 
 
 
+#include "stdexport.h"
 # include <gp_Trsf.hxx>
 # include <gp_Ax1.hxx>
 # include <BRepBuilderAPI_MakeShape.hxx>
@@ -286,7 +287,7 @@ template<> PyObject* Part::FeaturePython::getPyObject(void) {
 /// @endcond
 
 // explicit template instantiation
-template class PartExport FeaturePythonT<Part::Feature>;
+template class Standard_EXPORT FeaturePythonT<Part::Feature>;
 }
 
 // ----------------------------------------------------------------

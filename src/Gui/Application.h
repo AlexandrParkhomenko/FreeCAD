@@ -24,6 +24,7 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
+#include "stdexport.h"
 #include <QPixmap>
 #include <string>
 #include <vector>

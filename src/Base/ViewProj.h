@@ -24,6 +24,7 @@
 #ifndef BASE_VIEWPROJ_H
 #define BASE_VIEWPROJ_H
 
+#include "stdexport.h"
 #include "Vector3D.h"
 #include "Matrix.h"
 

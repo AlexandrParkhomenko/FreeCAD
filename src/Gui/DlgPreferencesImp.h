@@ -24,6 +24,7 @@
 #ifndef GUI_DIALOG_DLGPREFERENCESIMP_H
 #define GUI_DIALOG_DLGPREFERENCESIMP_H
 
+#include "stdexport.h"
 #include <QDialog>
 
 class QAbstractButton;

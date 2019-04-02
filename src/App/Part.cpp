@@ -23,6 +23,7 @@
 
 
 
+#include "stdexport.h"
 #include <App/Document.h>
 
 #include "Part.h"

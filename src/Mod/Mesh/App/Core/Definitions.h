@@ -20,7 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "../PreCompiled.h"
+#include "stdexport.h"
 
 #ifndef MESH_DEFINITIONS_H
 #define MESH_DEFINITIONS_H
@@ -55,7 +55,7 @@ template <class Prec>
 class Math
 {
 public:
-    MeshExport static const Prec PI;
+    Standard_EXPORT static const Prec PI;
 };
 
 typedef Math<float> Mathf;
@@ -65,7 +65,7 @@ typedef Math<double> Mathd;
  * Global defined tolerances used to compare points
  * for equality.
  */
-class MeshExport MeshDefinitions
+class Standard_EXPORT MeshDefinitions
 {
 public:
   MeshDefinitions (void);

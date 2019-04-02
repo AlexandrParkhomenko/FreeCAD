@@ -24,6 +24,7 @@
 #ifndef GUI_DIALOG_DlgEditFileIncludePropertyExternal_H
 #define GUI_DIALOG_DlgEditFileIncludePropertyExternal_H
 
+#include "stdexport.h"
 #include "DlgRunExternal.h"
 #include <App/PropertyFile.h>
 

@@ -24,6 +24,7 @@
 #ifndef APP_GROUPEXTENSION_H
 #define APP_GROUPEXTENSION_H
 
+#include "stdexport.h"
 #include "FeaturePython.h"
 #include "DocumentObject.h"
 #include "PropertyLinks.h"

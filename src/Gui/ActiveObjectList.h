@@ -26,6 +26,7 @@
 #ifndef GUI_ActiveObjectList_H
 #define GUI_ActiveObjectList_H
 
+#include "stdexport.h"
 #include <map>
 #include "Tree.h"
 namespace App {

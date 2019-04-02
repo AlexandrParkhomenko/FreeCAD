@@ -24,6 +24,7 @@
 #ifndef GUI_INVENTOR_MARKERBITMAPS_H
 #define GUI_INVENTOR_MARKERBITMAPS_H
 
+#include "stdexport.h"
 #include <string>
 #include <list>
 #include <map>

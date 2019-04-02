@@ -24,8 +24,8 @@
 #ifndef APP_PROPERTY_H
 #define APP_PROPERTY_H
 
-// Std. configurations
 
+#include "stdexport.h"
 #include <Base/Persistence.h>
 #include <boost/any.hpp>
 #include <string>

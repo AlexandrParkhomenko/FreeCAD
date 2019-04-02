@@ -24,6 +24,7 @@
 #ifndef GUI_VIEW3DINVENTORVIEWER_H
 #define GUI_VIEW3DINVENTORVIEWER_H
 
+#include "stdexport.h"
 #include <list>
 #include <map>
 #include <set>

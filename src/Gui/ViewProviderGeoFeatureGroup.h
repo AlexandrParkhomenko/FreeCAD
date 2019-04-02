@@ -26,6 +26,7 @@
 #define GUI_VIEWPROVIDER_ViewProviderGeoFeatureGroup_H
 
 
+#include "stdexport.h"
 #include "ViewProviderDocumentObject.h"
 #include "ViewProviderGeoFeatureGroupExtension.h"
 #include "ViewProviderPythonFeature.h"

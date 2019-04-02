@@ -24,6 +24,7 @@
 #ifndef GUI_VIEWPROVIDER_VRMLOROBJECT_H
 #define GUI_VIEWPROVIDER_VRMLOROBJECT_H
 
+#include "stdexport.h"
 #include "ViewProviderDocumentObject.h"
 
 class SbString;

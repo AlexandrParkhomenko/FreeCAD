@@ -23,6 +23,7 @@
 
 
 
+#include "stdexport.h"
 
 #include "ViewProviderOriginGroupExtension.h"
 #include "Application.h"

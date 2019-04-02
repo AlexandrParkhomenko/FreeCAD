@@ -24,6 +24,7 @@
 #ifndef GUI_BITMAPFACTORY_H
 #define GUI_BITMAPFACTORY_H
 
+#include "stdexport.h"
 #include <Base/Factory.h>
 #include <QPixmap>
 #include <QIcon>

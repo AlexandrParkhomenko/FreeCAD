@@ -24,6 +24,7 @@
 #ifndef PART_FEATUREREVOLUTION_H
 #define PART_FEATUREREVOLUTION_H
 
+#include "stdexport.h"
 #include <App/PropertyStandard.h>
 #include "PartFeature.h"
 #include <Base/Vector3D.h>
@@ -31,7 +32,7 @@
 namespace Part
 {
 
-class PartExport Revolution : public Part::Feature
+class Standard_EXPORT Revolution : public Part::Feature
 {
     PROPERTY_HEADER_WITH_OVERRIDE(Part::Revolution);
 

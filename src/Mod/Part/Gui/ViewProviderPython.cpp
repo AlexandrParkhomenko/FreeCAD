@@ -23,7 +23,7 @@
 
 
 #include <Standard_math.hxx>
-# include <Python.h>
+# include "FCConfig.h"
 # include <Inventor/nodes/SoSeparator.h>
 #include <Gui/ViewProviderBuilder.h>
 #include <Mod/Part/App/PartFeature.h>

@@ -24,8 +24,8 @@
 #ifndef APP_PROPERTYGEO_H
 #define APP_PROPERTYGEO_H
 
-// Std. configurations
 
+#include "stdexport.h"
 #include <Base/Vector3D.h>
 #include <Base/Matrix.h>
 #include <Base/BoundBox.h>

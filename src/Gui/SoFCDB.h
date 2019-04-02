@@ -24,6 +24,7 @@
 #ifndef GUI_SOFCDB_H
 #define GUI_SOFCDB_H
 
+#include "stdexport.h"
 #include <string>
 #include <Inventor/SbBasic.h>
 

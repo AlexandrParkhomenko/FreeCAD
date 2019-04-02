@@ -23,17 +23,9 @@
 #ifndef GUI_SOFCSELECTION_H
 #define GUI_SOFCSELECTION_H
 
-# ifdef FC_OS_MACOSX
-# include <OpenGL/gl.h>
-# else
-# ifdef FC_OS_WIN32
-#  ifndef NOMINMAX
-#  define NOMINMAX
-#  endif
-#  include <windows.h>
-# endif
+
+#include "stdexport.h"
 # include <GL/gl.h>
-# endif
 
 #include <Inventor/nodes/SoSubNode.h>
 #include <Inventor/nodes/SoGroup.h>

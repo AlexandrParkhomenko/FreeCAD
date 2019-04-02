@@ -24,6 +24,7 @@
 #ifndef GUI_VIEWPROVIDER_EXTERN_H
 #define GUI_VIEWPROVIDER_EXTERN_H
 
+#include "stdexport.h"
 #include "ViewProvider.h"
 
 

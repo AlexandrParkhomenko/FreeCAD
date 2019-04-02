@@ -32,7 +32,7 @@
 # include <TopoDS_Edge.hxx>
 # include <ShapeExtend_Explorer.hxx>
 # include <TopTools_HSequenceOfShape.hxx>
-# include <Python.h>
+# include "FCConfig.h"
 # include <Inventor/system/inttypes.h>
 # include <Precision.hxx>
 

@@ -22,6 +22,7 @@
 
 
 
+#include "stdexport.h"
 # include <sstream>
 # include <QApplication>
 # include <QEvent>

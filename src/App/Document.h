@@ -23,6 +23,7 @@
 #ifndef APP_DOCUMENT_H
 #define APP_DOCUMENT_H
 
+#include "stdexport.h"
 #include <CXX/Objects.hxx>
 #include <Base/Observer.h>
 #include <Base/Persistence.h>

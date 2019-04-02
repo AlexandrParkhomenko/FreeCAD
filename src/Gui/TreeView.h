@@ -24,6 +24,7 @@
 #ifndef GUI_TREEVIEW_H
 #define GUI_TREEVIEW_H
 
+#include "stdexport.h"
 #include <QTreeView>
 
 #include <App/Document.h>

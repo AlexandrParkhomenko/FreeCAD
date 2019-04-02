@@ -25,6 +25,7 @@
 #define GUI_TEXTDOCUMENTEDITORVIEW_H
 
 
+#include "stdexport.h"
 #include <string>
 #include <boost/signals2.hpp>
 #include <QPlainTextEdit>

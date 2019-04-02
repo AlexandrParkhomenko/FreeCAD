@@ -23,6 +23,7 @@
 #ifndef EXPRESSIONENGINE_H
 #define EXPRESSIONENGINE_H
 
+#include "stdexport.h"
 #include <boost/unordered/unordered_map.hpp>
 #include <boost/function.hpp>
 #include <boost/signals2.hpp>

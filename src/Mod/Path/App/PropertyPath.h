@@ -24,6 +24,7 @@
 #ifndef PROPERTYPATH_H
 #define PROPERTYPATH_H
 
+#include "stdexport.h"
 #include "Path.h"
 #include <App/Property.h>
 
@@ -32,7 +33,7 @@ namespace Path
 
 
 /** The path property class.  */
-class PathExport PropertyPath : public App::Property
+class Standard_EXPORT PropertyPath : public App::Property
 {
     TYPESYSTEM_HEADER();
 

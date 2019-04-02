@@ -23,6 +23,7 @@
 #ifndef GUI_SOFCUNIFIEDSELECTION_H
 #define GUI_SOFCUNIFIEDSELECTION_H
 
+#include "stdexport.h"
 #include <Inventor/nodes/SoSubNode.h>
 #include <Inventor/nodes/SoSeparator.h>
 #include <Inventor/fields/SoSFBool.h>

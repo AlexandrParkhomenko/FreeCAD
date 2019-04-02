@@ -24,6 +24,7 @@
 #ifndef GUI_WAIT_CURSOR_H
 #define GUI_WAIT_CURSOR_H
 
+#include "stdexport.h"
 #include <qglobal.h>
 
 namespace Gui {

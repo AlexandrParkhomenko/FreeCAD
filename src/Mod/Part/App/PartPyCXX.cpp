@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "stdexport.h"
 #include "PartPyCXX.h"
 #include <CXX/Objects.hxx>
 #include <Mod/Part/App/TopoShapeFacePy.h>
@@ -32,7 +33,7 @@
 #include <Mod/Part/App/TopoShapeCompoundPy.h>
 
 namespace Part {
-PartExport Py::Object shape2pyshape(const TopoDS_Shape &shape)
+Standard_EXPORT Py::Object shape2pyshape(const TopoDS_Shape &shape)
 {
     PyObject* ret = 0;
     if (!shape.IsNull()) {
@@ -89,6 +90,6 @@ namespace Py {
     }
 
     // explicit template instantiation
-    template class PartExport ExtensionObject<Part::TopoShapePy>;
+    template class Standard_EXPORT ExtensionObject<Part::TopoShapePy>;
 }
 

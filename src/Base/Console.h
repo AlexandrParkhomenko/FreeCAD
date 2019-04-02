@@ -28,10 +28,7 @@
 #ifndef BASE_CONSOLE_H
 #define BASE_CONSOLE_H
 
-// Std. configurations
-#include <Base/PyExport.h>
-#include <Base/Stream.h>
-//#pragma warning(disable: 4786)  // specifier longer then 255 chars
+#include "stdexport.h"
 #include <assert.h>
 #include <set>
 #include <map>
@@ -39,6 +36,9 @@
 #include <cstring>
 #include <sstream>
 #include <chrono>
+#include <Base/PyExport.h>
+#include <Base/Stream.h>
+
 
 //**************************************************************************
 // Logging levels
@@ -725,6 +725,6 @@ private:
 };
 
 
-} // namespace Base 
+}; // namespace Base
 
 #endif // BASE_CONSOLE_H

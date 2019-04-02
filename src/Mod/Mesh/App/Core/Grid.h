@@ -24,6 +24,7 @@
 #ifndef MESH_GRID_H
 #define MESH_GRID_H
 
+#include "stdexport.h"
 #include <set>
 
 #include "MeshKernel.h"
@@ -52,7 +53,7 @@ class MeshGrid;
  * Grids can be used within algorithms to avoid to iterate through all elements,
  * so grids can speed up algorithms dramatically.
  */
-class MeshExport MeshGrid
+class Standard_EXPORT MeshGrid
 {
 protected:
   /** @name Construction */
@@ -178,7 +179,7 @@ protected:
  * Special grid class that stores facet indices of the mesh object
  * in its grids.
  */
-class MeshExport MeshFacetGrid: public MeshGrid
+class Standard_EXPORT MeshFacetGrid: public MeshGrid
 {
 public:
   /** @name Construction */
@@ -239,7 +240,7 @@ protected:
  * Special grid class that stores point indices of the mesh object
  * in its grids.
  */
-class MeshExport MeshPointGrid: public MeshGrid
+class Standard_EXPORT MeshPointGrid: public MeshGrid
 {
 public:
   /** @name Construction */
@@ -284,7 +285,7 @@ protected:
  * The MeshGridIterator class provides an interface to walk through
  * all grid elements of a mesh grid.
  */
-class MeshExport MeshGridIterator
+class Standard_EXPORT MeshGridIterator
 {
 public:
   /// Construction

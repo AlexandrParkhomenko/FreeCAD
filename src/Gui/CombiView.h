@@ -25,6 +25,7 @@
 #ifndef GUI_DOCKWND_COMBIVIEW_H
 #define GUI_DOCKWND_COMBIVIEW_H
 
+#include "stdexport.h"
 #include "DockWindow.h"
 #include "Selection.h"
 

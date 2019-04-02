@@ -24,6 +24,7 @@
 #ifndef IMPORT_IMPORTOCAF_H
 #define IMPORT_IMPORTOCAF_H
 
+#include "stdexport.h"
 #include <TDocStd_Document.hxx>
 #include <XCAFDoc_ColorTool.hxx>
 #include <XCAFDoc_ShapeTool.hxx>
@@ -52,7 +53,7 @@ class Feature;
 
 namespace Import {
 
-class ImportExport ImportOCAF
+class Standard_EXPORT ImportOCAF
 {
 public:
     ImportOCAF(Handle(TDocStd_Document) h, App::Document* d, const std::string& name);
@@ -78,7 +79,7 @@ private:
     static const int HashUpper = INT_MAX;
 };
 
-class ImportExport ImportOCAFCmd : public ImportOCAF
+class Standard_EXPORT ImportOCAFCmd : public ImportOCAF
 {
 public:
     ImportOCAFCmd(Handle(TDocStd_Document) h, App::Document* d, const std::string& name);

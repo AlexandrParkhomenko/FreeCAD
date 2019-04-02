@@ -22,6 +22,7 @@
 
 
 
+#include "stdexport.h"
 # include <cassert>
 # include <algorithm>
 

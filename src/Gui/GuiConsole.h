@@ -25,6 +25,7 @@
 #define GUI_GUICONSOLE_H
 
 
+#include "stdexport.h"
 #include <Base/Console.h>
 
 namespace Gui {

@@ -24,6 +24,7 @@
 #ifndef GUI_DOCKWND_REPORTVIEW_H
 #define GUI_DOCKWND_REPORTVIEW_H
 
+#include "stdexport.h"
 #include <QTextEdit>
 #include <QSyntaxHighlighter>
 #include <Base/Console.h>

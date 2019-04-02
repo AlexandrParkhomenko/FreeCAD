@@ -24,6 +24,7 @@
 #ifndef IMPORT_EXPORTOCAF_H
 #define IMPORT_EXPORTOCAF_H
 
+#include "stdexport.h"
 #include <TDocStd_Document.hxx>
 #include <XCAFDoc_ColorTool.hxx>
 #include <XCAFDoc_ShapeTool.hxx>
@@ -52,7 +53,7 @@ class Feature;
 
 namespace Import {
 
-class ImportExport ExportOCAF
+class Standard_EXPORT ExportOCAF
 {
 public:
     ExportOCAF(Handle(TDocStd_Document) h, bool explicitPlacement);
@@ -96,7 +97,7 @@ private:
     bool filterBaseFeature;
 };
 
-class ImportExport ExportOCAFCmd : public ExportOCAF
+class Standard_EXPORT ExportOCAFCmd : public ExportOCAF
 {
 public:
     ExportOCAFCmd(Handle(TDocStd_Document) h, bool explicitPlacement);

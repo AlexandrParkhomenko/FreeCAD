@@ -11,7 +11,7 @@
 
 
 # include <Standard_math.hxx>
-# include <Python.h>
+# include "FCConfig.h"
 # include <Inventor/system/inttypes.h>
 
 #include <CXX/Extensions.hxx>

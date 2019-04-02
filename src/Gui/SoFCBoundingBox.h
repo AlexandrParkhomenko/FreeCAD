@@ -24,6 +24,7 @@
 #ifndef COIN_SOFCBOUNDINGBOX_H
 #define COIN_SOFCBOUNDINGBOX_H
 
+#include "stdexport.h"
 #include <Inventor/SbLinear.h>
 #include <Inventor/actions/SoAction.h>
 #include <Inventor/fields/SoSFFloat.h>

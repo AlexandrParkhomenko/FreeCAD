@@ -24,6 +24,7 @@
 #ifndef POINTS_POINT_H
 #define POINTS_POINT_H
 
+#include "stdexport.h"
 #include <vector>
 #include <iterator>
 
@@ -41,7 +42,7 @@ namespace Points
 
 /** Point kernel
  */
-class PointsExport PointKernel : public Data::ComplexGeoData
+class Standard_EXPORT PointKernel : public Data::ComplexGeoData
 {
     TYPESYSTEM_HEADER();
 
@@ -139,7 +140,7 @@ public:
         _Points.push_back(transformToInside(point));
     }
 
-    class PointsExport const_point_iterator
+    class Standard_EXPORT const_point_iterator
     {
     public:
         typedef PointKernel::value_type kernel_type;

@@ -24,6 +24,7 @@
 #ifndef MESH_FACET_H
 #define MESH_FACET_H
 
+#include "stdexport.h"
 #include <Base/Matrix.h>
 #include <Base/Vector3D.h>
 #include <Base/Handle.h>
@@ -40,7 +41,7 @@ class MeshObject;
  * convenient access to the Mesh data structure. This class should not be used
  * for programming algorithms in C++. Use Mesh Core classes instead!
  */
-class MeshExport Facet : public MeshCore::MeshGeomFacet
+class Standard_EXPORT Facet : public MeshCore::MeshGeomFacet
 {
 public:
     Facet(const MeshCore::MeshFacet& face = MeshCore::MeshFacet(), MeshObject* obj = 0, unsigned long index = ULONG_MAX);

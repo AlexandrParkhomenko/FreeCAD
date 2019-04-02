@@ -24,6 +24,7 @@
 #ifndef GUI_VIEW_H
 #define GUI_VIEW_H
 
+#include "stdexport.h"
 #include <vector>
 #include <Base/BaseClass.h>
 

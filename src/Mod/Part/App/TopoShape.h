@@ -24,6 +24,7 @@
 #ifndef PART_TOPOSHAPE_H
 #define PART_TOPOSHAPE_H
 
+#include "stdexport.h"
 #include <iostream>
 #include <TopoDS_Compound.hxx>
 #include <TopoDS_Wire.hxx>
@@ -44,7 +45,7 @@ namespace Part
 
 /* A special sub-class to indicate null shapes
  */
-class PartExport NullShapeException : public Base::ValueError
+class Standard_EXPORT NullShapeException : public Base::ValueError
 {
 public:
    /// Construction
@@ -59,7 +60,7 @@ public:
 
 /* A special sub-class to indicate boolean failures
  */
-class PartExport BooleanException : public Base::CADKernelError
+class Standard_EXPORT BooleanException : public Base::CADKernelError
 {
 public:
    /// Construction
@@ -72,7 +73,7 @@ public:
    virtual ~BooleanException() throw() {}
 };
 
-class PartExport ShapeSegment : public Data::Segment
+class Standard_EXPORT ShapeSegment : public Data::Segment
 {
     TYPESYSTEM_HEADER();
 
@@ -88,7 +89,7 @@ public:
 
 /** The representation for a CAD Shape
  */
-class PartExport TopoShape : public Data::ComplexGeoData
+class Standard_EXPORT TopoShape : public Data::ComplexGeoData
 {
     TYPESYSTEM_HEADER();
 

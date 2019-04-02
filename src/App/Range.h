@@ -23,6 +23,7 @@
 #ifndef RANGE_H
 #define RANGE_H
 
+#include "stdexport.h"
 #include <string>
 
 namespace App {

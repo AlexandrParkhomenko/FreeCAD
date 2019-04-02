@@ -29,6 +29,7 @@
 #ifndef PARTATTACHER_H
 #define PARTATTACHER_H
 
+#include "stdexport.h"
 #include <App/PropertyStandard.h>
 #include <App/PropertyLinks.h>
 #include <App/GeoFeature.h>
@@ -212,7 +213,7 @@ struct SuggestResult{
  * hints and so on. It can be used separately, without deriving from
  * AttachableObject.
  */
-class PartExport AttachEngine : public Base::BaseClass
+class Standard_EXPORT AttachEngine : public Base::BaseClass
 {
     TYPESYSTEM_HEADER();
 public: //methods
@@ -417,7 +418,7 @@ protected:
 };
 
 
-class PartExport AttachEngine3D : public AttachEngine
+class Standard_EXPORT AttachEngine3D : public AttachEngine
 {
     TYPESYSTEM_HEADER();
 public:
@@ -429,7 +430,7 @@ private:
 };
 
 //attacher specialized for datum planes
-class PartExport AttachEnginePlane : public AttachEngine
+class Standard_EXPORT AttachEnginePlane : public AttachEngine
 {
     TYPESYSTEM_HEADER();
 public:
@@ -439,7 +440,7 @@ public:
 };
 
 //attacher specialized for datum lines
-class PartExport AttachEngineLine : public AttachEngine
+class Standard_EXPORT AttachEngineLine : public AttachEngine
 {
     TYPESYSTEM_HEADER();
 public:
@@ -449,7 +450,7 @@ public:
 };
 
 //attacher specialized for datum points
-class PartExport AttachEnginePoint : public AttachEngine
+class Standard_EXPORT AttachEnginePoint : public AttachEngine
 {
     TYPESYSTEM_HEADER();
 public:

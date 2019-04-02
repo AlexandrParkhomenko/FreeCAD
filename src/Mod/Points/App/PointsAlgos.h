@@ -33,7 +33,7 @@ namespace Points
 
 /** The Points algorithms container class
  */
-class PointsExport PointsAlgos
+class Standard_EXPORT PointsAlgos
 {
 public:
     /** Load a point cloud

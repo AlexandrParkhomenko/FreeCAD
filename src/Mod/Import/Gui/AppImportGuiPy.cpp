@@ -21,7 +21,7 @@
  ***************************************************************************/
 
 
-# include <Python.h>
+# include "FCConfig.h"
 # include <iostream>
 # include <climits>
 # include <QString>

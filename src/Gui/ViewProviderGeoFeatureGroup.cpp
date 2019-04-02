@@ -23,7 +23,8 @@
 
 
 
-# include <Inventor/nodes/SoGroup.h>
+#include "stdexport.h"
+#include <Inventor/nodes/SoGroup.h>
 
 #include <App/GeoFeatureGroupExtension.h>
 

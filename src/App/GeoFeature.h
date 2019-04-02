@@ -24,6 +24,7 @@
 #ifndef APP_GEOFEATURE_H
 #define APP_GEOFEATURE_H
 
+#include "stdexport.h"
 #include "DocumentObject.h"
 #include "PropertyGeo.h"
 

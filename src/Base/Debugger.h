@@ -24,6 +24,7 @@
 #ifndef BASE_DEBUGGER_H
 #define BASE_DEBUGGER_H
 
+#include "stdexport.h"
 #include <QObject>
 #include <QEventLoop>
 

@@ -26,6 +26,7 @@
 
 // Std. configurations
 
+#include "stdexport.h"
 #include <string>
 
 namespace Base

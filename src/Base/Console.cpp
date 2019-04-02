@@ -22,7 +22,7 @@
  *   Juergen Riegel 2002                                                   *
  ***************************************************************************/
 //#OSDEPENDENT
-#include "FCConfig.h"
+#include "stdexport.h"
 
 # include <time.h>
 # include <stdio.h>

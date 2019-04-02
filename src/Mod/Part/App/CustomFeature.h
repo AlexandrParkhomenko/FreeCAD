@@ -24,6 +24,7 @@
 #ifndef PART_CUSTOMFEATURE_H
 #define PART_CUSTOMFEATURE_H
 
+#include "stdexport.h"
 #include <Mod/Part/App/PartFeature.h>
 
 namespace Part
@@ -32,7 +33,7 @@ namespace Part
 /** Base class of all custom feature classes which are almost used as base
  * for python feature classes.
  */
-class PartExport CustomFeature : public Part::Feature
+class Standard_EXPORT CustomFeature : public Part::Feature
 {
     PROPERTY_HEADER(Part::UserFeature);
 

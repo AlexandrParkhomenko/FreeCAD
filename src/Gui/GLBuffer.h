@@ -24,6 +24,7 @@
 #ifndef GUI_GLBUFFER_H
 #define GUI_GLBUFFER_H
 
+#include "stdexport.h"
 #include <Inventor/C/glue/gl.h>
 
 namespace Gui {

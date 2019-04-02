@@ -24,6 +24,7 @@
 #ifndef GUI_SOSHAPESCALE_H
 #define GUI_SOSHAPESCALE_H
 
+#include "stdexport.h"
 #include <Inventor/nodekits/SoSubKit.h>
 #include <Inventor/nodekits/SoBaseKit.h>
 #include <Inventor/nodes/SoShape.h>

@@ -24,6 +24,7 @@
 #ifndef PART_BodyBase_H
 #define PART_BodyBase_H
 
+#include "stdexport.h"
 #include <App/PropertyStandard.h>
 #include <App/OriginGroupExtension.h>
 #include <Mod/Part/App/PartFeature.h>
@@ -37,7 +38,7 @@ namespace Part
  * in edit or active on a workbench, the body shows only the
  * resulting shape to the outside (Tip link).
  */
-class PartExport BodyBase : public Part::Feature, public App::OriginGroupExtension
+class Standard_EXPORT BodyBase : public Part::Feature, public App::OriginGroupExtension
 {
     PROPERTY_HEADER_WITH_EXTENSIONS(Part::BodyBase);
 

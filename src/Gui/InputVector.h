@@ -23,6 +23,7 @@
 #ifndef GUI_INPUTVECTOR_H
 #define GUI_INPUTVECTOR_H
 
+#include "stdexport.h"
 #include <cfloat>
 #include <QDialog>
 #include <QMessageBox>

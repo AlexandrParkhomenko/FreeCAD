@@ -28,6 +28,7 @@
 #ifndef PARTATTACHABLEOBJECT_H
 #define PARTATTACHABLEOBJECT_H
 
+#include "stdexport.h"
 #include <App/PropertyStandard.h>
 #include <App/PropertyLinks.h>
 #include <App/GeoFeature.h>
@@ -46,7 +47,7 @@
 namespace Part
 {
 
-class PartExport AttachEngineException : public Base::Exception
+class Standard_EXPORT AttachEngineException : public Base::Exception
 {
 public:
    /// Construction
@@ -64,7 +65,7 @@ public:
  * that should be attachable. It includes the required properties, and
  * shortcuts for accessing the attachment math class.
  */
-class PartExport AttachExtension : public App::DocumentObjectExtension
+class Standard_EXPORT AttachExtension : public App::DocumentObjectExtension
 {
     EXTENSION_PROPERTY_HEADER(Part::AttachableObject);
 public:

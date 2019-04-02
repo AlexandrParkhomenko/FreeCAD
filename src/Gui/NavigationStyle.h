@@ -24,6 +24,7 @@
 #ifndef GUI_NAVIGATIONSTYLE_H
 #define GUI_NAVIGATIONSTYLE_H
 
+#include "stdexport.h"
 #include <Inventor/C/basic.h>
 #include <Inventor/SbBox2s.h>
 #include <Inventor/SbVec2f.h>

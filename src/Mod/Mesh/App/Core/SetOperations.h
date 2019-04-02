@@ -24,6 +24,7 @@
 #ifndef MESH_SETOPERATIONS_H
 #define MESH_SETOPERATIONS_H
 
+#include "stdexport.h"
 #include <list>
 #include <map>
 #include <set>
@@ -51,7 +52,7 @@ class MeshFacetIterator;
 /**
  * The MeshAlgorithm class provides algorithms base on meshes.
  */
-class MeshExport SetOperations
+class Standard_EXPORT SetOperations
 {
 public:
   enum OperationType { Union, Intersect, Difference, Inner, Outer };
@@ -179,7 +180,7 @@ private:
   /** close gap in the mesh */
   void CloseGaps (MeshBuilder& meshBuilder);
 
-  /** visual debugger */
+  // visual debugger
   Base::Builder3D _builder;
 
 };

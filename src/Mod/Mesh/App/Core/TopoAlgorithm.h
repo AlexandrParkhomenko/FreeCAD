@@ -24,6 +24,7 @@
 #ifndef MESH_TOPOALGORITHM_H
 #define MESH_TOPOALGORITHM_H
 
+#include "stdexport.h"
 #include <map>
 #include <vector>
 
@@ -48,7 +49,7 @@ struct EdgeCollapse;
  * common edge of two adjacent facets, split a facet, ...
  * @author Werner Mayer
  */
-class MeshExport MeshTopoAlgorithm
+class Standard_EXPORT MeshTopoAlgorithm
 {
 public:
     // construction/destruction
@@ -320,7 +321,7 @@ private:
  *
  * @author Werner Mayer
  */
-class MeshExport MeshComponents
+class Standard_EXPORT MeshComponents
 {
 public:
     enum TMode {OverEdge, OverPoint};

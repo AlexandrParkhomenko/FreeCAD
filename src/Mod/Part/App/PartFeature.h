@@ -24,6 +24,7 @@
 #ifndef PART_FEATURE_H
 #define PART_FEATURE_H
 
+#include "stdexport.h"
 #include "TopoShape.h"
 #include "PropertyTopoShape.h"
 #include <App/GeoFeature.h>
@@ -42,7 +43,7 @@ class PartFeaturePy;
 
 /** Base class of all shape feature classes in FreeCAD
  */
-class PartExport Feature : public App::GeoFeature
+class Standard_EXPORT Feature : public App::GeoFeature
 {
     PROPERTY_HEADER(Part::Feature);
 
@@ -103,7 +104,7 @@ typedef App::FeaturePythonT<Feature> FeaturePython;
 
 /** Base class of all shape feature classes in FreeCAD
  */
-class PartExport FeatureExt : public Feature
+class Standard_EXPORT FeatureExt : public Feature
 {
     PROPERTY_HEADER(Part::FeatureExt);
 
@@ -123,7 +124,7 @@ struct cutFaces {
     double distsq;
 };
 
-PartExport
+Standard_EXPORT
 std::vector<cutFaces> findAllFacesCutBy(const TopoDS_Shape& shape,
                                         const TopoDS_Shape& face, const gp_Dir& dir);
 
@@ -141,7 +142,7 @@ std::vector<cutFaces> findAllFacesCutBy(const TopoDS_Shape& shape,
   *    valid solid
   * If there is any error in the boolean operations, the check always returns false
   */
-PartExport
+Standard_EXPORT
 bool checkIntersection(const TopoDS_Shape& first, const TopoDS_Shape& second,
                        const bool quick, const bool touch_is_intersection);
 

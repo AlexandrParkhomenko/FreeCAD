@@ -22,7 +22,7 @@
 
 
 
-# include <Python.h>
+# include "FCConfig.h"
 
 #include "ViewProviderHelixParametric.h"
 

@@ -24,6 +24,7 @@
 #ifndef GUI_MENUMANAGER_H
 #define GUI_MENUMANAGER_H
 
+#include "stdexport.h"
 #include <string>
 #include <QStringList>
 

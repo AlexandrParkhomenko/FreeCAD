@@ -23,6 +23,7 @@
 #ifndef MESHTRIM_H
 #define MESHTRIM_H
 
+#include "stdexport.h"
 #include <Mod/Mesh/App/Core/Elements.h>
 #include <Mod/Mesh/App/Core/MeshKernel.h>
 #include <Base/Tools2D.h>
@@ -33,7 +34,7 @@ namespace MeshCore {
 /**
  * Checks the facets in 2D and then trim them in 3D
  */
-class MeshExport MeshTrimming
+class Standard_EXPORT MeshTrimming
 {
 public:
     enum TMode {INNER, OUTER};

@@ -34,7 +34,7 @@
 # include <TopTools_HSequenceOfShape.hxx>
 # include <QKeyEvent>
 # include <QMessageBox>
-# include <Python.h>
+# include "FCConfig.h"
 # include <Inventor/system/inttypes.h>
 
 #include "ui_DlgExtrusion.h"

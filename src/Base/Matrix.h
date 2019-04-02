@@ -24,6 +24,7 @@
 #ifndef BASE_MATRIX_H
 #define BASE_MATRIX_H
 
+#include "stdexport.h"
 #include <cassert>
 #include <cmath>
 #include <cstdio>

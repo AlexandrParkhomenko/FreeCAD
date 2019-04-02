@@ -25,6 +25,7 @@
 #ifndef GUI_VIEWPROVIDERORIGINGROUPEXTENSION_H
 #define GUI_VIEWPROVIDERORIGINGROUPEXTENSION_H
 
+#include "stdexport.h"
 #include <App/Extension.h>
 #include "ViewProviderGeoFeatureGroup.h"
 

@@ -24,6 +24,7 @@
 #ifndef GUI_GRAPHVIZVIEW_H
 #define GUI_GRAPHVIZVIEW_H
 
+#include "stdexport.h"
 #include "MDIView.h"
 #include <boost/shared_ptr.hpp>
 #include <boost/signals2.hpp>

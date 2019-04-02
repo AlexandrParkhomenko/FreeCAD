@@ -24,6 +24,7 @@
 #ifndef GUI_SelectionFilter_H
 #define GUI_SelectionFilter_H
 
+#include "stdexport.h"
 #include <string>
 #include <CXX/Extensions.hxx>
 #include "Selection.h"

@@ -24,6 +24,7 @@
 #ifndef MESH_FEATURE_MESH_DEFECTS_H
 #define MESH_FEATURE_MESH_DEFECTS_H
 
+#include "stdexport.h"
 #include <App/PropertyStandard.h>
 #include <App/PropertyLinks.h>
 #include "MeshFeature.h"
@@ -35,7 +36,7 @@ namespace Mesh
  * The FixDefects class fixes defects in the attached mesh kernel.
  * @author Werner Mayer
  */
-class MeshExport FixDefects : public Mesh::Feature
+class Standard_EXPORT FixDefects : public Mesh::Feature
 {
   PROPERTY_HEADER(Mesh::FixDefects);
 
@@ -65,7 +66,7 @@ public:
  * The HarmonizeNormals class harmonizes the normals of the faces.
  * @author Werner Mayer
  */
-class MeshExport HarmonizeNormals : public Mesh::FixDefects
+class Standard_EXPORT HarmonizeNormals : public Mesh::FixDefects
 {
   PROPERTY_HEADER(Mesh::HarmonizeNormals);
 
@@ -85,7 +86,7 @@ public:
  * The FlipNormals class flips the normals of all faces.
  * @author Werner Mayer
  */
-class MeshExport FlipNormals : public Mesh::FixDefects
+class Standard_EXPORT FlipNormals : public Mesh::FixDefects
 {
   PROPERTY_HEADER(Mesh::FlipNormals);
 
@@ -105,7 +106,7 @@ public:
  * The FixNonManifolds class tries to fix edges with more than two faces attached.
  * @author Werner Mayer
  */
-class MeshExport FixNonManifolds : public Mesh::FixDefects
+class Standard_EXPORT FixNonManifolds : public Mesh::FixDefects
 {
   PROPERTY_HEADER(Mesh::FixNonManifolds);
 
@@ -125,7 +126,7 @@ public:
  * The FixDuplicatedFaces class removes duplicated faces from the mesh.
  * @author Werner Mayer
  */
-class MeshExport FixDuplicatedFaces : public Mesh::FixDefects
+class Standard_EXPORT FixDuplicatedFaces : public Mesh::FixDefects
 {
   PROPERTY_HEADER(Mesh::FixDuplicatedFaces);
 
@@ -145,7 +146,7 @@ public:
  * The FixDuplicatedPoints class removes duplicated points from the mesh.
  * @author Werner Mayer
  */
-class MeshExport FixDuplicatedPoints : public Mesh::FixDefects
+class Standard_EXPORT FixDuplicatedPoints : public Mesh::FixDefects
 {
   PROPERTY_HEADER(Mesh::FixDuplicatedPoints);
 
@@ -165,7 +166,7 @@ public:
  * The FixDegenerations class removes degenerated faces from the mesh.
  * @author Werner Mayer
  */
-class MeshExport FixDegenerations : public Mesh::FixDefects
+class Standard_EXPORT FixDegenerations : public Mesh::FixDefects
 {
   PROPERTY_HEADER(Mesh::FixDegenerations);
 
@@ -185,7 +186,7 @@ public:
  * The FixDeformations class tries to repair deformed faces by swapping edge operations.
  * @author Werner Mayer
  */
-class MeshExport FixDeformations : public Mesh::FixDefects
+class Standard_EXPORT FixDeformations : public Mesh::FixDefects
 {
   PROPERTY_HEADER(Mesh::FixDeformations);
 
@@ -209,7 +210,7 @@ public:
  * The FixIndices class tries to validate invalid indices of the internal mesh data structure.
  * @author Werner Mayer
  */
-class MeshExport FixIndices : public Mesh::FixDefects
+class Standard_EXPORT FixIndices : public Mesh::FixDefects
 {
   PROPERTY_HEADER(Mesh::FixIndices);
 
@@ -229,7 +230,7 @@ public:
  * The FillHoles class tries to fill up holes in the internal mesh data structure.
  * @author Werner Mayer
  */
-class MeshExport FillHoles : public Mesh::FixDefects
+class Standard_EXPORT FillHoles : public Mesh::FixDefects
 {
   PROPERTY_HEADER(Mesh::FillHoles);
 
@@ -251,7 +252,7 @@ public:
  * The RemoveComponents class removes topologic independent components up to a certain size from the mesh data structure.
  * @author Werner Mayer
  */
-class MeshExport RemoveComponents : public Mesh::FixDefects
+class Standard_EXPORT RemoveComponents : public Mesh::FixDefects
 {
   PROPERTY_HEADER(Mesh::RemoveComponents);
 

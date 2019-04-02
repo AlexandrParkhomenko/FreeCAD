@@ -20,9 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-
-
-
+#include "stdexport.h"
 #include "FeaturePath.h"
 #include <App/DocumentObjectPy.h>
 #include <Base/Placement.h>
@@ -71,5 +69,5 @@ template<> const char* Path::FeaturePython::getViewProviderName(void) const {
 /// @endcond
 
 // explicit template instantiation
-template class PathExport FeaturePythonT<Path::Feature>;
+template class Standard_EXPORT FeaturePythonT<Path::Feature>;
 }

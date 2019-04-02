@@ -24,6 +24,7 @@
 #ifndef APP_DOCUMENTOBJECTGROUP_H
 #define APP_DOCUMENTOBJECTGROUP_H
 
+#include "stdexport.h"
 #include "FeaturePython.h"
 #include "DocumentObject.h"
 #include "PropertyLinks.h"

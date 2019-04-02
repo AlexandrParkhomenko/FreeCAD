@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "stdexport.h"
 # include <TopoDS_Shape.hxx>
 # include <TopoDS_Face.hxx>
 # include <TopoDS_Edge.hxx>
@@ -6992,5 +6993,5 @@ template<> PyObject* Sketcher::SketchObjectPython::getPyObject(void) {
 /// @endcond
 
 // explicit template instantiation
-template class SketcherExport FeaturePythonT<Sketcher::SketchObject>;
+template class Standard_EXPORT FeaturePythonT<Sketcher::SketchObject>;
 }

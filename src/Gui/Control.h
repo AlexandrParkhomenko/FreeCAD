@@ -24,8 +24,8 @@
 #ifndef GUI_CONTROL_H
 #define GUI_CONTROL_H
 
-// Std. configurations
 
+#include "stdexport.h"
 #include <QObject>
 #include <bitset>
 #include <stack>

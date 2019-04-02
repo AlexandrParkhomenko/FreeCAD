@@ -19,10 +19,10 @@
 
 #if _DEBUG
 #undef _DEBUG
-#include <Python.h>
+#include "FCConfig.h"
 #define _DEBUG
 #else
-#include <Python.h>
+#include "FCConfig.h"
 #endif
 
 #if defined(__GNUG__) && !defined(__clang__)

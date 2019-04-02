@@ -23,6 +23,7 @@
 #ifndef VIEWPROVIDEORIGINFEATURE_H_BYJRZNDL
 #define VIEWPROVIDEORIGINFEATURE_H_BYJRZNDL
 
+#include "stdexport.h"
 #include "ViewProviderGeometryObject.h"
 
 class SoAsciiText;

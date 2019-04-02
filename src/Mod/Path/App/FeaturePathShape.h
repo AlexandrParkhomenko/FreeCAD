@@ -27,6 +27,7 @@
 #ifndef PATH_FeaturePathShape_H
 #define PATH_FeaturePathShape_H
 
+#include "stdexport.h"
 #include <App/DocumentObject.h>
 #include <App/GeoFeature.h>
 #include <App/PropertyGeo.h>
@@ -41,7 +42,7 @@
 namespace Path
 {
 
-class PathExport FeatureShape : public Path::Feature
+class Standard_EXPORT FeatureShape : public Path::Feature
 {
     PROPERTY_HEADER(Path::FeatureShape);
 

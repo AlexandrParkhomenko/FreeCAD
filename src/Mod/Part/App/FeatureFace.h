@@ -24,12 +24,13 @@
 #ifndef PART_FACE_H
 #define PART_FACE_H
 
+#include "stdexport.h"
 #include <Mod/Part/App/PartFeature.h>
 
 namespace Part
 {
 
-class PartExport Face : public Part::Feature
+class Standard_EXPORT Face : public Part::Feature
 {
     PROPERTY_HEADER_WITH_OVERRIDE(Part::Face);
 

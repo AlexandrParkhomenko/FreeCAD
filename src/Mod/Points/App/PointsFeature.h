@@ -49,7 +49,7 @@ class PointsFeaturePy;
 /** Base class of all Points feature classes in FreeCAD.
  * This class holds an PointsKernel object.
  */
-class PointsExport Feature : public App::GeoFeature
+class Standard_EXPORT Feature : public App::GeoFeature
 {
     PROPERTY_HEADER(Points::Feature);
 

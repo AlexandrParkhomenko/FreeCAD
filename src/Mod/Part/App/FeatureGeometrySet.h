@@ -25,6 +25,7 @@
 #ifndef PART_FeatureGeometrySet_H
 #define PART_FeatureGeometrySet_H
 
+#include "stdexport.h"
 #include "PropertyGeometryList.h"
 
 #include "PartFeature.h"
@@ -33,7 +34,7 @@ namespace Part
 {
 
 
-class PartExport FeatureGeometrySet :public Part::Feature
+class Standard_EXPORT FeatureGeometrySet :public Part::Feature
 {
     PROPERTY_HEADER(Part::FeatureGeometrySet);
 

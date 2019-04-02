@@ -24,6 +24,7 @@
 #ifndef APP_Part_H
 #define APP_Part_H
 
+#include "stdexport.h"
 #include "OriginGroupExtension.h"
 #include "PropertyLinks.h"
 

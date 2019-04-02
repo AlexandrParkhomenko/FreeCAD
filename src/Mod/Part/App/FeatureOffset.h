@@ -23,6 +23,7 @@
 #ifndef PART_FEATUREOFFSET_H
 #define PART_FEATUREOFFSET_H
 
+#include "stdexport.h"
 #include <App/PropertyStandard.h>
 #include <App/PropertyUnits.h>
 #include <Mod/Part/App/PartFeature.h>
@@ -30,7 +31,7 @@
 namespace Part
 {
 
-class PartExport Offset : public Part::Feature
+class Standard_EXPORT Offset : public Part::Feature
 {
     PROPERTY_HEADER_WITH_OVERRIDE(Part::Offset);
 
@@ -61,7 +62,7 @@ private:
     static const char* JoinEnums[];
 };
 
-class PartExport Offset2D : public Offset
+class Standard_EXPORT Offset2D : public Offset
 {
     PROPERTY_HEADER_WITH_OVERRIDE(Part::Offset2D);
 public:

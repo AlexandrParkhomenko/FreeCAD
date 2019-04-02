@@ -24,6 +24,7 @@
 #ifndef GUI_DIALOG_DLGINPUTDIALOGIMP_H
 #define GUI_DIALOG_DLGINPUTDIALOGIMP_H
 
+#include "stdexport.h"
 #include "ui_DlgInputDialog.h"
 
 namespace Gui {

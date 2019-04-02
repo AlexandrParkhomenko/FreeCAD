@@ -24,6 +24,7 @@
 #ifndef GUI_VIEWPROVIDERANNOTATION_H
 #define GUI_VIEWPROVIDERANNOTATION_H
 
+#include "stdexport.h"
 #include "ViewProviderDocumentObject.h"
 #include <App/PropertyUnits.h>
 

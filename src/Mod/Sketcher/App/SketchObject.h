@@ -23,6 +23,7 @@
 #ifndef SKETCHER_SKETCHOBJECT_H
 #define SKETCHER_SKETCHOBJECT_H
 
+#include "stdexport.h"
 #include <App/PropertyStandard.h>
 #include <App/PropertyFile.h>
 #include <App/FeaturePython.h>
@@ -41,7 +42,7 @@
 namespace Sketcher
 {
 
-struct SketcherExport GeoEnum
+struct Standard_EXPORT GeoEnum
 {
     static const int RtPnt;
     static const int HAxis;
@@ -51,7 +52,7 @@ struct SketcherExport GeoEnum
 
 class SketchAnalysis;
 
-class SketcherExport SketchObject : public Part::Part2DObject
+class Standard_EXPORT SketchObject : public Part::Part2DObject
 {
     PROPERTY_HEADER(Sketcher::SketchObject);
 

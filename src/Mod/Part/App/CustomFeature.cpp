@@ -22,6 +22,7 @@
 
 
 
+#include "stdexport.h"
 # include <gp_Trsf.hxx>
 # include <gp_Ax1.hxx>
 
@@ -63,6 +64,6 @@ template<> const char* Part::CustomFeaturePython::getViewProviderName(void) cons
 /// @endcond
 
 // explicit template instantiation
-template class PartExport FeaturePythonT<Part::CustomFeature>;
+template class Standard_EXPORT FeaturePythonT<Part::CustomFeature>;
 }
 

@@ -24,6 +24,7 @@
 #ifndef GUI_MDIVIEW_H
 #define GUI_MDIVIEW_H
 
+#include "stdexport.h"
 #include "View.h"
 #include <QMainWindow>
 #include "ActiveObjectList.h"

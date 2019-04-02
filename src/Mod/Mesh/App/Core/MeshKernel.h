@@ -24,6 +24,7 @@
 #ifndef MESH_KERNEL_H
 #define MESH_KERNEL_H
 
+#include "stdexport.h"
 #include <assert.h>
 #include <iostream>
 
@@ -61,7 +62,7 @@ class MeshFacetGrid;
  *
  * This class provides only some rudimental querying methods.
  */
-class MeshExport MeshKernel
+class Standard_EXPORT MeshKernel
 {
 public:
     /// Construction

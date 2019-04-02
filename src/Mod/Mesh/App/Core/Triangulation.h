@@ -24,6 +24,7 @@
 #ifndef MESH_TRIANGULATION_H
 #define MESH_TRIANGULATION_H
 
+#include "stdexport.h"
 #include "Elements.h"
 #include <Base/Vector3D.h>
 
@@ -31,7 +32,7 @@ namespace MeshCore
 {
 class MeshKernel;
 
-class MeshExport TriangulationVerifier
+class Standard_EXPORT TriangulationVerifier
 {
 public:
     TriangulationVerifier() {}
@@ -44,7 +45,7 @@ public:
                           const Base::Vector3f& n2) const;
 };
 
-class MeshExport TriangulationVerifierV2 : public TriangulationVerifier
+class Standard_EXPORT TriangulationVerifierV2 : public TriangulationVerifier
 {
 public:
     virtual bool Accept(const Base::Vector3f& n,
@@ -55,7 +56,7 @@ public:
                           const Base::Vector3f& n2) const;
 };
 
-class MeshExport AbstractPolygonTriangulator
+class Standard_EXPORT AbstractPolygonTriangulator
 {
 public:
     AbstractPolygonTriangulator();
@@ -145,7 +146,7 @@ protected:
  * The EarClippingTriangulator embeds an efficient algorithm to triangulate
  * polygons taken from http://www.flipcode.com/files/code/triangulate.cpp.
  */
-class MeshExport EarClippingTriangulator : public AbstractPolygonTriangulator
+class Standard_EXPORT EarClippingTriangulator : public AbstractPolygonTriangulator
 {
 public:
     EarClippingTriangulator();
@@ -187,7 +188,7 @@ private:
     };
 };
 
-class MeshExport QuasiDelaunayTriangulator : public EarClippingTriangulator
+class Standard_EXPORT QuasiDelaunayTriangulator : public EarClippingTriangulator
 {
 public:
     QuasiDelaunayTriangulator();
@@ -197,7 +198,7 @@ protected:
     bool Triangulate();
 };
 
-class MeshExport DelaunayTriangulator : public AbstractPolygonTriangulator
+class Standard_EXPORT DelaunayTriangulator : public AbstractPolygonTriangulator
 {
 public:
     DelaunayTriangulator();
@@ -207,7 +208,7 @@ protected:
     bool Triangulate();
 };
 
-class MeshExport FlatTriangulator : public AbstractPolygonTriangulator
+class Standard_EXPORT FlatTriangulator : public AbstractPolygonTriangulator
 {
 public:
     FlatTriangulator();
@@ -219,7 +220,7 @@ protected:
     bool Triangulate();
 };
 
-class MeshExport ConstraintDelaunayTriangulator : public AbstractPolygonTriangulator
+class Standard_EXPORT ConstraintDelaunayTriangulator : public AbstractPolygonTriangulator
 {
 public:
     ConstraintDelaunayTriangulator(float area);
@@ -233,7 +234,7 @@ private:
 };
 
 #if 0
-class MeshExport Triangulator : public AbstractPolygonTriangulator
+class Standard_EXPORT Triangulator : public AbstractPolygonTriangulator
 {
 public:
     Triangulator(const MeshKernel&, bool flat);

@@ -23,7 +23,7 @@
 #ifndef BASE_PYOBJECTBASE_H
 #define BASE_PYOBJECTBASE_H
 
-// Std. configurations
+#include "stdexport.h"
 
 // (re-)defined in pyconfig.h
 #if defined (_POSIX_C_SOURCE)
@@ -35,7 +35,7 @@
 
 // needed header
 #undef slots
-#include <Python.h>
+#include "FCConfig.h"
 #ifdef FC_OS_MACOSX
 #undef toupper
 #undef tolower

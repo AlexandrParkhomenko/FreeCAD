@@ -20,6 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "FCConfig.h"
+#include "stdexport.h"
 #include "OriginGroupExtension.h"
 
 

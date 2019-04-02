@@ -24,6 +24,7 @@
 #ifndef _AppComplexGeoData_h_
 #define _AppComplexGeoData_h_
 
+#include "stdexport.h"
 #include <Base/Placement.h>
 #include <Base/Persistence.h>
 #include <Base/Handle.h>

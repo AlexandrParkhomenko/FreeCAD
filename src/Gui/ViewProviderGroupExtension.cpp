@@ -23,7 +23,7 @@
 
 
 
-//#include "ViewProviderGroupExtensionPy.h"
+#include "stdexport.h"
 #include "ViewProviderGroupExtension.h"
 
 #include "Command.h"

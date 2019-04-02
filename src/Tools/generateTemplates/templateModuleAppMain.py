@@ -24,7 +24,7 @@ class TemplateModuleAppMain (template.ModelTemplate):
 
 #include "PreCompiled.h"
 #ifndef _PreComp_
-# include <Python.h>
+# include "FCConfig.h"
 #endif
 
 #include <Base/Console.h>

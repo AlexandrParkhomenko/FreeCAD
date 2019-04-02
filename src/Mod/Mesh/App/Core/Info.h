@@ -24,6 +24,7 @@
 #ifndef MESH_INFO_H
 #define MESH_INFO_H
 
+#include "stdexport.h"
 #include "MeshKernel.h"
 
 namespace MeshCore {
@@ -33,7 +34,7 @@ class MeshKernel;
 /**
  * Determines information about the mesh data structure.
  */
-class MeshExport MeshInfo
+class Standard_EXPORT MeshInfo
 {
 public:
   MeshInfo (const MeshKernel &rclM);

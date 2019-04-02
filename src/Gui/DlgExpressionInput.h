@@ -23,6 +23,7 @@
 #ifndef GUI_DIALOG_DLGEXPRESSIONINPUT_H
 #define GUI_DIALOG_DLGEXPRESSIONINPUT_H
 
+#include "stdexport.h"
 #include <QDialog>
 #include <Base/Unit.h>
 #include <App/ObjectIdentifier.h>

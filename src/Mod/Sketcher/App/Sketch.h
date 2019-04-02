@@ -23,6 +23,7 @@
 #ifndef SKETCHER_SKETCH_H
 #define SKETCHER_SKETCH_H
 
+#include "stdexport.h"
 #include <App/PropertyStandard.h>
 #include <App/PropertyFile.h>
 #include <Mod/Part/App/Geometry.h>
@@ -36,7 +37,7 @@
 namespace Sketcher
 {
 
-class SketcherExport Sketch :public Base::Persistence
+class Standard_EXPORT Sketch :public Base::Persistence
 {
     TYPESYSTEM_HEADER();
 

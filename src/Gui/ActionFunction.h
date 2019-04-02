@@ -24,6 +24,7 @@
 #ifndef GUI_ACTIONFUNCTION_H
 #define GUI_ACTIONFUNCTION_H
 
+#include "stdexport.h"
 #include <QObject>
 #include <QPointer>
 #include <QVariant>

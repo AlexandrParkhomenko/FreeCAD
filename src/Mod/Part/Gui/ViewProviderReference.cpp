@@ -22,7 +22,7 @@
 
 
 
-# include <Python.h>
+# include "FCConfig.h"
 # include <Poly_Polygon3D.hxx>
 # include <BRepBndLib.hxx>
 # include <BRepMesh_IncrementalMesh.hxx>

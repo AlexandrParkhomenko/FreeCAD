@@ -25,6 +25,7 @@
 
 
 
+#include "stdexport.h"
 #include "FeaturePathShape.h"
 #include "Command.h"
 
@@ -101,7 +102,7 @@ template<> const char* Path::FeatureShapePython::getViewProviderName(void) const
 /// @endcond
 
 // explicit template instantiation
-template class PathExport FeaturePythonT<Path::FeatureShape>;
+template class Standard_EXPORT FeaturePythonT<Path::FeatureShape>;
 }
 
 

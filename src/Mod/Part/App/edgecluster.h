@@ -25,6 +25,7 @@
 #ifndef PART_EDGECLUSTER_H
 #define PART_EDGECLUSTER_H
 
+#include "stdexport.h"
 #include <gp_Pnt.hxx>
 #include <TopoDS_Edge.hxx>
 #include <vector>
@@ -57,7 +58,7 @@ typedef std::pair<gp_Pnt,tEdgeVector> tMapPntEdgePair;
 typedef std::vector<std::vector<TopoDS_Edge> > tEdgeClusterVector;
 
 
-class PartExport Edgecluster
+class Standard_EXPORT Edgecluster
 {
 public:
     Edgecluster(const std::vector<TopoDS_Edge>& usorted_edges);

@@ -24,6 +24,7 @@
 #ifndef MESH_MESHPOINT_H
 #define MESH_MESHPOINT_H
 
+#include "stdexport.h"
 #include <Base/Matrix.h>
 #include <Base/Vector3D.h>
 
@@ -41,7 +42,7 @@ class MeshObject;
  * convenient access to the Mesh data structure. This class should not be used for
  * programming algorithms in C++. Use Mesh Core classes instead!
  */
-class MeshExport MeshPoint : public Vector3d
+class Standard_EXPORT MeshPoint : public Vector3d
 {
 
 public:

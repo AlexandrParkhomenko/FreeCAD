@@ -24,6 +24,7 @@
 #ifndef PART_PRIMITIVEFEATURE_H
 #define PART_PRIMITIVEFEATURE_H
 
+#include "stdexport.h"
 #include <App/PropertyUnits.h>
 #include "PartFeature.h"
 #include "AttachExtension.h"
@@ -31,7 +32,7 @@
 namespace Part
 {
 
-class PartExport Primitive : public Part::Feature, public Part::AttachExtension
+class Standard_EXPORT Primitive : public Part::Feature, public Part::AttachExtension
 {
     PROPERTY_HEADER_WITH_EXTENSIONS(Part::Primitive);
 
@@ -52,7 +53,7 @@ protected:
     void onChanged (const App::Property* prop);
 };
 
-class PartExport Vertex : public Part::Primitive
+class Standard_EXPORT Vertex : public Part::Primitive
 {
     PROPERTY_HEADER(Part::Vertex);
 
@@ -77,7 +78,7 @@ public:
     //@}
 };
 
-class PartExport Line : public Part::Primitive
+class Standard_EXPORT Line : public Part::Primitive
 {
     PROPERTY_HEADER(Part::Line);
 
@@ -105,7 +106,7 @@ public:
     //@}
 };
 
-class PartExport Plane : public Primitive
+class Standard_EXPORT Plane : public Primitive
 {
     PROPERTY_HEADER(Part::Plane);
 
@@ -127,7 +128,7 @@ public:
     //@}
 };
 
-class PartExport Sphere : public Primitive
+class Standard_EXPORT Sphere : public Primitive
 {
     PROPERTY_HEADER(Part::Sphere);
 
@@ -151,7 +152,7 @@ public:
     //@}
 };
 
-class PartExport Ellipsoid : public Primitive
+class Standard_EXPORT Ellipsoid : public Primitive
 {
     PROPERTY_HEADER(Part::Ellipsoid);
 
@@ -176,7 +177,7 @@ public:
     }
 };
 
-class PartExport Cylinder : public Primitive
+class Standard_EXPORT Cylinder : public Primitive
 {
     PROPERTY_HEADER(Part::Cylinder);
 
@@ -199,7 +200,7 @@ public:
     //@}
 };
 
-class PartExport Prism : public Primitive
+class Standard_EXPORT Prism : public Primitive
 {
     PROPERTY_HEADER(Part::Prism);
 
@@ -224,7 +225,7 @@ private:
     static App::PropertyIntegerConstraint::Constraints polygonRange;
 };
 
-class PartExport RegularPolygon : public Primitive
+class Standard_EXPORT RegularPolygon : public Primitive
 {
     PROPERTY_HEADER(Part::RegularPolygon);
 
@@ -248,7 +249,7 @@ private:
     static App::PropertyIntegerConstraint::Constraints polygon;
 };
 
-class PartExport Cone : public Primitive
+class Standard_EXPORT Cone : public Primitive
 {
     PROPERTY_HEADER(Part::Cone);
 
@@ -272,7 +273,7 @@ public:
     //@}
 };
 
-class PartExport Torus : public Primitive
+class Standard_EXPORT Torus : public Primitive
 {
     PROPERTY_HEADER(Part::Torus);
 
@@ -297,7 +298,7 @@ public:
     //@}
 };
 
-class PartExport Helix : public Primitive
+class Standard_EXPORT Helix : public Primitive
 {
     PROPERTY_HEADER(Part::Helix);
 
@@ -330,7 +331,7 @@ private:
     static const char* StyleEnums[];
 };
 
-class PartExport Spiral : public Primitive
+class Standard_EXPORT Spiral : public Primitive
 {
     PROPERTY_HEADER(Part::Spiral);
 
@@ -356,7 +357,7 @@ protected:
     void onChanged (const App::Property* prop);
 };
 
-class PartExport Wedge : public Primitive
+class Standard_EXPORT Wedge : public Primitive
 {
     PROPERTY_HEADER(Part::Wedge);
 

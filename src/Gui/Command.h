@@ -25,6 +25,7 @@
 #define GUI_COMMAND_H
 
 
+#include "stdexport.h"
 #include <list>
 #include <map>
 #include <string>

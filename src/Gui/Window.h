@@ -25,6 +25,7 @@
 #define GUI_WINDOW_H
 
 
+#include "stdexport.h"
 #include <Base/Parameter.h>
 #include "View.h"
 

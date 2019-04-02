@@ -25,6 +25,7 @@
 #define APP_TEXTDOCUMENT_H
 
 
+#include "stdexport.h"
 #include <string>
 #include <boost/signals2.hpp>
 

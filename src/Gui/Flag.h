@@ -24,6 +24,7 @@
 #ifndef GUI_FLAG_H
 #define GUI_FLAG_H
 
+#include "stdexport.h"
 #include <QLayout>
 #include <QRect>
 #include <QWidgetItem>

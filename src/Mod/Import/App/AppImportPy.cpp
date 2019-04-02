@@ -21,7 +21,7 @@
  ***************************************************************************/
 
 
-# include <Python.h>
+# include "FCConfig.h"
 # include <climits>
 # include <Standard_Version.hxx>
 # include <NCollection_Vector.hxx>

@@ -21,7 +21,7 @@
  *                                                                         *
  *   Juergen Riegel 2002                                                   *
  ***************************************************************************/
-
+//#OSDEPENDENT
 
 
 # include <assert.h>
@@ -35,8 +35,6 @@
 # include <stdio.h>
 # include <sstream>
 # include <list>
-#endif
-
 
 #include <fcntl.h>
 #ifdef FC_OS_LINUX

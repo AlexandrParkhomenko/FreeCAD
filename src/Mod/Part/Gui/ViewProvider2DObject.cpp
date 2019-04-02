@@ -23,7 +23,7 @@
 
 
 # include <Standard_math.hxx>
-# include <Python.h>
+# include "FCConfig.h"
 # include <Inventor/nodes/SoBaseColor.h>
 # include <Inventor/nodes/SoDepthBuffer.h>
 # include <Inventor/nodes/SoDrawStyle.h>

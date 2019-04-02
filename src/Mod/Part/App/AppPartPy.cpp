@@ -20,6 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "stdexport.h"
 # include <BRepAdaptor_Curve.hxx>
 # include <BRepCheck_Analyzer.hxx>
 # include <BRepFeat_SplitShape.hxx>
@@ -151,7 +152,7 @@ struct EdgePoints {
     TopoDS_Edge edge;
 };
 
-PartExport std::list<TopoDS_Edge> sort_Edges(double tol3d, std::list<TopoDS_Edge>& edges)
+Standard_EXPORT std::list<TopoDS_Edge> sort_Edges(double tol3d, std::list<TopoDS_Edge>& edges)
 {
     tol3d = tol3d * tol3d;
     std::list<EdgePoints>  edge_points;

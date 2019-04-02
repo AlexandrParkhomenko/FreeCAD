@@ -21,7 +21,8 @@
  ***************************************************************************/
 
 
-# include <Python.h>
+# include "FCConfig.h"
+#include "stdexport.h"
 
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
@@ -92,7 +93,7 @@
     } throw Py::Exception();                                                               
 
 namespace Part {
-extern PartExport Py::Object shape2pyshape(const TopoDS_Shape &shape);
+extern Standard_EXPORT Py::Object shape2pyshape(const TopoDS_Shape &shape);
 }
 
 namespace Path {

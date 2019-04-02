@@ -23,6 +23,7 @@
 #ifndef CSYSDRAGGER_H
 #define CSYSDRAGGER_H
 
+#include "stdexport.h"
 #include <Inventor/draggers/SoDragger.h>
 #include <Inventor/fields/SoSFColor.h>
 #include <Inventor/fields/SoSFDouble.h>

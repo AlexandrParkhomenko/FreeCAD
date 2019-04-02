@@ -24,8 +24,8 @@
 #ifndef GUI_PYTHONCONSOLE_H
 #define GUI_PYTHONCONSOLE_H
 
+#include "stdexport.h"
 #include "PythonEditor.h"
-
 #include <Base/PyObjectBase.h>
 
 class QPlainTextEdit;

@@ -25,6 +25,7 @@
 #ifndef SKETCHER_SKETCHANALYSIS_H
 #define SKETCHER_SKETCHANALYSIS_H
 
+#include "stdexport.h"
 #include <vector>
 #include <memory>
 #include <Base/Vector3D.h>
@@ -35,7 +36,7 @@ namespace Sketcher {
 
 class SketchObject;
 
-class SketcherExport SketchAnalysis
+class Standard_EXPORT SketchAnalysis
 {
 public:
     /// Creates an instance of the SketchAnalysis object, taking as parameter a pointer to an SketchObject.

@@ -24,6 +24,7 @@
 #ifndef MESH_EVALUATION_H
 #define MESH_EVALUATION_H
 
+#include "stdexport.h"
 #include <list>
 #include <cmath>
 
@@ -41,7 +42,7 @@ namespace MeshCore {
  * The class itself is abstract, hence the method Evaluate() must be implemented 
  * by subclasses.
  */
-class MeshExport MeshEvaluation
+class Standard_EXPORT MeshEvaluation
 {
 public:
   MeshEvaluation (const MeshKernel &rclB) : _rclMesh(rclB) {}
@@ -67,7 +68,7 @@ protected:
  * The class itself is abstract, hence the method Fixup() must be implemented 
  * by subclasses.
  */
-class MeshExport MeshValidation
+class Standard_EXPORT MeshValidation
 {
 public:
   MeshValidation (MeshKernel &rclB) : _rclMesh(rclB) {}
@@ -89,7 +90,7 @@ protected:
  * This class searches for nonuniform orientation of neighboured facets.
  * @author Werner Mayer
  */
-class MeshExport MeshOrientationVisitor : public MeshFacetVisitor
+class Standard_EXPORT MeshOrientationVisitor : public MeshFacetVisitor
 {
 public:
     MeshOrientationVisitor();
@@ -107,7 +108,7 @@ private:
  * Note: The 'TMP0' flag for facets must be reset before using this class.
  * @author Werner Mayer
  */
-class MeshExport MeshOrientationCollector : public MeshOrientationVisitor
+class Standard_EXPORT MeshOrientationCollector : public MeshOrientationVisitor
 {
 public:
     MeshOrientationCollector(std::vector<unsigned long>& aulIndices,
@@ -124,7 +125,7 @@ private:
 /**
  * @author Werner Mayer
  */
-class MeshExport MeshSameOrientationCollector : public MeshOrientationVisitor
+class Standard_EXPORT MeshSameOrientationCollector : public MeshOrientationVisitor
 {
 public:
     MeshSameOrientationCollector(std::vector<unsigned long>& aulIndices);
@@ -139,7 +140,7 @@ private:
  * The MeshEvalOrientation class checks the mesh kernel for consistent facet normals.
  * @author Werner Mayer
  */
-class MeshExport MeshEvalOrientation : public MeshEvaluation
+class Standard_EXPORT MeshEvalOrientation : public MeshEvaluation
 {
 public:
     MeshEvalOrientation (const MeshKernel& rclM);
@@ -155,7 +156,7 @@ private:
  * The MeshFixOrientation class harmonizes the facet normals of the passed mesh kernel.
  * @author Werner Mayer
  */
-class MeshExport MeshFixOrientation : public MeshValidation
+class Standard_EXPORT MeshFixOrientation : public MeshValidation
 {
 public:
     MeshFixOrientation (MeshKernel& rclM);
@@ -169,7 +170,7 @@ public:
  * The MeshEvalSolid class checks if the mesh represents a solid.
  * @author Werner Mayer
  */
-class MeshExport MeshEvalSolid : public MeshEvaluation
+class Standard_EXPORT MeshEvalSolid : public MeshEvaluation
 {
 public:
   MeshEvalSolid (const MeshKernel& rclM);
@@ -185,7 +186,7 @@ public:
  * non-manifold if it is shared by more than two facets.
  * @note This check does not necessarily cover any degenerations.
  */
-class MeshExport MeshEvalTopology : public MeshEvaluation
+class Standard_EXPORT MeshEvalTopology : public MeshEvaluation
 {
 public:
     MeshEvalTopology (const MeshKernel &rclB) : MeshEvaluation(rclB) {}
@@ -206,7 +207,7 @@ protected:
  * The MeshFixTopology class tries to fix a few cases of non-manifolds.
  * @see MeshEvalTopology
  */
-class MeshExport MeshFixTopology : public MeshValidation
+class Standard_EXPORT MeshFixTopology : public MeshValidation
 {
 public:
     MeshFixTopology (MeshKernel &rclB, const std::list<std::vector<unsigned long> >& mf)
@@ -229,7 +230,7 @@ protected:
  * the point but are not topologically connected over a common edge.
  * Such mesh defects can lead to some very ugly folds on the surface.
  */
-class MeshExport MeshEvalPointManifolds : public MeshEvaluation
+class Standard_EXPORT MeshEvalPointManifolds : public MeshEvaluation
 {
 public:
     MeshEvalPointManifolds (const MeshKernel &rclB) : MeshEvaluation(rclB) {}
@@ -255,7 +256,7 @@ protected:
  * at their other edges.
  * Such facets can just be removed from the mesh.
  */
-class MeshExport MeshEvalSingleFacet : public MeshEvalTopology
+class Standard_EXPORT MeshEvalSingleFacet : public MeshEvalTopology
 {
 public:
   MeshEvalSingleFacet (const MeshKernel &rclB) : MeshEvalTopology(rclB) {}
@@ -267,7 +268,7 @@ public:
  * The MeshFixSingleFacet class tries to fix a special case of non-manifolds.
  * @see MeshEvalSingleFacet
  */
-class MeshExport MeshFixSingleFacet : public MeshValidation
+class Standard_EXPORT MeshFixSingleFacet : public MeshValidation
 {
 public:
   MeshFixSingleFacet (MeshKernel &rclB, const std::vector<std::list<unsigned long> >& mf)
@@ -285,7 +286,7 @@ protected:
  * The MeshEvalSelfIntersection class checks the mesh for self intersection.
  * @author Werner Mayer
  */
-class MeshExport MeshEvalSelfIntersection : public MeshEvaluation
+class Standard_EXPORT MeshEvalSelfIntersection : public MeshEvaluation
 {
 public:
     MeshEvalSelfIntersection (const MeshKernel &rclB) : MeshEvaluation(rclB) {}
@@ -303,7 +304,7 @@ public:
  * The MeshFixSelfIntersection class tries to fix self-intersections.
  * @see MeshEvalSingleFacet
  */
-class MeshExport MeshFixSelfIntersection : public MeshValidation
+class Standard_EXPORT MeshFixSelfIntersection : public MeshValidation
 {
 public:
     MeshFixSelfIntersection (MeshKernel &rclB, const std::vector<std::pair<unsigned long, unsigned long> >& si)
@@ -323,7 +324,7 @@ private:
  * set correctly.
  * @author Werner Mayer
  */
-class MeshExport MeshEvalNeighbourhood : public MeshEvaluation
+class Standard_EXPORT MeshEvalNeighbourhood : public MeshEvaluation
 {
 public:
   MeshEvalNeighbourhood (const MeshKernel &rclB) : MeshEvaluation(rclB) {}
@@ -336,7 +337,7 @@ public:
  * The MeshFixNeighbourhood class fixes the neighbourhood of the facets.
  * @author Werner Mayer
  */
-class MeshExport MeshFixNeighbourhood : public MeshValidation
+class Standard_EXPORT MeshFixNeighbourhood : public MeshValidation
 {
 public:
   MeshFixNeighbourhood (MeshKernel &rclB) : MeshValidation(rclB) {}
@@ -354,7 +355,7 @@ public:
  * expansion. The local coordinate system is right-handed.
  * @author Werner Mayer
  */
-class MeshExport MeshEigensystem : public MeshEvaluation
+class Standard_EXPORT MeshEigensystem : public MeshEvaluation
 {
 public:
   MeshEigensystem (const MeshKernel &rclB);

@@ -24,6 +24,7 @@
 #ifndef GUI_DOCKWND_TOOLBOX_H
 #define GUI_DOCKWND_TOOLBOX_H
 
+#include "stdexport.h"
 #include "DockWindow.h"
 
 class QToolBox;

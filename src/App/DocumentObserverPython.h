@@ -24,6 +24,7 @@
 #ifndef APP_DOCUMENTOBSERVERPYTHON_H
 #define APP_DOCUMENTOBSERVERPYTHON_H
 
+#include "stdexport.h"
 #include <CXX/Objects.hxx>
 
 #include <boost/signals2.hpp>

@@ -21,7 +21,7 @@
  ***************************************************************************/
 
 
-# include <Python.h>
+# include "FCConfig.h"
 
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>

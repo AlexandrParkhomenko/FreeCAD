@@ -24,9 +24,8 @@
 #ifndef APP_PropertyGeometryList_H
 #define APP_PropertyGeometryList_H
 
-// Std. configurations
 
-
+#include "stdexport.h"
 #include <vector>
 #include <string>
 #include <App/Property.h>
@@ -40,7 +39,7 @@ namespace Part
 {
 class Geometry;
 
-class PartExport PropertyGeometryList: public App::PropertyLists
+class Standard_EXPORT PropertyGeometryList: public App::PropertyLists
 {
     TYPESYSTEM_HEADER();
 

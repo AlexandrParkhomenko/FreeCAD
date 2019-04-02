@@ -24,6 +24,7 @@
 #ifndef BASE_FUTUREWATCHER_H
 #define BASE_FUTUREWATCHER_H
 
+#include "stdexport.h"
 #include <QObject>
 #include <Base/Sequencer.h>
 

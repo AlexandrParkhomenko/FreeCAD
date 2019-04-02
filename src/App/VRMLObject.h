@@ -24,6 +24,7 @@
 #ifndef APP_VRMLOROBJECT_H
 #define APP_VRMLOROBJECT_H
 
+#include "stdexport.h"
 #include "GeoFeature.h"
 #include "PropertyFile.h"
 

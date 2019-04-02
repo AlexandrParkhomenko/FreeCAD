@@ -24,6 +24,7 @@
 #ifndef BASE_Quantity_H
 #define BASE_Quantity_H
 
+#include "stdexport.h"
 #include "Unit.h"
 #include <QString>
 

@@ -24,6 +24,7 @@
 #ifndef PROPERTYEDITORITEM_H
 #define PROPERTYEDITORITEM_H
 
+#include "stdexport.h"
 #include <QObject>
 #include <QPointer>
 #include <QItemEditorFactory>

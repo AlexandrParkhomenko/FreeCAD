@@ -23,6 +23,7 @@
 #ifndef ORIGINGROUP_H_QHTU73IF
 #define ORIGINGROUP_H_QHTU73IF
 
+#include "stdexport.h"
 #include "GeoFeatureGroupExtension.h"
 #include "PropertyLinks.h"
 

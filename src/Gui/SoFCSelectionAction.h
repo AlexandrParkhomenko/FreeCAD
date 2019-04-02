@@ -24,6 +24,7 @@
 #ifndef _SoFCSelectionAction_h
 #define _SoFCSelectionAction_h
 
+#include "stdexport.h"
 //#include <Inventor/SoAction.h> 
 #include <Inventor/actions/SoSubAction.h>
 #include <Inventor/events/SoSubEvent.h>

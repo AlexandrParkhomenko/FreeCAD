@@ -24,6 +24,7 @@
 #ifndef PART_FeatureReference_H
 #define PART_FeatureReference_H
 
+#include "stdexport.h"
 #include "TopoShape.h"
 #include "PropertyTopoShape.h"
 #include <App/GeoFeature.h>
@@ -37,7 +38,7 @@ class PartFeaturePy;
 
 /** Base class of all shape feature classes in FreeCAD
  */
-class PartExport FeatureReference : public App::GeoFeature
+class Standard_EXPORT FeatureReference : public App::GeoFeature
 {
     PROPERTY_HEADER(Part::FeatureReference);
 

@@ -24,6 +24,7 @@
 #ifndef GUI_VIEWPROVIDEREXTENSION_H
 #define GUI_VIEWPROVIDEREXTENSION_H
 
+#include "stdexport.h"
 #include "App/Extension.h"
 #include "ViewProvider.h"
 #include "ViewProviderDocumentObject.h"

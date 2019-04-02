@@ -26,7 +26,7 @@
 
 
 #include <sstream>
-#include <Python.h>
+#include "FCConfig.h"
 
 #include <TopoDS_Shape.hxx>
 #include <TopoDS_Vertex.hxx>

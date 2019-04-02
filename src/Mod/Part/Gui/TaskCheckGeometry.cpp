@@ -27,7 +27,7 @@
 # include <QTextStream>
 # include <QThread>
 # include <QTreeWidget>
-# include <Python.h>
+# include "FCConfig.h"
 
 #include <Standard_Version.hxx>
 #include <BRepCheck_Analyzer.hxx>

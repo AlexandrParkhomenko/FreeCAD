@@ -24,6 +24,7 @@
 #ifndef BASE_UNITSAPI_H
 #define BASE_UNITSAPI_H
 
+#include "stdexport.h"
 #include <CXX/WrapPython.h>
 #include <string>
 #include <QString>

@@ -25,6 +25,7 @@
 #ifndef APP_GeoFeatureGroup_H
 #define APP_GeoFeatureGroup_H
 
+#include "stdexport.h"
 #include <App/FeaturePython.h>
 
 #include "DocumentObjectGroup.h"

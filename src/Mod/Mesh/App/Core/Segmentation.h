@@ -23,6 +23,7 @@
 #ifndef MESHCORE_SEGMENTATION_H
 #define MESHCORE_SEGMENTATION_H
 
+#include "stdexport.h"
 #include "MeshKernel.h"
 #include "Curvature.h"
 #include "Visitor.h"
@@ -36,7 +37,7 @@ class SphereFit;
 class MeshFacet;
 typedef std::vector<unsigned long> MeshSegment;
 
-class MeshExport MeshSurfaceSegment
+class Standard_EXPORT MeshSurfaceSegment
 {
 public:
     MeshSurfaceSegment(unsigned long minFacets)
@@ -58,7 +59,7 @@ protected:
 
 // --------------------------------------------------------
 
-class MeshExport MeshDistanceSurfaceSegment : public MeshSurfaceSegment
+class Standard_EXPORT MeshDistanceSurfaceSegment : public MeshSurfaceSegment
 {
 public:
     MeshDistanceSurfaceSegment(const MeshKernel& mesh, unsigned long minFacets, float tol)
@@ -69,7 +70,7 @@ protected:
     float tolerance;
 };
 
-class MeshExport MeshDistancePlanarSegment : public MeshDistanceSurfaceSegment
+class Standard_EXPORT MeshDistancePlanarSegment : public MeshDistanceSurfaceSegment
 {
 public:
     MeshDistancePlanarSegment(const MeshKernel& mesh, unsigned long minFacets, float tol);
@@ -85,7 +86,7 @@ protected:
     PlaneFit* fitter;
 };
 
-class MeshExport AbstractSurfaceFit
+class Standard_EXPORT AbstractSurfaceFit
 {
 public:
     AbstractSurfaceFit(){}
@@ -99,7 +100,7 @@ public:
     virtual float GetDistanceToSurface(const Base::Vector3f&) const = 0;
 };
 
-class MeshExport PlaneSurfaceFit : public AbstractSurfaceFit
+class Standard_EXPORT PlaneSurfaceFit : public AbstractSurfaceFit
 {
 public:
     PlaneSurfaceFit();
@@ -119,7 +120,7 @@ private:
     PlaneFit* fitter;
 };
 
-class MeshExport CylinderSurfaceFit : public AbstractSurfaceFit
+class Standard_EXPORT CylinderSurfaceFit : public AbstractSurfaceFit
 {
 public:
     CylinderSurfaceFit();
@@ -140,7 +141,7 @@ private:
     CylinderFit* fitter;
 };
 
-class MeshExport SphereSurfaceFit : public AbstractSurfaceFit
+class Standard_EXPORT SphereSurfaceFit : public AbstractSurfaceFit
 {
 public:
     SphereSurfaceFit();
@@ -160,7 +161,7 @@ private:
     SphereFit* fitter;
 };
 
-class MeshExport MeshDistanceGenericSurfaceFitSegment : public MeshDistanceSurfaceSegment
+class Standard_EXPORT MeshDistanceGenericSurfaceFitSegment : public MeshDistanceSurfaceSegment
 {
 public:
     MeshDistanceGenericSurfaceFitSegment(AbstractSurfaceFit*, const MeshKernel& mesh,
@@ -178,7 +179,7 @@ protected:
 
 // --------------------------------------------------------
 
-class MeshExport MeshCurvatureSurfaceSegment : public MeshSurfaceSegment
+class Standard_EXPORT MeshCurvatureSurfaceSegment : public MeshSurfaceSegment
 {
 public:
     MeshCurvatureSurfaceSegment(const std::vector<CurvatureInfo>& ci, unsigned long minFacets)
@@ -188,7 +189,7 @@ protected:
     const std::vector<CurvatureInfo>& info;
 };
 
-class MeshExport MeshCurvaturePlanarSegment : public MeshCurvatureSurfaceSegment
+class Standard_EXPORT MeshCurvaturePlanarSegment : public MeshCurvatureSurfaceSegment
 {
 public:
     MeshCurvaturePlanarSegment(const std::vector<CurvatureInfo>& ci, unsigned long minFacets, float tol)
@@ -200,7 +201,7 @@ private:
     float tolerance;
 };
 
-class MeshExport MeshCurvatureCylindricalSegment : public MeshCurvatureSurfaceSegment
+class Standard_EXPORT MeshCurvatureCylindricalSegment : public MeshCurvatureSurfaceSegment
 {
 public:
     MeshCurvatureCylindricalSegment(const std::vector<CurvatureInfo>& ci, unsigned long minFacets,
@@ -215,7 +216,7 @@ private:
     float toleranceMax;
 };
 
-class MeshExport MeshCurvatureSphericalSegment : public MeshCurvatureSurfaceSegment
+class Standard_EXPORT MeshCurvatureSphericalSegment : public MeshCurvatureSurfaceSegment
 {
 public:
     MeshCurvatureSphericalSegment(const std::vector<CurvatureInfo>& ci, unsigned long minFacets, float tol, float curv)
@@ -228,7 +229,7 @@ private:
     float tolerance;
 };
 
-class MeshExport MeshCurvatureFreeformSegment : public MeshCurvatureSurfaceSegment
+class Standard_EXPORT MeshCurvatureFreeformSegment : public MeshCurvatureSurfaceSegment
 {
 public:
     MeshCurvatureFreeformSegment(const std::vector<CurvatureInfo>& ci, unsigned long minFacets,
@@ -244,7 +245,7 @@ private:
     float toleranceMax;
 };
 
-class MeshExport MeshSurfaceVisitor : public MeshFacetVisitor
+class Standard_EXPORT MeshSurfaceVisitor : public MeshFacetVisitor
 {
 public:
     MeshSurfaceVisitor (MeshSurfaceSegment& segm, std::vector<unsigned long> &indices);
@@ -259,7 +260,7 @@ protected:
     MeshSurfaceSegment& segm;
 };
 
-class MeshExport MeshSegmentAlgorithm
+class Standard_EXPORT MeshSegmentAlgorithm
 {
 public:
     MeshSegmentAlgorithm(const MeshKernel& kernel) : myKernel(kernel) {}

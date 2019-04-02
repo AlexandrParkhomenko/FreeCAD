@@ -24,9 +24,7 @@
 #ifndef APP_PERSISTENCE_H
 #define APP_PERSISTENCE_H
 
-// Std. configurations
-
-
+#include "stdexport.h"
 #include <assert.h>
 
 #include "BaseClass.h"

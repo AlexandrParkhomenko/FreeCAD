@@ -24,6 +24,7 @@
 #ifndef MESH_IO_H
 #define MESH_IO_H
 
+#include "stdexport.h"
 #include "MeshKernel.h"
 #include <Base/Vector3D.h>
 #include <Base/Matrix.h>
@@ -66,7 +67,7 @@ namespace MeshIO {
     };
 }
 
-struct MeshExport Material
+struct Standard_EXPORT Material
 {
     Material() : binding(MeshIO::OVERALL) {}
     MeshIO::Binding binding;
@@ -74,7 +75,7 @@ struct MeshExport Material
     std::vector<App::Color> diffuseColor;
 };
 
-struct MeshExport Group
+struct Standard_EXPORT Group
 {
     std::vector<unsigned long> indices;
     std::string name;
@@ -84,7 +85,7 @@ struct MeshExport Group
  * The MeshInput class is able to read a mesh object from an input stream
  * in various formats.
  */
-class MeshExport MeshInput
+class Standard_EXPORT MeshInput
 {
 public:
     MeshInput (MeshKernel &rclM)
@@ -137,7 +138,7 @@ protected:
  * The MeshOutput class is able to write a mesh object to an output stream
  * on various formats.
  */
-class MeshExport MeshOutput
+class Standard_EXPORT MeshOutput
 {
 public:
     MeshOutput (const MeshKernel &rclM)

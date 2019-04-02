@@ -99,7 +99,7 @@ PROPERTY_SOURCE_TEMPLATE(Points::FeatureCustom, Points::Feature)
 /// @endcond
 
 // explicit template instantiation
-template class PointsExport FeatureCustomT<Points::Feature>;
+template class Standard_EXPORT FeatureCustomT<Points::Feature>;
 }
 
 // ---------------------------------------------------------
@@ -113,6 +113,6 @@ template<> const char* Points::FeaturePython::getViewProviderName(void) const {
 /// @endcond
 
 // explicit template instantiation
-template class PointsExport FeaturePythonT<Points::Feature>;
+template class Standard_EXPORT FeaturePythonT<Points::Feature>;
 }
 

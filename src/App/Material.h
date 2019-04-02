@@ -24,6 +24,7 @@
 #ifndef APP_MATERIAL_H
 #define APP_MATERIAL_H
 
+#include "stdexport.h"
 #ifdef __GNUC__
 # include <stdint.h>
 #endif

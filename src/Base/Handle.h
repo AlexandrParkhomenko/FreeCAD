@@ -26,8 +26,7 @@
 #ifndef BASE_HANDLE_H
 #define BASE_HANDLE_H
 
-// Std. configurations
-
+#include "stdexport.h"
 #include <string>
 #include <map>
 #include <typeinfo>

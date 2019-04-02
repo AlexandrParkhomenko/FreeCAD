@@ -23,6 +23,7 @@
 
 
 
+#include "stdexport.h"
 #include "MaterialObject.h"
 #include "DocumentObjectPy.h"
 

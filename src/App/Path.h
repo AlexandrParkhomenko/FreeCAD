@@ -24,6 +24,7 @@
 #ifndef APP_Path_H
 #define APP_Path_H
 
+#include "stdexport.h"
 #include <Base/Persistence.h>
 
 

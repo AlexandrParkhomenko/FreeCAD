@@ -24,6 +24,7 @@
 #ifndef GUI_MANUALALIGNMENT_H
 #define GUI_MANUALALIGNMENT_H
 
+#include "stdexport.h"
 #include <QPointer>
 #include <Base/Placement.h>
 #include <Base/Vector3D.h>

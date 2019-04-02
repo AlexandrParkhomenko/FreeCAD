@@ -24,6 +24,7 @@
 #ifndef MOUSESELECTION_H
 #define MOUSESELECTION_H
 
+#include "stdexport.h"
 #include <bitset>
 #include <vector>
 #include <Inventor/SbLinear.h>

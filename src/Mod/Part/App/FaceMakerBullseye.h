@@ -23,6 +23,7 @@
 #ifndef PART_FACEMAKER_BULLSEYE_H
 #define PART_FACEMAKER_BULLSEYE_H
 
+#include "stdexport.h"
 #include "FaceMaker.h"
 #include <list>
 
@@ -42,7 +43,7 @@ namespace Part
  *
  * Weaknesses: faces of one compound must be on same plane. TBD
  */
-class PartExport FaceMakerBullseye: public FaceMakerPublic
+class Standard_EXPORT FaceMakerBullseye: public FaceMakerPublic
 {
     TYPESYSTEM_HEADER_WITH_OVERRIDE();
 public:

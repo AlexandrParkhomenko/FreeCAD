@@ -22,6 +22,7 @@
  ***************************************************************************/
 
 
+#include "stdexport.h"
 #include "AttachExtension.h"
 
 #include <Base/Console.h>
@@ -301,6 +302,6 @@ namespace App {
 /// @endcond
 
 // explicit template instantiation
-  template class PartExport ExtensionPythonT<Part::AttachExtension>;
+  template class Standard_EXPORT ExtensionPythonT<Part::AttachExtension>;
 }
 

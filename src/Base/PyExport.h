@@ -31,6 +31,8 @@
 #ifndef BASE_PYEXPORT_H
 #define BASE_PYEXPORT_H
 
+#include "stdexport.h"
+
 // (re-)defined in pyconfig.h
 #if defined (_POSIX_C_SOURCE)
 #   undef    _POSIX_C_SOURCE
@@ -39,7 +41,9 @@
 #   undef    _XOPEN_SOURCE
 #endif
 
-#include <Python.h>
+#undef slots
+#include "FCConfig.h"
+#define slots
 #ifdef FC_OS_MACOSX
 #undef toupper
 #undef tolower
@@ -49,6 +53,7 @@
 #undef isalpha
 #undef isalnum
 #endif
+
 
 namespace Base
 {

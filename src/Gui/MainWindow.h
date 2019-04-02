@@ -24,6 +24,7 @@
 #ifndef GUI_MAINWINDOW_H
 #define GUI_MAINWINDOW_H
 
+#include "stdexport.h"
 #include "Window.h"
 #include <Base/Console.h>
 #include <string>

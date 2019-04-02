@@ -24,6 +24,7 @@
 #ifndef GUI_VIEWPROVIDER_H
 #define GUI_VIEWPROVIDER_H
 
+#include "stdexport.h"
 #include <map>
 #include <vector>
 #include <string>

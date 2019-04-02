@@ -24,6 +24,7 @@
 #ifndef GUI_GLPAINTER_H
 #define GUI_GLPAINTER_H
 
+#include "stdexport.h"
 #include <GL/gl.h>
 
 #include <Base/BaseClass.h>

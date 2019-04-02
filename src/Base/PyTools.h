@@ -67,12 +67,13 @@ is provided on an as is basis, without warranties of any kind.
 extern "C" {             /* a C library, but callable from C++ */
 #endif     
 
+#include "stdexport.h"
 #include <stdio.h>
 // Python
 #if defined (_POSIX_C_SOURCE)
 #	undef  _POSIX_C_SOURCE
 #endif // (re-)defined in pyconfig.h
-#include <Python.h>
+#include "FCConfig.h"
 
 extern int PP_RELOAD;    /* 1=reload py modules when attributes referenced */
 extern int PP_DEBUG;     /* 1=start debugger when string/function/member run */

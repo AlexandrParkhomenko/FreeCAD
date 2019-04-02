@@ -24,6 +24,7 @@
 #ifndef GUI_EDITORVIEW_H
 #define GUI_EDITORVIEW_H
 
+#include "stdexport.h"
 #include "MDIView.h"
 #include "Window.h"
 

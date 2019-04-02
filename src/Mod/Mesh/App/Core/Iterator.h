@@ -24,6 +24,7 @@
 #ifndef MESH_ITERATOR_H
 #define MESH_ITERATOR_H
 
+#include "stdexport.h"
 #include "MeshKernel.h"
 #include "Elements.h"
 #include <Base/Matrix.h>
@@ -168,7 +169,7 @@ protected:
  * The MeshPointIterator allows to iterate over the vertices of the mesh and provides access to their
  * geometric information.
  */
-class MeshExport MeshPointIterator
+class Standard_EXPORT MeshPointIterator
 {
 public:
   /** @name Construction */

@@ -24,7 +24,7 @@
 #ifndef GUI_MACRO_H
 #define GUI_MACRO_H
 
-// Std. configurations
+#include "stdexport.h"
 #include <QString>
 #include <QStringList>
 #include <Base/Observer.h>

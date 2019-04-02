@@ -21,15 +21,7 @@
  ***************************************************************************/
 
 
-
-# ifdef FC_OS_WIN32
-#  include <windows.h>
-# endif
-# ifdef FC_OS_MACOSX
-# include <OpenGL/gl.h>
-# else
 # include <GL/gl.h>
-# endif
 # include <Inventor/actions/SoGetBoundingBoxAction.h>
 # include <Inventor/actions/SoGLRenderAction.h>
 # include <Inventor/bundles/SoMaterialBundle.h>
@@ -50,7 +42,6 @@
 # include <Inventor/nodes/SoText2.h>
 # include <Inventor/nodes/SoTranslation.h>
 # include <Inventor/nodekits/SoShapeKit.h>
-#endif
 
 
 #include "SoAxisCrossKit.h"

@@ -24,6 +24,7 @@
 #ifndef BASE_SEQUENCER_H
 #define BASE_SEQUENCER_H
 
+#include "stdexport.h"
 #include <vector>
 #include <memory>
 #include <CXX/Extensions.hxx>

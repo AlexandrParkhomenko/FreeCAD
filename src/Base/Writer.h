@@ -24,6 +24,7 @@
 #define BASE_WRITER_H
 
 
+#include "stdexport.h"
 #include <set>
 #include <string>
 #include <sstream>

@@ -24,6 +24,7 @@
 #ifndef GUI_DOCUMENTOBSERVERPYTHON_H
 #define GUI_DOCUMENTOBSERVERPYTHON_H
 
+#include "stdexport.h"
 #include <CXX/Objects.hxx>
 
 #include <boost/signals2.hpp>

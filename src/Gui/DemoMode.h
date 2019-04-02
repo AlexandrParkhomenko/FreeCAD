@@ -24,6 +24,7 @@
 #ifndef GUI_DIALOG_DEMOMODE_H
 #define GUI_DIALOG_DEMOMODE_H
 
+#include "stdexport.h"
 #include <Inventor/SbLinear.h>
 #include <QDialog>
 

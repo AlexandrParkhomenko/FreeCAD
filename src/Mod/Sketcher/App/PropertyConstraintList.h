@@ -24,9 +24,8 @@
 #ifndef APP_PropertyConstraintList_H
 #define APP_PropertyConstraintList_H
 
-// Std. configurations
 
-
+#include "stdexport.h"
 #include <vector>
 #include <string>
 #include <App/Property.h>
@@ -43,7 +42,7 @@ namespace Sketcher
 {
 class Constraint;
 
-class SketcherExport PropertyConstraintList : public App::PropertyLists
+class Standard_EXPORT PropertyConstraintList : public App::PropertyLists
 {
     TYPESYSTEM_HEADER();
 

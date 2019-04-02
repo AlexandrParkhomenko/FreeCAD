@@ -24,6 +24,7 @@
 #ifndef IMPORT_STEPSHAPE_H
 #define IMPORT_STEPSHAPE_H
 
+#include "stdexport.h"
 
 
 namespace Import
@@ -34,7 +35,7 @@ namespace Import
  * convenient access to the Mesh data structure. This class should not be used
  * for programming algorithms in C++. Use Mesh Core classes instead!
  */
-class ImportExport StepShape 
+class Standard_EXPORT StepShape 
 {
 public:
     StepShape();

@@ -24,6 +24,7 @@
 #ifndef GUI_TASKDLGRELOCATE_H
 #define GUI_TASKDLGRELOCATE_H
 
+#include "stdexport.h"
 #include <Gui/TaskView/TaskDialog.h>
 #include <Gui/TaskView/TaskView.h>
 

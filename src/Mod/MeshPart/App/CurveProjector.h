@@ -24,6 +24,7 @@
 #ifndef _CurveProjector_h_
 #define _CurveProjector_h_
 
+#include "stdexport.h"
 #ifdef FC_USE_GTS
 #  include <gts.h>
 #endif
@@ -53,7 +54,7 @@ namespace MeshPart
 
 /** The father of all projection algorithms
  */
-class MeshPartExport CurveProjector
+class Standard_EXPORT CurveProjector
 {
 public:
   CurveProjector(const TopoDS_Shape &aShape, const MeshKernel &pMesh);
@@ -90,7 +91,7 @@ protected:
 
 /** Project by intersection face planes with the curve
  */
-class MeshPartExport CurveProjectorShape: public CurveProjector
+class Standard_EXPORT CurveProjectorShape: public CurveProjector
 {
 public:
   CurveProjectorShape(const TopoDS_Shape &aShape, const MeshKernel &pMesh);
@@ -111,7 +112,7 @@ protected:
 
 /** Project by projecting a sampled curve to the mesh
  */
-class MeshPartExport CurveProjectorSimple: public CurveProjector
+class Standard_EXPORT CurveProjectorSimple: public CurveProjector
 {
 public:
   CurveProjectorSimple(const TopoDS_Shape &aShape, const MeshKernel &pMesh);
@@ -135,7 +136,7 @@ protected:
 
 /** Project by projecting a sampled curve to the mesh
  */
-class MeshPartExport CurveProjectorWithToolMesh: public CurveProjector
+class Standard_EXPORT CurveProjectorWithToolMesh: public CurveProjector
 {
 public:
   struct LineSeg {

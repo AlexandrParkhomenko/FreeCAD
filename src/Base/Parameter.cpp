@@ -45,12 +45,8 @@
 #   include <fcntl.h>
 #   include <sys/types.h>
 #   include <sys/stat.h>
-#   ifdef FC_OS_WIN32
-#   include <io.h>
-#   endif
 #   include <sstream>
 #   include <stdio.h>
-#endif
 
 
 #include <fcntl.h>
@@ -123,40 +119,6 @@ public:
 };
 
 
-#if (XERCES_VERSION_MAJOR == 2)
-class DOMPrintFilter : public DOMWriterFilter
-{
-public:
-
-    /** @name Constructors */
-    DOMPrintFilter(unsigned long whatToShow = DOMNodeFilter::SHOW_ALL);
-    //@{
-
-    /** @name Destructors */
-    ~DOMPrintFilter() {};
-    //@{
-
-    /** @ interface from DOMWriterFilter */
-    virtual short acceptNode(const XERCES_CPP_NAMESPACE_QUALIFIER DOMNode*) const;
-    //@{
-
-    virtual unsigned long getWhatToShow() const {
-        return fWhatToShow;
-    };
-
-    virtual void          setWhatToShow(unsigned long toShow) {
-        fWhatToShow = toShow;
-    };
-
-private:
-    // unimplemented copy ctor and assignment operator
-    DOMPrintFilter(const DOMPrintFilter&);
-    DOMPrintFilter & operator = (const DOMPrintFilter&);
-
-    unsigned long fWhatToShow;
-
-};
-#endif
 class DOMPrintErrorHandler : public DOMErrorHandler
 {
 public:
@@ -1154,11 +1116,7 @@ int  ParameterManager::LoadDocument(const char* sFileName)
     Base::FileInfo file(sFileName);
 
     try {
-#if defined (FC_OS_WIN32)
-        LocalFileInputSource inputSource((XMLCh*)file.toStdWString().c_str());
-#else
-        LocalFileInputSource inputSource(XStr(file.filePath().c_str()).unicodeForm());
-#endif
+        LocalFileInputSource inputSource(XStr(file.filePath().c_str()).unicodeForm()); //#OSDEPENDENT
         return LoadDocument(inputSource);
     }
     catch (const Base::Exception& e) {
@@ -1251,11 +1209,7 @@ void  ParameterManager::SaveDocument(const char* sFileName) const
         // LocalFileFormatTarget prints the resultant XML stream
         // to a file once it receives any thing from the serializer.
         //
-#if defined (FC_OS_WIN32)
-        XMLFormatTarget *myFormTarget = new LocalFileFormatTarget ((XMLCh*)file.toStdWString().c_str());
-#else
         XMLFormatTarget *myFormTarget = new LocalFileFormatTarget (file.filePath().c_str());
-#endif
         SaveDocument(myFormTarget);
         delete myFormTarget;
     }
@@ -1268,74 +1222,6 @@ void  ParameterManager::SaveDocument(const char* sFileName) const
 
 void  ParameterManager::SaveDocument(XMLFormatTarget* pFormatTarget) const
 {
-#if (XERCES_VERSION_MAJOR == 2)
-    DOMPrintFilter   *myFilter = 0;
-
-    try {
-        // get a serializer, an instance of DOMWriter
-        XMLCh tempStr[100];
-        XMLString::transcode("LS", tempStr, 99);
-        DOMImplementation *impl          = DOMImplementationRegistry::getDOMImplementation(tempStr);
-        DOMWriter         *theSerializer = ((DOMImplementationLS*)impl)->createDOMWriter();
-
-        // set user specified end of line sequence and output encoding
-        theSerializer->setNewLine(gMyEOLSequence);
-        theSerializer->setEncoding(gOutputEncoding);
-
-        // plug in user's own filter
-        if (gUseFilter) {
-            // even we say to show attribute, but the DOMWriter
-            // will not show attribute nodes to the filter as
-            // the specs explicitly says that DOMWriter shall
-            // NOT show attributes to DOMWriterFilter.
-            //
-            // so DOMNodeFilter::SHOW_ATTRIBUTE has no effect.
-            // same DOMNodeFilter::SHOW_DOCUMENT_TYPE, no effect.
-            //
-            myFilter = new DOMPrintFilter(DOMNodeFilter::SHOW_ELEMENT   |
-                                          DOMNodeFilter::SHOW_ATTRIBUTE |
-                                          DOMNodeFilter::SHOW_DOCUMENT_TYPE
-                                         );
-            theSerializer->setFilter(myFilter);
-        }
-
-        // plug in user's own error handler
-        DOMErrorHandler *myErrorHandler = new DOMPrintErrorHandler();
-        theSerializer->setErrorHandler(myErrorHandler);
-
-        // set feature if the serializer supports the feature/mode
-        if (theSerializer->canSetFeature(XMLUni::fgDOMWRTSplitCdataSections, gSplitCdataSections))
-            theSerializer->setFeature(XMLUni::fgDOMWRTSplitCdataSections, gSplitCdataSections);
-
-        if (theSerializer->canSetFeature(XMLUni::fgDOMWRTDiscardDefaultContent, gDiscardDefaultContent))
-            theSerializer->setFeature(XMLUni::fgDOMWRTDiscardDefaultContent, gDiscardDefaultContent);
-
-        if (theSerializer->canSetFeature(XMLUni::fgDOMWRTFormatPrettyPrint, gFormatPrettyPrint))
-            theSerializer->setFeature(XMLUni::fgDOMWRTFormatPrettyPrint, gFormatPrettyPrint);
-
-        //
-        // do the serialization through DOMWriter::writeNode();
-        //
-        theSerializer->writeNode(pFormatTarget, *_pDocument);
-
-        delete theSerializer;
-
-        //
-        // Filter and error handler
-        // are NOT owned by the serializer.
-        //
-        delete myErrorHandler;
-
-        if (gUseFilter)
-            delete myFilter;
-
-    }
-    catch (XMLException& e) {
-        std::cerr << "An error occurred during creation of output transcoder. Msg is:"
-        << std::endl
-        << StrX(e.getMessage()) << std::endl;
-    }
-#else
     try {
         // get a serializer, an instance of DOMWriter
         XMLCh tempStr[100];
@@ -1365,7 +1251,6 @@ void  ParameterManager::SaveDocument(XMLFormatTarget* pFormatTarget) const
         << std::endl
         << StrX(e.getMessage()) << std::endl;
     }
-#endif
 }
 
 void  ParameterManager::CreateDocument(void)
@@ -1425,87 +1310,6 @@ void DOMTreeErrorReporter::resetErrors()
 {
     // No-op in this case
 }
-
-
-//**************************************************************************
-//**************************************************************************
-// DOMPrintFilter
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#if (XERCES_VERSION_MAJOR == 2)
-DOMPrintFilter::DOMPrintFilter(unsigned long whatToShow)
-        :fWhatToShow(whatToShow)
-{
-
-}
-
-short DOMPrintFilter::acceptNode(const DOMNode* node) const
-{
-    //
-    // The DOMWriter shall call getWhatToShow() before calling
-    // acceptNode(), to show nodes which are supposed to be
-    // shown to this filter.
-    // TODO:
-    // REVISIT: In case the DOMWriter does not follow the protocol,
-    //          Shall the filter honor, or NOT, what it claims
-    //         (when it is constructed/setWhatToShow())
-    //          it is interested in ?
-    //
-    // The DOMLS specs does not specify that acceptNode() shall do
-    // this way, or not, so it is up the implementation,
-    // to skip the code below for the sake of performance ...
-    //
-    if ((getWhatToShow() & (1 << (node->getNodeType() - 1))) == 0)
-        return DOMNodeFilter::FILTER_ACCEPT;
-
-    switch (node->getNodeType()) {
-    case DOMNode::ELEMENT_NODE: {
-        // for element whose name is "person", skip it
-        //if (XMLString::compareString(node->getNodeName(), element_person)==0)
-        //	return DOMNodeFilter::FILTER_SKIP;
-        // for element whose name is "line", reject it
-        //if (XMLString::compareString(node->getNodeName(), element_link)==0)
-        //	return DOMNodeFilter::FILTER_REJECT;
-        // for rest, accept it
-        return DOMNodeFilter::FILTER_ACCEPT;
-
-        break;
-    }
-    case DOMNode::COMMENT_NODE: {
-        // the WhatToShow will make this no effect
-        //return DOMNodeFilter::FILTER_REJECT;
-        return DOMNodeFilter::FILTER_ACCEPT;
-        break;
-    }
-    case DOMNode::TEXT_NODE: {
-        // the WhatToShow will make this no effect
-        //return DOMNodeFilter::FILTER_REJECT;
-        return DOMNodeFilter::FILTER_ACCEPT;
-        break;
-    }
-    case DOMNode::DOCUMENT_TYPE_NODE: {
-        // even we say we are going to process document type,
-        // we are not able be to see this node since
-        // DOMWriterImpl (a XercesC's default implementation
-        // of DOMWriter) will not pass DocumentType node to
-        // this filter.
-        //
-        return DOMNodeFilter::FILTER_REJECT;  // no effect
-        break;
-    }
-    case DOMNode::DOCUMENT_NODE: {
-        // same as DOCUMENT_NODE
-        return DOMNodeFilter::FILTER_REJECT;  // no effect
-        break;
-    }
-    default : {
-        return DOMNodeFilter::FILTER_ACCEPT;
-        break;
-    }
-    }
-
-    return DOMNodeFilter::FILTER_ACCEPT;
-}
-#endif
 
 //**************************************************************************
 //**************************************************************************

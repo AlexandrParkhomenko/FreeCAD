@@ -25,6 +25,7 @@
 #ifndef APP_Origin_H
 #define APP_Origin_H
 
+#include "stdexport.h"
 #include "GeoFeature.h"
 
 #include "OriginFeature.h"

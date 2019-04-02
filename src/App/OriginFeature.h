@@ -23,6 +23,7 @@
 #ifndef ORIGINFEATURE_H_6ZWJPB5V
 #define ORIGINFEATURE_H_6ZWJPB5V
 
+#include "stdexport.h"
 #include "GeoFeature.h"
 
 namespace App

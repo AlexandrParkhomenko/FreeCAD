@@ -24,6 +24,8 @@
 #ifndef BASE_BASECLASS_H
 #define BASE_BASECLASS_H
 
+#include "stdexport.h"
+
 #include "Type.h"
 
 // Python stuff

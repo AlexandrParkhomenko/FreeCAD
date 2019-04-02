@@ -23,6 +23,7 @@
 #ifndef PART_FACEMAKER_CHEESE_H
 #define PART_FACEMAKER_CHEESE_H
 
+#include "stdexport.h"
 #include "FaceMaker.h"
 #include <list>
 #include <functional>
@@ -39,7 +40,7 @@ namespace Part
  *
  * Weaknesses: can't make islands in holes. All faces must be on same plane.
  */
-class PartExport FaceMakerCheese: public FaceMakerPublic
+class Standard_EXPORT FaceMakerCheese: public FaceMakerPublic
 {
     TYPESYSTEM_HEADER_WITH_OVERRIDE();
 public:

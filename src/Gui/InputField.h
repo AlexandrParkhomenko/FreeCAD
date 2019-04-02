@@ -24,6 +24,7 @@
 #ifndef GUI_INPUTFIELD_H
 #define GUI_INPUTFIELD_H
 
+#include "stdexport.h"
 #include <QValidator>
 #include <App/Property.h>
 #include <App/Expression.h>

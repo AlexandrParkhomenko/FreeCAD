@@ -22,6 +22,7 @@
 
 
 
+#include "stdexport.h"
 # include <QApplication>
 # include <QPixmap>
 

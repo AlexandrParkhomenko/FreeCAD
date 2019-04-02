@@ -24,6 +24,7 @@
 #ifndef GUI_DOCUMENT_H
 #define GUI_DOCUMENT_H
 
+#include "stdexport.h"
 #include "MDIView.h"
 
 #include <list>

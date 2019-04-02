@@ -24,6 +24,7 @@
 #ifndef MESHALGORITHM_H
 #define MESHALGORITHM_H
 
+#include "stdexport.h"
 #include <set>
 #include <vector>
 #include <map>
@@ -52,7 +53,7 @@ class AbstractPolygonTriangulator;
 /**
  * The MeshAlgorithm class provides algorithms base on meshes.
  */
-class MeshExport MeshAlgorithm
+class Standard_EXPORT MeshAlgorithm
 {
 public:
   /// Construction
@@ -314,7 +315,7 @@ protected:
   const MeshKernel      &_rclMesh; /**< The mesh kernel. */
 };
 
-class MeshExport MeshCollector
+class Standard_EXPORT MeshCollector
 {
 public:
     MeshCollector(){}
@@ -322,7 +323,7 @@ public:
     virtual void Append(const MeshCore::MeshKernel&, unsigned long index) = 0;
 };
 
-class MeshExport PointCollector : public MeshCollector
+class Standard_EXPORT PointCollector : public MeshCollector
 {
 public:
     PointCollector(std::vector<unsigned long>& ind) : indices(ind){}
@@ -340,7 +341,7 @@ private:
     std::vector<unsigned long>& indices;
 };
 
-class MeshExport FacetCollector : public MeshCollector
+class Standard_EXPORT FacetCollector : public MeshCollector
 {
 public:
     FacetCollector(std::vector<unsigned long>& ind) : indices(ind){}
@@ -360,7 +361,7 @@ private:
  * \note If the underlying mesh kernel gets changed this structure becomes invalid and must
  * be rebuilt.
  */
-class MeshExport MeshRefPointToFacets
+class Standard_EXPORT MeshRefPointToFacets
 {
 public:
     /// Construction
@@ -396,7 +397,7 @@ protected:
  * \note If the underlying mesh kernel gets changed this structure becomes invalid and must
  * be rebuilt.
  */
-class MeshExport MeshRefFacetToFacets
+class Standard_EXPORT MeshRefFacetToFacets
 {
 public:
     /// Construction
@@ -423,7 +424,7 @@ protected:
  * \note If the underlying mesh kernel gets changed this structure becomes invalid and must
  * be rebuilt.
  */
-class MeshExport MeshRefPointToPoints
+class Standard_EXPORT MeshRefPointToPoints
 {
 public:
     /// Construction
@@ -452,7 +453,7 @@ protected:
  * \note If the underlying mesh kernel gets changed this structure becomes invalid and must
  * be rebuilt.
  */
-class MeshExport MeshRefEdgeToFacets
+class Standard_EXPORT MeshRefEdgeToFacets
 {
 public:
     /// Construction
@@ -491,7 +492,7 @@ protected:
  * \note If the underlying mesh kernel gets changed this structure becomes invalid and must
  * be rebuilt.
  */
-class MeshExport MeshRefNormalToPoints
+class Standard_EXPORT MeshRefNormalToPoints
 {
 public:
     /// Construction

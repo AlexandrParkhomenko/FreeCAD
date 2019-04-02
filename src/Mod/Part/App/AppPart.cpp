@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-# include <Python.h>
+# include "FCConfig.h"
 # include <Interface_Static.hxx>
 # include <IGESControl_Controller.hxx>
 # include <STEPControl_Controller.hxx>

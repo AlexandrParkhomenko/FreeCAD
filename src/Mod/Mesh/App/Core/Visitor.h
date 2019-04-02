@@ -24,6 +24,7 @@
 #ifndef VISITOR_H
 #define VISITOR_H
 
+#include "stdexport.h"
 namespace MeshCore {
 
 class MeshFacet;
@@ -36,7 +37,7 @@ class PlaneFit;
  * The MeshFacetVisitor class can be used for the so called
  * "Region growing" algorithms.
  */
-class MeshExport MeshFacetVisitor
+class Standard_EXPORT MeshFacetVisitor
 {
 public:
     /// Construction 
@@ -71,7 +72,7 @@ public:
 /**
  * Special mesh visitor that searches for facets within a given search radius.
  */
-class MeshExport MeshSearchNeighbourFacetsVisitor : public MeshFacetVisitor
+class Standard_EXPORT MeshSearchNeighbourFacetsVisitor : public MeshFacetVisitor
 {
 public:
     MeshSearchNeighbourFacetsVisitor (const MeshKernel &rclMesh, float fRadius, unsigned long ulStartFacetIdx);
@@ -115,7 +116,7 @@ inline bool MeshSearchNeighbourFacetsVisitor::Visit (const MeshFacet &rclFacet, 
 /**
  * The MeshTopFacetVisitor just collects the indices of all visited facets.
  */
-class MeshExport MeshTopFacetVisitor : public MeshFacetVisitor
+class Standard_EXPORT MeshTopFacetVisitor : public MeshFacetVisitor
 {
 public:
     MeshTopFacetVisitor (std::vector<unsigned long> &raulNB) : _raulNeighbours(raulNB) {}
@@ -167,7 +168,7 @@ protected:
 /**
  * Abstract base class for point visitors. 
  */
-class MeshExport MeshPointVisitor
+class Standard_EXPORT MeshPointVisitor
 {
 public:
     /// Construction 

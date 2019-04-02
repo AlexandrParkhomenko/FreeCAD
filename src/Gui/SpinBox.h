@@ -24,6 +24,7 @@
 #ifndef GUI_SPINBOX_H
 #define GUI_SPINBOX_H
 
+#include "stdexport.h"
 #include <QValidator>
 #include <QSpinBox>
 #include "ExpressionBinding.h"

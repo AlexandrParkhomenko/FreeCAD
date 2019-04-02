@@ -24,6 +24,7 @@
 #ifndef PART_TOOLS_H
 #define PART_TOOLS_H
 
+#include "stdexport.h"
 #include <gp_Pnt.hxx>
 #include <gp_Vec.hxx>
 #include <gp_Dir.hxx>
@@ -88,14 +89,14 @@ private:
 namespace Part
 {
 
-PartExport
+Standard_EXPORT
 void closestPointsOnLines(const gp_Lin& lin1, const gp_Lin& lin2, gp_Pnt &p1, gp_Pnt &p2);
-PartExport
+Standard_EXPORT
 bool intersect(const gp_Pln& pln1, const gp_Pln& pln2, gp_Lin& lin);
-PartExport
+Standard_EXPORT
 bool tangentialArc(const gp_Pnt& p0, const gp_Vec& v0, const gp_Pnt& p1, gp_Pnt& c, gp_Dir& a);
 
-class PartExport Tools
+class Standard_EXPORT Tools
 {
 public:
     Handle(Geom_Surface) makeSurface (const TColStd_ListOfTransient& theBoundaries,

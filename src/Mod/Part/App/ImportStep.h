@@ -26,6 +26,7 @@
 #ifndef _ImportStep_h_
 #define _ImportStep_h_
 
+#include "stdexport.h"
 #include <TopoDS_Shape.hxx>
 #include <App/ComplexGeoData.h>
 
@@ -39,7 +40,7 @@ namespace Part
 
 /** The part shape property
  */
-PartExport int ImportStepParts(App::Document *pcDoc, const char* Name);
+Standard_EXPORT int ImportStepParts(App::Document *pcDoc, const char* Name);
 
 
 

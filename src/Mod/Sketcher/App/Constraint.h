@@ -25,6 +25,7 @@
 #define SKETCHER_CONSTRAINT_H
 
 
+#include "stdexport.h"
 #include <Base/Persistence.h>
 #include <Base/Quantity.h>
 #include <boost/uuid/uuid.hpp>
@@ -77,7 +78,7 @@ enum InternalAlignmentType {
 /// define if you want to use the end or start point
 enum PointPos { none, start, end, mid };
 
-class SketcherExport Constraint : public Base::Persistence
+class Standard_EXPORT Constraint : public Base::Persistence
 {
     TYPESYSTEM_HEADER();
 

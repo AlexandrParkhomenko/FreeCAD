@@ -23,6 +23,7 @@
 
 
 
+#include "stdexport.h"
 #include "DocumentObjectGroup.h"
 #include "DocumentObjectGroupPy.h"
 #include "Document.h"

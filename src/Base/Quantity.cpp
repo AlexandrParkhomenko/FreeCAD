@@ -21,11 +21,7 @@
  ***************************************************************************/
 
 # include <sstream>
-# ifdef FC_OS_WIN32
-# define _USE_MATH_DEFINES
-# endif // FC_OS_WIN32
 # include <cmath>
-#endif
 
 #include "Quantity.h"
 #include "Exception.h"

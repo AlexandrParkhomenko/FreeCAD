@@ -22,6 +22,7 @@
 
 
 
+#include "stdexport.h"
 #include <BRep_Builder.hxx>
 #include <TopoDS_Compound.hxx>
 
@@ -249,6 +250,6 @@ template<> const char* Path::FeatureAreaViewPython::getViewProviderName(void) co
 /// @endcond
 
 // explicit template instantiation
-template class PathExport FeaturePythonT<Path::FeatureArea>;
+template class Standard_EXPORT FeaturePythonT<Path::FeatureArea>;
 }
 

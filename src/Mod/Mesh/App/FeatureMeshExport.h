@@ -24,6 +24,7 @@
 #ifndef MESH_FEATUREMESHEXPORT_H
 #define MESH_FEATUREMESHEXPORT_H
 
+#include "stdexport.h"
 #include <App/DocumentObject.h>
 #include <App/PropertyStandard.h>
 #include <App/PropertyLinks.h>
@@ -35,7 +36,7 @@ namespace Mesh
  * The Export class writes any supported mesh format into a file.
  * @author Werner Mayer
  */
-class MeshExport Export : public App::DocumentObject
+class Standard_EXPORT Export : public App::DocumentObject
 {
     PROPERTY_HEADER(Mesh::Export);
 

@@ -24,6 +24,7 @@
 #ifndef PY_GEOMETRYPY_H
 #define PY_GEOMETRYPY_H
 
+#include "stdexport.h"
 #include <CXX/Objects.hxx>
 #include <CXX/Extensions.hxx>
 #include <Base/Vector3D.h>

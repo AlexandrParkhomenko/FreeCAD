@@ -24,6 +24,7 @@
 #ifndef APP_DOCUMENTOBJECTFILEINCLUDED_H
 #define APP_DOCUMENTOBJECTFILEINCLUDED_H
 
+#include "stdexport.h"
 #include "DocumentObject.h"
 #include "PropertyFile.h"
 

@@ -27,6 +27,7 @@
  ***************************************************************************/
 //#OSDEPENDENT
 #include "FCConfig.h"
+#include "stdexport.h"
 
 # include <algorithm>
 # include <cassert>
@@ -35,11 +36,10 @@
 # include <fstream>
 # include <climits>
 # include <cstring>
-# if defined (FC_OS_LINUX) || defined(FC_OS_CYGWIN) || defined(FC_OS_MACOSX) || defined(FC_OS_BSD)
+//linux, macos
 # include <dirent.h>
 # include <unistd.h>
 # include <sys/stat.h>
-# endif
 
 
 #include "FileInfo.h"

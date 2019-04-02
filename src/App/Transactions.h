@@ -24,6 +24,7 @@
 #ifndef APP_TRANSACTION_H
 #define APP_TRANSACTION_H
 
+#include "stdexport.h"
 #include <Base/Factory.h>
 #include <Base/Persistence.h>
 

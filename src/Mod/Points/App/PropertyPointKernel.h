@@ -31,7 +31,7 @@ namespace Points
 
 /** The point kernel property
  */
-class PointsExport PropertyPointKernel : public App::PropertyComplexGeoData
+class Standard_EXPORT PropertyPointKernel : public App::PropertyComplexGeoData
 {
     TYPESYSTEM_HEADER();
 

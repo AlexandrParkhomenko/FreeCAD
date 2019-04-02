@@ -24,6 +24,7 @@
 #ifndef GUI_MERGEDOCUMENTS_H
 #define GUI_MERGEDOCUMENTS_H
 
+#include "stdexport.h"
 #include <boost/signals2.hpp>
 #include <Base/Persistence.h>
 
