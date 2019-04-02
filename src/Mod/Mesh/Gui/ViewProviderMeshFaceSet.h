@@ -23,6 +23,7 @@
 #ifndef MESHGUI_VIEWPROVIDERMESHFACESET_H
 #define MESHGUI_VIEWPROVIDERMESHFACESET_H
 
+#include "stdexport.h"
 #include <Mod/Mesh/Gui/ViewProvider.h>
 
 namespace MeshGui {

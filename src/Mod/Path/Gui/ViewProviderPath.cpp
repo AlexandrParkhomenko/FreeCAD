@@ -20,8 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-
-
+#include "stdexport.h"
 # include "FCConfig.h"
 # include <Inventor/SbVec3f.h>
 # include <Inventor/nodes/SoSeparator.h>

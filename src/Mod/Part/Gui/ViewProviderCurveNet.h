@@ -24,6 +24,7 @@
 #ifndef PARTGUI_VIEWPROVIDERCURVENET_H
 #define PARTGUI_VIEWPROVIDERCURVENET_H
 
+#include "stdexport.h"
 #include "ViewProvider.h"
 
 

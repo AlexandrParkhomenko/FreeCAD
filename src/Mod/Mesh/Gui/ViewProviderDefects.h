@@ -23,6 +23,7 @@
 #ifndef MESHGUI_VIEWPROVIDER_MESH_DEFECTS_H
 #define MESHGUI_VIEWPROVIDER_MESH_DEFECTS_H
 
+#include "stdexport.h"
 #include "ViewProvider.h"
 
 class SoCoordinate3;

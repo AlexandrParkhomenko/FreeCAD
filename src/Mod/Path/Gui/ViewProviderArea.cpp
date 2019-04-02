@@ -22,6 +22,7 @@
 
 
 
+#include "stdexport.h"
 #include <Gui/Application.h>
 #include <Mod/Path/App/FeatureArea.h>
 #include "ViewProviderArea.h"

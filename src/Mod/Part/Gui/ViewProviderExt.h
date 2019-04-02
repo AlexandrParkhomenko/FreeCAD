@@ -24,6 +24,7 @@
 #ifndef PARTGUI_VIEWPROVIDERPARTEXT_H
 #define PARTGUI_VIEWPROVIDERPARTEXT_H
 
+#include "stdexport.h"
 #include <Standard_math.hxx>
 #include <Standard_Boolean.hxx>
 #include <TopoDS_Shape.hxx>

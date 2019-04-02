@@ -24,6 +24,7 @@
 #ifndef PATHGUI_TaskDlgPathCompound_H
 #define PATHGUI_TaskDlgPathCompound_H
 
+#include "stdexport.h"
 #include <Gui/TaskView/TaskView.h>
 #include <Gui/TaskView/TaskDialog.h>
 #include <Mod/Path/App/FeaturePath.h>

@@ -24,6 +24,7 @@
 #ifndef PARTGUI_VIEWPROVIDERPRISM_H
 #define PARTGUI_VIEWPROVIDERPRISM_H
 
+#include "stdexport.h"
 #include "ViewProvider.h"
 
 

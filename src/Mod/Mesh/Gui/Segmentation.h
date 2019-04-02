@@ -24,6 +24,7 @@
 #ifndef MESHGUI_SEGMENTATION_H
 #define MESHGUI_SEGMENTATION_H
 
+#include "stdexport.h"
 #include <QWidget>
 #include <Gui/TaskView/TaskDialog.h>
 #include <Gui/TaskView/TaskView.h>

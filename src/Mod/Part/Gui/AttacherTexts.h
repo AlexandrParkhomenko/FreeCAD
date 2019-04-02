@@ -29,7 +29,7 @@
 #ifndef PARTATTACHERTEXTS_H
 #define PARTATTACHERTEXTS_H
 
-
+#include "stdexport.h"
 #include <vector>
 #include <QString>
 #include <QStringList>

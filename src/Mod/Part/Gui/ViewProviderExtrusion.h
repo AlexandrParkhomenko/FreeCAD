@@ -24,6 +24,7 @@
 #ifndef PARTGUI_VIEWPROVIDEREXTRUSION_H
 #define PARTGUI_VIEWPROVIDEREXTRUSION_H
 
+#include "stdexport.h"
 #include "ViewProvider.h"
 
 

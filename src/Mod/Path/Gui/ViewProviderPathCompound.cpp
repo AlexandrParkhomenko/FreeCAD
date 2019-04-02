@@ -21,8 +21,7 @@
  ***************************************************************************/
 
 
-
-
+#include "stdexport.h"
 #include <Gui/Control.h>
 #include <Gui/BitmapFactory.h>
 

@@ -23,6 +23,7 @@
 #ifndef MESHGUI_SOPOLYGON_H
 #define MESHGUI_SOPOLYGON_H
 
+#include "stdexport.h"
 #include <Inventor/fields/SoSFUInt32.h>
 #include <Inventor/fields/SoSFInt32.h>
 #include <Inventor/fields/SoSFBool.h>

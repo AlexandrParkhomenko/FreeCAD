@@ -24,6 +24,7 @@
 #ifndef GUI_TASKVIEW_TaskAttacher_H
 #define GUI_TASKVIEW_TaskAttacher_H
 
+#include "stdexport.h"
 #include <Gui/Selection.h>
 #include <Gui/ViewProviderDocumentObject.h>
 #include <Gui/TaskView/TaskView.h>

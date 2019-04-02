@@ -24,6 +24,7 @@
 #ifndef PARTGUI_VIEWPROVIDERRULEDSURFACE_H
 #define PARTGUI_VIEWPROVIDERRULEDSURFACE_H
 
+#include "stdexport.h"
 #include "ViewProvider.h"
 
 

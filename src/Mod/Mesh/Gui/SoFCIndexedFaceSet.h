@@ -23,6 +23,7 @@
 #ifndef MESHGUI_SOFCINDEXEDFACESET_H
 #define MESHGUI_SOFCINDEXEDFACESET_H
 
+#include "stdexport.h"
 #include <Inventor/nodes/SoIndexedFaceSet.h>
 #include <Inventor/elements/SoMaterialBindingElement.h>
 #include <Inventor/engines/SoSubEngine.h>

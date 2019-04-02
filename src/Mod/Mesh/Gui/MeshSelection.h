@@ -24,6 +24,7 @@
 #ifndef MESHGUI_MESHSELECTION_H
 #define MESHGUI_MESHSELECTION_H
 
+#include "stdexport.h"
 #include <vector>
 #include <QWidget>
 #include <Inventor/nodes/SoEventCallback.h>

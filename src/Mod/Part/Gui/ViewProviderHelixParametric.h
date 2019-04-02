@@ -24,6 +24,7 @@
 #ifndef PARTGUI_VIEWPROVIDERHELIXPARAMETRIC_H
 #define PARTGUI_VIEWPROVIDERHELIXPARAMETRIC_H
 
+#include "stdexport.h"
 #include "ViewProviderSpline.h"
 
 namespace PartGui {

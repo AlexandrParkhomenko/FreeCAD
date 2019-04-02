@@ -24,6 +24,7 @@
 #ifndef SketcherGui_VIEWPROVIDERPYTHON_H
 #define SketcherGui_VIEWPROVIDERPYTHON_H
 
+#include "stdexport.h"
 #include <Gui/ViewProviderPythonFeature.h>
 #include <Mod/Sketcher/Gui/ViewProviderSketch.h>
 

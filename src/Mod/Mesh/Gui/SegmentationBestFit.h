@@ -24,6 +24,7 @@
 #ifndef MESHGUI_SEGMENTATIONBESTFIT_H
 #define MESHGUI_SEGMENTATIONBESTFIT_H
 
+#include "stdexport.h"
 #include <QWidget>
 #include <list>
 #include <Gui/TaskView/TaskDialog.h>

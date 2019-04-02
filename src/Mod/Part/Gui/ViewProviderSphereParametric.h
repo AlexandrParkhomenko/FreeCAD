@@ -24,6 +24,7 @@
 #ifndef PARTGUI_VIEWPROVIDERSPHEREPARAMETRIC_H
 #define PARTGUI_VIEWPROVIDERSPHEREPARAMETRIC_H
 
+#include "stdexport.h"
 #include "ViewProvider.h"
 
 namespace PartGui {

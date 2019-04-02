@@ -19,17 +19,8 @@
  *   Suite 330, Boston, MA  02111-1307, USA                                *
  *                                                                         *
  ***************************************************************************/
-
-
-
-# ifdef FC_OS_WIN32
-# include <windows.h>
-# endif
-# ifdef FC_OS_MACOSX
-# include <OpenGL/gl.h>
-# else
+#include "stdexport.h"
 # include <GL/gl.h>
-# endif
 # include <float.h>
 # include <algorithm>
 # include <Inventor/actions/SoCallbackAction.h>
@@ -44,7 +35,6 @@
 # include <Inventor/elements/SoGLCacheContextElement.h>
 # include <Inventor/errors/SoReadError.h>
 # include <Inventor/misc/SoState.h>
-#endif
 
 #include "SoFCShapeObject.h"
 

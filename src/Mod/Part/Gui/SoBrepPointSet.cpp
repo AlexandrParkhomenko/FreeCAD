@@ -20,16 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-
-
-# ifdef FC_OS_WIN32
-# include <windows.h>
-# endif
-# ifdef FC_OS_MACOSX
-# include <OpenGL/gl.h>
-# else
 # include <GL/gl.h>
-# endif
 # include <float.h>
 # include <algorithm>
 # include "FCConfig.h"
@@ -54,7 +45,6 @@
 # include <Inventor/details/SoFaceDetail.h>
 # include <Inventor/details/SoLineDetail.h>
 # include <Inventor/misc/SoState.h>
-#endif
 
 #include "SoBrepPointSet.h"
 #include <Gui/SoFCUnifiedSelection.h>

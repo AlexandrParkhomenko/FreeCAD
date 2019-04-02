@@ -24,6 +24,7 @@
 #ifndef PART_WORKBENCH_H
 #define PART_WORKBENCH_H
 
+#include "stdexport.h"
 #include <Gui/Workbench.h>
 
 namespace PartGui {

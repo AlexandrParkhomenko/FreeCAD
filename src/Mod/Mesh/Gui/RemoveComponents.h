@@ -24,6 +24,7 @@
 #ifndef MESHGUI_REMOVECOMPONENTS_H
 #define MESHGUI_REMOVECOMPONENTS_H
 
+#include "stdexport.h"
 #include <QDialog>
 #include <Gui/TaskView/TaskDialog.h>
 #include <Gui/TaskView/TaskView.h>

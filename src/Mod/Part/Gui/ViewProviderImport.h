@@ -24,6 +24,7 @@
 #ifndef PARTGUI_VIEVPROVIDERIMPORT_H
 #define PARTGUI_VIEVPROVIDERIMPORT_H
 
+#include "stdexport.h"
 #include "ViewProvider.h"
 
 

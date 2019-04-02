@@ -20,16 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-
-
-# ifdef FC_OS_WIN32
-# include <windows.h>
-# endif
-# ifdef FC_OS_MACOSX
-# include <OpenGL/gl.h>
-# else
+#include "stdexport.h"
 # include <GL/gl.h>
-# endif
 # include <float.h>
 # include <algorithm>
 # include <Inventor/actions/SoCallbackAction.h>
@@ -43,7 +35,6 @@
 # include <Inventor/elements/SoGLCacheContextElement.h>
 # include <Inventor/errors/SoReadError.h>
 # include <Inventor/misc/SoState.h>
-#endif
 
 # include <Inventor/elements/SoCoordinateElement.h>
 # include <float.h>

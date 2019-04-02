@@ -22,6 +22,7 @@
 
 
 
+#include "stdexport.h"
 # include <Standard_math.hxx>
 # include "FCConfig.h"
 # include <Inventor/nodes/SoBaseColor.h>

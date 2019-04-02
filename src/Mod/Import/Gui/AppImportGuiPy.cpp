@@ -65,7 +65,6 @@
 # else
 # include <TDataStd_Shape.hxx>
 # endif
-#endif
 
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>

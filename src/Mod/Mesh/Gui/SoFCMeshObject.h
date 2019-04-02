@@ -23,6 +23,7 @@
 #ifndef MESHGUI_SOFCMESHOBJECT_H
 #define MESHGUI_SOFCMESHOBJECT_H
 
+#include "stdexport.h"
 #include <Inventor/fields/SoSField.h>
 #include <Inventor/fields/SoSFUInt32.h>
 #include <Inventor/fields/SoSubField.h>

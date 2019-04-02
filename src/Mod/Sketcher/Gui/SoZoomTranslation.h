@@ -23,6 +23,7 @@
 #ifndef SKETCHERGUI_SOZOOMTRANSLATION_H
 #define SKETCHERGUI_SOZOOMTRANSLATION_H
 
+#include "stdexport.h"
 #include <Inventor/nodes/SoTranslation.h>
 #include <Inventor/nodes/SoSubNode.h>
 #include <Inventor/nodes/SoTransformation.h>

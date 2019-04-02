@@ -24,6 +24,7 @@
 #ifndef PARTGUI_IEWPROVIDER2DOBJECT_H
 #define PARTGUI_IEWPROVIDER2DOBJECT_H
 
+#include "stdexport.h"
 #include "ViewProvider.h"
 #include <App/PropertyUnits.h>
 #include <Gui/ViewProviderPythonFeature.h>

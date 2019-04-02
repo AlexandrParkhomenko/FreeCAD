@@ -24,6 +24,7 @@
 #ifndef PARTGUI_VIEWPROVIDERPYTHON_H
 #define PARTGUI_VIEWPROVIDERPYTHON_H
 
+#include "stdexport.h"
 #include <Gui/ViewProviderPythonFeature.h>
 #include <Mod/Part/Gui/ViewProvider.h>
 

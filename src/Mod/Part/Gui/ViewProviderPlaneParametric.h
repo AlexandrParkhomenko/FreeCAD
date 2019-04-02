@@ -24,6 +24,7 @@
 #ifndef PARTGUI_VIEWPROVIDERPLANEPARAMETRIC_H
 #define PARTGUI_VIEWPROVIDERPLANEPARAMETRIC_H
 
+#include "stdexport.h"
 #include "ViewProvider.h"
 
 

@@ -24,6 +24,7 @@
 #ifndef SKETCHERGUI_VIEWPROVIDERSKETCH_H
 #define SKETCHERGUI_VIEWPROVIDERSKETCH_H
 
+#include "stdexport.h"
 #include <Mod/Part/Gui/ViewProvider2DObject.h>
 #include <Mod/Part/App/BodyBase.h>
 #include <Inventor/SbImage.h>

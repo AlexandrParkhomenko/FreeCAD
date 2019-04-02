@@ -24,6 +24,7 @@
 #ifndef PATH_ViewProviderPath_H
 #define PATH_ViewProviderPath_H
 
+#include "stdexport.h"
 #include <App/PropertyGeo.h>
 #include <Gui/Selection.h>
 #include <Gui/ViewProviderGeometryObject.h>

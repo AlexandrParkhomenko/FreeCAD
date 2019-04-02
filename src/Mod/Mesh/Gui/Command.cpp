@@ -21,18 +21,13 @@
  ***************************************************************************/
 
 
-# ifdef FC_OS_WIN32
-# include <windows.h>
-# endif
 # include <qaction.h>
 # include <qdir.h>
 # include <qfileinfo.h>
 # include <qinputdialog.h>
 # include <qmessagebox.h>
 # include <qstringlist.h>
-//# include <gts.h>
 # include <map>
-#endif
 
 #ifndef __InventorAll__
 # include <Gui/InventorAll.h>
@@ -77,140 +72,6 @@
 
 using namespace Mesh;
 
-// deprecated
-#if 0
-DEF_STD_CMD_A(CmdMeshTransform);
-
-CmdMeshTransform::CmdMeshTransform()
-  :Command("Mesh_Transform")
-{
-  sAppModule    = "Mesh";
-  sGroup        = QT_TR_NOOP("Mesh");
-  sMenuText     = QT_TR_NOOP("Transform mesh");
-  sToolTipText  = QT_TR_NOOP("Rotate or move a mesh");
-  //# sWhatsThis    = "Mesh_Transform";
-  sStatusTip    = QT_TR_NOOP("Rotate or move a mesh");
-  sPixmap       = "Std_Tool1";
-}
-
-void CmdMeshTransform::activated(int)
-{
-  unsigned int n = getSelection().countObjectsOfType(Mesh::Feature::getClassTypeId());
-  if ( n!=1 ) return;
-
-  std::string fName = getUniqueObjectName("Move");
-  std::vector<Gui::SelectionSingleton::SelObj> cSel = getSelection().getSelection();
-
-  openCommand("Mesh Mesh Create");
-  doCommand(Doc,"App.activeDocument().addObject(\"Mesh::Transform\",\"%s\")",fName.c_str());
-  doCommand(Doc,"App.activeDocument().%s.Source = App.activeDocument().%s",fName.c_str(),cSel[0].FeatName);
-  doCommand(Gui,"Gui.hide(\"%s\")",cSel[0].FeatName);
-  commitCommand(); 
- 
-  updateActive();
-}
-
-bool CmdMeshTransform::isActive(void)
-{
-  //return true;
-  return getSelection().countObjectsOfType(Mesh::Feature::getClassTypeId()) == 1;
-}
-
-//--------------------------------------------------------------------------------------
-
-DEF_STD_CMD_A(CmdMeshDemolding);
-
-CmdMeshDemolding::CmdMeshDemolding()
-  :Command("Mesh_Demolding")
-{
-  sAppModule    = "Mesh";
-  sGroup        = QT_TR_NOOP("Mesh");
-  sMenuText     = QT_TR_NOOP("Interactive demolding direction");
-  sToolTipText  = sMenuText;
-  //# sWhatsThis    = "Mesh_Demolding";
-  sStatusTip    = sMenuText;
-  sPixmap       = "Std_Tool1";
-}
-
-void CmdMeshDemolding::activated(int)
-{
-  unsigned int n = getSelection().countObjectsOfType(Mesh::Feature::getClassTypeId());
-  if ( n!=1 ) return;
-
-  std::string fName = getUniqueObjectName("Demolding");
-  std::vector<Gui::SelectionSingleton::SelObj> cSel = getSelection().getSelection();
-
-  openCommand("Mesh Mesh Create");
-  doCommand(Doc,"App.activeDocument().addObject(\"Mesh::TransformDemolding\",\"%s\")",fName.c_str());
-  doCommand(Doc,"App.activeDocument().%s.Source = App.activeDocument().%s",fName.c_str(),cSel[0].FeatName);
-  doCommand(Gui,"Gui.hide(\"%s\")",cSel[0].FeatName);
-  commitCommand(); 
- 
-  updateActive();
-}
-
-bool CmdMeshDemolding::isActive(void)
-{
-  //return true;
-  return getSelection().countObjectsOfType(Mesh::Feature::getClassTypeId()) == 1;
-}
-
-//--------------------------------------------------------------------------------------
-
-DEF_STD_CMD_A(CmdMeshToolMesh);
-
-CmdMeshToolMesh::CmdMeshToolMesh()
-  :Command("Mesh_ToolMesh")
-{
-  sAppModule    = "Mesh";
-  sGroup        = QT_TR_NOOP("Mesh");
-  sMenuText     = QT_TR_NOOP("Segment by tool mesh");
-  sToolTipText  = QT_TR_NOOP("Creates a segment from a given tool mesh");
-  //# sWhatsThis    = "Mesh_ToolMesh";
-  sStatusTip    = QT_TR_NOOP("Creates a segment from a given tool mesh");
-}
-
-void CmdMeshToolMesh::activated(int)
-{
-  std::vector<App::DocumentObject*> fea = Gui::Selection().getObjectsOfType(Mesh::Feature::getClassTypeId());
-  if ( fea.size() == 2 )
-  {
-    std::string fName = getUniqueObjectName("MeshSegment");
-    App::DocumentObject* mesh = fea.front();
-    App::DocumentObject* tool = fea.back();
-
-    openCommand("Segment by tool mesh");
-    doCommand(Doc, "import Mesh");
-    doCommand(Gui, "import MeshGui");
-    doCommand(Doc,
-      "App.activeDocument().addObject(\"Mesh::SegmentByMesh\",\"%s\")\n"
-      "App.activeDocument().%s.Source = App.activeDocument().%s\n"
-      "App.activeDocument().%s.Tool = App.activeDocument().%s\n",
-      fName.c_str(), fName.c_str(),  mesh->getNameInDocument(), fName.c_str(), tool->getNameInDocument() );
-
-    commitCommand();
-    updateActive();
-
-    App::Document* pDoc = getDocument();
-    App::DocumentObject * pObj = pDoc->getObject( fName.c_str() );
-
-    if ( pObj )
-    {
-      doCommand(Gui,"Gui.hide(\"%s\")", mesh->getNameInDocument());
-      doCommand(Gui,"Gui.hide(\"%s\")", tool->getNameInDocument());
-      getSelection().clearSelection();
-    }
-  }
-}
-
-bool CmdMeshToolMesh::isActive(void)
-{
-  // Check for the selected mesh feature (all Mesh types)
-  return getSelection().countObjectsOfType(Mesh::Feature::getClassTypeId()) == 2;
-}
-#endif
-
-//--------------------------------------------------------------------------------------
 
 DEF_STD_CMD_A(CmdMeshUnion);
 

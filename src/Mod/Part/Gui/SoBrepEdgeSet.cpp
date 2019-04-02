@@ -20,10 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-
-
+#include "stdexport.h"
 # include <GL/gl.h>
-
 # include <float.h>
 # include <algorithm>
 # include "FCConfig.h"
@@ -48,7 +46,6 @@
 # include <Inventor/details/SoFaceDetail.h>
 # include <Inventor/details/SoLineDetail.h>
 # include <Inventor/misc/SoState.h>
-#endif
 
 #include "SoBrepEdgeSet.h"
 #include <Gui/SoFCUnifiedSelection.h>

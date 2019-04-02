@@ -22,6 +22,7 @@
 
 
 
+#include "stdexport.h"
 # include "FCConfig.h"
 # include <Inventor/nodes/SoCamera.h>
 # include <Inventor/nodes/SoCoordinate3.h>

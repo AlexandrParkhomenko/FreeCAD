@@ -25,6 +25,7 @@
 #ifndef PARTGUI_VIEWPROVIDERPARTSPLINE_H
 #define PARTGUI_VIEWPROVIDERPARTSPLINE_H
 
+#include "stdexport.h"
 #include "ViewProviderExt.h"
 
 namespace PartGui

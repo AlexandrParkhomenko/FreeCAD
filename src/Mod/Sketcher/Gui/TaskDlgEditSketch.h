@@ -24,6 +24,7 @@
 #ifndef SKETCHERGUI_TaskDlgEditSketch_H
 #define SKETCHERGUI_TaskDlgEditSketch_H
 
+#include "stdexport.h"
 #include <Gui/TaskView/TaskDialog.h>
 
 #include "ViewProviderSketch.h"

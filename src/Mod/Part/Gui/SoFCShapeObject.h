@@ -23,6 +23,7 @@
 #ifndef PARTGUI_SOFCSHAPEOBJECT_H
 #define PARTGUI_SOFCSHAPEOBJECT_H
 
+#include "stdexport.h"
 #include <Inventor/fields/SoSFUInt32.h>
 #include <Inventor/fields/SoSFColor.h>
 #include <Inventor/fields/SoSubField.h>

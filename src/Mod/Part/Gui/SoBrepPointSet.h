@@ -23,6 +23,7 @@
 #ifndef PARTGUI_SOBREPPOINTSET_H
 #define PARTGUI_SOBREPPOINTSET_H
 
+#include "stdexport.h"
 #include <Inventor/fields/SoSFInt32.h>
 #include <Inventor/fields/SoMFInt32.h>
 #include <Inventor/fields/SoSFNode.h>

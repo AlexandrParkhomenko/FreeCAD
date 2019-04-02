@@ -24,6 +24,7 @@
 #ifndef SKETCHERGUI_DrawSketchHandler_H
 #define SKETCHERGUI_DrawSketchHandler_H
 
+#include "stdexport.h"
 #include <Base/Tools2D.h>
 #include <Mod/Sketcher/App/Constraint.h>
 #include <Gui/Selection.h>

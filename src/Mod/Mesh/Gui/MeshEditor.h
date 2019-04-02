@@ -23,6 +23,7 @@
 #ifndef MESHGUI_MESHEDITOR_H
 #define MESHGUI_MESHEDITOR_H
 
+#include "stdexport.h"
 #include <QObject>
 #include <Mod/Mesh/Gui/ViewProvider.h>
 #include <boost/signals2.hpp>

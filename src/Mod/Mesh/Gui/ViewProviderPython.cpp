@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 
+#include "stdexport.h"
 #include "ViewProviderPython.h"
 
 namespace Gui {

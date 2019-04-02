@@ -28,15 +28,9 @@
 
 # include <algorithm>
 # include <climits>
-# ifdef FC_OS_MACOSX
-# include <OpenGL/gl.h>
-# include <OpenGL/glu.h>
-# include <OpenGL/glext.h>
-# else
 # include <GL/gl.h>
 # include <GL/glu.h>
 # include <GL/glext.h>
-# endif
 # include <Inventor/actions/SoGLRenderAction.h>
 # include <Inventor/bundles/SoMaterialBundle.h>
 # include <Inventor/elements/SoCoordinateElement.h>
@@ -47,7 +41,6 @@
 # include <Inventor/elements/SoProjectionMatrixElement.h>
 # include <Inventor/elements/SoViewingMatrixElement.h>
 # include <Inventor/errors/SoDebugError.h>
-#endif
 
 #include <Inventor/C/glue/gl.h>
 #include <Inventor/misc/SoContextHandler.h>

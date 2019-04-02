@@ -23,6 +23,7 @@
 #ifndef SKETCHERGUI_SODATUMLABEL_H
 #define SKETCHERGUI_SODATUMLABEL_H
 
+#include "stdexport.h"
 #include <Inventor/fields/SoSubField.h>
 #include <Inventor/nodes/SoSubNode.h>
 #include <Inventor/nodes/SoShape.h>

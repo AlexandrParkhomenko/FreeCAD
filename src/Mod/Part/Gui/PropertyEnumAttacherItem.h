@@ -24,6 +24,7 @@
 #ifndef PART_PropertyEnumAttacherItem_H
 #define PART_PropertyEnumAttacherItem_H
 
+#include "stdexport.h"
 #include <Gui/propertyeditor/PropertyItem.h>
 #include "TaskAttacher.h"
 

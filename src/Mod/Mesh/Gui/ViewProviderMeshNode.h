@@ -23,6 +23,7 @@
 #ifndef MESHGUI_VIEWPROVIDERMESHNODE_H
 #define MESHGUI_VIEWPROVIDERMESHNODE_H
 
+#include "stdexport.h"
 #include <Gui/ViewProviderGeometryObject.h>
 #include <Mod/Mesh/App/Core/Elements.h>
 

@@ -24,6 +24,7 @@
 #ifndef PARTGUI_VIEWPROVIDERTORUSPARAMETRIC_H
 #define PARTGUI_VIEWPROVIDERTORUSPARAMETRIC_H
 
+#include "stdexport.h"
 #include "ViewProvider.h"
 
 

@@ -21,7 +21,7 @@
  ***************************************************************************/
 
 
-
+#include "stdexport.h"
 #include <Standard_math.hxx>
 # include <Inventor/nodes/SoSeparator.h>
 #include <Gui/ViewProviderBuilder.h>

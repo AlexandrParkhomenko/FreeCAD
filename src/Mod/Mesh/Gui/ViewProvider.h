@@ -23,6 +23,7 @@
 #ifndef MESHGUI_VIEWPROVIDERMESH_H
 #define MESHGUI_VIEWPROVIDERMESH_H
 
+#include "stdexport.h"
 #include <vector>
 #include <Inventor/fields/SoSFVec2f.h>
 

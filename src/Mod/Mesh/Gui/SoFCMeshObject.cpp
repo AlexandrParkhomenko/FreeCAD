@@ -24,16 +24,8 @@
 
 # include <algorithm>
 # include <climits>
-# ifdef FC_OS_WIN32
-# include <windows.h>
-# endif
-# ifdef FC_OS_MACOSX
-# include <OpenGL/gl.h>
-# include <OpenGL/glu.h>
-# else
 # include <GL/gl.h>
 # include <GL/glu.h>
-# endif
 # include <Inventor/actions/SoCallbackAction.h>
 # include <Inventor/actions/SoGetBoundingBoxAction.h>
 # include <Inventor/actions/SoGetPrimitiveCountAction.h>
@@ -43,7 +35,6 @@
 # include <Inventor/details/SoFaceDetail.h>
 # include <Inventor/errors/SoReadError.h>
 # include <Inventor/misc/SoState.h>
-#endif
 
 #include "SoFCMeshObject.h"
 #include <Base/Console.h>
