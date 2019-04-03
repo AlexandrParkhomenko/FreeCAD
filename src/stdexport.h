@@ -1,6 +1,11 @@
+/*
+  Copyright (c) 2019 Alexandr Parkhomenko
+  GPLv2
+*/
+
 #ifndef STDEXPORT_H
 #define STDEXPORT_H
-#define Standard_EXPORT //__declspec(dllexport)
+#define Standard_EXPORT  //#OSDEPENDENT in WINDOWS __declspec(dllexport)
 #define BaseExport
 #define GuiExport
 #define AppExport
