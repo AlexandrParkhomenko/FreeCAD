@@ -21,8 +21,8 @@
  ***************************************************************************/
 
 
-#ifndef QUARTER_QTOPENGL_H
-#define QUARTER_QTOPENGL_H
+#ifndef QTOPENGL_H
+#define QTOPENGL_H
 
 /* QtOpenGL.h.  Generated from QtOpenGL.h.cmake by cmake.  */
 
@@ -60,4 +60,4 @@ typedef QGLFramebufferObjectFormat QtGLFramebufferObjectFormat;
 
 #endif // HAVE_QT5_OPENGL
 
-#endif //QUARTER_QTOPENGL_H
+#endif //QTOPENGL_H
