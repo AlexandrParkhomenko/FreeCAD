@@ -123,8 +123,6 @@ set(Gui_MOC_HDRS
     DlgUnitsCalculatorImp.h
     DlgCommandsImp.h
     DlgCustomizeImp.h
-    DlgCustomizeSpaceball.h
-    DlgCustomizeSpNavSettings.h
     DlgDisplayPropertiesImp.h
     DlgEditorImp.h
     DlgGeneralImp.h
@@ -167,7 +165,6 @@ set(Gui_MOC_HDRS
     GraphicsViewZoom.h
     GraphvizView.h
     GuiApplication.h
-    GuiApplicationNativeEventAware.h
     InputVector.h
     MainWindow.h
     ManualAlignment.h
@@ -231,7 +228,6 @@ SET(Gui_UIC_SRCS
     DlgAuthorization.ui
     DlgChooseIcon.ui
     DlgCommands.ui
-    DlgCustomizeSpNavSettings.ui
     DlgDisplayProperties.ui
     DlgEditor.ui
     DlgGeneral.ui
@@ -410,8 +406,6 @@ SET(Dialog_Customize_CPP_SRCS
     DlgActionsImp.cpp
     DlgCommandsImp.cpp
     DlgCustomizeImp.cpp
-    DlgCustomizeSpaceball.cpp
-    DlgCustomizeSpNavSettings.cpp
     DlgKeyboardImp.cpp
     DlgToolbarsImp.cpp
     DlgWorkbenchesImp.cpp
@@ -421,8 +415,6 @@ SET(Dialog_Customize_HPP_SRCS
     DlgActionsImp.h
     DlgCommandsImp.h
     DlgCustomizeImp.h
-    DlgCustomizeSpaceball.h
-    DlgCustomizeSpNavSettings.h
     DlgKeyboardImp.h
     DlgToolbarsImp.h
     DlgWorkbenchesImp.h
@@ -434,7 +426,6 @@ SET(Dialog_Customize_SRCS
     DlgActions.ui
     DlgChooseIcon.ui
     DlgCommands.ui
-    DlgCustomizeSpNavSettings.ui
     DlgKeyboard.ui
     DlgToolbars.ui
     DlgWorkbenches.ui
@@ -928,14 +919,12 @@ SET(FreeCADGui_CPP_SRCS
     GraphicsViewZoom.cpp
     ExpressionCompleter.cpp
     GuiApplication.cpp
-    GuiApplicationNativeEventAware.cpp
     GuiConsole.cpp
     Macro.cpp
     MergeDocuments.cpp
     Namespace.h
     resource.cpp
     Control.cpp
-    SpaceballEvent.cpp
     Thumbnail.cpp
     Utilities.cpp
     WaitCursor.cpp
@@ -955,7 +944,6 @@ SET(FreeCADGui_SRCS
     FreeCADGuiInit.py
     GraphicsViewZoom.h
     GuiApplication.h
-    GuiApplicationNativeEventAware.h
     GuiConsole.h
     InventorAll.h
     Macro.h
@@ -963,7 +951,6 @@ SET(FreeCADGui_SRCS
     MetaTypes.h
     Qt4All.h
     Control.h
-    SpaceballEvent.h
     Thumbnail.h
     Utilities.h
     WaitCursor.h
