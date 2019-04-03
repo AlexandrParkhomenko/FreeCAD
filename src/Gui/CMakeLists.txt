@@ -1019,7 +1019,7 @@ else(WIN32)
     INSTALL(TARGETS FreeCADGui
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     )
-    INSTALL(FILES Icons/freecad.xpm
+    INSTALL(FILES
         Icons/freecad-icon-16.png
         Icons/freecad-icon-32.png
         Icons/freecad-icon-48.png
