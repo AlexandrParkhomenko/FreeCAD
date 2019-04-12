@@ -47,35 +47,11 @@
 #include <App/Application.h>
 
 
-#if defined(FC_OS_WIN32)
-# include <windows.h>
-
-/** DllMain is called when DLL is loaded
- */
-BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
-{
-    switch (ul_reason_for_call) {
-    case DLL_PROCESS_ATTACH: {
-        // This name is preliminary, we pass it to Application::init() in initFreeCAD()
-        // which does the rest.
-        char  szFileName [MAX_PATH];
-        GetModuleFileNameA((HMODULE)hModule, szFileName, MAX_PATH-1);
-        App::Application::Config()["AppHomePath"] = szFileName;
-    }
-    break;
-    default:
-        break;
-    }
-
-    return true;
-}
-#elif defined(FC_OS_LINUX) || defined(FC_OS_BSD)
+#if defined(FC_OS_LINUX)
 # ifndef GNU_SOURCE
 #   define GNU_SOURCE
 # endif
 # include <dlfcn.h>
-#elif defined(FC_OS_CYGWIN)
-# include <windows.h>
 #endif
 
 PyMOD_INIT_FUNC(FreeCAD)

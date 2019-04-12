@@ -22,14 +22,7 @@
 
 
 
-# ifdef FC_OS_WIN32
-# include <windows.h>
-# endif
-# ifdef FC_OS_MACOSX
-# include <OpenGL/gl.h>
-# else
 # include <GL/gl.h>
-# endif
 # include <Inventor/SbBox.h>
 # include <Inventor/SoOutput.h>
 # include <Inventor/SoPrimitiveVertex.h>
@@ -44,7 +37,6 @@
 # include <Inventor/elements/SoLazyElement.h>
 # include <Inventor/elements/SoLightModelElement.h>
 # include <Inventor/misc/SoState.h>
-#endif
 
 #include <Gui/SoFCInteractiveElement.h>
 #include <Mod/Mesh/App/Core/Elements.h>

@@ -22,14 +22,7 @@
 
 
 
-# ifdef FC_OS_WIN32
-# include <windows.h>
-# endif
-# ifdef FC_OS_MACOSX
-# include <OpenGL/gl.h>
-# else
 # include <GL/gl.h>
-# endif
 # include <Inventor/SbBox.h>
 # include <Inventor/SoOutput.h>
 # include <Inventor/SoPrimitiveVertex.h>
@@ -51,7 +44,6 @@
 # include <Inventor/elements/SoLightModelElement.h>
 # include <Inventor/misc/SoState.h>
 # include <Inventor/errors/SoReadError.h>
-#endif
 
 #include <Inventor/caches/SoBoundingBoxCache.h>
 

@@ -22,14 +22,7 @@
 
 
 
-# ifdef FC_OS_WIN32
-# include <windows.h>
-# endif
-# ifdef FC_OS_MACOSX
-# include <OpenGL/gl.h>
-# else
 # include <GL/gl.h>
-# endif
 # include <Inventor/actions/SoCallbackAction.h>
 # include <Inventor/actions/SoGetBoundingBoxAction.h>
 # include <Inventor/actions/SoGetPrimitiveCountAction.h>
@@ -38,7 +31,6 @@
 # include <Inventor/actions/SoWriteAction.h>
 # include <Inventor/errors/SoReadError.h>
 # include <Inventor/misc/SoState.h>
-#endif
 
 #include "SoFCMeshVertex.h"
 
