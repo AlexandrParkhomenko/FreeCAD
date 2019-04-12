@@ -1,3 +1,4 @@
+
 /***************************************************************************
  *   Copyright (c) 2004 Juergen Riegel <juergen.riegel@web.de>             *
  *                                                                         *
@@ -28,6 +29,7 @@
 # include <sstream>
 # include <stdexcept>
 # include <iostream>
+#include <QApplication>
 # include <QCloseEvent>
 # include <QDir>
 # include <QFileInfo>
@@ -83,7 +85,6 @@
 #include "PythonConsolePy.h"
 #include "PythonDebugger.h"
 #include "View3DPy.h"
-#include "SpaceballEvent.h"
 #include "Control.h"
 #include "DocumentRecovery.h"
 #include "TransactionObject.h"
@@ -1566,7 +1567,8 @@ void Application::runApplication(void)
     Base::Console().Log("Init: Creating Gui::Application and QApplication\n");
     // if application not yet created by the splasher
     int argc = App::Application::GetARGC();
-    GUISingleApplication mainApp(argc, App::Application::GetARGV());
+//#    GUISingleApplication mainApp(argc, App::Application::GetARGV());
+    QApplication mainApp(argc, App::Application::GetARGV());
     // http://forum.freecadweb.org/viewtopic.php?f=3&t=15540
     mainApp.setAttribute(Qt::AA_DontShowIconsInMenus, false);
     mainApp.setAttribute(Qt::AA_UseDesktopOpenGL);
@@ -1581,7 +1583,7 @@ void Application::runApplication(void)
 
     // check if a single or multiple instances can run
     it = cfg.find("SingleInstance");
-    if (it != cfg.end() && mainApp.isRunning()) {
+    if (it != cfg.end()) { //#  && mainApp.isRunning()
         // send the file names to be opened to the server application so that this
         // opens them
         QDir cwd = QDir::current();
@@ -1598,10 +1600,10 @@ void Application::runApplication(void)
 
             QByteArray msg = fn.toUtf8();
             msg.prepend("OpenFile:");
-            if (!mainApp.sendMessage(msg)) {
-                qWarning("Failed to send message to server");
-                break;
-            }
+//#            if (!mainApp.sendMessage(msg)) {
+//#                qWarning("Failed to send message to server");
+//#                break;
+//#            }
         }
         return;
     }
@@ -1864,9 +1866,6 @@ void Application::runApplication(void)
     }
 #endif
 
-    //initialize spaceball.
-    mainApp.initSpaceball(&mw);
-
 #ifdef FC_DEBUG // redirect Coin messages to FreeCAD
     SoDebugError::setHandlerCallback( messageHandlerCoin, 0 );
 #endif
@@ -1897,8 +1896,8 @@ void Application::runApplication(void)
         mainApp.exec();
         // Qt can't handle exceptions thrown from event handlers, so we need
         // to manually rethrow SystemExitExceptions.
-        if(mainApp.caughtException.get())
-            throw Base::SystemExitException(*mainApp.caughtException.get());
+//#        if(mainApp.caughtException.get())
+//#            throw Base::SystemExitException(*mainApp.caughtException.get());
 
         // close the lock file, in case of a crash we can see the existing lock file
         // on the next restart and try to repair the documents, if needed.

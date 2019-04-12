@@ -108,7 +108,9 @@
 #include "MergeDocuments.h"
 #include "ViewProviderExtern.h"
 
+#ifdef HAVE_SPACENAV_LIB
 #include "SpaceballEvent.h"
+#endif
 #include "View3DInventor.h"
 #include "View3DInventorViewer.h"
 
@@ -569,6 +571,7 @@ bool MainWindow::event(QEvent *e)
             if (action) action->setIcon(QApplication::windowIcon());
         }
     }
+#ifdef HAVE_SPACENAV_LIB
     else if (e->type() == Spaceball::ButtonEvent::ButtonEventType) {
         Spaceball::ButtonEvent *buttonEvent = dynamic_cast<Spaceball::ButtonEvent *>(e);
         if (!buttonEvent)
@@ -612,6 +615,7 @@ bool MainWindow::event(QEvent *e)
         }
         return true;
     }
+#endif
     return QMainWindow::event(e);
 }
 

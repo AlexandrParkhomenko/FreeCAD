@@ -24,7 +24,6 @@
 #ifndef GUI_APPLICATION_H
 #define GUI_APPLICATION_H
 
-#include "GuiApplicationNativeEventAware.h"
 #include <Base/Interpreter.h> // For Base::SystemExitException
 #include <QList>
 #include <boost/shared_ptr.hpp>
@@ -33,21 +32,21 @@ class QSessionManager;
 
 namespace Gui
 {
-/** Override QCoreApplication::notify() to fetch exceptions in Qt widgets
- * properly that are not handled in the event handler or slot.
- */
-class GUIApplication : public GUIApplicationNativeEventAware
+ // Override QCoreApplication::notify() to fetch exceptions in Qt widgets
+ // properly that are not handled in the event handler or slot.
+/*
+class GUIApplication //# : public GUIApplicationNativeEventAware
 {
-    Q_OBJECT
+    //#Q_OBJECT
 
 public:
     explicit GUIApplication(int & argc, char ** argv);
     virtual ~GUIApplication();
 
-    /**
-     * Make forwarding events exception-safe and get more detailed information
-     * where an unhandled exception comes from.
-     */
+
+     // Make forwarding events exception-safe and get more detailed information
+     // where an unhandled exception comes from.
+
     bool notify (QObject * receiver, QEvent * event);
 
     /// Pointer to exceptions caught in Qt event handler
@@ -60,9 +59,9 @@ protected:
     bool event(QEvent * event);
 };
 
-class GUISingleApplication : public GUIApplication
+class GUISingleApplication //#: public GUIApplication
 {
-    Q_OBJECT
+    //# Q_OBJECT
 
 public:
     explicit GUISingleApplication(int & argc, char ** argv);
@@ -83,6 +82,7 @@ private:
     QScopedPointer<Private> d_ptr;
 };
 
+*/
 }
 
 #endif // GUI_APPLICATION_H

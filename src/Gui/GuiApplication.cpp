@@ -41,9 +41,10 @@
 # include <unistd.h>
 #endif
 
-#include "GuiApplication.h"
+//#include "GuiApplication.h"
+#include <QApplication>
+#define GUIApplication QApplication
 #include "Application.h"
-#include "SpaceballEvent.h"
 #include "MainWindow.h"
 
 #include <Base/Console.h>
@@ -52,9 +53,10 @@
 #include <App/Application.h>
 
 using namespace Gui;
-
-GUIApplication::GUIApplication(int & argc, char ** argv)
-    : GUIApplicationNativeEventAware(argc, argv)
+/*
+//#GUIApplication::
+GUIApplication(int & argc, char ** argv)
+//#    : GUIApplicationNativeEventAware(argc, argv)
 {
 #if QT_VERSION > 0x050000
     // In Qt 4.x 'commitData' is a virtual method
@@ -65,11 +67,9 @@ GUIApplication::GUIApplication(int & argc, char ** argv)
     setFallbackSessionManagementEnabled(false);
 #endif
 }
-
 GUIApplication::~GUIApplication()
 {
 }
-
 bool GUIApplication::notify (QObject * receiver, QEvent * event)
 {
     if (!receiver) {
@@ -78,10 +78,10 @@ bool GUIApplication::notify (QObject * receiver, QEvent * event)
         return false;
     }
     try {
-        if (event->type() == Spaceball::ButtonEvent::ButtonEventType || 
-            event->type() == Spaceball::MotionEvent::MotionEventType)
-            return processSpaceballEvent(receiver, event);
-        else
+//#        if (event->type() == Spaceball::ButtonEvent::ButtonEventType || 
+//#            event->type() == Spaceball::MotionEvent::MotionEventType)
+//#            return processSpaceballEvent(receiver, event);
+//#        else
             return QApplication::notify(receiver, event);
     }
     catch (const Base::SystemExitException &e) {
@@ -96,7 +96,7 @@ bool GUIApplication::notify (QObject * receiver, QEvent * event)
     catch (const std::exception& e) {
         Base::Console().Error("Unhandled std::exception caught in GUIApplication::notify.\n"
                               "The error message is: %s\n", e.what());
-    }
+    } 
     catch (...) {
         Base::Console().Error("Unhandled unknown exception caught in GUIApplication::notify.\n");
     }
@@ -159,11 +159,10 @@ bool GUIApplication::event(QEvent * ev)
         }
     }
 
-    return GUIApplicationNativeEventAware::event(ev);
+    return false; //#GUIApplicationNativeEventAware::event(ev);
 }
 
 // ----------------------------------------------------------------------------
-
 class GUISingleApplication::Private {
 public:
     Private(GUISingleApplication *q_ptr)
@@ -297,5 +296,5 @@ void GUISingleApplication::processMessages()
     d_ptr->messages.clear();
     Q_EMIT messageReceived(msg);
 }
-
+*/
 #include "moc_GuiApplication.cpp"

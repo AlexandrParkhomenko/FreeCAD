@@ -113,7 +113,9 @@
 #include "MainWindow.h"
 #include "NavigationStyle.h"
 #include "ViewProvider.h"
+#ifdef HAVE_SPACENAV_LIB
 #include "SpaceballEvent.h"
+#endif
 #include "GLPainter.h"
 #include <Quarter/eventhandlers/EventFilter.h>
 #include <Quarter/devices/InputDevice.h>
@@ -261,6 +263,7 @@ public:
         if (Base::Sequencer().isRunning() && Base::Sequencer().isBlocking())
             return false;
 
+#ifdef HAVE_SPACENAV_LIB
         if (event->type() == Spaceball::ButtonEvent::ButtonEventType) {
             Spaceball::ButtonEvent* buttonEvent = static_cast<Spaceball::ButtonEvent*>(event);
             if (!buttonEvent) {
@@ -275,11 +278,13 @@ public:
                 return true;
             }
         }
+#endif
 
         return false;
     }
 };
 
+#ifdef HAVE_SPACENAV_LIB
 class SpaceNavigatorDevice : public Quarter::InputDevice {
 public:
     SpaceNavigatorDevice(void) {}
@@ -317,7 +322,7 @@ public:
         return NULL;
     };
 };
-
+#endif
 /** \defgroup View3D 3D Viewer
  *  \ingroup GUI
  *
@@ -496,7 +501,9 @@ void View3DInventorViewer::init()
     //filter a few qt events
     viewerEventFilter = new ViewerEventFilter;
     installEventFilter(viewerEventFilter);
+#ifdef HAVE_SPACENAV_LIB
     getEventFilter()->registerInputDevice(new SpaceNavigatorDevice);
+#endif
     getEventFilter()->registerInputDevice(new GesturesDevice(this));
 
     this->winGestureTuneState = View3DInventorViewer::ewgtsDisabled;

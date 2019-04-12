@@ -63,8 +63,8 @@
 #include "DlgSettings3DViewPartImp.h"
 #include "Workbench.h"
 
-#include "Resources/icons/PartFeature.xpm"
-#include "Resources/icons/PartFeatureImport.xpm"
+//#include "Resources/icons/PartFeature.xpm"
+//#include "Resources/icons/PartFeatureImport.xpm"
 
 // use a different name to CreateCommand()
 void CreatePartCommands(void);
@@ -210,9 +210,9 @@ PyMOD_INIT_FUNC(PartGui)
     loadPartResource();
 
     // register bitmaps
-    Gui::BitmapFactoryInst& rclBmpFactory = Gui::BitmapFactory();
-    rclBmpFactory.addXPM("PartFeature",(const char**) PartFeature_xpm);
-    rclBmpFactory.addXPM("PartFeatureImport",(const char**) PartFeatureImport_xpm);
+//    Gui::BitmapFactoryInst& rclBmpFactory = Gui::BitmapFactory();
+//    rclBmpFactory.addXPM("PartFeature",(const char**) PartFeature_xpm);
+//    rclBmpFactory.addXPM("PartFeatureImport",(const char**) PartFeatureImport_xpm);
 
     PyMOD_Return(partGuiModule);
 }
