@@ -26,11 +26,6 @@
 #include <QApplication>
 #include <QIcon>
 #include <QThread>
-#if defined(Q_OS_WIN)
-#include <windows.h>
-#elif defined(Q_WS_X11)
-#include <QX11EmbedWidget>
-#endif
 // FreeCAD Base header
 #include <CXX/WrapPython.h>
 #include <Base/Exception.h>
@@ -171,53 +166,6 @@ FreeCADGui_setupWithoutGUI(PyObject * /*self*/, PyObject *args)
     return Py_None;
 }
 
-static PyObject *
-FreeCADGui_embedToWindow(PyObject * /*self*/, PyObject *args)
-{
-    char* pointer;
-    if (!PyArg_ParseTuple(args, "s", &pointer))
-        return NULL;
-
-    QWidget* widget = Gui::getMainWindow();
-    if (!widget) {
-        PyErr_SetString(Base::BaseExceptionFreeCADError, "No main window");
-        return 0;
-    }
-
-    std::string pointer_str = pointer;
-    std::stringstream str(pointer_str);
-
-#if defined(Q_OS_WIN)
-    void* window = 0;
-    str >> window;
-    HWND winid = (HWND)window;
-
-    LONG oldLong = GetWindowLong(winid, GWL_STYLE);
-    SetWindowLong(winid, GWL_STYLE,
-    oldLong | WS_CLIPCHILDREN | WS_CLIPSIBLINGS);
-    //SetWindowLong(widget->winId(), GWL_STYLE,
-    //    WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS);
-    SetParent((HWND)widget->winId(), winid);
-
-    QEvent embeddingEvent(QEvent::EmbeddingControl);
-    QApplication::sendEvent(widget, &embeddingEvent);
-#elif defined(Q_WS_X11)
-    WId winid;
-    str >> winid;
-
-    QX11EmbedWidget* x11 = new QX11EmbedWidget();
-    widget->setParent(x11);
-    x11->embedInto(winid);
-    x11->show();
-#else
-    PyErr_SetString(PyExc_NotImplementedError, "Not implemented for this platform");
-    return 0;
-#endif
-
-    Py_INCREF(Py_None);
-    return Py_None;
-}
-
 struct PyMethodDef FreeCADGui_methods[] = { 
     {"showMainWindow",FreeCADGui_showMainWindow,METH_VARARGS,
      "showMainWindow() -- Show the main window\n"
@@ -228,8 +176,6 @@ struct PyMethodDef FreeCADGui_methods[] = {
     {"setupWithoutGUI",FreeCADGui_setupWithoutGUI,METH_VARARGS,
      "setupWithoutGUI() -- Uses this module without starting\n"
      "an event loop or showing up any GUI\n"},
-    {"embedToWindow",FreeCADGui_embedToWindow,METH_VARARGS,
-     "embedToWindow() -- Embeds the main window into another window\n"},
     {NULL, NULL, 0, NULL}  /* sentinel */
 };
 
