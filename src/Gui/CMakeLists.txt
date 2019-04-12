@@ -949,7 +949,6 @@ SET(FreeCADGui_SRCS
     Macro.h
     MergeDocuments.h
     MetaTypes.h
-    Qt4All.h
     Control.h
     Thumbnail.h
     Utilities.h

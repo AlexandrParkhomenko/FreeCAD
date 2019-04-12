@@ -24,10 +24,8 @@
 #ifndef GUI_PROGRESSDIALOG_H
 #define GUI_PROGRESSDIALOG_H
 
-#ifndef __Qt4All__
-# include "Qt4All.h"
-#endif
-
+#include <QWidget>
+#include <QProgressDialog>
 #include <Base/Sequencer.h>
 
 namespace Gui {

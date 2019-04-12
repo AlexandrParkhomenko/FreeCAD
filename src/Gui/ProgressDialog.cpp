@@ -21,6 +21,13 @@
  ***************************************************************************/
 
 
+#include <qthread.h>
+#include <QApplication>
+#include <QTime>
+#include <QKeyEvent>
+#include <QMessageBox>
+//#include <QProgressBar>
+#include <QProgressDialog>
 
 #include "ProgressDialog.h"
 #include "MainWindow.h"
