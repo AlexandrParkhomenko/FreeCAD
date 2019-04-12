@@ -1406,15 +1406,6 @@ Py::Object PyResource::show(const Py::Tuple&)
     if (myDlg) {
         // small trick to get focus
         myDlg->showMinimized();
-
-#ifdef Q_WS_X11
-        // On X11 this may not work. For further information see QWidget::showMaximized
-        //
-        // workaround for X11
-        myDlg->hide();
-        myDlg->show();
-#endif
-
         myDlg->showNormal();
         myDlg->exec();
     }

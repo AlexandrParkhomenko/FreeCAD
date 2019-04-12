@@ -26,9 +26,7 @@
 
 # include <time.h>
 # include <stdio.h>
-#if defined(FC_OS_LINUX) || defined(FC_OS_MACOSX)
-#  include <unistd.h>
-#endif
+#  include <unistd.h> //LINUX
 # include "fcntl.h"
 
 #include "Console.h"

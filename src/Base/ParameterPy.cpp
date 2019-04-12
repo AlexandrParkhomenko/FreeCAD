@@ -37,9 +37,7 @@
 # include <list>
 
 #include <fcntl.h>
-#ifdef FC_OS_LINUX
-# include <unistd.h>
-#endif
+# include <unistd.h>  //LINUX
 
 #include "Parameter.h"
 #include "Exception.h"

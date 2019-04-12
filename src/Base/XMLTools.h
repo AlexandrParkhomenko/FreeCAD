@@ -76,12 +76,6 @@ inline StrX::StrX(const XMLCh* const toTranscode)
 {
     // Call the private transcoding method
     fLocalForm = XERCES_CPP_NAMESPACE_QUALIFIER XMLString::transcode(toTranscode);
-//#ifdef FC_OS_WIN32
-//    assert(0)
-//    WideCharToMultiByte(CP_UTF8,0,toTranscode,-1,fLocaleForm)
-//#else
-//    fUnicodeForm = XERCES_CPP_NAMESPACE_QUALIFIER XMLString::transcode(toTranscode);
-//#endif 
 }
 
 inline StrX::~StrX()

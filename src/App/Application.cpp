@@ -119,7 +119,7 @@ using namespace boost::program_options;
 #include <App/CMakeScript.h>
 
 // Ansi C/C++ new handler
-# include <new>
+#include <new>
 
 
 //using Base::GetConsole;
@@ -127,11 +127,7 @@ using namespace Base;
 using namespace App;
 using namespace std;
 
-#ifdef FC_OS_WIN32
-#   define PATHSEP '\\'
-#else
-#   define PATHSEP '/'
-#endif
+#define PATHSEP '/' //#define PATHSEP '\\'
 
 /** Observer that watches relabeled objects and make sure that the labels inside
  * a document are unique.
