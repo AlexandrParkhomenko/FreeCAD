@@ -40,7 +40,7 @@ include_directories(
         ${Qt5OpenGL_INCLUDE_DIRS}
         ${Qt5PrintSupport_INCLUDE_DIRS}
         ${Qt5Svg_INCLUDE_DIRS}
-        ${Qt5Network_INCLUDE_DIRS} # LocalSockets
+#       ${Qt5Network_INCLUDE_DIRS} # LocalSockets
         ${Qt5UiTools_INCLUDE_DIRS}
     )
     list(APPEND FreeCADGui_LIBS
@@ -50,7 +50,7 @@ include_directories(
         ${Qt5OpenGL_LIBRARIES}
         ${Qt5PrintSupport_LIBRARIES}
         ${Qt5Svg_LIBRARIES}
-        ${Qt5Network_LIBRARIES} # LocalSockets
+#       ${Qt5Network_LIBRARIES} # LocalSockets
         ${Qt5UiTools_LIBRARIES}
     )
 #    include_directories(

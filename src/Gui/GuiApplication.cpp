@@ -32,8 +32,8 @@
 # include <QSessionManager>
 # include <QTimer>
 
-#include <QLocalServer>
-#include <QLocalSocket>
+//#include <QLocalServer>
+//#include <QLocalSocket>
 
 #if defined(Q_OS_UNIX)
 # include <sys/types.h>

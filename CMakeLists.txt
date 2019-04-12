@@ -94,7 +94,7 @@ if(BUILD_GUI)
 find_package(
   Qt5 #5.12
   COMPONENTS
-  Core Network Xml
+  Core Xml # Network
   Widgets PrintSupport OpenGL Svg UiTools Concurrent
   REQUIRED
 )
