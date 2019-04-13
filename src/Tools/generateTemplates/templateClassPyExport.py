@@ -1131,8 +1131,6 @@ int @self.export.Name@::setCustomAttributes(const char* /*attr*/, PyObject* /*ob
 
 	# Here's the template for the user part of the implementation. This does NOT get overridden if it already exists.
 	TemplateImplement = """
-#include "PreCompiled.h"
-
 #include "@self.export.Include@"
 
 // inclusion of the generated files (generated out of @self.export.Name@.xml)

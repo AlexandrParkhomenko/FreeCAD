@@ -55,8 +55,6 @@ public:
 
 """
 	TemplateModule = """
-#include "PreCompiled.h"
-
 #include "@self.feature.Name@.h"
 
 using namespace @self.module.Name@;
@@ -72,9 +70,6 @@ PROPERTY_SOURCE(@self.module.Name@::@self.feature.Name@, App::Feature)
 """	
 	# Here's the template for the user part of the implementation. This does NOT get overwritten if it already exists.
 	TemplateImplement = """
-// 
-#include "PreCompiled.h"
-
 #include "@self.feature.Name@.h"
 
 using namespace @self.module.Name@;

@@ -22,10 +22,7 @@ class TemplateModuleAppMain (template.ModelTemplate):
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-# include "FCConfig.h"
-#endif
+#include "FCConfig.h"
 
 #include <Base/Console.h>
 

@@ -21,9 +21,6 @@
  ***************************************************************************/
 
 
-#ifdef _PreComp_
-#endif
-
 #include "KDTree.h"
 #include <kdtree++/kdtree.hpp>
 

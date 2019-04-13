@@ -25,18 +25,7 @@
 
 #include <FCConfig.h>
 
-#ifdef _PreComp_
-# undef _PreComp_
-#endif
-
-#if defined(FC_OS_LINUX) || defined(FC_OS_BSD)
-# include <unistd.h>
-#endif
-
-#ifdef FC_OS_MACOSX
-# include <mach-o/dyld.h>
-# include <string>
-#endif
+# include <unistd.h> // LINUX
 
 #include <stdio.h>
 #include <sstream>
@@ -65,18 +54,7 @@ PyMOD_INIT_FUNC(FreeCAD)
     char** argv;
     argv = (char**)malloc(sizeof(char*)* (argc+1));
 
-#if defined(FC_OS_WIN32)
-    argv[0] = (char*)malloc(MAX_PATH);
-    strncpy(argv[0],App::Application::Config()["AppHomePath"].c_str(),MAX_PATH);
-    argv[0][MAX_PATH-1] = '\0'; // ensure null termination
-#elif defined(FC_OS_CYGWIN)
-    HMODULE hModule = GetModuleHandle("FreeCAD.dll");
-    char szFileName [MAX_PATH];
-    GetModuleFileNameA(hModule, szFileName, MAX_PATH-1);
-    argv[0] = (char*)malloc(MAX_PATH);
-    strncpy(argv[0],szFileName,MAX_PATH);
-    argv[0][MAX_PATH-1] = '\0'; // ensure null termination
-#elif defined(FC_OS_LINUX) || defined(FC_OS_BSD)
+// LINUX
     putenv("LANG=C");
     putenv("LC_ALL=C");
     // get whole path of the library
@@ -95,9 +73,6 @@ PyMOD_INIT_FUNC(FreeCAD)
     argv[0][PATH_MAX-1] = '\0'; // ensure null termination
     // this is a workaround to avoid a crash in libuuid.so
 
-#else
-# error "Implement: Retrieve the path of the module for your platform."
-#endif
     argv[argc] = 0;
 
     try {
