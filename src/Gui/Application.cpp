@@ -1716,9 +1716,6 @@ void Application::runApplication(void)
         mw.setWindowTitle(mainApp.applicationName());
     }
 
-    QObject::connect(&mainApp, SIGNAL(messageReceived(const QList<QByteArray> &)),
-                     &mw, SLOT(processMessages(const QList<QByteArray> &)));
-
     ParameterGrp::handle hDocGrp = WindowParameter::getDefaultParameter()->GetGroup("Document");
     int timeout = hDocGrp->GetInt("AutoSaveTimeout", 15); // 15 min
     if (!hDocGrp->GetBool("AutoSaveEnabled", true))

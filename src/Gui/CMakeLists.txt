@@ -157,7 +157,6 @@ set(Gui_MOC_HDRS
     Flag.h
     GraphicsViewZoom.h
     GraphvizView.h
-    GuiApplication.h
     InputVector.h
     MainWindow.h
     ManualAlignment.h
@@ -911,7 +910,6 @@ SET(FreeCADGui_CPP_SRCS
     ExpressionBinding.cpp
     GraphicsViewZoom.cpp
     ExpressionCompleter.cpp
-    GuiApplication.cpp
     GuiConsole.cpp
     Macro.cpp
     MergeDocuments.cpp
@@ -936,7 +934,6 @@ SET(FreeCADGui_SRCS
     ExpressionCompleter.h
     FreeCADGuiInit.py
     GraphicsViewZoom.h
-    GuiApplication.h
     GuiConsole.h
     InventorAll.h
     Macro.h
