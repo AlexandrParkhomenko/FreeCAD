@@ -1,6 +1,4 @@
 include_directories(
-    ${CMAKE_BINARY_DIR}/src
-    ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
@@ -21,11 +19,6 @@ include_directories(
         ${Qt5Core_INCLUDE_DIRS}
     )
     list(APPEND FreeCADBase_LIBS ${Qt5Core_LIBRARIES})
-
-# needed for OpenSUSE
-if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
-    list(APPEND FreeCADBase_LIBS -lutil -ldl)
-endif()
 
 generate_from_xml(BaseClassPy)
 generate_from_xml(BoundBoxPy)
@@ -278,25 +271,7 @@ SET(FreeCADBase_SRCS
     PyTools.h
 )
 
-# Use external zipios++ if specified.
-if(FREECAD_USE_EXTERNAL_ZIPIOS)
-    find_library(ZIPIOS_LIBRARY zipios)
-    find_path(ZIPIOS_INCLUDES zipios++/zipios-config.h)
-    if(ZIPIOS_LIBRARY)
-        message(STATUS "Found zipios++: ${ZIPIOS}")
-    endif()
-    if(ZIPIOS_INCLUDES)
-        message(STATUS "Found zipios++ headers.")
-    endif()
-    if(ZIPIOS_LIBRARY AND ZIPIOS_INCLUDES)
-        list(APPEND FreeCADBase_LIBS ${ZIPIOS_LIBRARY})
-        include_directories(${ZIPIOS_INCLUDES})
-    else()
-        message(FATAL_ERROR "Using external zipios++ was specified but was not found.")
-    endif()
-else(FREECAD_USE_EXTERNAL_ZIPIOS)
-    list(APPEND FreeCADBase_SRCS ${zipios_SRCS})
-endif(FREECAD_USE_EXTERNAL_ZIPIOS)
+list(APPEND FreeCADBase_SRCS ${zipios_SRCS})
 
 add_library(FreeCADBase SHARED ${FreeCADBase_SRCS})
 
@@ -304,13 +279,6 @@ target_link_libraries(FreeCADBase ${FreeCADBase_LIBS})
 
 SET_BIN_DIR(FreeCADBase FreeCADBase)
 
-if(WIN32)
-    INSTALL(TARGETS FreeCADBase
-        RUNTIME DESTINATION bin
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    )
-else(WIN32)
-    INSTALL(TARGETS FreeCADBase
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    )
-endif(WIN32)
+INSTALL(TARGETS FreeCADBase
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)

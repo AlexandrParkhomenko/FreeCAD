@@ -141,12 +141,9 @@ MACRO(PYSIDE_WRAP_RC outfiles)
   GET_FILENAME_COMPONENT(outfile ${it} NAME_WE)
   GET_FILENAME_COMPONENT(infile ${it} ABSOLUTE)
   SET(outfile "${CMAKE_CURRENT_BINARY_DIR}/${outfile}_rc.py")
-    # Especially on Open Build Service we don't want changing date like
-    # pyside-rcc generates in comments at beginning, which is why
-    # we follow the tool command with in-place sed.
     ADD_CUSTOM_COMMAND(OUTPUT "${outfile}"
-      COMMAND "${PYSIDE2RCCBINARY}" "${infile}" ${PY_ATTRIBUTE} -o "${outfile}"
-      COMMAND sed -i "/^# /d" "${outfile}"
+      COMMAND "${PYSIDE2RCCBINARY}" "${infile}" -o "${outfile}"
+      COMMAND sed -i "/^# /d" "${outfile}" # delete pyside2-rcc header with comments and date
       MAIN_DEPENDENCY "${infile}"
     )
   list(APPEND ${outfiles} ${outfile})
