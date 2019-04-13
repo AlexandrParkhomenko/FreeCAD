@@ -39,7 +39,7 @@ class View3DInventorViewer;
  * @author Werner Mayer
  */
 #if 1
-class GuiExport Flag : public QtGLWidget
+class GuiExport Flag : public QOpenGLWidget
 {
     Q_OBJECT
 

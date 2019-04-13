@@ -298,7 +298,7 @@ SoStringLabel::SoStringLabel()
  */
 void SoStringLabel::GLRender(SoGLRenderAction *action)
 {
-    QtGLWidget* window;
+    QOpenGLWidget* window;
     SoState * state = action->getState();
     state->push();
     SoLazyElement::setLightModel(state, SoLazyElement::BASE_COLOR);
@@ -458,7 +458,7 @@ void SoFrameLabel::GLRender(SoGLRenderAction *action)
 {
     inherited::GLRender(action);
 #if 0
-    QtGLWidget* window;
+    QOpenGLWidget* window;
     SoState * state = action->getState();
     state->push();
     SoLazyElement::setLightModel(state, SoLazyElement::BASE_COLOR);

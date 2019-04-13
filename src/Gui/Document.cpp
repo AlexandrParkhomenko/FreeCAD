@@ -1091,11 +1091,11 @@ void Document::createView(const Base::Type& typeId)
 
     std::list<MDIView*> theViews = this->getMDIViewsOfType(typeId);
     if (typeId == View3DInventor::getClassTypeId()) {
-        QtGLWidget* shareWidget = 0;
+        QOpenGLWidget* shareWidget = 0;
         // VBO rendering doesn't work correctly when we don't share the OpenGL widgets
         if (!theViews.empty()) {
             View3DInventor* firstView = static_cast<View3DInventor*>(theViews.front());
-            shareWidget = qobject_cast<QtGLWidget*>(firstView->getViewer()->getGLWidget());
+            shareWidget = qobject_cast<QOpenGLWidget*>(firstView->getViewer()->getGLWidget());
         }
 
         View3DInventor* view3D = new View3DInventor(this, getMainWindow(), shareWidget);

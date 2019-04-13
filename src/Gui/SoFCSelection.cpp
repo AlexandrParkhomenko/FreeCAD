@@ -800,7 +800,7 @@ SoFCSelection::redrawHighlighted(SoAction *  action , SbBool  doHighlight )
     //void* window;
     //void* context;
     //void *display;
-    QtGLWidget* window;
+    QOpenGLWidget* window;
     SoGLRenderAction *glAction;
     //SoWindowElement::get(state, window, context, display, glAction);
     SoGLWidgetElement::get(state, window);

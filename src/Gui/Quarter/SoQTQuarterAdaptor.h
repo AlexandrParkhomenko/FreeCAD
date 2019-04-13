@@ -47,9 +47,9 @@ typedef void SoQTQuarterAdaptorCB(void* data, SoQTQuarterAdaptor* viewer);
 class QUARTER_DLL_API SoQTQuarterAdaptor :  public QuarterWidget {
 
 public:
-    explicit SoQTQuarterAdaptor(QWidget* parent = 0, const QtGLWidget* sharewidget = 0, Qt::WindowFlags f = 0);
-    explicit SoQTQuarterAdaptor(const QtGLFormat& format, QWidget* parent = 0, const QtGLWidget* shareWidget = 0, Qt::WindowFlags f = 0);
-    explicit SoQTQuarterAdaptor(QtGLContext* context, QWidget* parent = 0, const QtGLWidget* sharewidget = 0, Qt::WindowFlags f = 0);
+    explicit SoQTQuarterAdaptor(QWidget* parent = 0, const QOpenGLWidget* sharewidget = 0, Qt::WindowFlags f = 0);
+    explicit SoQTQuarterAdaptor(const QSurfaceFormat& format, QWidget* parent = 0, const QOpenGLWidget* shareWidget = 0, Qt::WindowFlags f = 0);
+    explicit SoQTQuarterAdaptor(QOpenGLContext* context, QWidget* parent = 0, const QOpenGLWidget* sharewidget = 0, Qt::WindowFlags f = 0);
     virtual ~SoQTQuarterAdaptor();
 
     //the functions available in soqtviewer but missing in quarter

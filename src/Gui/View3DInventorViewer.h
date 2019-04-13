@@ -127,8 +127,8 @@ public:
     };
     //@}
 
-    View3DInventorViewer (QWidget *parent, const QtGLWidget* sharewidget = 0);
-    View3DInventorViewer (const QtGLFormat& format, QWidget *parent, const QtGLWidget* sharewidget = 0);
+    View3DInventorViewer (QWidget *parent, const QOpenGLWidget* sharewidget = 0);
+    View3DInventorViewer (const QSurfaceFormat& format, QWidget *parent, const QOpenGLWidget* sharewidget = 0);
     virtual ~View3DInventorViewer();
     
     void init();
@@ -163,7 +163,7 @@ public:
     static int getNumSamples();
     void setRenderType(const RenderType type);
     RenderType getRenderType() const;
-    void renderToFramebuffer(QtGLFramebufferObject*);
+    void renderToFramebuffer(QOpenGLFramebufferObject*);
     QImage grabFramebuffer();
     void imageFromFramebuffer(int width, int height, int samples,
                               const QColor& bgcolor, QImage& img);
@@ -421,7 +421,7 @@ private:
     SoFCUnifiedSelection* selectionRoot;
 
     RenderType renderType;
-    QtGLFramebufferObject* framebuffer;
+    QOpenGLFramebufferObject* framebuffer;
     QImage glImage;
     SbBool shading;
     SoSwitch *dimensionRoot;

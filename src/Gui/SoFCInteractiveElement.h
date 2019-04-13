@@ -71,14 +71,14 @@ public:
   virtual SbBool matches(const SoElement * element) const;
   virtual SoElement * copyMatchInfo(void) const;
 
-  static  void set(SoState * state, QtGLWidget * window);
-  static  void get(SoState * state, QtGLWidget *& window);
+  static  void set(SoState * state, QOpenGLWidget * window);
+  static  void get(SoState * state, QOpenGLWidget *& window);
 
 protected:
   virtual ~SoGLWidgetElement();
 
 protected:
-  QtGLWidget * window;
+  QOpenGLWidget * window;
 };
 
 class GuiExport SoGLRenderActionElement : public SoElement {
@@ -115,7 +115,7 @@ public:
     static void initClass(void);
     SoGLWidgetNode(void);
 
-    QtGLWidget * window;
+    QOpenGLWidget * window;
 
     virtual void doAction(SoAction * action);
     virtual void GLRender(SoGLRenderAction * action);

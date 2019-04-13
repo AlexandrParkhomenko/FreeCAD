@@ -65,7 +65,7 @@ public:
     //@}
 
 private:
-    QtGLWidget* viewer;
+    QOpenGLWidget* viewer;
     GLfloat depthrange[2];
     GLdouble projectionmatrix[16];
     GLint width, height;

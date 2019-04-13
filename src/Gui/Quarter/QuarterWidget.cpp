@@ -221,7 +221,7 @@ public:
 };
 
 /*! constructor */
-QuarterWidget::QuarterWidget(const QtGLFormat & format, QWidget * parent, const QtGLWidget * sharewidget, Qt::WindowFlags f)
+QuarterWidget::QuarterWidget(const QSurfaceFormat & format, QWidget * parent, const QOpenGLWidget * sharewidget, Qt::WindowFlags f)
   : inherited(parent)
 {
   Q_UNUSED(f); 
@@ -229,15 +229,15 @@ QuarterWidget::QuarterWidget(const QtGLFormat & format, QWidget * parent, const 
 }
 
 /*! constructor */
-QuarterWidget::QuarterWidget(QWidget * parent, const QtGLWidget * sharewidget, Qt::WindowFlags f)
+QuarterWidget::QuarterWidget(QWidget * parent, const QOpenGLWidget * sharewidget, Qt::WindowFlags f)
   : inherited(parent)
 {
   Q_UNUSED(f); 
-  this->constructor(QtGLFormat(), sharewidget);
+  this->constructor(QSurfaceFormat(), sharewidget);
 }
 
 /*! constructor */
-QuarterWidget::QuarterWidget(QtGLContext * context, QWidget * parent, const QtGLWidget * sharewidget, Qt::WindowFlags f)
+QuarterWidget::QuarterWidget(QOpenGLContext * context, QWidget * parent, const QOpenGLWidget * sharewidget, Qt::WindowFlags f)
   : inherited(parent)
 {
   Q_UNUSED(f); 
@@ -245,7 +245,7 @@ QuarterWidget::QuarterWidget(QtGLContext * context, QWidget * parent, const QtGL
 }
 
 void
-QuarterWidget::constructor(const QtGLFormat & format, const QtGLWidget * sharewidget)
+QuarterWidget::constructor(const QSurfaceFormat & format, const QOpenGLWidget * sharewidget)
 {
   QGraphicsScene* scene = new QGraphicsScene;
   setScene(scene);
@@ -854,7 +854,7 @@ void QuarterWidget::paintEvent(QPaintEvent* event)
 
     glMatrixMode(GL_PROJECTION);
 
-    QtGLWidget* w = static_cast<QtGLWidget*>(this->viewport());
+    QOpenGLWidget* w = static_cast<QOpenGLWidget*>(this->viewport());
     assert(w->isValid() && "No valid GL context found!");
     // We might have to process the delay queue here since we don't know
     // if paintGL() is called from Qt, and we might have some sensors

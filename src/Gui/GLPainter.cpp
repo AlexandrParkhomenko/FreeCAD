@@ -54,7 +54,7 @@ bool GLPainter::begin(QPaintDevice * device)
     if (viewer)
         return false;
 
-    viewer = dynamic_cast<QtGLWidget*>(device);
+    viewer = dynamic_cast<QOpenGLWidget*>(device);
     if (!viewer)
         return false;
 

@@ -346,7 +346,7 @@ public:
         bool smoothing = false;
         bool glformat = false;
         int samples = View3DInventorViewer::getNumSamples();
-        QtGLFormat f;
+        QSurfaceFormat f;
 
         if (samples > 1) {
             glformat = true;

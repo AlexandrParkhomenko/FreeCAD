@@ -180,12 +180,12 @@ private:
 
 	void setHilite(int);
 
-	void initNaviCube(QtGLWidget*);
+	void initNaviCube(QOpenGLWidget*);
 	void addFace(const Vector3f&, const Vector3f&, int, int, int, int,bool flag=false);
 
-	GLuint createCubeFaceTex(QtGLWidget*, float, float, const char*);
-	GLuint createButtonTex(QtGLWidget*, int);
-	GLuint createMenuTex(QtGLWidget*, bool);
+	GLuint createCubeFaceTex(QOpenGLWidget*, float, float, const char*);
+	GLuint createButtonTex(QOpenGLWidget*, int);
+	GLuint createMenuTex(QOpenGLWidget*, bool);
 
 	void setView(float ,float );
 	void rotateView(int ,float );
@@ -243,7 +243,7 @@ public:
 	bool m_MightDrag = false;
     NaviCube::Corner m_Corner = NaviCube::TopRightCorner;
 
-	QtGLFramebufferObject* m_PickingFramebuffer;
+	QOpenGLFramebufferObject* m_PickingFramebuffer;
 
 	bool m_NaviCubeInitialised = false;
 
@@ -344,7 +344,7 @@ char* NaviCubeImplementation::enum2str(int e) {
 	}
 }
 
-GLuint NaviCubeImplementation::createCubeFaceTex(QtGLWidget* gl, float gap, float radius, const char* text) {
+GLuint NaviCubeImplementation::createCubeFaceTex(QOpenGLWidget* gl, float gap, float radius, const char* text) {
 	int texSize = m_CubeWidgetSize * m_OverSample;
 	int gapi = texSize * gap;
 	int radiusi = texSize * radius;
@@ -376,7 +376,7 @@ GLuint NaviCubeImplementation::createCubeFaceTex(QtGLWidget* gl, float gap, floa
 }
 
 
-GLuint NaviCubeImplementation::createButtonTex(QtGLWidget* gl, int button) {
+GLuint NaviCubeImplementation::createButtonTex(QOpenGLWidget* gl, int button) {
 	int texSize = m_CubeWidgetSize * m_OverSample;
 	QImage image(texSize, texSize, QImage::Format_ARGB32);
 	image.fill(qRgba(255, 255, 255, 0));
@@ -475,7 +475,7 @@ GLuint NaviCubeImplementation::createButtonTex(QtGLWidget* gl, int button) {
     return texture->textureId();
 }
 
-GLuint NaviCubeImplementation::createMenuTex(QtGLWidget* gl, bool forPicking) {
+GLuint NaviCubeImplementation::createMenuTex(QOpenGLWidget* gl, bool forPicking) {
 	int texSize = m_CubeWidgetSize * m_OverSample;
 	QImage image(texSize, texSize, QImage::Format_ARGB32);
 	image.fill(qRgba(0, 0, 0, 0));
@@ -610,7 +610,7 @@ void NaviCubeImplementation::addFace(const Vector3f& x, const Vector3f& z, int f
 		m_IndexArray.push_back(t + 4 - 1 - i);
 }
 
-void NaviCubeImplementation::initNaviCube(QtGLWidget* gl) {
+void NaviCubeImplementation::initNaviCube(QOpenGLWidget* gl) {
 	Vector3f x(1, 0, 0);
 	Vector3f y(0, 1, 0);
 	Vector3f z(0, 0, 1);
@@ -739,7 +739,7 @@ void NaviCubeImplementation::initNaviCube(QtGLWidget* gl) {
 	m_Buttons.push_back(TEX_ARROW_LEFT);
 	m_Buttons.push_back(TEX_ARROW_RIGHT);
 
-	m_PickingFramebuffer = new QtGLFramebufferObject(2*m_CubeWidgetSize,2* m_CubeWidgetSize, QtGLFramebufferObject::CombinedDepthStencil);
+	m_PickingFramebuffer = new QOpenGLFramebufferObject(2*m_CubeWidgetSize,2* m_CubeWidgetSize, QOpenGLFramebufferObject::CombinedDepthStencil);
 }
 
 void NaviCubeImplementation::drawNaviCube() {
@@ -800,7 +800,7 @@ void NaviCubeImplementation::drawNaviCube(bool pickMode) {
 	// initializes stuff here when we actually have a context
     // FIXME actually now that we have Qt5, we could probably do this earlier (as we do not need the opengl context)
 	if (!m_NaviCubeInitialised) {
-		QtGLWidget* gl = static_cast<QtGLWidget*>(m_View3DInventorViewer->viewport());
+		QOpenGLWidget* gl = static_cast<QOpenGLWidget*>(m_View3DInventorViewer->viewport());
 		if (gl == NULL)
 			return;
 		initNaviCube(gl);

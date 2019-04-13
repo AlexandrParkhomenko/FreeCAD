@@ -39,7 +39,7 @@ using namespace Gui;
 //       Embed complete widgets
 
 Flag::Flag(QWidget* parent)
-  : QtGLWidget(parent), coord(0.0f, 0.0f, 0.0f)
+  : QOpenGLWidget(parent), coord(0.0f, 0.0f, 0.0f)
 {
     this->setFixedHeight(20);
     setAutoFillBackground(true);
@@ -122,7 +122,7 @@ void Flag::setText(const QString& t)
 
 void Flag::resizeEvent(QResizeEvent* e)
 {
-    QtGLWidget::resizeEvent(e);
+    QOpenGLWidget::resizeEvent(e);
 }
 
 void Flag::mouseMoveEvent(QMouseEvent *e)
