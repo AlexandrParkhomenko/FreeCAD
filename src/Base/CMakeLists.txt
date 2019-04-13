@@ -19,6 +19,10 @@ include_directories(
         ${Qt5Core_INCLUDE_DIRS}
     )
     list(APPEND FreeCADBase_LIBS ${Qt5Core_LIBRARIES})
+    
+if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux") #OSDEPENDENT
+    list(APPEND FreeCADBase_LIBS -lutil -ldl)
+endif()
 
 generate_from_xml(BaseClassPy)
 generate_from_xml(BoundBoxPy)

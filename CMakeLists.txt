@@ -12,7 +12,6 @@ include(AddFileDependencies)
 include(${CMAKE_SOURCE_DIR}/Macros.cmake)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
-add_subdirectory(src)
 
 # Output directories for install target
 SET(CMAKE_INSTALL_PREFIX "/usr/lib/freecad" CACHE PATH "Installation root directory")
@@ -149,3 +148,7 @@ MACRO(PYSIDE_WRAP_RC outfiles)
   list(APPEND ${outfiles} ${outfile})
   ENDFOREACH(it)
 ENDMACRO (PYSIDE_WRAP_RC)
+
+
+add_subdirectory(src)
+

@@ -26,8 +26,6 @@
 # include <QTextStream>
 # include <QMetaType>
 
-#define HAVE_SHIBOKEN2
-#define HAVE_PYSIDE2
 // Uncomment this block to remove PySide C++ support and switch to its Python interface
 //#undef HAVE_SHIBOKEN
 //#undef HAVE_PYSIDE
