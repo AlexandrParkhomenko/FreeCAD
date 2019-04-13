@@ -43,10 +43,6 @@
 # include <QStatusBar>
 # include <QTimer>
 # include <QToolBar>
-#if QT_VERSION >= 0x050000
-# include <QUrlQuery>
-#endif
-//# include <QWhatsThis>
 
 #include <boost/bind.hpp>
 
@@ -65,8 +61,6 @@
 
 #include "MainWindow.h"
 #include "Application.h"
-//#include "Assistant.h"
-//#include "DownloadManager.h"
 #include "WaitCursor.h"
 
 #include "Action.h"
@@ -85,13 +79,11 @@
 
 #include "WidgetFactory.h"
 #include "BitmapFactory.h"
-//#include "Splashscreen.h"
 
 #include "Tree.h"
 #include "PropertyView.h"
 #include "SelectionView.h"
 #include "MenuManager.h"
-//#include "ToolBox.h"
 #include "ReportView.h"
 #include "CombiView.h"
 #include "PythonConsole.h"
@@ -101,24 +93,14 @@
 #include "DlgUndoRedo.h"
 #include "DlgOnlineHelpImp.h"
 
-//#include "Language/Translator.h"
 #include "GuiInitScript.h"
 
 #include "Document.h"
 #include "MergeDocuments.h"
 #include "ViewProviderExtern.h"
 
-#ifdef HAVE_SPACENAV_LIB
-#include "SpaceballEvent.h"
-#endif
 #include "View3DInventor.h"
 #include "View3DInventorViewer.h"
-
-#if defined(Q_OS_WIN32)
-#define slots
-//#include <private/qmainwindowlayout_p.h>
-//#include <private/qwidgetresizehandler_p.h>
-#endif
 
 using namespace Gui;
 using namespace Gui::DockWnd;
@@ -140,12 +122,9 @@ struct MainWindowP
     QMdiArea* mdiArea;
     QPointer<MDIView> activeView;
     QSignalMapper* windowMapper;
-//#    QSplashScreen* splashscreen;
     StatusBarObserver* status;
-//#    bool whatsthis;
     QString whatstext;
-//#    Assistant* assistant;
-    QMap<QString, QPointer<UrlHandler> > urlHandler;
+    //#    QMap<QString, QPointer<UrlHandler> > urlHandler;
 };
 
 class MDITabbar : public QTabBar
@@ -155,10 +134,8 @@ public:
     {
         menu = new QMenu(this);
         // For Qt 4.2.x the tabs might be very wide
-#if QT_VERSION >= 0x040200
         setDrawBase(false);
         setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
-#endif
     }
 
     ~MDITabbar()
@@ -241,10 +218,7 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
   : QMainWindow( parent, f/*WDestructiveClose*/ )
 {
     d = new MainWindowP;
-//    d->splashscreen = 0;
     d->activeView = 0;
-//#    d->whatsthis = false;
-//#    d->assistant = new Assistant();
 
     // global access 
     instance = this;
@@ -256,11 +230,6 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
     d->mdiArea->setViewMode(QMdiArea::TabbedView);
     QTabBar* tab = d->mdiArea->findChild<QTabBar*>();
     if (tab) {
-        // 0000636: Two documents close
-#if QT_VERSION < 0x040800
-        connect(tab, SIGNAL(tabCloseRequested(int)),
-                this, SLOT(tabCloseRequested(int)));
-#endif
         tab->setTabsClosable(true);
         // The tabs might be very wide
         tab->setExpanding(false);
@@ -317,18 +286,6 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
     std::map<std::string, std::string>::const_iterator ht = config.find("HiddenDockWindow");
     if (ht != config.end())
         hiddenDockWindows = ht->second;
-
-    // Show all dockable windows over the workbench facility
-    //
-#if 0
-    // Toolbox
-    if (hiddenDockWindows.find("Std_ToolBox") == std::string::npos) {
-        ToolBox* toolBox = new ToolBox(this);
-        toolBox->setObjectName(QT_TRANSLATE_NOOP("QDockWidget","Toolbox"));
-        pDockMgr->registerDockWindow("Std_ToolBox", toolBox);
-        ToolBoxManager::getInstance()->setToolBox( toolBox );
-    }
-#endif
 
     // Tree view
     if (hiddenDockWindows.find("Std_TreeView") == std::string::npos) {
@@ -542,22 +499,8 @@ void MainWindow::activateWorkbench(const QString& name)
     workbenchActivated(name);
 }
 
-//#void MainWindow::whatsThis()
-//#{
-//#    QWhatsThis::enterWhatsThisMode();
-//#}
-
-void MainWindow::showDocumentation(const QString& help)
+void MainWindow::showDocumentation(const QString& /*help*/)
 {
-    QUrl url(help);
-    if (url.scheme().isEmpty()) {
-        QString page;
-        page = QString::fromUtf8("%1.html").arg(help);
-//        d->assistant->showDocumentation(page);
-    }
-    else {
-        QDesktopServices::openUrl(url);
-    }
 }
 
 bool MainWindow::event(QEvent *e)
@@ -571,51 +514,6 @@ bool MainWindow::event(QEvent *e)
             if (action) action->setIcon(QApplication::windowIcon());
         }
     }
-#ifdef HAVE_SPACENAV_LIB
-    else if (e->type() == Spaceball::ButtonEvent::ButtonEventType) {
-        Spaceball::ButtonEvent *buttonEvent = dynamic_cast<Spaceball::ButtonEvent *>(e);
-        if (!buttonEvent)
-            return true;
-        buttonEvent->setHandled(true);
-        //only going to respond to button press events.
-        if (buttonEvent->buttonStatus() != Spaceball::BUTTON_PRESSED)
-            return true;
-        ParameterGrp::handle group = App::GetApplication().GetUserParameter().GetGroup("BaseApp")->
-                GetGroup("Spaceball")->GetGroup("Buttons");
-        QByteArray groupName(QVariant(buttonEvent->buttonNumber()).toByteArray());
-        if (group->HasGroup(groupName.data())) {
-            ParameterGrp::handle commandGroup = group->GetGroup(groupName.data());
-            std::string commandName(commandGroup->GetASCII("Command"));
-            if (commandName.empty())
-                return true;
-            else
-                Application::Instance->commandManager().runCommandByName(commandName.c_str());
-        }
-        else
-            return true;
-    }
-    else if (e->type() == Spaceball::MotionEvent::MotionEventType) {
-        Spaceball::MotionEvent *motionEvent = dynamic_cast<Spaceball::MotionEvent *>(e);
-        if (!motionEvent)
-            return true;
-        motionEvent->setHandled(true);
-        Gui::Document *doc = Application::Instance->activeDocument();
-        if (!doc)
-            return true;
-        View3DInventor *temp = dynamic_cast<View3DInventor *>(doc->getActiveView());
-        if (!temp)
-            return true;
-        View3DInventorViewer *view = temp->getViewer();
-        if (!view)
-            return true;
-        QWidget *viewWidget = view->getGLWidget();
-        if (viewWidget) {
-            Spaceball::MotionEvent anotherEvent(*motionEvent);
-            qApp->sendEvent(viewWidget, &anotherEvent);
-        }
-        return true;
-    }
-#endif
     return QMainWindow::event(e);
 }
 
@@ -1118,37 +1016,12 @@ void MainWindow::saveWindowSettings()
  */
 void MainWindow::dropEvent (QDropEvent* e)
 {
-    const QMimeData* data = e->mimeData();
-    if (data->hasUrls()) {
-        // load the files into the active document if there is one, otherwise let create one
-        loadUrls(App::GetApplication().getActiveDocument(), data->urls());
-    }
-    else {
-        QMainWindow::dropEvent(e);
-    }
+	QMainWindow::dropEvent(e);
 }
 
 void MainWindow::dragEnterEvent (QDragEnterEvent * e)
 {
-    // Here we must allow uri drafs and check them in dropEvent
-    const QMimeData* data = e->mimeData();
-    if (data->hasUrls()) {
-#if 0
-#ifdef QT_NO_OPENSSL
-        QList<QUrl> urls = data->urls();
-        for (QList<QUrl>::ConstIterator it = urls.begin(); it != urls.end(); ++it) {
-            if (it->scheme().toLower() == QLatin1String("https")) {
-                e->ignore();
-                return;
-            }
-        }
-#endif
-#endif
-        e->accept();
-    }
-    else {
-        e->ignore();
-    }
+	e->ignore();
 }
 
 QMimeData * MainWindow::createMimeDataFromSelection () const
@@ -1251,7 +1124,7 @@ bool MainWindow::canInsertFromMimeData (const QMimeData * source) const
 {
     if (!source)
         return false;
-    return source->hasUrls() ||
+    return
         source->hasFormat(QLatin1String("application/x-documentobject")) ||
         source->hasFormat(QLatin1String("application/x-documentobject-file"));
 }
@@ -1298,86 +1171,18 @@ void MainWindow::insertFromMimeData (const QMimeData * mimeData)
         }
         doc->commitTransaction();
     }
-    else if (mimeData->hasUrls()) {
-        // load the files into the active document if there is one, otherwise let create one
-        loadUrls(App::GetApplication().getActiveDocument(), mimeData->urls());
-    }
 }
 
-void MainWindow::setUrlHandler(const QString &scheme, Gui::UrlHandler* handler)
+void MainWindow::setUrlHandler(const QString & /*scheme*/, Gui::UrlHandler* /*handler*/)
 {
-    d->urlHandler[scheme] = handler;
 }
 
-void MainWindow::unsetUrlHandler(const QString &scheme)
+void MainWindow::unsetUrlHandler(const QString & /*scheme*/)
 {
-    d->urlHandler.remove(scheme);
 }
 
-void MainWindow::loadUrls(App::Document* doc, const QList<QUrl>& url)
+void MainWindow::loadUrls(App::Document* /*doc*/, const QList<QUrl>& /*url*/)
 {
-    QStringList files;
-    for (QList<QUrl>::ConstIterator it = url.begin(); it != url.end(); ++it) {
-        QMap<QString, QPointer<UrlHandler> >::iterator jt = d->urlHandler.find(it->scheme());
-        if (jt != d->urlHandler.end() && !jt->isNull()) {
-            // delegate the loading to the url handler
-            (*jt)->openUrl(doc, *it);
-            continue;
-        }
-
-        QFileInfo info((*it).toLocalFile());
-        if (info.exists() && info.isFile()) {
-            if (info.isSymLink())
-                info.setFile(info.readLink());
-            std::vector<std::string> module = App::GetApplication()
-                .getImportModules(info.completeSuffix().toLatin1());
-            if (module.empty()) {
-                module = App::GetApplication()
-                    .getImportModules(info.suffix().toLatin1());
-            }
-            if (!module.empty()) {
-                // ok, we support files with this extension
-                files << info.absoluteFilePath();
-            }
-            else {
-                Base::Console().Message("No support to load file '%s'\n",
-                    (const char*)info.absoluteFilePath().toUtf8());
-            }
-        }/*
-        else if (it->scheme().toLower() == QLatin1String("http")) {
-            Gui::Dialog::DownloadManager* dm = Gui::Dialog::DownloadManager::getInstance();
-            dm->download(dm->redirectUrl(*it));
-        }
-//#ifndef QT_NO_OPENSSL
-        else if (it->scheme().toLower() == QLatin1String("https")) {
-            QUrl url = *it;
-#if QT_VERSION >= 0x050000
-            QUrlQuery urlq(url);
-            if (urlq.hasQueryItem(QLatin1String("sid"))) {
-                urlq.removeAllQueryItems(QLatin1String("sid"));
-                url.setQuery(urlq);
-#else
-            if (it->hasEncodedQueryItem(QByteArray("sid"))) {
-                url.removeEncodedQueryItem(QByteArray("sid"));
-#endif
-                url.setScheme(QLatin1String("http"));
-            }
-            Gui::Dialog::DownloadManager* dm = Gui::Dialog::DownloadManager::getInstance();
-            dm->download(dm->redirectUrl(url));
-        }
-//#endif
-        else if (it->scheme().toLower() == QLatin1String("ftp")) {
-            Gui::Dialog::DownloadManager::getInstance()->download(*it);
-        }
-*/
-    }
-    QByteArray docName = doc ? QByteArray(doc->getName()) : qApp->translate("StdCmdNew","Unnamed").toUtf8();
-    SelectModule::Dict dict = SelectModule::importHandler(files);
-    // load the files with the associated modules
-    for (SelectModule::Dict::iterator it = dict.begin(); it != dict.end(); ++it) {
-        // if the passed document name doesn't exist the module should create it, if needed
-        Application::Instance->importFrom(it.key().toUtf8(), docName, it.value().toLatin1());
-    }
 }
 
 void MainWindow::changeEvent(QEvent *e)
@@ -1415,16 +1220,13 @@ void MainWindow::showMessage (const QString& message, int timeout)
 {
     QFontMetrics fm(statusBar()->font());
     QString msg = fm.elidedText(message, Qt::ElideMiddle, this->d->actionLabel->width());
-#if QT_VERSION <= 0x040600
-    this->statusBar()->showMessage(msg, timeout);
-#else
+
     //#0000665: There is a crash under Ubuntu 12.04 (Qt 4.8.1)
     QMetaObject::invokeMethod(statusBar(), "showMessage",
         Qt::QueuedConnection,
         QGenericReturnArgument(),
         Q_ARG(QString,msg),
         Q_ARG(int, timeout));
-#endif
 }
 
 // -------------------------------------------------------------

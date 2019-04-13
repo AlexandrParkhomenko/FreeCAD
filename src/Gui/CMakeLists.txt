@@ -53,13 +53,6 @@ include_directories(
 #       ${Qt5Network_LIBRARIES} # LocalSockets
         ${Qt5UiTools_LIBRARIES}
     )
-#    include_directories(
-#        ${QT_INCLUDE_DIR}
-#    )
-#    list(APPEND FreeCADGui_LIBS
-#        ${QT_LIBRARIES}
-#        ${QT_QTUITOOLS_LIBRARY}
-#    )
 
 if(SHIBOKEN_INCLUDE_DIR)
     add_definitions(-DHAVE_SHIBOKEN2)

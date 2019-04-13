@@ -2,18 +2,18 @@
         ${Qt5Core_INCLUDE_DIRS}
         ${Qt5Widgets_INCLUDE_DIRS}
         ${Qt5OpenGL_INCLUDE_DIRS}
-        ${Qt5PrintSupport_INCLUDE_DIRS}
+#        ${Qt5PrintSupport_INCLUDE_DIRS}
         ${Qt5Svg_INCLUDE_DIRS}
-        ${Qt5Network_INCLUDE_DIRS}
+#        ${Qt5Network_INCLUDE_DIRS}
         ${Qt5UiTools_INCLUDE_DIRS}
     )
     list(APPEND FreeCAD_LIBS
         ${Qt5Core_LIBRARIES}
         ${Qt5Widgets_LIBRARIES}
         ${Qt5OpenGL_LIBRARIES}
-        ${Qt5PrintSupport_LIBRARIES}
+ #       ${Qt5PrintSupport_LIBRARIES}
         ${Qt5Svg_LIBRARIES}
-        ${Qt5Network_LIBRARIES}
+ #       ${Qt5Network_LIBRARIES}
         ${Qt5UiTools_LIBRARIES}
     )
 
@@ -23,7 +23,6 @@ if(BUILD_GUI)
         ${Boost_INCLUDE_DIRS}
         ${COIN3D_INCLUDE_DIRS}
         ${ZLIB_INCLUDE_DIR}
-        ${QT_INCLUDE_DIR}
         ${Python3_INCLUDE_DIRS}
         ${XercesC_INCLUDE_DIRS}
     )
@@ -31,7 +30,6 @@ else(BUILD_GUI)
     include_directories(
         ${Boost_INCLUDE_DIRS}
         ${ZLIB_INCLUDE_DIR}
-        ${QT_INCLUDE_DIR}
         ${Python3_INCLUDE_DIRS}
         ${XercesC_INCLUDE_DIRS}
     )
@@ -41,8 +39,6 @@ endif(BUILD_GUI)
 if(BUILD_GUI)
 
     SET(FreeCAD_SRCS
-        freecad.rc
-        icon.ico
         MainGui.cpp
     )
 
@@ -50,7 +46,7 @@ if(BUILD_GUI)
         FreeCADGui
     )
 
-    add_executable(FreeCADMain WIN32 ${FreeCAD_SRCS})
+    add_executable(FreeCADMain ${FreeCAD_SRCS})
     target_link_libraries(FreeCADMain ${FreeCAD_LIBS})
 
     SET_BIN_DIR(FreeCADMain FreeCAD)
@@ -81,21 +77,9 @@ target_link_libraries(FreeCADMainCmd
 
 SET_BIN_DIR(FreeCADMainCmd FreeCADCmd)
 
-if(WIN32)
-    INSTALL(TARGETS FreeCADMainCmd
-        RUNTIME DESTINATION bin
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    )
-elseif(APPLE AND NOT BUILD_WITH_CONDA)
-    INSTALL(TARGETS FreeCADMainCmd
-        RUNTIME DESTINATION MacOS
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    )
-else()
     INSTALL(TARGETS FreeCADMainCmd 
         RUNTIME DESTINATION bin
     )
-endif()
 
 ######################## FreeCADMainPy ########################
 
@@ -110,16 +94,9 @@ target_link_libraries(FreeCADMainPy FreeCADApp)
 SET_BIN_DIR(FreeCADMainPy FreeCAD)
 SET_PYTHON_PREFIX_SUFFIX(FreeCADMainPy)
 
-if(WIN32)
-    INSTALL(TARGETS FreeCADMainPy
-        RUNTIME DESTINATION bin
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    )
-else(WIN32)
     INSTALL(TARGETS FreeCADMainPy
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     )
-endif(WIN32)
 
 ######################## FreeCADGuiPy ########################
 if(BUILD_GUI)
@@ -134,21 +111,8 @@ if(BUILD_GUI)
 
     SET_BIN_DIR(FreeCADGuiPy FreeCADGui)
     SET_PYTHON_PREFIX_SUFFIX(FreeCADGuiPy)
-    if(WIN32)
-        # Name clash with target "FreeCADGui"
-        # Must be called "FreeCADGuiPy_d" and "FreeCADGuiPy" to work so override default
-        set_target_properties(FreeCADGuiPy PROPERTIES PDB_NAME_DEBUG "FreeCADGuiPy_d")
-        set_target_properties(FreeCADGuiPy PROPERTIES PDB_NAME_RELEASE "FreeCADGuiPy")
-    endif(WIN32)
-    
-    if(WIN32)
-        INSTALL(TARGETS FreeCADGuiPy
-            RUNTIME DESTINATION bin
-            LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        )
-    else(WIN32)
+
         INSTALL(TARGETS FreeCADGuiPy
             LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         )
-    endif(WIN32)
 endif(BUILD_GUI)

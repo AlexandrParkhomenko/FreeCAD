@@ -53,6 +53,7 @@
 #include "Selection.h"
 #include "SoFCBoundingBox.h"
 #include "SoFCUnifiedSelection.h"
+#include "SoFCOffscreenRenderer.h"
 #include "SoAxisCrossKit.h"
 #include "View3DInventor.h"
 #include "View3DInventorViewer.h"

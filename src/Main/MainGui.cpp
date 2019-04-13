@@ -23,13 +23,7 @@
  ***************************************************************************/
 #include <FCConfig.h>
 
-#ifdef _PreComp_
-#   undef _PreComp_
-#endif
-
-#ifdef FC_OS_LINUX
-#   include <unistd.h>
-#endif
+#include <unistd.h> //LINUX
 
 #include <map>
 #include <vector>
@@ -51,8 +45,6 @@
 #include <App/Application.h>
 #include <Gui/BitmapFactory.h>
 #include <Gui/Application.h>
-
-void PrintInitHelp(void);
 
 class Redirection
 {
@@ -104,9 +96,6 @@ int main( int argc, char ** argv )
     // set the banner (for logging and console)
     App::Application::Config()["AppIcon"] = "freecad";
     App::Application::Config()["StartWorkbench"] = "Sketcher";
-    App::Application::Config()["SplashAlignment" ] = "Bottom|Left";
-    App::Application::Config()["SplashTextColor" ] = "#ffffff"; // white
-    App::Application::Config()["SplashInfoColor" ] = "#c8c8c8"; // light grey
 
     try {
         // Init phase ===========================================================

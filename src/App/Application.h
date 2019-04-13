@@ -373,8 +373,6 @@ private:
      * There are multiple implementations of this method per-OS
      */
     static std::string FindHomePath(const char* sCall);
-    /// Print the help message
-    static void PrintInitHelp(void);
     /// figure out some things
     static void ExtractUserPath();
     /// load the user and system parameter set
