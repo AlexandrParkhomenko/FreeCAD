@@ -4,9 +4,6 @@
 
 import os,sys,string
 
-#os.chdir("E:\\Develop\\FreeCADWin\\scripts")
-
-
 file = open(sys.argv[1])
 
 if(len(sys.argv) > 3):

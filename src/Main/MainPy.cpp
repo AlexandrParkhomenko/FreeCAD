@@ -26,6 +26,7 @@
 #include <FCConfig.h>
 
 # include <unistd.h> // LINUX
+# include <dlfcn.h> //# LINUX
 
 #include <stdio.h>
 #include <sstream>
@@ -35,13 +36,6 @@
 #include <Base/Exception.h>
 #include <App/Application.h>
 
-
-#if defined(FC_OS_LINUX)
-# ifndef GNU_SOURCE
-#   define GNU_SOURCE
-# endif
-# include <dlfcn.h>
-#endif
 
 PyMOD_INIT_FUNC(FreeCAD)
 {
