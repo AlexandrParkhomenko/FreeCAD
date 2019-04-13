@@ -49,6 +49,7 @@ __url__ = "http://www.freecadweb.org"
 
 import FreeCAD, math, sys, os, DraftVecUtils, WorkingPlane
 from FreeCAD import Vector
+from pivy import coin
 
 if FreeCAD.GuiUp:
     import FreeCADGui, Draft_rc
@@ -73,15 +74,7 @@ arrowtypes = ["Dot","Circle","Arrow","Tick","Tick-2"]
 
 def stringencodecoin(ustr):
     """stringencodecoin(str): Encodes a unicode object to be used as a string in coin"""
-    try:
-        from pivy import coin
-        coin4 = coin.COIN_MAJOR_VERSION >= 4
-    except (ImportError, AttributeError):
-        coin4 = False
-    if coin4:
-        return ustr.encode('utf-8')
-    else:
-        return ustr.encode('latin1')
+    return ustr.encode('utf-8')
 
 def typecheck (args_and_types, name="?"):
     "typecheck([arg1,type),(arg2,type),...]): checks arguments types"
@@ -284,7 +277,6 @@ def dimSymbol(symbol=None,invert=False):
     "returns the current dim symbol from the preferences as a pivy SoMarkerSet"
     if symbol == None:
         symbol = getParam("dimsymbol",0)
-    from pivy import coin
     if symbol == 0:
         return coin.SoSphere()
     elif symbol == 1:
@@ -323,7 +315,6 @@ def dimDash(p1, p2):
     '''dimDash(p1, p2): returns pivy SoSeparator.
     Used for making Tick-2, DimOvershoot, ExtOvershoot dashes.
     '''
-    from pivy import coin
     dash = coin.SoSeparator()
     v = coin.SoVertexProperty()
     v.vertex.set1Value(0, p1)
@@ -594,7 +585,6 @@ def loadTexture(filename,size=None):
     is defined (an int or a tuple), and provided the input image is a png file,
     it will be scaled to match the given size."""
     if gui:
-        from pivy import coin
         from PySide import QtGui,QtSvg
         try:
             p = QtGui.QImage(filename)
@@ -3397,7 +3387,6 @@ class _ViewProviderDraft:
         if prop in ["TextureImage","Pattern","DiffuseColor"]:
             if hasattr(self.Object,"Shape"):
                 if self.Object.Shape.Faces:
-                    from pivy import coin
                     from PySide import QtCore
                     path = None
                     if hasattr(vobj,"TextureImage"):
@@ -3622,7 +3611,6 @@ class _ViewProviderDimension(_ViewProviderDraft):
 
     def attach(self, vobj):
         "called on object creation"
-        from pivy import coin
         self.Object = vobj.Object
         self.color = coin.SoBaseColor()
         self.font = coin.SoFont()
@@ -3697,7 +3685,6 @@ class _ViewProviderDimension(_ViewProviderDraft):
                 return
 
             import Part, DraftGeomUtils
-            from pivy import coin
 
             # calculate the 4 points
             self.p1 = obj.Start
@@ -3884,7 +3871,6 @@ class _ViewProviderDimension(_ViewProviderDraft):
                 self.drawstyle.lineWidth = vobj.LineWidth
         elif (prop in ["ArrowSize","ArrowType"]) and hasattr(vobj,"ArrowSize"):
             if hasattr(self,"node") and hasattr(self,"p2"):
-                from pivy import coin
 
                 if not hasattr(vobj,"ArrowType"):
                     return
@@ -3925,7 +3911,6 @@ class _ViewProviderDimension(_ViewProviderDraft):
                 self.node3d.insertChild(self.marks,2)
                 vobj.Object.touch()
         elif (prop == "DimOvershoot") and hasattr(vobj,"DimOvershoot"):
-            from pivy import coin
 
             # set scale
             s = vobj.DimOvershoot.Value
@@ -3952,8 +3937,6 @@ class _ViewProviderDimension(_ViewProviderDraft):
             self.node3d.insertChild(self.marksDimOvershoot,2)
             vobj.Object.touch()
         elif (prop == "ExtOvershoot") and hasattr(vobj,"ExtOvershoot"):
-            from pivy import coin
-
             # set scale
             s = vobj.ExtOvershoot.Value
             self.transExtOvershoot1.scaleFactor.setValue((s,s,s))
@@ -4088,7 +4071,6 @@ class _ViewProviderAngularDimension(_ViewProviderDraft):
         _ViewProviderDraft.__init__(self,obj)
 
     def attach(self, vobj):
-        from pivy import coin
         self.Object = vobj.Object
         self.color = coin.SoBaseColor()
         self.color.rgb.setValue(vobj.LineColor[0],vobj.LineColor[1],vobj.LineColor[2])
@@ -4142,7 +4124,6 @@ class _ViewProviderAngularDimension(_ViewProviderDraft):
 
     def updateData(self, obj, prop):
         if hasattr(self,"arc"):
-            from pivy import coin
             import Part, DraftGeomUtils
             import DraftGui
             text = None
@@ -4284,7 +4265,6 @@ class _ViewProviderAngularDimension(_ViewProviderDraft):
                 self.drawstyle.lineWidth = vobj.LineWidth
         elif prop in ["ArrowSize","ArrowType"]:
             if hasattr(self,"node") and hasattr(self,"p2"):
-                from pivy import coin
 
                 if not hasattr(vobj,"ArrowType"):
                     return
@@ -4700,7 +4680,6 @@ class _ViewProviderWire(_ViewProviderDraft):
         obj.ArrowType = arrowtypes[getParam("dimsymbol",0)]
 
     def attach(self, obj):
-        from pivy import coin
         self.Object = obj.Object
         col = coin.SoBaseColor()
         col.rgb.setValue(obj.LineColor[0],obj.LineColor[1],obj.LineColor[2])
@@ -4714,7 +4693,6 @@ class _ViewProviderWire(_ViewProviderDraft):
         self.onChanged(obj,"EndArrow")
 
     def updateData(self, obj, prop):
-        from pivy import coin
         if prop == "Points":
             if obj.Points:
                 p = obj.Points[-1]
@@ -4730,7 +4708,6 @@ class _ViewProviderWire(_ViewProviderDraft):
         return
 
     def onChanged(self, vobj, prop):
-        from pivy import coin
         if prop in ["EndArrow","ArrowSize","ArrowType","Visibility"]:
             rn = vobj.RootNode
             if hasattr(self,"pt") and hasattr(vobj,"EndArrow"):
@@ -6187,7 +6164,6 @@ class ViewProviderWorkingPlaneProxy:
 
     def writeCamera(self):
         if hasattr(self,"Object"):
-            from pivy import coin
             n = FreeCADGui.ActiveDocument.ActiveView.getCameraNode()
             FreeCAD.Console.PrintMessage(QT_TRANSLATE_NOOP("Draft","Writing camera position")+"\n")
             cdata = list(n.position.getValue().getValue())
@@ -6214,7 +6190,6 @@ class ViewProviderWorkingPlaneProxy:
             self.Object.ViewObject.VisibilityMap = vis
 
     def attach(self,vobj):
-        from pivy import coin
         self.clip = None
         self.mat1 = coin.SoMaterial()
         self.mat2 = coin.SoMaterial()
@@ -6462,7 +6437,6 @@ class ViewProviderDraftLabel:
         return []
 
     def attach(self,vobj):
-        from pivy import coin
         self.arrow = coin.SoSeparator()
         self.arrowpos = coin.SoTransform()
         self.arrow.addChild(self.arrowpos)
@@ -6532,7 +6506,6 @@ class ViewProviderDraftLabel:
 
     def updateData(self,obj,prop):
         if prop == "Points":
-            from pivy import coin
             if len(obj.Points) >= 2:
                 self.line.coordIndex.deleteValues(0)
                 self.lcoords.point.setValues(obj.Points)
@@ -6552,7 +6525,6 @@ class ViewProviderDraftLabel:
                 self.onChanged(obj.ViewObject,"TextAlignment")
 
     def getTextSize(self,vobj):
-        from pivy import coin
         if vobj.DisplayMode == "3D text":
             text = self.text3d
         else:
@@ -6686,7 +6658,6 @@ class ViewProviderDraftText:
         return []
 
     def attach(self,vobj):
-        from pivy import coin
         self.mattext = coin.SoMaterial()
         textdrawstyle = coin.SoDrawStyle()
         textdrawstyle.style = coin.SoDrawStyle.FILLED
@@ -6752,7 +6723,6 @@ class ViewProviderDraftText:
                 self.font.size = vobj.FontSize.Value
         elif prop == "Justification":
             if getattr(vobj.PropertiesList, "Justification", None) is not None:
-                from pivy import coin
                 try:
                     if vobj.Justification == "Left":
                         self.text2d.justification = coin.SoText2.LEFT
