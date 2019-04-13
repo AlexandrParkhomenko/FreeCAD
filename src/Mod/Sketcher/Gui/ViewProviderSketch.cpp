@@ -1953,15 +1953,7 @@ bool ViewProviderSketch::detectPreselection(const SoPickedPoint *Point,
 
 SbVec3s ViewProviderSketch::getDisplayedSize(const SoImage *iconPtr) const
 {
-#if (COIN_MAJOR_VERSION >= 3)
     SbVec3s iconSize = iconPtr->image.getValue().getSize();
-#else
-    SbVec2s size;
-    int nc;
-    const unsigned char * bytes = iconPtr->image.getValue(size, nc);
-    SbImage img (bytes, size, nc);
-    SbVec3s iconSize = img.getSize();
-#endif
     if (iconPtr->width.getValue() != -1)
         iconSize[0] = iconPtr->width.getValue();
     if (iconPtr->height.getValue() != -1)

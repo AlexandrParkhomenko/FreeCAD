@@ -39,12 +39,6 @@ OPTION(FREECAD_USE_EXTERNAL_SMESH "Use system installed smesh instead of the bun
 #OPTION(FREECAD_BUILD_DEBIAN "Prepare for a build of a Debian package" OFF)
 OPTION(FREECAD_USE_QT_FILEDIALOG "Use Qt's file dialog instead of the native one." ON)
 
-OPTION(FREECAD_USE_QTOPENGL_WIDGET "Replace QGLWidget with QOpenGLWidget." ON)
-if (FREECAD_USE_QTOPENGL_WIDGET)
-  set(HAVE_QT5_OPENGL 1)
-endif()
-configure_file(${CMAKE_SOURCE_DIR}/src/QtOpenGL.h.cmake ${CMAKE_BINARY_DIR}/src/QtOpenGL.h)
-
 OPTION(FREECAD_USE_PCL "Build the features that use PCL libs" OFF)
 if(FREECAD_USE_PCL)
   find_package(PCL REQUIRED COMPONENTS common kdtree features surface io filters segmentation sample_consensus) #ACHTUNG:may double kdtree

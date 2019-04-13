@@ -47,10 +47,8 @@
 #include "SoFCOffscreenRenderer.h"
 #include "BitmapFactory.h"
 
-#if defined(HAVE_QT5_OPENGL)
 # include <QOffscreenSurface>
 # include <QOpenGLContext>
-#endif
 
 using namespace Gui;
 using namespace std;
@@ -394,9 +392,6 @@ void SoQtOffscreenRenderer::init(const SbViewportRegion & vpr,
     this->didallocation = glrenderaction ? false : true;
     this->viewport = vpr;
 
-#if !defined(HAVE_QT5_OPENGL)
-    this->pixelbuffer = NULL;                // constructed later
-#endif
     this->framebuffer = NULL;
     this->numSamples = -1;
     this->cache_context = 0;
@@ -427,9 +422,6 @@ SoQtOffscreenRenderer::SoQtOffscreenRenderer(SoGLRenderAction * action)
 */
 SoQtOffscreenRenderer::~SoQtOffscreenRenderer()
 {
-#if !defined(HAVE_QT5_OPENGL)
-    delete pixelbuffer;
-#endif
     delete framebuffer;
 
     if (this->didallocation) {
@@ -536,37 +528,6 @@ SoQtOffscreenRenderer::pre_render_cb(void * /*userdata*/, SoGLRenderAction * act
     action->setRenderingIsRemote(false);
 }
 
-#if !defined(HAVE_QT5_OPENGL)
-void
-SoQtOffscreenRenderer::makePixelBuffer(int width, int height, int samples)
-{
-    if (pixelbuffer) {
-        delete pixelbuffer;
-        pixelbuffer = NULL;
-    }
-
-    viewport.setWindowSize(width, height);
-
-    QGLFormat fmt;
-    // With enabled alpha a transparent background is supported but
-    // at the same time breaks semi-transparent models. A workaround
-    // is to use a certain background color using GL_RGB as texture
-    // format and in the output image search for the above color and
-    // replaces it with the color requested by the user.
-    //fmt.setAlpha(true);
-    if (samples > 0) {
-        fmt.setSampleBuffers(true);
-        fmt.setSamples(samples);
-    }
-    else {
-        fmt.setSampleBuffers(false);
-    }
-
-    pixelbuffer = new QGLPixelBuffer(width, height, fmt);
-    cache_context = SoGLCacheContextElement::getUniqueCacheContext(); // unique per pixel buffer object, just to be sure
-}
-#endif
-
 void
 SoQtOffscreenRenderer::makeFrameBuffer(int width, int height, int samples)
 {
@@ -577,7 +538,6 @@ SoQtOffscreenRenderer::makeFrameBuffer(int width, int height, int samples)
 
     viewport.setWindowSize(width, height);
 
-#if QT_VERSION >= 0x040600
     QtGLFramebufferObjectFormat fmt;
     fmt.setSamples(samples);
     fmt.setAttachment(QtGLFramebufferObject::Depth);
@@ -586,17 +546,8 @@ SoQtOffscreenRenderer::makeFrameBuffer(int width, int height, int samples)
     // is to use a certain background color using GL_RGB as texture
     // format and in the output image search for the above color and
     // replaces it with the color requested by the user.
-#if defined(HAVE_QT5_OPENGL)
     //fmt.setInternalTextureFormat(GL_RGBA32F_ARB);
     fmt.setInternalTextureFormat(GL_RGB32F_ARB);
-#else
-    //fmt.setInternalTextureFormat(GL_RGBA);
-    fmt.setInternalTextureFormat(GL_RGB);
-#endif
-#else
-    QtGLFramebufferObject::Attachment fmt;
-    fmt = QtGLFramebufferObject::Depth;
-#endif
 
     framebuffer = new QtGLFramebufferObject(width, height, fmt);
     cache_context = SoGLCacheContextElement::getUniqueCacheContext(); // unique per pixel buffer object, just to be sure
@@ -607,7 +558,6 @@ SoQtOffscreenRenderer::renderFromBase(SoBase * base)
 {
     const SbVec2s fullsize = this->viewport.getViewportSizePixels();
 
-#if defined(HAVE_QT5_OPENGL)
     QSurfaceFormat format;
     format.setSamples(PRIVATE(this)->numSamples);
     QOpenGLContext context;
@@ -618,22 +568,7 @@ SoQtOffscreenRenderer::renderFromBase(SoBase * base)
     offscreen.setFormat(format);
     offscreen.create();
     context.makeCurrent(&offscreen);
-#endif
 
-#if !defined(HAVE_QT5_OPENGL)
-    if (PRIVATE(this)->pbuffer) {
-        if (!pixelbuffer) {
-            makePixelBuffer(fullsize[0], fullsize[1], PRIVATE(this)->numSamples);
-        }
-        else if (pixelbuffer->width() != fullsize[0] || pixelbuffer->height() != fullsize[1]) {
-            // get the size right!
-            makePixelBuffer(fullsize[0], fullsize[1], PRIVATE(this)->numSamples);
-        }
-
-        pixelbuffer->makeCurrent();                // activate us!
-    }
-    else
-#endif
     {
         if (!framebuffer) {
             makeFrameBuffer(fullsize[0], fullsize[1], PRIVATE(this)->numSamples);
@@ -672,22 +607,14 @@ SoQtOffscreenRenderer::renderFromBase(SoBase * base)
 
     this->renderaction->removePreRenderCallback(pre_render_cb, NULL);
 
-#if !defined(HAVE_QT5_OPENGL)
-    if (pixelbuffer) {
-        pixelbuffer->doneCurrent();
-    }
-    else
-#endif
     {
         framebuffer->release();
     }
 
     this->renderaction->setCacheContext(oldcontext); // restore old
 
-#if defined(HAVE_QT5_OPENGL)
     glImage = framebuffer->toImage();
     context.doneCurrent();
-#endif
 
     return true;
 }
@@ -754,14 +681,7 @@ SoQtOffscreenRenderer::render(SoPath * scene)
 void
 SoQtOffscreenRenderer::writeToImage (QImage& img) const
 {
-#if !defined(HAVE_QT5_OPENGL)
-    if (pixelbuffer)
-        img = pixelbuffer->toImage();
-    else if (framebuffer)
-        img = framebuffer->toImage();
-#else
     img = this->glImage;
-#endif
     if (PRIVATE(this)->backgroundcolor[3] < 1.0) {
         QColor c1, c2;
         c1.setRedF(PRIVATE(this)->backgroundcolor[0]);

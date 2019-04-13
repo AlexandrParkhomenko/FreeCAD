@@ -54,9 +54,7 @@
 #include <App/GeoFeature.h>
 #include <Inventor/draggers/SoCenterballDragger.h>
 #include <Inventor/nodes/SoResetTransform.h>
-#if (COIN_MAJOR_VERSION > 2)
 #include <Inventor/nodes/SoDepthBuffer.h>
-#endif
 #include "SoFCUnifiedSelection.h"
 #include "SoFCCSysDragger.h"
 #include "Control.h"

@@ -43,11 +43,7 @@
 #include <Inventor/elements/SoViewVolumeElement.h>
 #include <Inventor/elements/SoViewportRegionElement.h>
 #include <Inventor/elements/SoGLTextureEnabledElement.h>
-#if COIN_MAJOR_VERSION > 3
 #include <Inventor/elements/SoMultiTextureEnabledElement.h>
-#else
-#include <Inventor/elements/SoGLTexture3EnabledElement.h>
-#endif
 
 #include <QtOpenGL.h>
 #include "SoTextLabel.h"
@@ -243,11 +239,7 @@ void SoTextLabel::GLRender(SoGLRenderAction *action)
 
         // disable textures for all units
         SoGLTextureEnabledElement::set(state, this, false);
-#if COIN_MAJOR_VERSION > 3
         SoMultiTextureEnabledElement::set(state, this, false);
-#else
-        SoGLTexture3EnabledElement::set(state, this, false);
-#endif
 
         glPushAttrib(GL_ENABLE_BIT | GL_PIXEL_MODE_BIT | GL_COLOR_BUFFER_BIT);
         glPushClientAttrib(GL_CLIENT_PIXEL_STORE_BIT);
@@ -337,20 +329,6 @@ void SoStringLabel::GLRender(SoGLRenderAction *action)
 
     glBlendFunc(GL_ONE,GL_SRC_ALPHA);
 
-    /* Background Box */
-    //glColor4f(1,0.1f,0.1f,1);
-    //int ln =4;
-    //float ls = font.pixelSize()*1.5f;
-    //float bh = -1 + 2.0*(ls*(ln+.25))/float(window->height());
-
-    //glBegin(GL_QUADS);
-    //glVertex2f(-1.f,bh);   glVertex2f(-1.f,-1.f);
-    //glVertex2f( 1.f,-1.f); glVertex2f( 1.f,bh);
-    //glEnd();
-
-    //float middleCol=window->width()*0.40;
-    //float rightCol=window->width()*0.85;
-    //float startPos = window->height()-(5+ls*(ln));
 
     // text color
     SbColor color = this->textColor.getValue();
@@ -364,11 +342,7 @@ void SoStringLabel::GLRender(SoGLRenderAction *action)
     QStringList list;
     for (int i=0; i<this->string.getNum(); i++)
         list << QLatin1String(this->string[i].getString());
-#if !defined(HAVE_QT5_OPENGL)
-    window->renderText(nil[0],nil[1],nil[2],list.join(QLatin1String("\n")),font);
-#else
-    //FIXME: HAVE_QT5_OPENGL
-#endif
+    //FIXME: window->renderText(nil[0],nil[1],nil[2],list.join(QLatin1String("\n")),font);
 
     // Leave 2D screen mode
     glPopAttrib();

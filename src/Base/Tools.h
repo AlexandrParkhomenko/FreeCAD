@@ -35,43 +35,6 @@
 #include <QString>
 #include <QObject>
 
-#if (QT_VERSION < 0x050300)
-class QSignalBlocker
-{
-public:
-    QSignalBlocker(QObject *object)
-      : object(object)
-      , blocked(object && object->blockSignals(true))
-      , inhibited(false)
-    {
-    }
-    ~QSignalBlocker()
-    {
-        if (object && !inhibited)
-            object->blockSignals(blocked);
-    }
-    void reblock()
-    {
-        if (object)
-            object->blockSignals(true);
-        inhibited = false;
-    }
-    void unblock()
-    {
-        if (object)
-            object->blockSignals(blocked);
-        inhibited = true;
-    }
-
-private:
-    QObject *object;
-    bool blocked;
-    bool inhibited;
-};
-#endif
-
-// ----------------------------------------------------------------------------
-
 namespace Base
 {
 
@@ -144,10 +107,6 @@ inline T sgn (T t)
     else
         return (t > 0) ? T(1) : T(-1);
 }
-
-#ifndef M_PI
-#define M_PI       3.14159265358979323846
-#endif
 
 template<class T>
 inline T toRadians(T d)

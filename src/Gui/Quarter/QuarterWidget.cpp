@@ -62,10 +62,8 @@
 #include <QPaintEvent>
 #include <QResizeEvent>
 
-#if defined(HAVE_QT5_OPENGL)
 #include <QOpenGLDebugMessage>
 #include <QOpenGLDebugLogger>
-#endif
 
 #include <Inventor/SbViewportRegion.h>
 #include <Inventor/system/gl.h>
@@ -136,12 +134,7 @@ using namespace SIM::Coin3D::Quarter;
 
 #define PRIVATE(obj) obj->pimpl
 
-#ifndef GL_MULTISAMPLE_BIT_EXT
-#define GL_MULTISAMPLE_BIT_EXT 0x20000000
-#endif
-
 //We need to avoid buffer swapping when initializing a QPainter on this widget
-#if defined(HAVE_QT5_OPENGL)
 class CustomGLWidget : public QOpenGLWidget {
 public:
     QSurfaceFormat myFormat;
@@ -186,13 +179,11 @@ public:
     }
     void aboutToDestroyGLContext()
     {
-#if QT_VERSION >= 0x050900
         // With Qt 5.9 a signal is emitted while the QuarterWidget is being destroyed.
         // At this state its type is a QWidget, not a QuarterWidget any more.
         QuarterWidget* qw = qobject_cast<QuarterWidget*>(parent());
         if (!qw)
             return;
-#endif
         QMetaObject::invokeMethod(parent(), "aboutToDestroyGLContext",
             Qt::DirectConnection,
             QGenericReturnArgument());
@@ -228,16 +219,6 @@ public:
         update(); // fixes flickering on some systems
     }
 };
-#else
-class CustomGLWidget : public QGLWidget {
-public:
-    CustomGLWidget(const QGLFormat& fo, QWidget* parent = 0, const QGLWidget* shareWidget = 0, Qt::WindowFlags f = 0)
-     : QGLWidget(fo, parent, shareWidget, f)
-    {
-         setAutoBufferSwap(false);
-    }
-};
-#endif
 
 /*! constructor */
 QuarterWidget::QuarterWidget(const QtGLFormat & format, QWidget * parent, const QtGLWidget * sharewidget, Qt::WindowFlags f)
@@ -321,7 +302,6 @@ QuarterWidget::constructor(const QtGLFormat & format, const QtGLWidget * sharewi
 void
 QuarterWidget::replaceViewport()
 {
-#if defined(HAVE_QT5_OPENGL)
   CustomGLWidget* oldvp = static_cast<CustomGLWidget*>(viewport());
   CustomGLWidget* newvp = new CustomGLWidget(oldvp->myFormat, this);
   PRIVATE(this)->replaceGLWidget(newvp);
@@ -329,7 +309,6 @@ QuarterWidget::replaceViewport()
 
   setAutoFillBackground(false);
   viewport()->setAutoFillBackground(false);
-#endif
 }
 
 void
@@ -867,18 +846,12 @@ void QuarterWidget::paintEvent(QPaintEvent* event)
     }
 
     if(!initialized) {
-#if !defined(HAVE_QT5_OPENGL)
-        glEnable(GL_DEPTH_TEST);
-#endif
         this->getSoRenderManager()->reinitialize();
         initialized = true;
     }
 
     getSoRenderManager()->activate();
 
-#if !defined(HAVE_QT5_OPENGL)
-    glEnable(GL_DEPTH_TEST);
-#endif
     glMatrixMode(GL_PROJECTION);
 
     QtGLWidget* w = static_cast<QtGLWidget*>(this->viewport());
@@ -907,12 +880,6 @@ void QuarterWidget::paintEvent(QPaintEvent* event)
 
     assert(w->isValid() && "No valid GL context found!");
 
-#if defined(HAVE_QT5_OPENGL)
-    // Causes an OpenGL error on resize
-    //glDrawBuffer(w->format().swapBehavior() == QSurfaceFormat::DoubleBuffer ? GL_BACK : GL_FRONT);
-#else
-    glDrawBuffer(w->doubleBuffer() ? GL_BACK : GL_FRONT);
-#endif
 
     w->makeCurrent();
     this->actualRedraw();
@@ -924,14 +891,6 @@ void QuarterWidget::paintEvent(QPaintEvent* event)
     inherited::paintEvent(event);
     glPopAttrib();
 
-#if defined(HAVE_QT5_OPENGL)
-    // Causes an OpenGL error on resize
-    //if (w->format().swapBehavior() == QSurfaceFormat::DoubleBuffer)
-    //    w->context()->swapBuffers(w->context()->surface());
-#else
-    if (w->doubleBuffer()) { w->swapBuffers(); }
-#endif
-
     PRIVATE(this)->autoredrawenabled = true;
 
     // process the delay queue the next time we enter this function,
@@ -941,31 +900,6 @@ void QuarterWidget::paintEvent(QPaintEvent* event)
 
 bool QuarterWidget::viewportEvent(QEvent* event)
 {
-    // Disable the old implementation of this method as it show
-    // problems with panning and rotations when a widget item is
-    // added to the scene.
-#if 0
-    if (event->type() == QEvent::Paint || event->type() == QEvent::Resize) {
-        return QGraphicsView::viewportEvent(event);
-    }
-    else if (event->type() == QEvent::MouseMove ||
-             event->type() == QEvent::Wheel ||
-             event->type() == QEvent::MouseButtonDblClick ||
-             event->type() == QEvent::MouseButtonRelease ||
-             event->type() == QEvent::MouseButtonPress) {
-        QMouseEvent* mouse = static_cast<QMouseEvent*>(event);
-        QGraphicsItem *item = itemAt(mouse->pos());
-        if (!item) {
-            return false;
-        }
-
-        return QGraphicsView::viewportEvent(event);
-      }
-
-     //if we return false the events get processed normally, this means they get passed to the quarter
-     //event filters for processing in the scene graph. If we return true event processing stops here.
-     return false;
-#else
     // If no item is selected still let the graphics scene handle it but
     // additionally handle it by this viewer. This is e.g. needed when
     // resizing a widget item because the cursor may already be outside
@@ -990,7 +924,6 @@ bool QuarterWidget::viewportEvent(QEvent* event)
     }
 
     return QGraphicsView::viewportEvent(event);
-#endif
 }
 
 /*!
@@ -1007,12 +940,7 @@ QuarterWidget::redraw(void)
   // we're triggering the next paintGL(). Set a flag to remember this
   // to avoid that we process the delay queue in paintGL()
   PRIVATE(this)->processdelayqueue = false;
-#if QT_VERSION >= 0x050500 && QT_VERSION < 0x050600
-  // With Qt 5.5.x there is a major performance problem
-  this->viewport()->update();
-#else
   this->viewport()->repaint();
-#endif
 }
 
 /*!
@@ -1226,17 +1154,11 @@ QuarterWidget::setNavigationModeFile(const QUrl & url)
     filename = url.path();
     //FIXME: This conditional needs to be implemented when the
     //CoinResources systems if working
-#if 0
-    //#if (COIN_MAJOR_VERSION==3) && (COIN_MINOR_VERSION==0)
-#endif
     //Workaround for differences between url scheme, and Coin internal
     //scheme in Coin 3.0.
     if (filename[0]=='/') {
       filename.remove(0,1);
     }
-#if 0
-    //#endif
-#endif
     filename = url.scheme()+':'+filename;
   }
   else if (url.scheme()=="file")
@@ -1266,11 +1188,7 @@ QuarterWidget::setNavigationModeFile(const QUrl & url)
     QFile file(filenametmp);
     if (file.open(QIODevice::ReadOnly)){
       QByteArray fileContents = file.readAll();
-#if COIN_MAJOR_VERSION >= 4
       stateMachine = ScXML::readBuffer(SbByteBuffer(fileContents.size(), fileContents.constData()));
-#else
-      stateMachine = ScXML::readBuffer(fileContents.constData());
-#endif
       file.close();
     }
   }

@@ -35,9 +35,7 @@
 # include <QFileInfo>
 # include <QLocale>
 # include <QMessageBox>
-#if QT_VERSION >= 0x050000
 # include <QMessageLogContext>
-#endif
 # include <QPointer>
 # include <QSessionManager>
 # include <QStatusBar>
@@ -46,9 +44,7 @@
 
 #include <boost/interprocess/sync/file_lock.hpp>
 #include <QtOpenGL.h>
-#if defined(HAVE_QT5_OPENGL)
-#include <QWindow>
-#endif
+#include <QWindow> //# for OpenGL
 
 // FreeCAD Base header
 #include <Base/Console.h>
@@ -64,7 +60,6 @@
 
 #include "Application.h"
 #include "AutoSaver.h"
-#include "GuiApplication.h"
 #include "MainWindow.h"
 #include "Document.h"
 #include "View.h"
@@ -365,21 +360,6 @@ Application::~Application()
     WidgetFactorySupplier::destruct();
     BitmapFactoryInst::destruct();
 
-#if 0
-    // we must run the garbage collector before shutting down the SoDB
-    // subsystem because we may reference some class objects of them in Python
-    Base::Interpreter().cleanupSWIG("SoBase *");
-    // finish also Inventor subsystem
-    SoFCDB::finish();
-
-#if (COIN_MAJOR_VERSION >= 2) && (COIN_MINOR_VERSION >= 4)
-    SoDB::finish();
-#elif (COIN_MAJOR_VERSION >= 3)
-    SoDB::finish();
-#else
-    SoDB::cleanup();
-#endif
-#endif
     {
     Base::PyGILStateLocker lock;
     Py_DECREF(_pcWorkbenchDictionary);
@@ -1345,23 +1325,16 @@ CommandManager &Application::commandManager(void)
 //**************************************************************************
 // Init, Destruct and singleton
 
-#if QT_VERSION >= 0x050000
 typedef void (*_qt_msg_handler_old)(QtMsgType, const QMessageLogContext &, const QString &);
-#else
-typedef void (*_qt_msg_handler_old)(QtMsgType type, const char *msg);
-#endif
 _qt_msg_handler_old old_qtmsg_handler = 0;
 
-#if QT_VERSION >= 0x050000
 void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     Q_UNUSED(context);
 #ifdef FC_DEBUG
     switch (type)
     {
-#if QT_VERSION >= 0x050500
     case QtInfoMsg:
-#endif
     case QtDebugMsg:
         Base::Console().Message("%s\n", msg.toUtf8().constData());
         break;
@@ -1375,46 +1348,12 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
         Base::Console().Error("%s\n", msg.toUtf8().constData());
         abort();                    // deliberately core dump
     }
-#ifdef FC_OS_WIN32
-    if (old_qtmsg_handler)
-        (*old_qtmsg_handler)(type, context, msg);
-#endif
 #else
     // do not stress user with Qt internals but write to log file if enabled
     Q_UNUSED(type);
     Base::Console().Log("%s\n", msg.toUtf8().constData());
 #endif
 }
-#else
-void messageHandler(QtMsgType type, const char *msg)
-{
-#ifdef FC_DEBUG
-    switch (type)
-    {
-    case QtDebugMsg:
-        Base::Console().Message("%s\n", msg);
-        break;
-    case QtWarningMsg:
-        Base::Console().Warning("%s\n", msg);
-        break;
-    case QtCriticalMsg:
-        Base::Console().Error("%s\n", msg);
-        break;
-    case QtFatalMsg:
-        Base::Console().Error("%s\n", msg);
-        abort();                    // deliberately core dump
-    }
-#ifdef FC_OS_WIN32
-    if (old_qtmsg_handler)
-        (*old_qtmsg_handler)(type, msg);
-#endif
-#else
-    // do not stress user with Qt internals but write to log file if enabled
-    Q_UNUSED(type);
-    Base::Console().Log("%s\n", msg);
-#endif
-}
-#endif
 
 #ifdef FC_DEBUG // redirect Coin messages to FreeCAD
 void messageHandlerCoin(const SoError * error, void * /*userdata*/)
@@ -1434,21 +1373,12 @@ void messageHandlerCoin(const SoError * error, void * /*userdata*/)
             Base::Console().Error("%s\n", msg);
             break;
         }
-#ifdef FC_OS_WIN32
-    if (old_qtmsg_handler)
-#if QT_VERSION >=0x050000
-        (*old_qtmsg_handler)(QtDebugMsg, QMessageLogContext(), QString::fromLatin1(msg));
-#else
-        (*old_qtmsg_handler)(QtDebugMsg, msg);
-#endif
-#endif
     }
     else if (error) {
         const char* msg = error->getDebugString().getString();
         Base::Console().Log( msg );
     }
 }
-
 #endif
 
 // To fix bug #0000345 move Q_INIT_RESOURCE() outside initApplication()
@@ -1470,11 +1400,7 @@ void Application::initApplication(void)
         initTypes();
         new Base::ScriptProducer( "FreeCADGuiInit", FreeCADGuiInit );
         init_resources();
-#if QT_VERSION >=0x050000
         old_qtmsg_handler = qInstallMessageHandler(messageHandler);
-#else
-        old_qtmsg_handler = qInstallMsgHandler(messageHandler);
-#endif
         init = true;
     }
     catch (...) {
@@ -1638,39 +1564,6 @@ void Application::runApplication(void)
     // register action style event type
     ActionStyleEvent::EventType = QEvent::registerEventType(QEvent::User + 1);
 
-    // check for OpenGL
-#if !defined(HAVE_QT5_OPENGL)
-    if (!QGLFormat::hasOpenGL()) {
-        QMessageBox::critical(0, QObject::tr("No OpenGL"), QObject::tr("This system does not support OpenGL"));
-        throw Base::RuntimeError("This system does not support OpenGL");
-    }
-    if (!QGLFramebufferObject::hasOpenGLFramebufferObjects()) {
-        Base::Console().Log("This system does not support framebuffer objects\n");
-    }
-    if (!QGLPixelBuffer::hasOpenGLPbuffers()) {
-        Base::Console().Log("This system does not support pbuffers\n");
-    }
-
-    QGLFormat::OpenGLVersionFlags version = QGLFormat::openGLVersionFlags ();
-    if (version & QGLFormat::OpenGL_Version_3_0)
-        Base::Console().Log("OpenGL version 3.0 or higher is present\n");
-    else if (version & QGLFormat::OpenGL_Version_2_1)
-        Base::Console().Log("OpenGL version 2.1 or higher is present\n");
-    else if (version & QGLFormat::OpenGL_Version_2_0)
-        Base::Console().Log("OpenGL version 2.0 or higher is present\n");
-    else if (version & QGLFormat::OpenGL_Version_1_5)
-        Base::Console().Log("OpenGL version 1.5 or higher is present\n");
-    else if (version & QGLFormat::OpenGL_Version_1_4)
-        Base::Console().Log("OpenGL version 1.4 or higher is present\n");
-    else if (version & QGLFormat::OpenGL_Version_1_3)
-        Base::Console().Log("OpenGL version 1.3 or higher is present\n");
-    else if (version & QGLFormat::OpenGL_Version_1_2)
-        Base::Console().Log("OpenGL version 1.2 or higher is present\n");
-    else if (version & QGLFormat::OpenGL_Version_1_1)
-        Base::Console().Log("OpenGL version 1.1 or higher is present\n");
-    else if (version & QGLFormat::OpenGL_Version_None)
-        Base::Console().Log("No OpenGL is present or no OpenGL context is current\n");
-#endif
 
 #if !defined(Q_OS_LINUX)
     QIcon::setThemeSearchPaths(QIcon::themeSearchPaths() << QString::fromLatin1(":/icons/FreeCAD-default"));
@@ -1729,7 +1622,6 @@ void Application::runApplication(void)
     if (size >= 16) // must not be lower than this
         mw.setIconSize(QSize(size,size));
 
-#if defined(HAVE_QT5_OPENGL)
     {
         QWindow window;
         window.setSurfaceType(QWindow::OpenGLSurface);
@@ -1751,7 +1643,6 @@ void Application::runApplication(void)
             Base::Console().Log("OpenGL version is: %d.%d (%s)\n", major, minor, glVersion);
         }
     }
-#endif
 
     // init the Inventor subsystem
     initOpenInventor();

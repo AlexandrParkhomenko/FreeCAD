@@ -1048,7 +1048,6 @@ void View3DInventorViewer::savePicture(int w, int h, int s, const QColor& bg, QI
     SoSeparator* root = new SoSeparator;
     root->ref();
 
-#if (COIN_MAJOR_VERSION >= 4)
     // The behaviour in Coin4 has changed so that when using the same instance of 'SoFCOffscreenRenderer'
     // multiple times internally the biggest viewport size is stored and set to the SoGLRenderAction.
     // The trick is to add a callback node and override the viewport size with what we want.
@@ -1057,7 +1056,6 @@ void View3DInventorViewer::savePicture(int w, int h, int s, const QColor& bg, QI
         cbvp->setCallback(setViewportCB);
         root->addChild(cbvp);
     }
-#endif
 
     SoCamera* camera = getSoRenderManager()->getCamera();
 
@@ -1079,10 +1077,6 @@ void View3DInventorViewer::savePicture(int w, int h, int s, const QColor& bg, QI
     root->addChild(gl);
     root->addChild(pcViewProviderRoot);
 
-#if !defined(HAVE_QT5_OPENGL)
-    if (useBackground)
-        root->addChild(cb);
-#endif
 
     root->addChild(foregroundroot);
 
@@ -1401,10 +1395,6 @@ void View3DInventorViewer::setRenderType(const RenderType type)
 
             QtGLWidget* gl = static_cast<QtGLWidget*>(this->viewport());
             gl->makeCurrent();
-#if !defined(HAVE_QT5_OPENGL)
-            framebuffer = new QtGLFramebufferObject(width, height, QtGLFramebufferObject::Depth);
-            renderToFramebuffer(framebuffer);
-#else
             QOpenGLFramebufferObjectFormat fboFormat;
             fboFormat.setSamples(getNumSamples());
             fboFormat.setAttachment(QtGLFramebufferObject::Depth);
@@ -1420,7 +1410,6 @@ void View3DInventorViewer::setRenderType(const RenderType type)
                 renderToFramebuffer(fbo);
                 framebuffer = fbo;
             }
-#endif
         }
         break;
     case Image:
@@ -1442,13 +1431,6 @@ QImage View3DInventorViewer::grabFramebuffer()
     gl->makeCurrent();
 
     QImage res;
-#if !defined(HAVE_QT5_OPENGL)
-    int w = gl->width();
-    int h = gl->height();
-    QImage img(QSize(w,h), QImage::Format_RGB32);
-    glReadPixels(0, 0, w, h, GL_RGBA, GL_UNSIGNED_BYTE, img.bits());
-    res = img;
-#else
     const SbViewportRegion vp = this->getSoRenderManager()->getViewportRegion();
     SbVec2s size = vp.getViewportSizePixels();
     int width = size[0];
@@ -1473,7 +1455,6 @@ QImage View3DInventorViewer::grabFramebuffer()
 
         res = fbo.toImage(false);
     }
-#endif
 
     return res;
 }
@@ -1498,7 +1479,6 @@ void View3DInventorViewer::imageFromFramebuffer(int width, int height, int sampl
     // is to use a certain background color using GL_RGB as texture
     // format and in the output image search for the above color and
     // replaces it with the color requested by the user.
-#if defined(HAVE_QT5_OPENGL)
     if (App::GetApplication().GetParameterGroupByPath
         ("User parameter:BaseApp/Preferences/Document")->GetBool("SaveThumbnailFix",false)) {
         fboFormat.setInternalTextureFormat(GL_RGBA32F_ARB);
@@ -1506,10 +1486,6 @@ void View3DInventorViewer::imageFromFramebuffer(int width, int height, int sampl
     else {
         fboFormat.setInternalTextureFormat(GL_RGB32F_ARB);
     }
-#else
-    //fboFormat.setInternalTextureFormat(GL_RGBA);
-    fboFormat.setInternalTextureFormat(GL_RGB);
-#endif
     QtGLFramebufferObject fbo(width, height, fboFormat);
 
     const QColor col = backgroundColor();
@@ -1666,11 +1642,7 @@ void View3DInventorViewer::renderGLImage()
     glClear(GL_COLOR_BUFFER_BIT);
 
     glRasterPos2f(0,0);
-#if !defined(HAVE_QT5_OPENGL)
-    glDrawPixels(glImage.width(),glImage.height(),GL_RGBA,GL_UNSIGNED_BYTE,glImage.bits());
-#else
     glDrawPixels(glImage.width(),glImage.height(),GL_BGRA,GL_UNSIGNED_BYTE,glImage.bits());
-#endif
 
     printDimension();
     navigation->redraw();
@@ -2221,9 +2193,7 @@ void View3DInventorViewer::animatedViewAll(int steps, int ms)
     action.apply(this->getSoRenderManager()->getSceneGraph());
     SbBox3f box = action.getBoundingBox();
 
-#if (COIN_MAJOR_VERSION >= 3)
     float aspectRatio = vp.getViewportAspectRatio();
-#endif
 
     if (box.isEmpty())
         return;
@@ -2243,11 +2213,9 @@ void View3DInventorViewer::animatedViewAll(int steps, int ms)
     if (cam->isOfType(SoOrthographicCamera::getClassTypeId())) {
         isOrthographic = true;
         height = static_cast<SoOrthographicCamera*>(cam)->height.getValue();
-#if (COIN_MAJOR_VERSION >= 3)
         if (aspectRatio < 1.0f)
             diff = sphere.getRadius() * 2 - height * aspectRatio;
         else
-#endif
         diff = sphere.getRadius() * 2 - height;
         pos = (box.getCenter() - direction * sphere.getRadius());
     }
