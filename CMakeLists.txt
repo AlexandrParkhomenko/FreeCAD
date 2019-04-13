@@ -11,6 +11,8 @@ set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--no-undefined")  # get linker errors
 include(AddFileDependencies)
 include(${CMAKE_SOURCE_DIR}/Macros.cmake)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
+add_subdirectory(src)
 
 # Output directories for install target
 SET(CMAKE_INSTALL_PREFIX "/usr/lib/freecad" CACHE PATH "Installation root directory")
@@ -29,14 +31,8 @@ MESSAGE(STATUS "datadir: ${CMAKE_INSTALL_DATADIR}")
 MESSAGE(STATUS "includedir: ${CMAKE_INSTALL_INCLUDEDIR}")
 MESSAGE(STATUS "libdir: ${CMAKE_INSTALL_LIBDIR}")
 
-#OPTION(BUILD_QT5_WEBKIT "Build with Qt5." OFF)
-OPTION(BUILD_GUI "Build FreeCAD Gui. Otherwise you have only the command line and the Python import module." ON)
-#OPTION(FREECAD_MAINTAINERS_BUILD "Build FreeCAD for Maintainers, with Docu and 3rd party libs. On Windows the Installer is built." OFF)
 OPTION(FREECAD_USE_EXTERNAL_ZIPIOS "Use system installed zipios++ instead of the bundled." OFF)
 OPTION(FREECAD_USE_EXTERNAL_SMESH "Use system installed smesh instead of the bundled." OFF)
-#OPTION(FREECAD_USE_EXTERNAL_KDL "Use system installed orocos-kdl instead of the bundled." OFF)
-#OPTION(FREECAD_USE_FREETYPE "Builds the features using FreeType libs" ON)
-#OPTION(FREECAD_BUILD_DEBIAN "Prepare for a build of a Debian package" OFF)
 OPTION(FREECAD_USE_QT_FILEDIALOG "Use Qt's file dialog instead of the native one." ON)
 
 OPTION(FREECAD_USE_PCL "Build the features that use PCL libs" OFF)
@@ -74,7 +70,7 @@ find_package(SWIG REQUIRED) # pivy <- Draft
 find_package(Eigen3 REQUIRED)
 find_package(Freetype REQUIRED)
 
-if(BUILD_GUI)
+#GUI v
   set(OpenGL_GL_PREFERENCE "LEGACY") # or "GLVND"
   find_package(OpenGL REQUIRED)
 
@@ -156,8 +152,3 @@ MACRO(PYSIDE_WRAP_RC outfiles)
   list(APPEND ${outfiles} ${outfile})
   ENDFOREACH(it)
 ENDMACRO (PYSIDE_WRAP_RC)
-
-endif (BUILD_GUI)
-
-include_directories(${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
-add_subdirectory(src)

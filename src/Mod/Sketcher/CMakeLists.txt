@@ -1,8 +1,6 @@
 
 add_subdirectory(App)
-if(BUILD_GUI)
-    add_subdirectory(Gui)
-endif(BUILD_GUI)
+add_subdirectory(Gui)
 
 set(Sketcher_Scripts
     Init.py
@@ -11,12 +9,10 @@ set(Sketcher_Scripts
     Profiles.py
 )
 
-if(BUILD_GUI)
     list (APPEND Sketcher_Scripts
           InitGui.py
           TestSketcherGui.py
     )
-endif(BUILD_GUI)
 
 set(Sketcher_Profiles
     ProfileLib/Hexagon.py
