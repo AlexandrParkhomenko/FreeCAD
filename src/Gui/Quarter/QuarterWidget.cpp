@@ -89,11 +89,9 @@
 #include "QuarterWidgetP.h"
 #include "QuarterP.h"
 
-#if QT_VERSION >= 0x050000
 #include <QWindow>
 #include <QGuiApplication>
 #include <QMetaObject>
-#endif
 
 
 using namespace SIM::Coin3D::Quarter;
@@ -791,7 +789,6 @@ QuarterWidget::seek(void)
 
 bool
 QuarterWidget::updateDevicePixelRatio(void) {
-#if QT_VERSION >= 0x050000
     qreal dev_pix_ratio = 1.0;
     QWidget* winwidg = window();
     QWindow* win = NULL;
@@ -809,7 +806,6 @@ QuarterWidget::updateDevicePixelRatio(void) {
         emit devicePixelRatioChanged(dev_pix_ratio);
         return true;
     }
-#endif
     return false;
 }
 
@@ -1224,9 +1220,7 @@ QuarterWidget::setNavigationModeFile(const QUrl & url)
     //navigation systems? - BFG 20090117
     this->setStateCursor("interact", Qt::ArrowCursor);
     this->setStateCursor("idle", Qt::OpenHandCursor);
-#if QT_VERSION >= 0x040200
     this->setStateCursor("rotate", Qt::ClosedHandCursor);
-#endif
     this->setStateCursor("pan", Qt::SizeAllCursor);
     this->setStateCursor("zoom", Qt::SizeVerCursor);
     this->setStateCursor("dolly", Qt::SizeVerCursor);

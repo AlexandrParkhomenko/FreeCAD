@@ -64,18 +64,12 @@ public:
     GraphvizWorker(QObject * parent = 0)
         : QThread(parent)
     {
-#if QT_VERSION < 0x050000
-        dotProc.moveToThread(this);
-        unflattenProc.moveToThread(this);
-#endif
     }
 
     virtual ~GraphvizWorker()
     {
-#if QT_VERSION >= 0x050000
         dotProc.moveToThread(this);
         unflattenProc.moveToThread(this);
-#endif
     }
 
     void setData(const QByteArray & data)
@@ -84,7 +78,6 @@ public:
     }
 
     void startThread() {
-#if QT_VERSION >= 0x050000
         // This doesn't actually run a thread but calls the function
         // directly in the main thread.
         // This is needed because embedding a QProcess into a QThread
@@ -92,9 +85,6 @@ public:
         run();
         // Can't use the finished() signal of QThread
         emitFinished();
-#else
-        start();
-#endif
     }
 
     void run() {
@@ -176,9 +166,7 @@ GraphvizView::GraphvizView(App::Document & _doc, QWidget* parent)
 
     // Create worker thread
     thread = new GraphvizWorker(this);
-#if QT_VERSION >= 0x050000
     connect(thread, SIGNAL(emitFinished()), this, SLOT(done()));
-#endif
     connect(thread, SIGNAL(finished()), this, SLOT(done()));
     connect(thread, SIGNAL(error()), this, SLOT(error()));
     connect(thread, SIGNAL(svgFileRead(const QByteArray &)), this, SLOT(svgFileRead(const QByteArray &)));

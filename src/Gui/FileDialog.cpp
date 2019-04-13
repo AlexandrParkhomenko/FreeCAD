@@ -61,7 +61,6 @@ bool dontUseNativeDialog()
 }
 }
 
-/* TRANSLATOR Gui::FileDialog */
 
 FileDialog::FileDialog(QWidget * parent)
   : QFileDialog(parent)
@@ -194,9 +193,7 @@ QString FileDialog::getSaveFileName (QWidget * parent, const QString & caption, 
     }
     else {
         file = QFileDialog::getSaveFileName(parent, windowTitle, dirName, filter, selectedFilter, options);
-#if QT_VERSION >= 0x040600
         file = QDir::fromNativeSeparators(file);
-#endif
     }
 
     if (!file.isEmpty()) {
@@ -330,11 +327,9 @@ QStringList FileDialog::getOpenFileNames (QWidget * parent, const QString & capt
     }
     else {
         files = QFileDialog::getOpenFileNames(parent, windowTitle, dirName, filter, selectedFilter, options);
-#if QT_VERSION >= 0x040600
         for (QStringList::iterator it = files.begin(); it != files.end(); ++it) {
             *it = QDir::fromNativeSeparators(*it);
         }
-#endif
     }
 
     if (!files.isEmpty()) {
@@ -405,7 +400,6 @@ void FileDialog::saveLocation(const QString& dirName)
 
 // ======================================================================
 
-/* TRANSLATOR Gui::FileOptionsDialog */
 
 FileOptionsDialog::FileOptionsDialog( QWidget* parent, Qt::WindowFlags fl )
   : QFileDialog( parent, fl )
@@ -413,9 +407,7 @@ FileOptionsDialog::FileOptionsDialog( QWidget* parent, Qt::WindowFlags fl )
     extensionButton = new QPushButton( this );
     extensionButton->setText( tr( "Extended" ) );
 
-#if QT_VERSION >= 0x050000
-    setOption(QFileDialog::DontUseNativeDialog);
-#endif
+    setOption(QFileDialog::DontUseNativeDialog, dontUseNativeDialog());
 
     //search for the grid layout and add the new button
     QGridLayout* grid = this->findChild<QGridLayout*>();
@@ -584,10 +576,6 @@ FileChooser::FileChooser ( QWidget * parent )
     connect(lineEdit, SIGNAL(editingFinished()), this, SLOT(editingFinished()));
 
     button = new QPushButton(QLatin1String("..."), this);
-
-#if defined (Q_OS_MAC)
-    button->setAttribute(Qt::WA_LayoutUsesWidgetRect); // layout size from QMacStyle was not correct
-#endif
 
     layout->addWidget(button);
 

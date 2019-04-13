@@ -1191,11 +1191,7 @@ bool ViewProviderSketch::mouseMove(const SbVec2s &cursorPos, Gui::View3DInventor
         }
         case STATUS_SKETCH_UseRubberBand: {
             // Here we must use the device-pixel-ratio to compute the correct y coordinate (#0003130)
-#if QT_VERSION >= 0x050000
             qreal dpr = viewer->getGLWidget()->devicePixelRatioF();
-#else
-            qreal dpr = 1;
-#endif
             newCursorPos = cursorPos;
             rubberband->setCoords(prvCursorPos.getValue()[0],
                        viewer->getGLWidget()->height()*dpr - prvCursorPos.getValue()[1],

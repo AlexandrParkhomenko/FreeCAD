@@ -70,20 +70,11 @@ DlgParameterImp::DlgParameterImp( QWidget* parent,  Qt::WindowFlags fl )
     paramValue = new ParameterValue(ui->splitter3);
     paramValue->setHeaderLabels(valueLabels);
     paramValue->setRootIsDecorated(false);
-#if QT_VERSION >= 0x050000
     paramValue->header()->setSectionResizeMode(0, QHeaderView::Stretch);
-#else
-    paramValue->header()->setResizeMode(0, QHeaderView::Stretch);
-#endif
 
     QSizePolicy policy = paramValue->sizePolicy();
     policy.setHorizontalStretch(3);
     paramValue->setSizePolicy(policy);
-
-#if 0 // This is needed for Qt's lupdate
-    qApp->translate( "Gui::Dialog::DlgParameterImp", "System parameter" );
-    qApp->translate( "Gui::Dialog::DlgParameterImp", "User parameter" );
-#endif
 
     ParameterManager* sys = App::GetApplication().GetParameterSet("System parameter");
     const std::map<std::string,ParameterManager *>& rcList = App::GetApplication().GetParameterSetList();

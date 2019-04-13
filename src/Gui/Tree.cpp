@@ -122,11 +122,7 @@ TreeWidget::TreeWidget(QWidget* parent)
     labels << tr("Labels & Attributes");
     this->setHeaderLabels(labels);
     // make sure to show a horizontal scrollbar if needed
-#if QT_VERSION >= 0x050000
     this->header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
-#else
-    this->header()->setResizeMode(0, QHeaderView::ResizeToContents);
-#endif
     this->header()->setStretchLastSection(false);
 
     // Add the first main label
@@ -1058,9 +1054,7 @@ TreePanel::TreePanel(QWidget* parent)
     pLayout->addWidget(this->searchBox);
     this->searchBox->hide();
     this->searchBox->installEventFilter(this);
-#if QT_VERSION >= 0x040700
     this->searchBox->setPlaceholderText(tr("Search"));
-#endif
     connect(this->searchBox, SIGNAL(returnPressed()),
             this, SLOT(accept()));
     connect(this->searchBox, SIGNAL(textEdited(QString)),
@@ -1890,22 +1884,14 @@ void DocumentObjectItem::testStatus()
         // to black which will lead to unreadable text if the system background
         // hss already a dark color.
         // However, it works if we set the appropriate role to an empty QVariant().
-#if QT_VERSION >= 0x040200
         this->setData(0, Qt::ForegroundRole,QVariant());
-#else
-        this->setData(0, Qt::TextColorRole,QVariant());
-#endif
     }
     else { // invisible
         QStyleOptionViewItem opt;
         // it can happen that a tree item is not attached to the tree widget (#0003025)
         if (this->treeWidget())
             opt.initFrom(this->treeWidget());
-#if QT_VERSION >= 0x040200
         this->setForeground(0, opt.palette.color(QPalette::Disabled,QPalette::Text));
-#else
-        this->setTextColor(0, opt.palette.color(QPalette::Disabled,QPalette::Text);
-#endif
         mode = QIcon::Disabled;
     }
 

@@ -24,10 +24,10 @@
 # include <algorithm>
 # include <limits>
 # include <QTextStream>
-#if QT_VERSION >= 0x050200
 # include <QMetaType>
-#endif
 
+#define HAVE_SHIBOKEN2
+#define HAVE_PYSIDE2
 // Uncomment this block to remove PySide C++ support and switch to its Python interface
 //#undef HAVE_SHIBOKEN
 //#undef HAVE_PYSIDE
@@ -149,7 +149,7 @@ PythonToCppFunc isBaseQuantity_PythonToCpp_QVariantConvertible(PyObject* obj)
     return 0;
 }
 
-#if defined (HAVE_PYSIDE) && QT_VERSION >= 0x050200
+#if defined (HAVE_PYSIDE)
 Base::Quantity convertWrapperToQuantity(const PySide::PyObjectWrapper &w)
 {
     PyObject* pyIn = static_cast<PyObject*>(w);
@@ -179,7 +179,7 @@ void registerTypes()
                                                              isBaseQuantity_PythonToCpp_QVariantConvertible);
     }
 
-#if defined (HAVE_PYSIDE) && QT_VERSION >= 0x050200
+#if defined (HAVE_PYSIDE)
     QMetaType::registerConverter<PySide::PyObjectWrapper, Base::Quantity>(&convertWrapperToQuantity);
 #endif
 }
@@ -291,22 +291,13 @@ QObject* PythonWrapper::toQObject(const Py::Object& pyobject)
             return reinterpret_cast<QObject*>(cppobject);
         }
     }
-#elif QT_VERSION >= 0x050000
+#else
     // Access shiboken2/PySide2 via Python
     //
     void* ptr = qt_getCppPointer(pyobject, "shiboken2", "getCppPointer");
     return reinterpret_cast<QObject*>(ptr);
-#else
-    // Access shiboken/PySide via Python
-    //
-    void* ptr = qt_getCppPointer(pyobject, "shiboken", "getCppPointer");
-    return reinterpret_cast<QObject*>(ptr);
 #endif
 
-#if 0 // Unwrapping using sip/PyQt
-    void* ptr = qt_getCppPointer(pyobject, "sip", "unwrapinstance");
-    return reinterpret_cast<QObject*>(ptr);
-#endif
 
     return 0;
 }
@@ -319,14 +310,10 @@ Py::Object PythonWrapper::fromQIcon(const QIcon* icon)
                               const_cast<QIcon*>(icon), true, false, typeName);
     if (pyobj)
         return Py::asObject(pyobj);
-#elif QT_VERSION >= 0x050000
+#else
     // Access shiboken2/PySide2 via Python
     //
     return qt_wrapInstance<const QIcon*>(icon, "QIcon", "shiboken2", "PySide2.QtGui", "wrapInstance");
-#else
-    // Access shiboken/PySide via Python
-    //
-    return qt_wrapInstance<const QIcon*>(icon, "QIcon", "shiboken", "PySide.QtGui", "wrapInstance");
 #endif
     throw Py::RuntimeError("Failed to wrap icon");
 }
@@ -349,20 +336,12 @@ Py::Object PythonWrapper::fromQWidget(QWidget* widget, const char* className)
     }
     throw Py::RuntimeError("Failed to wrap widget");
 
-#elif QT_VERSION >= 0x050000
+#else
     // Access shiboken2/PySide2 via Python
     //
     return qt_wrapInstance<QWidget*>(widget, className, "shiboken2", "PySide2.QtWidgets", "wrapInstance");
-#else
-    // Access shiboken/PySide via Python
-    //
-    return qt_wrapInstance<QWidget*>(widget, className, "shiboken", "PySide.QtGui", "wrapInstance");
 #endif
 
-#if 0 // Unwrapping using sip/PyQt
-    Q_UNUSED(className);
-    return qt_wrapInstance<QWidget*>(widget, "QWidget", "sip", "PyQt5.QtWidgets", "wrapinstance");
-#endif
 }
 
 const char* PythonWrapper::getWrapperName(QObject* obj) const
@@ -1191,9 +1170,7 @@ void PyResource::load(const char* name)
     QWidget* w=0;
     try {
         UiLoader loader;
-#if QT_VERSION >= 0x040500
-        loader.setLanguageChangeEnabled(true);
-#endif
+        loader.setLanguageChangeEnabled(false);
         QFile file(fn);
         if (file.open(QFile::ReadOnly))
             w = loader.load(&file, QApplication::activeWindow());

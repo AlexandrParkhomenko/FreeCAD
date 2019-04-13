@@ -444,7 +444,6 @@ void AccelLineEdit::keyPressEvent ( QKeyEvent * e)
 
 // ------------------------------------------------------------------------------
 
-#if QT_VERSION >= 0x050200
 ClearLineEdit::ClearLineEdit (QWidget * parent)
   : QLineEdit(parent)
 {
@@ -464,41 +463,6 @@ void ClearLineEdit::updateClearButton(const QString& text)
 {
     clearAction->setVisible(!text.isEmpty());
 }
-#else
-ClearLineEdit::ClearLineEdit (QWidget * parent)
-  : QLineEdit(parent)
-{
-    clearButton = new QToolButton(this);
-    QPixmap pixmap(BitmapFactory().pixmapFromSvg(":/icons/edit-cleartext.svg", QSize(18, 18)));
-    clearButton->setIcon(QIcon(pixmap));
-    clearButton->setIconSize(pixmap.size());
-    clearButton->setCursor(Qt::ArrowCursor);
-    clearButton->setStyleSheet(QString::fromLatin1("QToolButton { border: none; padding: 0px; }"));
-    clearButton->hide();
-    connect(clearButton, SIGNAL(clicked()), this, SLOT(clear()));
-    connect(this, SIGNAL(textChanged(const QString&)),
-            this, SLOT(updateClearButton(const QString&)));
-    int frameWidth = style()->pixelMetric(QStyle::PM_DefaultFrameWidth);
-    setStyleSheet(QString::fromLatin1("QLineEdit { padding-right: %1px; } ")
-                  .arg(clearButton->sizeHint().width() + frameWidth + 1));
-    QSize msz = minimumSizeHint();
-    setMinimumSize(qMax(msz.width(), clearButton->sizeHint().height() + frameWidth * 2 + 2),
-                   msz.height());
-}
-
-void ClearLineEdit::resizeEvent(QResizeEvent *)
-{
-    QSize sz = clearButton->sizeHint();
-    int frameWidth = style()->pixelMetric(QStyle::PM_DefaultFrameWidth);
-    clearButton->move(rect().right() - frameWidth - sz.width(),
-                      (rect().bottom() + 1 - sz.height())/2);
-}
-
-void ClearLineEdit::updateClearButton(const QString& text)
-{
-    clearButton->setVisible(!text.isEmpty());
-}
-#endif
 
 // ------------------------------------------------------------------------------
 
@@ -747,14 +711,10 @@ void ColorButton::onChooseColor()
 {
     if (!d->allowChange)
         return;
-#if QT_VERSION >= 0x040500
     if (d->modal) {
-#endif
         QColor currentColor = d->col;
         QColorDialog cd(d->col, this);
-#if QT_VERSION >= 0x050000
         cd.setOptions(QColorDialog::DontUseNativeDialog);
-#endif
 
         if (d->autoChange) {
             connect(&cd, SIGNAL(currentColorChanged(const QColor &)),
@@ -772,15 +732,12 @@ void ColorButton::onChooseColor()
             setColor(currentColor);
             changed();
         }
-#if QT_VERSION >= 0x040500
     }
     else {
         if (d->cd.isNull()) {
             d->old = d->col;
             d->cd = new QColorDialog(d->col, this);
-#if QT_VERSION >= 0x050000
             d->cd->setOptions(QColorDialog::DontUseNativeDialog);
-#endif
             d->cd->setAttribute(Qt::WA_DeleteOnClose);
             connect(d->cd, SIGNAL(rejected()),
                     this, SLOT(onRejected()));
@@ -789,7 +746,6 @@ void ColorButton::onChooseColor()
         }
         d->cd->show();
     }
-#endif
 }
 
 void ColorButton::onColorChosen(const QColor& c)

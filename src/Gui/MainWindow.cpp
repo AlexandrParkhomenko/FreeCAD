@@ -225,7 +225,6 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
 
     // Create the layout containing the workspace and a tab bar
     d->mdiArea = new QMdiArea();
-#if QT_VERSION >= 0x040500
     d->mdiArea->setTabPosition(QTabWidget::South);
     d->mdiArea->setViewMode(QMdiArea::TabbedView);
     QTabBar* tab = d->mdiArea->findChild<QTabBar*>();
@@ -234,7 +233,6 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
         // The tabs might be very wide
         tab->setExpanding(false);
     }
-#endif
     d->mdiArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     d->mdiArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     d->mdiArea->setOption(QMdiArea::DontMaximizeSubWindowOnActivation, false);
@@ -336,15 +334,6 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
         pDockMgr->registerDockWindow("Std_CombiView", pcCombiView);
     }
 
-#if QT_VERSION < 0x040500
-    // Report view
-    if (hiddenDockWindows.find("Std_ReportView") == std::string::npos) {
-        Gui::DockWnd::ReportView* pcReport = new Gui::DockWnd::ReportView(this);
-        pcReport->setObjectName
-            (QString::fromLatin1(QT_TRANSLATE_NOOP("QDockWidget","Report view")));
-        pDockMgr->registerDockWindow("Std_ReportView", pcReport);
-    }
-#else
     // Report view (must be created before PythonConsole!)
     if (hiddenDockWindows.find("Std_ReportView") == std::string::npos) {
         ReportOutput* pcReport = new ReportOutput(this);
@@ -395,25 +384,6 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
             pDockMgr->registerDockWindow("Std_DAGView", dagDockWindow);
         }
     }
-
-#if 0 //defined(Q_OS_WIN32) this portion of code is not able to run with a vanilla Qtlib build on Windows.
-    // The MainWindowTabBar is used to show tabbed dock windows with icons
-    //
-    // add our own QTabBar-derived class to the main window layout
-    // NOTE: This uses some private stuff from QMainWindow which doesn't
-    // seem to be accessible on all platforms.
-    QMainWindowLayout* l = static_cast<QMainWindowLayout*>(this->layout());
-    for (int i=0; i<5; i++) {
-        MainWindowTabBar* result = new MainWindowTabBar(this);
-        result->setDrawBase(true);
-        result->setElideMode(Qt::ElideRight);
-        result->hide(); // avoid to show horizontal bar in top left area
-        //result->setDocumentMode(_documentMode);
-        connect(result, SIGNAL(currentChanged(int)), l, SLOT(tabChanged()));
-        l->unusedTabBars << result;
-    }
-#endif
-#endif
 
     // accept drops on the window, get handled in dropEvent, dragEnterEvent
     setAcceptDrops(true);
@@ -952,16 +922,16 @@ void MainWindow::loadWindowSettings()
 {
     QString vendor = QString::fromLatin1(App::Application::Config()["ExeVendor"].c_str());
     QString application = QString::fromLatin1(App::Application::Config()["ExeName"].c_str());
-    int major = (QT_VERSION >> 0x10) & 0xff;
-    int minor = (QT_VERSION >> 0x08) & 0xff;
-    QString qtver = QString::fromLatin1("Qt%1.%2").arg(major).arg(minor);
+//    int major = (QT_VERSION >> 0x10) & 0xff;
+//    int minor = (QT_VERSION >> 0x08) & 0xff;
+//    QString qtver = QString::fromLatin1("Qt%1.%2").arg(major).arg(minor);
     QSettings config(vendor, application);
 
     QRect rect = QApplication::desktop()->availableGeometry();
     int maxHeight = rect.height();
     int maxWidth = rect.width();
 
-    config.beginGroup(qtver);
+//    config.beginGroup(qtver);
     QPoint pos = config.value(QString::fromLatin1("Position"), this->pos()).toPoint();
     maxWidth -= pos.x();
     maxHeight -= pos.y();
@@ -994,12 +964,12 @@ void MainWindow::saveWindowSettings()
 {
     QString vendor = QString::fromLatin1(App::Application::Config()["ExeVendor"].c_str());
     QString application = QString::fromLatin1(App::Application::Config()["ExeName"].c_str());
-    int major = (QT_VERSION >> 0x10) & 0xff;
-    int minor = (QT_VERSION >> 0x08) & 0xff;
-    QString qtver = QString::fromLatin1("Qt%1.%2").arg(major).arg(minor);
+//    int major = (QT_VERSION >> 0x10) & 0xff;
+//    int minor = (QT_VERSION >> 0x08) & 0xff;
+//    QString qtver = QString::fromLatin1("Qt%1.%2").arg(major).arg(minor);
     QSettings config(vendor, application);
 
-    config.beginGroup(qtver);
+//    config.beginGroup(qtver);
     config.setValue(QString::fromLatin1("Size"), this->size());
     config.setValue(QString::fromLatin1("Position"), this->pos());
     config.setValue(QString::fromLatin1("Maximized"), this->isMaximized());

@@ -189,12 +189,6 @@ void MenuManager::setup(MenuItem* menuItems) const
 
     QMenuBar* menuBar = getMainWindow()->menuBar();
 
-#if defined(FC_OS_MACOSX) && QT_VERSION >= 0x050900
-    // Unknown Qt macOS bug observed with Qt >= 5.9.4 causes random crashes when viewing reused top level menus.
-    menuBar->clear();
-#endif
-
-    // On Kubuntu 18.10 global menu has issues with FreeCAD 0.18 menu bar.
     // Optional parameter, clearing the menu bar, can be set as a workaround.
     // Clearing the menu bar can cause issues, when trying to access menu bar through Python.
     // https://forum.freecadweb.org/viewtopic.php?f=10&t=30340&start=440#p289330
