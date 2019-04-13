@@ -164,8 +164,6 @@ SET(WildMagic4_SRCS
     WildMagic4/Wm4Eigen.h
     WildMagic4/Wm4Foundation.h
     WildMagic4/Wm4FoundationLIB.h
-    WildMagic4/Wm4FoundationPCH.cpp
-    WildMagic4/Wm4FoundationPCH.h
     WildMagic4/Wm4GMatrix.h
     WildMagic4/Wm4GMatrix.inl
     WildMagic4/Wm4GVector.h
