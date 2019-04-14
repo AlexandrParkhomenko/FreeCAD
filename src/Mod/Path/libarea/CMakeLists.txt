@@ -1,12 +1,5 @@
-# Turn compiler warnings on for gcc 
-if (CMAKE_BUILD_TOOL MATCHES "make")
-#    MESSAGE(STATUS "setting gcc options: -Wall -Werror -Wno-deprecated -pedantic-errors")
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
-endif (CMAKE_BUILD_TOOL MATCHES "make")
-
 include_directories(${Python3_INCLUDE_DIRS})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-
 
 if(NOT FREECAD_USE_PYBIND11)
     if(NOT FREECAD_LIBPACK_USE OR FREECAD_LIBPACK_CHECKFILE_CLBUNDLER)
@@ -34,6 +27,8 @@ if(NOT FREECAD_USE_PYBIND11)
     else()
         include_directories(${Boost_INCLUDE_DIRS})
     endif()
+else()
+    include_directories(${pybind11_INCLUDE_DIR})
 endif(NOT FREECAD_USE_PYBIND11)
 
 
@@ -116,17 +111,9 @@ execute_process(
 
 message(STATUS "area module (for Path Workbench) will be installed to: " ${CMAKE_INSTALL_LIBDIR})
 
-if(WIN32)
-    set_target_properties(area-native PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
-    INSTALL(TARGETS area-native
-        RUNTIME DESTINATION bin
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    )
-else(WIN32)
     INSTALL(TARGETS area-native
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     )
-endif(WIN32)
 
 # this installs the python library
 install(
