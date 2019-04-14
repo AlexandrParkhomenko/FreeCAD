@@ -33,7 +33,6 @@ from PySide import QtCore
 
 __title__ = "Base class for PathArea based operations."
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Base class and properties for Path.Area based operations."
 
 if False:

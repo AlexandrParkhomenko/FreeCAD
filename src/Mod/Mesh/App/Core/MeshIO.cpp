@@ -717,7 +717,7 @@ bool MeshInput::LoadPLY (std::istream &inp)
             char space_format_string, space_format_version;
             str >> space_format_string >> std::ws
                 >> format_string >> space_format_version
-                >> std::ws >> version >> std::ws;
+                >> std::ws >> version;
             if (!str || !str.eof() ||
                 !std::isspace(space_format_string) ||
                 !std::isspace(space_format_version)) {
@@ -747,7 +747,7 @@ bool MeshInput::LoadPLY (std::istream &inp)
             char space_element_name, space_name_count;
             str >> space_element_name >> std::ws
                 >> name >> space_name_count >> std::ws
-                >> count >> std::ws;
+                >> count;
             if (!str || !str.eof() ||
                 !std::isspace(space_element_name) ||
                 !std::isspace(space_name_count)) {
@@ -2018,7 +2018,7 @@ bool MeshOutput::SaveOBJ (std::ostream &out) const
     }
 
     // Header
-    out << "# Created by FreeCAD <http://www.freecadweb.org>" << std::endl;
+    out << "# Created by FreeCAD" << std::endl;
     if (exportColorPerFace) {
         out << "mtllib " << _material->library << std::endl;
     }
@@ -2171,7 +2171,7 @@ bool MeshOutput::SaveMTL(std::ostream &out) const
 
             out.precision(6);
             out.setf(std::ios::fixed | std::ios::showpoint);
-            out << "# Created by FreeCAD <http://www.freecadweb.org>: 'None'" << std::endl;
+            out << "# Created by FreeCAD: 'None'" << std::endl;
             out << "# Material Count: " << _material->diffuseColor.size() << std::endl;
 
             std::vector<App::Color> Kd = _material->diffuseColor;
@@ -2211,7 +2211,7 @@ bool MeshOutput::SaveSMF (std::ostream &out) const
     out << "#$vertices " << rPoints.size() << std::endl;
     out << "#$faces " << rFacets.size() << std::endl;
     out << "#" << std::endl;
-    out << "# Created by FreeCAD <http://www.freecadweb.org>" << std::endl;
+    out << "# Created by FreeCAD" << std::endl;
 
     out.precision(6);
     out.setf(std::ios::fixed | std::ios::showpoint);
@@ -2338,7 +2338,7 @@ bool MeshOutput::SaveBinaryPLY (std::ostream &out) const
         && _material->diffuseColor.size() == rPoints.size());
     out << "ply" << std::endl
         << "format binary_little_endian 1.0" << std::endl
-        << "comment Created by FreeCAD <http://www.freecadweb.org>" << std::endl
+        << "comment Created by FreeCAD" << std::endl
         << "element vertex " << v_count << std::endl
         << "property float32 x" << std::endl
         << "property float32 y" << std::endl
@@ -2399,7 +2399,7 @@ bool MeshOutput::SaveAsciiPLY (std::ostream &out) const
         && _material->diffuseColor.size() == rPoints.size());
     out << "ply" << std::endl
         << "format ascii 1.0" << std::endl
-        << "comment Created by FreeCAD <http://www.freecadweb.org>" << std::endl
+        << "comment Created by FreeCAD" << std::endl
         << "element vertex " << v_count << std::endl
         << "property float32 x" << std::endl
         << "property float32 y" << std::endl
@@ -2715,7 +2715,7 @@ bool MeshOutput::SaveInventor (std::ostream &rstrOut) const
     // Header info
     Base::InventorBuilder builder(rstrOut);
     builder.beginSeparator();
-    builder.addInfo("Created by FreeCAD <http://www.freecadweb.org>");
+    builder.addInfo("Created by FreeCAD");
     std::stringstream str;
     str << "Triangle mesh contains "
         << _rclMesh.CountPoints()
@@ -2945,7 +2945,6 @@ bool MeshOutput::SaveVRML (std::ostream &rstrOut) const
     rstrOut << "WorldInfo {\n"
             << "  title \"Exported triangle mesh to VRML97\"\n"
             << "  info [\"Created by FreeCAD\"\n"
-            << "        \"<http://www.freecadweb.org>\"]\n"
             << "}\n\n";
 
     // Transform

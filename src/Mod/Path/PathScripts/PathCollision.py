@@ -43,7 +43,6 @@ def translate(context, text, disambig=None):
 
 __title__ = "Path Collision Utility"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 
 """Path Collision object and FreeCAD command"""
 

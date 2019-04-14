@@ -31,7 +31,6 @@ from PySide import QtCore
 
 __title__ = "Path Profile based on faces Operation UI"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Profile based on faces operation page controller and command implementation."
 
 class TaskPanelOpPage(PathProfileBaseGui.TaskPanelOpPage):

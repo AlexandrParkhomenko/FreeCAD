@@ -23,7 +23,6 @@
 
 __title__="FreeCAD Draft Workbench - SVG importer/exporter"
 __author__ = "Yorik van Havre, Sebastian Hoogen"
-__url__ = ["http://www.freecadweb.org"]
 
 ## @package importSVG
 #  \ingroup DRAFT

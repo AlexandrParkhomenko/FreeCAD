@@ -25,7 +25,6 @@ import FreeCAD, FreeCADGui, Sketcher, Part
 
 __title__="Hexagon profile lib"
 __author__ = "Juergen Riegel"
-__url__ = "http://www.freecadweb.org"
 
 App = FreeCAD
 Gui = FreeCADGui

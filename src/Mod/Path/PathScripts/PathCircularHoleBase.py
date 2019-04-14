@@ -35,7 +35,6 @@ from PySide import QtCore
 
 __title__ = "Path Circular Holes Base Operation"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Base class an implementation for operations on circular holes."
 
 

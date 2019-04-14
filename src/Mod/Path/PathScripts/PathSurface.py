@@ -37,7 +37,6 @@ from PySide import QtCore
 
 __title__ = "Path Surface Operation"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Class and implementation of Mill Facing operation."
 
 

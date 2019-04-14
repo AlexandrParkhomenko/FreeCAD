@@ -33,7 +33,6 @@ import traceback
 
 __title__ = "Setup Sheet for a Job."
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "A container for all default values and job specific configuration values."
 
 _RegisteredOps = {}

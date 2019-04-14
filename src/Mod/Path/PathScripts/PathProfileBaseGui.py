@@ -34,7 +34,6 @@ from PySide import QtCore
 
 __title__ = "Path Profile Operation Base UI"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Base page controller for profile operations."
 
 def translate(context, text, disambig=None):

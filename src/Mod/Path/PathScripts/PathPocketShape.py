@@ -35,7 +35,6 @@ from PySide import QtCore
 
 __title__ = "Path Pocket Shape Operation"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Class and implementation of shape based Pocket operation."
 
 if False:

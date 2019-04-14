@@ -45,7 +45,6 @@ FCCmdImportReadBREP::FCCmdImportReadBREP()
     sGroup          = "Import";
     sMenuText       = "Read BREP";
     sToolTipText    = "Read a BREP file";
-    //# sWhatsThis      = "Import_ReadBREP";
     sStatusTip      = sToolTipText;
     sPixmap         = "Std_Tool1";
 }
@@ -81,7 +80,6 @@ ImportStep::ImportStep()
     sGroup          = "Part";
     sMenuText       = "Import STEP";
     sToolTipText    = "Create or change a Import STEP feature";
-    //# sWhatsThis      = "Part_ImportStep";
     sStatusTip      = sToolTipText;
     sPixmap         = "Save";
 }
@@ -121,7 +119,6 @@ ImportIges::ImportIges()
     sGroup          = "Part";
     sMenuText       = "Import IGES";
     sToolTipText    = "Create or change a Import IGES feature";
-    //# sWhatsThis      = "Import_Iges";
     sStatusTip      = sToolTipText;
     sPixmap         = "Save";
 }

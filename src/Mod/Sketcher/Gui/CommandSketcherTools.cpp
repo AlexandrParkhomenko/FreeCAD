@@ -95,7 +95,6 @@ CmdSketcherCloseShape::CmdSketcherCloseShape()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Close Shape");
     sToolTipText    = QT_TR_NOOP("Produce closed shape by Link end point of element with next elements' starting point");
-    //# sWhatsThis      = "Sketcher_CloseShape";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CloseShape";
     sAccel          = "CTRL+SHIFT+S";
@@ -203,7 +202,6 @@ CmdSketcherConnect::CmdSketcherConnect()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Connect Edges");
     sToolTipText    = QT_TR_NOOP("Link end point of element with next elements' starting point");
-    //# sWhatsThis      = "Sketcher_ConnectLines";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_ConnectLines";
     sAccel          = "CTRL+SHIFT+K";
@@ -287,7 +285,6 @@ CmdSketcherSelectConstraints::CmdSketcherSelectConstraints()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Select Constraints");
     sToolTipText    = QT_TR_NOOP("Select the constraints associated to the selected elements");
-    //# sWhatsThis      = "Sketcher_SelectConstraints";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_SelectConstraints";
     sAccel          = "CTRL+SHIFT+C";
@@ -351,7 +348,6 @@ CmdSketcherSelectOrigin::CmdSketcherSelectOrigin()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Select Origin");
     sToolTipText    = QT_TR_NOOP("Select the origin point");
-    //# sWhatsThis      = "Sketcher_SelectOrigin";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_SelectOrigin";
     sAccel          = "CTRL+SHIFT+O";
@@ -399,7 +395,6 @@ CmdSketcherSelectVerticalAxis::CmdSketcherSelectVerticalAxis()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Select Vertical Axis");
     sToolTipText    = QT_TR_NOOP("Select the vertical axis");
-    //# sWhatsThis      = "Sketcher_SelectVerticalAxis";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_SelectVerticalAxis";
     sAccel          = "CTRL+SHIFT+V";
@@ -443,7 +438,6 @@ CmdSketcherSelectHorizontalAxis::CmdSketcherSelectHorizontalAxis()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Select Horizontal Axis");
     sToolTipText    = QT_TR_NOOP("Select the horizontal axis");
-    //# sWhatsThis      = "Sketcher_SelectHorizontalAxis";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_SelectHorizontalAxis";
     sAccel          = "CTRL+SHIFT+H";
@@ -486,7 +480,6 @@ CmdSketcherSelectRedundantConstraints::CmdSketcherSelectRedundantConstraints()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Select Redundant Constraints");
     sToolTipText    = QT_TR_NOOP("Select Redundant Constraints");
-    //# sWhatsThis      = "Sketcher_SelectRedundantConstraints";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_SelectRedundantConstraints";
     sAccel          = "CTRL+SHIFT+R";
@@ -539,7 +532,6 @@ CmdSketcherSelectConflictingConstraints::CmdSketcherSelectConflictingConstraints
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Select Conflicting Constraints");
     sToolTipText    = QT_TR_NOOP("Select Conflicting Constraints");
-    //# sWhatsThis      = "Sketcher_SelectConflictingConstraints";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_SelectConflictingConstraints";
     sAccel          = "CTRL+SHIFT+E";
@@ -590,7 +582,6 @@ CmdSketcherSelectElementsAssociatedWithConstraints::CmdSketcherSelectElementsAss
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Select Elements associated with constraints");
     sToolTipText    = QT_TR_NOOP("Select Elements associated with constraints");
-    //# sWhatsThis      = "Sketcher_SelectElementsAssociatedWithConstraints";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_SelectElementsAssociatedWithConstraints";
     sAccel          = "CTRL+SHIFT+E";
@@ -712,7 +703,6 @@ CmdSketcherSelectElementsWithDoFs::CmdSketcherSelectElementsWithDoFs()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Select solver DoFs");
     sToolTipText    = QT_TR_NOOP("Select elements where the solver still detects unconstrained degrees of freedom.");
-    //# sWhatsThis      = "Sketcher_SelectElementsWithDoFs";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_SelectElementsWithDoFs";
     sAccel          = "";
@@ -819,7 +809,6 @@ CmdSketcherRestoreInternalAlignmentGeometry::CmdSketcherRestoreInternalAlignment
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Show/hide internal geometry");
     sToolTipText    = QT_TR_NOOP("Show all internal geometry / hide unused internal geometry");
-    //# sWhatsThis      = "Sketcher_RestoreInternalAlignmentGeometry";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Element_Ellipse_All";
     sAccel          = "CTRL+SHIFT+E";
@@ -918,7 +907,6 @@ CmdSketcherSymmetry::CmdSketcherSymmetry()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Symmetry");
     sToolTipText    = QT_TR_NOOP("Creates symmetric geometry with respect to the last selected line or point");
-    //# sWhatsThis      = "Sketcher_Symmetry";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Symmetry";
     sAccel          = "";
@@ -1427,7 +1415,6 @@ CmdSketcherCopy::CmdSketcherCopy()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Copy");
     sToolTipText    = QT_TR_NOOP("Creates a simple copy of the geometry taking as reference the last selected point");
-    //# sWhatsThis      = "Sketcher_Copy";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Copy";
     sAccel          = "";
@@ -1471,7 +1458,6 @@ CmdSketcherClone::CmdSketcherClone()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Clone");
     sToolTipText    = QT_TR_NOOP("Creates a clone of the geometry taking as reference the last selected point");
-    //# sWhatsThis      = "Sketcher_Clone";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Clone";
     sAccel          = "";
@@ -1514,7 +1500,6 @@ CmdSketcherMove::CmdSketcherMove()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Move");
     sToolTipText    = QT_TR_NOOP("Moves the geometry taking as reference the last selected point");
-    //# sWhatsThis      = "Sketcher_Move";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Move";
     sAccel          = "CTRL+M";
@@ -1547,7 +1532,6 @@ CmdSketcherCompCopy::CmdSketcherCompCopy()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Copy");
     sToolTipText    = QT_TR_NOOP("Creates a clone of the geometry taking as reference the last selected point");
-    //# sWhatsThis      = "Sketcher_CompCopy";
     sStatusTip      = sToolTipText;
     sAccel          = "CTRL+C";
     eType           = ForEdit;
@@ -1814,7 +1798,6 @@ CmdSketcherRectangularArray::CmdSketcherRectangularArray()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Rectangular Array");
     sToolTipText    = QT_TR_NOOP("Creates an rectangular array pattern of the geometry taking as reference the last selected point");
-    //# sWhatsThis      = "Sketcher_RectangularArray";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_RectangularArray";
     sAccel          = "";
@@ -1953,7 +1936,6 @@ CmdSketcherDeleteAllGeometry::CmdSketcherDeleteAllGeometry()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Delete All Geometry");
     sToolTipText    = QT_TR_NOOP("Deletes all the geometry and constraints but external geometry");
-    //# sWhatsThis      = "Sketcher_DeleteAllGeometry";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Element_SelectionTypeInvalid";
     sAccel          = "";
@@ -2019,7 +2001,6 @@ CmdSketcherDeleteAllConstraints::CmdSketcherDeleteAllConstraints()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Delete All Constraints");
     sToolTipText    = QT_TR_NOOP("Deletes all the constraints");
-    //# sWhatsThis      = "Sketcher_DeleteAllConstraints";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Element_SelectionTypeInvalid";
     sAccel          = "";

@@ -31,7 +31,6 @@ from PySide import QtCore
 
 __title__ = "Path Contour Operation UI"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Contour operation page controller and command implementation."
 
 class TaskPanelOpPage(PathProfileBaseGui.TaskPanelOpPage):

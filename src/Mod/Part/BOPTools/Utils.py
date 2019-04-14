@@ -23,7 +23,6 @@
 
 __title__="BOPTools.Utils module"
 __author__ = "DeepSOIC"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Utility code, used by various modules of BOPTools."
 
 class HashableShape(object):

@@ -32,7 +32,6 @@ from pivy import coin
 
 __title__ = "Path GetPoint UI"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Helper class to use FreeCADGUi.Snapper to let the user enter arbitrary points while the task panel is active."
 
 PathLog.setLevel(PathLog.Level.INFO, PathLog.thisModule())

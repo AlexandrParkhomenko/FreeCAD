@@ -23,7 +23,6 @@
 
 __title__="BOPTools.GeneralFuseResult module"
 __author__ = "DeepSOIC"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Implementation of GeneralFuseResult class, which parses return of generalFuse."
 
 import Part

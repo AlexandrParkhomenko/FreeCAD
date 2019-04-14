@@ -24,7 +24,6 @@
 
 __title__="FreeCAD Draft Workbench - OCA importer/exporter"
 __author__ = "Yorik van Havre <yorik@uncreated.net>"
-__url__ = ["http://www.freecadweb.org"]
 
 ## @package importOCA
 #  \ingroup DRAFT

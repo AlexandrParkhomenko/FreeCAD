@@ -58,7 +58,6 @@ FCCmdTest1::FCCmdTest1()
     sGroup        = "Standard-Test";
     sMenuText     = "Test1";
     sToolTipText  = "Test function 1";
-    //# sWhatsThis    = "Std_Test1";
     sStatusTip    = sToolTipText;
     sPixmap       = "Std_Tool1";
     sAccel        = "Ctrl+T";
@@ -86,7 +85,6 @@ FCCmdTest2::FCCmdTest2()
     sGroup          = "Standard-Test";
     sMenuText       = "Test2";
     sToolTipText    = "Test function 2";
-    //# sWhatsThis      = "Std_Test2";
     sStatusTip      = sToolTipText;
     sPixmap         = "Std_Tool2";
 }
@@ -113,7 +111,6 @@ FCCmdTest3::FCCmdTest3()
     sGroup          = "Standard-Test";
     sMenuText       = "Test3";
     sToolTipText    = "Test function 3";
-    //# sWhatsThis      = "Std_Test3";
     sStatusTip      = sToolTipText;
     sPixmap         = "Std_Tool3";
 }
@@ -143,7 +140,6 @@ FCCmdTest4::FCCmdTest4()
     sGroup          = "Standard-Test";
     sMenuText       = "Test4";
     sToolTipText    = "Test function 4";
-    //# sWhatsThis      = "Std_Test4";
     sStatusTip      = sToolTipText;
     sPixmap         = "Std_Tool4";
 }
@@ -172,7 +168,6 @@ FCCmdTest5::FCCmdTest5()
     sGroup          = "Standard-Test";
     sMenuText       = "Test5";
     sToolTipText    = "Test function 5";
-    //# sWhatsThis      = "Std_Test5";
     sStatusTip      = sToolTipText;
     sPixmap         = "Std_Tool5";
 }
@@ -201,7 +196,6 @@ FCCmdTest6::FCCmdTest6()
     sGroup          = "Standard-Test";
     sMenuText       = "Test6";
     sToolTipText    = "Test function 6";
-    //# sWhatsThis      = "Std_Test6";
     sStatusTip      = sToolTipText;
     sPixmap         = "Std_Tool6";
 }
@@ -229,7 +223,6 @@ CmdTestProgress1::CmdTestProgress1()
     sGroup          = "Standard-Test";
     sMenuText       = "Breakable bar";
     sToolTipText    = "Test a breakable progress bar";
-    //# sWhatsThis      = "Std_TestProgress1";
     sStatusTip      = sToolTipText;
     sPixmap         = "Std_Tool7";
 }
@@ -271,7 +264,6 @@ CmdTestProgress2::CmdTestProgress2()
     sGroup          = "Standard-Test";
     sMenuText       = "Unbreakable bar";
     sToolTipText    = "Test a unbreakable progress bar";
-    //# sWhatsThis      = "Std_TestProgress2";
     sStatusTip      = sToolTipText;
     sPixmap         = "Std_Tool7";
 }
@@ -314,7 +306,6 @@ CmdTestProgress3::CmdTestProgress3()
     sGroup          = "Standard-Test";
     sMenuText       = "Nested progress bar";
     sToolTipText    = "Test nested progress bar";
-    //# sWhatsThis      = "Std_TestProgress3";
     sStatusTip      = sToolTipText;
     sPixmap         = "Std_Tool8";
 }
@@ -384,7 +375,6 @@ CmdTestProgress4::CmdTestProgress4()
     sGroup          = "Standard-Test";
     sMenuText       = "Mixed nested bar";
     sToolTipText    = "Test a mixed up nested progress bar";
-    //# sWhatsThis      = "Std_TestProgress4";
     sStatusTip      = sToolTipText;
     sPixmap         = "Std_Tool7";
 }
@@ -439,7 +429,6 @@ CmdTestProgress5::CmdTestProgress5()
     sGroup          = "Standard-Test";
     sMenuText       = "From thread";
     sToolTipText    = "Test a progress bar from a thread";
-    //# sWhatsThis      = "Std_TestProgress5";
     sStatusTip      = sToolTipText;
     sPixmap         = "Std_Tool7";
 }
@@ -519,7 +508,6 @@ CmdTestMDI1::CmdTestMDI1()
     sGroup          = "Standard-Test";
     sMenuText       = "Remove MDI 1";
     sToolTipText    = "Remove MDI from main window";
-    //# sWhatsThis      = "Std_MDITest1";
     sStatusTip      = sToolTipText;
 }
 
@@ -543,7 +531,6 @@ CmdTestMDI2::CmdTestMDI2()
     sGroup          = "Standard-Test";
     sMenuText       = "Remove MDI 2";
     sToolTipText    = "Remove view from MDI area";
-    //# sWhatsThis      = "Std_MDITest2";
     sStatusTip      = sToolTipText;
 }
 
@@ -571,7 +558,6 @@ CmdTestMDI3::CmdTestMDI3()
     sGroup          = "Standard-Test";
     sMenuText       = "Remove MDI 3";
     sToolTipText    = "Unset parent and remove from main window";
-    //# sWhatsThis      = "Std_MDITest3";
     sStatusTip      = sToolTipText;
 }
 

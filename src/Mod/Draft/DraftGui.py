@@ -24,7 +24,6 @@
 
 __title__="FreeCAD Draft Workbench - GUI part"
 __author__ = "Yorik van Havre <yorik@uncreated.net>"
-__url__ = ["http://www.freecadweb.org"]
 
 ## @package DraftGui
 #  \ingroup DRAFT

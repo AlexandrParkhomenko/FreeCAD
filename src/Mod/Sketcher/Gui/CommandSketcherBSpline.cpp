@@ -105,7 +105,6 @@ CmdSketcherBSplineDegree::CmdSketcherBSplineDegree()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Show/Hide B-spline degree");
     sToolTipText    = QT_TR_NOOP("Switches between showing and hiding the degree for all B-splines");
-    //# sWhatsThis      = "Sketcher_BSplineDegree";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_BSplineDegree";
     sAccel          = "";
@@ -139,7 +138,6 @@ CmdSketcherBSplinePolygon::CmdSketcherBSplinePolygon()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Show/Hide B-spline control polygon");
     sToolTipText    = QT_TR_NOOP("Switches between showing and hiding the control polygons for all B-splines");
-    //# sWhatsThis      = "Sketcher_BSplinePolygon";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_BSplinePolygon";
     sAccel          = "";
@@ -173,7 +171,6 @@ CmdSketcherBSplineComb::CmdSketcherBSplineComb()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Show/Hide B-spline curvature comb");
     sToolTipText    = QT_TR_NOOP("Switches between showing and hiding the curvature comb for all B-splines");
-    //# sWhatsThis      = "Sketcher_BSplineComb";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_BSplineComb";
     sAccel          = "";
@@ -207,7 +204,6 @@ CmdSketcherBSplineKnotMultiplicity::CmdSketcherBSplineKnotMultiplicity()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Show/Hide B-spline knot multiplicity");
     sToolTipText    = QT_TR_NOOP("Switches between showing and hiding the knot multiplicity for all B-splines");
-    //# sWhatsThis      = "Sketcher_BSplineKnotMultiplicity";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_BSplineKnotMultiplicity";
     sAccel          = "";
@@ -241,7 +237,6 @@ CmdSketcherCompBSplineShowHideGeometryInformation::CmdSketcherCompBSplineShowHid
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Show/hide B-spline information layer");
     sToolTipText    = QT_TR_NOOP("Show/hide B-spline information layer");
-    //# sWhatsThis      = "Sketcher_CompBSplineShowHideGeometryInformation";
     sStatusTip      = sToolTipText;
     eType           = ForEdit;
 }
@@ -345,7 +340,6 @@ CmdSketcherConvertToNURB::CmdSketcherConvertToNURB()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Convert Geometry to B-spline");
     sToolTipText    = QT_TR_NOOP("Converts the given Geometry to a B-spline");
-    //# sWhatsThis      = "Sketcher_ConvertToNURB";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_BSplineApproximate";
     sAccel          = "";
@@ -426,7 +420,6 @@ CmdSketcherIncreaseDegree::CmdSketcherIncreaseDegree()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Increase degree");
     sToolTipText    = QT_TR_NOOP("Increases the degree of the B-spline");
-    //# sWhatsThis      = "Sketcher_BSplineIncreaseDegree";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_BSplineIncreaseDegree";
     sAccel          = "";
@@ -506,7 +499,6 @@ CmdSketcherIncreaseKnotMultiplicity::CmdSketcherIncreaseKnotMultiplicity()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Increase knot multiplicity");
     sToolTipText    = QT_TR_NOOP("Increases the multiplicity of the selected knot of a B-spline");
-    //# sWhatsThis      = "Sketcher_BSplineIncreaseKnotMultiplicity";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_BSplineIncreaseKnotMultiplicity";
     sAccel          = "";
@@ -667,7 +659,6 @@ CmdSketcherDecreaseKnotMultiplicity::CmdSketcherDecreaseKnotMultiplicity()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Decrease multiplicity");
     sToolTipText    = QT_TR_NOOP("Decreases the multiplicity of the selected knot of a B-spline");
-    //# sWhatsThis      = "Sketcher_BSplineDecreaseKnotMultiplicity";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_BSplineDecreaseKnotMultiplicity";
     sAccel          = "";
@@ -816,7 +807,6 @@ CmdSketcherCompModifyKnotMultiplicity::CmdSketcherCompModifyKnotMultiplicity()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Modify knot multiplicity");
     sToolTipText    = QT_TR_NOOP("Modifies the multiplicity of the selected knot of a B-spline");    
-    //# sWhatsThis      = "Sketcher_CompModifyKnotMultiplicity";
     sStatusTip      = sToolTipText;
     eType           = ForEdit;
 }

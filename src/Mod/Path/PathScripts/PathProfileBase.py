@@ -31,7 +31,6 @@ from PySide import QtCore
 
 __title__ = "Base Path Profile Operation"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Base class and implementation for Path profile operations."
 
 if False:

@@ -28,7 +28,6 @@ import importlib
 
 __title__ = "Path Icon ViewProvider"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "ViewProvider who's main and only task is to assign an icon."
 
 if False:

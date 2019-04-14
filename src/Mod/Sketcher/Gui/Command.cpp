@@ -139,7 +139,6 @@ CmdSketcherNewSketch::CmdSketcherNewSketch()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create sketch");
     sToolTipText    = QT_TR_NOOP("Create a new sketch");
-    //# sWhatsThis      = "Sketcher_NewSketch";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_NewSketch";
 }
@@ -203,7 +202,7 @@ void CmdSketcherNewSketch::activated(int iMsg)
 
         openCommand("Create a Sketch on Face");
         doCommand(Doc,"App.activeDocument().addObject('Sketcher::SketchObject','%s')",FeatName.c_str());
-        if (mapmode >= 0 && mapmode < Attacher::mmDummy_NumberOfModes)
+        if (mapmode < Attacher::mmDummy_NumberOfModes)
             doCommand(Gui,"App.activeDocument().%s.MapMode = \"%s\"",FeatName.c_str(),AttachEngine::getModeName(mapmode).c_str());
         else
             assert(0 /* mapmode index out of range */);
@@ -280,7 +279,6 @@ CmdSketcherEditSketch::CmdSketcherEditSketch()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Edit sketch");
     sToolTipText    = QT_TR_NOOP("Edit the selected sketch");
-    //# sWhatsThis      = "Sketcher_EditSketch";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_EditSketch";
 }
@@ -311,7 +309,6 @@ CmdSketcherLeaveSketch::CmdSketcherLeaveSketch()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Leave sketch");
     sToolTipText    = QT_TR_NOOP("Close the editing of the sketch");
-    //# sWhatsThis      = "Sketcher_LeaveSketch";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_LeaveSketch";
     eType           = 0;
@@ -321,14 +318,14 @@ void CmdSketcherLeaveSketch::activated(int iMsg)
 {
     Q_UNUSED(iMsg);
     Gui::Document *doc = getActiveGuiDocument();
-    
+
     if (doc) {
         // checks if a Sketch Viewprovider is in Edit and is in no special mode
         SketcherGui::ViewProviderSketch* vp = dynamic_cast<SketcherGui::ViewProviderSketch*>(doc->getInEdit());
         if (vp && vp->getSketchMode() != ViewProviderSketch::STATUS_NONE)
             vp->purgeHandler();
     }
-    
+
     openCommand("Sketch changed");
     doCommand(Gui,"Gui.activeDocument().resetEdit()");
     doCommand(Doc,"App.ActiveDocument.recompute()");
@@ -357,7 +354,6 @@ CmdSketcherReorientSketch::CmdSketcherReorientSketch()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Reorient sketch...");
     sToolTipText    = QT_TR_NOOP("Reorient the selected sketch");
-    //# sWhatsThis      = "Sketcher_ReorientSketch";
     sStatusTip      = sToolTipText;
 }
 
@@ -440,7 +436,6 @@ CmdSketcherMapSketch::CmdSketcherMapSketch()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Map sketch to face...");
     sToolTipText    = QT_TR_NOOP("Map a sketch to a face");
-    //# sWhatsThis      = "Sketcher_MapSketch";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_MapSketch";
 }
@@ -599,7 +594,6 @@ CmdSketcherViewSketch::CmdSketcherViewSketch()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("View sketch");
     sToolTipText    = QT_TR_NOOP("View sketch perpendicular to sketch plane");
-    //# sWhatsThis      = "Sketcher_ViewSketch";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_ViewSketch";
     eType           = 0;
@@ -637,7 +631,6 @@ CmdSketcherValidateSketch::CmdSketcherValidateSketch()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Validate sketch...");
     sToolTipText    = QT_TR_NOOP("Validate sketch");
-    //# sWhatsThis      = "Sketcher_ValidateSketch";
     sStatusTip      = sToolTipText;
     eType           = 0;
 }
@@ -671,7 +664,6 @@ CmdSketcherMirrorSketch::CmdSketcherMirrorSketch()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Mirror sketch");
     sToolTipText    = QT_TR_NOOP("Mirror sketch");
-    //# sWhatsThis      = "Sketcher_MirrorSketch";
     sStatusTip      = sToolTipText;
     eType           = 0;
     sPixmap         = "Sketcher_MirrorSketch";
@@ -687,60 +679,60 @@ void CmdSketcherMirrorSketch::activated(int iMsg)
             qApp->translate("CmdSketcherMirrorSketch", "Select one or more sketches, please."));
         return;
     }
-    
+
     // Ask the user which kind of mirroring he wants
     SketchMirrorDialog * smd = new SketchMirrorDialog();
-    
+
     int refgeoid=-1;
     Sketcher::PointPos refposid=Sketcher::none;
-    
+
     if( smd->exec() == QDialog::Accepted ){
         refgeoid=smd->RefGeoid;
         refposid=smd->RefPosid;
-        
+
         delete smd;
     }
     else {
         delete smd;
         return;
     }
-    
+
     App::Document* doc = App::GetApplication().getActiveDocument();
-    
+
     openCommand("Create a mirror Sketch for each sketch");
-    
+
     for (std::vector<Gui::SelectionObject>::const_iterator it=selection.begin(); it != selection.end(); ++it) {
-        // create Sketch 
+        // create Sketch
         std::string FeatName = getUniqueObjectName("MirroredSketch");
-        
+
         doCommand(Doc,"App.activeDocument().addObject('Sketcher::SketchObject','%s')",FeatName.c_str());
-        
-        Sketcher::SketchObject* mirrorsketch = static_cast<Sketcher::SketchObject*>(doc->getObject(FeatName.c_str()));       
-        
+
+        Sketcher::SketchObject* mirrorsketch = static_cast<Sketcher::SketchObject*>(doc->getObject(FeatName.c_str()));
+
         const Sketcher::SketchObject* Obj = static_cast<const Sketcher::SketchObject*>((*it).getObject());
-        
+
         Base::Placement pl = Obj->Placement.getValue();
-        
+
         Base::Vector3d p = pl.getPosition();
         Base::Rotation r = pl.getRotation();
-        
+
         doCommand(Doc,"App.activeDocument().%s.Placement = App.Placement(App.Vector(%f,%f,%f),App.Rotation(%f,%f,%f,%f))",
                   FeatName.c_str(),
                   p.x,p.y,p.z,r[0],r[1],r[2],r[3]);
-        
+
         Sketcher::SketchObject* tempsketch = new Sketcher::SketchObject();
-        
+
         int addedGeometries=tempsketch->addGeometry(Obj->getInternalGeometry());
-        
+
         int addedConstraints=tempsketch->addConstraints(Obj->Constraints.getValues());
 
         std::vector<int> geoIdList;
-        
+
         for(int i=0;i<=addedGeometries;i++)
             geoIdList.push_back(i);
-        
+
         tempsketch->addSymmetric(geoIdList, refgeoid, refposid);
-                
+
         std::vector<Part::Geometry *> tempgeo = tempsketch->getInternalGeometry();
         std::vector<Sketcher::Constraint *> tempconstr = tempsketch->Constraints.getValues();
 
@@ -748,7 +740,7 @@ void CmdSketcherMirrorSketch::activated(int iMsg)
         std::vector<Sketcher::Constraint *> mirrorconstr (tempconstr.begin()+addedConstraints+1,tempconstr.end());
 
         for (std::vector<Sketcher::Constraint *>::const_iterator itc=mirrorconstr.begin(); itc != mirrorconstr.end(); ++itc) {
- 
+
             if ((*itc)->First!=Sketcher::Constraint::GeoUndef || (*itc)->First==Sketcher::GeoEnum::HAxis || (*itc)->First==Sketcher::GeoEnum::VAxis) // not x, y axes or origin
                 (*itc)->First-=(addedGeometries+1);
             if ((*itc)->Second!=Sketcher::Constraint::GeoUndef || (*itc)->Second==Sketcher::GeoEnum::HAxis || (*itc)->Second==Sketcher::GeoEnum::VAxis) // not x, y axes or origin
@@ -756,15 +748,15 @@ void CmdSketcherMirrorSketch::activated(int iMsg)
             if ((*itc)->Third!=Sketcher::Constraint::GeoUndef || (*itc)->Third==Sketcher::GeoEnum::HAxis || (*itc)->Third==Sketcher::GeoEnum::VAxis) // not x, y axes or origin
                 (*itc)->Third-=(addedGeometries+1);
         }
-        
+
         mirrorsketch->addGeometry(mirrorgeo);
         mirrorsketch->addConstraints(mirrorconstr);
-        
+
         delete tempsketch;
     }
-    
+
     doCommand(Gui,"App.activeDocument().recompute()");
-    
+
 }
 
 bool CmdSketcherMirrorSketch::isActive(void)
@@ -781,7 +773,6 @@ CmdSketcherMergeSketches::CmdSketcherMergeSketches()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Merge sketches");
     sToolTipText    = QT_TR_NOOP("Merge sketches");
-    //# sWhatsThis      = "Sketcher_MergeSketches";
     sStatusTip      = sToolTipText;
     eType           = 0;
     sPixmap         = "Sketcher_MergeSketch";
@@ -800,7 +791,7 @@ void CmdSketcherMergeSketches::activated(int iMsg)
 
     App::Document* doc = App::GetApplication().getActiveDocument();
 
-    // create Sketch 
+    // create Sketch
     std::string FeatName = getUniqueObjectName("Sketch");
 
     openCommand("Create a merge Sketch");
@@ -861,7 +852,6 @@ CmdSketcherViewSection::CmdSketcherViewSection()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("View section");
     sToolTipText    = QT_TR_NOOP("Switches between section and full view");
-    //# sWhatsThis      = "Sketcher_ViewSection";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_ViewSection";
     eType           = 0;

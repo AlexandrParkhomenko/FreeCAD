@@ -70,7 +70,6 @@ CmdSketcherToggleConstruction::CmdSketcherToggleConstruction()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Toggle construction geometry");
     sToolTipText    = QT_TR_NOOP("Toggles the toolbar or selected geometry to/from construction mode");
-    //# sWhatsThis      = "Sketcher_ToggleConstruction";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_AlterConstruction";
     sAccel          = "C,M";

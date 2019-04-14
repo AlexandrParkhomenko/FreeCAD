@@ -54,7 +54,6 @@ CmdMeshPartMesher::CmdMeshPartMesher()
     sGroup        = QT_TR_NOOP("Mesh");
     sMenuText     = QT_TR_NOOP("Create mesh from shape...");
     sToolTipText  = QT_TR_NOOP("Tessellate shape");
-    //# sWhatsThis    = "MeshPart_Mesher";
     sStatusTip    = sToolTipText;
 }
 
@@ -206,7 +205,6 @@ CmdMeshPartSection::CmdMeshPartSection()
     sGroup        = QT_TR_NOOP("Mesh");
     sMenuText     = QT_TR_NOOP("Create section from mesh and plane");
     sToolTipText  = QT_TR_NOOP("Section");
-    //# sWhatsThis    = "MeshPart_Section";
     sStatusTip    = sToolTipText;
 }
 
@@ -287,7 +285,6 @@ CmdMeshPartCurveOnMesh::CmdMeshPartCurveOnMesh()
     sGroup        = QT_TR_NOOP("Mesh");
     sMenuText     = QT_TR_NOOP("Curve on mesh...");
     sToolTipText  = QT_TR_NOOP("Curve on mesh");
-    //# sWhatsThis    = "MeshPart_CurveOnMesh";
     sStatusTip    = sToolTipText;
 }
 

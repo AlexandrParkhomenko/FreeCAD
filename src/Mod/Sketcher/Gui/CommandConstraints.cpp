@@ -1184,7 +1184,6 @@ CmdSketcherConstrainHorizontal::CmdSketcherConstrainHorizontal()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain horizontally");
     sToolTipText    = QT_TR_NOOP("Create a horizontal constraint on the selected item");
-    //# sWhatsThis      = "Sketcher_ConstrainHorizontal";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_Horizontal";
     sAccel          = "H";
@@ -1431,7 +1430,6 @@ CmdSketcherConstrainVertical::CmdSketcherConstrainVertical()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain vertically");
     sToolTipText    = QT_TR_NOOP("Create a vertical constraint on the selected item");
-    //# sWhatsThis      = "Sketcher_ConstrainVertical";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_Vertical";
     sAccel          = "V";
@@ -1678,7 +1676,6 @@ CmdSketcherConstrainLock::CmdSketcherConstrainLock()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain lock");
     sToolTipText    = QT_TR_NOOP("Create a lock constraint on the selected item");
-    //# sWhatsThis      = "Sketcher_ConstrainLock";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_ConstrainLock";
     eType           = ForEdit;
@@ -1946,7 +1943,6 @@ CmdSketcherConstrainBlock::CmdSketcherConstrainBlock()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain Block");
     sToolTipText    = QT_TR_NOOP("Create a Block constraint on the selected item");
-    //# sWhatsThis      = "Sketcher_ConstrainBlock";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_ConstrainBlock";
     eType           = ForEdit;
@@ -2255,7 +2251,6 @@ CmdSketcherConstrainCoincident::CmdSketcherConstrainCoincident()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain coincident");
     sToolTipText    = QT_TR_NOOP("Create a coincident constraint on the selected item");
-    //# sWhatsThis      = "Sketcher_ConstrainCoincident";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_PointOnPoint";
     sAccel          = "C";
@@ -2447,7 +2442,6 @@ CmdSketcherConstrainDistance::CmdSketcherConstrainDistance()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain distance");
     sToolTipText    = QT_TR_NOOP("Fix a length of a line or the distance between a line and a vertex");
-    //# sWhatsThis      = "Sketcher_ConstrainDistance";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_Length";
     sAccel          = "SHIFT+D";
@@ -2830,7 +2824,6 @@ CmdSketcherConstrainPointOnObject::CmdSketcherConstrainPointOnObject()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain point onto object");
     sToolTipText    = QT_TR_NOOP("Fix a point onto an object");
-    //# sWhatsThis      = "Sketcher_ConstrainPointOnObject";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_PointOnObject";
     sAccel          = "SHIFT+O";
@@ -3017,7 +3010,6 @@ CmdSketcherConstrainDistanceX::CmdSketcherConstrainDistanceX()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain horizontal distance");
     sToolTipText    = QT_TR_NOOP("Fix the horizontal distance between two points or line ends");
-    //# sWhatsThis      = "Sketcher_ConstrainDistanceX";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_HorizontalDistance";
     sAccel          = "SHIFT+H";
@@ -3267,7 +3259,6 @@ CmdSketcherConstrainDistanceY::CmdSketcherConstrainDistanceY()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain vertical distance");
     sToolTipText    = QT_TR_NOOP("Fix the vertical distance between two points or line ends");
-    //# sWhatsThis      = "Sketcher_ConstrainDistanceY";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_VerticalDistance";
     sAccel          = "SHIFT+V";
@@ -3551,7 +3542,6 @@ CmdSketcherConstrainParallel::CmdSketcherConstrainParallel()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain parallel");
     sToolTipText    = QT_TR_NOOP("Create a parallel constraint between two lines");
-    //# sWhatsThis      = "Sketcher_ConstrainParallel";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_Parallel";
     sAccel          = "SHIFT+P";
@@ -3743,7 +3733,6 @@ CmdSketcherConstrainPerpendicular::CmdSketcherConstrainPerpendicular()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain perpendicular");
     sToolTipText    = QT_TR_NOOP("Create a perpendicular constraint between two lines");
-    //# sWhatsThis      = "Sketcher_ConstrainPerpendicular";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_Perpendicular";
     sAccel          = "N";
@@ -4364,7 +4353,6 @@ CmdSketcherConstrainTangent::CmdSketcherConstrainTangent()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain tangent");
     sToolTipText    = QT_TR_NOOP("Create a tangent constraint between two entities");
-    //# sWhatsThis      = "Sketcher_ConstrainTangent";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_Tangent";
     sAccel          = "T";
@@ -5019,7 +5007,6 @@ CmdSketcherConstrainRadius::CmdSketcherConstrainRadius()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain radius");
     sToolTipText    = QT_TR_NOOP("Fix the radius of a circle or an arc");
-    //# sWhatsThis      = "Sketcher_ConstrainRadius";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_Radius";
     sAccel          = "";
@@ -5490,7 +5477,6 @@ CmdSketcherConstrainDiameter::CmdSketcherConstrainDiameter()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain diameter");
     sToolTipText    = QT_TR_NOOP("Fix the diameter of a circle or an arc");
-    //# sWhatsThis      = "Sketcher_ConstrainDiameter";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_Diameter";
     sAccel          = "";
@@ -5950,7 +5936,6 @@ CmdSketcherCompConstrainRadDia::CmdSketcherCompConstrainRadDia()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain arc or circle");
     sToolTipText    = QT_TR_NOOP("Constrain an arc or a circle");
-    //# sWhatsThis      = "Sketcher_CompCreateCircle";
     sStatusTip      = sToolTipText;
     sAccel          = "SHIFT+R";
     eType           = ForEdit;
@@ -6068,7 +6053,6 @@ CmdSketcherConstrainAngle::CmdSketcherConstrainAngle()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain angle");
     sToolTipText    = QT_TR_NOOP("Fix the angle of a line or the angle between two lines");
-    //# sWhatsThis      = "Sketcher_ConstrainAngle";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_InternalAngle";
     sAccel          = "A";
@@ -6581,7 +6565,6 @@ CmdSketcherConstrainEqual::CmdSketcherConstrainEqual()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain equal");
     sToolTipText    = QT_TR_NOOP("Create an equality constraint between two lines or between circles and arcs");
-    //# sWhatsThis      = "Sketcher_ConstrainEqual";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_EqualLength";
     sAccel          = "E";
@@ -6771,7 +6754,6 @@ CmdSketcherConstrainSymmetric::CmdSketcherConstrainSymmetric()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain symmetrical");
     sToolTipText    = QT_TR_NOOP("Create a symmetry constraint between two points with respect to a line or a third point");
-    //# sWhatsThis      = "Sketcher_ConstrainSymmetric";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_Symmetric";
     sAccel          = "S";
@@ -7044,7 +7026,6 @@ CmdSketcherConstrainSnellsLaw::CmdSketcherConstrainSnellsLaw()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain refraction (Snell's law')");
     sToolTipText    = QT_TR_NOOP("Create a refraction law (Snell's law) constraint between two endpoints of rays and an edge as an interface.");
-    //# sWhatsThis      = "Sketcher_ConstrainSnellsLaw";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_SnellsLaw";
     sAccel          = "";
@@ -7197,7 +7178,6 @@ CmdSketcherConstrainInternalAlignment::CmdSketcherConstrainInternalAlignment()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Constrain InternalAlignment");
     sToolTipText    = QT_TR_NOOP("Constrains an element to be aligned with the internal geometry of another element");
-    //# sWhatsThis      = "Sketcher_ConstrainInternalAlignment";
     sStatusTip      = sToolTipText;
     sPixmap         = "Constraint_InternalAlignment";
     sAccel          = "Ctrl+A";
@@ -7613,7 +7593,6 @@ CmdSketcherToggleDrivingConstraint::CmdSketcherToggleDrivingConstraint()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Toggle reference/driving constraint");
     sToolTipText    = QT_TR_NOOP("Toggles the toolbar or selected constraints to/from reference mode");
-    //# sWhatsThis      = "Sketcher_ToggleDrivingConstraint";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_ToggleConstraint";
     sAccel          = "";

@@ -415,7 +415,6 @@ CmdSketcherCreateLine::CmdSketcherCreateLine()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create line");
     sToolTipText    = QT_TR_NOOP("Create a line in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateLine";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreateLine";
     sAccel          = "L";
@@ -654,7 +653,6 @@ CmdSketcherCreateRectangle::CmdSketcherCreateRectangle()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create rectangle");
     sToolTipText    = QT_TR_NOOP("Create a rectangle in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateRectangle";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreateRectangle";
     sAccel          = "R";
@@ -1388,7 +1386,6 @@ CmdSketcherCreatePolyline::CmdSketcherCreatePolyline()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create polyline");
     sToolTipText    = QT_TR_NOOP("Create a polyline in the sketch. 'M' Key cycles behaviour");
-    //# sWhatsThis      = "Sketcher_CreatePolyline";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreatePolyline";
     eType           = ForEdit;
@@ -1674,7 +1671,6 @@ CmdSketcherCreateArc::CmdSketcherCreateArc()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create arc by center");
     sToolTipText    = QT_TR_NOOP("Create an arc by its center and by its end points");
-    //# sWhatsThis      = "Sketcher_CreateArc";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreateArc";
     eType           = ForEdit;
@@ -1986,7 +1982,6 @@ CmdSketcherCreate3PointArc::CmdSketcherCreate3PointArc()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create arc by three points");
     sToolTipText    = QT_TR_NOOP("Create an arc by its end points and a point along the arc");
-    //# sWhatsThis      = "Sketcher_Create3PointArc";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Create3PointArc";
     eType           = ForEdit;
@@ -2013,7 +2008,6 @@ CmdSketcherCompCreateArc::CmdSketcherCompCreateArc()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create arc");
     sToolTipText    = QT_TR_NOOP("Create an arc in the sketcher");
-    //# sWhatsThis      = "Sketcher_CompCreateArc";
     sStatusTip      = sToolTipText;
     eType           = ForEdit;
 }
@@ -2289,7 +2283,6 @@ CmdSketcherCreateCircle::CmdSketcherCreateCircle()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create circle");
     sToolTipText    = QT_TR_NOOP("Create a circle in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateCircle";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreateCircle";
     eType           = ForEdit;
@@ -3130,7 +3123,6 @@ CmdSketcherCreateEllipseByCenter::CmdSketcherCreateEllipseByCenter()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create ellipse by center");
     sToolTipText    = QT_TR_NOOP("Create an ellipse by center in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateEllipseByCenter";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Conics_Ellipse_Center";
     eType           = ForEdit;
@@ -3160,7 +3152,6 @@ CmdSketcherCreateEllipseBy3Points::CmdSketcherCreateEllipseBy3Points()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create ellipse by 3 points");
     sToolTipText    = QT_TR_NOOP("Create an ellipse by 3 points in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateEllipseBy3Points";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreateEllipse_3points";
     eType           = ForEdit;
@@ -3533,7 +3524,6 @@ CmdSketcherCreateArcOfEllipse::CmdSketcherCreateArcOfEllipse()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create an arc of ellipse");
     sToolTipText    = QT_TR_NOOP("Create an arc of ellipse in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateArcOfEllipse";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Elliptical_Arc";
     eType           = ForEdit;
@@ -3917,7 +3907,6 @@ CmdSketcherCreateArcOfHyperbola::CmdSketcherCreateArcOfHyperbola()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create an arc of hyperbola");
     sToolTipText    = QT_TR_NOOP("Create an arc of hyperbola in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateArcOfHyperbola";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Hyperbolic_Arc";
     eType           = ForEdit;
@@ -4262,7 +4251,6 @@ CmdSketcherCreateArcOfParabola::CmdSketcherCreateArcOfParabola()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create an arc of parabola");
     sToolTipText    = QT_TR_NOOP("Create an arc of parabola in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateArcOfParabola";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Parabolic_Arc";
     eType           = ForEdit;
@@ -4294,7 +4282,6 @@ CmdSketcherCompCreateConic::CmdSketcherCompCreateConic()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create a conic");
     sToolTipText    = QT_TR_NOOP("Create a conic in the sketch");
-    //# sWhatsThis      = "Sketcher_CompCreateConic";
     sStatusTip      = sToolTipText;
     eType           = ForEdit;
 }
@@ -4869,7 +4856,6 @@ CmdSketcherCreateBSpline::CmdSketcherCreateBSpline()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create B-spline");
     sToolTipText    = QT_TR_NOOP("Create a B-spline via control points in the sketch.");
-    //# sWhatsThis      = "Sketcher_CreateBSpline";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreateBSpline";
     eType           = ForEdit;
@@ -4913,7 +4899,6 @@ CmdSketcherCreatePeriodicBSpline::CmdSketcherCreatePeriodicBSpline()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create periodic B-spline");
     sToolTipText    = QT_TR_NOOP("Create a periodic B-spline via control points in the sketch.");
-    //# sWhatsThis      = "Sketcher_CreatePeriodicBSpline";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Create_Periodic_BSpline";
     eType           = ForEdit;
@@ -4944,7 +4929,6 @@ CmdSketcherCompCreateBSpline::CmdSketcherCompCreateBSpline()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create a B-spline");
     sToolTipText    = QT_TR_NOOP("Create a B-spline in the sketch");
-    //# sWhatsThis      = "Sketcher_CompCreateBSpline";
     sStatusTip      = sToolTipText;
     eType           = ForEdit;
 }
@@ -5277,7 +5261,6 @@ CmdSketcherCreate3PointCircle::CmdSketcherCreate3PointCircle()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create circle by three points");
     sToolTipText    = QT_TR_NOOP("Create a circle by 3 perimeter points");
-    //# sWhatsThis      = "Sketcher_Create3PointCircle";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Create3PointCircle";
     eType           = ForEdit;
@@ -5304,7 +5287,6 @@ CmdSketcherCompCreateCircle::CmdSketcherCompCreateCircle()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create circle");
     sToolTipText    = QT_TR_NOOP("Create a circle in the sketcher");
-    //# sWhatsThis      = "Sketcher_CompCreateCircle";
     sStatusTip      = sToolTipText;
     eType           = ForEdit;
 }
@@ -5525,7 +5507,6 @@ CmdSketcherCreatePoint::CmdSketcherCreatePoint()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create point");
     sToolTipText    = QT_TR_NOOP("Create a point in the sketch");
-    //# sWhatsThis      = "Sketcher_CreatePoint";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreatePoint";
     eType           = ForEdit;
@@ -5554,7 +5535,6 @@ CmdSketcherCreateText::CmdSketcherCreateText()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create text");
     sToolTipText    = QT_TR_NOOP("Create text in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateText";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreateText";
     eType           = ForEdit;
@@ -5582,7 +5562,6 @@ CmdSketcherCreateDraftLine::CmdSketcherCreateDraftLine()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create draft line");
     sToolTipText    = QT_TR_NOOP("Create a draft line in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateDraftLine";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_DraftLine";
     eType           = ForEdit;
@@ -5901,7 +5880,6 @@ CmdSketcherCreateFillet::CmdSketcherCreateFillet()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create fillet");
     sToolTipText    = QT_TR_NOOP("Create a fillet between two lines or at a coincident point");
-    //# sWhatsThis      = "Sketcher_CreateFillet";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreateFillet";
     sAccel          = "F";
@@ -6064,7 +6042,6 @@ CmdSketcherTrimming::CmdSketcherTrimming()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Trim edge");
     sToolTipText    = QT_TR_NOOP("Trim an edge with respect to the picked position");
-    //# sWhatsThis      = "Sketcher_Trimming";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Trimming";
     sAccel          = "T,R";
@@ -6420,7 +6397,6 @@ CmdSketcherExtend::CmdSketcherExtend()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Extend edge");
     sToolTipText    = QT_TR_NOOP("Extend an edge with respect to the picked position");
-    //# sWhatsThis      = "Sketcher_Extend";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_Extend";
     sAccel          = "T,E";
@@ -6646,7 +6622,6 @@ CmdSketcherExternal::CmdSketcherExternal()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("External geometry");
     sToolTipText    = QT_TR_NOOP("Create an edge linked to an external geometry");
-    //# sWhatsThis      = "Sketcher_External";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_External";
     sAccel          = "X";
@@ -6863,7 +6838,6 @@ static const char *cursor_carboncopy[]={
         sGroup          = QT_TR_NOOP("Sketcher");
         sMenuText       = QT_TR_NOOP("CarbonCopy");
         sToolTipText    = QT_TR_NOOP("Copies the geometry of another sketch");
-        //# sWhatsThis      = "Sketcher_CarbonCopy";
         sStatusTip      = sToolTipText;
         sPixmap         = "Sketcher_CarbonCopy";
         sAccel          = "C,C";
@@ -7143,7 +7117,6 @@ CmdSketcherCreateSlot::CmdSketcherCreateSlot()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create slot");
     sToolTipText    = QT_TR_NOOP("Create a slot in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateSlot";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreateSlot";
     sAccel          = "";
@@ -7376,7 +7349,6 @@ CmdSketcherCreateTriangle::CmdSketcherCreateTriangle()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create equilateral triangle");
     sToolTipText    = QT_TR_NOOP("Create an equilateral triangle in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateTriangle";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreateTriangle";
     sAccel          = "";
@@ -7402,7 +7374,6 @@ CmdSketcherCreateSquare::CmdSketcherCreateSquare()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create square");
     sToolTipText    = QT_TR_NOOP("Create a square in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateSquare";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreateSquare";
     sAccel          = "";
@@ -7428,7 +7399,6 @@ CmdSketcherCreatePentagon::CmdSketcherCreatePentagon()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create pentagon");
     sToolTipText    = QT_TR_NOOP("Create a pentagon in the sketch");
-    //# sWhatsThis      = "Sketcher_CreatePentagon";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreatePentagon";
     sAccel          = "";
@@ -7455,7 +7425,6 @@ CmdSketcherCreateHexagon::CmdSketcherCreateHexagon()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create hexagon");
     sToolTipText    = QT_TR_NOOP("Create a hexagon in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateHexagon";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreateHexagon";
     sAccel          = "";
@@ -7481,7 +7450,6 @@ CmdSketcherCreateHeptagon::CmdSketcherCreateHeptagon()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create heptagon");
     sToolTipText    = QT_TR_NOOP("Create a heptagon in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateHeptagon";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreateHeptagon";
     sAccel          = "";
@@ -7507,7 +7475,6 @@ CmdSketcherCreateOctagon::CmdSketcherCreateOctagon()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create octagon");
     sToolTipText    = QT_TR_NOOP("Create an octagon in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateOctagon";
     sStatusTip      = sToolTipText;
     sPixmap         = "Sketcher_CreateOctagon";
     sAccel          = "";
@@ -7533,7 +7500,6 @@ CmdSketcherCreateRegularPolygon::CmdSketcherCreateRegularPolygon()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create regular polygon");
     sToolTipText    = QT_TR_NOOP("Create a regular polygon in the sketch");
-    //# sWhatsThis      = "Sketcher_CreateRegularPolygon";
     sStatusTip      = sToolTipText;
     sPixmap         = "CreateRegularPolygon";
     sAccel          = "";
@@ -7560,7 +7526,6 @@ CmdSketcherCompCreateRegularPolygon::CmdSketcherCompCreateRegularPolygon()
     sGroup          = QT_TR_NOOP("Sketcher");
     sMenuText       = QT_TR_NOOP("Create regular polygon");
     sToolTipText    = QT_TR_NOOP("Create a regular polygon in the sketcher");
-    //# sWhatsThis      = "Sketcher_CompCreateRegularPolygon";
     sStatusTip      = sToolTipText;
     eType           = ForEdit;
 }

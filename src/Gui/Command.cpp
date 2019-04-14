@@ -97,7 +97,6 @@ using namespace Gui::DockWnd;
  *     // set up menu text, status tip, ...
  *     sMenuText     = "&Open";
  *     sToolTipText  = "Open a file";
- *     //# sWhatsThis    = "Open a file";
  *     sStatusTip    = "Open a file";
  *     sPixmap       = "Open"; // name of a registered pixmap
  *     sAccel        = "Shift+P"; // or "P" or "P, L" or "Ctrl+X, Ctrl+C" for a sequence

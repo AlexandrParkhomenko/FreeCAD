@@ -22,7 +22,6 @@
 
 __title__ = "BasicShapes.Shapes"
 __author__ = "Werner Mayer"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Basic shapes"
 
 

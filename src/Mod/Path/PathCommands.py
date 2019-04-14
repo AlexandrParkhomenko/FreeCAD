@@ -43,7 +43,6 @@ else:
 
 __title__="FreeCAD Path Commands"
 __author__ = "sliptonic"
-__url__ = "http://www.freecadweb.org"
 
 
 class _CommandSelectLoop:

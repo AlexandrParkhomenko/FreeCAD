@@ -44,7 +44,6 @@ StdCmdDlgMacroRecord::StdCmdDlgMacroRecord()
     sGroup        = QT_TR_NOOP("Macro");
     sMenuText     = QT_TR_NOOP("&Macro recording ...");
     sToolTipText  = QT_TR_NOOP("Opens a dialog to record a macro");
-    //# sWhatsThis    = "Std_DlgMacroRecord";
     sStatusTip    = QT_TR_NOOP("Opens a dialog to record a macro");
     sPixmap       = "media-record";
     eType         = 0;
@@ -73,7 +72,6 @@ StdCmdMacroStopRecord::StdCmdMacroStopRecord()
     sGroup        = QT_TR_NOOP("Macro");
     sMenuText     = QT_TR_NOOP("S&top macro recording");
     sToolTipText  = QT_TR_NOOP("Stop the macro recording session");
-    //# sWhatsThis    = "Std_MacroStopRecord";
     sStatusTip    = QT_TR_NOOP("Stop the macro recording session");
     sPixmap       = "media-playback-stop";
     eType         = 0;
@@ -101,7 +99,6 @@ StdCmdDlgMacroExecute::StdCmdDlgMacroExecute()
     sGroup        = QT_TR_NOOP("Macro");
     sMenuText     = QT_TR_NOOP("Macros ...");
     sToolTipText  = QT_TR_NOOP("Opens a dialog to let you execute a recorded macro");
-    //# sWhatsThis    = "Std_DlgMacroExecute";
     sStatusTip    = QT_TR_NOOP("Opens a dialog to let you execute a recorded macro");
     sPixmap       = "accessories-text-editor";
     eType         = 0;
@@ -130,7 +127,6 @@ StdCmdDlgMacroExecuteDirect::StdCmdDlgMacroExecuteDirect()
     sGroup        = QT_TR_NOOP("Macro");
     sMenuText     = QT_TR_NOOP("Execute macro");
     sToolTipText  = QT_TR_NOOP("Execute the macro in the editor");
-    //# sWhatsThis    = "Std_DlgMacroExecuteDirect";
     sStatusTip    = QT_TR_NOOP("Execute the macro in the editor");
     sPixmap       = "media-playback-start";
     sAccel        = "Ctrl+F6";
@@ -156,7 +152,6 @@ StdCmdMacroStartDebug::StdCmdMacroStartDebug()
     sGroup        = QT_TR_NOOP("Macro");
     sMenuText     = QT_TR_NOOP("Debug macro");
     sToolTipText  = QT_TR_NOOP("Start debugging of macro");
-    //# sWhatsThis    = "Std_MacroStartDebug";
     sStatusTip    = QT_TR_NOOP("Start debugging of macro");
     sPixmap       = "debug-start";
     sAccel        = "F6";
@@ -186,7 +181,6 @@ StdCmdMacroStopDebug::StdCmdMacroStopDebug()
     sGroup        = QT_TR_NOOP("Macro");
     sMenuText     = QT_TR_NOOP("Stop debugging");
     sToolTipText  = QT_TR_NOOP("Stop debugging of macro");
-    //# sWhatsThis    = "Std_MacroStopDebug";
     sStatusTip    = QT_TR_NOOP("Stop debugging of macro");
     sPixmap       = "debug-stop";
     sAccel        = "Shift+F6";
@@ -213,7 +207,6 @@ StdCmdMacroStepOver::StdCmdMacroStepOver()
     sGroup        = QT_TR_NOOP("Macro");
     sMenuText     = QT_TR_NOOP("Step over");
     sToolTipText  = QT_TR_NOOP("Step over");
-    //# sWhatsThis    = "Std_MacroStepOver";
     sStatusTip    = QT_TR_NOOP("Step over");
     sPixmap       = 0;
     sAccel        = "F10";
@@ -240,7 +233,6 @@ StdCmdMacroStepInto::StdCmdMacroStepInto()
     sGroup        = QT_TR_NOOP("Macro");
     sMenuText     = QT_TR_NOOP("Step into");
     sToolTipText  = QT_TR_NOOP("Step into");
-    ////# sWhatsThis    = "Std_MacroStepOver";
     sStatusTip    = QT_TR_NOOP("Step into");
     sPixmap       = 0;
     sAccel        = "F11";
@@ -267,7 +259,6 @@ StdCmdToggleBreakpoint::StdCmdToggleBreakpoint()
     sGroup        = QT_TR_NOOP("Macro");
     sMenuText     = QT_TR_NOOP("Toggle breakpoint");
     sToolTipText  = QT_TR_NOOP("Toggle breakpoint");
-    //# sWhatsThis    = "Std_ToggleBreakpoint";
     sStatusTip    = QT_TR_NOOP("Toggle breakpoint");
     sPixmap       = 0;
     sAccel        = "F9";

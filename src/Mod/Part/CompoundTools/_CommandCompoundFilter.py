@@ -22,7 +22,6 @@
 
 __title__ = "CompoundTools._CommandCompoundFilter"
 __author__ = "DeepSOIC, Bernd Hahnebach"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Compound Filter: remove some children from a compound (features)."
 
 

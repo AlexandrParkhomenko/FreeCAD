@@ -43,7 +43,6 @@ CmdPartCylinder::CmdPartCylinder()
     sGroup        = QT_TR_NOOP("Part");
     sMenuText     = QT_TR_NOOP("Cylinder");
     sToolTipText  = QT_TR_NOOP("Create a Cylinder");
-    //# sWhatsThis    = "Part_Cylinder";
     sStatusTip    = sToolTipText;
     sPixmap       = "Part_Cylinder";
 }
@@ -84,7 +83,6 @@ CmdPartBox::CmdPartBox()
     sGroup        = QT_TR_NOOP("Part");
     sMenuText     = QT_TR_NOOP("Cube");
     sToolTipText  = QT_TR_NOOP("Create a cube solid");
-    //# sWhatsThis    = "Part_Box";
     sStatusTip    = sToolTipText;
     sPixmap       = "Part_Box";
 }
@@ -125,7 +123,6 @@ CmdPartSphere::CmdPartSphere()
     sGroup        = QT_TR_NOOP("Part");
     sMenuText     = QT_TR_NOOP("Sphere");
     sToolTipText  = QT_TR_NOOP("Create a sphere solid");
-    //# sWhatsThis    = "Part_Sphere";
     sStatusTip    = sToolTipText;
     sPixmap       = "Part_Sphere";
 }
@@ -166,7 +163,6 @@ CmdPartCone::CmdPartCone()
     sGroup        = QT_TR_NOOP("Part");
     sMenuText     = QT_TR_NOOP("Cone");
     sToolTipText  = QT_TR_NOOP("Create a cone solid");
-    //# sWhatsThis    = "Part_Cone";
     sStatusTip    = sToolTipText;
     sPixmap       = "Part_Cone";
 }
@@ -207,7 +203,6 @@ CmdPartTorus::CmdPartTorus()
     sGroup        = QT_TR_NOOP("Part");
     sMenuText     = QT_TR_NOOP("Torus");
     sToolTipText  = QT_TR_NOOP("Create a torus solid");
-    //# sWhatsThis    = "Part_Torus";
     sStatusTip    = sToolTipText;
     sPixmap       = "Part_Torus";
 }

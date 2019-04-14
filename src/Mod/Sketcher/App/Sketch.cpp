@@ -3204,12 +3204,6 @@ int Sketch::solve(void)
                     Base::Console().Log("Important: the BFGS solver succeeded where the DogLeg and LevenbergMarquardt solvers have failed.\n");
                 else if (soltype == 3)
                     Base::Console().Log("Important: the SQP solver succeeded where all single subsystem solvers have failed.\n");
-
-                if (soltype > 0) {
-                    Base::Console().Log("If you see this message please report a way of reproducing this result at\n");
-                    Base::Console().Log("http://www.freecadweb.org/tracker/main_page.php\n");
-                }
-
                 break;
             }
         } // soltype

@@ -40,7 +40,6 @@ from PySide import QtCore, QtGui
 
 __title__ = "Path Operation UI base classes"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Base classes and framework for Path operation's UI"
 
 if False:

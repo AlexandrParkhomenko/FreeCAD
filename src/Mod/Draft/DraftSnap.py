@@ -23,7 +23,6 @@
 
 __title__="FreeCAD Draft Snap tools"
 __author__ = "Yorik van Havre"
-__url__ = "http://www.freecadweb.org"
 
 ## @package DraftSnap
 #  \ingroup DRAFT

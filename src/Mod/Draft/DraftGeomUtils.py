@@ -23,7 +23,6 @@
 
 __title__="FreeCAD Draft Workbench - Geometry library"
 __author__ = "Yorik van Havre, Jacques-Antoine Gaudin, Ken Cline"
-__url__ = ["http://www.freecadweb.org"]
 
 ## \defgroup DRAFTGEOMUTILS DraftGeomUtils
 #  \ingroup DRAFT

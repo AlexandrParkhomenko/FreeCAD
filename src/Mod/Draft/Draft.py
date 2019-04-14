@@ -27,7 +27,6 @@
 
 __title__="FreeCAD Draft Workbench"
 __author__ = "Yorik van Havre, Werner Mayer, Martin Burbaum, Ken Cline, Dmitry Chigrin, Daniel Falck"
-__url__ = "http://www.freecadweb.org"
 
 ## \addtogroup DRAFT
 #  \brief Create and manipulate basic 2D objects

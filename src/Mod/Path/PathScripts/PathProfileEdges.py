@@ -53,7 +53,6 @@ def translate(context, text, disambig=None):
 
 __title__ = "Path Profile Edges Operation"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Path Profile operation based on edges."
 
 

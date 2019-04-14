@@ -23,7 +23,6 @@
 
 __title__="BOPTools.ShapeMerge module"
 __author__ = "DeepSOIC"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Tools for merging shapes with shared elements. Useful for final processing of results of Part.Shape.generalFuse()."
 
 import Part

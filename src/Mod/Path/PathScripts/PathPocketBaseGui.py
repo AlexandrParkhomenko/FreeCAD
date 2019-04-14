@@ -34,7 +34,6 @@ from PySide import QtCore, QtGui
 
 __title__ = "Path Pocket Base Operation UI"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Base page controller and command implementation for path pocket operations."
 
 def translate(context, text, disambig=None):

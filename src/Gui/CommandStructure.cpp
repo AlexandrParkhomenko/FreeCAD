@@ -48,7 +48,6 @@ StdCmdPart::StdCmdPart()
     sGroup        = QT_TR_NOOP("Structure");
     sMenuText     = QT_TR_NOOP("Create part");
     sToolTipText  = QT_TR_NOOP("Create a new part and make it active");
-    //# sWhatsThis    = "Std_Part";
     sStatusTip    = sToolTipText;
     sPixmap       = "Geofeaturegroup";
 }
@@ -88,7 +87,6 @@ StdCmdGroup::StdCmdGroup()
     sGroup        = QT_TR_NOOP("Structure");
     sMenuText     = QT_TR_NOOP("Create group");
     sToolTipText  = QT_TR_NOOP("Create a new group for ordering objects");
-    //# sWhatsThis    = "Std_Group";
     sStatusTip    = sToolTipText;
     sPixmap       = "Group";
 }

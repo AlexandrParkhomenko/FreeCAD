@@ -42,7 +42,6 @@ Cmd_TEMPLATE_Test::Cmd_TEMPLATE_Test()
     sGroup        = QT_TR_NOOP("_TEMPLATE_");
     sMenuText     = QT_TR_NOOP("Hello");
     sToolTipText  = QT_TR_NOOP("_TEMPLATE_ Test function");
-    //# sWhatsThis    = "_TEMPLATE__Test";
     sStatusTip    = QT_TR_NOOP("_TEMPLATE_ Test function");
     sPixmap       = "Test1";
     sAccel        = "CTRL+H";

@@ -94,7 +94,6 @@ StdOrthographicCamera::StdOrthographicCamera()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Orthographic view");
     sToolTipText  = QT_TR_NOOP("Switches to orthographic view mode");
-    //# sWhatsThis    = "Std_OrthographicCamera";
     sStatusTip    = QT_TR_NOOP("Switches to orthographic view mode");
     sPixmap       = "view-isometric";
     sAccel        = "V, O";
@@ -144,7 +143,6 @@ StdPerspectiveCamera::StdPerspectiveCamera()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Perspective view");
     sToolTipText  = QT_TR_NOOP("Switches to perspective view mode");
-    //# sWhatsThis    = "Std_PerspectiveCamera";
     sStatusTip    = QT_TR_NOOP("Switches to perspective view mode");
     sPixmap       = "view-perspective";
     sAccel        = "V, P";
@@ -231,7 +229,6 @@ StdCmdFreezeViews::StdCmdFreezeViews()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Freeze display");
     sToolTipText  = QT_TR_NOOP("Freezes the current view position");
-    //# sWhatsThis    = "Std_FreezeViews";
     sStatusTip    = QT_TR_NOOP("Freezes the current view position");
     sAccel        = "Shift+F";
     eType         = Alter3DView;
@@ -487,7 +484,6 @@ StdCmdToggleClipPlane::StdCmdToggleClipPlane()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Clipping plane");
     sToolTipText  = QT_TR_NOOP("Toggles clipping plane for active view");
-    //# sWhatsThis    = "Std_ToggleClipPlane";
     sStatusTip    = QT_TR_NOOP("Toggles clipping plane for active view");
     eType         = Alter3DView;
 }
@@ -763,7 +759,6 @@ StdCmdToggleVisibility::StdCmdToggleVisibility()
     sMenuText     = QT_TR_NOOP("Toggle visibility");
     sToolTipText  = QT_TR_NOOP("Toggles visibility");
     sStatusTip    = QT_TR_NOOP("Toggles visibility");
-    //# sWhatsThis    = "Std_ToggleVisibility";
     sAccel        = "Space";
     eType         = Alter3DView;
 }
@@ -830,7 +825,6 @@ StdCmdToggleSelectability::StdCmdToggleSelectability()
     sMenuText     = QT_TR_NOOP("Toggle selectability");
     sToolTipText  = QT_TR_NOOP("Toggles the property of the objects to get selected in the 3D-View");
     sStatusTip    = QT_TR_NOOP("Toggles the property of the objects to get selected in the 3D-View");
-    //# sWhatsThis    = "Std_ToggleSelectability";
     sPixmap       = "view-unselectable";
     eType         = Alter3DView;
 }
@@ -877,7 +871,6 @@ StdCmdShowSelection::StdCmdShowSelection()
     sMenuText     = QT_TR_NOOP("Show selection");
     sToolTipText  = QT_TR_NOOP("Show all selected objects");
     sStatusTip    = QT_TR_NOOP("Show all selected objects");
-    //# sWhatsThis    = "Std_ShowSelection";
     eType         = Alter3DView;
 }
 
@@ -913,7 +906,6 @@ StdCmdHideSelection::StdCmdHideSelection()
     sMenuText     = QT_TR_NOOP("Hide selection");
     sToolTipText  = QT_TR_NOOP("Hide all selected objects");
     sStatusTip    = QT_TR_NOOP("Hide all selected objects");
-    //# sWhatsThis    = "Std_HideSelection";
     eType         = Alter3DView;
 }
 
@@ -949,7 +941,6 @@ StdCmdSelectVisibleObjects::StdCmdSelectVisibleObjects()
     sMenuText     = QT_TR_NOOP("Select visible objects");
     sToolTipText  = QT_TR_NOOP("Select visible objects in the active document");
     sStatusTip    = QT_TR_NOOP("Select visible objects in the active document");
-    //# sWhatsThis    = "Std_SelectVisibleObjects";
     eType         = Alter3DView;
 }
 
@@ -990,7 +981,6 @@ StdCmdToggleObjects::StdCmdToggleObjects()
     sMenuText     = QT_TR_NOOP("Toggle all objects");
     sToolTipText  = QT_TR_NOOP("Toggles visibility of all objects in the active document");
     sStatusTip    = QT_TR_NOOP("Toggles visibility of all objects in the active document");
-    //# sWhatsThis    = "Std_ToggleObjects";
     eType         = Alter3DView;
 }
 
@@ -1030,7 +1020,6 @@ StdCmdShowObjects::StdCmdShowObjects()
     sMenuText     = QT_TR_NOOP("Show all objects");
     sToolTipText  = QT_TR_NOOP("Show all objects in the document");
     sStatusTip    = QT_TR_NOOP("Show all objects in the document");
-    //# sWhatsThis    = "Std_ShowObjects";
     eType         = Alter3DView;
 }
 
@@ -1066,7 +1055,6 @@ StdCmdHideObjects::StdCmdHideObjects()
     sMenuText     = QT_TR_NOOP("Hide all objects");
     sToolTipText  = QT_TR_NOOP("Hide all objects in the document");
     sStatusTip    = QT_TR_NOOP("Hide all objects in the document");
-    //# sWhatsThis    = "Std_HideObjects";
     eType         = Alter3DView;
 }
 
@@ -1101,7 +1089,6 @@ StdCmdSetAppearance::StdCmdSetAppearance()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Appearance...");
     sToolTipText  = QT_TR_NOOP("Sets the display properties of the selected object");
-    //# sWhatsThis    = "Std_SetAppearance";
     sStatusTip    = QT_TR_NOOP("Sets the display properties of the selected object");
     sPixmap       = "Std_Tool1";
     sAccel        = "Ctrl+D";
@@ -1135,7 +1122,6 @@ StdCmdViewBottom::StdCmdViewBottom()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Bottom");
     sToolTipText  = QT_TR_NOOP("Set to bottom view");
-    //# sWhatsThis    = "Std_ViewBottom";
     sStatusTip    = QT_TR_NOOP("Set to bottom view");
     sPixmap       = "view-bottom";
     sAccel        = "5";
@@ -1159,7 +1145,6 @@ StdCmdViewFront::StdCmdViewFront()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Front");
     sToolTipText  = QT_TR_NOOP("Set to front view");
-    //# sWhatsThis    = "Std_ViewFront";
     sStatusTip    = QT_TR_NOOP("Set to front view");
     sPixmap       = "view-front";
     sAccel        = "1";
@@ -1183,7 +1168,6 @@ StdCmdViewLeft::StdCmdViewLeft()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Left");
     sToolTipText  = QT_TR_NOOP("Set to left view");
-    //# sWhatsThis    = "Std_ViewLeft";
     sStatusTip    = QT_TR_NOOP("Set to left view");
     sPixmap       = "view-left";
     sAccel        = "6";
@@ -1207,7 +1191,6 @@ StdCmdViewRear::StdCmdViewRear()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Rear");
     sToolTipText  = QT_TR_NOOP("Set to rear view");
-    //# sWhatsThis    = "Std_ViewRear";
     sStatusTip    = QT_TR_NOOP("Set to rear view");
     sPixmap       = "view-rear";
     sAccel        = "4";
@@ -1231,7 +1214,6 @@ StdCmdViewRight::StdCmdViewRight()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Right");
     sToolTipText  = QT_TR_NOOP("Set to right view");
-    //# sWhatsThis    = "Std_ViewRight";
     sStatusTip    = QT_TR_NOOP("Set to right view");
     sPixmap       = "view-right";
     sAccel        = "3";
@@ -1255,7 +1237,6 @@ StdCmdViewTop::StdCmdViewTop()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Top");
     sToolTipText  = QT_TR_NOOP("Set to top view");
-    //# sWhatsThis    = "Std_ViewTop";
     sStatusTip    = QT_TR_NOOP("Set to top view");
     sPixmap       = "view-top";
     sAccel        = "2";
@@ -1279,7 +1260,6 @@ StdCmdViewIsometric::StdCmdViewIsometric()
     sGroup      = QT_TR_NOOP("Standard-View");
     sMenuText   = QT_TR_NOOP("Isometric");
     sToolTipText= QT_TR_NOOP("Set to isometric view");
-    //# sWhatsThis  = "Std_ViewIsometric";
     sStatusTip  = QT_TR_NOOP("Set to isometric view");
     sPixmap     = "view-axonometric";
     sAccel      = "0";
@@ -1303,7 +1283,6 @@ StdCmdViewDimetric::StdCmdViewDimetric()
     sGroup      = QT_TR_NOOP("Standard-View");
     sMenuText   = QT_TR_NOOP("Dimetric");
     sToolTipText= QT_TR_NOOP("Set to dimetric view");
-    //# sWhatsThis  = "Std_ViewDimetric";
     sStatusTip  = QT_TR_NOOP("Set to dimetric view");
     eType         = Alter3DView;
 }
@@ -1325,7 +1304,6 @@ StdCmdViewTrimetric::StdCmdViewTrimetric()
     sGroup      = QT_TR_NOOP("Standard-View");
     sMenuText   = QT_TR_NOOP("Trimetric");
     sToolTipText= QT_TR_NOOP("Set to trimetric view");
-    //# sWhatsThis  = "Std_ViewTrimetric";
     sStatusTip  = QT_TR_NOOP("Set to trimetric view");
     eType         = Alter3DView;
 }
@@ -1347,7 +1325,6 @@ StdCmdViewRotateLeft::StdCmdViewRotateLeft()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Rotate Left");
     sToolTipText  = QT_TR_NOOP("Rotate the view by 90\xc2\xb0 counter-clockwise");
-    //# sWhatsThis    = "Std_ViewRotateLeft";
     sStatusTip    = QT_TR_NOOP("Rotate the view by 90\xc2\xb0 counter-clockwise");
     sPixmap       = "view-rotate-left";
     sAccel        = "Shift+Left";
@@ -1372,7 +1349,6 @@ StdCmdViewRotateRight::StdCmdViewRotateRight()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Rotate Right");
     sToolTipText  = QT_TR_NOOP("Rotate the view by 90\xc2\xb0 clockwise");
-    //# sWhatsThis    = "Std_ViewRotateRight";
     sStatusTip    = QT_TR_NOOP("Rotate the view by 90\xc2\xb0 clockwise");
     sPixmap       = "view-rotate-right";
     sAccel        = "Shift+Right";
@@ -1397,7 +1373,6 @@ StdCmdViewFitAll::StdCmdViewFitAll()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Fit all");
     sToolTipText  = QT_TR_NOOP("Fits the whole content on the screen");
-    //# sWhatsThis    = "Std_ViewFitAll";
     sStatusTip    = QT_TR_NOOP("Fits the whole content on the screen");
     sPixmap       = "zoom-all";
     sAccel        = "V, F";
@@ -1428,7 +1403,6 @@ StdCmdViewFitSelection::StdCmdViewFitSelection()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Fit selection");
     sToolTipText  = QT_TR_NOOP("Fits the selected content on the screen");
-    //# sWhatsThis    = "Std_ViewFitSelection";
     sStatusTip    = QT_TR_NOOP("Fits the selected content on the screen");
     sAccel        = "V, S";
     sPixmap       = "zoom-selection";
@@ -1459,7 +1433,6 @@ StdViewDock::StdViewDock()
     sGroup       = QT_TR_NOOP("Standard-View");
     sMenuText    = QT_TR_NOOP("Docked");
     sToolTipText = QT_TR_NOOP("Display the active view either in fullscreen, in undocked or docked mode");
-    //# sWhatsThis   = "Std_ViewDock";
     sStatusTip   = QT_TR_NOOP("Display the active view either in fullscreen, in undocked or docked mode");
     sAccel       = "V, D";
     eType        = Alter3DView;
@@ -1487,7 +1460,6 @@ StdViewUndock::StdViewUndock()
     sGroup       = QT_TR_NOOP("Standard-View");
     sMenuText    = QT_TR_NOOP("Undocked");
     sToolTipText = QT_TR_NOOP("Display the active view either in fullscreen, in undocked or docked mode");
-    //# sWhatsThis   = "Std_ViewUndock";
     sStatusTip   = QT_TR_NOOP("Display the active view either in fullscreen, in undocked or docked mode");
     sAccel       = "V, U";
     eType        = Alter3DView;
@@ -1515,7 +1487,6 @@ StdMainFullscreen::StdMainFullscreen()
     sGroup       = QT_TR_NOOP("Standard-View");
     sMenuText    = QT_TR_NOOP("Fullscreen");
     sToolTipText = QT_TR_NOOP("Display the main window in fullscreen mode");
-    //# sWhatsThis   = "Std_MainFullscreen";
     sStatusTip   = QT_TR_NOOP("Display the main window in fullscreen mode");
     sPixmap      = "view-fullscreen";
     sAccel       = "Alt+F11";
@@ -1547,7 +1518,6 @@ StdViewFullscreen::StdViewFullscreen()
     sGroup       = QT_TR_NOOP("Standard-View");
     sMenuText    = QT_TR_NOOP("Fullscreen");
     sToolTipText = QT_TR_NOOP("Display the active view either in fullscreen, in undocked or docked mode");
-    //# sWhatsThis   = "Std_ViewFullscreen";
     sStatusTip   = QT_TR_NOOP("Display the active view either in fullscreen, in undocked or docked mode");
     sPixmap      = "view-fullscreen";
     sAccel       = "F11";
@@ -1576,7 +1546,6 @@ StdViewDockUndockFullscreen::StdViewDockUndockFullscreen()
     sGroup       = QT_TR_NOOP("Standard-View");
     sMenuText    = QT_TR_NOOP("Document window");
     sToolTipText = QT_TR_NOOP("Display the active view either in fullscreen, in undocked or docked mode");
-    //# sWhatsThis   = "Std_ViewDockUndockFullscreen";
     sStatusTip   = QT_TR_NOOP("Display the active view either in fullscreen, in undocked or docked mode");
     eType        = Alter3DView;
 
@@ -1688,7 +1657,6 @@ StdViewScreenShot::StdViewScreenShot()
     sGroup      = QT_TR_NOOP("Standard-View");
     sMenuText   = QT_TR_NOOP("Save picture...");
     sToolTipText= QT_TR_NOOP("Creates a screenshot of the active view");
-    //# sWhatsThis  = "Std_ViewScreenShot";
     sStatusTip  = QT_TR_NOOP("Creates a screenshot of the active view");
     sPixmap     = "camera-photo";
     eType         = Alter3DView;
@@ -1838,7 +1806,6 @@ StdCmdViewCreate::StdCmdViewCreate()
     sGroup      = QT_TR_NOOP("Standard-View");
     sMenuText   = QT_TR_NOOP("Create new view");
     sToolTipText= QT_TR_NOOP("Creates a new view window for the active document");
-    //# sWhatsThis  = "Std_ViewCreate";
     sStatusTip  = QT_TR_NOOP("Creates a new view window for the active document");
     sPixmap     = "window-new";
     eType         = Alter3DView;
@@ -1868,7 +1835,6 @@ StdCmdToggleNavigation::StdCmdToggleNavigation()
     sMenuText     = QT_TR_NOOP("Toggle navigation/Edit mode");
     sToolTipText  = QT_TR_NOOP("Toggle between navigation and edit mode");
     sStatusTip    = QT_TR_NOOP("Toggle between navigation and edit mode");
-    //# sWhatsThis    = "Std_ToggleNavigation";
   //iAccel        = Qt::SHIFT+Qt::Key_Space;
     sAccel        = "Esc";
     eType         = Alter3DView;
@@ -1914,7 +1880,6 @@ StdCmdAxisCross::StdCmdAxisCross()
         sMenuText     = QT_TR_NOOP("Toggle axis cross");
         sToolTipText  = QT_TR_NOOP("Toggle axis cross");
         sStatusTip    = QT_TR_NOOP("Toggle axis cross");
-        //# sWhatsThis    = "Std_AxisCross";
 }
 
 void StdCmdAxisCross::activated(int iMsg)
@@ -1956,7 +1921,6 @@ StdCmdViewExample1::StdCmdViewExample1()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Inventor example #1");
     sToolTipText  = QT_TR_NOOP("Shows a 3D texture with manipulator");
-    //# sWhatsThis    = "Std_ViewExample1";
     sStatusTip    = QT_TR_NOOP("Shows a 3D texture with manipulator");
     sPixmap       = "Std_Tool1";
     eType         = Alter3DView;
@@ -1984,7 +1948,6 @@ StdCmdViewExample2::StdCmdViewExample2()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Inventor example #2");
     sToolTipText  = QT_TR_NOOP("Shows spheres and drag-lights");
-    //# sWhatsThis    = "Std_ViewExample2";
     sStatusTip    = QT_TR_NOOP("Shows spheres and drag-lights");
     sPixmap       = "Std_Tool2";
     eType         = Alter3DView;
@@ -2012,7 +1975,6 @@ StdCmdViewExample3::StdCmdViewExample3()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Inventor example #3");
     sToolTipText  = QT_TR_NOOP("Shows a animated texture");
-    //# sWhatsThis    = "Std_ViewExample3";
     sStatusTip    = QT_TR_NOOP("Shows a animated texture");
     sPixmap       = "Std_Tool3";
     eType         = Alter3DView;
@@ -2041,7 +2003,6 @@ StdCmdViewIvStereoOff::StdCmdViewIvStereoOff()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Stereo Off");
     sToolTipText  = QT_TR_NOOP("Switch stereo viewing off");
-    //# sWhatsThis    = "Std_ViewIvStereoOff";
     sStatusTip    = QT_TR_NOOP("Switch stereo viewing off");
     sPixmap       = "Std_Tool6";
     eType         = Alter3DView;
@@ -2070,7 +2031,6 @@ StdCmdViewIvStereoRedGreen::StdCmdViewIvStereoRedGreen()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Stereo red/cyan");
     sToolTipText  = QT_TR_NOOP("Switch stereo viewing to red/cyan");
-    //# sWhatsThis    = "Std_ViewIvStereoRedGreen";
     sStatusTip    = QT_TR_NOOP("Switch stereo viewing to red/cyan");
     sPixmap       = "Std_Tool7";
     eType         = Alter3DView;
@@ -2098,7 +2058,6 @@ StdCmdViewIvStereoQuadBuff::StdCmdViewIvStereoQuadBuff()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Stereo quad buffer");
     sToolTipText  = QT_TR_NOOP("Switch stereo viewing to quad buffer");
-    //# sWhatsThis    = "Std_ViewIvStereoQuadBuff";
     sStatusTip    = QT_TR_NOOP("Switch stereo viewing to quad buffer");
     sPixmap       = "Std_Tool7";
     eType         = Alter3DView;
@@ -2126,7 +2085,6 @@ StdCmdViewIvStereoInterleavedRows::StdCmdViewIvStereoInterleavedRows()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Stereo Interleaved Rows");
     sToolTipText  = QT_TR_NOOP("Switch stereo viewing to Interleaved Rows");
-    //# sWhatsThis    = "Std_ViewIvStereoInterleavedRows";
     sStatusTip    = QT_TR_NOOP("Switch stereo viewing to Interleaved Rows");
     sPixmap       = "Std_Tool7";
     eType         = Alter3DView;
@@ -2154,7 +2112,6 @@ StdCmdViewIvStereoInterleavedColumns::StdCmdViewIvStereoInterleavedColumns()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Stereo Interleaved Columns");
     sToolTipText  = QT_TR_NOOP("Switch stereo viewing to Interleaved Columns");
-    //# sWhatsThis    = "Std_ViewIvStereoInterleavedColumns";
     sStatusTip    = QT_TR_NOOP("Switch stereo viewing to Interleaved Columns");
     sPixmap       = "Std_Tool7";
     eType         = Alter3DView;
@@ -2183,7 +2140,6 @@ StdCmdViewIvIssueCamPos::StdCmdViewIvIssueCamPos()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Issue camera position");
     sToolTipText  = QT_TR_NOOP("Issue the camera position to the console and to a macro, to easily recall this position");
-    //# sWhatsThis    = "Std_ViewIvIssueCamPos";
     sStatusTip    = QT_TR_NOOP("Issue the camera position to the console and to a macro, to easily recall this position");
     sPixmap       = "Std_Tool8";
     eType         = Alter3DView;
@@ -2233,7 +2189,6 @@ StdViewZoomIn::StdViewZoomIn()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Zoom In");
     sToolTipText  = QT_TR_NOOP("Zoom In");
-    //# sWhatsThis    = "Std_ViewZoomIn";
     sStatusTip    = QT_TR_NOOP("Zoom In");
     sPixmap       = "zoom-in";
     sAccel        = keySequenceToAccel(QKeySequence::ZoomIn);
@@ -2266,7 +2221,6 @@ StdViewZoomOut::StdViewZoomOut()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Zoom Out");
     sToolTipText  = QT_TR_NOOP("Zoom Out");
-    //# sWhatsThis    = "Std_ViewZoomOut";
     sStatusTip    = QT_TR_NOOP("Zoom Out");
     sPixmap       = "zoom-out";
     sAccel        = keySequenceToAccel(QKeySequence::ZoomOut);
@@ -2299,7 +2253,6 @@ StdViewBoxZoom::StdViewBoxZoom()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Box zoom");
     sToolTipText  = QT_TR_NOOP("Box zoom");
-    //# sWhatsThis    = "Std_ViewBoxZoom";
     sStatusTip    = QT_TR_NOOP("Box zoom");
     sPixmap       = "zoom-border";
     sAccel        = "Ctrl+B";
@@ -2328,7 +2281,6 @@ StdBoxSelection::StdBoxSelection()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("Box selection");
     sToolTipText  = QT_TR_NOOP("Box selection");
-    //# sWhatsThis    = "Std_BoxSelection";
     sStatusTip    = QT_TR_NOOP("Box selection");
     sPixmap       = "edit-select-box";
     sAccel        = "Shift+B";
@@ -2442,7 +2394,6 @@ StdCmdTreeSelection::StdCmdTreeSelection()
     sGroup        = QT_TR_NOOP("View");
     sMenuText     = QT_TR_NOOP("Go to selection");
     sToolTipText  = QT_TR_NOOP("Scroll to first selected item");
-    //# sWhatsThis    = "Std_TreeSelection";
     sStatusTip    = QT_TR_NOOP("Scroll to first selected item");
     eType         = Alter3DView;
 }
@@ -2469,7 +2420,6 @@ StdCmdMeasureDistance::StdCmdMeasureDistance()
     sGroup        = QT_TR_NOOP("View");
     sMenuText     = QT_TR_NOOP("Measure distance");
     sToolTipText  = QT_TR_NOOP("Measure distance");
-    //# sWhatsThis    = "Std_MeasureDistance";
     sStatusTip    = QT_TR_NOOP("Measure distance");
     sPixmap       = "view-measurement";
     eType         = Alter3DView;
@@ -2560,7 +2510,6 @@ StdCmdSceneInspector::StdCmdSceneInspector()
     sGroup        = QT_TR_NOOP("Tools");
     sMenuText     = QT_TR_NOOP("Scene inspector...");
     sToolTipText  = QT_TR_NOOP("Scene inspector");
-    //# sWhatsThis    = "Std_SceneInspector";
     sStatusTip    = QT_TR_NOOP("Scene inspector");
     eType         = Alter3DView;
 }
@@ -2592,7 +2541,6 @@ StdCmdTextureMapping::StdCmdTextureMapping()
     sGroup        = QT_TR_NOOP("Tools");
     sMenuText     = QT_TR_NOOP("Texture mapping...");
     sToolTipText  = QT_TR_NOOP("Texture mapping");
-    //# sWhatsThis    = "Std_TextureMapping";
     sStatusTip    = QT_TR_NOOP("Texture mapping");
     eType         = Alter3DView;
 }
@@ -2618,7 +2566,6 @@ StdCmdDemoMode::StdCmdDemoMode()
     sGroup        = QT_TR_NOOP("Standard-View");
     sMenuText     = QT_TR_NOOP("View turntable...");
     sToolTipText  = QT_TR_NOOP("View turntable");
-    //# sWhatsThis    = "Std_DemoMode";
     sStatusTip    = QT_TR_NOOP("View turntable");
     eType         = Alter3DView;
 }
@@ -2645,7 +2592,6 @@ CmdViewMeasureClearAll::CmdViewMeasureClearAll()
     sGroup        = QT_TR_NOOP("Measure");
     sMenuText     = QT_TR_NOOP("Clear measurement");
     sToolTipText  = QT_TR_NOOP("Clear measurement");
-    //# sWhatsThis    = "View_Measure_Clear_All";
     sStatusTip    = sToolTipText;
     sPixmap       = "Part_Measure_Clear_All";
 }
@@ -2675,7 +2621,6 @@ CmdViewMeasureToggleAll::CmdViewMeasureToggleAll()
     sGroup        = QT_TR_NOOP("Measure");
     sMenuText     = QT_TR_NOOP("Toggle measurement");
     sToolTipText  = QT_TR_NOOP("Toggle measurement");
-    //# sWhatsThis    = "View_Measure_Toggle_All";
     sStatusTip    = sToolTipText;
     sPixmap       = "Part_Measure_Toggle_All";
 }
@@ -2703,7 +2648,6 @@ StdTreeSingleDocument::StdTreeSingleDocument()
     sGroup       = QT_TR_NOOP("View");
     sMenuText    = QT_TR_NOOP("Single Document");
     sToolTipText = QT_TR_NOOP("Only display the active document in the tree view");
-    //# sWhatsThis   = "Std_TreeSingleDocument";
     sStatusTip   = QT_TR_NOOP("Only display the active document in the tree view");
     eType        = 0;
 }
@@ -2724,7 +2668,6 @@ StdTreeMultiDocument::StdTreeMultiDocument()
     sGroup       = QT_TR_NOOP("View");
     sMenuText    = QT_TR_NOOP("Multi Document");
     sToolTipText = QT_TR_NOOP("Display all documents in the tree view");
-    //# sWhatsThis   = "Std_TreeMultiDocument";
     sStatusTip   = QT_TR_NOOP("Display all documents in the tree view");
     eType        = 0;
 }
@@ -2746,7 +2689,6 @@ StdTreeCollapseDocument::StdTreeCollapseDocument()
     sGroup       = QT_TR_NOOP("View");
     sMenuText    = QT_TR_NOOP("Collapse/Expand");
     sToolTipText = QT_TR_NOOP("Expand active document and collapse all others");
-    //# sWhatsThis   = "Std_TreeCollapseDocument";
     sStatusTip   = QT_TR_NOOP("Expand active document and collapse all others");
     eType        = 0;
 }
@@ -2769,7 +2711,6 @@ StdTreeViewDocument::StdTreeViewDocument()
     sGroup        = QT_TR_NOOP("View");
     sMenuText     = QT_TR_NOOP("Document Tree");
     sToolTipText  = QT_TR_NOOP("Set visibility of inactive documents in tree view");
-    //# sWhatsThis    = "Std_TreeViewDocument";
     sStatusTip    = QT_TR_NOOP("Set visibility of inactive documents in tree view");
     eType         = 0;
 

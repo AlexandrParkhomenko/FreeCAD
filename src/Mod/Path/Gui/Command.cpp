@@ -53,7 +53,6 @@ CmdPathArea::CmdPathArea()
     sGroup          = QT_TR_NOOP("Path");
     sMenuText       = QT_TR_NOOP("Area");
     sToolTipText    = QT_TR_NOOP("Creates a feature area from selected objects");
-    //# sWhatsThis      = "Path_Area";
     sStatusTip      = sToolTipText;
     sPixmap         = "Path-Area";
 }
@@ -135,7 +134,6 @@ CmdPathAreaWorkplane::CmdPathAreaWorkplane()
     sGroup          = QT_TR_NOOP("Path");
     sMenuText       = QT_TR_NOOP("Area workplane");
     sToolTipText    = QT_TR_NOOP("Select a workplane for a FeatureArea");
-    //# sWhatsThis      = "Path_Area_Workplane";
     sStatusTip      = sToolTipText;
     sPixmap         = "Path-Area-Workplane";
 }
@@ -225,7 +223,6 @@ CmdPathCompound::CmdPathCompound()
     sGroup          = QT_TR_NOOP("Path");
     sMenuText       = QT_TR_NOOP("Compound");
     sToolTipText    = QT_TR_NOOP("Creates a compound from selected paths");
-    //# sWhatsThis      = "Path_Compound";
     sStatusTip      = sToolTipText;
     sPixmap         = "Path-Compound";
 }
@@ -277,7 +274,6 @@ CmdPathShape::CmdPathShape()
     sGroup          = QT_TR_NOOP("Path");
     sMenuText       = QT_TR_NOOP("From Shape");
     sToolTipText    = QT_TR_NOOP("Creates a path from a selected shape");
-    //# sWhatsThis      = "Path_Shape";
     sStatusTip      = sToolTipText;
     sPixmap         = "Path-Shape";
 }

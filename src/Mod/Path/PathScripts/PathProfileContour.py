@@ -48,7 +48,6 @@ def translate(context, text, disambig=None):
 
 __title__ = "Path Contour Operation"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Implementation of the Contour operation."
 
 

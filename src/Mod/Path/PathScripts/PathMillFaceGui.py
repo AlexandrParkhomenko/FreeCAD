@@ -32,7 +32,6 @@ from PySide import QtCore
 
 __title__ = "Path Face Mill Operation UI"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Face Mill operation page controller and command implementation."
 
 class TaskPanelOpPage(PathPocketBaseGui.TaskPanelOpPage):

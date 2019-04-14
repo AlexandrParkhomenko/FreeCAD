@@ -34,7 +34,6 @@ from PySide import QtCore, QtGui
 
 __title__ = "Path Deburr Operation UI"
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Deburr operation page controller and command implementation."
 
 if False:

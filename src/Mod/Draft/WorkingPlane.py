@@ -27,7 +27,6 @@ from FreeCAD import Vector
 
 __title__="FreeCAD Working Plane utility"
 __author__ = "Ken Cline"
-__url__ = "http://www.freecadweb.org"
 
 ## @package WorkingPlane
 #  \ingroup DRAFT

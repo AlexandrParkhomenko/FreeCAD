@@ -23,7 +23,6 @@
 
 __title__="BOPTools.JoinFeatures module"
 __author__ = "DeepSOIC"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Implementation of document objects (features) for connect, ebmed and cutout operations."
 
 from . import JoinAPI

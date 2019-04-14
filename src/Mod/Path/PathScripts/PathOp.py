@@ -35,7 +35,6 @@ from PySide import QtCore
 
 __title__ = "Base class for all operations."
 __author__ = "sliptonic (Brad Collette)"
-__url__ = "http://www.freecadweb.org"
 __doc__ = "Base class and properties implementation for all Path operations."
 
 if False:
