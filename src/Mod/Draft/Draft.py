@@ -266,11 +266,6 @@ def autogroup(obj):
                             gr = g.Group
                             gr.append(obj)
                             g.Group = gr
-                else:
-                    # Arch active container
-                    a = FreeCADGui.ActiveDocument.ActiveView.getActiveObject("Arch")
-                    if a:
-                        a.addObject(obj)
 
 def dimSymbol(symbol=None,invert=False):
     "returns the current dim symbol from the preferences as a pivy SoMarkerSet"
@@ -350,7 +345,7 @@ def shapify(obj):
     FreeCAD.ActiveDocument.removeObject(obj.Name)
     newobj = FreeCAD.ActiveDocument.addObject("Part::Feature",name)
     newobj.Shape = shape
-    FreeCAD.ActiveDocument.recompute()
+
     return newobj
 
 def getGroupContents(objectslist,walls=False,addgroups=False,spaces=False,noarchchild=False):
@@ -515,8 +510,6 @@ def formatObject(target,origin=None):
             if matchrep.DisplayMode in obrep.listDisplayModes():
                 obrep.DisplayMode = matchrep.DisplayMode
             if hasattr(matchrep,"DiffuseColor") and hasattr(obrep,"DiffuseColor"):
-                if matchrep.DiffuseColor:
-                    FreeCAD.ActiveDocument.recompute()
                 obrep.DiffuseColor = matchrep.DiffuseColor
 
 def getSelection():
@@ -628,7 +621,6 @@ def loadTexture(filename,size=None):
                             byteList.append(chr(QtGui.qBlue( rgb )).encode('latin-1'))
                             byteList.append(chr(QtGui.qAlpha( rgb )).encode('latin-1'))
                     #line += numcomponents
-            
             bytes = b"".join(byteList)
             img.setValue(size, numcomponents, bytes)
         except:
@@ -697,14 +689,19 @@ def makeCircle(radius, placement=None, face=None, startangle=None, endangle=None
             placement = FreeCAD.Placement(edge.Placement)
             delta = edge.Curve.Center.sub(placement.Base)
             placement.move(delta)
+            # Rotation of the edge
+            rotOk = FreeCAD.Rotation(edge.Curve.XAxis, edge.Curve.YAxis, edge.Curve.Axis, "ZXY")
+            placement.Rotation = rotOk
             if len(edge.Vertexes) > 1:
-                ref = FreeCAD.Vector(1,0,0)
+                v0 = edge.Curve.XAxis
                 v1 = (edge.Vertexes[0].Point).sub(edge.Curve.Center)
                 v2 = (edge.Vertexes[-1].Point).sub(edge.Curve.Center)
-                a1 = -math.degrees(DraftVecUtils.angle(v1,ref))
-                a2 = -math.degrees(DraftVecUtils.angle(v2,ref))
-                obj.FirstAngle = a1
-                obj.LastAngle = a2
+                # Angle between edge.Curve.XAxis and the vector from center to start of arc
+                a0 = math.degrees(FreeCAD.Vector.getAngle(v0, v1))
+                # Angle between edge.Curve.XAxis and the vector from center to end of arc
+                a1 = math.degrees(FreeCAD.Vector.getAngle(v0, v2))
+                obj.FirstAngle = a0
+                obj.LastAngle = a1
     else:
         obj.Radius = radius
         if (startangle != None) and (endangle != None):
@@ -717,7 +714,7 @@ def makeCircle(radius, placement=None, face=None, startangle=None, endangle=None
         _ViewProviderDraft(obj.ViewObject)
         formatObject(obj)
         select(obj)
-    FreeCAD.ActiveDocument.recompute()
+
     return obj
 
 def makeRectangle(length, height, placement=None, face=None, support=None):
@@ -742,7 +739,7 @@ def makeRectangle(length, height, placement=None, face=None, support=None):
         _ViewProviderRectangle(obj.ViewObject)
         formatObject(obj)
         select(obj)
-    FreeCAD.ActiveDocument.recompute()
+
     return obj
 
 def makeDimension(p1,p2,p3=None,p4=None):
@@ -815,7 +812,7 @@ def makeDimension(p1,p2,p3=None,p4=None):
     if gui:
         formatObject(obj)
         select(obj)
-    FreeCAD.ActiveDocument.recompute()
+
     return obj
 
 def makeAngularDimension(center,angles,p3,normal=None):
@@ -849,7 +846,6 @@ def makeAngularDimension(center,angles,p3,normal=None):
         _ViewProviderAngularDimension(obj.ViewObject)
         formatObject(obj)
         select(obj)
-    FreeCAD.ActiveDocument.recompute()
     return obj
 
 def makeWire(pointslist,closed=False,placement=None,face=None,support=None):
@@ -893,7 +889,7 @@ def makeWire(pointslist,closed=False,placement=None,face=None,support=None):
         _ViewProviderWire(obj.ViewObject)
         formatObject(obj)
         select(obj)
-    FreeCAD.ActiveDocument.recompute()
+
     return obj
 
 def makePolygon(nfaces,radius=1,inscribed=True,placement=None,face=None,support=None):
@@ -923,7 +919,7 @@ def makePolygon(nfaces,radius=1,inscribed=True,placement=None,face=None,support=
         _ViewProviderDraft(obj.ViewObject)
         formatObject(obj)
         select(obj)
-    FreeCAD.ActiveDocument.recompute()
+
     return obj
 
 def makeLine(p1,p2=None):
@@ -984,7 +980,7 @@ def makeBSpline(pointslist,closed=False,placement=None,face=None,support=None):
         _ViewProviderWire(obj.ViewObject)
         formatObject(obj)
         select(obj)
-    FreeCAD.ActiveDocument.recompute()
+
     return obj
 
 def makeBezCurve(pointslist,closed=False,placement=None,face=None,support=None,Degree=None):
@@ -1022,7 +1018,7 @@ def makeBezCurve(pointslist,closed=False,placement=None,face=None,support=None,D
 #        obj.ViewObject.DisplayMode = "Wireframe"
         formatObject(obj)
         select(obj)
-    FreeCAD.ActiveDocument.recompute()
+
     return obj
 
 def makeText(stringslist,point=Vector(0,0,0),screen=False):
@@ -1102,30 +1098,6 @@ def makeCopy(obj,force=None,reparent=False):
     elif (getType(obj) == "DrawingView") or (force == "DrawingView"):
         newobj = FreeCAD.ActiveDocument.addObject(obj.TypeId,getRealName(obj.Name))
         _DrawingView(newobj)
-    elif (getType(obj) == "Structure") or (force == "Structure"):
-        import ArchStructure
-        newobj = FreeCAD.ActiveDocument.addObject(obj.TypeId,getRealName(obj.Name))
-        ArchStructure._Structure(newobj)
-        if gui:
-            ArchStructure._ViewProviderStructure(newobj.ViewObject)
-    elif (getType(obj) == "Wall") or (force == "Wall"):
-        import ArchWall
-        newobj = FreeCAD.ActiveDocument.addObject(obj.TypeId,getRealName(obj.Name))
-        ArchWall._Wall(newobj)
-        if gui:
-            ArchWall._ViewProviderWall(newobj.ViewObject)
-    elif (getType(obj) == "Window") or (force == "Window"):
-        import ArchWindow
-        newobj = FreeCAD.ActiveDocument.addObject(obj.TypeId,getRealName(obj.Name))
-        ArchWindow._Window(newobj)
-        if gui:
-            ArchWindow._ViewProviderWindow(newobj.ViewObject)
-    elif (getType(obj) == "Panel") or (force == "Panel"):
-        import ArchPanel
-        newobj = FreeCAD.ActiveDocument.addObject(obj.TypeId,getRealName(obj.Name))
-        ArchPanel._Panel(newobj)
-        if gui:
-            ArchPanel._ViewProviderPanel(newobj.ViewObject)
     elif (getType(obj) == "Sketch") or (force == "Sketch"):
         newobj = FreeCAD.ActiveDocument.addObject("Sketcher::SketchObject",getRealName(obj.Name))
         for geo in obj.Geometry:
@@ -1159,7 +1131,7 @@ def makeCopy(obj,force=None,reparent=False):
                     for prop in par.PropertiesList:
                         if getattr(par,prop) == obj:
                             setattr(par,prop,newobj)
-                            FreeCAD.ActiveDocument.recompute()
+
     formatObject(newobj,obj)
     return newobj
 
@@ -1218,7 +1190,6 @@ def makeArray(baseobject,arg1,arg2,arg3,arg4=None,arg5=None,arg6=None,name="Arra
         baseobject.ViewObject.hide()
         formatObject(obj,obj.Base)
         if len(obj.Base.ViewObject.DiffuseColor) > 1:
-            FreeCAD.ActiveDocument.recompute()
             obj.ViewObject.Proxy.resetColors(obj.ViewObject)
         select(obj)
     return obj
@@ -1251,7 +1222,6 @@ def makePathArray(baseobject,pathobject,count,xlate=None,align=False,pathobjsubs
         baseobject.ViewObject.hide()
         formatObject(obj,obj.Base)
         if len(obj.Base.ViewObject.DiffuseColor) > 1:
-            FreeCAD.ActiveDocument.recompute()
             obj.ViewObject.Proxy.resetColors(obj.ViewObject)
         select(obj)
     return obj
@@ -1267,7 +1237,6 @@ def makePointArray(base, ptlst):
         base.ViewObject.hide()
         formatObject(obj,obj.Base)
         if len(obj.Base.ViewObject.DiffuseColor) > 1:
-            FreeCAD.ActiveDocument.recompute()
             obj.ViewObject.Proxy.resetColors(obj.ViewObject)
         select(obj)
     return obj
@@ -1294,7 +1263,7 @@ def makeEllipse(majradius,minradius,placement=None,face=True,support=None):
         #    obj.ViewObject.DisplayMode = "Wireframe"
         formatObject(obj)
         select(obj)
-    FreeCAD.ActiveDocument.recompute()
+
     return obj
 
 def makeVisGroup(group=None,name="VisGroup"):
@@ -1327,14 +1296,14 @@ def extrude(obj,vector,solid=False):
         obj.ViewObject.Visibility = False
         formatObject(newobj,obj)
         select(newobj)
-    FreeCAD.ActiveDocument.recompute()
+
     return newobj
 
 def joinWires(wires, joinAttempts = 0):
     '''joinWires(objects): merges a set of wires where possible, if any of those
     wires have a coincident start and end point'''
     if joinAttempts > len(wires):
-        return FreeCAD.ActiveDocument.recompute()
+        return
     joinAttempts += 1
     for wire1Index, wire1 in enumerate(wires):
         for wire2Index, wire2 in enumerate(wires):
@@ -1377,7 +1346,6 @@ def split(wire, newPoint, edgeIndex):
         splitClosedWire(wire, edgeIndex)
     else:
         splitOpenWire(wire, newPoint, edgeIndex)
-    FreeCAD.ActiveDocument.recompute()
 
 def splitClosedWire(wire, edgeIndex):
     wire.Closed = False
@@ -1440,7 +1408,7 @@ def fuse(object1,object2):
         object2.ViewObject.Visibility = False
         formatObject(obj,object1)
         select(obj)
-    FreeCAD.ActiveDocument.recompute()
+
     return obj
 
 def cut(object1,object2):
@@ -1456,7 +1424,7 @@ def cut(object1,object2):
     object2.ViewObject.Visibility = False
     formatObject(obj,object1)
     select(obj)
-    FreeCAD.ActiveDocument.recompute()
+
     return obj
 
 def move(objectslist,vector,copy=False):
@@ -1470,12 +1438,8 @@ def move(objectslist,vector,copy=False):
     objectslist.extend(getMovableChildren(objectslist))
     newobjlist = []
     newgroups = {}
+    objectslist = filterObjectsForModifiers(objectslist, copy)
     for obj in objectslist:
-        if hasattr(obj,"Placement"):
-           if obj.getEditorMode("Placement") == ["ReadOnly"]:
-               if not copy:
-                   FreeCAD.Console.PrintError(obj.Name+" cannot be moved because its placement is readonly.")
-                   continue
         if getType(obj) == "Point":
             v = Vector(obj.X,obj.Y,obj.Z)
             v = v.add(vector)
@@ -1605,6 +1569,27 @@ def array(objectslist,arg1,arg2,arg3,arg4=None,arg5=None,arg6=None):
     else:
         polarArray(objectslist,arg1,arg2,arg3)
 
+def filterObjectsForModifiers(objects, isCopied=False):
+    filteredObjects = []
+    for object in objects:
+        if hasattr(object, "MoveBase") and object.MoveBase and object.Base:
+            parents = []
+            for parent in object.Base.InList:
+                if parent.isDerivedFrom("Part::Feature"):
+                    parents.append(parent.Name)
+            if len(parents) > 1:
+                warningMessage = translate("draft","%s shares a base with %d other objects. Please check if you want to modify this.") % (object.Name,len(parents) - 1)
+                FreeCAD.Console.PrintError(warningMessage)
+                if FreeCAD.GuiUp:
+                    FreeCADGui.getMainWindow().showMessage(warningMessage, 0)
+            filteredObjects.append(object.Base)
+        elif hasattr(object,"Placement") and object.getEditorMode("Placement") == ["ReadOnly"] and not isCopied:
+           FreeCAD.Console.PrintError(translate("%s cannot be modified because its placement is readonly.") % obj.Name)
+           continue
+        else:
+           filteredObjects.append(object)
+    return filteredObjects
+
 def rotate(objectslist,angle,center=Vector(0,0,0),axis=Vector(0,0,1),copy=False):
     '''rotate(objects,angle,[center,axis,copy]): Rotates the objects contained
     in objects (that can be a list of objects or an object) of the given angle
@@ -1618,12 +1603,8 @@ def rotate(objectslist,angle,center=Vector(0,0,0),axis=Vector(0,0,1),copy=False)
     objectslist.extend(getMovableChildren(objectslist))
     newobjlist = []
     newgroups = {}
+    objectslist = filterObjectsForModifiers(objectslist, copy)
     for obj in objectslist:
-        if hasattr(obj,"Placement"):
-           if obj.getEditorMode("Placement") == ["ReadOnly"]:
-               if not copy:
-                   FreeCAD.Console.PrintError(obj.Name+" cannot be rotated because its placement is readonly.")
-                   continue
         if copy:
             newobj = makeCopy(obj)
         else:
@@ -1979,7 +1960,7 @@ def draftify(objectslist,makeblock=False,delete=True):
                 nobj.ViewObject.DisplayMode = "Flat Lines"
             if delete:
                 FreeCAD.ActiveDocument.removeObject(obj.Name)
-    FreeCAD.ActiveDocument.recompute()
+
     if makeblock:
         return makeBlock(newobjlist)
     else:
@@ -2081,16 +2062,6 @@ def makeDrawingView(obj,page,lwmod=None,tmod=None,otherProjection=None):
     if not FreeCAD.ActiveDocument:
         FreeCAD.Console.PrintError("No active document. Aborting\n")
         return
-    if getType(obj) == "SectionPlane":
-        import ArchSectionPlane
-        viewobj = FreeCAD.ActiveDocument.addObject("Drawing::FeatureViewPython","View")
-        page.addObject(viewobj)
-        ArchSectionPlane._ArchDrawingView(viewobj)
-        viewobj.Source = obj
-        viewobj.Label = "View of "+obj.Name
-    elif getType(obj) == "Panel":
-        import ArchPanel
-        viewobj = ArchPanel.makePanelView(obj,page)
     else:
         viewobj = FreeCAD.ActiveDocument.addObject("Drawing::FeatureViewPython","View"+obj.Name)
         _DrawingView(viewobj)
@@ -2146,7 +2117,7 @@ def makeShape2DView(baseobj,projectionVector=None,facenumbers=[]):
     if facenumbers:
         obj.FaceNumbers = facenumbers
     select(obj)
-    FreeCAD.ActiveDocument.recompute()
+
     return obj
 
 def makeSketch(objectslist,autoconstraints=False,addTo=None,
@@ -2427,7 +2398,7 @@ def makeSketch(objectslist,autoconstraints=False,addTo=None,
     else:
         print("-----error!!! rotation is still None...")
     nobj.addConstraint(constraints)
-    FreeCAD.ActiveDocument.recompute()
+
     return nobj
 
 def makePoint(X=0, Y=0, Z=0,color=None,name = "Point", point_size= 5):
@@ -2463,7 +2434,7 @@ def makePoint(X=0, Y=0, Z=0,color=None,name = "Point", point_size= 5):
         obj.ViewObject.PointSize = point_size
         obj.ViewObject.Visibility = True
     select(obj)
-    FreeCAD.ActiveDocument.recompute()
+
     return obj
 
 def makeShapeString(String,FontFile,Size = 100,Tracking = 0):
@@ -2485,7 +2456,7 @@ def makeShapeString(String,FontFile,Size = 100,Tracking = 0):
         obrep = obj.ViewObject
         if "PointSize" in obrep.PropertiesList: obrep.PointSize = 1             # hide the segment end points
         select(obj)
-    FreeCAD.ActiveDocument.recompute()
+
     return obj
 
 def clone(obj,delta=None,forcedraft=False):
@@ -2504,33 +2475,6 @@ def clone(obj,delta=None,forcedraft=False):
     if (len(obj) == 1) and obj[0].isDerivedFrom("Part::Part2DObject"):
         cl = FreeCAD.ActiveDocument.addObject("Part::Part2DObjectPython","Clone2D")
         cl.Label = prefix + obj[0].Label + " (2D)"
-    elif (len(obj) == 1) and (hasattr(obj[0],"CloneOf") or (getType(obj[0]) == "BuildingPart")) and (not forcedraft):
-        # arch objects can be clones
-        import Arch
-        if getType(obj[0]) == "BuildingPart":
-            cl = Arch.makeComponent()
-        else:
-            cl = getattr(Arch,"make"+obj[0].Proxy.Type)()
-        base = getCloneBase(obj[0])
-        cl.Label = prefix + base.Label
-        cl.CloneOf = base
-        if hasattr(cl,"Material") and hasattr(obj[0],"Material"):
-            cl.Material = obj[0].Material
-        if getType(obj[0]) != "BuildingPart":
-            cl.Placement = obj[0].Placement
-        try:
-            cl.Role = base.Role
-            cl.Description = base.Description
-            cl.Tag = base.Tag
-        except:
-            pass
-        if gui:
-            cl.ViewObject.DiffuseColor = base.ViewObject.DiffuseColor
-            if getType(obj[0]) in ["Window","BuildingPart"]:
-                from DraftGui import todo
-                todo.delay(Arch.recolorize,cl)
-        select(cl)
-        return cl
     else:
         cl = FreeCAD.ActiveDocument.addObject("Part::FeaturePython","Clone")
         cl.addExtension("Part::AttachExtensionPython", None)
@@ -2785,18 +2729,7 @@ def upgrade(objects,delete=False,force=None):
                 return None
 
     def turnToParts(meshes):
-        """turn given meshes to parts"""
-        result = False
-        import Arch
-        for mesh in meshes:
-            sh = Arch.getShapeFromMesh(mesh.Mesh)
-            if sh:
-                newobj = FreeCAD.ActiveDocument.addObject("Part::Feature","Shell")
-                newobj.Shape = sh
-                addList.append(newobj)
-                deleteList.append(mesh)
-                result = True
-        return result
+        return False
 
     def makeFusion(obj1,obj2):
         """makes a Draft or Part fusion between 2 given objects"""
@@ -3870,15 +3803,12 @@ class _ViewProviderDimension(_ViewProviderDraft):
                 self.drawstyle.lineWidth = vobj.LineWidth
         elif (prop in ["ArrowSize","ArrowType"]) and hasattr(vobj,"ArrowSize"):
             if hasattr(self,"node") and hasattr(self,"p2"):
-
                 if not hasattr(vobj,"ArrowType"):
                     return
-
                 if self.p3.x < self.p2.x:
                     inv = False
                 else:
                     inv = True
-
                 # set scale
                 symbol = arrowtypes.index(vobj.ArrowType)
                 s = vobj.ArrowSize.Value
@@ -4264,7 +4194,6 @@ class _ViewProviderAngularDimension(_ViewProviderDraft):
                 self.drawstyle.lineWidth = vobj.LineWidth
         elif prop in ["ArrowSize","ArrowType"]:
             if hasattr(self,"node") and hasattr(self,"p2"):
-
                 if not hasattr(vobj,"ArrowType"):
                     return
 
@@ -4756,7 +4685,7 @@ class _ViewProviderWire(_ViewProviderDraft):
                         FreeCAD.ActiveDocument.openTransaction("Flatten wire")
                         FreeCADGui.doCommand("FreeCAD.ActiveDocument."+self.Object.Name+".Points="+str(points).replace("Vector","FreeCAD.Vector").replace(" ",""))
                         FreeCAD.ActiveDocument.commitTransaction()
-                        FreeCAD.ActiveDocument.recompute()
+
                     else:
                         from DraftTools import translate
                         FreeCAD.Console.PrintMessage(translate("Draft","This Wire is already flat")+"\n")
@@ -5100,6 +5029,7 @@ class _Shape2DView(_DraftObject):
         obj.addProperty("App::PropertyEnumeration","ProjectionMode","Draft",QT_TRANSLATE_NOOP("App::Property","The way the viewed object must be projected"))
         obj.addProperty("App::PropertyIntegerList","FaceNumbers","Draft",QT_TRANSLATE_NOOP("App::Property","The indices of the faces to be projected in Individual Faces mode"))
         obj.addProperty("App::PropertyBool","HiddenLines","Draft",QT_TRANSLATE_NOOP("App::Property","Show hidden lines"))
+        obj.addProperty("App::PropertyBool","FuseArch","Draft",QT_TRANSLATE_NOOP("App::Property","Fuse wall and structure objects of same type and material"))
         obj.addProperty("App::PropertyBool","Tessellation","Draft",QT_TRANSLATE_NOOP("App::Property","Tessellate Ellipses and B-splines into line segments"))
         obj.addProperty("App::PropertyBool","InPlace","Draft",QT_TRANSLATE_NOOP("App::Property","For Cutlines and Cutfaces modes, this leaves the faces at the cut location"))
         obj.addProperty("App::PropertyFloat","SegmentLength","Draft",QT_TRANSLATE_NOOP("App::Property","Length of line segments if tessellating Ellipses or B-splines into line segments"))
@@ -5147,17 +5077,41 @@ class _Shape2DView(_DraftObject):
                     onlysolids = True
                     if hasattr(obj.Base,"OnlySolids"):
                         onlysolids = obj.Base.OnlySolids
-                    import Arch, Part, Drawing
+                    import Part, Drawing
                     objs = getGroupContents(obj.Base.Objects,walls=True)
                     objs = removeHidden(objs)
                     shapes = []
-                    for o in objs:
-                        if o.isDerivedFrom("Part::Feature"):
-                            if onlysolids:
-                                shapes.extend(o.Shape.Solids)
+                    if hasattr(obj,"FuseArch") and obj.FuseArch:
+                        shtypes = {}
+                        for o in objs:
+                            if getType(o) in ["Wall","Structure"]:
+                                if onlysolids:
+                                    shtypes.setdefault(o.Material.Name if (hasattr(o,"Material") and o.Material) else "None",[]).extend(o.Shape.Solids)
+                                else:
+                                    shtypes.setdefault(o.Material.Name if (hasattr(o,"Material") and o.Material) else "None",[]).append(o.Shape.copy())
+                            elif o.isDerivedFrom("Part::Feature"):
+                                if onlysolids:
+                                    shapes.extend(o.Shape.Solids)
+                                else:
+                                    shapes.append(o.Shape.copy())
+                        for k,v in shtypes.items():
+                            v1 = v.pop()
+                            if v:
+                                v1 = v1.multiFuse(v)
+                                v1 = v1.removeSplitter()
+                            if v1.Solids:
+                                shapes.extend(v1.Solids)
                             else:
-                                shapes.append(o.Shape.copy())
-                    cutp,cutv,iv =Arch.getCutVolume(obj.Base.Shape,shapes)
+                                print("Shape2DView: Fusing Arch objects produced non-solid results")
+                                shapes.append(v1)
+                    else:
+                        for o in objs:
+                            if o.isDerivedFrom("Part::Feature"):
+                                if onlysolids:
+                                    shapes.extend(o.Shape.Solids)
+                                else:
+                                    shapes.append(o.Shape.copy())
+                    cutp,cutv,iv =[]
                     cuts = []
                     opl = FreeCAD.Placement(obj.Base.Placement)
                     proj = opl.Rotation.multVec(FreeCAD.Vector(0,0,1))
@@ -6036,8 +5990,7 @@ class _ViewProviderVisGroup:
         vobj.Proxy = self
 
     def getIcon(self):
-        import Arch_rc
-        return ":/icons/Draft_VisGroup.svg"
+        return ""
 
     def attach(self,vobj):
         self.Object = vobj.Object
@@ -6124,8 +6077,6 @@ class ViewProviderWorkingPlaneProxy:
     def __init__(self,vobj):
         # ViewData: 0,1,2: position; 3,4,5,6: rotation; 7: near dist; 8: far dist, 9:aspect ratio;
         # 10: focal dist; 11: height (ortho) or height angle (persp); 12: ortho (0) or persp (1)
-        vobj.addProperty("App::PropertyLength","DisplaySize","Arch",QT_TRANSLATE_NOOP("App::Property","The display length of this section plane"))
-        vobj.addProperty("App::PropertyLength","ArrowSize","Arch",QT_TRANSLATE_NOOP("App::Property","The size of the arrows of this section plane"))
         vobj.addProperty("App::PropertyPercent","Transparency","Base","")
         vobj.addProperty("App::PropertyFloat","LineWidth","Base","")
         vobj.addProperty("App::PropertyColor","LineColor","Base","")
@@ -6137,7 +6088,7 @@ class ViewProviderWorkingPlaneProxy:
         vobj.ArrowSize = 5
         vobj.Transparency = 70
         vobj.LineWidth = 1
-        c = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/Arch").GetUnsigned("ColorHelpers",674321151)
+        c = 0x00
         vobj.LineColor = (float((c>>24)&0xFF)/255.0,float((c>>16)&0xFF)/255.0,float((c>>8)&0xFF)/255.0,0.0)
         vobj.Proxy = self
 
@@ -6312,7 +6263,7 @@ def makeLabel(targetpoint=None,target=None,direction=None,distance=None,labeltyp
         obj.LabelType = labeltype
     if placement:
         obj.Placement = placement
-    FreeCAD.ActiveDocument.recompute()
+
     return obj
 
 
@@ -6771,3 +6722,4 @@ def convertDraftTexts(textslist=[]):
         FreeCAD.ActiveDocument.removeObject(n)
 
 ## @}
+
