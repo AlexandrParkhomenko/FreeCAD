@@ -22,8 +22,6 @@
 # *                                                                         *
 # ***************************************************************************
 
-from __future__ import print_function
-
 import FreeCAD
 import Path
 import PathScripts.PathCircularHoleBase as PathCircularHoleBase

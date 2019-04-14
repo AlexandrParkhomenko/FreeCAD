@@ -20,8 +20,6 @@
 # *   USA                                                                   *
 # *                                                                         *
 # ***************************************************************************/
-from __future__ import print_function
-
 TOOLTIP='''
 This is a postprocessor file for the Path workbench. It is used to
 take a pseudo-gcode fragment outputted by a Path object, and output

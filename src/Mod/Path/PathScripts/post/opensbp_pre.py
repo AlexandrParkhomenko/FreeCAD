@@ -45,9 +45,7 @@ if operations are preceded by a comment ('New Path ...)  They are split into mul
 TODO
 Many other OpenSBP commands not handled
 
-'''
-from __future__ import print_function
-import FreeCAD
+'''import FreeCAD
 import PathScripts.PathUtil as PathUtil
 import os, Path
 

@@ -20,8 +20,6 @@
 # *   USA                                                                   *
 # *                                                                         *
 # ***************************************************************************/
-from __future__ import print_function
-
 TOOLTIP='''
 Dumper is an extremely simple postprocessor file for the Path workbench. It is used
 to dump the command list from one or more Path objects for simple inspection. This post

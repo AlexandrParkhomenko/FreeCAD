@@ -21,7 +21,6 @@
 # *   USA                                                                   *
 # *                                                                         *
 # ***************************************************************************
-from __future__ import print_function
 import DraftGeomUtils
 import FreeCAD
 import FreeCADGui
