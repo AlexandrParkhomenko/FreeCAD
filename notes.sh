@@ -6,7 +6,7 @@ git diff -u old.cpp new.cpp > fix.patch
 cd freecad/src/FreeCAD
 git apply freecad/patches/*.patch
 # or
-git apply --ignore-space-change --ignore-whitespace changes.patch
+git apply --recount --ignore-space-change  --whitespace=fix changes.patch
 
 # remove local changes
 git stash save --keep-index
