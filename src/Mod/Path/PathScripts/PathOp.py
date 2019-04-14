@@ -435,11 +435,12 @@ class ObjectOp(object):
         '''
         PathLog.track()
 
+        if obj.ViewObject:
+            obj.ViewObject.Visibility = obj.Active
+
         if not obj.Active:
             path = Path.Path("(inactive operation)")
             obj.Path = path
-            if obj.ViewObject:
-                obj.ViewObject.Visibility = False
             return
 
         if not self._setBaseAndStock(obj):

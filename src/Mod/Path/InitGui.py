@@ -151,7 +151,7 @@ class PathWorkbench (Workbench):
                 if "Job" in selectedName:
                     self.appendContextMenu("", ["Path_ExportTemplate"])
             if isinstance (obj.Proxy, PathScripts.PathOp.ObjectOp):
-                self.appendContextMenu("", ["Path_OperationCopy"])
+                self.appendContextMenu("", ["Path_OperationCopy", "Path_OpActiveToggle"])
             if obj.isDerivedFrom("Path::Feature"):
                 if "Profile" in selectedName or "Contour" in selectedName or "Dressup" in selectedName:
                     self.appendContextMenu("", "Separator")
@@ -164,6 +164,6 @@ Gui.addWorkbench(PathWorkbench())
 
 FreeCAD.addImportType(
     "GCode (*.nc *.gc *.ncc *.ngc *.cnc *.tap *.gcode)", "PathGui")
-FreeCAD.addExportType(
-    "GCode (*.nc *.gc *.ncc *.ngc *.cnc *.tap *.gcode)", "PathGui")
+# FreeCAD.addExportType(
+#     "GCode (*.nc *.gc *.ncc *.ngc *.cnc *.tap *.gcode)", "PathGui")
 

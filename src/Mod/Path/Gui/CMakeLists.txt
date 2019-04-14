@@ -21,7 +21,7 @@ set(PathGui_LIBS
     FreeCADGui
 )
 
-    qt5_add_resources(PathResource_SRCS Resources/Path.qrc)
+qt5_add_resources(PathResource_SRCS Resources/Path.qrc)
 
 SOURCE_GROUP("Resources" FILES ${PathResource_SRCS})
 
@@ -40,7 +40,7 @@ set(PathGui_UIC_SRCS
     DlgProcessorChooser.ui
 )
 
-    qt5_wrap_ui(PathGui_UIC_HDRS ${PathGui_UIC_SRCS})
+qt5_wrap_ui(PathGui_UIC_HDRS ${PathGui_UIC_SRCS})
 
 SET(PathGui_SRCS_Module
     Command.cpp

@@ -28,7 +28,9 @@ import PathScripts.PathGeom as PathGeom
 import PathScripts.PathLog as PathLog
 import PathScripts.PathOp as PathOp
 import PathScripts.PathPocketBase as PathPocketBase
+import PathScripts.PathUtil as PathUtil
 import PathScripts.PathUtils as PathUtils
+import math
 import sys
 
 from PySide import QtCore
@@ -51,14 +53,26 @@ def translate(context, text, disambig=None):
 class ObjectPocket(PathPocketBase.ObjectPocket):
     '''Proxy object for Pocket operation.'''
 
+    def areaOpFeatures(self, obj):
+        return super(self.__class__, self).areaOpFeatures(obj) | PathOp.FeatureLocations
+
     def initPocketOp(self, obj):
         '''initPocketOp(obj) ... setup receiver'''
-        obj.addProperty("App::PropertyBool", "UseOutline", "Pocket", QtCore.QT_TRANSLATE_NOOP("App::Property", "Uses the outline of the base geometry."))
+        if not hasattr(obj, 'UseOutline'):
+            obj.addProperty('App::PropertyBool', 'UseOutline', 'Pocket', QtCore.QT_TRANSLATE_NOOP('PathPocketShape', 'Uses the outline of the base geometry.'))
         obj.UseOutline = False
+        if not hasattr(obj, 'ExtensionLengthDefault'):
+            obj.addProperty('App::PropertyDistance', 'ExtensionLengthDefault', 'Extension', QtCore.QT_TRANSLATE_NOOP('PathPocketShape', 'Default length of extensions.'))
+        if not hasattr(obj, 'ExtensionFeature'):
+            obj.addProperty('App::PropertyLinkSubListGlobal', 'ExtensionFeature', 'Extension', QtCore.QT_TRANSLATE_NOOP('PathPocketShape', 'List of features to extend.'))
+        if not hasattr(obj, 'ExtensionCorners'):
+            obj.addProperty('App::PropertyBool', 'ExtensionCorners', 'Extension', QtCore.QT_TRANSLATE_NOOP('PathPocketShape', 'When enabled connected extension edges are combined to wires.'))
+            obj.ExtensionCorners = True
+
+        obj.setEditorMode('ExtensionFeature', 2)
 
     def opOnDocumentRestored(self, obj):
         '''opOnDocumentRestored(obj) ... adds the UseOutline property if it doesn't exist.'''
-        if not hasattr(obj, 'UseOutline'):
             self.initPocketOp(obj)
 
     def pocketInvertExtraOffset(self):
@@ -69,15 +83,15 @@ class ObjectPocket(PathPocketBase.ObjectPocket):
         PathLog.track()
 
         if obj.Base:
-            PathLog.debug("base items exist.  Processing...")
+            PathLog.debug('base items exist.  Processing...')
             self.removalshapes = []
             self.horiz = []
             vertical = []
             for o in obj.Base:
-                PathLog.debug("Base item: {}".format(o))
+                PathLog.debug('Base item: {}'.format(o))
                 base = o[0]
                 for sub in o[1]:
-                    if "Face" in sub:
+                    if 'Face' in sub:
                         face = base.Shape.getElement(sub)
                         if type(face.Surface) == Part.Plane and PathGeom.isVertical(face.Surface.Axis):
                             # it's a flat horizontal face
@@ -95,7 +109,7 @@ class ObjectPocket(PathPocketBase.ObjectPocket):
                         elif type(face.Surface) == Part.Plane and PathGeom.isHorizontal(face.Surface.Axis):
                             vertical.append(face)
                         else:
-                            PathLog.error(translate('PathPocket', "Pocket does not support shape %s.%s") % (base.Label, sub))
+                            PathLog.error(translate('PathPocket', 'Pocket does not support shape %s.%s') % (base.Label, sub))
 
             self.vertical = PathGeom.combineConnectedShapes(vertical)
 
@@ -129,13 +143,31 @@ class ObjectPocket(PathPocketBase.ObjectPocket):
             bb = job.Stock.Shape.BoundBox
             obj.OpFinalDepth = bb.ZMin
             obj.OpStartDepth = bb.ZMax
+        obj.setExpression('ExtensionLengthDefault', 'OpToolDiameter / 2')
+
+    def createExtension(self, obj, extObj, extFeature, extSub):
+        return Extension(extObj, extFeature, extSub, obj.ExtensionLengthDefault, Extension.DirectionNormal)
+
+    def getExtensions(self, obj):
+        extensions = []
+        i = 0
+        for extObj,features in obj.ExtensionFeature:
+            for sub in features:
+                extFeature, extSub = sub.split(':')
+                extensions.append(self.createExtension(obj, extObj, extFeature, extSub))
+                i = i + 1
+        return extensions
+
+    def setExtensions(self, obj, extensions):
+        PathLog.track(obj.Label, len(extensions))
+        obj.ExtensionFeature = [(ext.obj, ext.getSubLink()) for ext in extensions]
 
 def SetupProperties():
-    return PathPocketBase.SetupProperties() + [ 'UseOutline' ]
+    return PathPocketBase.SetupProperties() + [ 'UseOutline', 'ExtensionCorners' ]
 
 def Create(name, obj = None):
     '''Create(name) ... Creates and returns a Pocket operation.'''
     if obj is None:
-        obj = FreeCAD.ActiveDocument.addObject("Path::FeaturePython", name)
+        obj = FreeCAD.ActiveDocument.addObject('Path::FeaturePython', name)
     proxy = ObjectPocket(obj, name)
     return obj

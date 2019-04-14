@@ -17,13 +17,7 @@
 #   undef    _XOPEN_SOURCE
 #endif
 
-#if _DEBUG
-#undef _DEBUG
 #include "FCConfig.h"
-#define _DEBUG
-#else
-#include "FCConfig.h"
-#endif
 
 #if defined(__GNUG__) && !defined(__clang__)
 #pragma implementation

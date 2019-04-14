@@ -28,7 +28,6 @@ import Part
 import Path
 import PathScripts
 import PathScripts.PathGeom as PathGeom
-#import TechDraw
 import math
 import numpy
 import sys
@@ -265,8 +264,6 @@ def horizontalFaceLoop(obj, face, faceList=None):
         # verify they form a valid hole by getting the outline and comparing
         # the resulting XY footprint with that of the faces
         comp = Part.makeCompound([obj.Shape.getElement(f) for f in faces])
-        outline = []  #TechDraw.findShapeOutline(comp, 1, FreeCAD.Vector(0,0,1))
-
         # findShapeOutline always returns closed wires, by removing the
         # trace-backs single edge spikes don't contriubte to the bound box
         uniqueEdges = []
