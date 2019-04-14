@@ -17,4 +17,14 @@ git stash drop
 
 #move master ref
 git reset --soft HEAD~1
+git push --force
+#this commands is better
+git diff HEAD HEAD~1 > revert.patch
+git apply revert.patch
+
+#How to undo (almost) anything
+  #public
+  git revert <SHA>
+  #local
+  git checkout
 
