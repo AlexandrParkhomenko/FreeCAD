@@ -19,6 +19,7 @@
  *   Suite 330, Boston, MA  02111-1307, USA                                 *
  *                                                                          *
  ****************************************************************************/
+// https://goo.gl => http://www.angusj.com/delphi/clipper/documentation/Docs/Units/ClipperLib/_Body.htm
 
 #ifndef PATH_AreaParams_H
 #define PATH_AreaParams_H
