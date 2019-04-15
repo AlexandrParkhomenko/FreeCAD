@@ -85,27 +85,6 @@ SET(Path_SRCS
 SOURCE_GROUP("Python" FILES ${Python_SRCS})
 SOURCE_GROUP("Module" FILES ${Mod_SRCS})
 
-#if (WIN32) uncomment to use KDL
-#    FILE( GLOB KDL_SRCS ${CMAKE_SOURCE_DIR}/src/Mod/Robot/App/kdl_cp/[^.]*.cpp )
-#    FILE( GLOB KDL_HPPS ${CMAKE_SOURCE_DIR}/src/Mod/Robot/App/kdl_cp/[^.]*.hpp
-#                        ${CMAKE_SOURCE_DIR}/src/Mod/Robot/App/kdl_cp/[^.]*.inl)
-#
-#    FILE( GLOB UTIL_SRCS ${CMAKE_SOURCE_DIR}/src/Mod/Robot/App/kdl_cp/utilities/[^.]*.cpp
-#                         ${CMAKE_SOURCE_DIR}/src/Mod/Robot/App/kdl_cp/utilities/[^.]*.cxx)
-#    FILE( GLOB UTIL_HPPS ${CMAKE_SOURCE_DIR}/src/Mod/Robot/App/kdl_cp/utilities/[^.]*.h
-#                         ${CMAKE_SOURCE_DIR}/src/Mod/Robot/App/kdl_cp/utilities/[^.]*.hpp)
-#
-#    SET(Path_SRCS
-#        ${Path_SRCS}
-#        ${KDL_SRCS}
-#        ${KDL_HPPS}
-#        ${UTIL_SRCS}
-#        ${UTIL_HPPS}
-#    )
-#
-#    SOURCE_GROUP("KDL" FILES ${KDL_SRCS} ${KDL_HPPS} ${UTIL_SRCS} ${UTIL_HPPS} )
-#endif(WIN32)
-
 add_library(Path SHARED ${Path_SRCS})
 target_link_libraries(Path ${Path_LIBS})
 
