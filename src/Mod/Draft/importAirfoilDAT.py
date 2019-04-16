@@ -45,10 +45,10 @@ def decodeName(name):
 		decodedName = name
 	except UnicodeDecodeError:
 		try:
-			decodedName = (name.decode("latin1"))
+			decodedName = (name.decode("utf8"))
 		except UnicodeDecodeError:
 			try:
-				decodedName = (name.decode("utf8"))
+				decodedName = (name.decode("latin1"))
 			except UnicodeDecodeError:
 				print("AirfoilDAT: error: couldn't determine character encoding")
 				decodedName = name

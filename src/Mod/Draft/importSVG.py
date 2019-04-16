@@ -1040,7 +1040,7 @@ class svgHandler(xml.sax.ContentHandler):
                 if self.text:
                         FreeCAD.Console.PrintMessage("reading characters %s\n" % content)
                         obj=self.doc.addObject("App::Annotation",'Text')
-                        obj.LabelText = content.encode('latin1')
+                        obj.LabelText = content.encode('utf8')
                         if self.currentsymbol:
                             self.symbols[self.currentsymbol].append(obj)
                         vec = Vector(self.x,-self.y,0)
