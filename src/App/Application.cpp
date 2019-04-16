@@ -42,30 +42,30 @@
 #include "Document.h"
 
 // FreeCAD Base header
-#include <Base/Interpreter.h>
-#include <Base/Exception.h>
-#include <Base/Parameter.h>
-#include <Base/Console.h>
-#include <Base/Factory.h>
-#include <Base/ExceptionFactory.h>
-#include <Base/FileInfo.h>
-#include <Base/Type.h>
-#include <Base/BaseClass.h>
-#include <Base/Persistence.h>
-#include <Base/Reader.h>
-#include <Base/MatrixPy.h>
-#include <Base/VectorPy.h>
-#include <Base/AxisPy.h>
-#include <Base/CoordinateSystemPy.h>
-#include <Base/BoundBoxPy.h>
-#include <Base/PlacementPy.h>
-#include <Base/RotationPy.h>
-#include <Base/Sequencer.h>
-#include <Base/Tools.h>
-#include <Base/Translate.h>
-#include <Base/UnitsApi.h>
-#include <Base/QuantityPy.h>
-#include <Base/UnitPy.h>
+#include "Base/Interpreter.h"
+#include "Base/Exception.h"
+#include "Base/Parameter.h"
+#include "Base/Console.h"
+#include "Base/Factory.h"
+#include "Base/ExceptionFactory.h"
+#include "Base/FileInfo.h"
+#include "Base/Type.h"
+#include "Base/BaseClass.h"
+#include "Base/Persistence.h"
+#include "Base/Reader.h"
+#include "Base/MatrixPy.h"
+#include "Base/VectorPy.h"
+#include "Base/AxisPy.h"
+#include "Base/CoordinateSystemPy.h"
+#include "Base/BoundBoxPy.h"
+#include "Base/PlacementPy.h"
+#include "Base/RotationPy.h"
+#include "Base/Sequencer.h"
+#include "Base/Tools.h"
+#include "Base/Translate.h"
+#include "Base/UnitsApi.h"
+#include "Base/QuantityPy.h"
+#include "Base/UnitPy.h"
 
 #include "GeoFeature.h"
 #include "FeatureTest.h"
@@ -95,10 +95,10 @@
 #include "TextDocument.h"
 #include "Expression.h"
 #include "Transactions.h"
-#include <App/MaterialPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "App/MaterialPy.h"
+#include "Base/GeometryPyCXX.h"
 
-#include <Version.h>
+#include "Version.h"
 
 #include <boost/tokenizer.hpp>
 #include <boost/token_functions.hpp>
