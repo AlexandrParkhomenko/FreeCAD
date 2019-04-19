@@ -1597,7 +1597,7 @@ Document::importObjects(Base::XMLReader& reader)
     if (reader.hasAttribute("ProgramVersion")) {
         reader.ProgramVersion = reader.getAttribute("ProgramVersion");
     } else {
-        reader.ProgramVersion = "0.17";
+        reader.ProgramVersion = "0.19";
     }
     if (reader.hasAttribute("FileVersion")) {
         reader.FileVersion = reader.getAttributeAsUnsigned("FileVersion");
