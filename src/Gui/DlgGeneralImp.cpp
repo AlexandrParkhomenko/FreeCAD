@@ -127,16 +127,14 @@ void DlgGeneralImp::saveSettings()
     QMdiArea* mdi = getMainWindow()->findChild<QMdiArea*>();
     mdi->setProperty("showImage", ui->tiledBackground->isChecked());
 
+        qApp->setStyleSheet(QString());
+        ActionStyleEvent e(ActionStyleEvent::Restore);
+        qApp->sendEvent(getMainWindow(), &e);
         if (ui->tiledBackground->isChecked()) {
-            qApp->setStyleSheet(QString());
-            ActionStyleEvent e(ActionStyleEvent::Restore);
-            qApp->sendEvent(getMainWindow(), &e);
-            mdi->setBackground(QPixmap(QLatin1String(":/icons/background.png")));
+            //mdi->setBackground(QPixmap(QLatin1String(":/icons/background.png")));
+            mdi->setBackground(QBrush(QColor(0,0,160)));
         }
         else {
-            qApp->setStyleSheet(QString());
-            ActionStyleEvent e(ActionStyleEvent::Restore);
-            qApp->sendEvent(getMainWindow(), &e);
             mdi->setBackground(QBrush(QColor(160,160,160)));
         }
 
