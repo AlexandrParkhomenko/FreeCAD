@@ -31,10 +31,10 @@
 #include <vector>
 #include <cassert>
 
-#include <zipios++/zipfile.h>
-#include <zipios++/zipinputstream.h>
-#include <zipios++/zipoutputstream.h>
-#include <zipios++/meta-iostreams.h>
+#include <zipios/zipfile.h>
+#include <zipios/zipinputstream.h>
+#include <zipios/zipoutputstream.h>
+#include <zipios/meta-iostreams.h>
 
 #include "FileInfo.h"
 

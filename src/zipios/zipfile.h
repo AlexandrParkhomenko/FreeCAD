@@ -24,7 +24,7 @@ public:
       archive to the end of the file followed by the start offset of
       the zip file. The offset must be written in zip-file byte-order
       (little endian). The program appendzip, which is part of the
-      Zipios++ distribution can be used to append a Zip archive to a
+      zipios distribution can be used to append a Zip archive to a
       file, e.g. a binary program. 
       @throw FColException Thrown if the specified file name is not a valid zip 
       archive.
@@ -85,7 +85,7 @@ private:
 */
 
 /*
-  Zipios++ - a small C++ library that provides easy access to .zip files.
+  zipios - a small C++ library that provides easy access to .zip files.
   Copyright (C) 2000  Thomas Søndergaard
   
   This library is free software; you can redistribute it and/or

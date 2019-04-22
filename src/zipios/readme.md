@@ -1,6 +1,6 @@
 Introduction
    
-   Zipios++ is a java.util.zip-like C++ library for reading and
+   zipios is a java.util.zip-like C++ library for reading and
    writing Zip files. Access to individual entries is provided through
    standard C++ iostreams. A simple read-only virtual file system that
    mounts regular directories and zip files is also provided.
@@ -16,7 +16,7 @@ Introduction
 
    The library has been tested and appears to be working with
    <UL>
-   <LI><A HREF="http://www.freebsd.org/ports/archivers.html#zipios++-0.1.5">FreeBSD stable and current / gcc 2.95.3</A></LI>
+   <LI><A HREF="http://www.freebsd.org/ports/archivers.html#zipios-0.1.5">FreeBSD stable and current / gcc 2.95.3</A></LI>
    <LI>Red Hat Linux release 7.0  / gcc 2.96</LI>
    <LI>Red Hat Linux release 6.2 (Zoot) / egcs-2.91.66</LI>
    <LI>Linux Mandrake release 7.0 (Air) / gcc 2.95.2</LI>
@@ -24,7 +24,7 @@ Introduction
    <LI>SGI IRIX64 6.5 / MIPSpro Compilers: Version 7.30</LI>
    </UL>
 
-   If you are aware of any other platforms that Zipios++ works on,
+   If you are aware of any other platforms that zipios works on,
    please let me know (thomass@deltadata.dk).
 
    Zip file access
@@ -47,7 +47,7 @@ Introduction
    istream (ZipInputStream) to a particular entry simply use
    - fcoll_getinputstream "ZipFile::getInputStream()".
    
-   "example_zip.cpp" demonstrates the central elements of Zipios++.
+   "example_zip.cpp" demonstrates the central elements of zipios.
    
    A Zip file appended to another file, e.g. a binary program, with the 
    program "appendzip", can be read with 
@@ -57,7 +57,7 @@ Introduction
    
    A ZipFile is actually just a special kind of 
    - fcoll_anchor "FileCollection" that
-   obtains its entries from a .zip Zip archive. Zipios++ also implements
+   obtains its entries from a .zip Zip archive. zipios also implements
    a 
    - dircol_anchor "DirectoryCollection" that obtains its entries 
    from a specified directory, and a \ref collcoll_anchor "CollectionCollection" 
@@ -82,19 +82,19 @@ Introduction
    
    Download 
    
-   Go to Zipios++ project page on SourceForge for tar balls and ChangeLog.
+   Go to zipios project page on SourceForge for tar balls and ChangeLog.
    <A HREF="http://sourceforge.net/project/?group_id=5418" >
    http://sourceforge.net/project/?group_id=5418</A>
    
    Links
    
    <A HREF="ftp://ftp.freesoftware.com/pub/infozip/zlib/zlib.html">zlib</A>. 
-   The compression library that Zipios++ uses to perform the actual 
+   The compression library that zipios uses to perform the actual 
    decompression.
    
    <A HREF="http://java.sun.com/products/jdk/1.3/docs/api/index.html">
    Java 2 Platform, Standard Edition, v 1.3 API Specification
-   </A>. Zipios++ is heavily inspired by the java.util.zip package.
+   </A>. zipios is heavily inspired by the java.util.zip package.
    
    <A
    HREF="http://www.geocities.com/SiliconValley/Lakes/2160/fformats/files/zip.txt">

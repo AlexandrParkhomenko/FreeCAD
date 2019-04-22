@@ -15,7 +15,7 @@ typedef std::ostringstream OutputStringStream ;
 #else
 
 /** OutputStringStream is typedefed to ostringstream if sstream is
-    part of the standard library (unless Zipios++ has been explicitly
+    part of the standard library (unless zipios has been explicitly
     configured not to use it). If sstream is not present
     OutputStringStream is a subclass of ostrstream from
     strstream.h. In this case OutputStringStream specializes the str()
@@ -50,7 +50,7 @@ private:
 */
 
 /*
-  Zipios++ - a small C++ library that provides easy access to .zip files.
+  zipios - a small C++ library that provides easy access to .zip files.
   Copyright (C) 2000  Thomas Søndergaard
   
   This library is free software; you can redistribute it and/or

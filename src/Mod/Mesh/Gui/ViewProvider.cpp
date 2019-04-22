@@ -91,7 +91,7 @@
 #include <Mod/Mesh/App/Mesh.h>
 #include <Mod/Mesh/App/MeshFeature.h>
 #include <Mod/Mesh/Gui/ViewProviderMeshPy.h>
-#include <zipios++/gzipoutputstream.h>
+#include <zipios/gzipoutputstream.h>
 #include <boost/bind.hpp>
 
 #include "ViewProvider.h"
