@@ -145,7 +145,7 @@ class ViewProvider(object):
     def getIcon(self):
         '''getIcon() ... the icon used in the object tree'''
         if self.Object.Active:
-        return self.OpIcon
+            return self.OpIcon
         else:
             return ":/icons/Path-OpActive.svg"
 
@@ -417,20 +417,20 @@ class TaskPanelBaseGeometryPage(TaskPanelPage):
         if sel.HasSubObjects:
             if not self.supportsVertexes() and selection[0].SubObjects[0].ShapeType == "Vertex":
                 if not ignoreErrors:
-                PathLog.error(translate("PathProject", "Vertexes are not supported"))
+                    PathLog.error(translate("PathProject", "Vertexes are not supported"))
                 return False
             if not self.supportsEdges() and selection[0].SubObjects[0].ShapeType == "Edge":
                 if not ignoreErrors:
-                PathLog.error(translate("PathProject", "Edges are not supported"))
+                    PathLog.error(translate("PathProject", "Edges are not supported"))
                 return False
             if not self.supportsFaces() and selection[0].SubObjects[0].ShapeType == "Face":
                 if not ignoreErrors:
-                PathLog.error(translate("PathProject", "Faces are not supported"))
+                    PathLog.error(translate("PathProject", "Faces are not supported"))
                 return False
         else:
             if not self.supportsPanels() or not 'Panel' in sel.Object.Name:
                 if not ignoreErrors:
-                PathLog.error(translate("PathProject", "Please select %s of a solid" % self.featureName()))
+                    PathLog.error(translate("PathProject", "Please select %s of a solid" % self.featureName()))
                 return False
 
         return True
