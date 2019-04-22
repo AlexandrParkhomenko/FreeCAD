@@ -138,12 +138,11 @@ Page = None
 class TaskPanelExtensionPage(PathOpGui.TaskPanelPage):
     DataObject = QtCore.Qt.ItemDataRole.UserRole
     DataSwitch = QtCore.Qt.ItemDataRole.UserRole + 2
-
-    Direction = {
-            PathPocketShape.Extension.DirectionNormal: translate('PathPocket', 'Normal'),
-            PathPocketShape.Extension.DirectionX: translate('PathPocket', 'X'),
-            PathPocketShape.Extension.DirectionY: translate('PathPocket', 'Y')
-            }
+#    Direction = {
+#        PathPocketShape.Extension.DirectionNormal: translate('PathPocket', 'Normal'),
+#        PathPocketShape.Extension.DirectionX: translate('PathPocket', 'X'),
+#        PathPocketShape.Extension.DirectionY: translate('PathPocket', 'Y')
+#        }
 
     def initPage(self, obj):
         self.setTitle("Extensions")
