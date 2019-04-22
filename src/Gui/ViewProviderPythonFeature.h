@@ -223,11 +223,11 @@ public:
         }
     }
     /// Starts to drag the object
-    virtual void dragObject(App::DocumentObject* obj) {
+    virtual bool dragObject(App::DocumentObject* obj) {
         switch (imp->dragObject(obj)) {
         case ViewProviderPythonFeatureImp::Accepted:
         case ViewProviderPythonFeatureImp::Rejected:
-            return;
+            return false;
         default:
             return ViewProviderT::dragObject(obj);
         }
@@ -255,11 +255,11 @@ public:
         }
     }
     /// If the dropped object type is accepted the object will be added as child
-    virtual void dropObject(App::DocumentObject* obj) {
+    virtual bool dropObject(App::DocumentObject* obj) {
         switch (imp->dropObject(obj)) {
         case ViewProviderPythonFeatureImp::Accepted:
         case ViewProviderPythonFeatureImp::Rejected:
-            return;
+            return false;
         default:
             return ViewProviderT::dropObject(obj);
         }
@@ -308,15 +308,15 @@ public:
     std::vector<std::string> getDynamicPropertyNames() const {
         return props->getDynamicPropertyNames();
     }
-    App::Property *getDynamicPropertyByName(const char* name) const {
+    App::Property* getDynamicPropertyByName(const char* name) const {
         return props->getDynamicPropertyByName(name);
     }
     virtual void addDynamicProperties(const App::PropertyContainer* cont) {
-        return props->addDynamicProperties(cont);
+        return props->addDynamicProperties(cont); //#
     }
     /// get all properties of the class (including parent)
     virtual void getPropertyMap(std::map<std::string,App::Property*> &Map) const {
-        return props->getPropertyMap(Map);
+        return props->getPropertyMap(Map); //#
     }
     /// find a property by its name
     virtual App::Property *getPropertyByName(const char* name) const {
@@ -403,11 +403,11 @@ protected:
         }
     }
     /// is called when you lose the edit mode
-    virtual void unsetEdit(int ModNum)
+    virtual bool unsetEdit(int ModNum)
     {
         switch (imp->unsetEdit(ModNum)) {
         case ViewProviderPythonFeatureImp::Accepted:
-            return;
+            return false;
         case ViewProviderPythonFeatureImp::Rejected:
         default:
             return ViewProviderT::unsetEdit(ModNum);
