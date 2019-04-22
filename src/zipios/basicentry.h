@@ -69,7 +69,7 @@ protected:
 */
 
 /*
-  Zipios++ - a small C++ library that provides easy access to .zip files.
+  zipios - a small C++ library that provides easy access to .zip files.
   Copyright (C) 2000  Thomas Søndergaard
   
   This library is free software; you can redistribute it and/or

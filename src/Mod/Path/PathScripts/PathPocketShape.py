@@ -73,7 +73,7 @@ class ObjectPocket(PathPocketBase.ObjectPocket):
 
     def opOnDocumentRestored(self, obj):
         '''opOnDocumentRestored(obj) ... adds the UseOutline property if it doesn't exist.'''
-            self.initPocketOp(obj)
+        self.initPocketOp(obj)
 
     def pocketInvertExtraOffset(self):
         return False

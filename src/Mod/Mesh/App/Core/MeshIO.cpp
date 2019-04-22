@@ -39,7 +39,7 @@
 #include <Base/Stream.h>
 #include <Base/Placement.h>
 #include <Base/Tools.h>
-#include <zipios++/gzipoutputstream.h>
+#include <zipios/gzipoutputstream.h>
 
 #include <cmath>
 #include <sstream>

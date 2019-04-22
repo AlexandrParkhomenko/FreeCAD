@@ -894,7 +894,7 @@ void Document::slotFinishRestoreDocument(const App::Document& doc)
  * Saves the properties of the view providers.
  */
 void Document::SaveDocFile (Base::Writer &writer) const {
-    writer.Stream() << "<?xml version='1.0' encoding='utf-8'?>" << std::endl
+    writer.Stream() << "<?xml version='1.0' encoding='utf-8'?>" << std::endl;
     writer.Stream() << "<Document SchemaVersion=\"1\">" << std::endl;
 
     std::map<const App::DocumentObject*,ViewProviderDocumentObject*>::const_iterator it;

@@ -229,7 +229,7 @@ public:
         case ViewProviderPythonFeatureImp::Rejected:
             return;
         default:
-            return ViewProviderT::dragObject(obj);
+            ViewProviderT::dragObject(obj);
         }
     }
     /// Returns true if the view provider generally accepts dropping of objects
@@ -261,7 +261,7 @@ public:
         case ViewProviderPythonFeatureImp::Rejected:
             return;
         default:
-            return ViewProviderT::dropObject(obj);
+            ViewProviderT::dropObject(obj);
         }
     }
     //@}
@@ -410,7 +410,7 @@ protected:
             return;
         case ViewProviderPythonFeatureImp::Rejected:
         default:
-            return ViewProviderT::unsetEdit(ModNum);
+            ViewProviderT::unsetEdit(ModNum);
         }
     }
 

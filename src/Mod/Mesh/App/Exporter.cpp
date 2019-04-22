@@ -37,7 +37,7 @@
 
 #include "App/Part.h"
 
-#include <zipios++/zipoutputstream.h>
+#include <zipios/zipoutputstream.h>
 
 using namespace Mesh;
 using namespace MeshCore;

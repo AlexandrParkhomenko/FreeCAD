@@ -4,6 +4,7 @@ project(FreeCAD)
 set(PACKAGE_VERSION_NAME "FreeCAD.0.19.Path")
 configure_file(${CMAKE_SOURCE_DIR}/src/Version.h.cmake ${CMAKE_SOURCE_DIR}/src/Version.h)
 #compilator
+set(CMAKE_BUILD_TYPE "Release")  #for shiboken2
 set(CMAKE_CXX_STANDARD 20) #CXX_STANDARD_REQUIRED YES  #CXX_EXTENSIONS NO
 set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-write-strings ${CMAKE_CXX_FLAGS}") #-Werror -Wno-deprecated -pedantic-errors
 set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--no-undefined")  # get linker errors
@@ -30,7 +31,7 @@ MESSAGE(STATUS "datadir: ${CMAKE_INSTALL_DATADIR}")
 MESSAGE(STATUS "includedir: ${CMAKE_INSTALL_INCLUDEDIR}")
 MESSAGE(STATUS "libdir: ${CMAKE_INSTALL_LIBDIR}")
 
-OPTION(FREECAD_USE_EXTERNAL_ZIPIOS "Use system installed zipios++ instead of the bundled." OFF)
+OPTION(FREECAD_USE_EXTERNAL_ZIPIOS "Use system installed zipios instead of the bundled." OFF)
 OPTION(FREECAD_USE_EXTERNAL_SMESH "Use system installed smesh instead of the bundled." OFF)
 OPTION(FREECAD_USE_QT_FILEDIALOG "Use Qt's file dialog instead of the native one." ON)
 

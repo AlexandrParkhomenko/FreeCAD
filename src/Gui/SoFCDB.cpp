@@ -29,7 +29,7 @@
 
 #include <Base/FileInfo.h>
 #include <Base/Stream.h>
-#include <zipios++/gzipoutputstream.h>
+#include <zipios/gzipoutputstream.h>
 
 #include "SoFCDB.h"
 #include "SoFCColorBar.h"
