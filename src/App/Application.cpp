@@ -30,9 +30,9 @@
 # include <exception>
 # include <ios>
 //linux, macos
-# include <unistd.h>
-# include <pwd.h>
-# include <sys/types.h>
+//# include <unistd.h>
+//# include <pwd.h>
+//# include <sys/types.h>
 
 # include <ctime>
 # include <csignal>
@@ -122,12 +122,14 @@ using namespace boost::program_options;
 #include <new>
 
 
+#include <boost/filesystem.hpp>
 //using Base::GetConsole;
 using namespace Base;
 using namespace App;
 using namespace std;
 
-#define PATHSEP '/' //#define PATHSEP '\\'
+//#define PATHSEP '/' //#define PATHSEP '\\'
+#define PATHSEP boost::filesystem::path::separator;
 
 /** Observer that watches relabeled objects and make sure that the labels inside
  * a document are unique.
@@ -2070,13 +2072,14 @@ void Application::ParseOptions(int ac, char ** av)
         throw Base::ProgramInformation(str.str());
     }
 }
-
+#include <boost/filesystem.hpp>
 void Application::ExtractUserPath()
 {
     // std paths
     mConfig["BinPath"] = mConfig["AppHomePath"] + "bin" + PATHSEP;
     mConfig["DocPath"] = mConfig["AppHomePath"] + "doc" + PATHSEP;
 
+    char *path = getenv("HOME");
 #if defined(FC_OS_LINUX)
     // Default paths for the user specific stuff
     struct passwd *pwd = getpwuid(getuid());
@@ -2141,10 +2144,10 @@ void Application::ExtractUserPath()
 #endif
 }
 
-#if defined (FC_OS_LINUX) || defined(FC_OS_CYGWIN) || defined(FC_OS_BSD)
+#if defined (FC_OS_LINUX)
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/param.h>
+//#include <sys/param.h>
 
 std::string Application::FindHomePath(const char* sCall)
 {

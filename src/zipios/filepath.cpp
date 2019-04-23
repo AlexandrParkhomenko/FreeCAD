@@ -7,12 +7,13 @@
 #include <sys/stat.h>
 
 #include "filepath.h"
-
+#include <boost/filesystem.hpp>
 namespace zipios {
 
 using namespace std ;
+using namespace boost ;
 
-const char FilePath::_separator = '/' ;
+const char FilePath::_separator = boost::filesystem::path::separator; //'/' ;
 
 
 FilePath::FilePath( const string &path, bool check_exists )
