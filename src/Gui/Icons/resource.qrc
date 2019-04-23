@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/icons">
-        <file>background.png</file>
         <file>mouse_pointer.svg</file>
         <file>Document.svg</file>
         <file>Feature.svg</file>

@@ -280,7 +280,7 @@ class CommandPathPost:
             # Order by fixture means all operations and tool changes will be completed in one
             # fixture before moving to the next.
 
-        currTool = None
+            currTool = None
             for f in wcslist:
                 # create an object to serve as the fixture path
                 fobj = _TempObject()
@@ -291,7 +291,7 @@ class CommandPathPost:
                 sublist = [fobj]
 
                 # Now generate the gcode
-        for obj in job.Operations.Group:
+                for obj in job.Operations.Group:
                     tc = PathUtil.toolControllerForOp(obj)
                     if tc is not None:
                         if tc.ToolNumber != currTool:
@@ -363,14 +363,14 @@ class CommandPathPost:
             # Now generate the gcode
             for obj in job.Operations.Group:
                 sublist = []
-            PathLog.debug("obj: {}".format(obj.Name))
+                PathLog.debug("obj: {}".format(obj.Name))
                 for fixture in fixturelist:
                     sublist.append(fixture)
-            tc = PathUtil.toolControllerForOp(obj)
-            if tc is not None:
-                if tc.ToolNumber != currTool:
+                    tc = PathUtil.toolControllerForOp(obj)
+                    if tc is not None:
+                        if tc.ToolNumber != currTool:
                             sublist.append(tc)
-                    currTool = tc.ToolNumber
+                            currTool = tc.ToolNumber
                     sublist.append(obj)
                 postlist.append(sublist)
 

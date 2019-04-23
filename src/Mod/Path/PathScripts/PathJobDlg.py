@@ -32,12 +32,14 @@ import PathScripts.PathUtil as PathUtil
 import glob
 import os
 
-from PySide import QtCore, QtGui
+from PySide import QtCore, QtGui #, QtWidgets    need PySide2
+#from PySide.QtWidgets import QGroupBox
 from collections import Counter
 
 # Qt tanslation handling
 def translate(context, text, disambig=None):
-    return QtCore.QCoreApplication.translate(context, text, disambig)
+###//    return QtCore.QCoreApplication.translate(context, text, disambig)
+    return text
 
 if False:
     PathLog.setLevel(PathLog.Level.DEBUG, PathLog.thisModule())
@@ -64,8 +66,8 @@ class JobCreate:
         self.itemsSolid = QtGui.QStandardItem(translate('PathJob', 'Solids'))
         self.items2D    = QtGui.QStandardItem(translate('PathJob', '2D'))
         self.itemsJob   = QtGui.QStandardItem(translate('PathJob', 'Jobs'))
-        self.dialog.templateGroup.hide()
-        self.dialog.modelGroup.hide()
+###//        self.dialog.templateGroup.hide()
+###//        self.dialog.modelGroup.hide()
 
     def setupTitle(self, title):
         self.dialog.setWindowTitle(title)
@@ -174,7 +176,7 @@ class JobCreate:
         self.dialog.modelTree.setEditTriggers(QtGui.QAbstractItemView.AllEditTriggers)
         self.dialog.modelTree.setSelectionBehavior(QtGui.QAbstractItemView.SelectItems)
 
-        self.dialog.modelGroup.show()
+###//        self.dialog.modelGroup.show()
 
     def updateData(self, topLeft, bottomRight):
         if topLeft.column() == bottomRight.column() == 0:
@@ -231,7 +233,7 @@ class JobCreate:
                 index = self.dialog.jobTemplate.count()
             self.dialog.jobTemplate.addItem(name, template[name])
         self.dialog.jobTemplate.setCurrentIndex(index)
-        self.dialog.templateGroup.show()
+###//        self.dialog.templateGroup.show()
 
     def templateFilesIn(self, path):
         '''templateFilesIn(path) ... answer all file in the given directory which fit the job template naming convention.
