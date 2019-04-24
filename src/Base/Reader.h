@@ -206,13 +206,8 @@ protected:
     virtual void endDocument();
     virtual void startElement(const XMLCh* const uri, const XMLCh* const localname, const XMLCh* const qname, const XERCES_CPP_NAMESPACE_QUALIFIER Attributes& attrs);
     virtual void endElement  (const XMLCh* const uri, const XMLCh *const localname, const XMLCh *const qname);
-#if (XERCES_VERSION_MAJOR == 2)
-    virtual void characters         (const XMLCh* const chars, const unsigned int length);
-    virtual void ignorableWhitespace(const XMLCh* const chars, const unsigned int length);
-#else
     virtual void characters         (const XMLCh* const chars, const XMLSize_t length);
     virtual void ignorableWhitespace(const XMLCh* const chars, const XMLSize_t length);
-#endif
     //@}
 
     /** @name Lexical handler */

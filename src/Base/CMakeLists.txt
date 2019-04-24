@@ -240,7 +240,7 @@ SET(FreeCADBase_HPP_SRCS
     FileTemplate.h
     FutureWatcherProgress.h
     fdstream.hpp
-    gzstream.h
+#    gzstream.h
     GeometryPyCXX.h
     Handle.h
     InputSource.h

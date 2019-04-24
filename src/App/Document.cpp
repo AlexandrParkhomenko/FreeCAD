@@ -93,11 +93,6 @@ recompute path. Also enables more complicated dependencies beyond trees.
 #include <Base/Tools.h>
 #include <Base/Uuid.h>
 
-#include <zipios/zipfile.hpp>
-#include <zipios/zipinputstream.hpp>
-#include <zipios/zipoutputstream.hpp>
-//#include <zipios/meta-iostreams.hpp>
-
 #include "Application.h"
 #include "Transactions.h"
 #include "GeoFeatureGroupExtension.h"
@@ -1437,7 +1432,7 @@ void Document::Restore(Base::XMLReader &reader)
 void Document::exportObjects(const std::vector<App::DocumentObject*>& obj,
                              std::ostream& out)
 {
-    Base::ZipWriter writer(out);
+    Base::FileWriter writer(out);
     writer.putNextEntry("Document.xml");
     writer.Stream() << "<?xml version='1.0' encoding='utf-8'?>" << endl;
     writer.Stream() << "<Document SchemaVersion=\"4\" ProgramVersion=\""
@@ -1711,13 +1706,10 @@ bool Document::saveToFile(const char* filename) const
     // open extra scope to close ZipWriter properly
     {
         Base::ofstream file(tmp, std::ios::out | std::ios::binary);
-        Base::ZipWriter writer(file);
+        Base::FileWriter writer(file);
         if (!file.is_open()) {
             throw Base::FileException("Failed to open file", tmp);
         }
-
-        writer.setComment("FreeCAD Document");
-        writer.setLevel(compression);
         writer.putNextEntry("Document.xml");
 
         if (hGrp->GetBool("SaveBinaryBrep", false))
@@ -1831,10 +1823,10 @@ void Document::restore (void)
     std::streambuf* buf = file.rdbuf();
     std::streamoff size = buf->pubseekoff(0, std::ios::end, std::ios::in);
     buf->pubseekoff(0, std::ios::beg, std::ios::in);
-    if (size < 22) // an empty zip archive has 22 bytes
-        throw Base::FileException("Invalid project file",FileName.getValue());
+//#    if (size < 22) // an empty zip archive has 22 bytes
+//#        throw Base::FileException("Invalid project file",FileName.getValue());
 
-    zipios::ZipInputStream zipstream(file);
+    Base::FileInputStream zipstream(file);
     Base::XMLReader reader(FileName.getValue(), zipstream);
 
     if (!reader.isValid())
@@ -1855,7 +1847,7 @@ void Document::restore (void)
     // Note: This file doesn't need to be available if the document has been created
     // without GUI. But if available then follow after all data files of the App document.
     signalRestoreDocument(reader);
-    reader.readFiles(zipstream);
+    reader.readFiles(fstream);
 
     // reset all touched
     for (std::map<std::string,DocumentObject*>::iterator It= d->objectMap.begin();It!=d->objectMap.end();++It) {

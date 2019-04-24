@@ -38,16 +38,13 @@
 #include "Console.h"
 #include "Sequencer.h"
 
-#include <zipios/zipfile.hpp>
-#include <zipios/zipinputstream.hpp>
-#include <zipios/zipoutputstream.hpp>
-//#include <zipios/meta-iostreams.hpp>
 
 #include "XMLTools.h"
 
 XERCES_CPP_NAMESPACE_USE
 
 using namespace std;
+using namespace zipios;
 
 
 
@@ -65,13 +62,6 @@ Base::XMLReader::XMLReader(const char* FileName, std::istream& str)
 
     // create the parser
     parser = XMLReaderFactory::createXMLReader();
-    //parser->setFeature(XMLUni::fgSAX2CoreNameSpaces, false);
-    //parser->setFeature(XMLUni::fgXercesSchema, false);
-    //parser->setFeature(XMLUni::fgXercesSchemaFullChecking, false);
-    //parser->setFeature(XMLUni::fgXercesIdentityConstraintChecking, false);
-    //parser->setFeature(XMLUni::fgSAX2CoreNameSpacePrefixes, false);
-    //parser->setFeature(XMLUni::fgSAX2CoreValidation, true);
-    //parser->setFeature(XMLUni::fgXercesDynamic, true);
 
     parser->setContentHandler(this);
     parser->setLexicalHandler(this);
@@ -283,23 +273,7 @@ void Base::XMLReader::readBinFile(const char* filename)
 
 void Base::XMLReader::readFiles(zipios::ZipInputStream &zipstream) const
 {
-    // It's possible that not all objects inside the document could be created, e.g. if a module
-    // is missing that would know these object types. So, there may be data files inside the zip
-    // file that cannot be read. We simply ignore these files.
-    // On the other hand, however, it could happen that a file should be read that is not part of
-    // the zip file. This happens e.g. if a document is written without GUI up but is read with GUI
-    // up. In this case the associated GUI document asks for its file which is not part of the ZIP
-    // file, then.
-    // In either case it's guaranteed that the order of the files is kept.
     zipios::ConstEntryPointer entry;
-    try {
-        entry = zipstream.getNextEntry();
-    }
-    catch (const std::exception&) {
-        // There is no further file at all. This can happen if the
-        // project file was created without GUI
-        return;
-    }
     std::vector<FileEntry>::const_iterator it = FileList.begin();
     Base::SequencerLauncher seq("Importing project files...", FileList.size());
     while (entry->isValid() && it != FileList.end()) {
