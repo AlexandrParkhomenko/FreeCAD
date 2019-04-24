@@ -93,10 +93,10 @@ recompute path. Also enables more complicated dependencies beyond trees.
 #include <Base/Tools.h>
 #include <Base/Uuid.h>
 
-#include <zipios/zipfile.h>
-#include <zipios/zipinputstream.h>
-#include <zipios/zipoutputstream.h>
-#include <zipios/meta-iostreams.h>
+#include <zipios/zipfile.hpp>
+#include <zipios/zipinputstream.hpp>
+#include <zipios/zipoutputstream.hpp>
+//#include <zipios/meta-iostreams.hpp>
 
 #include "Application.h"
 #include "Transactions.h"

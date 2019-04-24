@@ -103,8 +103,8 @@ void Persistence::dumpToStream(std::ostream& stream, int compression)
     {
         //create the writer
         Base::ZipWriter writer(stream);
-        writer.setLevel(compression);
-        writer.putNextEntry("Persistence.xml");
+//        writer.setLevel(compression);
+//        writer.putNextEntry("Persistence.xml");
         writer.setMode("BinaryBrep");
 
         //save the content (we need to encapsulte it with xml tags to be able to read single element xmls like happen for properties)
@@ -117,7 +117,7 @@ void Persistence::dumpToStream(std::ostream& stream, int compression)
 
 void Persistence::restoreFromStream(std::istream& stream)
 {
-    zipios::ZipInputStream zipstream(stream);
+    zipios::ZipInputStream zipstream("stream"); //# trash
     Base::XMLReader reader("", zipstream);
 
     if (!reader.isValid())

@@ -30,11 +30,8 @@
 #include <sstream>
 #include <vector>
 #include <cassert>
-
-#include <zipios/zipfile.h>
-#include <zipios/zipinputstream.h>
-#include <zipios/zipoutputstream.h>
-#include <zipios/meta-iostreams.h>
+#include <fstream>
+#include <filesystem>
 
 #include "FileInfo.h"
 
@@ -144,20 +141,22 @@ protected:
 class BaseExport ZipWriter : public Writer
 {
 public:
-    ZipWriter(const char* FileName);
-    ZipWriter(std::ostream&);
-    virtual ~ZipWriter();
+    ZipWriter(const char* FileName){
+      std::ofstream ZipStream(FileName);
+    }
+    //ZipWriter(std::ostream&);
+    //virtual ~ZipWriter();
 
     virtual void writeFiles(void);
 
     virtual std::ostream &Stream(void){return ZipStream;}
 
-    void setComment(const char* str){ZipStream.setComment(str);}
-    void setLevel(int level){ZipStream.setLevel( level );}
-    void putNextEntry(const char* str){ZipStream.putNextEntry(str);}
+//    void setComment(const char* str){ZipStream.setComment(str);}
+//    void setLevel(int level){ZipStream.setLevel( level );}
+//    void putNextEntry(const char* str){ZipStream.putNextEntry(str);} //FileEntry::pointer_t
 
 private:
-    zipios::ZipOutputStream ZipStream;
+    std::ofstream ZipStream;
 };
 
 /** The StringWriter class 

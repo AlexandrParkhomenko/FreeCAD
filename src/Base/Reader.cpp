@@ -38,10 +38,10 @@
 #include "Console.h"
 #include "Sequencer.h"
 
-#include <zipios/zipfile.h>
-#include <zipios/zipinputstream.h>
-#include <zipios/zipoutputstream.h>
-#include <zipios/meta-iostreams.h>
+#include <zipios/zipfile.hpp>
+#include <zipios/zipinputstream.hpp>
+#include <zipios/zipoutputstream.hpp>
+//#include <zipios/meta-iostreams.hpp>
 
 #include "XMLTools.h"
 

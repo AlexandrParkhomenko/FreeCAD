@@ -49,7 +49,8 @@ if(SWIG_FOUND)
     add_definitions(-DHAVE_SWIG=1)
 endif(SWIG_FOUND)
 
-if (EXISTS ${CMAKE_SOURCE_DIR}/src/zipios AND NOT FREECAD_USE_EXTERNAL_ZIPIOS)
+if (EXISTS ${CMAKE_SOURCE_DIR}/src/zipios)
+find_package(ZLIB REQUIRED)
 SET(zipios_SRCS
     ../zipios/backbuffer.h
     ../zipios/basicentry.cpp
@@ -103,7 +104,11 @@ SET(zipios_SRCS
     ../zipios/zipoutputstream.h
 )
 SOURCE_GROUP("zipios" FILES ${zipios_SRCS})
+else()
+list(APPEND FreeCADBase_LIBS ${ZIPIOSCC_LIBRARY})
+include_directories(${ZIPIOSCC_INCLUDE_DIR})
 endif ()
+
 
 SOURCE_GROUP("pycxx" FILES ${PYCXX_SOURCES})
 
@@ -179,8 +184,8 @@ SET(FreeCADBase_CPP_SRCS
     FileInfo.cpp
     FileTemplate.cpp
     FutureWatcherProgress.cpp
-    gzstream.cpp
-    gzstream.h
+#    gzstream.cpp
+#    gzstream.h
     GeometryPyCXX.cpp
     Handle.cpp
     InputSource.cpp
