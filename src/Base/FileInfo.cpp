@@ -186,15 +186,6 @@ std::string FileInfo::fileNamePure () const
         return temp;
 }
 
-std::wstring FileInfo::toStdWString() const
-{
-    // FIXME: For MacOS the path names are UCS-4 encoded.
-    // For the moment we cannot handle path names containing
-    // non-ASCII characters.
-    // For Linux the paths names are encoded in UTF-8 so we actually
-    // don't need this method therefore.
-    return std::wstring();
-}
 
 std::string FileInfo::extension () const
 {
