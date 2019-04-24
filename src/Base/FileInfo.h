@@ -26,6 +26,12 @@
 #ifndef BASE_FILEINFO_H
 #define BASE_FILEINFO_H
 
+#ifndef __cplusplus
+#define __cplusplus 201703L
+#endif
+#include <filesystem>
+namespace fs = std::filesystem;
+
 #include "stdexport.h"
 #include <string>
 #include <vector>
@@ -77,15 +83,6 @@ public:
      *@endcode
      */
     std::string extension () const;
-    /** Returns the complete extension of the file.
-     * The complete extension consists of all characters in the file after (but not including)
-     * the first '.' character.
-     *@code
-     *  FileInfo fi( "/tmp/archive.tar.gz" );
-     *  ext = fi.completeExtension();   // ext = "tar.gz"
-     *@endcode
-     */
-    std::string completeExtension () const;
     /// Checks for a special extension, NOT case sensetive
     bool hasExtension (const char* Ext) const;
     //@}
@@ -140,7 +137,7 @@ public:
     //@}
 
 protected:
-    std::string FileName;
+    fs::path FileName;
 };
 
 } //namespace Base

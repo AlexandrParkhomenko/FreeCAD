@@ -31,6 +31,8 @@
 #include <vector>
 #include <cassert>
 #include <fstream>
+#include <ostream>
+#include <istream>
 #include <filesystem>
 
 #include "FileInfo.h"

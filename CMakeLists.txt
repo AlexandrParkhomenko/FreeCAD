@@ -42,7 +42,7 @@ endif(FREECAD_USE_PCL)
 find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
 find_package(Boost COMPONENTS filesystem program_options regex system thread REQUIRED)
 find_package(XercesC REQUIRED)
-find_package(ZipIos REQUIRED)
+#find_package(ZipIos REQUIRED)
 set(PYCXX_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/src" CACHE PATH "Path to the directory containing PyCXX's CXX/Config.hxx")
 set(PYCXX_SOURCE_DIR "${CMAKE_SOURCE_DIR}/src/CXX" CACHE PATH "Path to the directory containing PyCXX's cxxextensions.c")
 set(PYCXX_SOURCES

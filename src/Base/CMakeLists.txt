@@ -105,8 +105,8 @@ SET(zipios_SRCS
 )
 SOURCE_GROUP("zipios" FILES ${zipios_SRCS})
 else()
-list(APPEND FreeCADBase_LIBS ${ZIPIOSCC_LIBRARY})
-include_directories(${ZIPIOSCC_INCLUDE_DIR})
+#list(APPEND FreeCADBase_LIBS ${ZIPIOSCC_LIBRARY})
+#include_directories(${ZIPIOSCC_INCLUDE_DIR})
 endif ()
 
 

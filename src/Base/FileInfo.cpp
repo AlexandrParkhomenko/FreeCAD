@@ -36,6 +36,12 @@
 # include <fstream>
 # include <climits>
 # include <cstring>
+
+#ifndef __cplusplus
+#define __cplusplus 201703L
+#endif
+#include <filesystem>
+namespace fs = std::filesystem;
 //linux, macos
 # include <dirent.h>
 # include <unistd.h>
@@ -80,26 +86,8 @@ FileInfo::FileInfo (const std::string &_FileName)
     setFile(_FileName.c_str());
 }
 
-const std::string &FileInfo::getTempPath(void)
-{
-    static std::string tempPath;
-
-    if (tempPath == "") {
-        const char* tmp = getenv("TMPDIR");
-        if (tmp && tmp[0] != '\0') {
-            tempPath = tmp;
-            FileInfo fi(tempPath);
-            if (tempPath.empty() || !fi.isDir()) // still empty or non-existent
-                tempPath = "/tmp/";
-            else if (tempPath.at(tempPath.size()-1)!='/')
-                tempPath.append("/");
-        }
-        else {
-            tempPath = "/tmp/";
-        }
-    }
-
-    return tempPath;
+const std::string &FileInfo::getTempPath(void){
+    return (std::string) fs::temp_directory_path();
 }
 
 std::string FileInfo::getTempFileName(const char* FileName, const char* Path)
@@ -195,13 +183,6 @@ std::string FileInfo::extension () const
     return FileName.substr(pos+1);
 }
 
-std::string FileInfo::completeExtension () const
-{
-    std::string::size_type pos = FileName.find_first_of('.');
-    if (pos == std::string::npos)
-        return std::string();
-    return FileName.substr(pos+1);
-}
 
 bool FileInfo::hasExtension (const char* Ext) const
 {
@@ -210,7 +191,7 @@ bool FileInfo::hasExtension (const char* Ext) const
 
 bool FileInfo::exists () const
 {
-    return access(FileName.c_str(),F_OK) == 0;
+    return fs::exists(FileName);
 }
 
 bool FileInfo::isReadable () const
@@ -248,8 +229,7 @@ bool FileInfo::isFile () const
         return true;
     }
 
-    // TODO: Check for valid file name
-    return true;
+    return fs::is_regular_file(FileName);
 }
 
 bool FileInfo::isDir () const
@@ -267,7 +247,7 @@ bool FileInfo::isDir () const
         return false;
 
     // TODO: Check for valid path name
-    return true;
+    return fs::is_directory(FileName);
 }
 
 unsigned int FileInfo::size () const

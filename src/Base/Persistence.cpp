@@ -102,7 +102,7 @@ void Persistence::dumpToStream(std::ostream& stream, int compression)
     //Hence the scope...
     {
         //create the writer
-        Base::ZipWriter writer(stream);
+        std::ifstream writer(stream);
 //        writer.setLevel(compression);
 //        writer.putNextEntry("Persistence.xml");
         writer.setMode("BinaryBrep");
