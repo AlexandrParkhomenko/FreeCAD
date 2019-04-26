@@ -105,7 +105,7 @@ using Base::Writer;
 using namespace App;
 using namespace std;
 using namespace boost;
-using namespace zipios;
+//using namespace zipios;
 
 #if FC_DEBUG
 #  define FC_LOGFEATUREUPDATE
@@ -1183,7 +1183,7 @@ Document::Document(void)
 #ifdef FC_LOGUPDATECHAIN
     Console().Log("+App::Document: %p\n",this);
 #endif
-    std::string CreationDateString = Base::TimeInfo::currentDateTimeString();
+//#    std::string CreationDateString = Base::TimeInfo::currentDateTimeString();
     std::string Author = App::GetApplication().GetParameterGroupByPath
         ("User parameter:BaseApp/Preferences/Document")->GetASCII("prefAuthor","");
     std::string AuthorComp = App::GetApplication().GetParameterGroupByPath
@@ -1191,7 +1191,7 @@ Document::Document(void)
     ADD_PROPERTY_TYPE(Label,("Unnamed"),0,Prop_None,"The name of the document");
     ADD_PROPERTY_TYPE(FileName,(""),0,PropertyType(Prop_Transient|Prop_ReadOnly),"The path to the file where the document is saved to");
     ADD_PROPERTY_TYPE(CreatedBy,(Author.c_str()),0,Prop_None,"The creator of the document");
-    ADD_PROPERTY_TYPE(CreationDate,(CreationDateString.c_str()),0,Prop_ReadOnly,"Date of creation");
+//#    ADD_PROPERTY_TYPE(CreationDate,(CreationDateString.c_str()),0,Prop_ReadOnly,"Date of creation");
     ADD_PROPERTY_TYPE(LastModifiedBy,(""),0,Prop_None,0);
     ADD_PROPERTY_TYPE(LastModifiedDate,("Unknown"),0,Prop_ReadOnly,"Date of last modification");
     ADD_PROPERTY_TYPE(Company,(AuthorComp.c_str()),0,Prop_None,"Additional tag to save the name of the company");
@@ -1432,8 +1432,7 @@ void Document::Restore(Base::XMLReader &reader)
 void Document::exportObjects(const std::vector<App::DocumentObject*>& obj,
                              std::ostream& out)
 {
-    Base::FileWriter writer(out);
-    writer.putNextEntry("Document.xml");
+    Base::FileWriter writer("Document.xml");
     writer.Stream() << "<?xml version='1.0' encoding='utf-8'?>" << endl;
     writer.Stream() << "<Document SchemaVersion=\"4\" ProgramVersion=\""
                         << App::Application::Config()["VersionName"]
@@ -1664,8 +1663,8 @@ bool Document::save (void)
             TipName.setValue(Tip.getValue()->getNameInDocument());
         }
 
-        std::string LastModifiedDateString = Base::TimeInfo::currentDateTimeString();
-        LastModifiedDate.setValue(LastModifiedDateString.c_str());
+        //#std::string LastModifiedDateString = Base::TimeInfo::currentDateTimeString();
+        //#        LastModifiedDate.setValue(LastModifiedDateString.c_str());
         // set author if needed
         bool saveAuthor = App::GetApplication().GetParameterGroupByPath
             ("User parameter:BaseApp/Preferences/Document")->GetBool("prefSetAuthorOnSave",false);
@@ -1686,8 +1685,8 @@ bool Document::saveToFile(const char* filename) const
     signalStartSave(*this, filename);
 
     auto hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/Document");
-    int compression = hGrp->GetInt("CompressionLevel",3);
-    compression = Base::clamp<int>(compression, Z_NO_COMPRESSION, Z_BEST_COMPRESSION);
+//#    int compression = hGrp->GetInt("CompressionLevel",3);
+//#    compression = Base::clamp<int>(compression, Z_NO_COMPRESSION, Z_BEST_COMPRESSION);
 
     bool policy = App::GetApplication().GetParameterGroupByPath
                 ("User parameter:BaseApp/Preferences/Document")->GetBool("BackupPolicy",true);
@@ -1705,12 +1704,13 @@ bool Document::saveToFile(const char* filename) const
 
     // open extra scope to close ZipWriter properly
     {
-        Base::ofstream file(tmp, std::ios::out | std::ios::binary);
-        Base::FileWriter writer(file);
-        if (!file.is_open()) {
-            throw Base::FileException("Failed to open file", tmp);
-        }
-        writer.putNextEntry("Document.xml");
+        //Base::ofstream file(tmp, std::ios::out | std::ios::binary);
+        //Base::FileWriter writer(file);
+        //if (!file.is_open()) {
+        //    throw Base::FileException("Failed to open file", tmp);
+        //}
+        //writer.putNextEntry("Document.xml");
+        Base::FileWriter writer("Document.xml");
 
         if (hGrp->GetBool("SaveBinaryBrep", false))
             writer.setMode("BinaryBrep");
@@ -1821,13 +1821,13 @@ void Document::restore (void)
     Base::FileInfo fi(FileName.getValue());
     Base::ifstream file(fi, std::ios::in | std::ios::binary);
     std::streambuf* buf = file.rdbuf();
-    std::streamoff size = buf->pubseekoff(0, std::ios::end, std::ios::in);
+    //#    std::streamoff size = buf->pubseekoff(0, std::ios::end, std::ios::in);
     buf->pubseekoff(0, std::ios::beg, std::ios::in);
 //#    if (size < 22) // an empty zip archive has 22 bytes
 //#        throw Base::FileException("Invalid project file",FileName.getValue());
 
-    Base::FileInputStream zipstream(file);
-    Base::XMLReader reader(FileName.getValue(), zipstream);
+    //#    Base::FileInputStream zipstream(file);
+    Base::XMLReader reader(FileName.getValue(), file);
 
     if (!reader.isValid())
         throw Base::FileException("Error reading compression file",FileName.getValue());
@@ -1847,7 +1847,7 @@ void Document::restore (void)
     // Note: This file doesn't need to be available if the document has been created
     // without GUI. But if available then follow after all data files of the App document.
     signalRestoreDocument(reader);
-    reader.readFiles(fstream);
+    reader.readFiles();
 
     // reset all touched
     for (std::map<std::string,DocumentObject*>::iterator It= d->objectMap.begin();It!=d->objectMap.end();++It) {

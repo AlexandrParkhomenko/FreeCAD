@@ -39,7 +39,7 @@
 #include "Base/Stream.h"
 #include "Base/Placement.h"
 #include "Base/Tools.h"
-#include <zipios/gzipoutputstream.hpp>
+//#include <zipios/gzipoutputstream.hpp>
 
 #include <cmath>
 #include <sstream>
@@ -1818,10 +1818,11 @@ bool MeshOutput::SaveAny(const char* FileName, MeshIO::Format format) const
         //FIXME: The compression level seems to be higher than with ogzstream
         //which leads to problems to load the wrz file in debug mode, the
         //application simply crashes.
-        zipios::GZIPOutputStream gzip(str);
+	SaveVRML(str);
+        //zipios::GZIPOutputStream gzip(str);
         // write file
-        if (!SaveVRML(gzip))
-            throw Base::FileException("Export of compressed VRML mesh failed",FileName);
+        //if (!SaveVRML(gzip))
+        //    throw Base::FileException("Export of compressed VRML mesh failed",FileName);
     }
     else if (fileformat == MeshIO::NAS) {
         // write file

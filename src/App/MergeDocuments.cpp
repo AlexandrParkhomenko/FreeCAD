@@ -138,7 +138,7 @@ unsigned int MergeDocuments::getMemSize (void) const
 
 std::vector<App::DocumentObject*>
 MergeDocuments::importObjects(std::istream& input)
-{
+{/*
     this->nameMap.clear();
     this->stream = new zipios::ZipInputStream(input);
     XMLMergeReader reader(this->nameMap,"<memory>", *stream);
@@ -149,7 +149,7 @@ MergeDocuments::importObjects(std::istream& input)
     this->stream = 0;
 
     return objs;
-}
+*/}
 
 void MergeDocuments::importObject(const std::vector<App::DocumentObject*>& o, Base::XMLReader & r)
 {

@@ -97,34 +97,32 @@ std::string Persistence::encodeAttribute(const std::string& str)
 }
 
 void Persistence::dumpToStream(std::ostream& stream, int compression)
-{
-    //we need to close the zipstream to get a good result, the only way to do this is to delete the ZipWriter. 
-    //Hence the scope...
-    {
-        //create the writer
-        std::ifstream writer(stream);
+{/*
+//create the writer
+//        std::ifstream writer(stream);
 //        writer.setLevel(compression);
 //        writer.putNextEntry("Persistence.xml");
-        writer.setMode("BinaryBrep");
+//        writer.setMode("BinaryBrep");
 
-        //save the content (we need to encapsulte it with xml tags to be able to read single element xmls like happen for properties)
-        writer.Stream() << "<Content>" << std::endl;
-        Save(writer);
-        writer.Stream() << "</Content>";
-        writer.writeFiles();
-    }
-}
+
+  std::ofstream writer("Persistence.xml", std::ios::out | std::ios::binary);
+  writer << "<Content>" << std::endl;
+  //save the content (we need to encapsulte it with xml tags to be able to read single element xmls like happen for properties)
+  Save(writer);
+  writer << "</Content>";
+  writer.close();
+*/}
 
 void Persistence::restoreFromStream(std::istream& stream)
-{
-    zipios::ZipInputStream zipstream("stream"); //# trash
-    Base::XMLReader reader("", zipstream);
+{/*
+    std::ifstream ireader("Persistence.xml", std::ios::in | std::ios::binary);
+    Base::XMLReader reader("", ireader);
 
     if (!reader.isValid())
         throw Base::ValueError("Unable to construct reader");
 
     reader.readElement("Content");
     Restore(reader);
-    reader.readFiles(zipstream);
+    reader.readFiles();
     restoreFinished();
-}
+*/}

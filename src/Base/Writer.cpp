@@ -38,7 +38,7 @@
 
 using namespace Base;
 using namespace std;
-using namespace zipios;
+//using namespace zipios;
 
 
 
@@ -236,7 +236,7 @@ void Writer::decInd(void)
 }
 
 // ----------------------------------------------------------------------------
-
+/*
 ZipWriter::ZipWriter(const char* FileName) 
   : ZipStream(FileName)
 {
@@ -270,7 +270,7 @@ ZipWriter::~ZipWriter()
 {
     ZipStream.close();
 }
-
+*/
 // ----------------------------------------------------------------------------
 
 FileWriter::FileWriter(const char* DirName) : DirName(DirName)

@@ -139,7 +139,6 @@ protected:
  * of persistent objects in FreeCAD. 
  * \see Base::Persistence
  * \author Juergen Riegel
- */
 class BaseExport ZipWriter : public Writer
 {
 public:
@@ -160,6 +159,7 @@ public:
 private:
     std::ofstream ZipStream;
 };
+ */
 
 /** The StringWriter class 
  * This is an important helper class implementation for the store and retrieval system

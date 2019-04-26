@@ -28,9 +28,7 @@
 #include <boost/signals2.hpp>
 #include "Base/Persistence.h"
 
-namespace zipios {
-class ZipInputStream;
-}
+// zipios
 
 namespace App {
 class Document;
@@ -54,7 +52,7 @@ public:
 private:
     bool guiup;
     bool verbose;
-    zipios::ZipInputStream* stream;
+    std::ifstream* stream;
     App::Document* appdoc;
     std::vector<App::DocumentObject*> objects;
     std::map<std::string, std::string> nameMap;

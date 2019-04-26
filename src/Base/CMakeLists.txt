@@ -20,6 +20,7 @@ include_directories(
     )
     list(APPEND FreeCADBase_LIBS ${Qt5Core_LIBRARIES})
     
+    list(APPEND FreeCADBase_LIBS -lstdc++fs) # filesystem
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux") #OSDEPENDENT
     list(APPEND FreeCADBase_LIBS -lutil -ldl)
 endif()

@@ -36,9 +36,7 @@
 #include "FileInfo.h"
 #include "Writer.h"
 
-namespace zipios {
-class ZipInputStream;
-}
+// namespace zipios
 
 XERCES_CPP_NAMESPACE_BEGIN
     class DefaultHandler;
@@ -165,7 +163,7 @@ public:
     /// add a read request of a persistent object
     const char *addFile(const char* Name, Base::Persistence *Object);
     /// process the requested file writes
-    void readFiles(zipios::ZipInputStream &zipstream) const;
+    void readFiles() const;
     /// get all registered file names
     const std::vector<std::string>& getFilenames() const;
     bool isRegistered(Base::Persistence *Object) const;

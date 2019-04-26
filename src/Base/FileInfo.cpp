@@ -1,7 +1,4 @@
 /*
-
-#NEEDREWRITE!
-
  * **************************************************************************
  *   (c) Jürgen Riegel (juergen.riegel@web.de) 2005                        *
  *                                                                         *
@@ -28,64 +25,27 @@
  *   Alexandr Parkhomenko 2019
  *   https://en.cppreference.com/w/cpp/filesystem
  ***************************************************************************/
-//#OSDEPENDENT
-#include "FCConfig.h"
-#include "stdexport.h"
-
-# include <algorithm>
-# include <cassert>
-# include <cstdio>
-# include <cstdlib>
-# include <fstream>
-# include <climits>
-# include <cstring>
-
-//#ifndef __cplusplus
-//#define __cplusplus 201703L
-//#endif
+#include <algorithm>
+#include <cassert>
+#include <cstdio>
+#include <cstdlib>
+#include <fstream>
+#include <climits>
+#include <cstring>
 #include <filesystem>
 namespace fs = std::filesystem;
-//linux, macos
-//# include <dirent.h>
-//# include <unistd.h>
-//# include <sys/stat.h>
-
-
 #include "FileInfo.h"
 #include "Exception.h"
 #include "Stream.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <cstdio>
-#include <cerrno>
-#include <cstring>
 
 using namespace Base;
 
-#ifndef R_OK
-#define R_OK    4   /* Test for read permission    */
-#endif
-#ifndef W_OK
-#define W_OK    2   /* Test for write permission   */
-#endif
-#ifndef X_OK
-#define X_OK    1   /* Test for execute permission */
-#endif
-#ifndef F_OK
-#define F_OK    0   /* Test for existence          */
-#endif
 
-//**********************************************************************************
-// FileInfo
-
-
-FileInfo::FileInfo (const char* _FileName)
-{
+FileInfo::FileInfo (const char* _FileName){
     setFile(_FileName);
 }
 
-FileInfo::FileInfo (const std::string &_FileName)
-{
+FileInfo::FileInfo (const std::string &_FileName){
     setFile(_FileName.c_str());
 }
 
@@ -93,72 +53,35 @@ const std::string FileInfo::getTempPath(void){
     return (std::string) fs::temp_directory_path();
 }
 
-std::string FileInfo::getTempFileName(const char* FileName, const char* Path)
-{
-    //FIXME: To avoid race conditions we should rather return a file pointer
-    //than a file name.
-    std::string buf;
-
-    // Path where the file is located
-    if (Path)
-        buf = Path;
-    else
-        buf = getTempPath();
-
-    // File name in the path 
-    if (FileName) {
-        buf += "/";
-        buf += FileName;
-        buf += "XXXXXX";
-    }
-    else {
-        buf += "/fileXXXXXX";
-    }
-
-    int id = mkstemp(const_cast<char*>(buf.c_str()));
-    if (id > -1) {
-        FILE* file = fdopen(id, "w");
-        fclose(file);
-        unlink(buf.c_str());
-    }
-    return buf;
+std::string FileInfo::getTempFileName(const char* /*FileName*/, const char* Path){
+  //FIXME: using FileName
+  //FIXME: To avoid race conditions we should rather return a stream than a file name.
+    return std::tmpnam((char*)Path);
 }
 
-void FileInfo::setFile(const char* name)
-{
+void FileInfo::setFile(const char* name){
     if (!name) {
         FileName.clear();
         return;
     }
-
     FileName = name;
-
-    // keep the UNC paths intact
-//    if (FileName.substr(0,2) == std::string("\\\\"))
-//        std::replace(FileName.begin()+2, FileName.end(), '\\', '/');
-//    else
-//        std::replace(FileName.begin(), FileName.end(), '\\', '/');
 }
 
-std::string FileInfo::filePath () const
-{
+std::string FileInfo::filePath () const{
     return FileName;
 }
 
-std::string FileInfo::fileName () const
-{
+std::string FileInfo::fileName () const{
     return FileName.filename();
 }
 
-std::string FileInfo::dirPath () const
-{
-    return fs::absolute(
-	  FileName.parent_path()
-	);
+std::string FileInfo::dirPath () const{
+  return fs::absolute(
+    FileName.parent_path()
+  );
 }
 
-std::string FileInfo::fileNamePure () const
-{
+std::string FileInfo::fileNamePure () const{
     std::string temp = fileName();
     std::string::size_type pos = temp.find_last_of('.');
   
@@ -168,73 +91,52 @@ std::string FileInfo::fileNamePure () const
         return temp;
 }
 
-
-std::string FileInfo::extension () const
-{
+std::string FileInfo::extension () const{
     return FileName.extension();
 }
 
-
-bool FileInfo::hasExtension (const char* Ext) const
-{
+bool FileInfo::hasExtension (const char* Ext) const{
     return strcasecmp(Ext,extension().c_str()) == 0;
 }
 
-bool FileInfo::exists () const
-{
+bool FileInfo::exists () const{
     return fs::exists(FileName);
 }
 
-bool FileInfo::isReadable () const
-{
+bool FileInfo::isReadable () const{
     return access(FileName.c_str(),R_OK) == 0;
 }
 
-bool FileInfo::isWritable () const
-{
+bool FileInfo::isWritable () const{
     return access(FileName.c_str(),W_OK) == 0;
 }
 
-bool FileInfo::setPermissions (Permissions perms)
-{
-    int mode = 0;
-
-    if (perms & FileInfo::ReadOnly)
-        mode |= S_IREAD;
-    if (perms & FileInfo::WriteOnly)
-        mode |= S_IWRITE;
-
-    if (mode == 0) // bad argument
-        return false;
-    return chmod(FileName.c_str(),mode) == 0;
+bool FileInfo::setPermissions (Permissions perms){
+  fs::perms per = fs::perms::none; //fs::perms::owner_all | fs::perms::group_all
+  if (perms == FileInfo::ReadOnly)
+    per = fs::perms::owner_read;
+  if (perms == FileInfo::WriteOnly)
+    per = fs::perms::owner_write;
+  if (perms == FileInfo::ReadWrite)
+    per = fs::perms::owner_read & fs::perms::owner_write;
+  if (per == fs::perms::none) // bad argument
+    return false;
+  fs::permissions(FileName, per, fs::perm_options::replace);
+  return true;
 }
 
-bool FileInfo::isFile () const
-{
-    if (exists()) {
-        // If we can open it must be an existing file, otherwise we assume it
-        // is a directory (which doesn't need to be true for any cases)
-        std::ifstream str(FileName.c_str(), std::ios::in | std::ios::binary);
-        if (!str) return false;
-        str.close();
-        return true;
-    }
-
-    return fs::is_regular_file(FileName);
+bool FileInfo::isFile () const{
+  return fs::is_regular_file(FileName);
 }
 
-bool FileInfo::isDir () const
-{
-    if (exists()) {
-	return fs::is_directory(fs::status(FileName));
-    }
-    else
-        return false;
+bool FileInfo::isDir () const{
+  if (exists()){ //overhead?
+    return fs::is_directory(fs::status(FileName));
+  } else
+    return false;
 }
 
-unsigned int FileInfo::size () const
-{
-    // function not used
+unsigned int FileInfo::size () const{ // function not used
     if (!exists())
 	return 0;
     try {
@@ -245,53 +147,40 @@ unsigned int FileInfo::size () const
     return 0;
 }
 
-TimeInfo FileInfo::lastModified() const
-{
-    TimeInfo ti = TimeInfo::null();
-    if (exists()) {
-	ti = (TimeInfo)fs::last_write_time(FileName);
-    }
-    return ti;
+std::chrono::system_clock::time_point FileInfo::lastModified() const{
+    return fs::last_write_time(FileName);
 }
 
-TimeInfo FileInfo::lastRead() const
-{
-    TimeInfo ti = TimeInfo::null();
-    if (exists()) {
-
-        struct stat st;
-        if (stat(FileName.c_str(), &st) == 0) {
-            ti.setTime_t(st.st_atime);
-        }
-    }
-    return ti;
-}
-
-bool FileInfo::deleteFile(void) const
-{
+bool FileInfo::deleteFile(void) const{
     return (::remove(FileName.c_str())==0);
 }
 
-bool FileInfo::renameFile(const char* NewName)
-{
+bool FileInfo::renameFile(const char* NewName){
     bool res;
     res = ::rename(FileName.c_str(),NewName) == 0;
     if (!res) {
         int code = errno;
         std::clog << "Error in renameFile: " << strerror(code) << " (" << code << ")" << std::endl;
     }
-
     return res;
 }
 
-bool FileInfo::copyTo(const char* NewName) const
-{
+bool FileInfo::copyTo(const char* NewName) const{
+/*
     FileInfo fi1(FileName);
     FileInfo fi2(NewName);
     Base::ifstream file(fi1, std::ios::in | std::ios::binary);
     Base::ofstream copy(fi2, std::ios::out | std::ios::binary);
     file >> copy.rdbuf();
     return file.is_open() && copy.is_open();
+*/
+    try {
+        fs::copy_file(FileName, NewName);
+    } catch(fs::filesystem_error& e) {
+        std::cout << "Could not copy \"" << FileName << "\" :" << e.what() << '\n';
+        return false;
+    }
+    return true;
 }
 
 bool FileInfo::createDirectory(void) const {
@@ -308,7 +197,7 @@ bool FileInfo::deleteDirectory(void) const
 
 bool FileInfo::deleteDirectoryRecursive(void) const {
   return deleteDirectory();
-  /*
+/*
     if (isDir() == false ) return false;
     std::vector<Base::FileInfo> List = getDirectoryContent();
 
@@ -326,7 +215,7 @@ bool FileInfo::deleteDirectoryRecursive(void) const {
         }
     }
     return deleteDirectory();
-    */
+*/
 }
 
 std::vector<Base::FileInfo> FileInfo::getDirectoryContent(void) const {

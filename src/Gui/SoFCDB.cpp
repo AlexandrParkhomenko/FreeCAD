@@ -314,13 +314,16 @@ bool Gui::SoFCDB::writeToVRML(SoNode* node, const char* filename, bool binary)
         // Strange is that reading GZIPped VRML files works.
         // So, we do the compression on our own.
         Base::ofstream str(fi, std::ios::out | std::ios::binary);
-        zipios::GZIPOutputStream gzip(str);
+        str << buffer;
+        str.close();
+        return true;
+        //zipios::GZIPOutputStream gzip(str);
 
-        if (gzip) {
-            gzip << buffer;
-            gzip.close();
-            return true;
-        }
+        //if (gzip) {
+        //    gzip << buffer;
+        //    gzip.close();
+        //    return true;
+        //}
     }
     else {
         Base::ofstream str(fi, std::ios::out);

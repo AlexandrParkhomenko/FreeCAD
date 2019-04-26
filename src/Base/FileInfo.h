@@ -28,6 +28,7 @@
 
 #include <filesystem>
 namespace fs = std::filesystem;
+#include <chrono>
 
 #include "stdexport.h"
 #include <string>
@@ -101,9 +102,7 @@ public:
     /// The size of the file 
     unsigned int size () const;
     /// Returns the time when the file was last modified.
-    TimeInfo lastModified() const;
-    /// Returns the time when the file was last read (accessed).
-    TimeInfo lastRead() const;
+    std::chrono::system_clock::time_point lastModified() const;
     //@}
 
     /** @name Directory management*/

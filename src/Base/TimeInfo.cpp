@@ -21,6 +21,9 @@
  ***************************************************************************/
 
 
+//# NEED USING C++11
+
+/*
 
 # include <sstream>
 # include <QDateTime>
@@ -31,25 +34,17 @@
 using namespace Base;
 
 
-/**
- * A constructor.
- * A more elaborate description of the constructor.
- */
 TimeInfo::TimeInfo()
 {
     setCurrent();
 }
 
-/**
- * A destructor.
- * A more elaborate description of the destructor.
- */
 TimeInfo::~TimeInfo()
 {
 }
 
 
-//**************************************************************************
+// **************************************************************************
 // separator for other implementation aspects
 
 void TimeInfo::setCurrent(void)
@@ -104,3 +99,4 @@ bool TimeInfo::isNull() const
 {
     return (*this) == TimeInfo::null();
 }
+*/

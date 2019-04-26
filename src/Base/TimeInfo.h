@@ -24,6 +24,9 @@
 #ifndef BASE_TIMEINFO_H
 #define BASE_TIMEINFO_H
 
+//# NEED USING C++11
+
+/*
 #include "stdexport.h"
 
 #include <stdio.h>
@@ -150,7 +153,7 @@ TimeInfo::operator >  (const TimeInfo &time) const
 }
 
 } //namespace Base
-
+*/
 
 #endif // BASE_TIMEINFO_H
 

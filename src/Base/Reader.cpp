@@ -28,6 +28,8 @@
 # include <xercesc/sax2/SAX2XMLReader.hpp>
 
 #include <locale>
+#include <filesystem>
+namespace fs = std::filesystem;
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Reader.h"
@@ -44,7 +46,7 @@
 XERCES_CPP_NAMESPACE_USE
 
 using namespace std;
-using namespace zipios;
+//using namespace zipios;
 
 
 
@@ -271,47 +273,27 @@ void Base::XMLReader::readBinFile(const char* filename)
     to.close();
 }
 
-void Base::XMLReader::readFiles(zipios::ZipInputStream &zipstream) const
-{
-    zipios::ConstEntryPointer entry;
-    std::vector<FileEntry>::const_iterator it = FileList.begin();
-    Base::SequencerLauncher seq("Importing project files...", FileList.size());
-    while (entry->isValid() && it != FileList.end()) {
-        std::vector<FileEntry>::const_iterator jt = it;
-        // Check if the current entry is registered, otherwise check the next registered files as soon as
-        // both file names match
-        while (jt != FileList.end() && entry->getName() != jt->FileName)
-            ++jt;
-        // If this condition is true both file names match and we can read-in the data, otherwise
-        // no file name for the current entry in the zip was registered.
-        if (jt != FileList.end()) {
-            try {
-                Base::Reader reader(zipstream, jt->FileName, FileVersion);
-                jt->Object->RestoreDocFile(reader);
-            }
-            catch(...) {
-                // For any exception we just continue with the next file.
-                // It doesn't matter if the last reader has read more or
-                // less data than the file size would allow.
-                // All what we need to do is to notify the user about the
-                // failure.
-                Base::Console().Error("Reading failed from embedded file: %s\n", entry->toString().c_str());
-            }
-            // Go to the next registered file name
-            it = jt + 1;
-        }
+void Base::XMLReader::readFiles() const{
+  for(auto& FileName: fs::directory_iterator(".")){ // need entry
+    std::cout << FileName.path() << endl;
 
-        seq.next();
-
-        // In either case we must go to the next entry
-        try {
-            entry = zipstream.getNextEntry();
-        }
-        catch (const std::exception&) {
-            // there is no further entry
-            break;
-        }
+    FileInfo fi1(FileName.path());
+    if(fi1.isFile ()){
+      std::ifstream file(fi1.filePath(), std::ios::in | std::ios::binary);
+      try {
+        Base::Reader reader(file, FileName.path(), FileVersion);
+        //RestoreDocFile(reader);
+      }
+      catch(...) {
+        // For any exception we just continue with the next file.
+        // It doesn't matter if the last reader has read more or
+        // less data than the file size would allow.
+        // All what we need to do is to notify the user about the
+        // failure.
+        Base::Console().Error("Reading failed from embedded file: %s\n", FileName.path().c_str());
+      }
     }
+  }
 }
 
 const char *Base::XMLReader::addFile(const char* Name, Base::Persistence *Object)
