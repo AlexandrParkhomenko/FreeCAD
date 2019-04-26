@@ -155,7 +155,7 @@ void MergeDocuments::importObject(const std::vector<App::DocumentObject*>& o, Ba
 {
     objects = o;
     Restore(r);
-    r.readFiles(*this->stream);
+    r.readFiles();
 }
 
 void MergeDocuments::exportObject(const std::vector<App::DocumentObject*>& o, Base::Writer & w)
