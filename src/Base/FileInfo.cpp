@@ -184,7 +184,7 @@ bool FileInfo::copyTo(const char* NewName) const{
 }
 
 bool FileInfo::createDirectory(void) const {
-    return fs::create_directory(FileName); //.c_str(), 0777) == 0
+    return fs::create_directories(FileName); //.c_str(), 0777) == 0
 }
 
 bool FileInfo::deleteDirectory(void) const

@@ -28,9 +28,9 @@
 #include <boost/signals2.hpp>
 #include "Base/Persistence.h"
 
-namespace zipios {
-class ZipInputStream;
-}
+//namespace zipios {
+//class ZipInputStream;
+//}
 namespace App {
 class Document;
 class DocumentObject;
@@ -53,7 +53,7 @@ public:
     void RestoreDocFile(Base::Reader & r);
 
 private:
-    zipios::ZipInputStream* stream;
+    std::istream* stream; //zipios::ZipInputStream
     App::Document* appdoc;
     Gui::Document* document;
     std::vector<App::DocumentObject*> objects;

@@ -29,10 +29,6 @@
 # include <sstream>
 # include <exception>
 # include <ios>
-//linux, macos
-//# include <unistd.h>
-//# include <pwd.h>
-//# include <sys/types.h>
 
 # include <ctime>
 # include <csignal>
@@ -1140,7 +1136,7 @@ void segmentation_fault_handler(int sig)
 {
 //FC_OS_LINUX
     (void)sig;
-    std::cerr << "Program received signal SIGSEGV, Segmentation fault.\n";
+    std::cerr << "Program received signal SIGSEGV, Segmentation fault. REALY WE HERE?\n";
     printBacktrace(2);
     exit(1);
 }
@@ -2073,41 +2069,30 @@ void Application::ParseOptions(int ac, char ** av)
     }
 }
 #include <boost/filesystem.hpp>
-void Application::ExtractUserPath()
-{
+void Application::ExtractUserPath(){
     // std paths
     mConfig["BinPath"] = mConfig["AppHomePath"] + "bin" + PATHSEP;
     mConfig["DocPath"] = mConfig["AppHomePath"] + "doc" + PATHSEP;
 
     char *path = getenv("HOME");
-#if defined(FC_OS_LINUX)
-    // Default paths for the user specific stuff
-    struct passwd *pwd = getpwuid(getuid());
-    if (pwd == NULL)
-        throw Base::RuntimeError("Getting HOME path from system failed!");
-    mConfig["UserHomePath"] = pwd->pw_dir;
-
-    char *path = pwd->pw_dir;
-    char *fc_user_data;
-    if ((fc_user_data = getenv("FREECAD_USER_DATA"))) {
-        QString env = QString::fromUtf8(fc_user_data);
-        QDir dir(env);
-        if (!env.isEmpty() && dir.exists())
-            path = fc_user_data;
-    }
+    mConfig["UserHomePath"] = path;
 
     std::string appData(path);
     Base::FileInfo fi(appData.c_str());
     if (!fi.exists()) {
-        // This should never ever happen
-        std::stringstream str;
-        str << "Application data directory " << appData << " does not exist!";
-        throw Base::FileSystemError(str.str());
+	// This should never ever happen
+	if(!fi.createDirectory()){
+	    std::stringstream str;
+	    str << "Application data directory / UserHome " << appData << " does not exist!";
+	    throw Base::FileSystemError(str.str());
+	}
     }
 
     // In order to write into our data path, we must create some directories, first.
     // If 'AppDataSkipVendor' is defined, the value of 'ExeVendor' must not be part of
     // the path.
+    appData += PATHSEP;
+    appData += ".config";
     appData += PATHSEP;
     appData += ".";
     if (mConfig.find("AppDataSkipVendor") == mConfig.end()) {
@@ -2139,15 +2124,11 @@ void Application::ExtractUserPath()
     appData += PATHSEP;
     mConfig["UserAppData"] = appData;
 
-#else
-# error "Implement ExtractUserPath() for your platform. See FreeCAD/FreeCAD"
-#endif
 }
 
 #if defined (FC_OS_LINUX)
 #include <stdio.h>
 #include <stdlib.h>
-//#include <sys/param.h>
 
 std::string Application::FindHomePath(const char* sCall)
 {

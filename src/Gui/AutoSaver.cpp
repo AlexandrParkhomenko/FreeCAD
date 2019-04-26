@@ -177,13 +177,13 @@ void AutoSaver::saveDocument(const std::string& name, AutoSaveProperty& saver)
                 Base::ofstream file(tmp, std::ios::out | std::ios::binary);
                 if (file.is_open())
                 {
-                    Base::ZipWriter writer(file);
+                    Base::FileWriter writer("Document_recovery.xml");//file
                     if (hGrp->GetBool("SaveBinaryBrep", true))
                         writer.setMode("BinaryBrep");
 
-                    writer.setComment("AutoRecovery file");
-                    writer.setLevel(1); // apparently the fastest compression
-                    writer.putNextEntry("Document.xml");
+                    //writer.setComment("AutoRecovery file");
+                    //writer.setLevel(1); // apparently the fastest compression
+                    //writer.putNextEntry("Document.xml");
 
                     doc->Save(writer);
 
