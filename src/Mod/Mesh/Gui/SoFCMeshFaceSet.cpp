@@ -47,13 +47,13 @@
 
 #include <Inventor/caches/SoBoundingBoxCache.h>
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Gui/SoFCInteractiveElement.h>
-#include <Mod/Mesh/App/Core/Elements.h>
-#include <Mod/Mesh/App/Core/Grid.h>
-#include <Mod/Mesh/App/Core/Algorithm.h>
-#include <Mod/Mesh/App/Core/MeshIO.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Gui/SoFCInteractiveElement.h"
+#include "Mod/Mesh/App/Core/Elements.h"
+#include "Mod/Mesh/App/Core/Grid.h"
+#include "Mod/Mesh/App/Core/Algorithm.h"
+#include "Mod/Mesh/App/Core/MeshIO.h"
 #include "SoFCMeshFaceSet.h"
 #include "SoFCMeshVertex.h"
 

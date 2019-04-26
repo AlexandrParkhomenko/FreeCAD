@@ -44,7 +44,7 @@
 #include <Inventor/elements/SoViewportRegionElement.h>
 
 #include "SoDatumLabel.h"
-#include <Gui/BitmapFactory.h>
+#include "Gui/BitmapFactory.h"
 
 #define ZCONSTR 0.006f
 

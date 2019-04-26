@@ -31,8 +31,8 @@
 #include "Application.h"
 #include "Document.h"
 #include "WaitCursor.h"
-#include <App/PropertyGeo.h>
-#include <App/GeoFeature.h>
+#include "App/PropertyGeo.h"
+#include "App/GeoFeature.h"
 
 using namespace Gui::Dialog;
 

@@ -25,9 +25,9 @@
 # include <QApplication>
 # include <QPainter>
 
-#include <Base/Console.h>
-#include <App/Application.h>
-#include <App/Document.h>
+#include "Base/Console.h"
+#include "App/Application.h"
+#include "App/Document.h"
 #include "PropertyEditor.h"
 #include "PropertyItemDelegate.h"
 #include "PropertyModel.h"

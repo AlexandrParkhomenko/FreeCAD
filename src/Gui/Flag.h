@@ -30,7 +30,7 @@
 #include <QWidgetItem>
 #include <Inventor/SbVec3f.h>
 #include <QtOpenGL.h>
-#include <Gui/GLPainter.h>
+#include "Gui/GLPainter.h"
 
 namespace Gui {
 class View3DInventorViewer;

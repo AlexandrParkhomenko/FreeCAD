@@ -25,7 +25,7 @@
 #define GUI_VIEWPROVIDERGROUPEXTENSION_H
 
 #include "stdexport.h"
-#include <App/Extension.h>
+#include "App/Extension.h"
 #include "ViewProviderExtension.h"
 
 namespace Gui

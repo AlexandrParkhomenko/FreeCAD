@@ -56,20 +56,20 @@
 #include "../App/PartFeature.h"
 #include "../App/FeatureFillet.h"
 #include "../App/FeatureChamfer.h"
-#include <Base/UnitsApi.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <Gui/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/Command.h>
-#include <Gui/QuantitySpinBox.h>
-#include <Gui/WaitCursor.h>
-#include <Gui/Selection.h>
-#include <Gui/SelectionFilter.h>
-#include <Gui/SoFCUnifiedSelection.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/Window.h>
+#include "Base/UnitsApi.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "Gui/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/Command.h"
+#include "Gui/QuantitySpinBox.h"
+#include "Gui/WaitCursor.h"
+#include "Gui/Selection.h"
+#include "Gui/SelectionFilter.h"
+#include "Gui/SoFCUnifiedSelection.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/Window.h"
 
 using namespace PartGui;
 

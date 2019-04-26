@@ -30,9 +30,9 @@
 #include <boost/signals2.hpp>
 #include <QPlainTextEdit>
 
-#include <App/TextDocument.h>
-#include <Gui/MDIView.h>
-#include <Gui/Window.h>
+#include "App/TextDocument.h"
+#include "Gui/MDIView.h"
+#include "Gui/Window.h"
 
 
 namespace Gui {

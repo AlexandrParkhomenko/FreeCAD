@@ -26,8 +26,8 @@
 
 #include "MeshFeature.h"
 
-#include <App/PropertyStandard.h>
-#include <App/PropertyFile.h>
+#include "App/PropertyStandard.h"
+#include "App/PropertyFile.h"
 
 namespace Mesh
 {

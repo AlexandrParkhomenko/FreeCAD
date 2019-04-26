@@ -26,8 +26,8 @@
 
 #include "MeshFeature.h"
 
-#include <App/PropertyStandard.h>
-#include <App/PropertyLinks.h>
+#include "App/PropertyStandard.h"
+#include "App/PropertyLinks.h"
 
 namespace Mesh
 {

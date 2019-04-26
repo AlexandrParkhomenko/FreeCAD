@@ -25,7 +25,7 @@
 
 #include "GeoFeature.h"
 #include "GeoFeatureGroupExtension.h"
-#include <App/GeoFeaturePy.h>
+#include "App/GeoFeaturePy.h"
 
 using namespace App;
 

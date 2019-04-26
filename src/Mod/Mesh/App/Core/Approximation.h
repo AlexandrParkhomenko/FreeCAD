@@ -25,17 +25,17 @@
 #define MESH_APPROXIMATION_H
 
 #include "stdexport.h"
-#include <Mod/Mesh/App/WildMagic4/Wm4Vector3.h>
-#include <Mod/Mesh/App/WildMagic4/Wm4QuadricSurface.h>
-#include <Mod/Mesh/App/WildMagic4/Wm4Eigen.h>
-#include <Mod/Mesh/App/WildMagic4/Wm4ImplicitSurface.h>
+#include "Mod/Mesh/App/WildMagic4/Wm4Vector3.h"
+#include "Mod/Mesh/App/WildMagic4/Wm4QuadricSurface.h"
+#include "Mod/Mesh/App/WildMagic4/Wm4Eigen.h"
+#include "Mod/Mesh/App/WildMagic4/Wm4ImplicitSurface.h"
 #include <algorithm>
 #include <list>
 #include <set>
 #include <vector>
 
-#include <Base/Vector3D.h>
-#include <Base/Matrix.h>
+#include "Base/Vector3D.h"
+#include "Base/Matrix.h"
 
 namespace Wm4
 {

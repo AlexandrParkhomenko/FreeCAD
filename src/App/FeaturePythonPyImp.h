@@ -23,9 +23,9 @@
 #ifndef APP_FEATUREPYTHONPYIMP_H
 #define APP_FEATUREPYTHONPYIMP_H
 
-#include <Base/BaseClass.h>
-#include <Base/Interpreter.h>
-#include <App/PropertyContainerPy.h>
+#include "Base/BaseClass.h"
+#include "Base/Interpreter.h"
+#include "App/PropertyContainerPy.h"
 
 #define PYTHON_TYPE_DEF(_class_, _subclass_) \
     class _class_ : public _subclass_ \

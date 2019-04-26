@@ -55,19 +55,19 @@
 # include <BRepAdaptor_Curve.hxx>
 # include <TopoDS.hxx>
 
-#include <Base/GeometryPyCXX.h>
+#include "Base/GeometryPyCXX.h"
 
-#include <Mod/Part/App/Geometry2d.h>
-#include <Mod/Part/App/GeometrySurfacePy.h>
-#include <Mod/Part/App/Geom2d/BSplineCurve2dPy.h>
-#include <Mod/Part/App/Geom2d/Curve2dPy.h>
+#include "Mod/Part/App/Geometry2d.h"
+#include "Mod/Part/App/GeometrySurfacePy.h"
+#include "Mod/Part/App/Geom2d/BSplineCurve2dPy.h"
+#include "Mod/Part/App/Geom2d/Curve2dPy.h"
 #include <Mod/Part/App/Geom2d/Curve2dPy.cpp>
 
-#include <Mod/Part/App/OCCError.h>
-#include <Mod/Part/App/TopoShape.h>
-#include <Mod/Part/App/TopoShapePy.h>
-#include <Mod/Part/App/TopoShapeEdgePy.h>
-#include <Mod/Part/App/TopoShapeFacePy.h>
+#include "Mod/Part/App/OCCError.h"
+#include "Mod/Part/App/TopoShape.h"
+#include "Mod/Part/App/TopoShapePy.h"
+#include "Mod/Part/App/TopoShapeEdgePy.h"
+#include "Mod/Part/App/TopoShapeFacePy.h"
 
 namespace Part {
 extern const Py::Object makeGeometryCurvePy(const Handle(Geom_Curve)& c);

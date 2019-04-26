@@ -33,31 +33,31 @@
 # include <Gui/InventorAll.h>
 #endif
 
-#include <Mod/Mesh/App/Core/Smoothing.h>
-#include <Mod/Mesh/App/MeshFeature.h>
-#include <Mod/Mesh/App/FeatureMeshCurvature.h>
+#include "Mod/Mesh/App/Core/Smoothing.h"
+#include "Mod/Mesh/App/MeshFeature.h"
+#include "Mod/Mesh/App/FeatureMeshCurvature.h"
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Interpreter.h>
-#include <Base/Tools.h>
-#include <App/Document.h>
-#include <App/DocumentObjectGroup.h>
-#include <App/DocumentObject.h>
-#include <Gui/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/MainWindow.h>
-#include <Gui/Command.h>
-#include <Gui/Control.h>
-#include <Gui/Document.h>
-#include <Gui/FileDialog.h>
-#include <Gui/Selection.h>
-#include <Gui/MouseSelection.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Gui/NavigationStyle.h>
-#include <Gui/WaitCursor.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Interpreter.h"
+#include "Base/Tools.h"
+#include "App/Document.h"
+#include "App/DocumentObjectGroup.h"
+#include "App/DocumentObject.h"
+#include "Gui/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/MainWindow.h"
+#include "Gui/Command.h"
+#include "Gui/Control.h"
+#include "Gui/Document.h"
+#include "Gui/FileDialog.h"
+#include "Gui/Selection.h"
+#include "Gui/MouseSelection.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Gui/NavigationStyle.h"
+#include "Gui/WaitCursor.h"
 #include <CXX/Objects.hxx>
 
 #include "DlgEvaluateMeshImp.h"

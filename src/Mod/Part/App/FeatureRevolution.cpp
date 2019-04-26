@@ -30,9 +30,9 @@
 
 
 #include "FeatureRevolution.h"
-#include <Base/Tools.h>
-#include <Base/Exception.h>
-#include <App/Application.h>
+#include "Base/Tools.h"
+#include "Base/Exception.h"
+#include "App/Application.h"
 #include "FaceMaker.h"
 
 using namespace Part;

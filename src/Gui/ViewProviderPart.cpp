@@ -28,8 +28,8 @@
 # include <QPixmap>
 # include <boost/bind.hpp>
 
-#include <App/Part.h>
-#include <App/Document.h>
+#include "App/Part.h"
+#include "App/Document.h"
 
 #include "ActiveObjectList.h"
 #include "ActionFunction.h"

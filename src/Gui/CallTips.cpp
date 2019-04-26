@@ -30,18 +30,18 @@
 # include <QToolTip>
 
 #include <CXX/Objects.hxx>
-#include <Base/Interpreter.h>
-#include <Base/PyObjectBase.h>
-#include <App/Property.h>
-#include <App/PropertyContainer.h>
-#include <App/PropertyContainerPy.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <App/DocumentPy.h>
-#include <App/DocumentObjectPy.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/Document.h>
-#include <Gui/DocumentPy.h>
+#include "Base/Interpreter.h"
+#include "Base/PyObjectBase.h"
+#include "App/Property.h"
+#include "App/PropertyContainer.h"
+#include "App/PropertyContainerPy.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "App/DocumentPy.h"
+#include "App/DocumentObjectPy.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/Document.h"
+#include "Gui/DocumentPy.h"
 #include "CallTips.h"
 
 Q_DECLARE_METATYPE( Gui::CallTip ); //< allows use of QVariant

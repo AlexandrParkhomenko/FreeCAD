@@ -32,9 +32,9 @@
 # include <Geom_CartesianPoint.hxx>
 # include <Standard_Failure.hxx>
 
-#include <Mod/Part/App/TopoShape.h>
-#include <Base/VectorPy.h>
-#include <Base/Vector3D.h>
+#include "Mod/Part/App/TopoShape.h"
+#include "Base/VectorPy.h"
+#include "Base/Vector3D.h"
 
 #include "PointPy.h"
 #include "TopoShapeVertexPy.h"

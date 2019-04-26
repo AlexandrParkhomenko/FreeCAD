@@ -23,17 +23,17 @@
 
 # include <QMessageBox>
 
-#include <Gui/Action.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/Selection.h>
-#include <Gui/Command.h>
-#include <Gui/MainWindow.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/DlgEditFileIncludeProptertyExternal.h>
+#include "Gui/Action.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/Selection.h"
+#include "Gui/Command.h"
+#include "Gui/MainWindow.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/DlgEditFileIncludeProptertyExternal.h"
 
-#include <Mod/Part/App/Geometry.h>
-#include <Mod/Sketcher/App/SketchObject.h>
+#include "Mod/Part/App/Geometry.h"
+#include "Mod/Sketcher/App/SketchObject.h"
 
 #include "ViewProviderSketch.h"
 #include "GeometryCreationMode.h"

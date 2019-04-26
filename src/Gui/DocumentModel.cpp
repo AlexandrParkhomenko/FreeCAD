@@ -34,9 +34,9 @@
 #include "BitmapFactory.h"
 #include "Document.h"
 #include "ViewProviderDocumentObject.h"
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <App/PropertyLinks.h>
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "App/PropertyLinks.h"
 
 using namespace Gui;
 

@@ -61,24 +61,24 @@
 
 #include <boost/bind.hpp>
 
-#include <App/Document.h>
-#include <App/FeaturePythonPyImp.h>
-#include <App/Part.h>
-#include <Base/Writer.h>
-#include <Base/Reader.h>
-#include <Base/Tools.h>
-#include <Base/Console.h>
-#include <Base/Vector3D.h>
+#include "App/Document.h"
+#include "App/FeaturePythonPyImp.h"
+#include "App/Part.h"
+#include "Base/Writer.h"
+#include "Base/Reader.h"
+#include "Base/Tools.h"
+#include "Base/Console.h"
+#include "Base/Vector3D.h"
 
-#include <App/OriginFeature.h>
+#include "App/OriginFeature.h"
 
-#include <Mod/Part/App/Geometry.h>
-#include <Mod/Part/App/DatumFeature.h>
-#include <Mod/Part/App/BodyBase.h>
+#include "Mod/Part/App/Geometry.h"
+#include "Mod/Part/App/DatumFeature.h"
+#include "Mod/Part/App/BodyBase.h"
 
 #include "SketchObject.h"
 #include "Sketch.h"
-#include <Mod/Sketcher/App/SketchObjectPy.h>
+#include "Mod/Sketcher/App/SketchObjectPy.h"
 
 
 #undef DEBUG

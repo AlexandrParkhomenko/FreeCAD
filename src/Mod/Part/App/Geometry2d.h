@@ -41,8 +41,8 @@
 #include <list>
 #include <vector>
 #include <memory>
-#include <Base/Persistence.h>
-#include <Base/Tools2D.h>
+#include "Base/Persistence.h"
+#include "Base/Tools2D.h"
 
 namespace Part {
 

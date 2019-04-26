@@ -28,7 +28,7 @@
 #include "MeshPointPy.h"
 #include "MeshPointPy.cpp"
 
-#include <Base/VectorPy.h>
+#include "Base/VectorPy.h"
 
 using namespace Mesh;
 

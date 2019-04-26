@@ -30,7 +30,7 @@
 #include "Document.h"
 #include "ViewProviderDocumentObject.h"
 #include "DocumentObserver.h"
-#include <App/Document.h>
+#include "App/Document.h"
 
 using namespace Gui;
 

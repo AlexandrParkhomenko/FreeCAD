@@ -37,15 +37,15 @@
 # include <Inventor/misc/SoState.h>
 
 #include "SoFCMeshObject.h"
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Gui/SoFCInteractiveElement.h>
-#include <Gui/SoFCSelectionAction.h>
-#include <Mod/Mesh/App/Core/Algorithm.h>
-#include <Mod/Mesh/App/Core/MeshIO.h>
-#include <Mod/Mesh/App/Core/MeshKernel.h>
-#include <Mod/Mesh/App/Core/Elements.h>
-#include <Mod/Mesh/App/Core/Grid.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Gui/SoFCInteractiveElement.h"
+#include "Gui/SoFCSelectionAction.h"
+#include "Mod/Mesh/App/Core/Algorithm.h"
+#include "Mod/Mesh/App/Core/MeshIO.h"
+#include "Mod/Mesh/App/Core/MeshKernel.h"
+#include "Mod/Mesh/App/Core/Elements.h"
+#include "Mod/Mesh/App/Core/Grid.h"
 
 using namespace MeshGui;
 

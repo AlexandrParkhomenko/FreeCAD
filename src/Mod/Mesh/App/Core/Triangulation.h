@@ -26,7 +26,7 @@
 
 #include "stdexport.h"
 #include "Elements.h"
-#include <Base/Vector3D.h>
+#include "Base/Vector3D.h"
 
 namespace MeshCore
 {

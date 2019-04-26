@@ -24,7 +24,7 @@
 #define PARTGUI_DLGPARTCYLINDERIMP_H
 
 #include "ui_DlgPartCylinder.h"
-#include <Gui/InputVector.h>
+#include "Gui/InputVector.h"
 
 namespace PartGui {
 

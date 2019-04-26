@@ -25,8 +25,8 @@
 #include <qglobal.h>
 #include "Window.h"
 
-#include <Base/Console.h>
-#include <App/Application.h>
+#include "Base/Console.h"
+#include "App/Application.h"
 
 using namespace Gui;
 

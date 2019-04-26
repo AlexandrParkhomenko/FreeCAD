@@ -26,7 +26,7 @@
 
 #include "stdexport.h"
 #include <Inventor/lists/SoPickedPointList.h> 
-#include <App/PropertyStandard.h>
+#include "App/PropertyStandard.h"
 #include "ViewProviderDocumentObject.h"
 
 class SoPickedPointList;

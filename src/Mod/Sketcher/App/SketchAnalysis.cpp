@@ -37,12 +37,12 @@
 #include <TopoDS_Vertex.hxx>
 #include <algorithm>
 
-#include <Base/Console.h>
-#include <App/Document.h>
+#include "Base/Console.h"
+#include "App/Document.h"
 
-#include <Mod/Sketcher/App/Constraint.h>
-#include <Mod/Sketcher/App/SketchObject.h>
-#include <Mod/Part/App/Geometry.h>
+#include "Mod/Sketcher/App/Constraint.h"
+#include "Mod/Sketcher/App/SketchObject.h"
+#include "Mod/Part/App/Geometry.h"
 
 #include <cmath>
 

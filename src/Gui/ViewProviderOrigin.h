@@ -26,7 +26,7 @@
 #define GUI_VIEWPROVIDER_ViewProviderOrigin_H
 
 #include "stdexport.h"
-#include <App/PropertyGeo.h>
+#include "App/PropertyGeo.h"
 #include "ViewProviderDocumentObject.h"
 
 namespace Gui {

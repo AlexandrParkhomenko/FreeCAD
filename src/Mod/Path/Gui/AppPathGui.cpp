@@ -23,10 +23,10 @@
 
 # include "FCConfig.h"
 
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
-#include <Gui/Application.h>
-#include <Gui/WidgetFactory.h>
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
+#include "Gui/Application.h"
+#include "Gui/WidgetFactory.h"
 #include "ViewProviderPath.h"
 #include "DlgSettingsPathColor.h"
 #include "ViewProviderPathCompound.h"

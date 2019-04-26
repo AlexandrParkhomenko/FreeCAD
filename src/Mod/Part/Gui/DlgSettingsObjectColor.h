@@ -25,7 +25,7 @@
 #define PARTGUI_DIALOG_DLGSETTINGSOBJECTCOLOR_H
 
 #include "ui_DlgSettingsObjectColor.h"
-#include <Gui/PropertyPage.h>
+#include "Gui/PropertyPage.h"
 
 namespace PartGui {
 

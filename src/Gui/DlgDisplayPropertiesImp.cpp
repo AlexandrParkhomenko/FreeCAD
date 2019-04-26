@@ -39,10 +39,10 @@
 #include "WaitCursor.h"
 #include "SpinBox.h"
 
-#include <Base/Console.h>
-#include <App/Application.h>
-#include <App/DocumentObject.h>
-#include <App/Material.h>
+#include "Base/Console.h"
+#include "App/Application.h"
+#include "App/DocumentObject.h"
+#include "App/Material.h"
 
 using namespace Gui::Dialog;
 using namespace std;

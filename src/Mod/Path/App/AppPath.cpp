@@ -23,9 +23,9 @@
 
 # include "FCConfig.h"
 
-#include <Base/Console.h>
-#include <Base/PyObjectBase.h>
-#include <Base/Interpreter.h>
+#include "Base/Console.h"
+#include "Base/PyObjectBase.h"
+#include "Base/Interpreter.h"
 
 #include "Command.h"
 #include "CommandPy.h"

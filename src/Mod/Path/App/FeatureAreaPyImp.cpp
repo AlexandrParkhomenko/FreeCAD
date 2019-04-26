@@ -22,7 +22,7 @@
 
 
 #include <CXX/Objects.hxx>
-#include <Mod/Part/App/TopoShapePy.h>
+#include "Mod/Part/App/TopoShapePy.h"
 #include "FeatureArea.h"
 
 // inclusion of the generated files (generated out of FeatureAreaPy.xml)

@@ -26,7 +26,7 @@
 #define SKETCHER_ANALYSE_H
 
 #include <vector>
-#include <Mod/Sketcher/App/Constraint.h>
+#include "Mod/Sketcher/App/Constraint.h"
 
 namespace Sketcher {
 

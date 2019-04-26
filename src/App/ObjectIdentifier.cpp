@@ -33,9 +33,9 @@
 #include "DocumentObject.h"
 #include "ObjectIdentifier.h"
 #include "Expression.h"
-#include <Base/Tools.h>
-#include <Base/Interpreter.h>
-#include <Base/QuantityPy.h>
+#include "Base/Tools.h"
+#include "Base/Interpreter.h"
+#include "Base/QuantityPy.h"
 
 using namespace App;
 using namespace Base;

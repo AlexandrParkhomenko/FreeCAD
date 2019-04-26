@@ -114,9 +114,9 @@ using namespace boost::program_options;
 
 
 // scriptings (scripts are build in but can be overridden by command line option)
-#include <App/InitScript.h>
-#include <App/TestScript.h>
-#include <App/CMakeScript.h>
+#include "App/InitScript.h"
+#include "App/TestScript.h"
+#include "App/CMakeScript.h"
 
 // Ansi C/C++ new handler
 #include <new>

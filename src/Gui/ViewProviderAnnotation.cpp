@@ -44,12 +44,12 @@
 # include <Inventor/draggers/SoTranslate2Dragger.h>
 
 #include "ViewProviderAnnotation.h"
-#include <App/Annotation.h>
-#include <App/PropertyGeo.h>
-#include <App/Application.h>
-#include <App/PropertyStandard.h>
-#include <Base/Parameter.h>
-#include <Gui/BitmapFactory.h>
+#include "App/Annotation.h"
+#include "App/PropertyGeo.h"
+#include "App/Application.h"
+#include "App/PropertyStandard.h"
+#include "Base/Parameter.h"
+#include "Gui/BitmapFactory.h"
 #include "SoFCSelection.h"
 #include "SoTextLabel.h"
 #include "Application.h"

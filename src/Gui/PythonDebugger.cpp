@@ -31,8 +31,8 @@
 #include "EditorView.h"
 #include "PythonEditor.h"
 #include "BitmapFactory.h"
-#include <Base/Interpreter.h>
-#include <Base/Console.h>
+#include "Base/Interpreter.h"
+#include "Base/Console.h"
 
 using namespace Gui;
 

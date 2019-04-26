@@ -24,8 +24,8 @@
 #ifndef SKETCHERGUI_CommandConstraints_H
 #define SKETCHERGUI_CommandConstraints_H
 
-#include <Mod/Sketcher/App/SketchObject.h>
-#include <Mod/Sketcher/App/Constraint.h>
+#include "Mod/Sketcher/App/SketchObject.h"
+#include "Mod/Sketcher/App/Constraint.h"
 
 namespace SketcherGui {
 

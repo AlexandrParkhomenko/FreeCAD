@@ -24,7 +24,7 @@
 
 # include <sstream>
 
-#include <Mod/Mesh/Gui/ViewProvider.h>
+#include "Mod/Mesh/Gui/ViewProvider.h"
 
 // inclusion of the generated files (generated out of ViewProviderMeshPy.xml)
 #include "ViewProviderMeshPy.h"

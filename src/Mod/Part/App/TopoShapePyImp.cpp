@@ -65,30 +65,30 @@
 #include <Standard_Version.hxx>
 
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/Matrix.h>
-#include <Base/Rotation.h>
-#include <Base/MatrixPy.h>
-#include <Base/Vector3D.h>
-#include <Base/VectorPy.h>
-#include <App/PropertyStandard.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/Matrix.h"
+#include "Base/Rotation.h"
+#include "Base/MatrixPy.h"
+#include "Base/Vector3D.h"
+#include "Base/VectorPy.h"
+#include "App/PropertyStandard.h"
 #include <CXX/Extensions.hxx>
 
 #include "TopoShape.h"
 #include "PartPyCXX.h"
-#include <Mod/Part/App/TopoShapePy.h>
+#include "Mod/Part/App/TopoShapePy.h"
 #include <Mod/Part/App/TopoShapePy.cpp>
 
 #include "OCCError.h"
-#include <Mod/Part/App/GeometryPy.h>
-#include <Mod/Part/App/TopoShapeFacePy.h>
-#include <Mod/Part/App/TopoShapeEdgePy.h>
-#include <Mod/Part/App/TopoShapeWirePy.h>
-#include <Mod/Part/App/TopoShapeVertexPy.h>
-#include <Mod/Part/App/TopoShapeSolidPy.h>
-#include <Mod/Part/App/TopoShapeShellPy.h>
-#include <Mod/Part/App/TopoShapeCompSolidPy.h>
-#include <Mod/Part/App/TopoShapeCompoundPy.h>
+#include "Mod/Part/App/GeometryPy.h"
+#include "Mod/Part/App/TopoShapeFacePy.h"
+#include "Mod/Part/App/TopoShapeEdgePy.h"
+#include "Mod/Part/App/TopoShapeWirePy.h"
+#include "Mod/Part/App/TopoShapeVertexPy.h"
+#include "Mod/Part/App/TopoShapeSolidPy.h"
+#include "Mod/Part/App/TopoShapeShellPy.h"
+#include "Mod/Part/App/TopoShapeCompSolidPy.h"
+#include "Mod/Part/App/TopoShapeCompoundPy.h"
 
 using namespace Part;
 

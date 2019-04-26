@@ -22,10 +22,10 @@
 
 
 
-#include <Mod/Part/App/BodyBasePy.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Base/Placement.h>
+#include "Mod/Part/App/BodyBasePy.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Base/Placement.h"
 
 #include "BodyBase.h"
 

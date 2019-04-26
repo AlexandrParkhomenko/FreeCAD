@@ -27,8 +27,8 @@
 #include "stdexport.h"
 #include "TopoShape.h"
 #include <TopAbs_ShapeEnum.hxx>
-#include <App/DocumentObject.h>
-#include <App/PropertyGeo.h>
+#include "App/DocumentObject.h"
+#include "App/PropertyGeo.h"
 #include <map>
 #include <vector>
 

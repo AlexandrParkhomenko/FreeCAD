@@ -47,14 +47,14 @@
 
 #include "ui_TaskSketcherValidation.h"
 #include "TaskSketcherValidation.h"
-#include <Mod/Sketcher/App/SketchObject.h>
-#include <Mod/Part/App/Geometry.h>
-#include <App/Document.h>
-#include <Gui/TaskView/TaskView.h>
-#include <Gui/Application.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/WaitCursor.h>
-#include <Gui/Inventor/MarkerBitmaps.h>
+#include "Mod/Sketcher/App/SketchObject.h"
+#include "Mod/Part/App/Geometry.h"
+#include "App/Document.h"
+#include "Gui/TaskView/TaskView.h"
+#include "Gui/Application.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/WaitCursor.h"
+#include "Gui/Inventor/MarkerBitmaps.h"
 
 using namespace SketcherGui;
 using namespace Gui::TaskView;

@@ -33,10 +33,10 @@
 #include "View3DInventorViewer.h"
 #include "View3DInventor.h"
 #include "Command.h"
-#include <App/OriginGroupExtension.h>
-#include <App/Document.h>
-#include <App/Origin.h>
-#include <Base/Console.h>
+#include "App/OriginGroupExtension.h"
+#include "App/Document.h"
+#include "App/Origin.h"
+#include "Base/Console.h"
 #include <boost/bind.hpp>
 #include <Inventor/actions/SoGetBoundingBoxAction.h>
 #include <Inventor/nodes/SoSeparator.h>

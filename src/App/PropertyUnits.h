@@ -31,8 +31,8 @@
 #include <vector>
 #include <boost/filesystem/path.hpp>
 
-#include <Base/Unit.h>
-#include <Base/Quantity.h>
+#include "Base/Unit.h"
+#include "Base/Quantity.h"
 #include "PropertyStandard.h"
 
 namespace Base {

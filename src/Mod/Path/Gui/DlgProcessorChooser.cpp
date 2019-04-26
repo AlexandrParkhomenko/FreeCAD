@@ -25,12 +25,12 @@
 # include <QDialog>
 # include <QListIterator>
 
-#include <Gui/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/MainWindow.h>
+#include "Gui/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/MainWindow.h"
 
-#include <App/Document.h>
-#include <Base/Tools.h>
+#include "App/Document.h"
+#include "Base/Tools.h"
 
 #include "DlgProcessorChooser.h"
 #include "ui_DlgProcessorChooser.h"

@@ -27,11 +27,11 @@
 
 #include <sstream>
 
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObjectPy.h>
-#include <App/DocumentObject.h>
-#include <Base/Interpreter.h>
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObjectPy.h"
+#include "App/DocumentObject.h"
+#include "Base/Interpreter.h"
 #include <CXX/Objects.hxx>
 
 #include "Selection.h"

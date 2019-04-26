@@ -34,14 +34,14 @@
 
 #include <boost/uuid/uuid_io.hpp>
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/Matrix.h>
-#include <Base/MatrixPy.h>
-#include <Base/Vector3D.h>
-#include <Base/VectorPy.h>
-#include <Base/Rotation.h>
-#include <Base/Placement.h>
-#include <Base/PlacementPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/Matrix.h"
+#include "Base/MatrixPy.h"
+#include "Base/Vector3D.h"
+#include "Base/VectorPy.h"
+#include "Base/Rotation.h"
+#include "Base/Placement.h"
+#include "Base/PlacementPy.h"
 
 #include "OCCError.h"
 #include "Geometry.h"

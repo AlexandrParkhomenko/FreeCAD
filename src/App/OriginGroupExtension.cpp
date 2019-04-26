@@ -25,9 +25,9 @@
 #include "OriginGroupExtension.h"
 
 
-#include <Base/Exception.h>
+#include "Base/Exception.h"
 
-#include <App/Document.h>
+#include "App/Document.h"
 #include "Origin.h"
 
 #include "GeoFeature.h"

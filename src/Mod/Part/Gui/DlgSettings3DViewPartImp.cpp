@@ -28,12 +28,12 @@
 #include "DlgSettings3DViewPartImp.h"
 #include "ui_DlgSettings3DViewPart.h"
 
-#include <Gui/PrefWidgets.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Base/Console.h>
+#include "Gui/PrefWidgets.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Base/Console.h"
 
 using namespace PartGui;
 

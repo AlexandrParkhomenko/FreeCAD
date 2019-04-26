@@ -27,9 +27,9 @@
 #include "stdexport.h"
 #include "TopoShape.h"
 #include "PropertyTopoShape.h"
-#include <App/GeoFeature.h>
-#include <App/FeaturePython.h>
-#include <App/PropertyLinks.h>
+#include "App/GeoFeature.h"
+#include "App/FeaturePython.h"
+#include "App/PropertyLinks.h"
 
 namespace Part
 {

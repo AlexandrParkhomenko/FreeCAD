@@ -23,12 +23,12 @@
 
 
 #include <CXX/Objects.hxx>
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Writer.h>
-#include <Base/Reader.h>
-#include <Base/Stream.h>
-#include <Base/VectorPy.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Writer.h"
+#include "Base/Reader.h"
+#include "Base/Stream.h"
+#include "Base/VectorPy.h"
 
 #include "Core/MeshKernel.h"
 #include "Core/MeshIO.h"

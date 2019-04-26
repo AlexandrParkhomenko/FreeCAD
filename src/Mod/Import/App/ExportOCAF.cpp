@@ -71,20 +71,20 @@
 # include <OSD_Exception.hxx>
 # include <TDataXtd_Shape.hxx>
 
-#include <Base/Console.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObjectPy.h>
-#include <App/Part.h>
-#include <Mod/Part/App/PartFeature.h>
-#include <Mod/Part/App/FeatureCompound.h>
+#include "Base/Console.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObjectPy.h"
+#include "App/Part.h"
+#include "Mod/Part/App/PartFeature.h"
+#include "Mod/Part/App/FeatureCompound.h"
 #include "ExportOCAF.h"
-#include <Mod/Part/App/ProgressIndicator.h>
-#include <Mod/Part/App/ImportIges.h>
-#include <Mod/Part/App/ImportStep.h>
+#include "Mod/Part/App/ProgressIndicator.h"
+#include "Mod/Part/App/ImportIges.h"
+#include "Mod/Part/App/ImportStep.h"
 
-#include <App/DocumentObject.h>
-#include <App/DocumentObjectGroup.h>
+#include "App/DocumentObject.h"
+#include "App/DocumentObjectGroup.h"
 
 
 using namespace Import;

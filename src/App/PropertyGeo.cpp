@@ -26,16 +26,16 @@
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 
-#include <Base/Exception.h>
-#include <Base/Writer.h>
-#include <Base/Reader.h>
-#include <Base/Stream.h>
-#include <Base/Rotation.h>
-#include <Base/Quantity.h>
-#include <Base/Tools.h>
-#include <Base/VectorPy.h>
-#include <Base/MatrixPy.h>
-#include <Base/PlacementPy.h>
+#include "Base/Exception.h"
+#include "Base/Writer.h"
+#include "Base/Reader.h"
+#include "Base/Stream.h"
+#include "Base/Rotation.h"
+#include "Base/Quantity.h"
+#include "Base/Tools.h"
+#include "Base/VectorPy.h"
+#include "Base/MatrixPy.h"
+#include "Base/PlacementPy.h"
 
 #include "Placement.h"
 #include "PropertyGeo.h"

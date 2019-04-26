@@ -28,8 +28,8 @@
 # include <TopoDS_Shape.hxx>
 # include <TFunction_Logbook.hxx>
 
-#include <Base/Console.h>
-#include <Base/Sequencer.h>
+#include "Base/Console.h"
+#include "Base/Sequencer.h"
 #include "FeatureImportStep.h"
 
 

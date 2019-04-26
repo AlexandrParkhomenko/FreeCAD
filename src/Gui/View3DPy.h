@@ -24,7 +24,7 @@
 #ifndef GUI_VIEW3DPY_H
 #define GUI_VIEW3DPY_H
 
-#include <Base/PyObjectBase.h>
+#include "Base/PyObjectBase.h"
 #include <CXX/Extensions.hxx>
 
 class SoEventCallback;

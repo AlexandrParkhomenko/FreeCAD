@@ -28,8 +28,8 @@
 #include <Standard_math.hxx>
 #include <Standard_Boolean.hxx>
 #include <TopoDS_Shape.hxx>
-#include <Gui/ViewProviderGeometryObject.h>
-#include <Gui/ViewProviderBuilder.h>
+#include "Gui/ViewProviderGeometryObject.h"
+#include "Gui/ViewProviderBuilder.h"
 #include <map>
 
 class TopoDS_Shape;

@@ -25,8 +25,8 @@
 
 #include "stdexport.h"
 #include <QDialog>
-#include <Base/Unit.h>
-#include <App/ObjectIdentifier.h>
+#include "Base/Unit.h"
+#include "App/ObjectIdentifier.h"
 #include <boost/shared_ptr.hpp>
 
 namespace Ui {

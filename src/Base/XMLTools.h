@@ -38,7 +38,7 @@
 #include <xercesc/util/PlatformUtils.hpp>
 #include <xercesc/util/TransService.hpp>
 
-#include <Base/Exception.h>
+#include "Base/Exception.h"
 
 XERCES_CPP_NAMESPACE_BEGIN
     class DOMNode;

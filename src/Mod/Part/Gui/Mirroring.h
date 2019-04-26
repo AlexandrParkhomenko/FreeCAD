@@ -23,8 +23,8 @@
 #ifndef PARTGUI_MIRRORING_H
 #define PARTGUI_MIRRORING_H
 
-#include <Gui/TaskView/TaskDialog.h>
-#include <Gui/TaskView/TaskView.h>
+#include "Gui/TaskView/TaskDialog.h"
+#include "Gui/TaskView/TaskView.h"
 
 class QTreeWidgetItem;
 

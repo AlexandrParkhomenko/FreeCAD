@@ -64,16 +64,16 @@
 #include <Inventor/engines/SoComposeRotation.h>
 #include <Inventor/nodes/SoMaterial.h>
 
-#include <Base/Console.h>
-#include <Base/UnitsApi.h>
+#include "Base/Console.h"
+#include "Base/UnitsApi.h"
 #include "../App/PartFeature.h"
-#include <Gui/Application.h>
-#include <Gui/Selection.h>
-#include <Gui/Document.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/Control.h>
+#include "Gui/Application.h"
+#include "Gui/Selection.h"
+#include "Gui/Document.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/Control.h"
 
 #include "TaskDimension.h"
 

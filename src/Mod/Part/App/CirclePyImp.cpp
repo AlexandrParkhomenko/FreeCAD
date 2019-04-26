@@ -26,11 +26,11 @@
 # include <GC_MakeCircle.hxx>
 
 #include "OCCError.h"
-#include <Mod/Part/App/CirclePy.h>
+#include "Mod/Part/App/CirclePy.h"
 #include <Mod/Part/App/CirclePy.cpp>
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
 
 using namespace Part;
 

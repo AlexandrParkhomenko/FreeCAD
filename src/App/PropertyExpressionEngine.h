@@ -29,8 +29,8 @@
 #include <boost/signals2.hpp>
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/topological_sort.hpp>
-#include <App/Property.h>
-#include <App/Expression.h>
+#include "App/Property.h"
+#include "App/Expression.h"
 #include <set>
 
 namespace Base {

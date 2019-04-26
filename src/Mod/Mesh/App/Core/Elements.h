@@ -32,9 +32,9 @@
 
 #include "Definitions.h"
 
-#include <Base/BoundBox.h>
-#include <Base/Vector3D.h>
-#include <Base/Matrix.h>
+#include "Base/BoundBox.h"
+#include "Base/Vector3D.h"
+#include "Base/Matrix.h"
 
 namespace MeshCore {
 

@@ -29,10 +29,10 @@
 #include "FeaturePathShape.h"
 #include "Command.h"
 
-#include <App/DocumentObjectPy.h>
-#include <Base/Placement.h>
-#include <Mod/Part/App/TopoShape.h>
-#include <Mod/Part/App/PartFeature.h>
+#include "App/DocumentObjectPy.h"
+#include "Base/Placement.h"
+#include "Mod/Part/App/TopoShape.h"
+#include "Mod/Part/App/PartFeature.h"
 
 #include <TopoDS.hxx>
 #include <TopoDS_Shape.hxx>

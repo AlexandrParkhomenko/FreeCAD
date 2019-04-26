@@ -24,12 +24,12 @@
 # include <Geom_TrimmedCurve.hxx>
 
 #include "Geometry.h"
-#include <Mod/Part/App/ArcOfConicPy.h>
+#include "Mod/Part/App/ArcOfConicPy.h"
 #include <Mod/Part/App/ArcOfConicPy.cpp>
 #include "OCCError.h"
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
 
 using namespace Part;
 

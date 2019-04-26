@@ -44,7 +44,7 @@ class SequencerLauncher;
  * Here are some code snippets of how to use the sequencer:
  *  \code
  *
- *  #include <Base/Sequencer.h>
+ *  #include "Base/Sequencer.h"
  *
  *  //first example
  *  Base::SequencerLauncher seq("my text", 10)
@@ -295,7 +295,7 @@ private:
  *
  * \code
  *
- *  #include <Base/Sequencer.h>
+ *  #include "Base/Sequencer.h"
  *
  *  void runOperation();
  *
@@ -330,7 +330,7 @@ private:
  *
  * \code
  *
- *  #include <Base/Sequencer.h>
+ *  #include "Base/Sequencer.h"
  *
  *  void runOperation();
  *

@@ -29,10 +29,10 @@
 #include <QMessageBox>
 #include <QPushButton>
 
-#include <App/TextDocument.h>
-#include <Gui/Document.h>
-#include <Gui/Application.h>
-#include <Gui/MainWindow.h>
+#include "App/TextDocument.h"
+#include "Gui/Document.h"
+#include "Gui/Application.h"
+#include "Gui/MainWindow.h"
 
 #include "TextDocumentEditorView.h"
 

@@ -28,8 +28,8 @@
 #include <BRepCheck_Status.hxx>
 #include <Message_ProgressIndicator.hxx>
 #include <TopTools_MapOfShape.hxx>
-#include <Gui/TaskView/TaskDialog.h>
-#include <Gui/TaskView/TaskView.h>
+#include "Gui/TaskView/TaskDialog.h"
+#include "Gui/TaskView/TaskView.h"
 #include <QAbstractItemModel>
 #include <QProgressDialog>
 #include <QTime>

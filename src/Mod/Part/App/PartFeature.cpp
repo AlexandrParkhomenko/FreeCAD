@@ -42,15 +42,15 @@
 
 
 #include <sstream>
-#include <Base/Console.h>
-#include <Base/Writer.h>
-#include <Base/Reader.h>
-#include <Base/Exception.h>
-#include <Base/FileInfo.h>
-#include <Base/Stream.h>
-#include <Base/Placement.h>
-#include <Base/Rotation.h>
-#include <App/FeaturePythonPyImp.h>
+#include "Base/Console.h"
+#include "Base/Writer.h"
+#include "Base/Reader.h"
+#include "Base/Exception.h"
+#include "Base/FileInfo.h"
+#include "Base/Stream.h"
+#include "Base/Placement.h"
+#include "Base/Rotation.h"
+#include "App/FeaturePythonPyImp.h"
 
 #include "PartFeature.h"
 #include "PartFeaturePy.h"

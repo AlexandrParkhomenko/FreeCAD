@@ -43,11 +43,11 @@
 
 #include "ViewProviderVRMLObject.h"
 #include "SoFCSelection.h"
-#include <App/VRMLObject.h>
-#include <App/Document.h>
-#include <Base/Console.h>
-#include <Base/FileInfo.h>
-#include <Base/Stream.h>
+#include "App/VRMLObject.h"
+#include "App/Document.h"
+#include "Base/Console.h"
+#include "Base/FileInfo.h"
+#include "Base/Stream.h"
 #include <sstream>
 
 using namespace Gui;

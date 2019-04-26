@@ -31,8 +31,8 @@
 #include <TopoDS_Face.hxx>
 #include <Poly_Triangulation.hxx>
 #include <TColgp_Array1OfDir.hxx>
-#include <App/PropertyUnits.h>
-#include <Gui/ViewProviderGeometryObject.h>
+#include "App/PropertyUnits.h"
+#include "Gui/ViewProviderGeometryObject.h"
 #include <map>
 
 class TopoDS_Shape;

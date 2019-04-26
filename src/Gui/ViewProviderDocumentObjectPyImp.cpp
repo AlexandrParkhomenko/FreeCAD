@@ -24,9 +24,9 @@
 
 # include <sstream>
 
-#include <Gui/ViewProviderDocumentObject.h>
-#include <Gui/Document.h>
-#include <App/DocumentObject.h>
+#include "Gui/ViewProviderDocumentObject.h"
+#include "Gui/Document.h"
+#include "App/DocumentObject.h"
 
 // inclusion of the generated files (generated out of ViewProviderDocumentObjectPy.xml)
 #include "ViewProviderDocumentObjectPy.h"

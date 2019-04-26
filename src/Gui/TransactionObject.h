@@ -24,7 +24,7 @@
 #ifndef GUI_TRANSACTIONOBJECT_H
 #define GUI_TRANSACTIONOBJECT_H
 
-#include <App/Transactions.h>
+#include "App/Transactions.h"
 
 namespace Gui
 {

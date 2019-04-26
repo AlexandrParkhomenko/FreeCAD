@@ -57,27 +57,27 @@
 # include <GCE2d_MakeSegment.hxx>
 # include <Precision.hxx>
 
-#include <Base/VectorPy.h>
+#include "Base/VectorPy.h"
 
-#include <Base/Exception.h>
-#include <Base/Writer.h>
-#include <Base/Reader.h>
-#include <Base/Tools.h>
+#include "Base/Exception.h"
+#include "Base/Writer.h"
+#include "Base/Reader.h"
+#include "Base/Tools.h"
 
 #include "Geometry2d.h"
-#include <Mod/Part/App/Geom2d/Circle2dPy.h>
-#include <Mod/Part/App/Geom2d/Ellipse2dPy.h>
-#include <Mod/Part/App/Geom2d/Hyperbola2dPy.h>
-#include <Mod/Part/App/Geom2d/Parabola2dPy.h>
-#include <Mod/Part/App/Geom2d/ArcOfCircle2dPy.h>
-#include <Mod/Part/App/Geom2d/ArcOfEllipse2dPy.h>
-#include <Mod/Part/App/Geom2d/ArcOfHyperbola2dPy.h>
-#include <Mod/Part/App/Geom2d/ArcOfParabola2dPy.h>
-#include <Mod/Part/App/Geom2d/BezierCurve2dPy.h>
-#include <Mod/Part/App/Geom2d/BSplineCurve2dPy.h>
-#include <Mod/Part/App/Geom2d/Line2dSegmentPy.h>
-#include <Mod/Part/App/Geom2d/Line2dPy.h>
-#include <Mod/Part/App/Geom2d/OffsetCurve2dPy.h>
+#include "Mod/Part/App/Geom2d/Circle2dPy.h"
+#include "Mod/Part/App/Geom2d/Ellipse2dPy.h"
+#include "Mod/Part/App/Geom2d/Hyperbola2dPy.h"
+#include "Mod/Part/App/Geom2d/Parabola2dPy.h"
+#include "Mod/Part/App/Geom2d/ArcOfCircle2dPy.h"
+#include "Mod/Part/App/Geom2d/ArcOfEllipse2dPy.h"
+#include "Mod/Part/App/Geom2d/ArcOfHyperbola2dPy.h"
+#include "Mod/Part/App/Geom2d/ArcOfParabola2dPy.h"
+#include "Mod/Part/App/Geom2d/BezierCurve2dPy.h"
+#include "Mod/Part/App/Geom2d/BSplineCurve2dPy.h"
+#include "Mod/Part/App/Geom2d/Line2dSegmentPy.h"
+#include "Mod/Part/App/Geom2d/Line2dPy.h"
+#include "Mod/Part/App/Geom2d/OffsetCurve2dPy.h"
 
 using namespace Part;
 

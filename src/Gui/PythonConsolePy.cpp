@@ -30,8 +30,8 @@
 #include "PythonConsole.h"
 #include "MainWindow.h"
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
 
 using namespace Gui;
 

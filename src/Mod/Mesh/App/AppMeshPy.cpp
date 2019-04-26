@@ -27,17 +27,17 @@
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
 
-#include <Base/Interpreter.h>
-#include <Base/FileInfo.h>
-#include <Base/Tools.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObjectPy.h>
-#include <App/Property.h>
-#include <Base/PlacementPy.h>
+#include "Base/Interpreter.h"
+#include "Base/FileInfo.h"
+#include "Base/Tools.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObjectPy.h"
+#include "App/Property.h"
+#include "Base/PlacementPy.h"
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
 
 #include "Core/MeshKernel.h"
 #include "Core/MeshIO.h"
@@ -50,7 +50,7 @@
 #include "Mesh.h"
 #include "Exporter.h"
 #include "FeatureMeshImport.h"
-#include <Mod/Mesh/App/MeshPy.h>
+#include "Mod/Mesh/App/MeshPy.h"
 
 using namespace Mesh;
 using namespace MeshCore;

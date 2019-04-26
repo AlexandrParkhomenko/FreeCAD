@@ -25,10 +25,10 @@
 #include "stdexport.h"
 #include "AttachExtension.h"
 
-#include <Base/Console.h>
-#include <App/Application.h>
+#include "Base/Console.h"
+#include "App/Application.h"
 
-#include <App/FeaturePythonPyImp.h>
+#include "App/FeaturePythonPyImp.h"
 #include "AttachExtensionPy.h"
 
 

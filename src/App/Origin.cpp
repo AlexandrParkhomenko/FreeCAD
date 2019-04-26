@@ -25,10 +25,10 @@
 
 #include <string>
 
-#include <Base/Exception.h>
-#include <Base/Placement.h>
+#include "Base/Exception.h"
+#include "Base/Placement.h"
 
-#include <App/Document.h>
+#include "App/Document.h"
 #include "OriginFeature.h"
 
 #include "Origin.h"

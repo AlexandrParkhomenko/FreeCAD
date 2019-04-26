@@ -24,7 +24,7 @@
 #ifndef PART_FEATURECHAMFER_H
 #define PART_FEATURECHAMFER_H
 
-#include <App/PropertyStandard.h>
+#include "App/PropertyStandard.h"
 #include "PartFeature.h"
 
 namespace Part

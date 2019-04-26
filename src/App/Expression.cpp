@@ -25,13 +25,13 @@
 #endif
 
 #include "Base/Exception.h"
-#include <Base/Interpreter.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentPy.h>
-#include <App/DocumentObject.h>
-#include <App/PropertyUnits.h>
-#include <Base/QuantityPy.h>
+#include "Base/Interpreter.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentPy.h"
+#include "App/DocumentObject.h"
+#include "App/PropertyUnits.h"
+#include "Base/QuantityPy.h"
 #include <QStringList>
 #include <string>
 #include <sstream>
@@ -41,9 +41,9 @@
 #include <deque>
 #include <algorithm>
 #include "Expression.h"
-#include <Base/Unit.h>
-#include <App/PropertyUnits.h>
-#include <App/ObjectIdentifier.h>
+#include "Base/Unit.h"
+#include "App/PropertyUnits.h"
+#include "App/ObjectIdentifier.h"
 #include <boost/math/special_functions/round.hpp>
 #include <boost/math/special_functions/trunc.hpp>
 

@@ -43,8 +43,8 @@
 
 
 #include "FeatureExtrusion.h"
-#include <Base/Tools.h>
-#include <Base/Exception.h>
+#include "Base/Tools.h"
+#include "Base/Exception.h"
 #include "Part2DObject.h"
 
 

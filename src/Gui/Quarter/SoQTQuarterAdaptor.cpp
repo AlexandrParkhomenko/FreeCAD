@@ -19,7 +19,7 @@
  */
 
 #include "SoQTQuarterAdaptor.h"
-#include <Base/Console.h>
+#include "Base/Console.h"
 #include <Inventor/nodes/SoPerspectiveCamera.h>
 #include <Inventor/nodes/SoOrthographicCamera.h>
 #include <Inventor/nodes/SoSeparator.h>

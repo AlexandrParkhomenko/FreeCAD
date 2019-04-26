@@ -34,20 +34,20 @@
 #include "Mirroring.h"
 #include "ui_Mirroring.h"
 #include "../App/PartFeature.h"
-#include <Base/Exception.h>
-#include <Base/Tools.h>
-#include <Base/UnitsApi.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <Gui/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/Command.h>
-#include <Gui/Document.h>
-#include <Gui/Selection.h>
-#include <Gui/Utilities.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/WaitCursor.h>
+#include "Base/Exception.h"
+#include "Base/Tools.h"
+#include "Base/UnitsApi.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "Gui/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/Command.h"
+#include "Gui/Document.h"
+#include "Gui/Selection.h"
+#include "Gui/Utilities.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/WaitCursor.h"
 
 using namespace PartGui;
 

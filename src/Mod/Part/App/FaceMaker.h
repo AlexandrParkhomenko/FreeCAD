@@ -25,7 +25,7 @@
 
 #include "stdexport.h"
 #include <BRepBuilderAPI_MakeShape.hxx>
-#include <Base/BaseClass.h>
+#include "Base/BaseClass.h"
 #include <TopoDS_Wire.hxx>
 #include <TopoDS_Compound.hxx>
 #include <TopoDS_Face.hxx>

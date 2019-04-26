@@ -25,7 +25,7 @@
 
 #include "stdexport.h"
 #include <string>
-#include <App/ObjectIdentifier.h>
+#include "App/ObjectIdentifier.h"
 #include <boost/shared_ptr.hpp>
 #include <QLabel>
 #include <boost/signals2.hpp>

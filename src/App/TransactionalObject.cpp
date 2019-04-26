@@ -24,8 +24,8 @@
 
 # include <sstream>
 
-#include <Base/Writer.h>
-#include <Base/Exception.h>
+#include "Base/Writer.h"
+#include "Base/Exception.h"
 
 #include "Document.h"
 #include "TransactionalObject.h"

@@ -24,7 +24,7 @@
 #include "Constraint.h"
 #include "ConstraintPy.h"
 #include "ConstraintPy.cpp"
-#include <Base/QuantityPy.h>
+#include "Base/QuantityPy.h"
 
 using namespace Sketcher;
 

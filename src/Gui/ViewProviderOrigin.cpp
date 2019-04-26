@@ -30,10 +30,10 @@
 # include <boost/bind.hpp>
 
 
-#include <Base/Vector3D.h>
-#include <App/Origin.h>
-#include <App/OriginFeature.h>
-#include <App/Document.h>
+#include "Base/Vector3D.h"
+#include "App/Origin.h"
+#include "App/OriginFeature.h"
+#include "App/Document.h"
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "ViewProviderOrigin.h"
@@ -49,7 +49,7 @@
 
 #include "Base/Console.h"
 
-#include <App/Origin.h>
+#include "App/Origin.h"
 
 using namespace Gui;
 

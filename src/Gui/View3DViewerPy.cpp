@@ -29,10 +29,10 @@
 
 #include "View3DViewerPy.h"
 #include <CXX/Objects.hxx>
-#include <Base/Interpreter.h>
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
-#include <Gui/View3DInventorViewer.h>
+#include "Base/Interpreter.h"
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
+#include "Gui/View3DInventorViewer.h"
 
 using namespace Gui;
 

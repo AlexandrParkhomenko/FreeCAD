@@ -25,9 +25,9 @@
 # include <Inventor/nodes/SoSeparator.h>
 # include <boost/bind.hpp>
 
-#include <Base/Console.h>
-#include <App/OriginGroupExtension.h>
-#include <App/Origin.h>
+#include "Base/Console.h"
+#include "App/OriginGroupExtension.h"
+#include "App/Origin.h"
 
 #include "Application.h"
 #include "Document.h"

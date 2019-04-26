@@ -27,8 +27,8 @@
 #include "stdexport.h"
 #include <QString>
 #include <QStringList>
-#include <Base/Observer.h>
-#include <Base/Parameter.h>
+#include "Base/Observer.h"
+#include "Base/Parameter.h"
 
 
 namespace Gui {

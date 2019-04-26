@@ -44,8 +44,8 @@
 
 #include <math.h>
 
-#include <Base/Quantity.h>
-#include <Gui/MainWindow.h>
+#include "Base/Quantity.h"
+#include "Gui/MainWindow.h"
 #include "SoFCDB.h"
 #include "SoFCCSysDragger.h"
 

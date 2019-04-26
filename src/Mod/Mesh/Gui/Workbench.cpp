@@ -27,12 +27,12 @@
 # include <QLabel>
 
 #include "Workbench.h"
-#include <Gui/Application.h>
-#include <Gui/Command.h>
-#include <Gui/MenuManager.h>
-#include <Gui/ToolBarManager.h>
-#include <Gui/Selection.h>
-#include <Gui/TaskView/TaskView.h>
+#include "Gui/Application.h"
+#include "Gui/Command.h"
+#include "Gui/MenuManager.h"
+#include "Gui/ToolBarManager.h"
+#include "Gui/Selection.h"
+#include "Gui/TaskView/TaskView.h"
 
 #include "../App/MeshFeature.h"
 

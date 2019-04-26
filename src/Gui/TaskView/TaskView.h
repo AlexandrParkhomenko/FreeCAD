@@ -37,7 +37,7 @@
 #else
 #include <Gui/QSint/include/QSint>
 #endif
-#include <Gui/Selection.h>
+#include "Gui/Selection.h"
 #include "TaskWatcher.h"
 
 namespace App {

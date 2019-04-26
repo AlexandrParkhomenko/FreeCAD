@@ -22,10 +22,10 @@
 
 
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Matrix.h>
-#include <Base/Sequencer.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Matrix.h"
+#include "Base/Sequencer.h"
 #include "FeatureMeshCurvature.h"
 #include "MeshFeature.h"
 

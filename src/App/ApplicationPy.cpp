@@ -32,13 +32,13 @@
 #include "DocumentObserverPython.h"
 
 // FreeCAD Base header
-#include <Base/Interpreter.h>
-#include <Base/Exception.h>
-#include <Base/Parameter.h>
-#include <Base/Console.h>
-#include <Base/Factory.h>
-#include <Base/FileInfo.h>
-#include <Base/UnitsApi.h>
+#include "Base/Interpreter.h"
+#include "Base/Exception.h"
+#include "Base/Parameter.h"
+#include "Base/Console.h"
+#include "Base/Factory.h"
+#include "Base/FileInfo.h"
+#include "Base/UnitsApi.h"
 
 //using Base::GetConsole;
 using namespace Base;

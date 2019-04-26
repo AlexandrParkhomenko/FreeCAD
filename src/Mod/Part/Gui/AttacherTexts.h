@@ -34,7 +34,7 @@
 #include <QString>
 #include <QStringList>
 #include <CXX/Objects.hxx>
-#include <Mod/Part/App/Attacher.h>
+#include "Mod/Part/App/Attacher.h"
 
 
 namespace AttacherGui {

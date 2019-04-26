@@ -28,8 +28,8 @@
 
 #include "FeaturePartBoolean.h"
 #include "modelRefine.h"
-#include <App/Application.h>
-#include <Base/Parameter.h>
+#include "App/Application.h"
+#include "Base/Parameter.h"
 
 
 using namespace Part;

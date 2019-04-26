@@ -27,7 +27,7 @@
 #include "Document.h"
 #include "TransactionObject.h"
 #include "ViewProviderDocumentObject.h"
-#include <App/Document.h>
+#include "App/Document.h"
 
 using namespace Gui;
 

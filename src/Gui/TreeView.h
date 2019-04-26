@@ -27,11 +27,11 @@
 #include "stdexport.h"
 #include <QTreeView>
 
-#include <App/Document.h>
-#include <App/Application.h>
+#include "App/Document.h"
+#include "App/Application.h"
 
-#include <Gui/DockWindow.h>
-#include <Gui/Selection.h>
+#include "Gui/DockWindow.h"
+#include "Gui/Selection.h"
 
 namespace Gui {
 

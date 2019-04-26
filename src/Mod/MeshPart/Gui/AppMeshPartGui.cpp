@@ -26,8 +26,8 @@
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
 
-#include <Base/Console.h>
-#include <Gui/Application.h>
+#include "Base/Console.h"
+#include "Gui/Application.h"
 #include "CurveOnMesh.h"
 #include "Workbench.h"
 

@@ -32,8 +32,8 @@
 #include <Inventor/nodes/SoSubNode.h>
 #include <Inventor/nodes/SoShape.h>
 #include <Inventor/elements/SoReplacedElement.h>
-#include <Mod/Mesh/App/Core/Elements.h>
-#include <Mod/Mesh/App/Mesh.h>
+#include "Mod/Mesh/App/Core/Elements.h"
+#include "Mod/Mesh/App/Mesh.h"
 
 typedef unsigned int GLuint;
 typedef int GLint;

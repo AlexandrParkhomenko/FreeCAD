@@ -26,7 +26,7 @@
 
 #include "stdexport.h"
 #include "ViewProvider.h"
-#include <App/DocumentObject.h>
+#include "App/DocumentObject.h"
 #include <Inventor/SoType.h>
 
 class SoMaterial;

@@ -22,10 +22,10 @@
 
 
 #include "stdexport.h"
-#include <Gui/Control.h>
-#include <Gui/BitmapFactory.h>
+#include "Gui/Control.h"
+#include "Gui/BitmapFactory.h"
 
-#include <Mod/Path/App/FeaturePathCompound.h>
+#include "Mod/Path/App/FeaturePathCompound.h"
 
 #include "TaskDlgPathCompound.h"
 

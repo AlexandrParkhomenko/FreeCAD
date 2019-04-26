@@ -30,8 +30,8 @@
 #include "PropertyPythonObject.h"
 #include "DynamicProperty.h"
 #include <CXX/Objects.hxx>
-#include <Base/Writer.h>
-#include <Base/Reader.h>
+#include "Base/Writer.h"
+#include "Base/Reader.h"
 
 namespace App {
     

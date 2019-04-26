@@ -27,10 +27,10 @@
 # include <map>
 # include <queue>
 
-#include <Base/Exception.h>
-#include <Base/Sequencer.h>
-#include <Base/Stream.h>
-#include <Base/Swap.h>
+#include "Base/Exception.h"
+#include "Base/Sequencer.h"
+#include "Base/Stream.h"
+#include "Base/Swap.h"
 
 #include "Algorithm.h"
 #include "Approximation.h"

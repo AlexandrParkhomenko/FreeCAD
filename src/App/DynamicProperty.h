@@ -25,7 +25,7 @@
 #define APP_DYNAMICPROPERTY_H
 
 #include "stdexport.h"
-#include <Base/Persistence.h>
+#include "Base/Persistence.h"
 #include <map>
 #include <vector>
 #include <string>

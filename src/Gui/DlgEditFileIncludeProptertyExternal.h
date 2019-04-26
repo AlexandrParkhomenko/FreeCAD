@@ -26,7 +26,7 @@
 
 #include "stdexport.h"
 #include "DlgRunExternal.h"
-#include <App/PropertyFile.h>
+#include "App/PropertyFile.h"
 
 namespace Gui {
 namespace Dialog {

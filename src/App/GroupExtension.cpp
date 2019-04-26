@@ -30,7 +30,7 @@
 #include "Document.h"
 #include "FeaturePythonPyImp.h"
 #include "GeoFeatureGroupExtension.h"
-#include <Base/Console.h>
+#include "Base/Console.h"
 
 using namespace App;
 

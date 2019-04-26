@@ -28,7 +28,7 @@
 #include "stdexport.h"
 #include <vector>
 #include <memory>
-#include <Base/Vector3D.h>
+#include "Base/Vector3D.h"
 #include "Analyse.h"
 #include "SketchObject.h"
 

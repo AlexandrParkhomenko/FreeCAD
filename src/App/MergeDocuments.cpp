@@ -26,11 +26,11 @@
 #include <QCoreApplication>
 
 #include "MergeDocuments.h"
-#include <Base/Console.h>
-#include <Base/Reader.h>
-#include <Base/Writer.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
+#include "Base/Console.h"
+#include "Base/Reader.h"
+#include "Base/Writer.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
 
 using namespace App;
 

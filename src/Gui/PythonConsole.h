@@ -26,7 +26,7 @@
 
 #include "stdexport.h"
 #include "PythonEditor.h"
-#include <Base/PyObjectBase.h>
+#include "Base/PyObjectBase.h"
 
 class QPlainTextEdit;
 class QPushButton;

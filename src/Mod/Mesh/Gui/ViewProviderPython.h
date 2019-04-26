@@ -24,8 +24,8 @@
 #ifndef MESHGUI_VIEWPROVIDERPYTHON_H
 #define MESHGUI_VIEWPROVIDERPYTHON_H
 
-#include <Gui/ViewProviderPythonFeature.h>
-#include <Mod/Mesh/Gui/ViewProviderMeshFaceSet.h>
+#include "Gui/ViewProviderPythonFeature.h"
+#include "Mod/Mesh/Gui/ViewProviderMeshFaceSet.h"
 
 namespace MeshGui {
 

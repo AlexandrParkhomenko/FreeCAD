@@ -24,7 +24,7 @@
 
 
 #include "ViewProviderExtrusion.h"
-#include <Mod/Part/App/FeatureExtrusion.h>
+#include "Mod/Part/App/FeatureExtrusion.h"
 
 
 using namespace PartGui;

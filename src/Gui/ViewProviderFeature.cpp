@@ -30,8 +30,8 @@
 # include <Inventor/SoPickedPoint.h>
 # include <Inventor/actions/SoRayPickAction.h> 
 
-#include <Base/Parameter.h>
-#include <App/Document.h>
+#include "Base/Parameter.h"
+#include "App/Document.h"
 
 #include "Window.h"
 #include "ViewProviderFeature.h"

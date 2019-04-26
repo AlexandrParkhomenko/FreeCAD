@@ -30,12 +30,12 @@
 #include "ui_SketcherSettings.h"
 #include "ui_SketcherSettingsColors.h"
 #include "TaskSketcherGeneral.h"
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
-#include <App/Application.h>
-#include <Gui/PrefWidgets.h>
-#include <Gui/Inventor/MarkerBitmaps.h>
-#include <Gui/Command.h>
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
+#include "App/Application.h"
+#include "Gui/PrefWidgets.h"
+#include "Gui/Inventor/MarkerBitmaps.h"
+#include "Gui/Command.h"
 
 using namespace SketcherGui;
 

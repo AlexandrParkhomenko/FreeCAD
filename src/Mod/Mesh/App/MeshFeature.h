@@ -25,9 +25,9 @@
 #define MESH_FEATURE_H
 
 #include "stdexport.h"
-#include <App/GeoFeature.h>
-#include <App/FeatureCustom.h>
-#include <App/FeaturePython.h>
+#include "App/GeoFeature.h"
+#include "App/FeatureCustom.h"
+#include "App/FeaturePython.h"
 
 #include "Core/MeshKernel.h"
 #include "Mesh.h"

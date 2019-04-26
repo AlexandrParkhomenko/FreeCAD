@@ -27,7 +27,7 @@
 #define GUI_VIEWPROVIDERGEOFEATUREGROUPEXTENSION_H
 
 #include "stdexport.h"
-#include <App/Extension.h>
+#include "App/Extension.h"
 #include "ViewProviderGroupExtension.h"
 
 namespace Gui

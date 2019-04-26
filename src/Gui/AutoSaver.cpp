@@ -31,14 +31,14 @@
 # include <sstream>
 
 #include "AutoSaver.h"
-#include <Base/Console.h>
-#include <Base/FileInfo.h>
-#include <Base/Stream.h>
-#include <Base/Tools.h>
-#include <Base/Writer.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
+#include "Base/Console.h"
+#include "Base/FileInfo.h"
+#include "Base/Stream.h"
+#include "Base/Tools.h"
+#include "Base/Writer.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
 
 #include "Document.h"
 #include "WaitCursor.h"

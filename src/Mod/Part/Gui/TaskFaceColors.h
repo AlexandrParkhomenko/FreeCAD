@@ -24,8 +24,8 @@
 #ifndef PARTGUI_TASKSETCOLORS_H
 #define PARTGUI_TASKSETCOLORS_H
 
-#include <Gui/TaskView/TaskView.h>
-#include <Gui/TaskView/TaskDialog.h>
+#include "Gui/TaskView/TaskView.h"
+#include "Gui/TaskView/TaskDialog.h"
 
 namespace Gui {
     class Document;

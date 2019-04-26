@@ -23,8 +23,8 @@
  
 # include <fcntl.h>
 
-#include <Base/Console.h>
-#include <Base/FileInfo.h>
+#include "Base/Console.h"
+#include "Base/FileInfo.h"
 #include "FeaturePartImportStep.h"
 
 

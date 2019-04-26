@@ -33,8 +33,8 @@
 
 
 // FreeCAD Base header
-#include <Base/Exception.h>
-#include <App/Application.h>
+#include "Base/Exception.h"
+#include "App/Application.h"
 
 
 PyMOD_INIT_FUNC(FreeCAD)

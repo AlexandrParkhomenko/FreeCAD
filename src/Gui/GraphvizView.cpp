@@ -43,8 +43,8 @@
 #include "GraphvizView.h"
 #include "Application.h"
 #include "MainWindow.h"
-#include <App/Application.h>
-#include <App/Document.h>
+#include "App/Application.h"
+#include "App/Document.h"
 
 using namespace Gui;
 

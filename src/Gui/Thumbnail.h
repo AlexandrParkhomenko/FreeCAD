@@ -24,7 +24,7 @@
 #ifndef GUI_THUMBNAIL_H
 #define GUI_THUMBNAIL_H
 
-#include <Base/Persistence.h>
+#include "Base/Persistence.h"
 #include <QUrl>
 
 class QImage;

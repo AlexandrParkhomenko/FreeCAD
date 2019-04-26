@@ -32,9 +32,9 @@
 
 #include "FeaturePartCommon.h"
 #include "modelRefine.h"
-#include <App/Application.h>
-#include <Base/Parameter.h>
-#include <Base/Exception.h>
+#include "App/Application.h"
+#include "Base/Parameter.h"
+#include "Base/Exception.h"
 
 using namespace Part;
 

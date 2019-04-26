@@ -26,10 +26,10 @@
 # include <QListWidgetItem>
 # include <QMessageBox>
 
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <App/GeoFeature.h>
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "App/GeoFeature.h"
 
 #include "DlgPropertyLink.h"
 #include "Application.h"

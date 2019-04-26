@@ -25,12 +25,12 @@
 # include <Geom_Hyperbola.hxx>
 # include <GC_MakeHyperbola.hxx>
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
 
 #include "OCCError.h"
 #include "Geometry.h"
-#include <Mod/Part/App/HyperbolaPy.h>
+#include "Mod/Part/App/HyperbolaPy.h"
 #include <Mod/Part/App/HyperbolaPy.cpp>
 
 using namespace Part;

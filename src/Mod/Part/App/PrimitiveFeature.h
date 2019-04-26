@@ -25,7 +25,7 @@
 #define PART_PRIMITIVEFEATURE_H
 
 #include "stdexport.h"
-#include <App/PropertyUnits.h>
+#include "App/PropertyUnits.h"
 #include "PartFeature.h"
 #include "AttachExtension.h"
 

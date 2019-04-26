@@ -26,7 +26,7 @@
 #include <QObject>
 #include <Geom_BSplineCurve.hxx>
 #include <GeomAbs_Shape.hxx>
-#include <Gui/ViewProviderDocumentObject.h>
+#include "Gui/ViewProviderDocumentObject.h"
 #include <memory>
 
 class SbVec3f;

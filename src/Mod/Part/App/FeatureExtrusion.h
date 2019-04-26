@@ -25,8 +25,8 @@
 #define PART_FEATUREEXTRUSION_H
 
 #include "stdexport.h"
-#include <App/PropertyStandard.h>
-#include <App/PropertyUnits.h>
+#include "App/PropertyStandard.h"
+#include "App/PropertyUnits.h"
 #include "PartFeature.h"
 #include "FaceMakerCheese.h"
 #include <TopoDS_Face.hxx>

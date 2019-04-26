@@ -23,8 +23,8 @@
 #ifndef PARTGUI_DLGBOOLEANOPERATION_H
 #define PARTGUI_DLGBOOLEANOPERATION_H
 
-#include <Gui/TaskView/TaskDialog.h>
-#include <Gui/TaskView/TaskView.h>
+#include "Gui/TaskView/TaskDialog.h"
+#include "Gui/TaskView/TaskView.h"
 #include <boost/signals2.hpp>
 
 class QTreeWidgetItem;

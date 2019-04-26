@@ -26,7 +26,7 @@
 
 #include "stdexport.h"
 #include "ViewProviderDocumentObject.h"
-#include <App/PropertyUnits.h>
+#include "App/PropertyUnits.h"
 
 class SoFont;
 class SoText2;

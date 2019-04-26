@@ -24,14 +24,14 @@
 # include <QPixmap>
 # include <QDialog>
 
-#include <Gui/BitmapFactory.h>
-#include <Gui/MainWindow.h>
-#include <Base/Tools.h>
-#include <Base/UnitsApi.h>
+#include "Gui/BitmapFactory.h"
+#include "Gui/MainWindow.h"
+#include "Base/Tools.h"
+#include "Base/UnitsApi.h"
 
 #include "ui_SketchMirrorDialog.h"
 #include "SketchMirrorDialog.h"
-#include <Mod/Sketcher/App/SketchObject.h>
+#include "Mod/Sketcher/App/SketchObject.h"
 
 using namespace SketcherGui;
 

@@ -24,7 +24,7 @@
 #define MESHPART_MESHER_H
 
 #include <sstream>
-#include <Base/Stream.h>
+#include "Base/Stream.h"
 #ifdef HAVE_SMESH
 #include <SMESH_Version.h>
 #endif

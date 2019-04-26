@@ -26,9 +26,9 @@
 
 
 #include "ActiveObjectList.h"
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/ViewProviderDocumentObject.h>
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/ViewProviderDocumentObject.h"
 
 
 

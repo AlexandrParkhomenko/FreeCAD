@@ -25,7 +25,7 @@
 
 #include <QDialog>
 #include <QString>
-#include <App/DocumentObject.h>
+#include "App/DocumentObject.h"
 
 class Ui_DlgProcessorChooser;
 

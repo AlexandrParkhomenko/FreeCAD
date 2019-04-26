@@ -28,13 +28,13 @@
 # include <Geom_TrimmedCurve.hxx>
 
 #include "Geometry.h"
-#include <Mod/Part/App/ArcOfParabolaPy.h>
+#include "Mod/Part/App/ArcOfParabolaPy.h"
 #include <Mod/Part/App/ArcOfParabolaPy.cpp>
-#include <Mod/Part/App/ParabolaPy.h>
+#include "Mod/Part/App/ParabolaPy.h"
 #include "OCCError.h"
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
 
 using namespace Part;
 

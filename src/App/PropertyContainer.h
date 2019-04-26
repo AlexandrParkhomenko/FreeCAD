@@ -27,7 +27,7 @@
 #include "stdexport.h"
 #include <map>
 #include <climits>
-#include <Base/Persistence.h>
+#include "Base/Persistence.h"
 
 namespace Base {
 class Writer;

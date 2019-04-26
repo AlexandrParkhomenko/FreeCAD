@@ -114,8 +114,8 @@
 #include "SoBrepFaceSet.h"
 #include "TaskFaceColors.h"
 
-#include <Mod/Part/App/PartFeature.h>
-#include <Mod/Part/App/PrimitiveFeature.h>
+#include "Mod/Part/App/PartFeature.h"
+#include "Mod/Part/App/PrimitiveFeature.h"
 
 
 using namespace PartGui;

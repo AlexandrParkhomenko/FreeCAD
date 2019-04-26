@@ -37,14 +37,14 @@
 #include <QTextCodec>
 
 // FreeCAD header
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
-#include <Base/Parameter.h>
-#include <Base/Exception.h>
-#include <Base/Factory.h>
-#include <App/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/Application.h>
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
+#include "Base/Parameter.h"
+#include "Base/Exception.h"
+#include "Base/Factory.h"
+#include "App/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/Application.h"
 
 class Redirection
 {

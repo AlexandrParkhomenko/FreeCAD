@@ -38,11 +38,11 @@
 # include <BRepAlgoAPI_Fuse.hxx>
 # include <gp_Pln.hxx>
 
-#include <Base/Placement.h>
+#include "Base/Placement.h"
 
 #include "FeatureFace.h"
 #include "FaceMaker.h"
-#include <Mod/Part/App/Part2DObject.h>
+#include "Mod/Part/App/Part2DObject.h"
 
 
 using namespace Part;

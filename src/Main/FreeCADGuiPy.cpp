@@ -28,15 +28,15 @@
 #include <QThread>
 // FreeCAD Base header
 #include <CXX/WrapPython.h>
-#include <Base/Exception.h>
-#include <Base/Factory.h>
-#include <Base/Interpreter.h>
-#include <App/Application.h>
-#include <Gui/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/MainWindow.h>
-#include <Gui/SoFCDB.h>
-#include <Gui/Quarter/Quarter.h>
+#include "Base/Exception.h"
+#include "Base/Factory.h"
+#include "Base/Interpreter.h"
+#include "App/Application.h"
+#include "Gui/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/MainWindow.h"
+#include "Gui/SoFCDB.h"
+#include "Gui/Quarter/Quarter.h"
 #include <Inventor/SoDB.h>
 
 static

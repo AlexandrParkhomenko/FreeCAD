@@ -32,7 +32,7 @@
 #include <Inventor/nodes/SoTextureCoordinateEnvironment.h>
 #include <QDialogButtonBox>
 
-#include <App/Application.h>
+#include "App/Application.h"
 
 #include "TextureMapping.h"
 #include "BitmapFactory.h"

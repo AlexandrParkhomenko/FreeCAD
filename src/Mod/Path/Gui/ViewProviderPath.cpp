@@ -41,18 +41,18 @@
 
 #include "ViewProviderPath.h"
 
-#include <Mod/Path/App/FeaturePath.h>
-#include <Mod/Path/App/Path.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Base/FileInfo.h>
-#include <Base/Stream.h>
-#include <Base/Console.h>
-#include <Base/Parameter.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/SoFCBoundingBox.h>
-#include <Gui/SoAxisCrossKit.h>
-#include <Gui/SoFCUnifiedSelection.h>
+#include "Mod/Path/App/FeaturePath.h"
+#include "Mod/Path/App/Path.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Base/FileInfo.h"
+#include "Base/Stream.h"
+#include "Base/Console.h"
+#include "Base/Parameter.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/SoFCBoundingBox.h"
+#include "Gui/SoAxisCrossKit.h"
+#include "Gui/SoFCUnifiedSelection.h"
 
 
 #define ARC_MIN_SEGMENTS   20.0  // minimum # segments to interpolate an arc

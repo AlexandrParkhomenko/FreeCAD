@@ -29,11 +29,11 @@
 # include <QFile>
 
 #include "ViewProviderInventorObject.h"
-#include <Gui/SoFCSelection.h>
-#include <App/InventorObject.h>
-#include <App/Document.h>
-#include <Base/FileInfo.h>
-#include <Base/Stream.h>
+#include "Gui/SoFCSelection.h"
+#include "App/InventorObject.h"
+#include "App/Document.h"
+#include "Base/FileInfo.h"
+#include "Base/Stream.h"
 #include <sstream>
 
 using namespace Gui;

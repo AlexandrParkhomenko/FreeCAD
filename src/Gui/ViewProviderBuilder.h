@@ -28,8 +28,8 @@
 #include <vector>
 #include <map>
 #include <memory>
-#include <Base/Type.h>
-#include <Base/Factory.h>
+#include "Base/Type.h"
+#include "Base/Factory.h"
 
 class SoNode;
 

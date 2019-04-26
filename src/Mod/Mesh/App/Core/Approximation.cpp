@@ -27,13 +27,13 @@
 
 #include "Approximation.h"
 
-#include <Base/BoundBox.h>
+#include "Base/BoundBox.h"
 #include <boost/math/special_functions/fpclassify.hpp>
-#include <Mod/Mesh/App/WildMagic4/Wm4ApprQuadraticFit3.h>
-#include <Mod/Mesh/App/WildMagic4/Wm4ApprPlaneFit3.h>
-#include <Mod/Mesh/App/WildMagic4/Wm4DistVector3Plane3.h>
-#include <Mod/Mesh/App/WildMagic4/Wm4Matrix3.h>
-#include <Mod/Mesh/App/WildMagic4/Wm4ApprPolyFit3.h>
+#include "Mod/Mesh/App/WildMagic4/Wm4ApprQuadraticFit3.h"
+#include "Mod/Mesh/App/WildMagic4/Wm4ApprPlaneFit3.h"
+#include "Mod/Mesh/App/WildMagic4/Wm4DistVector3Plane3.h"
+#include "Mod/Mesh/App/WildMagic4/Wm4Matrix3.h"
+#include "Mod/Mesh/App/WildMagic4/Wm4ApprPolyFit3.h"
 
 //#define FC_USE_EIGEN
 #include <Eigen/QR>

@@ -38,13 +38,13 @@
 #include "propertyeditor/PropertyItem.h"
 #include "BitmapFactory.h"
 #include "Command.h"
-#include <Base/Tools.h>
-#include <Base/Exception.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <App/Expression.h>
-#include <App/PropertyGeo.h>
+#include "Base/Tools.h"
+#include "Base/Exception.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "App/Expression.h"
+#include "App/PropertyGeo.h"
 #include <sstream>
 #include <boost/math/special_functions/round.hpp>
 

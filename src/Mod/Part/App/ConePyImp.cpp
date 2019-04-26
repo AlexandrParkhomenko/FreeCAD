@@ -31,8 +31,8 @@
 # include <Geom_TrimmedCurve.hxx>
 # include <Standard_Failure.hxx>
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
 
 #include "OCCError.h"
 #include "Geometry.h"

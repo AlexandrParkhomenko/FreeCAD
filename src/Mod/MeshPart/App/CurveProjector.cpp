@@ -29,15 +29,15 @@
 #include "MeshAlgos.h"
 #include "CurveProjector.h"
 
-#include <Mod/Mesh/App/Core/MeshIO.h>
-#include <Mod/Mesh/App/Core/MeshKernel.h>
-#include <Mod/Mesh/App/Core/Iterator.h>
-#include <Mod/Mesh/App/Core/Algorithm.h>
-#include <Mod/Mesh/App/Mesh.h>
+#include "Mod/Mesh/App/Core/MeshIO.h"
+#include "Mod/Mesh/App/Core/MeshKernel.h"
+#include "Mod/Mesh/App/Core/Iterator.h"
+#include "Mod/Mesh/App/Core/Algorithm.h"
+#include "Mod/Mesh/App/Mesh.h"
 
-#include <Base/Exception.h>
-#include <Base/Console.h>
-#include <Base/Sequencer.h>
+#include "Base/Exception.h"
+#include "Base/Console.h"
+#include "Base/Sequencer.h"
 
 #include <TopExp_Explorer.hxx>
 #include <TopoDS.hxx>

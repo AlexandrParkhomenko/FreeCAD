@@ -37,7 +37,7 @@
 #include "TopoAlgorithm.h"
 
 #include <boost/math/special_functions/fpclassify.hpp>
-#include <Base/Sequencer.h>
+#include "Base/Sequencer.h"
 
 using namespace MeshCore;
 

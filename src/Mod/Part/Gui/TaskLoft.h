@@ -24,8 +24,8 @@
 #ifndef PARTGUI_TASKLOFT_H
 #define PARTGUI_TASKLOFT_H
 
-#include <Gui/TaskView/TaskView.h>
-#include <Gui/TaskView/TaskDialog.h>
+#include "Gui/TaskView/TaskView.h"
+#include "Gui/TaskView/TaskDialog.h"
 
 class QTreeWidgetItem;
 

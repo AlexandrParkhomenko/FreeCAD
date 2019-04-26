@@ -27,11 +27,11 @@
 #include <boost/math/special_functions/fpclassify.hpp>
 #include <QtConcurrentMap>
 
-#include <Base/Exception.h>
-#include <Base/Matrix.h>
-#include <Base/Persistence.h>
-#include <Base/Stream.h>
-#include <Base/Writer.h>
+#include "Base/Exception.h"
+#include "Base/Matrix.h"
+#include "Base/Persistence.h"
+#include "Base/Stream.h"
+#include "Base/Writer.h"
 
 #include "Points.h"
 #include "PointsAlgos.h"

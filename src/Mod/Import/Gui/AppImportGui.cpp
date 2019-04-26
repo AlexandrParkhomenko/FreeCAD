@@ -24,11 +24,11 @@
 
 
 
-#include <App/Application.h>
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
+#include "App/Application.h"
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
 
-#include <Gui/Application.h>
+#include "Gui/Application.h"
 
 #include "Workbench.h"
 

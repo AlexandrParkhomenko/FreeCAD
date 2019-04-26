@@ -24,9 +24,9 @@
 # include <QDebug>
 # include <QTextStream>
 
-#include <Base/Tools.h>
+#include "Base/Tools.h"
 
-#include <Gui/MetaTypes.h>
+#include "Gui/MetaTypes.h"
 #include "../App/PropertyConstraintList.h"
 #include "PropertyConstraintListItem.h"
 

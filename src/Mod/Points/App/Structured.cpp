@@ -25,8 +25,8 @@
 
 #include <vector>
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
 
 
 #include "Structured.h"

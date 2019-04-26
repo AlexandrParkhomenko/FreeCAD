@@ -22,8 +22,8 @@
 
 
 
-#include <App/Document.h>
-#include <App/PropertyStandard.h>
+#include "App/Document.h"
+#include "App/PropertyStandard.h"
 
 #include "DlgProjectInformationImp.h"
 #include "ui_DlgProjectInformation.h"

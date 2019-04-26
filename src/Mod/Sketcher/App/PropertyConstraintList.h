@@ -28,8 +28,8 @@
 #include "stdexport.h"
 #include <vector>
 #include <string>
-#include <App/Property.h>
-#include <Mod/Part/App/Geometry.h>
+#include "App/Property.h"
+#include "Mod/Part/App/Geometry.h"
 #include "Constraint.h"
 #include <boost/signals2.hpp>
 #include <boost/unordered/unordered_map.hpp>

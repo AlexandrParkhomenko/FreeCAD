@@ -85,12 +85,12 @@ PyTypeObject** SbkPySide2_QtWidgetsTypes=NULL;
 #endif
 
 #include <CXX/Objects.hxx>
-#include <App/Application.h>
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Interpreter.h>
-#include <Base/Quantity.h>
-#include <Base/QuantityPy.h>
+#include "App/Application.h"
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Interpreter.h"
+#include "Base/Quantity.h"
+#include "Base/QuantityPy.h"
 
 
 #include "WidgetFactory.h"

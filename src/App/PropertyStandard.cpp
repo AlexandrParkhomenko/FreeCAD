@@ -29,12 +29,12 @@
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <boost/math/special_functions/round.hpp>
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Reader.h>
-#include <Base/Writer.h>
-#include <Base/Stream.h>
-#include <Base/Quantity.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Reader.h"
+#include "Base/Writer.h"
+#include "Base/Stream.h"
+#include "Base/Quantity.h"
 
 #include "PropertyStandard.h"
 #include "MaterialPy.h"

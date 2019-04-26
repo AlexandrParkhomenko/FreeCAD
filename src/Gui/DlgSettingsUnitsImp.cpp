@@ -30,10 +30,10 @@
 #include "DlgSettingsUnitsImp.h"
 #include "NavigationStyle.h"
 #include "PrefWidgets.h"
-#include <App/Application.h>
-#include <Base/Console.h>
-#include <Base/Parameter.h>
-#include <Base/UnitsApi.h>
+#include "App/Application.h"
+#include "Base/Console.h"
+#include "Base/Parameter.h"
+#include "Base/UnitsApi.h"
 
 using namespace Gui::Dialog;
 using namespace Base;

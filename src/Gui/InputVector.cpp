@@ -26,7 +26,7 @@
 #include "InputVector.h"
 #include "ui_InputVector.h"
 #include "QuantitySpinBox.h"
-#include <Base/UnitsApi.h>
+#include "Base/UnitsApi.h"
 
 using namespace Gui;
 

@@ -26,15 +26,15 @@
 #include "stdexport.h"
 #include <string>
 #include <boost/tuple/tuple.hpp>
-#include <Base/Exception.h>
-#include <Base/Unit.h>
-#include <App/Property.h>
-#include <App/ObjectIdentifier.h>
-#include <Base/BaseClass.h>
-#include <Base/Quantity.h>
+#include "Base/Exception.h"
+#include "Base/Unit.h"
+#include "App/Property.h"
+#include "App/ObjectIdentifier.h"
+#include "Base/BaseClass.h"
+#include "Base/Quantity.h"
 #include <set>
 #include <deque>
-#include <App/Range.h>
+#include "App/Range.h"
 
 namespace App  {
 

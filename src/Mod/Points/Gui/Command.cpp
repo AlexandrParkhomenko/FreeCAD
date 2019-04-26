@@ -27,20 +27,20 @@
 # include "FCConfig.h"
 # include <Inventor/events/SoMouseButtonEvent.h>
 
-#include <Base/Exception.h>
-#include <Base/Matrix.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/MainWindow.h>
-#include <Gui/Command.h>
-#include <Gui/FileDialog.h>
-#include <Gui/Selection.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Gui/WaitCursor.h>
+#include "Base/Exception.h"
+#include "Base/Matrix.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/MainWindow.h"
+#include "Gui/Command.h"
+#include "Gui/FileDialog.h"
+#include "Gui/Selection.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Gui/WaitCursor.h"
 
 #include "../App/PointsFeature.h"
 #include "../App/Properties.h"

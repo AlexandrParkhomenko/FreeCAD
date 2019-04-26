@@ -29,19 +29,19 @@
 
 #include "Placement.h"
 #include "ui_Placement.h"
-#include <Gui/DockWindowManager.h>
-#include <Gui/Application.h>
-#include <Gui/Command.h>
-#include <Gui/Document.h>
-#include <Gui/Selection.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/Window.h>
-#include <App/Document.h>
-#include <App/GeoFeature.h>
-#include <App/PropertyGeo.h>
-#include <Base/Console.h>
-#include <Base/Tools.h>
-#include <Base/UnitsApi.h>
+#include "Gui/DockWindowManager.h"
+#include "Gui/Application.h"
+#include "Gui/Command.h"
+#include "Gui/Document.h"
+#include "Gui/Selection.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/Window.h"
+#include "App/Document.h"
+#include "App/GeoFeature.h"
+#include "App/PropertyGeo.h"
+#include "Base/Console.h"
+#include "Base/Tools.h"
+#include "Base/UnitsApi.h"
 
 using namespace Gui::Dialog;
 

@@ -30,8 +30,8 @@
 #include <Inventor/SbLinear.h>
 #include <Inventor/SbVec2f.h>
 #include <QCursor>
-#include <Gui/GLPainter.h>
-#include <Gui/Namespace.h>
+#include "Gui/GLPainter.h"
+#include "Gui/Namespace.h"
 
 // forwards
 class QMouseEvent;

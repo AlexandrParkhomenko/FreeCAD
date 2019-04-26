@@ -32,8 +32,8 @@
 #include <QIcon>
 #include <boost/signals2.hpp>
 
-#include <App/TransactionalObject.h>
-#include <Base/Vector3D.h>
+#include "App/TransactionalObject.h"
+#include "Base/Vector3D.h"
 
 class SbVec2s;
 class SbVec3f;

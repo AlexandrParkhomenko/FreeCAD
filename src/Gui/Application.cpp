@@ -47,16 +47,16 @@
 #include <QWindow> //# for OpenGL
 
 // FreeCAD Base header
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
-#include <Base/Parameter.h>
-#include <Base/Exception.h>
-#include <Base/Factory.h>
-#include <Base/FileInfo.h>
-#include <Base/Tools.h>
-#include <Base/UnitsApi.h>
-#include <App/Document.h>
-#include <App/DocumentObjectPy.h>
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
+#include "Base/Parameter.h"
+#include "Base/Exception.h"
+#include "Base/Factory.h"
+#include "Base/FileInfo.h"
+#include "Base/Tools.h"
+#include "Base/UnitsApi.h"
+#include "App/Document.h"
+#include "App/DocumentObjectPy.h"
 
 #include "Application.h"
 #include "AutoSaver.h"
@@ -114,9 +114,9 @@
 
 #include "TaskView/TaskView.h"
 #include "TaskView/TaskDialogPython.h"
-#include <Gui/Quarter/Quarter.h>
+#include "Gui/Quarter/Quarter.h"
 #include "View3DViewerPy.h"
-#include <Gui/GuiInitScript.h>
+#include "Gui/GuiInitScript.h"
 
 
 using namespace Gui;

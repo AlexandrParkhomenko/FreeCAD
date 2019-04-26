@@ -26,10 +26,10 @@
 #include "VRMLObject.h"
 #include "Document.h"
 #include "DocumentObjectPy.h"
-#include <Base/FileInfo.h>
-#include <Base/Stream.h>
-#include <Base/Reader.h>
-#include <Base/Writer.h>
+#include "Base/FileInfo.h"
+#include "Base/Stream.h"
+#include "Base/Reader.h"
+#include "Base/Writer.h"
 
 using namespace App;
 

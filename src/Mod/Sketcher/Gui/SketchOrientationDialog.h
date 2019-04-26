@@ -24,7 +24,7 @@
 #define SKETCHERGUI_SketchOrientationDialog_H
 
 #include "stdexport.h"
-#include <Base/Placement.h>
+#include "Base/Placement.h"
 #include <QDialog>
 
 namespace SketcherGui {

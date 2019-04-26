@@ -39,21 +39,21 @@
 #include <limits>
 
 /// Here the FreeCAD includes sorted by Base,App,Gui,...
-#include <Base/Console.h>
-#include <Base/Parameter.h>
-#include <Base/Exception.h>
-#include <Base/Sequencer.h>
-#include <Base/Tools2D.h>
-#include <Base/Vector3D.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/SoFCSelection.h>
-#include <Gui/Window.h>
+#include "Base/Console.h"
+#include "Base/Parameter.h"
+#include "Base/Exception.h"
+#include "Base/Sequencer.h"
+#include "Base/Tools2D.h"
+#include "Base/Vector3D.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/SoFCSelection.h"
+#include "Gui/Window.h"
 
-#include <Gui/View3DInventorViewer.h>
-#include <Mod/Points/App/PointsFeature.h>
+#include "Gui/View3DInventorViewer.h"
+#include "Mod/Points/App/PointsFeature.h"
 
 #include "ViewProvider.h"
 #include "../App/Properties.h"

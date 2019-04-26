@@ -30,16 +30,16 @@
 #include <QItemEditorFactory>
 #include <vector>
 
-#include <Base/Factory.h>
-#include <Base/Vector3D.h>
-#include <Base/Matrix.h>
-#include <Base/Placement.h>
-#include <Base/Quantity.h>
-#include <Base/UnitsApi.h>
-#include <App/PropertyStandard.h>
-#include <Gui/Widgets.h>
-#include <Gui/ExpressionBinding.h>
-#include <Gui/MetaTypes.h>
+#include "Base/Factory.h"
+#include "Base/Vector3D.h"
+#include "Base/Matrix.h"
+#include "Base/Placement.h"
+#include "Base/Quantity.h"
+#include "Base/UnitsApi.h"
+#include "App/PropertyStandard.h"
+#include "Gui/Widgets.h"
+#include "Gui/ExpressionBinding.h"
+#include "Gui/MetaTypes.h"
 
 #ifdef Q_MOC_RUN
 Q_DECLARE_METATYPE(Base::Vector3f)

@@ -29,16 +29,16 @@
 #include "Algorithm.h"
 #include "Builder.h"
 
-#include <Base/Builder3D.h>
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Reader.h>
-#include <Base/Writer.h>
-#include <Base/FileInfo.h>
-#include <Base/Sequencer.h>
-#include <Base/Stream.h>
-#include <Base/Placement.h>
-#include <Base/Tools.h>
+#include "Base/Builder3D.h"
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Reader.h"
+#include "Base/Writer.h"
+#include "Base/FileInfo.h"
+#include "Base/Sequencer.h"
+#include "Base/Stream.h"
+#include "Base/Placement.h"
+#include "Base/Tools.h"
 #include <zipios/gzipoutputstream.hpp>
 
 #include <cmath>

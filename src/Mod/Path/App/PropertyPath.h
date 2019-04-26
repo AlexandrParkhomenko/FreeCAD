@@ -26,7 +26,7 @@
 
 #include "stdexport.h"
 #include "Path.h"
-#include <App/Property.h>
+#include "App/Property.h"
 
 namespace Path
 {

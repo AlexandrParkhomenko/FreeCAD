@@ -24,9 +24,9 @@
 #define PART_FEATUREOFFSET_H
 
 #include "stdexport.h"
-#include <App/PropertyStandard.h>
-#include <App/PropertyUnits.h>
-#include <Mod/Part/App/PartFeature.h>
+#include "App/PropertyStandard.h"
+#include "App/PropertyUnits.h"
+#include "Mod/Part/App/PartFeature.h"
 
 namespace Part
 {

@@ -29,8 +29,8 @@
 # include <TColgp_Array1OfPnt.hxx>
 # include <TColgp_Array2OfPnt.hxx>
 
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 #include "OCCError.h"
 #include "Geometry.h"

@@ -26,10 +26,10 @@
 #include "ViewProvider.h"
 #include "Workbench.h"
 
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
-#include <Gui/Application.h>
-#include <Mod/Points/App/PropertyPointKernel.h>
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
+#include "Gui/Application.h"
+#include "Mod/Points/App/PropertyPointKernel.h"
 
 // use a different name to CreateCommand()
 void CreatePointsCommands(void);

@@ -38,7 +38,7 @@ namespace Base
  *  \par
  *  bla blablablablablablabl:
  *  \code
- *  #include <Base/Console.h>
+ *  #include "Base/Console.h"
  *  Base::Console().Log("Stage: %d",i);
  *  \endcode
  *  \par

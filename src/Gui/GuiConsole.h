@@ -26,7 +26,7 @@
 
 
 #include "stdexport.h"
-#include <Base/Console.h>
+#include "Base/Console.h"
 
 namespace Gui {
 

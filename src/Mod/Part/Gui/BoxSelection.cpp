@@ -45,19 +45,19 @@
 #include "BoxSelection.h"
 #include "ViewProviderExt.h"
 
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/MainWindow.h>
-#include <Gui/Selection.h>
-#include <Gui/SelectionFilter.h>
-#include <Gui/SoFCUnifiedSelection.h>
-#include <Gui/Utilities.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/MainWindow.h"
+#include "Gui/Selection.h"
+#include "Gui/SelectionFilter.h"
+#include "Gui/SoFCUnifiedSelection.h"
+#include "Gui/Utilities.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
 
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <Mod/Part/App/PartFeature.h>
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "Mod/Part/App/PartFeature.h"
 
 
 using namespace PartGui;

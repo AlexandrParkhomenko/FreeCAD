@@ -24,7 +24,7 @@
 #ifndef SKETCHERGUI_SKETCHERSETTINGS_H
 #define SKETCHERGUI_SKETCHERSETTINGS_H
 
-#include <Gui/PropertyPage.h>
+#include "Gui/PropertyPage.h"
 
 namespace SketcherGui {
 class Ui_SketcherSettings;

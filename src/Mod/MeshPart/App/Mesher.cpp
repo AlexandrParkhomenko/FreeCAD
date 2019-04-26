@@ -23,11 +23,11 @@
 #include <algorithm>
 #include "Mesher.h"
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Tools.h>
-#include <Mod/Mesh/App/Mesh.h>
-#include <Mod/Part/App/TopoShape.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Tools.h"
+#include "Mod/Mesh/App/Mesh.h"
+#include "Mod/Part/App/TopoShape.h"
 
 #include <TopoDS_Shape.hxx>
 #include <BRepTools.hxx>

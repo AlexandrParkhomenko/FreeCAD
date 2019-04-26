@@ -27,9 +27,9 @@
 #include <vector>
 #include <QWidget>
 #include <Inventor/nodes/SoEventCallback.h>
-#include <Gui/SelectionObject.h>
-#include <Gui/TaskView/TaskDialog.h>
-#include <Gui/TaskView/TaskView.h>
+#include "Gui/SelectionObject.h"
+#include "Gui/TaskView/TaskDialog.h"
+#include "Gui/TaskView/TaskView.h"
 #include "MeshSelection.h"
 
 namespace MeshGui {

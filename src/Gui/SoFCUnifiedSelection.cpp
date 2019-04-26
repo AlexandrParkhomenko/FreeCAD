@@ -66,11 +66,11 @@
 
 #include <QtOpenGL.h>
 
-#include <Base/Console.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Gui/Document.h>
-#include <App/DocumentObject.h>
+#include "Base/Console.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Gui/Document.h"
+#include "App/DocumentObject.h"
 
 #include "SoFCUnifiedSelection.h"
 #include "Application.h"

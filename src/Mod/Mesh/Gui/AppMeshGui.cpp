@@ -22,17 +22,17 @@
 
 
 
-#include <Base/Interpreter.h>
-#include <Base/Console.h>
+#include "Base/Interpreter.h"
+#include "Base/Console.h"
 
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
 
-#include <Gui/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/WidgetFactory.h>
+#include "Gui/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/WidgetFactory.h"
 
-#include <Mod/Mesh/App/MeshProperties.h>
+#include "Mod/Mesh/App/MeshProperties.h"
 
 #include "images.h"
 #include "DlgEvaluateMeshImp.h"

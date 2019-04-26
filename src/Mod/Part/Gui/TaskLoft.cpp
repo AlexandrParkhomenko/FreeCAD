@@ -34,19 +34,19 @@
 #include "ui_TaskLoft.h"
 #include "TaskLoft.h"
 
-#include <Gui/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/Command.h>
-#include <Gui/Document.h>
-#include <Gui/Selection.h>
-#include <Gui/ViewProvider.h>
+#include "Gui/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/Command.h"
+#include "Gui/Document.h"
+#include "Gui/Selection.h"
+#include "Gui/ViewProvider.h"
 
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <Mod/Part/App/PartFeature.h>
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "Mod/Part/App/PartFeature.h"
 
 
 using namespace PartGui;

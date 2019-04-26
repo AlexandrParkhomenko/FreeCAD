@@ -25,10 +25,10 @@
 #ifndef SKETCH_SKETCHOBJECTSF_H
 #define SKETCH_SKETCHOBJECTSF_H
 
-#include <App/PropertyStandard.h>
-#include <App/PropertyFile.h>
+#include "App/PropertyStandard.h"
+#include "App/PropertyFile.h"
 
-#include <Mod/Part/App/Part2DObject.h>
+#include "Mod/Part/App/Part2DObject.h"
 
 namespace Sketcher
 {

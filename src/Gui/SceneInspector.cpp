@@ -31,7 +31,7 @@
 #include "ViewProviderDocumentObject.h"
 #include "Document.h"
 #include "Application.h"
-#include <App/Document.h>
+#include "App/Document.h"
 
 using namespace Gui::Dialog;
 

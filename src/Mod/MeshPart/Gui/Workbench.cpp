@@ -25,7 +25,7 @@
 # include <qobject.h>
 
 #include "Workbench.h"
-#include <Gui/ToolBarManager.h>
+#include "Gui/ToolBarManager.h"
 
 using namespace MeshPartGui;
 

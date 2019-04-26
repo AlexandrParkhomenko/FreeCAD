@@ -24,10 +24,10 @@
 #define MESHTRIM_H
 
 #include "stdexport.h"
-#include <Mod/Mesh/App/Core/Elements.h>
-#include <Mod/Mesh/App/Core/MeshKernel.h>
-#include <Base/Tools2D.h>
-#include <Base/ViewProj.h>
+#include "Mod/Mesh/App/Core/Elements.h"
+#include "Mod/Mesh/App/Core/MeshKernel.h"
+#include "Base/Tools2D.h"
+#include "Base/ViewProj.h"
 
 namespace MeshCore {
 

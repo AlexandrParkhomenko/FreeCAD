@@ -23,9 +23,9 @@
 
 # include "FCConfig.h"
 
-#include <Base/Console.h>
-#include <Base/PyObjectBase.h>
-#include <Gui/Application.h>
+#include "Base/Console.h"
+#include "Base/PyObjectBase.h"
+#include "Gui/Application.h"
 
 #include "Workbench.h"
 

@@ -25,17 +25,17 @@
 
 #include "ui_TaskSketcherSolverAdvanced.h"
 #include "TaskSketcherSolverAdvanced.h"
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/WaitCursor.h>
-#include <Gui/Selection.h>
-#include <Gui/Command.h>
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/WaitCursor.h"
+#include "Gui/Selection.h"
+#include "Gui/Command.h"
 
 #include <boost/bind.hpp>
 
-#include <Mod/Sketcher/App/SketchObject.h>
+#include "Mod/Sketcher/App/SketchObject.h"
 
 #include <QString>
 

@@ -36,9 +36,9 @@
 #include "EditorView.h"
 #include "PythonEditor.h"
 
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Base/Interpreter.h>
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Base/Interpreter.h"
 
 using namespace Gui;
 using namespace Gui::Dialog;

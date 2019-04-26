@@ -4,13 +4,13 @@
 #include <QLineEdit>
 #include <QAbstractItemView>
 
-#include <Base/Tools.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <App/ObjectIdentifier.h>
+#include "Base/Tools.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "App/ObjectIdentifier.h"
 #include "ExpressionCompleter.h"
-#include <App/PropertyLinks.h>
+#include "App/PropertyLinks.h"
 
 Q_DECLARE_METATYPE(App::ObjectIdentifier);
 

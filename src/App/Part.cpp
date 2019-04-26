@@ -24,7 +24,7 @@
 
 
 #include "stdexport.h"
-#include <App/Document.h>
+#include "App/Document.h"
 
 #include "Part.h"
 #include "PartPy.h"

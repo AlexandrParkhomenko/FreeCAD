@@ -24,7 +24,7 @@
 #ifndef MESHGUI_DLGSETTINGSIMPORTEXPORTIMP_H
 #define MESHGUI_DLGSETTINGSIMPORTEXPORTIMP_H
 
-#include <Gui/PropertyPage.h>
+#include "Gui/PropertyPage.h"
 
 namespace MeshGui {
 

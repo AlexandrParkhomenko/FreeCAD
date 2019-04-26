@@ -38,8 +38,8 @@
 # include <Precision.hxx>
 
 #include <cmath>
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 #include "OCCError.h"
 #include "Geometry.h"

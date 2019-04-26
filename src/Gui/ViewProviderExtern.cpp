@@ -27,9 +27,9 @@
 # include <Inventor/nodes/SoSwitch.h>
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
-#include <Base/Exception.h>
-#include <Base/FileInfo.h>
-#include <Base/Stream.h>
+#include "Base/Exception.h"
+#include "Base/FileInfo.h"
+#include "Base/Stream.h"
 #include "SoFCSelection.h"
 #include "ViewProviderExtern.h"
 

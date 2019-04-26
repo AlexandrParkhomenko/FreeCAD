@@ -26,11 +26,11 @@
 #include "PropertyPythonObject.h"
 #include "DocumentObjectPy.h"
 #include "DocumentObject.h"
-#include <Base/Base64.h>
-#include <Base/Writer.h>
-#include <Base/Reader.h>
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
+#include "Base/Base64.h"
+#include "Base/Writer.h"
+#include "Base/Reader.h"
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
 #include <iostream>
 #include <boost/regex.hpp>
 

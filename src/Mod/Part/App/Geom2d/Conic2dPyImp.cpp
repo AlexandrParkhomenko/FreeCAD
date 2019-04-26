@@ -23,11 +23,11 @@
 
 # include <Geom2d_Conic.hxx>
 
-#include <Mod/Part/App/OCCError.h>
-#include <Mod/Part/App/Geom2d/Conic2dPy.h>
+#include "Mod/Part/App/OCCError.h"
+#include "Mod/Part/App/Geom2d/Conic2dPy.h"
 #include <Mod/Part/App/Geom2d/Conic2dPy.cpp>
 
-#include <Base/GeometryPyCXX.h>
+#include "Base/GeometryPyCXX.h"
 
 using namespace Part;
 

@@ -60,12 +60,12 @@
 
 
 #include "PrimitiveFeature.h"
-#include <Mod/Part/App/PartFeaturePy.h>
-#include <App/FeaturePythonPyImp.h>
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Reader.h>
-#include <Base/Tools.h>
+#include "Mod/Part/App/PartFeaturePy.h"
+#include "App/FeaturePythonPyImp.h"
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Reader.h"
+#include "Base/Tools.h"
 
 #ifndef M_PI
 #define M_PI       3.14159265358979323846

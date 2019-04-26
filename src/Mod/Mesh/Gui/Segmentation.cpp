@@ -26,15 +26,15 @@
 
 #include "Segmentation.h"
 #include "ui_Segmentation.h"
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObjectGroup.h>
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObjectGroup.h"
 
-#include <Mod/Mesh/App/Core/Segmentation.h>
-#include <Mod/Mesh/App/Core/Curvature.h>
-#include <Mod/Mesh/App/Core/Smoothing.h>
-#include <Mod/Mesh/App/Mesh.h>
-#include <Mod/Mesh/App/MeshFeature.h>
+#include "Mod/Mesh/App/Core/Segmentation.h"
+#include "Mod/Mesh/App/Core/Curvature.h"
+#include "Mod/Mesh/App/Core/Smoothing.h"
+#include "Mod/Mesh/App/Mesh.h"
+#include "Mod/Mesh/App/MeshFeature.h"
 
 using namespace MeshGui;
 

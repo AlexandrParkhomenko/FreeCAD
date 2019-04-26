@@ -31,11 +31,11 @@
 #include "SpinBox.h"
 #include "DlgExpressionInput.h"
 #include "Command.h"
-#include <Base/Tools.h>
-#include <App/Expression.h>
+#include "Base/Tools.h"
+#include "App/Expression.h"
 #include <boost/math/special_functions/round.hpp>
 #include "QuantitySpinBox_p.h"
-#include <App/PropertyUnits.h>
+#include "App/PropertyUnits.h"
 
 using namespace Gui;
 using namespace App;

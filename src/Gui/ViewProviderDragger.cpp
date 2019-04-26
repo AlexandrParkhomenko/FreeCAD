@@ -48,10 +48,10 @@
 #include "Document.h"
 #include "Window.h"
 
-#include <Base/Console.h>
-#include <Base/Placement.h>
-#include <App/PropertyGeo.h>
-#include <App/GeoFeature.h>
+#include "Base/Console.h"
+#include "Base/Placement.h"
+#include "App/PropertyGeo.h"
+#include "App/GeoFeature.h"
 #include <Inventor/draggers/SoCenterballDragger.h>
 #include <Inventor/nodes/SoResetTransform.h>
 #include <Inventor/nodes/SoDepthBuffer.h>

@@ -40,33 +40,33 @@
 # include <GeomAPI_IntSS.hxx>
 # include <GeomLib_IsPlanarSurface.hxx>
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
 
 #include "OCCError.h"
 #include "Geometry.h"
-#include <Mod/Part/App/GeometrySurfacePy.h>
+#include "Mod/Part/App/GeometrySurfacePy.h"
 #include <Mod/Part/App/GeometrySurfacePy.cpp>
-#include <Mod/Part/App/GeometryCurvePy.h>
-#include <Mod/Part/App/BSplineSurfacePy.h>
+#include "Mod/Part/App/GeometryCurvePy.h"
+#include "Mod/Part/App/BSplineSurfacePy.h"
 
-#include <Mod/Part/App/LinePy.h>
-#include <Mod/Part/App/LineSegmentPy.h>
-#include <Mod/Part/App/BezierCurvePy.h>
-#include <Mod/Part/App/BSplineCurvePy.h>
-#include <Mod/Part/App/CirclePy.h>
-#include <Mod/Part/App/ArcOfCirclePy.h>
-#include <Mod/Part/App/EllipsePy.h>
-#include <Mod/Part/App/ArcOfEllipsePy.h>
-#include <Mod/Part/App/HyperbolaPy.h>
-#include <Mod/Part/App/ArcOfHyperbolaPy.h>
-#include <Mod/Part/App/ParabolaPy.h>
-#include <Mod/Part/App/ArcOfParabolaPy.h>
-#include <Mod/Part/App/OffsetCurvePy.h>
+#include "Mod/Part/App/LinePy.h"
+#include "Mod/Part/App/LineSegmentPy.h"
+#include "Mod/Part/App/BezierCurvePy.h"
+#include "Mod/Part/App/BSplineCurvePy.h"
+#include "Mod/Part/App/CirclePy.h"
+#include "Mod/Part/App/ArcOfCirclePy.h"
+#include "Mod/Part/App/EllipsePy.h"
+#include "Mod/Part/App/ArcOfEllipsePy.h"
+#include "Mod/Part/App/HyperbolaPy.h"
+#include "Mod/Part/App/ArcOfHyperbolaPy.h"
+#include "Mod/Part/App/ParabolaPy.h"
+#include "Mod/Part/App/ArcOfParabolaPy.h"
+#include "Mod/Part/App/OffsetCurvePy.h"
 
-#include <Mod/Part/App/TopoShape.h>
-#include <Mod/Part/App/TopoShapePy.h>
-#include <Mod/Part/App/TopoShapeFacePy.h>
+#include "Mod/Part/App/TopoShape.h"
+#include "Mod/Part/App/TopoShapePy.h"
+#include "Mod/Part/App/TopoShapeFacePy.h"
 
 namespace Part {
 const Py::Object makeGeometryCurvePy(const Handle(Geom_Curve)& c)

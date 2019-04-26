@@ -25,17 +25,17 @@
 
 #include <boost/shared_ptr.hpp>
 
-#include <Mod/Sketcher/App/SketchObject.h>
-#include <Mod/Part/App/LinePy.h>
-#include <Mod/Part/App/Geometry.h>
-#include <Mod/Part/App/DatumFeature.h>
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
-#include <Base/AxisPy.h>
-#include <Base/Tools.h>
-#include <Base/QuantityPy.h>
-#include <App/Document.h>
-#include <App/OriginFeature.h>
+#include "Mod/Sketcher/App/SketchObject.h"
+#include "Mod/Part/App/LinePy.h"
+#include "Mod/Part/App/Geometry.h"
+#include "Mod/Part/App/DatumFeature.h"
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
+#include "Base/AxisPy.h"
+#include "Base/Tools.h"
+#include "Base/QuantityPy.h"
+#include "App/Document.h"
+#include "App/OriginFeature.h"
 #include <CXX/Objects.hxx>
 
 // inclusion of the generated files (generated out of SketchObjectSFPy.xml)

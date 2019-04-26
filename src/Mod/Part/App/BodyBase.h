@@ -25,9 +25,9 @@
 #define PART_BodyBase_H
 
 #include "stdexport.h"
-#include <App/PropertyStandard.h>
-#include <App/OriginGroupExtension.h>
-#include <Mod/Part/App/PartFeature.h>
+#include "App/PropertyStandard.h"
+#include "App/OriginGroupExtension.h"
+#include "Mod/Part/App/PartFeature.h"
 
 
 namespace Part

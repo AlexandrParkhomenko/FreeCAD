@@ -32,13 +32,13 @@
 # include <GC_MakePlane.hxx>
 # include <Standard_Failure.hxx>
 
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 #include "OCCError.h"
 #include "Geometry.h"
-#include <Mod/Part/App/LinePy.h>
-#include <Mod/Part/App/PlanePy.h>
+#include "Mod/Part/App/LinePy.h"
+#include "Mod/Part/App/PlanePy.h"
 #include <Mod/Part/App/PlanePy.cpp>
 
 using namespace Part;

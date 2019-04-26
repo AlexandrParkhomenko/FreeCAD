@@ -31,7 +31,7 @@
 #include "Algorithm.h"
 #include "Iterator.h"
 
-#include <Base/Exception.h>
+#include "Base/Exception.h"
 
 using namespace MeshCore;
 

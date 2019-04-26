@@ -23,8 +23,8 @@
 
 # include <sstream>
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
 #include "WorkbenchManager.h"
 #include "Workbench.h"
 #include "MenuManager.h"

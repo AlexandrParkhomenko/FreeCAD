@@ -24,11 +24,11 @@
 #include "ExpressionBinding.h"
 #include "BitmapFactory.h"
 #include "Command.h"
-#include <App/Expression.h>
-#include <App/DocumentObject.h>
-#include <Base/Tools.h>
-#include <App/ObjectIdentifier.h>
-#include <App/Document.h>
+#include "App/Expression.h"
+#include "App/DocumentObject.h"
+#include "Base/Tools.h"
+#include "App/ObjectIdentifier.h"
+#include "App/Document.h"
 #include <boost/bind.hpp>
 
 using namespace Gui;

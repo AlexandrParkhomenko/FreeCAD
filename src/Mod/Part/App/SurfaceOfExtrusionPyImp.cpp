@@ -34,8 +34,8 @@
 #include "BezierCurvePy.h"
 #include "BSplineCurvePy.h"
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
 #include "OCCError.h"
 
 using namespace Part;

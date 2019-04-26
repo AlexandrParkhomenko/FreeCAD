@@ -22,8 +22,8 @@
 
 #include "stdexport.h"
 #include "FeaturePath.h"
-#include <App/DocumentObjectPy.h>
-#include <Base/Placement.h>
+#include "App/DocumentObjectPy.h"
+#include "Base/Placement.h"
 
 using namespace Path;
 

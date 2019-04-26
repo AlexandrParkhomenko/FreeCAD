@@ -34,16 +34,16 @@
 # include <Inventor/nodes/SoCamera.h>
 #include <algorithm>
 
-#include <Base/Exception.h>
-#include <Base/FileInfo.h>
-#include <Base/Interpreter.h>
-#include <Base/Sequencer.h>
-#include <Base/Tools.h>
-#include <App/Document.h>
-#include <App/DocumentObjectGroup.h>
-#include <App/DocumentObject.h>
-#include <App/GeoFeature.h>
-#include <App/Origin.h>
+#include "Base/Exception.h"
+#include "Base/FileInfo.h"
+#include "Base/Interpreter.h"
+#include "Base/Sequencer.h"
+#include "Base/Tools.h"
+#include "App/Document.h"
+#include "App/DocumentObjectGroup.h"
+#include "App/DocumentObject.h"
+#include "App/GeoFeature.h"
+#include "App/Origin.h"
 
 #include "Action.h"
 #include "Application.h"
@@ -61,8 +61,8 @@
 #include "ManualAlignment.h"
 #include "WaitCursor.h"
 #include "ViewProvider.h"
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
 #include "MergeDocuments.h"
 #include "NavigationStyle.h"
 #include "GraphvizView.h"

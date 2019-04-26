@@ -26,8 +26,8 @@
 #define PART_PART2DOBJECT_H
 
 #include "stdexport.h"
-#include <App/PropertyStandard.h>
-#include <Base/Axis.h>
+#include "App/PropertyStandard.h"
+#include "Base/Axis.h"
 
 #include "PartFeature.h"
 #include "AttachExtension.h"

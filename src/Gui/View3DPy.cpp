@@ -51,18 +51,18 @@
 #include "ActiveObjectList.h"
 
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Interpreter.h>
-#include <Base/PlacementPy.h>
-#include <Base/Rotation.h>
-#include <Base/RotationPy.h>
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Interpreter.h"
+#include "Base/PlacementPy.h"
+#include "Base/Rotation.h"
+#include "Base/RotationPy.h"
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <App/DocumentObjectPy.h>
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "App/DocumentObjectPy.h"
 #include <CXX/Objects.hxx>
 
 using namespace Gui;

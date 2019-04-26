@@ -26,9 +26,9 @@
 
 #include <functional>
 
-#include <Mod/Mesh/App/WildMagic4/Wm4DistVector3Triangle3.h>
-#include <Mod/Mesh/App/WildMagic4/Wm4Sphere3.h>
-#include <Mod/Mesh/App/WildMagic4/Wm4Triangle3.h>
+#include "Mod/Mesh/App/WildMagic4/Wm4DistVector3Triangle3.h"
+#include "Mod/Mesh/App/WildMagic4/Wm4Sphere3.h"
+#include "Mod/Mesh/App/WildMagic4/Wm4Triangle3.h"
 
 #include "MeshKernel.h"
 #include "Algorithm.h"

@@ -36,10 +36,10 @@
 # include <Inventor/actions/SoSearchAction.h>
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Matrix.h>
-#include <App/PropertyGeo.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Matrix.h"
+#include "App/PropertyGeo.h"
 
 #include "ViewProvider.h"
 #include "Application.h"

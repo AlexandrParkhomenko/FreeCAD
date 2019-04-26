@@ -25,8 +25,8 @@
 #include <QDir>
 #include <QMessageBox>
 
-#include <App/Document.h>
-#include <App/PropertyStandard.h>
+#include "App/Document.h"
+#include "App/PropertyStandard.h"
 
 #include "DlgProjectUtility.h"
 #include "Application.h"

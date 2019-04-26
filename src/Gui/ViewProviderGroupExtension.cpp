@@ -30,12 +30,12 @@
 #include "Application.h"
 #include "Document.h"
 #include "MainWindow.h"
-#include <Base/Tools.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <App/GroupExtension.h>
-#include <App/Expression.h>
-#include <Base/Console.h>
+#include "Base/Tools.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "App/GroupExtension.h"
+#include "App/Expression.h"
+#include "Base/Console.h"
 #include <QMessageBox>
 
 using namespace Gui;

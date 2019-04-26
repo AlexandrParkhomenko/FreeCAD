@@ -27,8 +27,8 @@
 #include "SurfaceOfRevolutionPy.h"
 #include "SurfaceOfRevolutionPy.cpp"
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
 #include "OCCError.h"
 
 using namespace Part;

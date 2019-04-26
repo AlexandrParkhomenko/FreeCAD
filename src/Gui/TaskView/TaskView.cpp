@@ -36,16 +36,16 @@
 #include "TaskDialog.h"
 #include "TaskAppearance.h"
 #include "TaskEditControl.h"
-#include <Gui/Document.h>
-#include <Gui/Application.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/Control.h>
-#include <Gui/ActionFunction.h>
+#include "Gui/Document.h"
+#include "Gui/Application.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/Control.h"
+#include "Gui/ActionFunction.h"
 
 #if defined (QSINT_ACTIONPANEL)
-#include <Gui/QSint/actionpanel/taskgroup_p.h>
-#include <Gui/QSint/actionpanel/taskheader_p.h>
-#include <Gui/QSint/actionpanel/freecadscheme.h>
+#include "Gui/QSint/actionpanel/taskgroup_p.h"
+#include "Gui/QSint/actionpanel/taskheader_p.h"
+#include "Gui/QSint/actionpanel/freecadscheme.h"
 #endif
 
 using namespace Gui::TaskView;

@@ -23,10 +23,10 @@
 
 # include <cmath>
 
-#include <Base/Writer.h>
-#include <Base/Reader.h>
-#include <Base/Tools.h>
-#include <App/Property.h>
+#include "Base/Writer.h"
+#include "Base/Reader.h"
+#include "Base/Tools.h"
+#include "App/Property.h"
 #include <QDateTime>
 
 #include "Constraint.h"

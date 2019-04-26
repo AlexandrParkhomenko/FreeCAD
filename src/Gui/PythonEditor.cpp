@@ -35,9 +35,9 @@
 #include "FileDialog.h"
 #include "DlgEditorImp.h"
 
-#include <Base/Interpreter.h>
-#include <Base/Exception.h>
-#include <Base/Parameter.h>
+#include "Base/Interpreter.h"
+#include "Base/Exception.h"
+#include "Base/Parameter.h"
 
 using namespace Gui;
 

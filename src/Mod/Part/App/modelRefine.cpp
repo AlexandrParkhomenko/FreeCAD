@@ -21,7 +21,7 @@
  ***************************************************************************/
 
 
-#include <Base/Tools.h>
+#include "Base/Tools.h"
 #include <algorithm>
 #include <iterator>
 #include <Geom_Surface.hxx>
@@ -64,7 +64,7 @@
 #include <BRepGProp.hxx>
 #include <GProp_GProps.hxx>
 #include <Standard_Version.hxx>
-#include <Base/Console.h>
+#include "Base/Console.h"
 #include "modelRefine.h"
 
 using namespace ModelRefine;

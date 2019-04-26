@@ -53,20 +53,20 @@
 #include "ImportOCAF.h"
 #include "ExportOCAF.h"
 //#include "ImportOCAFAssembly.h"
-#include <Base/PyObjectBase.h>
-#include <Base/Console.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObjectPy.h>
-#include <Mod/Part/App/PartFeature.h>
-#include <Mod/Part/App/ProgressIndicator.h>
-#include <Mod/Part/App/ImportIges.h>
-#include <Mod/Part/App/ImportStep.h>
-#include <Mod/Part/App/encodeFilename.h>
-#include <Mod/Part/App/TopoShape.h>
-#include <Mod/Part/App/TopoShapePy.h>
-#include <Mod/Part/App/PartFeature.h>
-#include <Mod/Part/App/PartFeaturePy.h>
+#include "Base/PyObjectBase.h"
+#include "Base/Console.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObjectPy.h"
+#include "Mod/Part/App/PartFeature.h"
+#include "Mod/Part/App/ProgressIndicator.h"
+#include "Mod/Part/App/ImportIges.h"
+#include "Mod/Part/App/ImportStep.h"
+#include "Mod/Part/App/encodeFilename.h"
+#include "Mod/Part/App/TopoShape.h"
+#include "Mod/Part/App/TopoShapePy.h"
+#include "Mod/Part/App/PartFeature.h"
+#include "Mod/Part/App/PartFeaturePy.h"
 
 //#include "ImpExpDxf.h"
 

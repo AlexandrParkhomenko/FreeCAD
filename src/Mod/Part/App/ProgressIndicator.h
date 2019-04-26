@@ -26,7 +26,7 @@
 
 #include "stdexport.h"
 #include <Message_ProgressIndicator.hxx>
-#include <Base/Sequencer.h>
+#include "Base/Sequencer.h"
 #include <memory>
 
 namespace Part {

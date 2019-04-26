@@ -48,14 +48,14 @@
 #include "ui_DocumentRecovery.h"
 #include "WaitCursor.h"
 
-#include <Base/Exception.h>
+#include "Base/Exception.h"
 
-#include <App/Application.h>
-#include <App/Document.h>
+#include "App/Application.h"
+#include "App/Document.h"
 
-#include <Gui/Application.h>
-#include <Gui/Command.h>
-#include <Gui/Document.h>
+#include "Gui/Application.h"
+#include "Gui/Command.h"
+#include "Gui/Document.h"
 
 #include <QDomDocument>
 #include <boost/interprocess/sync/file_lock.hpp>

@@ -23,8 +23,8 @@
 
 # include <sstream>
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
 
 #include "Geometry.h"
 #include "BoundedCurvePy.h"

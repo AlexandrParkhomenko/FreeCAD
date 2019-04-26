@@ -91,16 +91,16 @@
 #include <NCollection_List.hxx>
 #include <BRepFill_Filling.hxx>
 
-#include <Base/Console.h>
-#include <Base/PyObjectBase.h>
-#include <Base/Interpreter.h>
-#include <Base/Exception.h>
-#include <Base/FileInfo.h>
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObjectPy.h>
+#include "Base/Console.h"
+#include "Base/PyObjectBase.h"
+#include "Base/Interpreter.h"
+#include "Base/Exception.h"
+#include "Base/FileInfo.h"
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObjectPy.h"
 
 #include "OCCError.h"
 #include "TopoShape.h"

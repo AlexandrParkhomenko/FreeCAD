@@ -26,8 +26,8 @@
 # include <TColStd_Array1OfReal.hxx>
 # include <TColgp_Array1OfPnt.hxx>
 
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 #include "OCCError.h"
 #include "Geometry.h"

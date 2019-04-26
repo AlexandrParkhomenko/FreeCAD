@@ -30,8 +30,8 @@
 # include <gp_Cylinder.hxx>
 # include <gp_Lin.hxx>
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
 
 #include "OCCError.h"
 #include "Geometry.h"

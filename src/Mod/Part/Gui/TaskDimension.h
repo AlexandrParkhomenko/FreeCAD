@@ -36,8 +36,8 @@
 #include <Inventor/engines/SoSubEngine.h>
 #include <Inventor/engines/SoEngine.h>
 
-#include <Gui/TaskView/TaskDialog.h>
-#include <Gui/TaskView/TaskView.h>
+#include "Gui/TaskView/TaskDialog.h"
+#include "Gui/TaskView/TaskView.h"
 
 class TopoDS_Shape;
 class TopoDS_Face;

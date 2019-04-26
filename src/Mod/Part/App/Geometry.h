@@ -57,8 +57,8 @@
 #include <gp_Vec.hxx>
 #include <list>
 #include <vector>
-#include <Base/Persistence.h>
-#include <Base/Vector3D.h>
+#include "Base/Persistence.h"
+#include "Base/Vector3D.h"
 
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>

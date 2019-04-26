@@ -28,8 +28,8 @@
 #include "Command.h"
 //#include "Mod/Robot/App/kdl_cp/path_composite.hpp"
 //#include "Mod/Robot/App/kdl_cp/frames_io.hpp"
-#include <Base/Persistence.h>
-#include <Base/Vector3D.h>
+#include "Base/Persistence.h"
+#include "Base/Vector3D.h"
 
 namespace Path
 {

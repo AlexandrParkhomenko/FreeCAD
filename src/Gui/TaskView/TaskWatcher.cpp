@@ -26,13 +26,13 @@
 
 
 #include <QObject>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Gui/Application.h>
-#include <Gui/Command.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/TaskView/TaskView.h>
-#include <Gui/Action.h>
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Gui/Application.h"
+#include "Gui/Command.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/TaskView/TaskView.h"
+#include "Gui/Action.h"
 
 #include "TaskWatcher.h"
 

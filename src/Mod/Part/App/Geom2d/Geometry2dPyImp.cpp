@@ -31,21 +31,21 @@
 # include <Precision.hxx>
 # include <Standard_Failure.hxx>
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/Matrix.h>
-#include <Base/MatrixPy.h>
-#include <Base/Tools2D.h>
-#include <Base/Rotation.h>
-#include <Base/Placement.h>
-#include <Base/PlacementPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/Matrix.h"
+#include "Base/MatrixPy.h"
+#include "Base/Tools2D.h"
+#include "Base/Rotation.h"
+#include "Base/Placement.h"
+#include "Base/PlacementPy.h"
 
-#include <Mod/Part/App/OCCError.h>
-#include <Mod/Part/App/Geometry2d.h>
-#include <Mod/Part/App/Geom2d/Geometry2dPy.h>
+#include "Mod/Part/App/OCCError.h"
+#include "Mod/Part/App/Geometry2d.h"
+#include "Mod/Part/App/Geom2d/Geometry2dPy.h"
 #include <Mod/Part/App/Geom2d/Geometry2dPy.cpp>
 
-#include <Mod/Part/App/TopoShape.h>
-#include <Mod/Part/App/TopoShapePy.h>
+#include "Mod/Part/App/TopoShape.h"
+#include "Mod/Part/App/TopoShapePy.h"
 
 using namespace Part;
 

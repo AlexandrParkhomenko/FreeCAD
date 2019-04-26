@@ -26,8 +26,8 @@
 # include <QApplication>
 # include <QPixmap>
 
-#include <App/DocumentObjectGroup.h>
-#include <App/Document.h>
+#include "App/DocumentObjectGroup.h"
+#include "App/Document.h"
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "ViewProviderMaterialObject.h"

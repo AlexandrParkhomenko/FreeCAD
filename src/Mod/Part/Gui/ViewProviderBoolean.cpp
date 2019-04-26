@@ -29,11 +29,11 @@
 # include <TopTools_ListIteratorOfListOfShape.hxx>
 
 #include "ViewProviderBoolean.h"
-#include <Gui/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Mod/Part/App/FeaturePartBoolean.h>
-#include <Mod/Part/App/FeaturePartFuse.h>
-#include <Mod/Part/App/FeaturePartCommon.h>
+#include "Gui/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Mod/Part/App/FeaturePartBoolean.h"
+#include "Mod/Part/App/FeaturePartFuse.h"
+#include "Mod/Part/App/FeaturePartCommon.h"
 
 using namespace PartGui;
 

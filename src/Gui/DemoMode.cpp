@@ -36,7 +36,7 @@
 #include "MainWindow.h"
 #include "View3DInventor.h"
 #include "View3DInventorViewer.h"
-#include <Base/Tools.h>
+#include "Base/Tools.h"
 
 using namespace Gui::Dialog;
 

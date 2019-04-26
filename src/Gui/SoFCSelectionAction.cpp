@@ -47,7 +47,7 @@
 #  include <Inventor/nodes/SoLightModel.h>
 #  include <Inventor/nodes/SoBaseColor.h>
 
-#include <Base/Console.h>
+#include "Base/Console.h"
 
 #include "SoFCSelectionAction.h"
 #include "SoFCSelection.h"

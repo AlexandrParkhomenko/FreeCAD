@@ -28,7 +28,7 @@
 
 #include "DockWindowManager.h"
 #include "MainWindow.h"
-#include <App/Application.h>
+#include "App/Application.h"
 
 using namespace Gui;
 

@@ -55,12 +55,12 @@
 #include "BitmapFactory.h"
 #include "Document.h"
 #include "WidgetFactory.h"
-#include <App/DocumentObjectPy.h>
-#include <App/GeoFeature.h>
-#include <App/PropertyGeo.h>
-#include <Base/Console.h>
-#include <Base/Reader.h>
-#include <Base/Interpreter.h>
+#include "App/DocumentObjectPy.h"
+#include "App/GeoFeature.h"
+#include "App/PropertyGeo.h"
+#include "Base/Console.h"
+#include "Base/Reader.h"
+#include "Base/Interpreter.h"
 
 
 using namespace Gui;

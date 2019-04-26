@@ -26,15 +26,15 @@
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
 
-#include <Base/PyObjectBase.h>
-#include <Base/Console.h>
-#include <Base/Vector3D.h>
-#include <Mod/Part/App/TopoShapePy.h>
-#include <Mod/Part/App/TopoShapeWirePy.h>
-#include <Mod/Mesh/App/Core/Algorithm.h>
-#include <Mod/Mesh/App/Core/MeshKernel.h>
-#include <Mod/Mesh/App/Mesh.h>
-#include <Mod/Mesh/App/MeshPy.h>
+#include "Base/PyObjectBase.h"
+#include "Base/Console.h"
+#include "Base/Vector3D.h"
+#include "Mod/Part/App/TopoShapePy.h"
+#include "Mod/Part/App/TopoShapeWirePy.h"
+#include "Mod/Mesh/App/Core/Algorithm.h"
+#include "Mod/Mesh/App/Core/MeshKernel.h"
+#include "Mod/Mesh/App/Mesh.h"
+#include "Mod/Mesh/App/MeshPy.h"
 #include "MeshAlgos.h"
 #include "Mesher.h"
 

@@ -32,33 +32,33 @@
 #include <GC_MakeEllipse.hxx>
 
 #include <boost/math/special_functions/fpclassify.hpp>
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Tools.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Tools.h"
 
-#include <App/OriginFeature.h>
-#include <Gui/Action.h>
-#include <Gui/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/Document.h>
-#include <Gui/Command.h>
-#include <Gui/MainWindow.h>
-#include <Gui/DlgEditFileIncludeProptertyExternal.h>
-#include <Gui/Selection.h>
-#include <Gui/SelectionFilter.h>
-#include <Mod/Sketcher/App/SketchObject.h>
-#include <Mod/Part/App/DatumFeature.h>
-#include <Mod/Part/App/BodyBase.h>
+#include "App/OriginFeature.h"
+#include "Gui/Action.h"
+#include "Gui/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/Document.h"
+#include "Gui/Command.h"
+#include "Gui/MainWindow.h"
+#include "Gui/DlgEditFileIncludeProptertyExternal.h"
+#include "Gui/Selection.h"
+#include "Gui/SelectionFilter.h"
+#include "Mod/Sketcher/App/SketchObject.h"
+#include "Mod/Part/App/DatumFeature.h"
+#include "Mod/Part/App/BodyBase.h"
 
 #include "ViewProviderSketch.h"
 #include "DrawSketchHandler.h"
 #include "CommandConstraints.h"
 
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Gui/SoFCUnifiedSelection.h>
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Gui/SoFCUnifiedSelection.h"
 
-#include <Gui/ToolBarManager.h>
+#include "Gui/ToolBarManager.h"
 
 #include "GeometryCreationMode.h"
 

@@ -28,7 +28,7 @@
 #include <Inventor/fields/SoSubField.h>
 #include <Inventor/nodes/SoSubNode.h>
 #include <Inventor/elements/SoReplacedElement.h>
-#include <Mod/Mesh/App/Core/Elements.h>
+#include "Mod/Mesh/App/Core/Elements.h"
 
 namespace MeshGui {
 

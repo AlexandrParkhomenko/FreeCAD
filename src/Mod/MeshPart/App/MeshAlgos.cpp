@@ -28,18 +28,18 @@
 
 #include "MeshAlgos.h"
 
-#include <Mod/Mesh/App/Mesh.h>
-#include <Mod/Mesh/App/Core/MeshIO.h>
-#include <Mod/Mesh/App/Core/MeshKernel.h>
-#include <Mod/Mesh/App/Core/Iterator.h>
-#include <Mod/Mesh/App/Core/Algorithm.h>
-#include <Mod/Mesh/App/Core/TopoAlgorithm.h>
-#include <Mod/Mesh/App/Core/Evaluation.h>
+#include "Mod/Mesh/App/Mesh.h"
+#include "Mod/Mesh/App/Core/MeshIO.h"
+#include "Mod/Mesh/App/Core/MeshKernel.h"
+#include "Mod/Mesh/App/Core/Iterator.h"
+#include "Mod/Mesh/App/Core/Algorithm.h"
+#include "Mod/Mesh/App/Core/TopoAlgorithm.h"
+#include "Mod/Mesh/App/Core/Evaluation.h"
 
-#include <Base/Exception.h>
-#include <Base/FileInfo.h>
-#include <Base/Console.h>
-#include <Base/Builder3D.h>
+#include "Base/Exception.h"
+#include "Base/FileInfo.h"
+#include "Base/Console.h"
+#include "Base/Builder3D.h"
 
 using namespace MeshPart;
 using namespace MeshCore;

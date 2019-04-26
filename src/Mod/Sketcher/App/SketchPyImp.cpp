@@ -21,11 +21,11 @@
  ***************************************************************************/
 
 
-#include <Base/VectorPy.h>
+#include "Base/VectorPy.h"
 
-#include <Mod/Part/App/Geometry.h>
-#include <Mod/Part/App/GeometryCurvePy.h>
-#include <Mod/Part/App/TopoShapePy.h>
+#include "Mod/Part/App/Geometry.h"
+#include "Mod/Part/App/GeometryCurvePy.h"
+#include "Mod/Part/App/TopoShapePy.h"
 #include <CXX/Objects.hxx>
 
 #include "Sketch.h"

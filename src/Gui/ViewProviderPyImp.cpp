@@ -34,14 +34,14 @@
 #include "WidgetFactory.h"
 
 // inclusion of the generated files (generated out of ViewProviderPy2.xml)
-#include <Gui/ViewProviderPy.h>
+#include "Gui/ViewProviderPy.h"
 #include <Gui/ViewProviderPy.cpp>
-#include <Base/Interpreter.h>
-#include <Base/Matrix.h>
-#include <Base/MatrixPy.h>
-#include <Base/Placement.h>
-#include <Base/PlacementPy.h>
-#include <App/DocumentObject.h>
+#include "Base/Interpreter.h"
+#include "Base/Matrix.h"
+#include "Base/MatrixPy.h"
+#include "Base/Placement.h"
+#include "Base/PlacementPy.h"
+#include "App/DocumentObject.h"
 
 using namespace Gui;
 

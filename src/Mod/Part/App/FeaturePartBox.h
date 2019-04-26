@@ -26,7 +26,7 @@
 #define PART_FEATUREPARTBOX_H
 
 #include "stdexport.h"
-#include <App/PropertyStandard.h>
+#include "App/PropertyStandard.h"
 
 #include "PrimitiveFeature.h"
 

@@ -47,29 +47,29 @@
 # include <ios>
 
 // Here the FreeCAD includes sorted by Base,App,Gui......
-#include <Base/Console.h>
-#include <Base/Parameter.h>
-#include <Base/Exception.h>
-#include <Base/Sequencer.h>
-#include <App/Annotation.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObjectGroup.h>
-#include <Gui/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/Document.h>
-#include <Gui/MainWindow.h>
-#include <Gui/Selection.h>
-#include <Gui/SoFCSelection.h>
-#include <Gui/SoFCColorBar.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Gui/ViewProviderGeometryObject.h>
-#include <Gui/Widgets.h>
+#include "Base/Console.h"
+#include "Base/Parameter.h"
+#include "Base/Exception.h"
+#include "Base/Sequencer.h"
+#include "App/Annotation.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObjectGroup.h"
+#include "Gui/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/Document.h"
+#include "Gui/MainWindow.h"
+#include "Gui/Selection.h"
+#include "Gui/SoFCSelection.h"
+#include "Gui/SoFCColorBar.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Gui/ViewProviderGeometryObject.h"
+#include "Gui/Widgets.h"
 
-#include <Mod/Mesh/App/MeshProperties.h>
-#include <Mod/Mesh/App/MeshFeature.h>
-#include <Mod/Mesh/App/FeatureMeshCurvature.h>
-#include <Mod/Mesh/App/MeshProperties.h>
+#include "Mod/Mesh/App/MeshProperties.h"
+#include "Mod/Mesh/App/MeshFeature.h"
+#include "Mod/Mesh/App/FeatureMeshCurvature.h"
+#include "Mod/Mesh/App/MeshProperties.h"
 
 #include "ViewProvider.h"
 #include "ViewProviderCurvature.h"

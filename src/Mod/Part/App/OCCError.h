@@ -53,11 +53,11 @@
 # include <Standard_TypeMismatch.hxx>
 # include <Standard_Underflow.hxx>
 
-#include <Base/Console.h>
-#include <Base/PyObjectBase.h>
-#include <Base/Interpreter.h>
-#include <Base/Exception.h>
-#include <App/Application.h>
+#include "Base/Console.h"
+#include "Base/PyObjectBase.h"
+#include "Base/Interpreter.h"
+#include "Base/Exception.h"
+#include "App/Application.h"
 
 namespace Part {
 Standard_EXPORT extern PyObject* PartExceptionOCCError;

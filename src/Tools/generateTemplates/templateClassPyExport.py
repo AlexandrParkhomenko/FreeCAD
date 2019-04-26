@@ -238,9 +238,9 @@ public:
 #include <boost/filesystem/path.hpp>
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/exception.hpp>
-#include <Base/PyObjectBase.h>
-#include <Base/Console.h>
-#include <Base/Exception.h>
+#include "Base/PyObjectBase.h"
+#include "Base/Console.h"
+#include "Base/Exception.h"
 #include <CXX/Objects.hxx>
 
 using Base::streq;

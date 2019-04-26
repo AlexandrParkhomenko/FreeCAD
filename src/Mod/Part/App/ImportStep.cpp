@@ -66,10 +66,10 @@
 #include <StepBasic_ProductDefinition.hxx>
 #include <StepBasic_ProductDefinitionFormation.hxx>
 
-#include <Base/Console.h>
-#include <Base/Sequencer.h>
-#include <App/Application.h>
-#include <App/Document.h>
+#include "Base/Console.h"
+#include "Base/Sequencer.h"
+#include "App/Application.h"
+#include "App/Document.h"
 
 #include "ImportStep.h"
 #include "PartFeature.h"

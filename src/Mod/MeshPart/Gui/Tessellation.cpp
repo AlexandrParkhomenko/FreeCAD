@@ -27,21 +27,21 @@
 
 #include "Tessellation.h"
 #include "ui_Tessellation.h"
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Tools.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Gui/Application.h>
-#include <Gui/Command.h>
-#include <Gui/Document.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/Selection.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/WaitCursor.h>
-#include <Mod/Part/App/PartFeature.h>
-#include <Mod/Mesh/Gui/ViewProvider.h>
-#include <Mod/Part/Gui/ViewProvider.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Tools.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Gui/Application.h"
+#include "Gui/Command.h"
+#include "Gui/Document.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/Selection.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/WaitCursor.h"
+#include "Mod/Part/App/PartFeature.h"
+#include "Mod/Mesh/Gui/ViewProvider.h"
+#include "Mod/Part/Gui/ViewProvider.h"
 
 using namespace MeshPartGui;
 

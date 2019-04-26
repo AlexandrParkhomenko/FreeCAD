@@ -27,9 +27,9 @@
 #include <map>
 #include <QPointer>
 
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObserver.h>
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObserver.h"
 
 class QAbstractButton;
 

@@ -25,7 +25,7 @@
 #define GUI_DIALOG_DLGSETTINGSCOLORGRADIENT_IMP_H
 
 #include "ui_DlgSettingsColorGradient.h"
-#include <App/ColorModel.h>
+#include "App/ColorModel.h"
 
 class QDoubleValidator;
 

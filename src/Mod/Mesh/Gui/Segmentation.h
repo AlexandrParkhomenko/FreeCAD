@@ -26,8 +26,8 @@
 
 #include "stdexport.h"
 #include <QWidget>
-#include <Gui/TaskView/TaskDialog.h>
-#include <Gui/TaskView/TaskView.h>
+#include "Gui/TaskView/TaskDialog.h"
+#include "Gui/TaskView/TaskView.h"
 
 // forward declarations
 namespace Mesh { class Feature; }

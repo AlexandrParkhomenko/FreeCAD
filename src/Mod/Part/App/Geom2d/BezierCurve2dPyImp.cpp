@@ -26,11 +26,11 @@
 # include <TColStd_Array1OfReal.hxx>
 # include <TColgp_Array1OfPnt2d.hxx>
 
-#include <Base/GeometryPyCXX.h>
+#include "Base/GeometryPyCXX.h"
 
-#include <Mod/Part/App/OCCError.h>
-#include <Mod/Part/App/Geometry2d.h>
-#include <Mod/Part/App/Geom2d/BezierCurve2dPy.h>
+#include "Mod/Part/App/OCCError.h"
+#include "Mod/Part/App/Geometry2d.h"
+#include "Mod/Part/App/Geom2d/BezierCurve2dPy.h"
 #include <Mod/Part/App/Geom2d/BezierCurve2dPy.cpp>
 
 using namespace Part;

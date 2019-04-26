@@ -29,8 +29,8 @@
 #include "Extension.h"
 #include "DocumentObject.h"
 #include "Base/Exception.h"
-#include <Base/Console.h>
-#include <Base/PyObjectBase.h>
+#include "Base/Console.h"
+#include "Base/PyObjectBase.h"
 #include <ExtensionPy.h>
  
 /* We do not use a standard property macro for type initiation. The reason is that we have the first

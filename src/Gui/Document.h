@@ -31,8 +31,8 @@
 #include <map>
 #include <string>
 
-#include <Base/Persistence.h>
-#include <App/Document.h>
+#include "Base/Persistence.h"
+#include "App/Document.h"
 
 #include "Tree.h"
 

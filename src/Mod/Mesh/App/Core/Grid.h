@@ -28,8 +28,8 @@
 #include <set>
 
 #include "MeshKernel.h"
-#include <Base/Vector3D.h>
-#include <Base/BoundBox.h>
+#include "Base/Vector3D.h"
+#include "Base/BoundBox.h"
 
 #define  MESH_CT_GRID          256     // Default value for number of elements per grid
 #define  MESH_MAX_GRIDS        100000  // Default value for maximum number of grids

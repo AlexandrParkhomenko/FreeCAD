@@ -31,14 +31,14 @@
 
 #include <gp_Pln.hxx>
 
-#include <Base/Vector3D.h>
+#include "Base/Vector3D.h"
 
 
 class TopoDS_Edge;
 class TopoDS_Shape;
 #include <TopoDS_Edge.hxx>
 
-#include <Mod/Mesh/App/Mesh.h>
+#include "Mod/Mesh/App/Mesh.h"
 
 namespace MeshCore
 {

@@ -44,9 +44,9 @@
 #include "Algorithm.h"
 #include "Grid.h"
 
-#include <Base/Exception.h>
-#include <Base/Console.h>
-#include <Base/Sequencer.h>
+#include "Base/Exception.h"
+#include "Base/Console.h"
+#include "Base/Sequencer.h"
 
 
 using namespace MeshCore;

@@ -30,7 +30,7 @@
 #include <QRadioButton>
 #include <QFontComboBox>
 #include <QFont>
-#include <Base/Parameter.h>
+#include "Base/Parameter.h"
 #include "Widgets.h"
 #include "Window.h"
 #include "SpinBox.h"

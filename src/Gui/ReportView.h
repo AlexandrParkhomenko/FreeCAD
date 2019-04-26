@@ -27,7 +27,7 @@
 #include "stdexport.h"
 #include <QTextEdit>
 #include <QSyntaxHighlighter>
-#include <Base/Console.h>
+#include "Base/Console.h"
 #include "DockWindow.h"
 #include "Window.h"
 

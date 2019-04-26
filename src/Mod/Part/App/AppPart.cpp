@@ -17,12 +17,12 @@
 # include <OSD.hxx>
 # include <sstream>
 
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
-#include <Base/Parameter.h>
-#include <Base/ExceptionFactory.h>
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
+#include "Base/Parameter.h"
+#include "Base/ExceptionFactory.h"
 
-#include <App/Application.h>
+#include "App/Application.h"
 
 #include "OCCError.h"
 #include "TopoShape.h"
@@ -96,23 +96,23 @@
 #include "Mod/Part/App/BRepOffsetAPI_MakePipeShellPy.h"
 #include "Mod/Part/App/PartFeaturePy.h"
 #include "Mod/Part/App/AttachEnginePy.h"
-#include <Mod/Part/App/Geom2d/ArcOfCircle2dPy.h>
-#include <Mod/Part/App/Geom2d/ArcOfConic2dPy.h>
-#include <Mod/Part/App/Geom2d/ArcOfEllipse2dPy.h>
-#include <Mod/Part/App/Geom2d/ArcOfHyperbola2dPy.h>
-#include <Mod/Part/App/Geom2d/ArcOfParabola2dPy.h>
-#include <Mod/Part/App/Geom2d/BezierCurve2dPy.h>
-#include <Mod/Part/App/Geom2d/BSplineCurve2dPy.h>
-#include <Mod/Part/App/Geom2d/Circle2dPy.h>
-#include <Mod/Part/App/Geom2d/Conic2dPy.h>
-#include <Mod/Part/App/Geom2d/Ellipse2dPy.h>
-#include <Mod/Part/App/Geom2d/Geometry2dPy.h>
-#include <Mod/Part/App/Geom2d/Hyperbola2dPy.h>
-#include <Mod/Part/App/Geom2d/Curve2dPy.h>
-#include <Mod/Part/App/Geom2d/Line2dSegmentPy.h>
-#include <Mod/Part/App/Geom2d/Line2dPy.h>
-#include <Mod/Part/App/Geom2d/OffsetCurve2dPy.h>
-#include <Mod/Part/App/Geom2d/Parabola2dPy.h>
+#include "Mod/Part/App/Geom2d/ArcOfCircle2dPy.h"
+#include "Mod/Part/App/Geom2d/ArcOfConic2dPy.h"
+#include "Mod/Part/App/Geom2d/ArcOfEllipse2dPy.h"
+#include "Mod/Part/App/Geom2d/ArcOfHyperbola2dPy.h"
+#include "Mod/Part/App/Geom2d/ArcOfParabola2dPy.h"
+#include "Mod/Part/App/Geom2d/BezierCurve2dPy.h"
+#include "Mod/Part/App/Geom2d/BSplineCurve2dPy.h"
+#include "Mod/Part/App/Geom2d/Circle2dPy.h"
+#include "Mod/Part/App/Geom2d/Conic2dPy.h"
+#include "Mod/Part/App/Geom2d/Ellipse2dPy.h"
+#include "Mod/Part/App/Geom2d/Geometry2dPy.h"
+#include "Mod/Part/App/Geom2d/Hyperbola2dPy.h"
+#include "Mod/Part/App/Geom2d/Curve2dPy.h"
+#include "Mod/Part/App/Geom2d/Line2dSegmentPy.h"
+#include "Mod/Part/App/Geom2d/Line2dPy.h"
+#include "Mod/Part/App/Geom2d/OffsetCurve2dPy.h"
+#include "Mod/Part/App/Geom2d/Parabola2dPy.h"
 #include "PropertyGeometryList.h"
 #include "DatumFeature.h"
 #include "Attacher.h"

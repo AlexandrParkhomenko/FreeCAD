@@ -24,10 +24,10 @@
 #define PATH_FeatureArea_H
 
 #include "stdexport.h"
-#include <App/DocumentObject.h>
-#include <App/GeoFeature.h>
-#include <App/PropertyUnits.h>
-#include <App/FeaturePython.h>
+#include "App/DocumentObject.h"
+#include "App/GeoFeature.h"
+#include "App/PropertyUnits.h"
+#include "App/FeaturePython.h"
 #include "Mod/Part/App/PartFeature.h"
 
 #include "Area.h"

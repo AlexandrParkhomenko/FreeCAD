@@ -29,7 +29,7 @@
 
 #include "ui_DlgDisplayProperties.h"
 #include "Selection.h"
-#include <App/Material.h>
+#include "App/Material.h"
 
 namespace App
 {

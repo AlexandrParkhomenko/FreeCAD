@@ -34,7 +34,7 @@
 # include <QRunnable>
 # include <QThreadPool>
 
-#include <Base/Console.h>
+#include "Base/Console.h"
 #include "Application.h"
 #include "MainWindow.h"
 #include "MDIView.h"

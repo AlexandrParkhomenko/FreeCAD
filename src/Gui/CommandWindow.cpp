@@ -33,8 +33,8 @@
 #include "DlgActivateWindowImp.h"
 #include "DockWindowManager.h"
 
-#include <Base/Exception.h>
-#include <App/Document.h>
+#include "Base/Exception.h"
+#include "App/Document.h"
 
 using namespace Gui;
 

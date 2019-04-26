@@ -33,8 +33,8 @@
 # include <GeomAPI_PointsToBSplineSurface.hxx>
 # include <GeomAbs_Shape.hxx>
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
 
 #include "OCCError.h"
 #include "Geometry.h"

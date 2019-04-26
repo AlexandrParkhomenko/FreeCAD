@@ -30,7 +30,7 @@
 #include "Command.h"
 #include "Application.h"
 #include "Document.h"
-#include <App/GeoFeatureGroupExtension.h>
+#include "App/GeoFeatureGroupExtension.h"
 #include <Inventor/nodes/SoGroup.h>
 
 using namespace Gui;

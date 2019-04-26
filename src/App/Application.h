@@ -29,9 +29,9 @@
 #include <boost/signals2.hpp>
 #include <vector>
 
-#include <Base/PyObjectBase.h>
-#include <Base/Parameter.h>
-#include <Base/Observer.h>
+#include "Base/PyObjectBase.h"
+#include "Base/Parameter.h"
+#include "Base/Observer.h"
 
 
 namespace Base

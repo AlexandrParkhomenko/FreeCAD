@@ -23,7 +23,7 @@
 
 #include "DlgSettingsImportExportImp.h"
 #include "ui_DlgSettingsImportExport.h"
-#include <App/Application.h>
+#include "App/Application.h"
 
 
 using namespace MeshGui;

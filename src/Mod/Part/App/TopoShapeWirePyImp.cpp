@@ -44,17 +44,17 @@
 #include <GCPnts_QuasiUniformAbscissa.hxx>
 #include <GCPnts_QuasiUniformDeflection.hxx>
 
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 #include "TopoShape.h"
-#include <Mod/Part/App/BSplineCurvePy.h>
-#include <Mod/Part/App/TopoShapeShellPy.h>
-#include <Mod/Part/App/TopoShapeFacePy.h>
-#include <Mod/Part/App/TopoShapeEdgePy.h>
-#include <Mod/Part/App/TopoShapeWirePy.h>
+#include "Mod/Part/App/BSplineCurvePy.h"
+#include "Mod/Part/App/TopoShapeShellPy.h"
+#include "Mod/Part/App/TopoShapeFacePy.h"
+#include "Mod/Part/App/TopoShapeEdgePy.h"
+#include "Mod/Part/App/TopoShapeWirePy.h"
 #include <Mod/Part/App/TopoShapeWirePy.cpp>
-#include <Mod/Part/App/TopoShapeVertexPy.h>
+#include "Mod/Part/App/TopoShapeVertexPy.h"
 #include "OCCError.h"
 #include "Tools.h"
 

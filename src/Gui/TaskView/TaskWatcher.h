@@ -29,8 +29,8 @@
 #include <vector>
 #include <QObject>
 
-#include <Gui/Selection.h>
-#include <Gui/SelectionFilter.h>
+#include "Gui/Selection.h"
+#include "Gui/SelectionFilter.h"
 
 namespace App {
 

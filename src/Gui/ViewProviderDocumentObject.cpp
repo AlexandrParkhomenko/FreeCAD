@@ -30,11 +30,11 @@
 # include <Inventor/nodes/SoSeparator.h>
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
-#include <Base/Tools.h>
-#include <Base/Console.h>
-#include <App/Material.h>
-#include <App/DocumentObjectGroup.h>
-#include <App/Origin.h>
+#include "Base/Tools.h"
+#include "Base/Console.h"
+#include "App/Material.h"
+#include "App/DocumentObjectGroup.h"
+#include "App/Origin.h"
 #include "Application.h"
 #include "Document.h"
 #include "Selection.h"
@@ -43,7 +43,7 @@
 #include "TaskView/TaskAppearance.h"
 #include "ViewProviderDocumentObject.h"
 #include "ViewProviderExtension.h"
-#include <Gui/ViewProviderDocumentObjectPy.h>
+#include "Gui/ViewProviderDocumentObjectPy.h"
 
 
 using namespace Gui;

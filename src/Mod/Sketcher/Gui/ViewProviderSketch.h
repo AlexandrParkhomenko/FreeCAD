@@ -25,18 +25,18 @@
 #define SKETCHERGUI_VIEWPROVIDERSKETCH_H
 
 #include "stdexport.h"
-#include <Mod/Part/Gui/ViewProvider2DObject.h>
-#include <Mod/Part/App/BodyBase.h>
+#include "Mod/Part/Gui/ViewProvider2DObject.h"
+#include "Mod/Part/App/BodyBase.h"
 #include <Inventor/SbImage.h>
 #include <Inventor/SbColor.h>
-#include <Base/Tools2D.h>
-#include <Base/Placement.h>
-#include <Gui/Selection.h>
-#include <Gui/GLPainter.h>
-#include <App/Part.h>
+#include "Base/Tools2D.h"
+#include "Base/Placement.h"
+#include "Gui/Selection.h"
+#include "Gui/GLPainter.h"
+#include "App/Part.h"
 #include <boost/signals2.hpp>
 #include <QCoreApplication>
-#include <Gui/Document.h>
+#include "Gui/Document.h"
 #include "ShortcutListener.h"
 
 

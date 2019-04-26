@@ -35,8 +35,8 @@
 #include "Visitor.h"
 #include "Algorithm.h"
 
-#include <Base/Vector3D.h>
-#include <Base/Sequencer.h>
+#include "Base/Vector3D.h"
+#include "Base/Sequencer.h"
 
 namespace MeshCore {
 class AbstractPolygonTriangulator;

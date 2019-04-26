@@ -28,7 +28,7 @@
 #if 0
 // Std. configurations
 
-#include <Base/PyObjectBase.h>
+#include "Base/PyObjectBase.h"
 
 
 #include <TopoDS_Shape.hxx>

@@ -34,8 +34,8 @@
 # include <Inventor/nodes/SoScale.h>
 # include <Inventor/details/SoLineDetail.h>
 
-#include <App/Document.h>
-#include <App/OriginFeature.h>
+#include "App/Document.h"
+#include "App/OriginFeature.h"
 
 #include "SoFCSelection.h"
 #include "Window.h"

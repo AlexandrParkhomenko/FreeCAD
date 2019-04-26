@@ -31,9 +31,9 @@
 # include <QScrollArea>
 # include <QScrollBar>
 
-#include <Base/Exception.h>
-#include <Base/Console.h> 
-#include <App/Application.h>
+#include "Base/Exception.h"
+#include "Base/Console.h" 
+#include "App/Application.h"
 #include "DlgPreferencesImp.h"
 #include "ui_DlgPreferences.h"
 #include "PropertyPage.h"

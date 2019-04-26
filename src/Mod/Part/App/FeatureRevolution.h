@@ -25,9 +25,9 @@
 #define PART_FEATUREREVOLUTION_H
 
 #include "stdexport.h"
-#include <App/PropertyStandard.h>
+#include "App/PropertyStandard.h"
 #include "PartFeature.h"
-#include <Base/Vector3D.h>
+#include "Base/Vector3D.h"
 
 namespace Part
 {

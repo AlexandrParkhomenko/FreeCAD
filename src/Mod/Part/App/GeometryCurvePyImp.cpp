@@ -52,8 +52,8 @@
 # include <GeomAPI_IntCS.hxx>
 # include <GeomAPI_ExtremaCurveCurve.hxx>
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
 
 #include "Geometry.h"
 #include "GeometryCurvePy.h"

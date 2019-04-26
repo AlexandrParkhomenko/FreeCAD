@@ -26,8 +26,8 @@
 
 
 #include "stdexport.h"
-#include <Base/Persistence.h>
-#include <Base/Quantity.h>
+#include "Base/Persistence.h"
+#include "Base/Quantity.h"
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
 

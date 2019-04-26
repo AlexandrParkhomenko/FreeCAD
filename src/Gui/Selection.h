@@ -33,12 +33,12 @@
 #include <boost/signals2.hpp>
 #include <CXX/Objects.hxx>
 
-#include <Base/Observer.h>
-#include <Base/Type.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
+#include "Base/Observer.h"
+#include "Base/Type.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
 
-#include <Gui/SelectionObject.h>
+#include "Gui/SelectionObject.h"
 
 namespace App
 {

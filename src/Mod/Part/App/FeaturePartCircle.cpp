@@ -27,7 +27,7 @@
 # include <TopoDS_Edge.hxx>
 
 #include "FeaturePartCircle.h"
-#include <Base/Tools.h>
+#include "Base/Tools.h"
 
 using namespace Part;
 

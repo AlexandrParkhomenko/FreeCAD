@@ -29,8 +29,8 @@
 # include <Precision.hxx>
 # include <TopoDS_Vertex.hxx>
 
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 #include "Geometry.h"
 #include "PointPy.h"

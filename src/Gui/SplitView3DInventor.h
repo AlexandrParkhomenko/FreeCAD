@@ -27,7 +27,7 @@
 #include "stdexport.h"
 #include "MDIView.h"
 
-#include <Base/Parameter.h>
+#include "Base/Parameter.h"
 #include <CXX/Extensions.hxx>
 #include <vector>
 

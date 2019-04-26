@@ -27,25 +27,25 @@
 # include <TopoDS_Compound.hxx>
 # include <Standard_Version.hxx>
 
-#include <Base/Writer.h>
-#include <Base/Reader.h>
-#include <Base/Exception.h>
-//#include <Base/TimeInfo.h>
-#include <Base/Console.h>
-#include <Base/VectorPy.h>
+#include "Base/Writer.h"
+#include "Base/Reader.h"
+#include "Base/Exception.h"
+//#include "Base/TimeInfo.h"
+#include "Base/Console.h"
+#include "Base/VectorPy.h"
 
-#include <Mod/Part/App/Geometry.h>
-#include <Mod/Part/App/GeometryCurvePy.h>
-#include <Mod/Part/App/ArcOfCirclePy.h>
-#include <Mod/Part/App/ArcOfEllipsePy.h>
-#include <Mod/Part/App/CirclePy.h>
-#include <Mod/Part/App/EllipsePy.h>
-#include <Mod/Part/App/HyperbolaPy.h>
-#include <Mod/Part/App/ArcOfHyperbolaPy.h>
-#include <Mod/Part/App/ParabolaPy.h>
-#include <Mod/Part/App/ArcOfParabolaPy.h>
-#include <Mod/Part/App/LineSegmentPy.h>
-#include <Mod/Part/App/BSplineCurvePy.h>
+#include "Mod/Part/App/Geometry.h"
+#include "Mod/Part/App/GeometryCurvePy.h"
+#include "Mod/Part/App/ArcOfCirclePy.h"
+#include "Mod/Part/App/ArcOfEllipsePy.h"
+#include "Mod/Part/App/CirclePy.h"
+#include "Mod/Part/App/EllipsePy.h"
+#include "Mod/Part/App/HyperbolaPy.h"
+#include "Mod/Part/App/ArcOfHyperbolaPy.h"
+#include "Mod/Part/App/ParabolaPy.h"
+#include "Mod/Part/App/ArcOfParabolaPy.h"
+#include "Mod/Part/App/LineSegmentPy.h"
+#include "Mod/Part/App/BSplineCurvePy.h"
 
 #include <TopoDS.hxx>
 #include <TopoDS_Edge.hxx>

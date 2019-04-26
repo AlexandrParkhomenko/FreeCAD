@@ -25,8 +25,8 @@
 # include <Precision.hxx>
 
 
-#include <Base/Console.h>
-#include <Base/Reader.h>
+#include "Base/Console.h"
+#include "Base/Reader.h"
 #include "FeaturePartBox.h"
 
 

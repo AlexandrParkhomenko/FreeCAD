@@ -25,10 +25,10 @@
 
 #include <vector>
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Stream.h>
-#include <Base/Writer.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Stream.h"
+#include "Base/Writer.h"
 
 
 #include "PointsFeature.h"

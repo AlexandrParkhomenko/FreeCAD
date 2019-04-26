@@ -30,21 +30,21 @@
 # include <cmath>
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Interpreter.h>
-#include <Base/Tools.h>
-#include <Gui/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/Command.h>
-#include <Gui/Document.h>
-#include <Gui/Macro.h>
-#include <Gui/MainWindow.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Gui/View3DInventor.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Interpreter.h"
+#include "Base/Tools.h"
+#include "Gui/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/Command.h"
+#include "Gui/Document.h"
+#include "Gui/Macro.h"
+#include "Gui/MainWindow.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Gui/View3DInventor.h"
 
-#include <Mod/Part/App/Geometry.h>
-#include <Mod/Sketcher/App/SketchObject.h>
+#include "Mod/Part/App/Geometry.h"
+#include "Mod/Sketcher/App/SketchObject.h"
 
 #include "DrawSketchHandler.h"
 #include "ViewProviderSketch.h"

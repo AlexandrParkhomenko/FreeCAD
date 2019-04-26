@@ -25,7 +25,7 @@
 
 
 #include "SketchObjectSF.h"
-#include <Base/Console.h>
+#include "Base/Console.h"
 
 
 using namespace Sketcher;

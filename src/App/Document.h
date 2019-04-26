@@ -25,9 +25,9 @@
 
 #include "stdexport.h"
 #include <CXX/Objects.hxx>
-#include <Base/Observer.h>
-#include <Base/Persistence.h>
-#include <Base/Type.h>
+#include "Base/Observer.h"
+#include "Base/Persistence.h"
+#include "Base/Type.h"
 
 #include "PropertyContainer.h"
 #include "PropertyStandard.h"

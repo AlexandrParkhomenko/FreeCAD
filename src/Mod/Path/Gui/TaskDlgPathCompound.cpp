@@ -26,17 +26,17 @@
 #include "TaskDlgPathCompound.h"
 #include "ui_TaskDlgPathCompound.h"
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <Gui/TaskView/TaskSelectLinkProperty.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/Command.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "Gui/TaskView/TaskSelectLinkProperty.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/Command.h"
 
-#include <Mod/Path/App/Tooltable.h>
+#include "Mod/Path/App/Tooltable.h"
 
 
 using namespace PathGui;

@@ -27,7 +27,7 @@
 #include "stdexport.h"
 #include <GL/gl.h>
 
-#include <Base/BaseClass.h>
+#include "Base/BaseClass.h"
 #include <QtOpenGL.h>
 #include <QPoint>
 

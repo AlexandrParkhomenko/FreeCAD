@@ -23,7 +23,7 @@
 #ifndef SKETCHERGUI_SketchRectangularArrayDialog_H
 #define SKETCHERGUI_SketchRectangularArrayDialog_H
 
-#include <Base/Placement.h>
+#include "Base/Placement.h"
 #include <QDialog>
 
 namespace SketcherGui {

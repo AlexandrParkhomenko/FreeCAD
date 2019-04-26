@@ -25,7 +25,7 @@
 
 #include "GLPainter.h"
 #include "View3DInventorViewer.h"
-#include <Base/Console.h>
+#include "Base/Console.h"
 
 using namespace Gui;
 

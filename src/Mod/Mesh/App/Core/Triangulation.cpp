@@ -23,14 +23,14 @@
 
 # include <queue>
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
 #include "Triangulation.h"
 #include "Approximation.h"
 #include "Algorithm.h"
 #include "MeshKernel.h"
 
-#include <Mod/Mesh/App/WildMagic4/Wm4Delaunay2.h>
+#include "Mod/Mesh/App/WildMagic4/Wm4Delaunay2.h"
 
 
 using namespace MeshCore;

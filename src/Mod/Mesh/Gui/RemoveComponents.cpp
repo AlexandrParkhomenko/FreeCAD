@@ -26,8 +26,8 @@
 
 #include "RemoveComponents.h"
 #include "ui_RemoveComponents.h"
-#include <Gui/Application.h>
-#include <Gui/Document.h>
+#include "Gui/Application.h"
+#include "Gui/Document.h"
 
 using namespace MeshGui;
 

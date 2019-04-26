@@ -34,8 +34,8 @@
 
 #include <BRepPrimAPI_MakeHalfSpace.hxx>
 
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 #include "OCCError.h"
 #include "Tools.h"

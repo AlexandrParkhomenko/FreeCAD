@@ -24,7 +24,7 @@
 # include <sstream>
 
 #include "GeometryPyCXX.h"
-#include <Base/VectorPy.h>
+#include "Base/VectorPy.h"
 
 
 int Py::Vector::Vector_TypeCheck(PyObject * obj)

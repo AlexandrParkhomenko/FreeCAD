@@ -27,8 +27,8 @@
 # include <Inventor/SbString.h>
 # include <Inventor/nodes/SoGroup.h>
 
-#include <Base/FileInfo.h>
-#include <Base/Stream.h>
+#include "Base/FileInfo.h"
+#include "Base/Stream.h"
 #include <zipios/gzipoutputstream.hpp>
 
 #include "SoFCDB.h"

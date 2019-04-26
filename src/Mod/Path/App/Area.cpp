@@ -76,14 +76,14 @@
 #include <ShapeAnalysis_FreeBounds.hxx>
 #include <TopTools_HSequenceOfShape.hxx>
 
-#include <Base/Exception.h>
-#include <Base/Tools.h>
+#include "Base/Exception.h"
+#include "Base/Tools.h"
 
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Mod/Part/App/PartFeature.h>
-#include <Mod/Part/App/FaceMakerBullseye.h>
-#include <Mod/Part/App/CrossSection.h>
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Mod/Part/App/PartFeature.h"
+#include "Mod/Part/App/FaceMakerBullseye.h"
+#include "Mod/Part/App/CrossSection.h"
 #include "Area.h"
 #include "../libarea/Area.h"
 

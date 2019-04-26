@@ -1,8 +1,8 @@
 # include <Standard_Failure.hxx>
 
 #include "Mod/Part/App/Attacher.h"
-#include <Base/PlacementPy.h>
-#include <App/DocumentObjectPy.h>
+#include "Base/PlacementPy.h"
+#include "App/DocumentObjectPy.h"
 #include "AttachExtensionPy.h"
 #include "TopoShapePy.h"
 

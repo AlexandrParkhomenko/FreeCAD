@@ -48,14 +48,14 @@
 #include "MeshEditor.h"
 #include "SoFCMeshObject.h"
 #include "SoPolygon.h"
-#include <App/Document.h>
-#include <Mod/Mesh/App/MeshFeature.h>
-#include <Mod/Mesh/App/Core/Algorithm.h>
-#include <Mod/Mesh/App/Core/Triangulation.h>
-#include <Gui/Application.h>
-#include <Gui/WaitCursor.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
+#include "App/Document.h"
+#include "Mod/Mesh/App/MeshFeature.h"
+#include "Mod/Mesh/App/Core/Algorithm.h"
+#include "Mod/Mesh/App/Core/Triangulation.h"
+#include "Gui/Application.h"
+#include "Gui/WaitCursor.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
 
 using namespace MeshGui;
 

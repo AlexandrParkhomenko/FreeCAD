@@ -22,7 +22,7 @@
 
 
 
-#include <App/DocumentObject.h>
+#include "App/DocumentObject.h"
 
 #include "Application.h"
 #include "Command.h"

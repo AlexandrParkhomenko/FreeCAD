@@ -25,10 +25,10 @@
 
 #include <boost/regex.hpp>
 
-#include <Base/Writer.h>
-#include <Base/Reader.h>
-#include <Base/Stream.h>
-#include <Base/Exception.h>
+#include "Base/Writer.h"
+#include "Base/Reader.h"
+#include "Base/Stream.h"
+#include "Base/Exception.h"
 
 // KDL stuff - at the moment, not used
 //#include "Mod/Robot/App/kdl_cp/path_line.hpp"

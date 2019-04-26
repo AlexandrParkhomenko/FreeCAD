@@ -25,9 +25,9 @@
 #define IMAGE_WORKBENCH_H
 
 #include "stdexport.h"
-#include <Gui/Workbench.h>
-#include <Gui/MenuManager.h>
-#include <Gui/ToolBarManager.h>
+#include "Gui/Workbench.h"
+#include "Gui/MenuManager.h"
+#include "Gui/ToolBarManager.h"
 
 namespace SketcherGui {
 

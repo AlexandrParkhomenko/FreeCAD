@@ -48,8 +48,8 @@
 # include <Inventor/misc/SoState.h>
 
 #include "SoBrepEdgeSet.h"
-#include <Gui/SoFCUnifiedSelection.h>
-#include <Gui/SoFCSelectionAction.h>
+#include "Gui/SoFCUnifiedSelection.h"
+#include "Gui/SoFCSelectionAction.h"
 
 using namespace PartGui;
 

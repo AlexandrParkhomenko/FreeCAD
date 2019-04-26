@@ -39,20 +39,20 @@
 #include "ui_DlgRevolution.h"
 #include "DlgRevolution.h"
 #include "../App/PartFeature.h"
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <Gui/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/Command.h>
-#include <Gui/Document.h>
-#include <Gui/Utilities.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/WaitCursor.h>
-#include <Mod/Part/App/Tools.h>
-#include <Mod/Part/App/FeatureRevolution.h>
-#include <Base/Console.h>
-#include <Base/UnitsApi.h>
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "Gui/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/Command.h"
+#include "Gui/Document.h"
+#include "Gui/Utilities.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/WaitCursor.h"
+#include "Mod/Part/App/Tools.h"
+#include "Mod/Part/App/FeatureRevolution.h"
+#include "Base/Console.h"
+#include "Base/UnitsApi.h"
 
 
 

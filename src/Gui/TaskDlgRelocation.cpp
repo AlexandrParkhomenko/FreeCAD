@@ -27,7 +27,7 @@
 #include "ui_DlgLocationAngle.h"
 
 #include "TaskDlgRelocation.h"
-#include <Gui/BitmapFactory.h>
+#include "Gui/BitmapFactory.h"
 
 using namespace Gui;
 

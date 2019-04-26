@@ -30,21 +30,21 @@
 
 #include <boost/bind.hpp>
 
-#include <Base/Interpreter.h>
-#include <Base/Sequencer.h>
-#include <Gui/Application.h>
-#include <Gui/Command.h>
-#include <Gui/Document.h>
-#include <Gui/DockWindowManager.h>
-#include <Gui/MainWindow.h>
-#include <Gui/WaitCursor.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
+#include "Base/Interpreter.h"
+#include "Base/Sequencer.h"
+#include "Gui/Application.h"
+#include "Gui/Command.h"
+#include "Gui/Document.h"
+#include "Gui/DockWindowManager.h"
+#include "Gui/MainWindow.h"
+#include "Gui/WaitCursor.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
 
-#include <Mod/Mesh/App/Core/Evaluation.h>
-#include <Mod/Mesh/App/Core/Degeneration.h>
-#include <Mod/Mesh/App/MeshFeature.h>
-#include <Mod/Mesh/App/FeatureMeshDefects.h>
+#include "Mod/Mesh/App/Core/Evaluation.h"
+#include "Mod/Mesh/App/Core/Degeneration.h"
+#include "Mod/Mesh/App/MeshFeature.h"
+#include "Mod/Mesh/App/FeatureMeshDefects.h"
 #include "ViewProviderDefects.h"
 
 using namespace MeshCore;

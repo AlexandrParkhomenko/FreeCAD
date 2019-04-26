@@ -72,21 +72,21 @@
 # include <Inventor/nodes/SoScale.h>
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
-#include <Base/Console.h>
-#include <Base/Parameter.h>
-#include <Base/Exception.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Gui/Selection.h>
-#include <Gui/View3DInventorViewer.h>
+#include "Base/Console.h"
+#include "Base/Parameter.h"
+#include "Base/Exception.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Gui/Selection.h"
+#include "Gui/View3DInventorViewer.h"
 
 
 #include "ViewProvider.h"
 #include "ViewProviderReference.h"
 #include "SoFCShapeObject.h"
 
-#include <Mod/Part/App/PartFeature.h>
-#include <Mod/Part/App/PrimitiveFeature.h>
+#include "Mod/Part/App/PartFeature.h"
+#include "Mod/Part/App/PrimitiveFeature.h"
 
 
 using namespace PartGui;

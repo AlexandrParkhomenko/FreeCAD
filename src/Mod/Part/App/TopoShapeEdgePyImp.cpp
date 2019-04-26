@@ -71,29 +71,29 @@
 #include <GCPnts_QuasiUniformAbscissa.hxx>
 #include <GCPnts_QuasiUniformDeflection.hxx>
 
-#include <Base/Vector3D.h>
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/Vector3D.h"
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 #include "Tools.h"
 #include "OCCError.h"
 #include "TopoShape.h"
-#include <Mod/Part/App/TopoShapeFacePy.h>
-#include <Mod/Part/App/TopoShapeVertexPy.h>
-#include <Mod/Part/App/TopoShapeWirePy.h>
-#include <Mod/Part/App/TopoShapeEdgePy.h>
+#include "Mod/Part/App/TopoShapeFacePy.h"
+#include "Mod/Part/App/TopoShapeVertexPy.h"
+#include "Mod/Part/App/TopoShapeWirePy.h"
+#include "Mod/Part/App/TopoShapeEdgePy.h"
 #include <Mod/Part/App/TopoShapeEdgePy.cpp>
 
 #include "Geometry.h"
-#include <Mod/Part/App/GeometryPy.h>
-#include <Mod/Part/App/LinePy.h>
-#include <Mod/Part/App/CirclePy.h>
-#include <Mod/Part/App/EllipsePy.h>
-#include <Mod/Part/App/HyperbolaPy.h>
-#include <Mod/Part/App/ParabolaPy.h>
-#include <Mod/Part/App/BezierCurvePy.h>
-#include <Mod/Part/App/BSplineCurvePy.h>
-#include <Mod/Part/App/OffsetCurvePy.h>
+#include "Mod/Part/App/GeometryPy.h"
+#include "Mod/Part/App/LinePy.h"
+#include "Mod/Part/App/CirclePy.h"
+#include "Mod/Part/App/EllipsePy.h"
+#include "Mod/Part/App/HyperbolaPy.h"
+#include "Mod/Part/App/ParabolaPy.h"
+#include "Mod/Part/App/BezierCurvePy.h"
+#include "Mod/Part/App/BSplineCurvePy.h"
+#include "Mod/Part/App/OffsetCurvePy.h"
 
 using namespace Part;
 
@@ -759,8 +759,8 @@ Py::Float TopoShapeEdgePy::getLength(void) const
     return Py::Float(GCPnts_AbscissaPoint::Length(adapt, Precision::Confusion()));
 }
 
-#include <App/Application.h>
-#include <Mod/Part/App/LineSegmentPy.h>
+#include "App/Application.h"
+#include "Mod/Part/App/LineSegmentPy.h"
 
 Py::Object TopoShapeEdgePy::getCurve() const
 {

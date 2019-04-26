@@ -24,12 +24,12 @@
 # include <Geom_OffsetSurface.hxx>
 # include <memory>
 
-#include <Base/VectorPy.h>
-#include <Base/Vector3D.h>
+#include "Base/VectorPy.h"
+#include "Base/Vector3D.h"
 
 #include "OCCError.h"
 #include "Geometry.h"
-#include <Mod/Part/App/OffsetSurfacePy.h>
+#include "Mod/Part/App/OffsetSurfacePy.h"
 #include <Mod/Part/App/OffsetSurfacePy.cpp>
 
 using namespace Part;

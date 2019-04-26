@@ -23,12 +23,12 @@
 
 # include <Geom2d_OffsetCurve.hxx>
 
-#include <Mod/Part/App/OCCError.h>
-#include <Mod/Part/App/Geometry2d.h>
-#include <Mod/Part/App/Geom2d/OffsetCurve2dPy.h>
+#include "Mod/Part/App/OCCError.h"
+#include "Mod/Part/App/Geometry2d.h"
+#include "Mod/Part/App/Geom2d/OffsetCurve2dPy.h"
 #include <Mod/Part/App/Geom2d/OffsetCurve2dPy.cpp>
 
-#include <Base/GeometryPyCXX.h>
+#include "Base/GeometryPyCXX.h"
 
 using namespace Part;
 

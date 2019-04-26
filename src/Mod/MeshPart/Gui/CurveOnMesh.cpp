@@ -40,19 +40,19 @@
 # include <Inventor/nodes/SoSeparator.h>
 
 #include "CurveOnMesh.h"
-#include <App/Document.h>
-#include <Gui/Document.h>
-#include <Gui/MainWindow.h>
-#include <Gui/Utilities.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Mod/Mesh/App/Core/Algorithm.h>
-#include <Mod/Mesh/App/Core/Grid.h>
-#include <Mod/Mesh/App/Core/MeshKernel.h>
-#include <Mod/Mesh/App/Core/Projection.h>
-#include <Mod/Mesh/App/MeshFeature.h>
-#include <Mod/Mesh/Gui/ViewProvider.h>
-#include <Mod/Part/App/PartFeature.h>
+#include "App/Document.h"
+#include "Gui/Document.h"
+#include "Gui/MainWindow.h"
+#include "Gui/Utilities.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Mod/Mesh/App/Core/Algorithm.h"
+#include "Mod/Mesh/App/Core/Grid.h"
+#include "Mod/Mesh/App/Core/MeshKernel.h"
+#include "Mod/Mesh/App/Core/Projection.h"
+#include "Mod/Mesh/App/MeshFeature.h"
+#include "Mod/Mesh/Gui/ViewProvider.h"
+#include "Mod/Part/App/PartFeature.h"
 
 #ifndef HAVE_ACOSH
 #define HAVE_ACOSH

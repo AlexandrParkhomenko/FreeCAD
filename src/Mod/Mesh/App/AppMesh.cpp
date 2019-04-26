@@ -23,8 +23,8 @@
 
 # include "FCConfig.h"
 
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
 
 #include "Mesh.h"
 #include "MeshPy.h"

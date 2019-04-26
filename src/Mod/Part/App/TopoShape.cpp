@@ -176,12 +176,12 @@
 #include <BRepAlgoAPI_Defeaturing.hxx>
 #endif
 
-#include <Base/Builder3D.h>
-#include <Base/FileInfo.h>
-#include <Base/Exception.h>
-#include <Base/Tools.h>
-#include <Base/Console.h>
-#include <App/Material.h>
+#include "Base/Builder3D.h"
+#include "Base/FileInfo.h"
+#include "Base/Exception.h"
+#include "Base/Tools.h"
+#include "Base/Console.h"
+#include "App/Material.h"
 
 #include "TopoShape.h"
 #include "CrossSection.h"

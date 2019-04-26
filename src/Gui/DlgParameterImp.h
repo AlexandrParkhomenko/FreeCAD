@@ -25,7 +25,7 @@
 #define GUI_DIALOG_DLGPARAMETER_H
 
 #include "stdexport.h"
-#include <Base/Parameter.h>
+#include "Base/Parameter.h"
 
 #include <QTreeWidgetItem>
 #include <QTreeWidget>

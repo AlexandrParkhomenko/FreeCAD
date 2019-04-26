@@ -29,7 +29,7 @@
 # include <QItemSelection>
 # include <QItemSelectionModel>
 #include "Utilities.h"
-#include <App/DocumentObject.h>
+#include "App/DocumentObject.h"
 
 using namespace Gui;
 

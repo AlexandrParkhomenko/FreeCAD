@@ -28,7 +28,7 @@
 #include <vector>
 
 #include "MeshKernel.h"
-#include <Base/Vector3D.h>
+#include "Base/Vector3D.h"
 
 namespace Base {
 class SequencerLauncher;

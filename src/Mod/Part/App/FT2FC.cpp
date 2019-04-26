@@ -55,7 +55,7 @@
 #include <gp_Trsf.hxx>
 #include <Precision.hxx>
 
-#include <Base/Console.h>
+#include "Base/Console.h"
 #include "TopoShape.h"
 #include "TopoShapePy.h"
 #include "TopoShapeEdgePy.h"

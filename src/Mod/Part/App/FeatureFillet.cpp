@@ -30,7 +30,7 @@
 
 
 #include "FeatureFillet.h"
-#include <Base/Exception.h>
+#include "Base/Exception.h"
 
 
 using namespace Part;

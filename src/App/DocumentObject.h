@@ -25,12 +25,12 @@
 #define APP_DOCUMENTOBJECT_H
 
 #include "stdexport.h"
-#include <App/TransactionalObject.h>
-#include <App/PropertyStandard.h>
-#include <App/PropertyLinks.h>
-#include <App/PropertyExpressionEngine.h>
+#include "App/TransactionalObject.h"
+#include "App/PropertyStandard.h"
+#include "App/PropertyLinks.h"
+#include "App/PropertyExpressionEngine.h"
 
-#include <Base/TimeInfo.h>
+#include "Base/TimeInfo.h"
 #include <CXX/Objects.hxx>
 
 #include <bitset>

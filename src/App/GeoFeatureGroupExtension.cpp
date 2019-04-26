@@ -25,13 +25,13 @@
 
 
 #include "stdexport.h"
-#include <App/Document.h>
+#include "App/Document.h"
 
 #include "GeoFeatureGroupExtension.h"
 #include "OriginFeature.h"
 #include "Origin.h"
 #include "OriginGroupExtension.h"
-#include <Base/Console.h>
+#include "Base/Console.h"
 //#include "GeoFeatureGroupPy.h"
 //#include "FeaturePythonPyImp.h"
 

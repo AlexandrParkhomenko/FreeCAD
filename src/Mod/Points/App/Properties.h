@@ -26,13 +26,13 @@
 
 #include <vector>
 
-#include <Base/Vector3D.h>
-#include <Base/Matrix.h>
-#include <Base/Reader.h>
-#include <Base/Writer.h>
+#include "Base/Vector3D.h"
+#include "Base/Matrix.h"
+#include "Base/Reader.h"
+#include "Base/Writer.h"
 
-#include <App/PropertyStandard.h>
-#include <App/PropertyGeo.h>
+#include "App/PropertyStandard.h"
+#include "App/PropertyGeo.h"
 
 #include "Points.h"
 

@@ -21,11 +21,11 @@
  ***************************************************************************/
 
 #include "stdexport.h"
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Reader.h>
-#include <Base/Writer.h>
-#include <App/FeaturePythonPyImp.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Reader.h"
+#include "Base/Writer.h"
+#include "App/FeaturePythonPyImp.h"
 
 #include "Core/MeshIO.h"
 

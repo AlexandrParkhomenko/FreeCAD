@@ -43,7 +43,7 @@
 # include <TColgp_SequenceOfXY.hxx>
 # include <TColgp_SequenceOfXYZ.hxx>
 
-#include <Base/Vector3D.h>
+#include "Base/Vector3D.h"
 #include "Tools.h"
 
 void Part::closestPointsOnLines(const gp_Lin& lin1, const gp_Lin& lin2, gp_Pnt& p1, gp_Pnt& p2)

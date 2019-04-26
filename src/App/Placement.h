@@ -27,7 +27,7 @@
 #define _AppPlacement_h_
 
 #include "stdexport.h"
-#include <Base/Placement.h>
+#include "Base/Placement.h"
 
 #include "GeoFeature.h"
 #include "PropertyGeo.h"

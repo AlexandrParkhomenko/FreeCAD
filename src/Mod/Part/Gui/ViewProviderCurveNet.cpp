@@ -41,15 +41,15 @@
 # include <Inventor/events/SoLocation2Event.h>
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
-#include <Base/Console.h>
-#include <Base/Parameter.h>
-#include <Base/Exception.h>
-#include <Base/Sequencer.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Gui/SoFCSelection.h>
-#include <App/Application.h>
+#include "Base/Console.h"
+#include "Base/Parameter.h"
+#include "Base/Exception.h"
+#include "Base/Sequencer.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Gui/SoFCSelection.h"
+#include "App/Application.h"
 
-#include <Mod/Part/App/PartFeature.h>
+#include "Mod/Part/App/PartFeature.h"
 
 #include "ViewProviderCurveNet.h"
 

@@ -27,15 +27,15 @@
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
 
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
-#include <Base/FileInfo.h>
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
+#include "Base/FileInfo.h"
 
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <App/DocumentObjectPy.h>
-#include <App/Property.h>
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "App/DocumentObjectPy.h"
+#include "App/Property.h"
 
 #include "Points.h"
 #include "PointsPy.h"

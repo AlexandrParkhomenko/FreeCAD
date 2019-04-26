@@ -26,13 +26,13 @@
 # include <GCE2d_MakeArcOfParabola.hxx>
 # include <Geom2d_TrimmedCurve.hxx>
 
-#include <Mod/Part/App/Geometry2d.h>
-#include <Mod/Part/App/Geom2d/ArcOfParabola2dPy.h>
+#include "Mod/Part/App/Geometry2d.h"
+#include "Mod/Part/App/Geom2d/ArcOfParabola2dPy.h"
 #include <Mod/Part/App/Geom2d/ArcOfParabola2dPy.cpp>
-#include <Mod/Part/App/Geom2d/Parabola2dPy.h>
-#include <Mod/Part/App/OCCError.h>
+#include "Mod/Part/App/Geom2d/Parabola2dPy.h"
+#include "Mod/Part/App/OCCError.h"
 
-#include <Base/GeometryPyCXX.h>
+#include "Base/GeometryPyCXX.h"
 
 using namespace Part;
 

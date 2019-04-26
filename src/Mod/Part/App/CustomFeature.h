@@ -25,7 +25,7 @@
 #define PART_CUSTOMFEATURE_H
 
 #include "stdexport.h"
-#include <Mod/Part/App/PartFeature.h>
+#include "Mod/Part/App/PartFeature.h"
 
 namespace Part
 {

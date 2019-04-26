@@ -24,7 +24,7 @@
 #define MESHGUI_PROPERTYEDITOR_MESH_H
 
 #include "stdexport.h"
-#include <Gui/propertyeditor/PropertyItem.h>
+#include "Gui/propertyeditor/PropertyItem.h"
 
 namespace MeshGui {
 

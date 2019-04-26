@@ -25,8 +25,8 @@
 #define MESH_MESHPOINT_H
 
 #include "stdexport.h"
-#include <Base/Matrix.h>
-#include <Base/Vector3D.h>
+#include "Base/Matrix.h"
+#include "Base/Vector3D.h"
 
 #include "Mesh.h"
 

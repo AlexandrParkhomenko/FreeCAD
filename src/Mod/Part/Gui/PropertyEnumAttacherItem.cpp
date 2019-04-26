@@ -21,9 +21,9 @@
  ***************************************************************************/
 
 
-#include <Gui/Application.h>
-#include <Gui/Control.h>
-#include <Gui/ViewProviderDocumentObject.h>
+#include "Gui/Application.h"
+#include "Gui/Control.h"
+#include "Gui/ViewProviderDocumentObject.h"
 
 #include "PropertyEnumAttacherItem.h"
 

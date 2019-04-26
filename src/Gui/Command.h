@@ -31,7 +31,7 @@
 #include <string>
 #include <vector>
 
-#include <Base/Type.h>
+#include "Base/Type.h"
 
 class QWidget;
 class QByteArray;

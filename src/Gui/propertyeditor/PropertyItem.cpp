@@ -34,28 +34,28 @@
 # include <QPalette>
 # include <QtGlobal>
 
-#include <Base/Tools.h>
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <App/PropertyGeo.h>
-#include <App/PropertyFile.h>
-#include <App/PropertyUnits.h>
-#include <Gui/Application.h>
-#include <Gui/Control.h>
-#include <Gui/Command.h>
-#include <Gui/Document.h>
-#include <Gui/Selection.h>
-#include <Gui/ViewProviderDocumentObject.h>
-#include <Gui/Placement.h>
-#include <Gui/FileDialog.h>
-#include <Gui/DlgPropertyLink.h>
-#include <Gui/QuantitySpinBox.h>
+#include "Base/Tools.h"
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "App/PropertyGeo.h"
+#include "App/PropertyFile.h"
+#include "App/PropertyUnits.h"
+#include "Gui/Application.h"
+#include "Gui/Control.h"
+#include "Gui/Command.h"
+#include "Gui/Document.h"
+#include "Gui/Selection.h"
+#include "Gui/ViewProviderDocumentObject.h"
+#include "Gui/Placement.h"
+#include "Gui/FileDialog.h"
+#include "Gui/DlgPropertyLink.h"
+#include "Gui/QuantitySpinBox.h"
 
 #include "PropertyItem.h"
-#include <Gui/SpinBox.h>
+#include "Gui/SpinBox.h"
 
 using namespace Gui::PropertyEditor;
 

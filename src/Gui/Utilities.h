@@ -24,8 +24,8 @@
 #define GUI_UTILITIES_H
 
 #include "stdexport.h"
-#include <Base/ViewProj.h>
-#include <App/Material.h>
+#include "Base/ViewProj.h"
+#include "App/Material.h"
 #include <vector>
 #include <Inventor/SbColor.h>
 #include <Inventor/SbVec2f.h>

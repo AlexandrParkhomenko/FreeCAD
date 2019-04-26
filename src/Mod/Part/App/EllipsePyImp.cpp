@@ -25,12 +25,12 @@
 # include <Geom_Ellipse.hxx>
 # include <GC_MakeEllipse.hxx>
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
 
 #include "OCCError.h"
 #include "Geometry.h"
-#include <Mod/Part/App/EllipsePy.h>
+#include "Mod/Part/App/EllipsePy.h"
 #include <Mod/Part/App/EllipsePy.cpp>
 
 using namespace Part;

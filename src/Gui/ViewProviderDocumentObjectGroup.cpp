@@ -27,8 +27,8 @@
 # include <QPixmap>
 # include <QMessageBox>
 
-#include <App/DocumentObjectGroup.h>
-#include <App/Document.h>
+#include "App/DocumentObjectGroup.h"
+#include "App/Document.h"
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "ViewProviderDocumentObjectGroup.h"
@@ -39,7 +39,7 @@
 #include "Tree.h"
 #include "View3DInventor.h"
 #include "View3DInventorViewer.h"
-#include <Base/Console.h>
+#include "Base/Console.h"
 
 
 using namespace Gui;

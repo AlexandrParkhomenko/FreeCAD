@@ -33,20 +33,20 @@
 #include "EditDatumDialog.h"
 #include "ViewProviderSketch.h"
 
-#include <Mod/Sketcher/App/SketchObject.h>
+#include "Mod/Sketcher/App/SketchObject.h"
 
-#include <Base/Tools.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/Selection.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/BitmapFactory.h>
+#include "Base/Tools.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/Selection.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/BitmapFactory.h"
 #include <boost/bind.hpp>
-#include <Gui/Command.h>
+#include "Gui/Command.h"
 
 using namespace SketcherGui;
 using namespace Gui::TaskView;

@@ -29,13 +29,13 @@
 #define PARTATTACHABLEOBJECT_H
 
 #include "stdexport.h"
-#include <App/PropertyStandard.h>
-#include <App/PropertyLinks.h>
-#include <App/GeoFeature.h>
-#include <App/DocumentObjectExtension.h>
-#include <Base/Vector3D.h>
-#include <Base/Placement.h>
-#include <Base/Exception.h>
+#include "App/PropertyStandard.h"
+#include "App/PropertyLinks.h"
+#include "App/GeoFeature.h"
+#include "App/DocumentObjectExtension.h"
+#include "Base/Vector3D.h"
+#include "Base/Placement.h"
+#include "Base/Exception.h"
 
 #include "PartFeature.h"
 #include "Attacher.h"

@@ -27,9 +27,9 @@
 #include "stdexport.h"
 #include <list>
 #include <string>
-#include <Base/BaseClass.h>
-#include <Base/Parameter.h>
-#include <Gui/TaskView/TaskWatcher.h>
+#include "Base/BaseClass.h"
+#include "Base/Parameter.h"
+#include "Gui/TaskView/TaskWatcher.h"
 
 namespace Base {
 class PyObjectBase;

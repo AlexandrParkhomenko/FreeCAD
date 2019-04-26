@@ -27,8 +27,8 @@
 #include "stdexport.h"
 #include <QWidget>
 #include <list>
-#include <Gui/TaskView/TaskDialog.h>
-#include <Gui/TaskView/TaskView.h>
+#include "Gui/TaskView/TaskDialog.h"
+#include "Gui/TaskView/TaskView.h"
 #include "MeshSelection.h"
 
 class QDoubleSpinBox;

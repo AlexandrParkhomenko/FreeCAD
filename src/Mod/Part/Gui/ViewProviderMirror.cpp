@@ -39,15 +39,15 @@
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/manips/SoCenterballManip.h>
 
-#include <Mod/Part/App/FeatureMirroring.h>
-#include <Mod/Part/App/FeatureFillet.h>
-#include <Mod/Part/App/FeatureChamfer.h>
-#include <Mod/Part/App/FeatureRevolution.h>
-#include <Mod/Part/App/FeatureOffset.h>
-#include <Mod/Part/App/PartFeatures.h>
-#include <Gui/Application.h>
-#include <Gui/Control.h>
-#include <Gui/Document.h>
+#include "Mod/Part/App/FeatureMirroring.h"
+#include "Mod/Part/App/FeatureFillet.h"
+#include "Mod/Part/App/FeatureChamfer.h"
+#include "Mod/Part/App/FeatureRevolution.h"
+#include "Mod/Part/App/FeatureOffset.h"
+#include "Mod/Part/App/PartFeatures.h"
+#include "Gui/Application.h"
+#include "Gui/Control.h"
+#include "Gui/Document.h"
 #include "ViewProviderMirror.h"
 #include "DlgFilletEdges.h"
 #include "TaskOffset.h"

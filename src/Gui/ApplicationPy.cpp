@@ -54,11 +54,11 @@
 //#include "DownloadManager.h"
 #include "DlgPreferencesImp.h"
 #include "DocumentObserverPython.h"
-#include <App/DocumentObjectPy.h>
-#include <App/DocumentPy.h>
-#include <App/PropertyFile.h>
-#include <Base/Interpreter.h>
-#include <Base/Console.h>
+#include "App/DocumentObjectPy.h"
+#include "App/DocumentPy.h"
+#include "App/PropertyFile.h"
+#include "Base/Interpreter.h"
+#include "Base/Console.h"
 #include <CXX/Objects.hxx>
 #include <Inventor/MarkerBitmaps.h>
 

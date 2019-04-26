@@ -28,13 +28,13 @@
 
 # include <Inventor/sensors/SoSensor.h>
 
-#include <Base/Tools.h>
-#include <Gui/Application.h>
-#include <Gui/Command.h>
-#include <Gui/Document.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Mod/Sketcher/App/SketchObject.h>
+#include "Base/Tools.h"
+#include "Gui/Application.h"
+#include "Gui/Command.h"
+#include "Gui/Document.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Mod/Sketcher/App/SketchObject.h"
 
 #include "ViewProviderSketch.h"
 #include "ui_InsertDatum.h"

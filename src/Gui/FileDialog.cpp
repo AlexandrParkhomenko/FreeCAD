@@ -36,8 +36,8 @@
 # include <QUrl>
 # include <QResizeEvent>
 
-#include <Base/Parameter.h>
-#include <App/Application.h>
+#include "Base/Parameter.h"
+#include "App/Application.h"
 
 #include "FileDialog.h"
 #include "MainWindow.h"

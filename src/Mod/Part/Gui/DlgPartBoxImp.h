@@ -24,7 +24,7 @@
 #define PARTGUI_DLGPARTBOXIMP_H
 
 #include "ui_DlgPartBox.h"
-#include <Gui/InputVector.h>
+#include "Gui/InputVector.h"
 
 namespace PartGui {
 

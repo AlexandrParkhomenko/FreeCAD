@@ -24,7 +24,7 @@
 
 
 #include "DlgSettingsObjectColor.h"
-#include <Gui/PrefWidgets.h>
+#include "Gui/PrefWidgets.h"
 
 using namespace PartGui;
 

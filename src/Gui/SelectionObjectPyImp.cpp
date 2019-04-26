@@ -23,10 +23,10 @@
 
 #include "SelectionObject.h"
 #include "Selection.h"
-#include <Base/GeometryPyCXX.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <App/Application.h>
+#include "Base/GeometryPyCXX.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "App/Application.h"
 
 // inclusion of the generated files (generated out of SelectionObjectPy.xml)
 #include "SelectionObjectPy.h"

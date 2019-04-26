@@ -24,10 +24,10 @@
 # include <QPixmap>
 # include <QDialog>
 
-#include <Gui/BitmapFactory.h>
-#include <Gui/MainWindow.h>
-#include <Base/Tools.h>
-#include <Base/UnitsApi.h>
+#include "Gui/BitmapFactory.h"
+#include "Gui/MainWindow.h"
+#include "Base/Tools.h"
+#include "Base/UnitsApi.h"
 
 #include "ui_SketchOrientationDialog.h"
 #include "SketchOrientationDialog.h"

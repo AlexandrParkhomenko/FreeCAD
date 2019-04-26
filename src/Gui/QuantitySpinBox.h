@@ -26,7 +26,7 @@
 
 #include "stdexport.h"
 #include <QAbstractSpinBox>
-#include <Gui/MetaTypes.h>
+#include "Gui/MetaTypes.h"
 #include "ExpressionBinding.h"
 
 #ifdef Q_MOC_RUN

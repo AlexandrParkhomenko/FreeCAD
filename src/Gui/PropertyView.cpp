@@ -28,13 +28,13 @@
 #include <boost/bind.hpp>
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
-#include <Base/Parameter.h>
-#include <App/PropertyStandard.h>
-#include <App/PropertyGeo.h>
-#include <App/PropertyLinks.h>
-#include <App/PropertyContainer.h>
-#include <App/DocumentObject.h>
-#include <App/Document.h>
+#include "Base/Parameter.h"
+#include "App/PropertyStandard.h"
+#include "App/PropertyGeo.h"
+#include "App/PropertyLinks.h"
+#include "App/PropertyContainer.h"
+#include "App/DocumentObject.h"
+#include "App/Document.h"
 
 #include "PropertyView.h"
 #include "Application.h"

@@ -27,9 +27,9 @@
 # include <GeomPlate_PointConstraint.hxx>
 # include <GeomPlate_CurveConstraint.hxx>
 
-#include <Base/GeometryPyCXX.h>
-#include <Base/VectorPy.h>
-#include <Base/Vector3D.h>
+#include "Base/GeometryPyCXX.h"
+#include "Base/VectorPy.h"
+#include "Base/Vector3D.h"
 
 #include "OCCError.h"
 #include "Geometry.h"

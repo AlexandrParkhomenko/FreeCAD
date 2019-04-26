@@ -25,7 +25,7 @@
 # include <QHeaderView>
 # include <QMessageBox>
 
-#include <Base/Parameter.h>
+#include "Base/Parameter.h"
 
 #include "DlgKeyboardImp.h"
 #include "Action.h"

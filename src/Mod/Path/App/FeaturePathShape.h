@@ -28,10 +28,10 @@
 #define PATH_FeaturePathShape_H
 
 #include "stdexport.h"
-#include <App/DocumentObject.h>
-#include <App/GeoFeature.h>
-#include <App/PropertyGeo.h>
-#include <App/FeaturePython.h>
+#include "App/DocumentObject.h"
+#include "App/GeoFeature.h"
+#include "App/PropertyGeo.h"
+#include "App/FeaturePython.h"
 #include "Mod/Part/App/PropertyTopoShape.h"
 
 #include "PropertyPath.h"

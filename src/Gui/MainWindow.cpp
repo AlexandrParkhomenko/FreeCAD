@@ -47,17 +47,17 @@
 #include <boost/bind.hpp>
 
 // FreeCAD Base header
-#include <Base/Parameter.h>
-#include <Base/Exception.h>
-#include <Base/FileInfo.h>
-#include <Base/Interpreter.h>
-#include <Base/Persistence.h>
-#include <Base/Stream.h>
-#include <Base/Reader.h>
-#include <Base/Writer.h>
-#include <App/Application.h>
-#include <App/DocumentObject.h>
-#include <App/DocumentObjectGroup.h>
+#include "Base/Parameter.h"
+#include "Base/Exception.h"
+#include "Base/FileInfo.h"
+#include "Base/Interpreter.h"
+#include "Base/Persistence.h"
+#include "Base/Stream.h"
+#include "Base/Reader.h"
+#include "Base/Writer.h"
+#include "App/Application.h"
+#include "App/DocumentObject.h"
+#include "App/DocumentObjectGroup.h"
 
 #include "MainWindow.h"
 #include "Application.h"

@@ -27,12 +27,12 @@
 # include <GC_MakeLine.hxx>
 # include <Precision.hxx>
 
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 #include "OCCError.h"
 #include "Geometry.h"
-#include <Mod/Part/App/LinePy.h>
+#include "Mod/Part/App/LinePy.h"
 #include <Mod/Part/App/LinePy.cpp>
 
 using namespace Part;

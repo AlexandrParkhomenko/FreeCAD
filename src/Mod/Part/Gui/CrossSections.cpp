@@ -45,17 +45,17 @@
 
 #include "ui_CrossSections.h"
 #include "CrossSections.h"
-#include <Mod/Part/App/PartFeature.h>
-#include <Mod/Part/App/CrossSection.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/Application.h>
-#include <Gui/Command.h>
-#include <Gui/Document.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Base/Sequencer.h>
-#include <Base/UnitsApi.h>
+#include "Mod/Part/App/PartFeature.h"
+#include "Mod/Part/App/CrossSection.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/Application.h"
+#include "Gui/Command.h"
+#include "Gui/Document.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Base/Sequencer.h"
+#include "Base/UnitsApi.h"
 
 using namespace PartGui;
 #undef CS_FUTURE // multi-threading causes some problems

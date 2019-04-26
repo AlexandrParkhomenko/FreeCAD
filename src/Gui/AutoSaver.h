@@ -25,7 +25,7 @@
 #define GUI_AUTOSAVER_H
 
 #include <QObject>
-#include <Base/Writer.h>
+#include "Base/Writer.h"
 #include <map>
 #include <set>
 #include <string>

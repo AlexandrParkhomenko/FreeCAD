@@ -30,35 +30,35 @@
 # include <qmessagebox.h>
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Sequencer.h>
-#include <Base/Tools2D.h>
-#include <Base/ViewProj.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Sequencer.h"
+#include "Base/Tools2D.h"
+#include "Base/ViewProj.h"
 
-#include <App/Document.h>
-#include <App/PropertyLinks.h>
+#include "App/Document.h"
+#include "App/PropertyLinks.h"
 
-#include <Gui/Application.h>
-#include <Gui/Command.h>
-#include <Gui/Document.h>
-#include <Gui/SoFCSelection.h>
-#include <Gui/MainWindow.h>
-#include <Gui/MouseModel.h>
-#include <Gui/Selection.h>
-#include <Gui/Window.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
+#include "Gui/Application.h"
+#include "Gui/Command.h"
+#include "Gui/Document.h"
+#include "Gui/SoFCSelection.h"
+#include "Gui/MainWindow.h"
+#include "Gui/MouseModel.h"
+#include "Gui/Selection.h"
+#include "Gui/Window.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
 
-#include <Mod/Mesh/App/Core/Algorithm.h>
-#include <Mod/Mesh/App/Core/Evaluation.h>
-#include <Mod/Mesh/App/Core/Grid.h>
-#include <Mod/Mesh/App/Core/Iterator.h>
-#include <Mod/Mesh/App/Core/MeshIO.h>
-#include <Mod/Mesh/App/Core/Visitor.h>
-#include <Mod/Mesh/App/Mesh.h>
-#include <Mod/Mesh/App/MeshFeature.h>
-#include <Mod/Mesh/Gui/SoFCMeshNode.h>
+#include "Mod/Mesh/App/Core/Algorithm.h"
+#include "Mod/Mesh/App/Core/Evaluation.h"
+#include "Mod/Mesh/App/Core/Grid.h"
+#include "Mod/Mesh/App/Core/Iterator.h"
+#include "Mod/Mesh/App/Core/MeshIO.h"
+#include "Mod/Mesh/App/Core/Visitor.h"
+#include "Mod/Mesh/App/Mesh.h"
+#include "Mod/Mesh/App/MeshFeature.h"
+#include "Mod/Mesh/Gui/SoFCMeshNode.h"
 
 #include "ViewProvider.h"
 #include "ViewProviderMeshNode.h"

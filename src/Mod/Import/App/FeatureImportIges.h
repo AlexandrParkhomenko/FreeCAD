@@ -26,7 +26,7 @@
 #define __FeatureImportIges_H__
 
 
-#include <Mod/Part/App/PartFeature.h>
+#include "Mod/Part/App/PartFeature.h"
 
 namespace Import
 {

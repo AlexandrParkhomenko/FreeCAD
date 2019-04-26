@@ -24,11 +24,11 @@
 
 #include "Mesh.h"
 #include "Facet.h"
-#include <Mod/Mesh/App/FacetPy.h>
+#include "Mod/Mesh/App/FacetPy.h"
 #include <Mod/Mesh/App/FacetPy.cpp>
 
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 using namespace Mesh;
 

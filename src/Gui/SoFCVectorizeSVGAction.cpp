@@ -27,7 +27,7 @@
 #include <Inventor/SbBSPTree.h>
 
 #include <qglobal.h>
-#include <Base/FileInfo.h>
+#include "Base/FileInfo.h"
 #include "SoFCVectorizeSVGAction.h"
 
 using namespace Gui;

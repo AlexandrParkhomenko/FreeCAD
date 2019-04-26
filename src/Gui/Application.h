@@ -31,7 +31,7 @@
 
 #define  putpix()
 
-#include <App/Application.h>
+#include "App/Application.h"
 
 class QCloseEvent;
 

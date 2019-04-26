@@ -24,8 +24,8 @@
 #include "stdexport.h"
 #include <Standard_math.hxx>
 # include <Inventor/nodes/SoSeparator.h>
-#include <Gui/ViewProviderBuilder.h>
-#include <Mod/Sketcher/App/SketchObject.h>
+#include "Gui/ViewProviderBuilder.h"
+#include "Mod/Sketcher/App/SketchObject.h"
 #include "ViewProviderPython.h"
 
 using namespace SketcherGui;

@@ -69,28 +69,28 @@
 #include <GeomLProp_SLProps.hxx>
 #include <BRep_Tool.hxx>
 
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 #include "TopoShape.h"
 #include "Geometry2d.h"
-#include <Mod/Part/App/TopoShapeSolidPy.h>
-#include <Mod/Part/App/TopoShapeEdgePy.h>
-#include <Mod/Part/App/TopoShapeWirePy.h>
-#include <Mod/Part/App/TopoShapeFacePy.h>
+#include "Mod/Part/App/TopoShapeSolidPy.h"
+#include "Mod/Part/App/TopoShapeEdgePy.h"
+#include "Mod/Part/App/TopoShapeWirePy.h"
+#include "Mod/Part/App/TopoShapeFacePy.h"
 #include <Mod/Part/App/TopoShapeFacePy.cpp>
-#include <Mod/Part/App/TopoShapeCompoundPy.h>
+#include "Mod/Part/App/TopoShapeCompoundPy.h"
 
-#include <Mod/Part/App/BezierSurfacePy.h>
-#include <Mod/Part/App/BSplineSurfacePy.h>
-#include <Mod/Part/App/PlanePy.h>
-#include <Mod/Part/App/CylinderPy.h>
-#include <Mod/Part/App/ConePy.h>
-#include <Mod/Part/App/SpherePy.h>
-#include <Mod/Part/App/OffsetSurfacePy.h>
-#include <Mod/Part/App/SurfaceOfRevolutionPy.h>
-#include <Mod/Part/App/SurfaceOfExtrusionPy.h>
-#include <Mod/Part/App/ToroidPy.h>
+#include "Mod/Part/App/BezierSurfacePy.h"
+#include "Mod/Part/App/BSplineSurfacePy.h"
+#include "Mod/Part/App/PlanePy.h"
+#include "Mod/Part/App/CylinderPy.h"
+#include "Mod/Part/App/ConePy.h"
+#include "Mod/Part/App/SpherePy.h"
+#include "Mod/Part/App/OffsetSurfacePy.h"
+#include "Mod/Part/App/SurfaceOfRevolutionPy.h"
+#include "Mod/Part/App/SurfaceOfExtrusionPy.h"
+#include "Mod/Part/App/ToroidPy.h"
 #include "OCCError.h"
 #include "Tools.h"
 #include "FaceMaker.h"

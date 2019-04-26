@@ -69,21 +69,21 @@
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
 
-#include <Base/PyObjectBase.h>
-#include <Base/Console.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObjectPy.h>
-#include <Gui/Application.h>
-#include <Gui/MainWindow.h>
-#include <Mod/Part/Gui/ViewProvider.h>
-#include <Mod/Part/App/PartFeature.h>
-#include <Mod/Part/App/ProgressIndicator.h>
-#include <Mod/Part/App/ImportIges.h>
-#include <Mod/Part/App/ImportStep.h>
-#include <Mod/Part/App/encodeFilename.h>
-#include <Mod/Import/App/ImportOCAF.h>
-#include <Mod/Import/App/ExportOCAF.h>
+#include "Base/PyObjectBase.h"
+#include "Base/Console.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObjectPy.h"
+#include "Gui/Application.h"
+#include "Gui/MainWindow.h"
+#include "Mod/Part/Gui/ViewProvider.h"
+#include "Mod/Part/App/PartFeature.h"
+#include "Mod/Part/App/ProgressIndicator.h"
+#include "Mod/Part/App/ImportIges.h"
+#include "Mod/Part/App/ImportStep.h"
+#include "Mod/Part/App/encodeFilename.h"
+#include "Mod/Import/App/ImportOCAF.h"
+#include "Mod/Import/App/ExportOCAF.h"
 
 #include <TDataStd.hxx>
 #include <TDataStd_Integer.hxx>
@@ -112,9 +112,9 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/ViewProvider.h>
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/ViewProvider.h"
 
 class OCAFBrowser
 {

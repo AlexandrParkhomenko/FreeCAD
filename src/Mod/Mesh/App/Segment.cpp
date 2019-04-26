@@ -29,7 +29,7 @@
 
 #include "Segment.h"
 #include "Mesh.h"
-#include <Mod/Mesh/App/MeshPy.h>
+#include "Mod/Mesh/App/MeshPy.h"
 
 using namespace Mesh;
 

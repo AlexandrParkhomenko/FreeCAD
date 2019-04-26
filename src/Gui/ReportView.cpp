@@ -28,7 +28,7 @@
 # include <QTextCursor>
 # include <QTextStream>
 
-#include <Base/Interpreter.h>
+#include "Base/Interpreter.h"
 #include "ReportView.h"
 #include "FileDialog.h"
 #include "PythonConsole.h"

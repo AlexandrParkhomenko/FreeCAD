@@ -27,11 +27,11 @@
 # include <GCE2d_MakeLine.hxx>
 # include <Precision.hxx>
 
-#include <Base/GeometryPyCXX.h>
+#include "Base/GeometryPyCXX.h"
 
-#include <Mod/Part/App/OCCError.h>
-#include <Mod/Part/App/Geometry2d.h>
-#include <Mod/Part/App/Geom2d/Line2dPy.h>
+#include "Mod/Part/App/OCCError.h"
+#include "Mod/Part/App/Geometry2d.h"
+#include "Mod/Part/App/Geom2d/Line2dPy.h"
 #include <Mod/Part/App/Geom2d/Line2dPy.cpp>
 
 using namespace Part;

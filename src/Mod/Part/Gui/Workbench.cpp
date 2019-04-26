@@ -25,8 +25,8 @@
 # include <qobject.h>
 
 #include "Workbench.h"
-#include <Gui/MenuManager.h>
-#include <Gui/ToolBarManager.h>
+#include "Gui/MenuManager.h"
+#include "Gui/ToolBarManager.h"
 
 using namespace PartGui;
 

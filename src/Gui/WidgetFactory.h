@@ -28,8 +28,8 @@
 #include <vector>
 #include <QUiLoader>
 
-#include <Base/Factory.h>
-#include <Base/PyObjectBase.h>
+#include "Base/Factory.h"
+#include "Base/PyObjectBase.h"
 #include "DlgPreferencesImp.h"
 #include "DlgCustomizeImp.h"
 #include "PropertyPage.h"

@@ -42,17 +42,17 @@
 #endif
 
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Reader.h>
-#include <App/Property.h>
-#include <App/PropertyLinks.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Reader.h"
+#include "App/Property.h"
+#include "App/PropertyLinks.h"
 #include "Part2DObject.h"
 #include "Geometry.h"
 #include "DatumFeature.h"
 
-#include <App/FeaturePythonPyImp.h>
-#include <Mod/Part/App/Part2DObjectPy.h>
+#include "App/FeaturePythonPyImp.h"
+#include "Mod/Part/App/Part2DObjectPy.h"
 
 using namespace Part;
 

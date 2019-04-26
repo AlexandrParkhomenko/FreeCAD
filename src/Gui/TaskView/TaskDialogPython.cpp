@@ -29,13 +29,13 @@
 #include "TaskDialogPython.h"
 #include "TaskView.h"
 
-#include <Gui/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/Command.h>
-#include <Gui/Control.h>
-#include <Gui/WidgetFactory.h>
-#include <Base/Interpreter.h>
-#include <Base/Console.h>
+#include "Gui/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/Command.h"
+#include "Gui/Control.h"
+#include "Gui/WidgetFactory.h"
+#include "Base/Interpreter.h"
+#include "Base/Console.h"
 #include <CXX/Objects.hxx>
 
 using namespace Gui;

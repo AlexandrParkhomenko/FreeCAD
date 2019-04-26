@@ -41,10 +41,10 @@
 # include <Interface_Static.hxx>
 # include <TopoDS_Iterator.hxx>
 
-#include <Base/Exception.h>
-#include <Base/FileInfo.h>
-#include <Base/Console.h>
-#include <Base/Sequencer.h>
+#include "Base/Exception.h"
+#include "Base/FileInfo.h"
+#include "Base/Console.h"
+#include "Base/Sequencer.h"
 #include "TopologyPy.h"
 
 # include <BRepOffsetAPI_MakeOffsetShape.hxx>

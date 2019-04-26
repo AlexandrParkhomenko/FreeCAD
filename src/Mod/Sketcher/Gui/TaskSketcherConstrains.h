@@ -24,8 +24,8 @@
 #ifndef GUI_TASKVIEW_TaskSketcherConstrains_H
 #define GUI_TASKVIEW_TaskSketcherConstrains_H
 
-#include <Gui/TaskView/TaskView.h>
-#include <Gui/Selection.h>
+#include "Gui/TaskView/TaskView.h"
+#include "Gui/Selection.h"
 #include <boost/signals2.hpp>
 #include <QListWidget>
 

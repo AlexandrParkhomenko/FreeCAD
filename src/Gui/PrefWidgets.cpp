@@ -24,9 +24,9 @@
 # include <QContextMenuEvent>
 # include <QMenu>
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <App/Application.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "App/Application.h"
 
 #include "PrefWidgets.h"
 #include "FileDialog.h"

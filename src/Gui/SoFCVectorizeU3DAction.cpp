@@ -27,8 +27,8 @@
 #include <Inventor/SbBasic.h>
 #include <Inventor/SbBSPTree.h>
 
-#include <Base/FileInfo.h>
-#include <Base/Tools.h>
+#include "Base/FileInfo.h"
+#include "Base/Tools.h"
 #include "SoFCVectorizeU3DAction.h"
 
 using namespace Gui;

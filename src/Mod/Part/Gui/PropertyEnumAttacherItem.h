@@ -25,7 +25,7 @@
 #define PART_PropertyEnumAttacherItem_H
 
 #include "stdexport.h"
-#include <Gui/propertyeditor/PropertyItem.h>
+#include "Gui/propertyeditor/PropertyItem.h"
 #include "TaskAttacher.h"
 
 namespace PartGui

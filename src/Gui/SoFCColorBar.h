@@ -28,8 +28,8 @@
 #include <Inventor/SbVec2s.h>
 #include <Inventor/nodes/SoSeparator.h>
 #include <QTime>
-#include <Base/Observer.h>
-#include <App/ColorModel.h>
+#include "Base/Observer.h"
+#include "App/ColorModel.h"
 #include <vector>
 
 class SoSwitch;

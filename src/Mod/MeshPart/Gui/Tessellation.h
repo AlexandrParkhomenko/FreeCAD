@@ -24,9 +24,9 @@
 #ifndef MESHPARTGUI_TESSELLATION_H
 #define MESHPARTGUI_TESSELLATION_H
 
-#include <Gui/TaskView/TaskDialog.h>
-#include <Gui/TaskView/TaskView.h>
-#include <Gui/Selection.h>
+#include "Gui/TaskView/TaskDialog.h"
+#include "Gui/TaskView/TaskView.h"
+#include "Gui/Selection.h"
 #include <memory>
 
 class QButtonGroup;

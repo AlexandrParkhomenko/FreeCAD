@@ -30,27 +30,27 @@
 # include <Standard_Failure.hxx>
 # include <boost/bind.hpp>
 
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Gui/DocumentObserver.h>
-#include <App/Origin.h>
-#include <App/OriginFeature.h>
-#include <App/Part.h>
-#include <App/ObjectIdentifier.h>
-#include <App/PropertyExpressionEngine.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/WaitCursor.h>
-#include <Gui/Selection.h>
-#include <Gui/Command.h>
-#include <Mod/Part/Gui/TaskAttacher.h>
-#include <Mod/Part/Gui/AttacherTexts.h>
-#include <Mod/Part/App/AttachExtension.h>
-#include <Mod/Part/App/DatumFeature.h>
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Gui/DocumentObserver.h"
+#include "App/Origin.h"
+#include "App/OriginFeature.h"
+#include "App/Part.h"
+#include "App/ObjectIdentifier.h"
+#include "App/PropertyExpressionEngine.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/WaitCursor.h"
+#include "Gui/Selection.h"
+#include "Gui/Command.h"
+#include "Mod/Part/Gui/TaskAttacher.h"
+#include "Mod/Part/Gui/AttacherTexts.h"
+#include "Mod/Part/App/AttachExtension.h"
+#include "Mod/Part/App/DatumFeature.h"
 
 #include "ui_TaskAttacher.h"
 #include "TaskAttacher.h"

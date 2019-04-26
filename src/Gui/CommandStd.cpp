@@ -28,11 +28,11 @@
 
 #include <boost/scoped_ptr.hpp>
 
-#include <Base/Exception.h>
-#include <Base/FileInfo.h>
-#include <Base/Interpreter.h>
-#include <Base/Sequencer.h>
-#include <App/Document.h>
+#include "Base/Exception.h"
+#include "Base/FileInfo.h"
+#include "Base/Interpreter.h"
+#include "Base/Sequencer.h"
+#include "App/Document.h"
 #include "Action.h"
 #include "Application.h"
 #include "Document.h"

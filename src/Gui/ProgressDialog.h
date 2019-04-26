@@ -26,7 +26,7 @@
 
 #include <QWidget>
 #include <QProgressDialog>
-#include <Base/Sequencer.h>
+#include "Base/Sequencer.h"
 
 namespace Gui {
 

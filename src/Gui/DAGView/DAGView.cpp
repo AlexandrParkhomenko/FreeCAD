@@ -25,11 +25,11 @@
 
 #include <sstream>
 
-#include <Base/Console.h>
+#include "Base/Console.h"
 
-#include <App/Document.h>
-#include <Gui/Document.h>
-#include <Gui/Application.h>
+#include "App/Document.h"
+#include "Gui/Document.h"
+#include "Gui/Application.h"
 
 #include "DAGModel.h"
 #include "DAGView.h"

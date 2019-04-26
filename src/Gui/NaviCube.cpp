@@ -76,13 +76,13 @@
 # include <QMimeData>
 
 #include <sstream>
-#include <Base/Console.h>
-#include <Base/Stream.h>
-#include <Base/FileInfo.h>
-#include <Base/Rotation.h>
-#include <Base/Sequencer.h>
-#include <Base/Tools.h>
-#include <Base/UnitsApi.h>
+#include "Base/Console.h"
+#include "Base/Stream.h"
+#include "Base/FileInfo.h"
+#include "Base/Rotation.h"
+#include "Base/Sequencer.h"
+#include "Base/Tools.h"
+#include "Base/UnitsApi.h"
 
 #include "View3DInventorViewer.h"
 #include "View3DInventor.h"

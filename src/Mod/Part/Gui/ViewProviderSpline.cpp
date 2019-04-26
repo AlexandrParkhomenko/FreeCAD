@@ -47,9 +47,9 @@
 #include <boost/bind.hpp>
 
 
-#include <App/PropertyStandard.h>
-#include <Mod/Part/App/PartFeature.h>
-#include <Gui/ActionFunction.h>
+#include "App/PropertyStandard.h"
+#include "Mod/Part/App/PartFeature.h"
+#include "Gui/ActionFunction.h"
 #include "SoFCShapeObject.h"
 #include "ViewProviderSpline.h"
 

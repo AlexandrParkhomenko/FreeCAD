@@ -25,7 +25,7 @@
 
 #include "stdexport.h"
 #include <QObject>
-#include <Mod/Mesh/Gui/ViewProvider.h>
+#include "Mod/Mesh/Gui/ViewProvider.h"
 #include <boost/signals2.hpp>
 
 class SoCoordinate3;

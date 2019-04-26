@@ -29,7 +29,7 @@
 #include <QMessageBox>
 #include <QApplication>
 
-#include <Gui/propertyeditor/PropertyItem.h>
+#include "Gui/propertyeditor/PropertyItem.h"
 
 class QGridLayout;
 class QLabel;

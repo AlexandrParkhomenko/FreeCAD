@@ -24,8 +24,8 @@
 
 
 
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
 #include "StepShapePy.h"
 #include "StepShape.h"
 

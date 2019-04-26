@@ -23,10 +23,10 @@
 
 #include "CoordinateSystem.h"
 #include "GeometryPyCXX.h"
-#include <Base/CoordinateSystemPy.h>
-#include <Base/AxisPy.h>
-#include <Base/PlacementPy.h>
-#include <Base/VectorPy.h>
+#include "Base/CoordinateSystemPy.h"
+#include "Base/AxisPy.h"
+#include "Base/PlacementPy.h"
+#include "Base/VectorPy.h"
 #include <Base/CoordinateSystemPy.cpp>
 
 using namespace Base;

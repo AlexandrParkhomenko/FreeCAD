@@ -23,10 +23,10 @@
 
 # include <sstream>
 
-#include <Base/Matrix.h>
-#include <Base/MatrixPy.h>
+#include "Base/Matrix.h"
+#include "Base/MatrixPy.h"
 
-#include <App/Document.h>
+#include "App/Document.h"
 
 #include "Document.h"
 #include "MergeDocuments.h"
@@ -35,7 +35,7 @@
 // inclusion of the generated files (generated out of DocumentPy.xml)
 #include "DocumentPy.h"
 #include "DocumentPy.cpp"
-#include <App/DocumentObjectPy.h>
+#include "App/DocumentObjectPy.h"
 #include "Tree.h"
 #include "ViewProviderDocumentObject.h"
 #include "ViewProviderPy.h"

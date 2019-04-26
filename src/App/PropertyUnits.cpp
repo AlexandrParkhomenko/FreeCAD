@@ -28,16 +28,16 @@
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 
-#include <Base/Exception.h>
-#include <Base/Reader.h>
-#include <Base/Writer.h>
-#include <Base/Stream.h>
-#include <Base/UnitsApi.h>
+#include "Base/Exception.h"
+#include "Base/Reader.h"
+#include "Base/Writer.h"
+#include "Base/Stream.h"
+#include "Base/UnitsApi.h"
 
 #include "PropertyUnits.h"
-#include <Base/PyObjectBase.h>
-#include <Base/QuantityPy.h>
-#include <Base/UnitPy.h>
+#include "Base/PyObjectBase.h"
+#include "Base/QuantityPy.h"
+#include "Base/UnitPy.h"
 
 using namespace App;
 using namespace Base;

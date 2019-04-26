@@ -26,7 +26,7 @@
 #include <QApplication>
 #include <QGestureEvent>
 #include <QWidget>
-#include <Base/Exception.h>
+#include "Base/Exception.h"
 
 SO_EVENT_SOURCE(SoGestureEvent);
 

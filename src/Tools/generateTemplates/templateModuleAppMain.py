@@ -24,7 +24,7 @@ class TemplateModuleAppMain (template.ModelTemplate):
 
 #include "FCConfig.h"
 
-#include <Base/Console.h>
+#include "Base/Console.h"
 
 + for i in self.module.Content.Feature:
 #include "Feature/@i.Name@.h"

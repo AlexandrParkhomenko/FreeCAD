@@ -24,7 +24,7 @@
 #ifndef IMPORT_WORKBENCH_H
 #define IMPORT_WORKBENCH_H
 
-#include <Gui/Workbench.h>
+#include "Gui/Workbench.h"
 
 namespace ImportGui {
 

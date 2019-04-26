@@ -45,14 +45,14 @@
 #include <deque>
 #include <unordered_set>
 
-#include <Base/Console.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/ViewProviderDocumentObject.h>
-#include <Gui/Selection.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/MenuManager.h>
-#include <Gui/MainWindow.h>
+#include "Base/Console.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/ViewProviderDocumentObject.h"
+#include "Gui/Selection.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/MenuManager.h"
+#include "Gui/MainWindow.h"
 
 #include "DAGModel.h"
 

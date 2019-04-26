@@ -27,7 +27,7 @@
 # include <TopoDS_Wire.hxx>
 
 #include "FeaturePartPolygon.h"
-#include <Base/Exception.h>
+#include "Base/Exception.h"
 
 PROPERTY_SOURCE(Part::Polygon, Part::Feature)
 

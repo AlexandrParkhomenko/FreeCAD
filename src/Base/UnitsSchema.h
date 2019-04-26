@@ -27,7 +27,7 @@
 
 #include <string>
 #include <QString>
-#include <Base/Quantity.h>
+#include "Base/Quantity.h"
 
 
 namespace Base {

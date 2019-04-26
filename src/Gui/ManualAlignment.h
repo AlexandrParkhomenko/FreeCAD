@@ -26,11 +26,11 @@
 
 #include "stdexport.h"
 #include <QPointer>
-#include <Base/Placement.h>
-#include <Base/Vector3D.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/ViewProviderDocumentObject.h>
+#include "Base/Placement.h"
+#include "Base/Vector3D.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/ViewProviderDocumentObject.h"
 #include <boost/signals2.hpp>
 
 class SbVec3f;

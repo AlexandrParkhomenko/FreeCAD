@@ -27,17 +27,17 @@
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
 
-#include <Base/Console.h>
-#include <Base/VectorPy.h>
-#include <Base/FileInfo.h>
-#include <Base/Interpreter.h>
-#include <App/Document.h>
-#include <App/DocumentObjectPy.h>
-#include <App/Application.h>
+#include "Base/Console.h"
+#include "Base/VectorPy.h"
+#include "Base/FileInfo.h"
+#include "Base/Interpreter.h"
+#include "App/Document.h"
+#include "App/DocumentObjectPy.h"
+#include "App/Application.h"
 
-#include <Mod/Part/App/OCCError.h>
-#include <Mod/Part/App/TopoShape.h>
-#include <Mod/Part/App/TopoShapePy.h>
+#include "Mod/Part/App/OCCError.h"
+#include "Mod/Part/App/TopoShape.h"
+#include "Mod/Part/App/TopoShapePy.h"
 #include <TopoDS.hxx>
 #include <TopoDS_Shape.hxx>
 #include <TopoDS_Edge.hxx>

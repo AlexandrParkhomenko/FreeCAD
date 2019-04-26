@@ -25,11 +25,11 @@
 #define GUI_TASKVIEW_TaskAttacher_H
 
 #include "stdexport.h"
-#include <Gui/Selection.h>
-#include <Gui/ViewProviderDocumentObject.h>
-#include <Gui/TaskView/TaskView.h>
-#include <Gui/TaskView/TaskDialog.h>
-#include <Mod/Part/App/Attacher.h>
+#include "Gui/Selection.h"
+#include "Gui/ViewProviderDocumentObject.h"
+#include "Gui/TaskView/TaskView.h"
+#include "Gui/TaskView/TaskDialog.h"
+#include "Mod/Part/App/Attacher.h"
 
 
 class Ui_TaskAttacher;

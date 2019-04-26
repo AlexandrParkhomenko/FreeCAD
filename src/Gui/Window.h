@@ -26,7 +26,7 @@
 
 
 #include "stdexport.h"
-#include <Base/Parameter.h>
+#include "Base/Parameter.h"
 #include "View.h"
 
 namespace Gui {

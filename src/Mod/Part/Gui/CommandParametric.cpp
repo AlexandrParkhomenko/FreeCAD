@@ -27,9 +27,9 @@
 # include <QFileInfo>
 # include <QLineEdit>
 
-#include <Gui/Application.h>
-#include <Gui/Command.h>
-#include <Gui/MainWindow.h>
+#include "Gui/Application.h"
+#include "Gui/Command.h"
+#include "Gui/MainWindow.h"
 
 //===========================================================================
 // Part_Cylinder

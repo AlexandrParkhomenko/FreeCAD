@@ -32,9 +32,9 @@
 #include "Control.h"
 #include "TaskView/TaskView.h"
 
-#include <Gui/MainWindow.h>
-#include <Gui/CombiView.h>
-#include <Gui/DockWindowManager.h>
+#include "Gui/MainWindow.h"
+#include "Gui/CombiView.h"
+#include "Gui/DockWindowManager.h"
 
 
 using namespace Gui;

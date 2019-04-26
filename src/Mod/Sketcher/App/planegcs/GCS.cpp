@@ -96,7 +96,7 @@
 #endif
 
 #include <FCConfig.h>
-#include <Base/Console.h>
+#include "Base/Console.h"
 
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/connected_components.hpp>

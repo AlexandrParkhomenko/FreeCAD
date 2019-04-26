@@ -21,8 +21,8 @@
  ***************************************************************************/
 
 
-#include <Base/Type.h>
-#include <Gui/ViewProviderDocumentObject.h>
+#include "Base/Type.h"
+#include "Gui/ViewProviderDocumentObject.h"
 
 
 #include "DAGFilter.h"

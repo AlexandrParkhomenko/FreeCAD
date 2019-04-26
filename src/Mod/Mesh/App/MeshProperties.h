@@ -31,12 +31,12 @@
 #include <string>
 #include <map>
 
-#include <Base/Handle.h>
-#include <Base/Matrix.h>
-#include <Base/Vector3D.h>
+#include "Base/Handle.h"
+#include "Base/Matrix.h"
+#include "Base/Vector3D.h"
 
-#include <App/PropertyStandard.h>
-#include <App/PropertyGeo.h>
+#include "App/PropertyStandard.h"
+#include "App/PropertyGeo.h"
 
 #include "Core/MeshKernel.h"
 #include "Mesh.h"

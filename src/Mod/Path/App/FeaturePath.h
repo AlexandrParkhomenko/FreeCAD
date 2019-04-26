@@ -25,11 +25,11 @@
 #define PATH_FeaturePath_H
 
 #include "stdexport.h"
-#include <App/DocumentObject.h>
-#include <App/GeoFeature.h>
-#include <App/PropertyFile.h>
-#include <App/PropertyGeo.h>
-#include <App/FeaturePython.h>
+#include "App/DocumentObject.h"
+#include "App/GeoFeature.h"
+#include "App/PropertyFile.h"
+#include "App/PropertyGeo.h"
+#include "App/FeaturePython.h"
 
 #include "Path.h"
 #include "PropertyPath.h"

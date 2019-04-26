@@ -26,10 +26,10 @@
 
 
 #include "stdexport.h"
-#include <Base/Vector3D.h>
-#include <Base/Matrix.h>
-#include <Base/BoundBox.h>
-#include <Base/Placement.h>
+#include "Base/Vector3D.h"
+#include "Base/Matrix.h"
+#include "Base/BoundBox.h"
+#include "Base/Placement.h"
 
 #include "Property.h"
 #include "PropertyLinks.h"

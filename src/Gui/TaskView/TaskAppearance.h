@@ -25,7 +25,7 @@
 #define GUI_TASKVIEW_TASKAPPERANCE_H
 
 #include "TaskView.h"
-#include <Gui/Selection.h>
+#include "Gui/Selection.h"
 #include <boost/signals2.hpp>
 
 

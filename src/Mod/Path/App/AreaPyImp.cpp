@@ -21,8 +21,8 @@
  ****************************************************************************/
 
 
-#include <Mod/Part/App/TopoShapePy.h>
-#include <Base/VectorPy.h>
+#include "Mod/Part/App/TopoShapePy.h"
+#include "Base/VectorPy.h"
 
 #include "Area.h"
 

@@ -25,7 +25,7 @@
 #include "Command.h"
 #include "Path.h"
 #include "FeaturePathCompoundPy.h"
-#include <App/FeaturePythonPyImp.h>
+#include "App/FeaturePythonPyImp.h"
 
 using namespace Path;
 using namespace App;

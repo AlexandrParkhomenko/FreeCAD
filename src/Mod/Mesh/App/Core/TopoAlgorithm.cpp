@@ -26,8 +26,8 @@
 # include <utility>
 # include <queue>
 
-#include <Mod/Mesh/App/WildMagic4/Wm4MeshCurvature.h>
-#include <Mod/Mesh/App/WildMagic4/Wm4Vector3.h>
+#include "Mod/Mesh/App/WildMagic4/Wm4MeshCurvature.h"
+#include "Mod/Mesh/App/WildMagic4/Wm4Vector3.h"
 
 #include "TopoAlgorithm.h"
 #include "Iterator.h"
@@ -36,7 +36,7 @@
 #include "Evaluation.h"
 #include "Triangulation.h"
 #include "Definitions.h"
-#include <Base/Console.h>
+#include "Base/Console.h"
 
 using namespace MeshCore;
 

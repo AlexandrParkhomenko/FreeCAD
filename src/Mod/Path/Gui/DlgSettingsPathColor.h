@@ -25,7 +25,7 @@
 #define PATHGUI_DIALOG_DLGSETTINGSPATHCOLOR_H
 
 #include "ui_DlgSettingsPathColor.h"
-#include <Gui/PropertyPage.h>
+#include "Gui/PropertyPage.h"
 
 namespace PathGui {
 

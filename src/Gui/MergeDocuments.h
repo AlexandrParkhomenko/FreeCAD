@@ -26,7 +26,7 @@
 
 #include "stdexport.h"
 #include <boost/signals2.hpp>
-#include <Base/Persistence.h>
+#include "Base/Persistence.h"
 
 namespace zipios {
 class ZipInputStream;

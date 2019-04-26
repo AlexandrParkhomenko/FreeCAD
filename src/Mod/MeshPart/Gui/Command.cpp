@@ -25,18 +25,18 @@
 # include <QMessageBox>
 # include <QPushButton>
 
-#include <Mod/Mesh/App/MeshFeature.h>
+#include "Mod/Mesh/App/MeshFeature.h"
 
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Gui/Application.h>
-#include <Gui/Command.h>
-#include <Gui/Control.h>
-#include <Gui/Document.h>
-#include <Gui/MainWindow.h>
-#include <Gui/FileDialog.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Gui/Application.h"
+#include "Gui/Command.h"
+#include "Gui/Control.h"
+#include "Gui/Document.h"
+#include "Gui/MainWindow.h"
+#include "Gui/FileDialog.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
 #include "Tessellation.h"
 #include "TaskCurveOnMesh.h"
 

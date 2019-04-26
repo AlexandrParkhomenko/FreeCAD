@@ -26,7 +26,7 @@
 
 #include "stdexport.h"
 #include <QString>
-#include <App/PropertyLinks.h>
+#include "App/PropertyLinks.h"
 
 #include "PartFeature.h"
 #include "AttachExtension.h"

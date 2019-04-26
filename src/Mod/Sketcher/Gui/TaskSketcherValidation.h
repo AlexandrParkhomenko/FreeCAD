@@ -26,9 +26,9 @@
 
 #include <vector>
 #include <memory>
-#include <Base/Vector3D.h>
-#include <Gui/TaskView/TaskDialog.h>
-#include <Mod/Sketcher/App/SketchAnalysis.h>
+#include "Base/Vector3D.h"
+#include "Gui/TaskView/TaskDialog.h"
+#include "Mod/Sketcher/App/SketchAnalysis.h"
 
 class SoGroup;
 namespace Sketcher { class SketchObject; } 

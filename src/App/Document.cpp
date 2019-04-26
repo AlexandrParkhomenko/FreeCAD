@@ -79,19 +79,19 @@ recompute path. Also enables more complicated dependencies beyond trees.
 #include "Application.h"
 #include "DocumentObject.h"
 #include "MergeDocuments.h"
-#include <App/DocumentPy.h>
+#include "App/DocumentPy.h"
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/FileInfo.h>
-#include <Base/TimeInfo.h>
-#include <Base/Interpreter.h>
-#include <Base/Reader.h>
-#include <Base/Writer.h>
-#include <Base/Stream.h>
-#include <Base/FileInfo.h>
-#include <Base/Tools.h>
-#include <Base/Uuid.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/FileInfo.h"
+#include "Base/TimeInfo.h"
+#include "Base/Interpreter.h"
+#include "Base/Reader.h"
+#include "Base/Writer.h"
+#include "Base/Stream.h"
+#include "Base/FileInfo.h"
+#include "Base/Tools.h"
+#include "Base/Uuid.h"
 
 #include "Application.h"
 #include "Transactions.h"

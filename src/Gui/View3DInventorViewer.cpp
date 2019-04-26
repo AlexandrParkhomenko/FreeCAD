@@ -84,12 +84,12 @@
 #include <QVariantAnimation>
 
 #include <sstream>
-#include <Base/Console.h>
-#include <Base/Stream.h>
-#include <Base/FileInfo.h>
-#include <Base/Sequencer.h>
-#include <Base/Tools.h>
-#include <Base/UnitsApi.h>
+#include "Base/Console.h"
+#include "Base/Stream.h"
+#include "Base/FileInfo.h"
+#include "Base/Sequencer.h"
+#include "Base/Tools.h"
+#include "Base/UnitsApi.h"
 
 #include "View3DInventorViewer.h"
 #include "ViewProviderDocumentObject.h"
@@ -120,7 +120,7 @@
 #include <Quarter/eventhandlers/EventFilter.h>
 #include <Quarter/devices/InputDevice.h>
 #include "View3DViewerPy.h"
-#include <Gui/NaviCube.h>
+#include "Gui/NaviCube.h"
 
 #include <Inventor/draggers/SoCenterballDragger.h>
 #include <Inventor/annex/Profiler/SoProfiler.h>

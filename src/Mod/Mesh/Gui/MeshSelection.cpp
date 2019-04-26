@@ -33,23 +33,23 @@
 #include "MeshSelection.h"
 #include "ViewProvider.h"
 
-#include <Base/Console.h>
-#include <Base/Tools.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/MouseSelection.h>
-#include <Gui/NavigationStyle.h>
-#include <Gui/Utilities.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Mod/Mesh/App/MeshFeature.h>
-#include <Mod/Mesh/App/Core/Algorithm.h>
-#include <Mod/Mesh/App/Core/MeshKernel.h>
-#include <Mod/Mesh/App/Core/Iterator.h>
-#include <Mod/Mesh/App/Core/TopoAlgorithm.h>
-#include <Mod/Mesh/App/Core/Tools.h>
+#include "Base/Console.h"
+#include "Base/Tools.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/MouseSelection.h"
+#include "Gui/NavigationStyle.h"
+#include "Gui/Utilities.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Mod/Mesh/App/MeshFeature.h"
+#include "Mod/Mesh/App/Core/Algorithm.h"
+#include "Mod/Mesh/App/Core/MeshKernel.h"
+#include "Mod/Mesh/App/Core/Iterator.h"
+#include "Mod/Mesh/App/Core/TopoAlgorithm.h"
+#include "Mod/Mesh/App/Core/Tools.h"
 
 using namespace MeshGui;
 

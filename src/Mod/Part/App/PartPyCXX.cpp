@@ -23,14 +23,14 @@
 #include "stdexport.h"
 #include "PartPyCXX.h"
 #include <CXX/Objects.hxx>
-#include <Mod/Part/App/TopoShapeFacePy.h>
-#include <Mod/Part/App/TopoShapeEdgePy.h>
-#include <Mod/Part/App/TopoShapeWirePy.h>
-#include <Mod/Part/App/TopoShapeVertexPy.h>
-#include <Mod/Part/App/TopoShapeSolidPy.h>
-#include <Mod/Part/App/TopoShapeShellPy.h>
-#include <Mod/Part/App/TopoShapeCompSolidPy.h>
-#include <Mod/Part/App/TopoShapeCompoundPy.h>
+#include "Mod/Part/App/TopoShapeFacePy.h"
+#include "Mod/Part/App/TopoShapeEdgePy.h"
+#include "Mod/Part/App/TopoShapeWirePy.h"
+#include "Mod/Part/App/TopoShapeVertexPy.h"
+#include "Mod/Part/App/TopoShapeSolidPy.h"
+#include "Mod/Part/App/TopoShapeShellPy.h"
+#include "Mod/Part/App/TopoShapeCompSolidPy.h"
+#include "Mod/Part/App/TopoShapeCompoundPy.h"
 
 namespace Part {
 Standard_EXPORT Py::Object shape2pyshape(const TopoDS_Shape &shape)

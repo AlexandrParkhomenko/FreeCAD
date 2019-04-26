@@ -27,13 +27,13 @@
 # include <GCE2d_MakeCircle.hxx>
 # include <Geom2d_TrimmedCurve.hxx>
 
-#include <Mod/Part/App/OCCError.h>
-#include <Mod/Part/App/Geometry.h>
-#include <Mod/Part/App/Geom2d/ArcOfCircle2dPy.h>
+#include "Mod/Part/App/OCCError.h"
+#include "Mod/Part/App/Geometry.h"
+#include "Mod/Part/App/Geom2d/ArcOfCircle2dPy.h"
 #include <Mod/Part/App/Geom2d/ArcOfCircle2dPy.cpp>
-#include <Mod/Part/App/Geom2d/Circle2dPy.h>
+#include "Mod/Part/App/Geom2d/Circle2dPy.h"
 
-#include <Base/GeometryPyCXX.h>
+#include "Base/GeometryPyCXX.h"
 
 using namespace Part;
 

@@ -47,13 +47,13 @@
 #include "WorkbenchManager.h"
 #include "Workbench.h"
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Interpreter.h>
-#include <Base/Sequencer.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Interpreter.h"
+#include "Base/Sequencer.h"
 
-#include <App/Document.h>
-#include <App/DocumentObject.h>
+#include "App/Document.h"
+#include "App/DocumentObject.h"
 
 
 using Base::Interpreter;

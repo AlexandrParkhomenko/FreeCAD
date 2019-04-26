@@ -24,7 +24,7 @@
 #ifndef PART_FEATUREPARTFUSE_H
 #define PART_FEATUREPARTFUSE_H
 
-#include <App/PropertyLinks.h>
+#include "App/PropertyLinks.h"
 
 #include "FeaturePartBoolean.h"
 

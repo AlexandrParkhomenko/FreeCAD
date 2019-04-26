@@ -24,10 +24,10 @@
 
 
 #include "ViewProviderRuledSurface.h"
-#include <Mod/Part/App/PartFeatures.h>
+#include "Mod/Part/App/PartFeatures.h"
 
-#include <Gui/Application.h>
-#include <Base/Parameter.h>
+#include "Gui/Application.h"
+#include "Base/Parameter.h"
 
 
 using namespace PartGui;

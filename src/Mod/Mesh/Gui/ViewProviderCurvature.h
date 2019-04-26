@@ -24,8 +24,8 @@
 #define MESHGUI_VIEWPROVIDER_MESH_CURVATURE_H
 
 #include "stdexport.h"
-#include <Base/Observer.h>
-#include <App/DocumentObserver.h>
+#include "Base/Observer.h"
+#include "App/DocumentObserver.h"
 #include "ViewProvider.h"
 
 class SoSeparator;

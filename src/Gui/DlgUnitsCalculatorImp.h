@@ -26,8 +26,8 @@
 
 #include <QDialog>
 #include <memory>
-#include <Base/Quantity.h>
-#include <Base/Unit.h>
+#include "Base/Quantity.h"
+#include "Base/Unit.h"
 
 namespace Gui {
 namespace Dialog {

@@ -22,9 +22,9 @@
 
 
 
-#include <Base/Rotation.h>
-#include <Base/Tools.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/Rotation.h"
+#include "Base/Tools.h"
+#include "Base/GeometryPyCXX.h"
 
 // inclusion of the generated files (generated out of RotationPy.xml)
 #include "VectorPy.h"

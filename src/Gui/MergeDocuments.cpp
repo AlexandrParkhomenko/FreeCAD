@@ -23,14 +23,14 @@
 # include <stack>
 # include <boost/bind.hpp>
 #include "MergeDocuments.h"
-#include <Base/Console.h>
-#include <Base/Reader.h>
-#include <Base/Writer.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/ViewProvider.h>
+#include "Base/Console.h"
+#include "Base/Reader.h"
+#include "Base/Writer.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/ViewProvider.h"
 
 using namespace Gui;
 

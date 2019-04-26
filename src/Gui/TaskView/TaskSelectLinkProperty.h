@@ -25,8 +25,8 @@
 #define GUI_TASKVIEW_TaskSelectLinkProperty_H
 
 #include "TaskView.h"
-#include <Gui/Selection.h>
-#include <App/PropertyLinks.h>
+#include "Gui/Selection.h"
+#include "App/PropertyLinks.h"
 
 
 class Ui_TaskSelectLinkProperty;

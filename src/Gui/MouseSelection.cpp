@@ -34,7 +34,7 @@
 # include <Inventor/events/SoMouseButtonEvent.h>
 
 #include <QtOpenGL.h>
-#include <Base/Console.h>
+#include "Base/Console.h"
 
 #include "MouseSelection.h"
 #include "View3DInventor.h"

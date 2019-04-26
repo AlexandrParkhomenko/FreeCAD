@@ -38,12 +38,12 @@
 # include <Inventor/elements/SoLightModelElement.h>
 # include <Inventor/misc/SoState.h>
 
-#include <Gui/SoFCInteractiveElement.h>
-#include <Mod/Mesh/App/Core/Elements.h>
-#include <Mod/Mesh/App/Core/Grid.h>
-#include <Mod/Mesh/App/Core/Algorithm.h>
-#include <Mod/Mesh/App/Core/MeshIO.h>
-#include <Mod/Mesh/App/Mesh.h>
+#include "Gui/SoFCInteractiveElement.h"
+#include "Mod/Mesh/App/Core/Elements.h"
+#include "Mod/Mesh/App/Core/Grid.h"
+#include "Mod/Mesh/App/Core/Algorithm.h"
+#include "Mod/Mesh/App/Core/MeshIO.h"
+#include "Mod/Mesh/App/Mesh.h"
 #include "SoFCMeshNode.h"
 
 using namespace MeshGui;

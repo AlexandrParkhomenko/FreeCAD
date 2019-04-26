@@ -44,7 +44,7 @@ namespace Gui {
 
 
 #include "ViewProvider.h"
-#include <Base/Vector3D.h>
+#include "Base/Vector3D.h"
 
 namespace MeshGui {
 

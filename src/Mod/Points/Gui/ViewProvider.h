@@ -24,10 +24,10 @@
 #define POINTSGUI_VIEWPROVIDERPOINTS_H
 
 #include "stdexport.h"
-#include <Base/Vector3D.h>
-#include <Gui/ViewProviderGeometryObject.h>
-#include <Gui/ViewProviderPythonFeature.h>
-#include <Gui/ViewProviderBuilder.h>
+#include "Base/Vector3D.h"
+#include "Gui/ViewProviderGeometryObject.h"
+#include "Gui/ViewProviderPythonFeature.h"
+#include "Gui/ViewProviderBuilder.h"
 #include <Inventor/SbVec2f.h>
 
 

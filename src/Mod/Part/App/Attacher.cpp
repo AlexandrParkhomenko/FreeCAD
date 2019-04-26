@@ -58,10 +58,10 @@
 
 #include "Attacher.h"
 #include "AttachExtension.h"
-#include <Base/Console.h>
-#include <App/OriginFeature.h>
-#include <App/Application.h>
-#include <App/Document.h>
+#include "Base/Console.h"
+#include "App/OriginFeature.h"
+#include "App/Application.h"
+#include "App/Document.h"
 
 using namespace Part;
 using namespace Attacher;

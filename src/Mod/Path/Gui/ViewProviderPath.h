@@ -25,12 +25,12 @@
 #define PATH_ViewProviderPath_H
 
 #include "stdexport.h"
-#include <App/PropertyGeo.h>
-#include <Gui/Selection.h>
-#include <Gui/ViewProviderGeometryObject.h>
-#include <Gui/SoFCSelection.h>
-#include <Gui/ViewProviderPythonFeature.h>
-#include <Mod/Part/Gui/SoBrepEdgeSet.h>
+#include "App/PropertyGeo.h"
+#include "Gui/Selection.h"
+#include "Gui/ViewProviderGeometryObject.h"
+#include "Gui/SoFCSelection.h"
+#include "Gui/ViewProviderPythonFeature.h"
+#include "Mod/Part/Gui/SoBrepEdgeSet.h"
 
 class SoCoordinate3;
 class SoDrawStyle;  

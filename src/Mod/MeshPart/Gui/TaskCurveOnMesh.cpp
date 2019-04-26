@@ -26,10 +26,10 @@
 #include "ui_TaskCurveOnMesh.h"
 #include "CurveOnMesh.h"
 
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
 
 
 using namespace MeshPartGui;

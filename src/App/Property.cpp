@@ -28,7 +28,7 @@
 #include "Property.h"
 #include "ObjectIdentifier.h"
 #include "PropertyContainer.h"
-#include <Base/Exception.h>
+#include "Base/Exception.h"
 #include "Application.h"
 
 using namespace App;

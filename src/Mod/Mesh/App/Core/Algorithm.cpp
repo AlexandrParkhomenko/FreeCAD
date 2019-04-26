@@ -31,8 +31,8 @@
 #include "Grid.h"
 #include "Triangulation.h"
 
-#include <Base/Console.h>
-#include <Base/Sequencer.h>
+#include "Base/Console.h"
+#include "Base/Sequencer.h"
 
 using namespace MeshCore;
 using Base::BoundBox3f;

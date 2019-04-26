@@ -27,10 +27,10 @@
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include <CXX/Objects.hxx>
-#include <Base/Exception.h>
-#include <Base/Reader.h>
-#include <Base/Writer.h>
-#include <Base/Console.h>
+#include "Base/Exception.h"
+#include "Base/Reader.h"
+#include "Base/Writer.h"
+#include "Base/Console.h"
 
 #include "DocumentObject.h"
 #include "DocumentObjectPy.h"

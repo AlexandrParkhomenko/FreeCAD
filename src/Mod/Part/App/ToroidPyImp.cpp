@@ -26,8 +26,8 @@
 # include <gp_Torus.hxx>
 # include <Standard_Failure.hxx>
 
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 #include "Geometry.h"
 #include "CirclePy.h"

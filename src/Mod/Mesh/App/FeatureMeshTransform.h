@@ -26,8 +26,8 @@
 
 #include "MeshFeature.h"
 
-#include <App/PropertyLinks.h>
-#include <App/PropertyGeo.h>
+#include "App/PropertyLinks.h"
+#include "App/PropertyGeo.h"
 
 
 namespace Mesh

@@ -24,11 +24,11 @@
 #define GUI_PLACEMENT_H
 
 #include "stdexport.h"
-#include <Gui/InputVector.h>
-#include <Gui/SelectionObject.h>
-#include <Gui/TaskView/TaskDialog.h>
-#include <Gui/TaskView/TaskView.h>
-#include <Base/Placement.h>
+#include "Gui/InputVector.h"
+#include "Gui/SelectionObject.h"
+#include "Gui/TaskView/TaskDialog.h"
+#include "Gui/TaskView/TaskView.h"
+#include "Base/Placement.h"
 
 #include <boost/signals2.hpp>
 #include <boost/bind.hpp>

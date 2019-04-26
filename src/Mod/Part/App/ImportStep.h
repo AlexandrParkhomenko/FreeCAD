@@ -28,7 +28,7 @@
 
 #include "stdexport.h"
 #include <TopoDS_Shape.hxx>
-#include <App/ComplexGeoData.h>
+#include "App/ComplexGeoData.h"
 
 namespace App {
 class Document;

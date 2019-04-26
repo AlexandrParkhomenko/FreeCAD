@@ -46,9 +46,9 @@
 #include "PythonDebugger.h"
 #include "PythonEditor.h"
 
-#include <Base/Interpreter.h>
-#include <Base/Parameter.h>
-#include <Base/Exception.h>
+#include "Base/Interpreter.h"
+#include "Base/Parameter.h"
+#include "Base/Exception.h"
 
 using namespace Gui;
 namespace Gui {

@@ -27,14 +27,14 @@
 #include <QGridLayout>
 #include <QFontMetrics>
 
-#include <Gui/TaskView/TaskView.h>
+#include "Gui/TaskView/TaskView.h"
 #include "QuantitySpinBox.h"
-#include <Gui/Application.h>
-#include <Gui/Command.h>
-#include <Gui/Document.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/ViewProviderDragger.h>
-#include <Gui/SoFCCSysDragger.h>
+#include "Gui/Application.h"
+#include "Gui/Command.h"
+#include "Gui/Document.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/ViewProviderDragger.h"
+#include "Gui/SoFCCSysDragger.h"
 
 #include "TaskCSysDragger.h"
 

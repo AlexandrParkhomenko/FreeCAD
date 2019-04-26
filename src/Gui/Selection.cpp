@@ -35,14 +35,14 @@
 #include "Selection.h"
 #include "SelectionFilter.h"
 #include "View3DInventor.h"
-#include <Base/Exception.h>
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <App/DocumentObjectPy.h>
-#include <Gui/SelectionObjectPy.h>
+#include "Base/Exception.h"
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "App/DocumentObjectPy.h"
+#include "Gui/SelectionObjectPy.h"
 #include "MainWindow.h"
 
 FC_LOG_LEVEL_INIT("Selection",false,true,true)

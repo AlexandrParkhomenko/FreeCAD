@@ -26,10 +26,10 @@
 
 #include "stdexport.h"
 #include <QValidator>
-#include <App/Property.h>
-#include <App/Expression.h>
-#include <Base/Parameter.h>
-#include <Gui/MetaTypes.h>
+#include "App/Property.h"
+#include "App/Expression.h"
+#include "Base/Parameter.h"
+#include "Gui/MetaTypes.h"
 #include "Widgets.h"
 #include "Window.h"
 #include "SpinBox.h"

@@ -25,7 +25,7 @@
 #define POINTS_WORKBENCH_H
 
 #include "stdexport.h"
-#include <Gui/Workbench.h>
+#include "Gui/Workbench.h"
 
 namespace PointsGui {
 

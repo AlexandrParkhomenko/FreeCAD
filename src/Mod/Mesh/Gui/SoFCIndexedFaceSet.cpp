@@ -45,9 +45,9 @@
 #include <Inventor/C/glue/gl.h>
 #include <Inventor/misc/SoContextHandler.h>
 
-#include <Gui/SoFCInteractiveElement.h>
-#include <Gui/SoFCSelectionAction.h>
-#include <Gui/GLBuffer.h>
+#include "Gui/SoFCInteractiveElement.h"
+#include "Gui/SoFCSelectionAction.h"
+#include "Gui/GLBuffer.h"
 #include "SoFCIndexedFaceSet.h"
 
 #define RENDER_GL_VAO

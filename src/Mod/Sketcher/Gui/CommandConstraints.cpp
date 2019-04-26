@@ -26,22 +26,22 @@
 # include <Precision.hxx>
 # include <QPainter>
 
-#include <Base/Tools.h>
-#include <Base/Tools2D.h>
-#include <App/Application.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/Selection.h>
-#include <Gui/SelectionFilter.h>
-#include <Gui/Command.h>
-#include <Gui/MainWindow.h>
-#include <Gui/DlgEditFileIncludeProptertyExternal.h>
-#include <Gui/Action.h>
-#include <Gui/BitmapFactory.h>
+#include "Base/Tools.h"
+#include "Base/Tools2D.h"
+#include "App/Application.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/Selection.h"
+#include "Gui/SelectionFilter.h"
+#include "Gui/Command.h"
+#include "Gui/MainWindow.h"
+#include "Gui/DlgEditFileIncludeProptertyExternal.h"
+#include "Gui/Action.h"
+#include "Gui/BitmapFactory.h"
 
-#include <Mod/Part/App/Geometry.h>
-#include <Mod/Sketcher/App/SketchObject.h>
-#include <Mod/Sketcher/App/Sketch.h>
+#include "Mod/Part/App/Geometry.h"
+#include "Mod/Sketcher/App/SketchObject.h"
+#include "Mod/Sketcher/App/Sketch.h"
 
 #include "ViewProviderSketch.h"
 #include "DrawSketchHandler.h"

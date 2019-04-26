@@ -25,12 +25,12 @@
 # include <sstream>
 
 
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
-#include <Base/Reader.h>
-#include <Base/Tools.h>
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
+#include "Base/Reader.h"
+#include "Base/Tools.h"
 
-#include <App/DocumentObjectPy.h>
+#include "App/DocumentObjectPy.h"
 #include "FeaturePython.h"
 #include "FeaturePythonPyImp.h"
 

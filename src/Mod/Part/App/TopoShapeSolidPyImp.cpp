@@ -44,8 +44,8 @@
 #include <gp_Dir.hxx>
 #include <Standard_Failure.hxx>
 
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 #include "TopoShape.h"
 #include "Tools.h"

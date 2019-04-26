@@ -23,9 +23,9 @@
 
 
 
-#include <Base/Writer.h>
-#include <Base/Tools.h>
-#include <Base/Console.h>
+#include "Base/Writer.h"
+#include "Base/Tools.h"
+#include "Base/Console.h"
 
 #include "Document.h"
 #include "DocumentObject.h"
@@ -34,7 +34,7 @@
 #include "PropertyExpressionEngine.h"
 #include "DocumentObjectExtension.h"
 #include "GeoFeatureGroupExtension.h"
-#include <App/DocumentObjectPy.h>
+#include "App/DocumentObjectPy.h"
 #include <boost/bind.hpp>
 
 using namespace App;

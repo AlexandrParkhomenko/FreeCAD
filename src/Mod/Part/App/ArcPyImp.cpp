@@ -46,8 +46,8 @@
 #include "HyperbolaPy.h"
 #include "OCCError.h"
 
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 using namespace Part;
 

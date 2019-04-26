@@ -35,26 +35,26 @@
 # include <Standard_Version.hxx>
 # include <TopoDS_TCompound.hxx>
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <App/Document.h>
-#include <App/DocumentObjectGroup.h>
-#include <App/DocumentObserver.h>
-#include <Gui/Action.h>
-#include <Gui/Application.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/Command.h>
-#include <Gui/Control.h>
-#include <Gui/Document.h>
-#include <Gui/FileDialog.h>
-#include <Gui/MainWindow.h>
-#include <Gui/Selection.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Gui/WaitCursor.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "App/Document.h"
+#include "App/DocumentObjectGroup.h"
+#include "App/DocumentObserver.h"
+#include "Gui/Action.h"
+#include "Gui/Application.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/Command.h"
+#include "Gui/Control.h"
+#include "Gui/Document.h"
+#include "Gui/FileDialog.h"
+#include "Gui/MainWindow.h"
+#include "Gui/Selection.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Gui/WaitCursor.h"
 
 #include "../App/PartFeature.h"
-#include <Mod/Part/App/Part2DObject.h>
+#include "Mod/Part/App/Part2DObject.h"
 #include "DlgPartImportStepImp.h"
 #include "DlgBooleanOperation.h"
 #include "DlgExtrusion.h"

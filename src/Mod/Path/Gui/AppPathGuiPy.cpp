@@ -28,16 +28,16 @@
 #include <QDir>
 #include <QFileInfo>
 
-#include <Base/Console.h>
-#include <Base/VectorPy.h>
-#include <Base/FileInfo.h>
+#include "Base/Console.h"
+#include "Base/VectorPy.h"
+#include "Base/FileInfo.h"
 
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/DocumentObjectPy.h>
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/DocumentObjectPy.h"
 
-#include <Gui/Command.h>
-#include <Gui/WaitCursor.h>
+#include "Gui/Command.h"
+#include "Gui/WaitCursor.h"
 
 #include "ViewProviderPath.h"
 #include "DlgProcessorChooser.h"

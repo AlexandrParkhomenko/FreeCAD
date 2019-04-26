@@ -25,8 +25,8 @@
 #define GUI_SelectionObject_H
 
 #include "stdexport.h"
-#include <Base/BaseClass.h>
-#include <Base/Vector3D.h>
+#include "Base/BaseClass.h"
+#include "Base/Vector3D.h"
 #include <string>
 
 namespace App {

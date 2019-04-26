@@ -27,7 +27,7 @@
 
 #include "DlgUnitsCalculatorImp.h"
 #include "ui_DlgUnitsCalculator.h"
-#include <Base/UnitsApi.h>
+#include "Base/UnitsApi.h"
 
 using namespace Gui::Dialog;
 

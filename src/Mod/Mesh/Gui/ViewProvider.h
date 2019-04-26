@@ -27,10 +27,10 @@
 #include <vector>
 #include <Inventor/fields/SoSFVec2f.h>
 
-#include <Mod/Mesh/App/Core/Elements.h>
-#include <Gui/ViewProviderGeometryObject.h>
-#include <Gui/ViewProviderBuilder.h>
-#include <App/PropertyStandard.h>
+#include "Mod/Mesh/App/Core/Elements.h"
+#include "Gui/ViewProviderGeometryObject.h"
+#include "Gui/ViewProviderBuilder.h"
+#include "App/PropertyStandard.h"
 
 
 class SoGroup;

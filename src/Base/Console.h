@@ -36,8 +36,8 @@
 #include <cstring>
 #include <sstream>
 #include <chrono>
-#include <Base/PyExport.h>
-#include <Base/Stream.h>
+#include "Base/PyExport.h"
+#include "Base/Stream.h"
 
 
 //**************************************************************************
@@ -483,7 +483,7 @@ public:
  *  ConsoleSingleton is a singleton! That means you can access the only
  *  instance of the class from every where in c++ by simply using:
  *  \code
- *  #include <Base/Console.h>
+ *  #include "Base/Console.h"
  *  Base::Console().Log("Stage: %d",i);
  *  \endcode
  *  \par

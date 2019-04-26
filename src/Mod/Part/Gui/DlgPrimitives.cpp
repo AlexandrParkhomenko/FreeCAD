@@ -33,19 +33,19 @@
 #include <Inventor/events/SoMouseButtonEvent.h>
 
 #include <CXX/WrapPython.h>
-#include <Base/Interpreter.h>
-#include <Base/Rotation.h>
-#include <Base/Tools.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/Command.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Gui/SoFCUnifiedSelection.h>
-#include <Gui/TaskView/TaskView.h>
-#include <Mod/Part/App/Tools.h>
+#include "Base/Interpreter.h"
+#include "Base/Rotation.h"
+#include "Base/Tools.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/Command.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Gui/SoFCUnifiedSelection.h"
+#include "Gui/TaskView/TaskView.h"
+#include "Mod/Part/App/Tools.h"
 
 #include "DlgPrimitives.h"
 

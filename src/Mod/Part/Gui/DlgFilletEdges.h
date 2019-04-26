@@ -23,9 +23,9 @@
 #ifndef PARTGUI_DLGFILLETEDGES_H
 #define PARTGUI_DLGFILLETEDGES_H
 
-#include <Gui/TaskView/TaskDialog.h>
-#include <Gui/TaskView/TaskView.h>
-#include <Gui/Selection.h>
+#include "Gui/TaskView/TaskDialog.h"
+#include "Gui/TaskView/TaskView.h"
+#include "Gui/Selection.h"
 #include <QDialog>
 #include <QStandardItemModel>
 #include <QItemDelegate>

@@ -26,9 +26,9 @@
 
 #include "stdexport.h"
 #include "MeshKernel.h"
-#include <Base/Vector3D.h>
-#include <Base/Matrix.h>
-#include <App/Material.h>
+#include "Base/Vector3D.h"
+#include "Base/Matrix.h"
+#include "App/Material.h"
 
 namespace Base {
 class XMLReader;

@@ -25,8 +25,8 @@
 #define GUI_DIALOG_CLIPPING_H
 
 #include "stdexport.h"
-#include <Gui/TaskView/TaskDialog.h>
-#include <Gui/TaskView/TaskView.h>
+#include "Gui/TaskView/TaskDialog.h"
+#include "Gui/TaskView/TaskView.h"
 #include <QWidget>
 
 namespace Gui {

@@ -36,15 +36,15 @@
 # include <cfloat>
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
-#include <Base/Console.h>
-#include <Base/Parameter.h>
-#include <Base/Reader.h>
-#include <Base/ViewProj.h>
-#include <App/Application.h>
-#include <Gui/SoFCBoundingBox.h>
+#include "Base/Console.h"
+#include "Base/Parameter.h"
+#include "Base/Reader.h"
+#include "Base/ViewProj.h"
+#include "App/Application.h"
+#include "Gui/SoFCBoundingBox.h"
 
 #include "ViewProvider2DObject.h"
-#include <Mod/Part/App/PartFeature.h>
+#include "Mod/Part/App/PartFeature.h"
 
 
 using namespace PartGui;

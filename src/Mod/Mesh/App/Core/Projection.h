@@ -26,8 +26,8 @@
 
 #include "stdexport.h"
 #include <vector>
-#include <Base/BoundBox.h>
-#include <Base/Vector3D.h>
+#include "Base/BoundBox.h"
+#include "Base/Vector3D.h"
 
 using Base::Vector3f;
 

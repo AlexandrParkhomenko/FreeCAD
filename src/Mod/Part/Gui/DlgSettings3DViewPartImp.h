@@ -24,7 +24,7 @@
 #ifndef PARTGUI_DLGSETTINGS3DVIEWIMP_H
 #define PARTGUI_DLGSETTINGS3DVIEWIMP_H
 
-#include <Gui/PropertyPage.h>
+#include "Gui/PropertyPage.h"
 #include <memory>
 
 namespace PartGui {

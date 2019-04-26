@@ -25,7 +25,7 @@
 #define PART_FACE_H
 
 #include "stdexport.h"
-#include <Mod/Part/App/PartFeature.h>
+#include "Mod/Part/App/PartFeature.h"
 
 namespace Part
 {

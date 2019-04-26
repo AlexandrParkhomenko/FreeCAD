@@ -26,12 +26,12 @@
 # include <QPlainTextEdit>
 # include <boost/bind.hpp>
 
-#include <Base/Type.h>
-#include <Gui/ViewProviderDocumentObject.h>
-#include <Gui/TextDocumentEditorView.h>
-#include <Gui/MainWindow.h>
-#include <Gui/Document.h>
-#include <Gui/ActionFunction.h>
+#include "Base/Type.h"
+#include "Gui/ViewProviderDocumentObject.h"
+#include "Gui/TextDocumentEditorView.h"
+#include "Gui/MainWindow.h"
+#include "Gui/Document.h"
+#include "Gui/ActionFunction.h"
 
 #include "ViewProviderTextDocument.h"
 

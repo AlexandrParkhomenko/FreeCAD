@@ -27,9 +27,9 @@
 #include "stdexport.h"
 #include "TopoShape.h"
 #include "PropertyTopoShape.h"
-#include <App/GeoFeature.h>
-#include <App/FeaturePython.h>
-#include <App/PropertyGeo.h>
+#include "App/GeoFeature.h"
+#include "App/FeaturePython.h"
+#include "App/PropertyGeo.h"
 // includes for findAllFacesCutBy()
 #include <TopoDS_Face.hxx>
 class gp_Dir;

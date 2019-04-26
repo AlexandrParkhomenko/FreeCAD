@@ -25,13 +25,13 @@
 #include "ComplexGeoData.h"
 
 // inclusion of the generated files (generated out of ComplexGeoDataPy.xml)
-#include <App/ComplexGeoDataPy.h>
+#include "App/ComplexGeoDataPy.h"
 #include <App/ComplexGeoDataPy.cpp>
-#include <Base/BoundBoxPy.h>
-#include <Base/MatrixPy.h>
-#include <Base/PlacementPy.h>
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/BoundBoxPy.h"
+#include "Base/MatrixPy.h"
+#include "Base/PlacementPy.h"
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 using namespace Data;
 using namespace Base;

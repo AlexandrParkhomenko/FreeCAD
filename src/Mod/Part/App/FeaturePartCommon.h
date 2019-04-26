@@ -24,7 +24,7 @@
 #ifndef PART_FEATUREPARTCOMMON_H
 #define PART_FEATUREPARTCOMMON_H
 
-#include <App/PropertyLinks.h>
+#include "App/PropertyLinks.h"
 #include "FeaturePartBoolean.h"
 
 namespace Part

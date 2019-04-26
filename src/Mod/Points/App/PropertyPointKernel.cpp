@@ -26,10 +26,10 @@
 # include <iostream>
 # include <algorithm>
 
-#include <Base/Exception.h>
-#include <Base/Matrix.h>
-#include <Base/Stream.h>
-#include <Base/Writer.h>
+#include "Base/Exception.h"
+#include "Base/Matrix.h"
+#include "Base/Stream.h"
+#include "Base/Writer.h"
 
 #include "PropertyPointKernel.h"
 #include "PointsPy.h"

@@ -25,8 +25,8 @@
 #define MESH_FEATURE_MESH_DEFECTS_H
 
 #include "stdexport.h"
-#include <App/PropertyStandard.h>
-#include <App/PropertyLinks.h>
+#include "App/PropertyStandard.h"
+#include "App/PropertyLinks.h"
 #include "MeshFeature.h"
 
 namespace Mesh

@@ -25,7 +25,7 @@
 #define SKETCHERGUI_TaskDlgEditSketch_H
 
 #include "stdexport.h"
-#include <Gui/TaskView/TaskDialog.h>
+#include "Gui/TaskView/TaskDialog.h"
 
 #include "ViewProviderSketch.h"
 #include "TaskSketcherConstrains.h"

@@ -27,9 +27,9 @@
 
 #include <QGraphicsView>
 
-#include <Gui/DockWindow.h>
-#include <Gui/Document.h>
-#include <Gui/Selection.h>
+#include "Gui/DockWindow.h"
+#include "Gui/Document.h"
+#include "Gui/Selection.h"
 
 #include "DAGModel.h"
 

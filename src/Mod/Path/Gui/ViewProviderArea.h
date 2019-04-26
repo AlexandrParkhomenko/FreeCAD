@@ -25,8 +25,8 @@
 #define PATH_ViewProviderArea_H
 
 #include "stdexport.h"
-#include <Gui/ViewProviderPythonFeature.h>
-#include <Mod/Part/Gui/ViewProviderPlaneParametric.h>
+#include "Gui/ViewProviderPythonFeature.h"
+#include "Mod/Part/Gui/ViewProviderPlaneParametric.h"
 
 namespace PathGui
 {

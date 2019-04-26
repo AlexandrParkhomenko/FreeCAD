@@ -27,8 +27,8 @@
 
 #include <Interface_Static.hxx>
 
-#include <Base/Parameter.h>
-#include <App/Application.h>
+#include "Base/Parameter.h"
+#include "App/Application.h"
 
 #include "DlgSettingsGeneral.h"
 #include "ui_DlgSettingsGeneral.h"

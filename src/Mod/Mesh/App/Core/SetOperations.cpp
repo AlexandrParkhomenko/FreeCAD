@@ -39,9 +39,9 @@
 #include "Definitions.h"
 #include "Triangulation.h"
 
-#include <Base/Sequencer.h>
-#include <Base/Builder3D.h>
-#include <Base/Tools2D.h>
+#include "Base/Sequencer.h"
+#include "Base/Builder3D.h"
+#include "Base/Tools2D.h"
 
 using namespace Base;
 using namespace MeshCore;

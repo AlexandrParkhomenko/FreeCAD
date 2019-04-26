@@ -29,13 +29,13 @@
 #include <vector>
 #include <QList>
 
-#include <Base/Type.h>
-#include <Base/Quantity.h>
-#include <Base/UnitsApi.h>
-#include <App/PropertyStandard.h>
-#include <Gui/Widgets.h>
+#include "Base/Type.h"
+#include "Base/Quantity.h"
+#include "Base/UnitsApi.h"
+#include "App/PropertyStandard.h"
+#include "Gui/Widgets.h"
 
-#include <Gui/propertyeditor/PropertyItem.h>
+#include "Gui/propertyeditor/PropertyItem.h"
 
 
 namespace SketcherGui {

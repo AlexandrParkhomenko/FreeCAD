@@ -66,17 +66,17 @@
 #include "Utilities.h"
 #include "NavigationStyle.h"
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/FileInfo.h>
-#include <Base/Reader.h>
-#include <Base/Parameter.h>
-#include <App/Application.h>
-#include <App/Document.h>
-#include <App/GeoFeature.h>
-#include <App/DocumentObjectGroup.h>
-#include <App/MeasureDistance.h>
-#include <App/DocumentObject.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/FileInfo.h"
+#include "Base/Reader.h"
+#include "Base/Parameter.h"
+#include "App/Application.h"
+#include "App/Document.h"
+#include "App/GeoFeature.h"
+#include "App/DocumentObjectGroup.h"
+#include "App/MeasureDistance.h"
+#include "App/DocumentObject.h"
 
 #include <QDomDocument>
 #include <QDomElement>

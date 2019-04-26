@@ -25,12 +25,12 @@
 # include <iostream>
 # include <algorithm>
 
-#include <Base/Exception.h>
-#include <Base/Matrix.h>
-#include <Base/Persistence.h>
-#include <Base/Stream.h>
-#include <Base/Writer.h>
-#include <Base/VectorPy.h>
+#include "Base/Exception.h"
+#include "Base/Matrix.h"
+#include "Base/Persistence.h"
+#include "Base/Stream.h"
+#include "Base/Writer.h"
+#include "Base/VectorPy.h"
 
 #include "Points.h"
 #include "Properties.h"

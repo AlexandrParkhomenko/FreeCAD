@@ -36,8 +36,8 @@
 #include <Inventor/events/SoEvents.h>
 #include <QCursor>
 #include <QEvent>
-#include <Base/BaseClass.h>
-#include <Gui/Namespace.h>
+#include "Base/BaseClass.h"
+#include "Gui/Namespace.h"
 
 // forward declarations
 class SoEvent;

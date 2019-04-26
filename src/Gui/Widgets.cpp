@@ -37,8 +37,8 @@
 # include <QTimer>
 # include <QToolTip>
 
-#include <Base/Exception.h>
-#include <Base/Interpreter.h>
+#include "Base/Exception.h"
+#include "Base/Interpreter.h"
 
 #include "Widgets.h"
 #include "Application.h"

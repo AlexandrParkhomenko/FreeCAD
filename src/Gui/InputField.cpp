@@ -25,13 +25,13 @@
 # include <QMenu>
 # include <QPixmapCache>
 
-#include <Base/Console.h>
-#include <Base/Quantity.h>
-#include <Base/Exception.h>
-#include <Base/Tools.h>
-#include <App/Application.h>
-#include <App/PropertyUnits.h>
-#include <App/DocumentObject.h>
+#include "Base/Console.h"
+#include "Base/Quantity.h"
+#include "Base/Exception.h"
+#include "Base/Tools.h"
+#include "App/Application.h"
+#include "App/PropertyUnits.h"
+#include "App/DocumentObject.h"
 #include "ExpressionCompleter.h"
 #include "Command.h"
 #include "InputField.h"

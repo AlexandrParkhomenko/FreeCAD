@@ -22,9 +22,9 @@
 
 
 
-#include <Base/Interpreter.h>
-#include <Mod/Part/App/TopoShapeFacePy.h>
-#include <Mod/Part/App/TopoShapeEdgePy.h>
+#include "Base/Interpreter.h"
+#include "Mod/Part/App/TopoShapeFacePy.h"
+#include "Mod/Part/App/TopoShapeEdgePy.h"
 
 #include <Eigen/Core>
 #include <Eigen/Geometry>

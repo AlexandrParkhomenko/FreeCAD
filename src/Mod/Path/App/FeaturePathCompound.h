@@ -25,10 +25,10 @@
 #define PATH_FeatureCompound_H
 
 #include "stdexport.h"
-#include <App/GeoFeature.h>
-#include <App/PropertyFile.h>
-#include <App/PropertyGeo.h>
-#include <App/PropertyUnits.h>
+#include "App/GeoFeature.h"
+#include "App/PropertyFile.h"
+#include "App/PropertyGeo.h"
+#include "App/PropertyUnits.h"
 
 #include "Path.h"
 #include "FeaturePath.h"

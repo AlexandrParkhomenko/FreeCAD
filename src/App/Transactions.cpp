@@ -25,9 +25,9 @@
 # include <cassert>
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
-#include <Base/Writer.h>
+#include "Base/Writer.h"
 using Base::Writer;
-#include <Base/Reader.h>
+#include "Base/Reader.h"
 using Base::XMLReader;
 #include "Transactions.h"
 #include "Property.h"

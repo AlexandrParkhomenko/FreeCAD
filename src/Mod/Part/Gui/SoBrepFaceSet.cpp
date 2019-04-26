@@ -55,9 +55,9 @@
 #include <Inventor/misc/SoContextHandler.h>
 
 #include "SoBrepFaceSet.h"
-#include <Gui/SoFCUnifiedSelection.h>
-#include <Gui/SoFCSelectionAction.h>
-#include <Gui/SoFCInteractiveElement.h>
+#include "Gui/SoFCUnifiedSelection.h"
+#include "Gui/SoFCSelectionAction.h"
+#include "Gui/SoFCInteractiveElement.h"
 
 #include <GL/gl.h>
 #include <GL/glext.h>

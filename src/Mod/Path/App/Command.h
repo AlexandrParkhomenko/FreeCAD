@@ -27,9 +27,9 @@
 #include "stdexport.h"
 #include <map>
 #include <string>
-#include <Base/Persistence.h>
-#include <Base/Placement.h>
-#include <Base/Vector3D.h>
+#include "Base/Persistence.h"
+#include "Base/Placement.h"
+#include "Base/Vector3D.h"
 
 namespace Path
 {

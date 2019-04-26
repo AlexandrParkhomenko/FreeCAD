@@ -20,9 +20,9 @@ class TemplateFeature (template.ModelTemplate):
 #ifndef @self.module.Name.upper()@_FEATURE_@self.feature.Name.upper()@_H
 #define @self.module.Name.upper()@_FEATURE_@self.feature.Name.upper()@_H
 
-#include <App/PropertyStandard.h>
+#include "App/PropertyStandard.h"
 
-#include <App/Feature.h>
+#include "App/Feature.h"
 
 namespace @self.module.Name@
 {

@@ -36,8 +36,8 @@
 #include "BRepOffsetAPI_MakePipeShellPy.cpp"
 #include "Tools.h"
 #include "OCCError.h"
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 using namespace Part;
 

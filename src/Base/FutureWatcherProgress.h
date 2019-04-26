@@ -26,7 +26,7 @@
 
 #include "stdexport.h"
 #include <QObject>
-#include <Base/Sequencer.h>
+#include "Base/Sequencer.h"
 
 namespace Base
 {

@@ -28,7 +28,7 @@
 #include "stdexport.h"
 #include <vector>
 #include <string>
-#include <App/Property.h>
+#include "App/Property.h"
 #include "Geometry.h"
 
 namespace Base {

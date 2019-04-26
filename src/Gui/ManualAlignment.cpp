@@ -48,18 +48,18 @@
 
 #include <boost/bind.hpp>
 
-#include <App/Document.h>
-#include <App/GeoFeature.h>
-#include <Base/Exception.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/MainWindow.h>
-#include <Gui/Selection.h>
-#include <Gui/SplitView3DInventor.h>
-#include <Gui/View3DInventor.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Gui/ViewProviderGeometryObject.h>
-#include <Gui/WaitCursor.h>
+#include "App/Document.h"
+#include "App/GeoFeature.h"
+#include "Base/Exception.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/MainWindow.h"
+#include "Gui/Selection.h"
+#include "Gui/SplitView3DInventor.h"
+#include "Gui/View3DInventor.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Gui/ViewProviderGeometryObject.h"
+#include "Gui/WaitCursor.h"
 
 #include "ManualAlignment.h"
 #include "BitmapFactory.h"

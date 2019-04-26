@@ -23,8 +23,8 @@
 
 
 #include "DlgSettingsPathColor.h"
-#include <Gui/PrefWidgets.h>
-#include <Base/Console.h>
+#include "Gui/PrefWidgets.h"
+#include "Base/Console.h"
 
 using namespace PathGui;
 

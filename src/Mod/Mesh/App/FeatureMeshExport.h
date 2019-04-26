@@ -25,9 +25,9 @@
 #define MESH_FEATUREMESHEXPORT_H
 
 #include "stdexport.h"
-#include <App/DocumentObject.h>
-#include <App/PropertyStandard.h>
-#include <App/PropertyLinks.h>
+#include "App/DocumentObject.h"
+#include "App/PropertyStandard.h"
+#include "App/PropertyLinks.h"
 
 namespace Mesh
 {

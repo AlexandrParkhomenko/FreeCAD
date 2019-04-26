@@ -57,11 +57,11 @@
 
 # include <QWindow> //# OpenGL
 
-#include <Base/Exception.h>
-#include <Base/Console.h>
-#include <Base/FileInfo.h>
+#include "Base/Exception.h"
+#include "Base/Console.h"
+#include "Base/FileInfo.h"
 
-#include <App/DocumentObject.h>
+#include "App/DocumentObject.h"
 
 #include "View3DInventor.h"
 #include "View3DInventorViewer.h"

@@ -28,9 +28,9 @@
 # include <TopoDS_Shape.hxx>
 # include <TFunction_Logbook.hxx>
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Sequencer.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Sequencer.h"
 #include "FeatureImportIges.h"
 
 

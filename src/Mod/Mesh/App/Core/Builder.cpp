@@ -24,8 +24,8 @@
 
 # include <algorithm>
 
-#include <Base/Sequencer.h>
-#include <Base/Exception.h>
+#include "Base/Sequencer.h"
+#include "Base/Exception.h"
 
 #include "Builder.h"
 #include "MeshKernel.h"

@@ -45,8 +45,8 @@
 #include "Workbench.h"
 #include "WorkbenchManager.h"
 
-#include <Base/Exception.h>
-#include <App/Application.h>
+#include "Base/Exception.h"
+#include "App/Application.h"
 
 using namespace Gui;
 using namespace Gui::Dialog;

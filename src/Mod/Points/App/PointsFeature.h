@@ -24,11 +24,11 @@
 #ifndef POINTS_FEATURE_H
 #define POINTS_FEATURE_H
 
-#include <App/GeoFeature.h>
-#include <App/FeatureCustom.h>
-#include <App/FeaturePython.h>
-#include <App/PropertyLinks.h>
-#include <App/PropertyGeo.h>
+#include "App/GeoFeature.h"
+#include "App/FeatureCustom.h"
+#include "App/FeaturePython.h"
+#include "App/PropertyLinks.h"
+#include "App/PropertyGeo.h"
 #include "Points.h"
 #include "PropertyPointKernel.h"
 

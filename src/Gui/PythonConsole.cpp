@@ -47,8 +47,8 @@
 #include "FileDialog.h"
 #include "MainWindow.h"
 
-#include <Base/Interpreter.h>
-#include <Base/Exception.h>
+#include "Base/Interpreter.h"
+#include "Base/Exception.h"
 #include <CXX/Exception.hxx>
 
 using namespace Gui;

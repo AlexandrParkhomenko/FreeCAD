@@ -35,17 +35,17 @@
 # include <Inventor/actions/SoSearchAction.h>
 # include <Inventor/nodes/SoSeparator.h>
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Matrix.h>
-#include <Base/Reader.h>
-#include <Base/Writer.h>
-#include <Base/Tools.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Matrix.h"
+#include "Base/Reader.h"
+#include "Base/Writer.h"
+#include "Base/Tools.h"
 
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <App/DocumentObjectGroup.h>
-#include <App/Transactions.h>
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "App/DocumentObjectGroup.h"
+#include "App/Transactions.h"
 
 #include "Application.h"
 #include "MainWindow.h"

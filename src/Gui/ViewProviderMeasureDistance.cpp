@@ -43,11 +43,11 @@
 #include "Document.h"
 #include "View3DInventorViewer.h"
 
-#include <App/PropertyGeo.h>
-#include <App/PropertyStandard.h>
-#include <App/MeasureDistance.h>
-#include <Base/Console.h>
-#include <Base/Quantity.h>
+#include "App/PropertyGeo.h"
+#include "App/PropertyStandard.h"
+#include "App/MeasureDistance.h"
+#include "Base/Console.h"
+#include "Base/Quantity.h"
 #include <Inventor/MarkerBitmaps.h>
 
 using namespace Gui;

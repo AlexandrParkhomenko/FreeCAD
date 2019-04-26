@@ -25,12 +25,12 @@
 # include <gp_Parab.hxx>
 # include <gce_MakeParab.hxx>
 
-#include <Base/VectorPy.h>
-#include <Base/GeometryPyCXX.h>
+#include "Base/VectorPy.h"
+#include "Base/GeometryPyCXX.h"
 
 #include "OCCError.h"
 #include "Geometry.h"
-#include <Mod/Part/App/ParabolaPy.h>
+#include "Mod/Part/App/ParabolaPy.h"
 #include <Mod/Part/App/ParabolaPy.cpp>
 
 using namespace Part;

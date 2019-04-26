@@ -29,20 +29,20 @@
 # include <QInputDialog>
 # include <QMessageBox>
 
-#include <App/DocumentObjectGroup.h>
-#include <App/OriginFeature.h>
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/Command.h>
-#include <Gui/Control.h>
-#include <Gui/MainWindow.h>
-#include <Gui/DlgEditFileIncludeProptertyExternal.h>
-#include <Gui/SelectionFilter.h>
+#include "App/DocumentObjectGroup.h"
+#include "App/OriginFeature.h"
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/Command.h"
+#include "Gui/Control.h"
+#include "Gui/MainWindow.h"
+#include "Gui/DlgEditFileIncludeProptertyExternal.h"
+#include "Gui/SelectionFilter.h"
 
-#include <Mod/Sketcher/App/SketchObjectSF.h>
-#include <Mod/Sketcher/App/SketchObject.h>
-#include <Mod/Part/App/Attacher.h>
-#include <Mod/Part/App/Part2DObject.h>
+#include "Mod/Sketcher/App/SketchObjectSF.h"
+#include "Mod/Sketcher/App/SketchObject.h"
+#include "Mod/Part/App/Attacher.h"
+#include "Mod/Part/App/Part2DObject.h"
 
 #include "SketchOrientationDialog.h"
 #include "SketchMirrorDialog.h"

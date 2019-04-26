@@ -29,8 +29,8 @@
 #include <TopoDS_Compound.hxx>
 #include <TopoDS_Wire.hxx>
 #include <TopTools_ListOfShape.hxx>
-#include <App/ComplexGeoData.h>
-#include <Base/Exception.h>
+#include "App/ComplexGeoData.h"
+#include "Base/Exception.h"
 
 class gp_Ax1;
 class gp_Ax2;

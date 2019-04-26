@@ -27,12 +27,12 @@
 
 #include "ui_TaskAppearance.h"
 #include "TaskAppearance.h"
-#include <Gui/Application.h>
-#include <Gui/Document.h>
-#include <Gui/BitmapFactory.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/WaitCursor.h>
-#include <Base/Console.h>
+#include "Gui/Application.h"
+#include "Gui/Document.h"
+#include "Gui/BitmapFactory.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/WaitCursor.h"
+#include "Base/Console.h"
 
 using namespace Gui::TaskView;
 

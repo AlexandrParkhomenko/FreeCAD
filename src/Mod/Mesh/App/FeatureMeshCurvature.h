@@ -25,9 +25,9 @@
 #define FeatureMeshCurvature_H
 
 #include "stdexport.h"
-#include <App/DocumentObject.h>
-#include <App/PropertyLinks.h>
-#include <App/PropertyGeo.h>
+#include "App/DocumentObject.h"
+#include "App/PropertyLinks.h"
+#include "App/PropertyGeo.h"
 
 #include "Mesh.h"
 #include "MeshProperties.h"

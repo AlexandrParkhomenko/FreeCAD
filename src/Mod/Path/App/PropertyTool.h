@@ -26,7 +26,7 @@
 
 #include "stdexport.h"
 #include "Tooltable.h"
-#include <App/Property.h>
+#include "App/Property.h"
 
 namespace Path
 {

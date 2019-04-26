@@ -23,10 +23,10 @@
 
 #include <boost/algorithm/string.hpp>
 
-#include <Base/Exception.h>
-#include <Base/Vector3D.h>
-#include <Base/VectorPy.h>
-#include <Base/PlacementPy.h>
+#include "Base/Exception.h"
+#include "Base/Vector3D.h"
+#include "Base/VectorPy.h"
+#include "Base/PlacementPy.h"
 #include "Mod/Path/App/Command.h"
 
 // files generated out of CommandPy.xml

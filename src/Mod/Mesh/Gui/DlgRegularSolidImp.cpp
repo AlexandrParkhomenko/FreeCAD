@@ -27,15 +27,15 @@
 # include <qcombobox.h>
 # include <qmessagebox.h>
 
-#include <Base/PyObjectBase.h>
-#include <Base/Interpreter.h>
-#include <Base/UnitsApi.h>
-#include <Gui/Application.h>
-#include <Gui/Command.h>
-#include <Gui/Document.h>
-#include <Gui/MainWindow.h>
-#include <Gui/PrefWidgets.h>
-#include <Gui/WaitCursor.h>
+#include "Base/PyObjectBase.h"
+#include "Base/Interpreter.h"
+#include "Base/UnitsApi.h"
+#include "Gui/Application.h"
+#include "Gui/Command.h"
+#include "Gui/Document.h"
+#include "Gui/MainWindow.h"
+#include "Gui/PrefWidgets.h"
+#include "Gui/WaitCursor.h"
 
 #include "DlgRegularSolidImp.h"
 

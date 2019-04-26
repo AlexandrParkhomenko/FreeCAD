@@ -30,7 +30,7 @@
 #include <bitset>
 #include <stack>
 
-#include <Gui/TaskView/TaskDialog.h>
+#include "Gui/TaskView/TaskDialog.h"
 
 class QTabWidget;
 

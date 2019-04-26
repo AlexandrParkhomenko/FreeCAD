@@ -38,13 +38,13 @@
 #include "Window.h"
 #include "Selection.h"
 #include "MainWindow.h"
-#include <Gui/CombiView.h>
-#include <Gui/TaskView/TaskView.h>
-#include <Gui/TaskView/TaskWatcher.h>
+#include "Gui/CombiView.h"
+#include "Gui/TaskView/TaskView.h"
+#include "Gui/TaskView/TaskWatcher.h"
 
-#include <App/Application.h>
-#include <App/DocumentObject.h>
-#include <Base/Interpreter.h>
+#include "App/Application.h"
+#include "App/DocumentObject.h"
+#include "Base/Interpreter.h"
 
 using namespace Gui;
 

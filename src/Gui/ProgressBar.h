@@ -27,7 +27,7 @@
 #include "stdexport.h"
 #include <QProgressBar>
 
-#include <Base/Sequencer.h>
+#include "Base/Sequencer.h"
 
 namespace Gui {
 

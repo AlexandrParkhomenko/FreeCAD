@@ -37,11 +37,11 @@
 # include <QToolTip>
 # include <QHeaderView>
 
-#include <Base/Console.h>
-#include <App/Document.h>
-#include <App/DocumentObject.h>
-#include <App/DocumentObjectGroup.h>
-#include <App/GeoFeatureGroupExtension.h>
+#include "Base/Console.h"
+#include "App/Document.h"
+#include "App/DocumentObject.h"
+#include "App/DocumentObjectGroup.h"
+#include "App/GeoFeatureGroupExtension.h"
 
 #include "Tree.h"
 #include "Command.h"

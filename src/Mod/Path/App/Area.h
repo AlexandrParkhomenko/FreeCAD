@@ -34,8 +34,8 @@
 #include <gp_Circ.hxx>
 #include <gp_GTrsf.hxx>
 
-#include <Base/Console.h>
-#include <Mod/Part/App/TopoShape.h>
+#include "Base/Console.h"
+#include "Mod/Part/App/TopoShape.h"
 #include "Path.h"
 #include "AreaParams.h"
 

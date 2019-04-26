@@ -24,8 +24,8 @@
 #define GUI_TEXTUREMAPPING_H
 
 #include "stdexport.h"
-#include <Gui/TaskView/TaskDialog.h>
-#include <Gui/TaskView/TaskView.h>
+#include "Gui/TaskView/TaskDialog.h"
+#include "Gui/TaskView/TaskView.h"
 
 class SoGroup;
 class SoTexture2;

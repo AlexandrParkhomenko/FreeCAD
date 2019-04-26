@@ -26,7 +26,7 @@
 #include "stdexport.h"
 #include <Inventor/fields/SoSField.h>
 #include <Inventor/fields/SoSubField.h>
-#include <Mod/Mesh/App/Core/Elements.h>
+#include "Mod/Mesh/App/Core/Elements.h"
 
 
 #include <Inventor/elements/SoReplacedElement.h>

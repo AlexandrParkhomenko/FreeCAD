@@ -22,10 +22,10 @@
 
 
 
-#include <Base/Console.h>
-#include <Base/Exception.h>
-#include <Base/Interpreter.h>
-#include <App/Document.h>
+#include "Base/Console.h"
+#include "Base/Exception.h"
+#include "Base/Interpreter.h"
+#include "App/Document.h"
 
 #include "FeatureMeshSolid.h"
 #include "Mesh.h"

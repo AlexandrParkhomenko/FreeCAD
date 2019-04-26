@@ -25,9 +25,9 @@
 #define GUI_VIEWPROVIDERPYTHONFEATURE_H
 
 #include "stdexport.h"
-#include <Gui/ViewProviderGeometryObject.h>
-#include <App/PropertyPythonObject.h>
-#include <App/DynamicProperty.h>
+#include "Gui/ViewProviderGeometryObject.h"
+#include "App/PropertyPythonObject.h"
+#include "App/DynamicProperty.h"
 
 class SoSensor;
 class SoDragger;

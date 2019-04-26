@@ -28,7 +28,7 @@
 #include "GeoFeatureGroupExtension.h"
 
 // inclusion of the generated files (generated out of DocumentObjectPy.xml)
-#include <App/DocumentObjectPy.h>
+#include "App/DocumentObjectPy.h"
 #include <App/DocumentObjectPy.cpp>
 
 using namespace App;

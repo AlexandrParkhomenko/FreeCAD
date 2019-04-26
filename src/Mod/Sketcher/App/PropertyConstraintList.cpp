@@ -26,12 +26,12 @@
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 
-#include <Base/Exception.h>
-#include <Base/Reader.h>
-#include <Base/Writer.h>
-#include <Base/Tools.h>
-#include <App/ObjectIdentifier.h>
-#include <App/DocumentObject.h>
+#include "Base/Exception.h"
+#include "Base/Reader.h"
+#include "Base/Writer.h"
+#include "Base/Tools.h"
+#include "App/ObjectIdentifier.h"
+#include "App/DocumentObject.h"
 
 #include "PropertyConstraintList.h"
 #include "ConstraintPy.h"

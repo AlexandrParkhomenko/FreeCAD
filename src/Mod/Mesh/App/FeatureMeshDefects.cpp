@@ -28,7 +28,7 @@
 #include "Core/Degeneration.h"
 #include "Core/TopoAlgorithm.h"
 #include "Core/Triangulation.h"
-#include <Base/Tools.h>
+#include "Base/Tools.h"
 
 using namespace Mesh;
 

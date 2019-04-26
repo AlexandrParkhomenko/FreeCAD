@@ -25,7 +25,7 @@
 #define MESHGUI_DLGSETTINGSMESHVIEW_H
 
 #include "ui_DlgSettingsMeshView.h"
-#include <Gui/PropertyPage.h>
+#include "Gui/PropertyPage.h"
 
 namespace MeshGui {
 

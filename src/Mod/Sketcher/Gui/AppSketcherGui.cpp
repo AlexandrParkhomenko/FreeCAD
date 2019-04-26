@@ -26,10 +26,10 @@
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
 
-#include <Base/Console.h>
-#include <Base/Interpreter.h>
-#include <Gui/Application.h>
-#include <Gui/WidgetFactory.h>
+#include "Base/Console.h"
+#include "Base/Interpreter.h"
+#include "Gui/Application.h"
+#include "Gui/WidgetFactory.h"
 #include "Workbench.h"
 #include "ViewProviderSketch.h"
 #include "ViewProviderPython.h"

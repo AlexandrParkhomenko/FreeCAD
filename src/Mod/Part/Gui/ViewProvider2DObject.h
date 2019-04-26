@@ -26,8 +26,8 @@
 
 #include "stdexport.h"
 #include "ViewProvider.h"
-#include <App/PropertyUnits.h>
-#include <Gui/ViewProviderPythonFeature.h>
+#include "App/PropertyUnits.h"
+#include "Gui/ViewProviderPythonFeature.h"
 
 class TopoDS_Shape;
 class TopoDS_Face;
