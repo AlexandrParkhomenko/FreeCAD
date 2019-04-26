@@ -45,7 +45,6 @@
 #include <deque>
 #include <unordered_set>
 
-#include <Base/TimeInfo.h>
 #include <Base/Console.h>
 #include <Gui/Application.h>
 #include <Gui/Document.h>
@@ -466,9 +465,7 @@ void Model::updateSlot()
   //NOTE: some of the following loops can/should be combined
   //for speed. Not doing yet, as I want a simple algorithm until
   //a more complete picture is formed.
-  
-  Base::TimeInfo startTime;
-  
+
   //here we will cycle through the graph updating edges.
   //we have to do this first and in isolation because everything is dependent on an up to date graph.
   BGL_FORALL_VERTICES(currentVertex, *theGraph, Graph)
@@ -766,11 +763,6 @@ void Model::updateSlot()
     rectangle->setRect(rect);
   }
   
-  //Modeling_Challenge_Casting_ta4 with 59 features: "Initialize DAG View time: 0.007"
-  //keeping algo simple with extra loops only added 0.002 to above number.
-//   std::cout << "Initialize DAG View time: " << Base::TimeInfo::diffTimeF(startTime, Base::TimeInfo()) << std::endl;
-  
-//   outputGraphviz<Graph>(*theGraph, "./graphviz.dot");
   graphDirty = false;
 }
 

@@ -35,11 +35,8 @@
 #include <BRepCheck_ListIteratorOfListOfStatus.hxx>
 #include <BRepBuilderAPI_Copy.hxx>
 #include <BRepTools_ShapeSet.hxx>
-
-#if OCC_VERSION_HEX >= 0x060600
 #include <BOPAlgo_ArgumentAnalyzer.hxx>
 #include <BOPAlgo_ListOfCheckResult.hxx>
-#endif
 
 #include <TopoDS.hxx>
 #include <TopoDS_Compound.hxx>
@@ -58,13 +55,13 @@
 #include <Inventor/nodes/SoTransform.h>
 #include <Inventor/nodes/SoResetTransform.h>
 #include "../App/PartFeature.h"
-#include <Gui/BitmapFactory.h>
-#include <Gui/Selection.h>
-#include <Gui/Document.h>
-#include <Gui/Application.h>
-#include <Gui/ViewProvider.h>
-#include <Gui/WaitCursor.h>
-#include <Gui/MainWindow.h>
+#include "Gui/BitmapFactory.h"
+#include "Gui/Selection.h"
+#include "Gui/Document.h"
+#include "Gui/Application.h"
+#include "Gui/ViewProvider.h"
+#include "Gui/WaitCursor.h"
+#include "Gui/MainWindow.h"
 #include "TaskCheckGeometry.h"
 
 using namespace PartGui;
@@ -604,11 +601,7 @@ int TaskCheckGeometryResults::goBOPSingleCheck(const TopoDS_Shape& shapeIn, Resu
   //this is left for another time.
   TopoDS_Shape BOPCopy = BRepBuilderAPI_Copy(shapeIn).Shape();
   BOPAlgo_ArgumentAnalyzer BOPCheck;
-#if OCC_VERSION_HEX >= 0x060900
   BOPCheck.SetProgressIndicator(theProgress);
-#else
-  Q_UNUSED(theProgress);
-#endif
 //   BOPCheck.StopOnFirstFaulty() = true; //this doesn't run any faster but gives us less results.
   BOPCheck.SetShape1(BOPCopy);
   //all settings are false by default. so only turn on what we want.
@@ -616,28 +609,17 @@ int TaskCheckGeometryResults::goBOPSingleCheck(const TopoDS_Shape& shapeIn, Resu
   BOPCheck.SelfInterMode() = true;
   BOPCheck.SmallEdgeMode() = true;
   BOPCheck.RebuildFaceMode() = true;
-#if OCC_VERSION_HEX >= 0x060700
   BOPCheck.ContinuityMode() = true;
-#endif
-#if OCC_VERSION_HEX >= 0x060900
   BOPCheck.SetParallelMode(true); //this doesn't help for speed right now(occt 6.9.1).
   BOPCheck.SetRunParallel(true); //performance boost, use all available cores
   BOPCheck.TangentMode() = true; //these 4 new tests add about 5% processing time.
   BOPCheck.MergeVertexMode() = true;
   BOPCheck.CurveOnSurfaceMode() = true;
   BOPCheck.MergeEdgeMode() = true;
-#endif
   
-#ifdef FC_DEBUG
-  Base::TimeInfo start_time;
-#endif
-
+// start_time;
 BOPCheck.Perform();
-
-#ifdef FC_DEBUG
-  float bopAlgoTime = Base::TimeInfo::diffTimeF(start_time,Base::TimeInfo());
-  std::cout << std::endl << "BopAlgo check time is: " << bopAlgoTime << std::endl << std::endl;
-#endif
+// "BopAlgo check time is: " << start_time - end_time << std::endl;
   
   if (!BOPCheck.HasFaulty())
       return 0;

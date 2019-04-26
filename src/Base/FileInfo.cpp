@@ -24,6 +24,9 @@
  *   USA                                                                   *
  *                                                                         *
  *   Juergen Riegel 2002                                                   *
+ *
+ *   Alexandr Parkhomenko 2019
+ *   https://en.cppreference.com/w/cpp/filesystem
  ***************************************************************************/
 //#OSDEPENDENT
 #include "FCConfig.h"
@@ -37,15 +40,15 @@
 # include <climits>
 # include <cstring>
 
-#ifndef __cplusplus
-#define __cplusplus 201703L
-#endif
+//#ifndef __cplusplus
+//#define __cplusplus 201703L
+//#endif
 #include <filesystem>
 namespace fs = std::filesystem;
 //linux, macos
-# include <dirent.h>
-# include <unistd.h>
-# include <sys/stat.h>
+//# include <dirent.h>
+//# include <unistd.h>
+//# include <sys/stat.h>
 
 
 #include "FileInfo.h"
@@ -86,7 +89,7 @@ FileInfo::FileInfo (const std::string &_FileName)
     setFile(_FileName.c_str());
 }
 
-const std::string &FileInfo::getTempPath(void){
+const std::string FileInfo::getTempPath(void){
     return (std::string) fs::temp_directory_path();
 }
 
@@ -131,10 +134,10 @@ void FileInfo::setFile(const char* name)
     FileName = name;
 
     // keep the UNC paths intact
-    if (FileName.substr(0,2) == std::string("\\\\"))
-        std::replace(FileName.begin()+2, FileName.end(), '\\', '/');
-    else
-        std::replace(FileName.begin(), FileName.end(), '\\', '/');
+//    if (FileName.substr(0,2) == std::string("\\\\"))
+//        std::replace(FileName.begin()+2, FileName.end(), '\\', '/');
+//    else
+//        std::replace(FileName.begin(), FileName.end(), '\\', '/');
 }
 
 std::string FileInfo::filePath () const
@@ -144,23 +147,14 @@ std::string FileInfo::filePath () const
 
 std::string FileInfo::fileName () const
 {
-    return FileName.substr(FileName.find_last_of('/')+1);
+    return FileName.filename();
 }
 
 std::string FileInfo::dirPath () const
 {
-    std::size_t last_pos;
-    std::string retval;
-    last_pos = FileName.find_last_of('/');
-    if (last_pos != std::string::npos) {
-        retval = FileName.substr(0, last_pos);
-    }
-    else {
-        char buf[PATH_MAX+1];
-        const char* cwd = getcwd(buf, PATH_MAX);
-        retval = std::string(cwd ? cwd : ".");
-    }
-    return retval;
+    return fs::absolute(
+	  FileName.parent_path()
+	);
 }
 
 std::string FileInfo::fileNamePure () const
@@ -177,10 +171,7 @@ std::string FileInfo::fileNamePure () const
 
 std::string FileInfo::extension () const
 {
-    std::string::size_type pos = FileName.find_last_of('.');
-    if (pos == std::string::npos)
-        return std::string();
-    return FileName.substr(pos+1);
+    return FileName.extension();
 }
 
 
@@ -235,25 +226,22 @@ bool FileInfo::isFile () const
 bool FileInfo::isDir () const
 {
     if (exists()) {
-        // if we can chdir then it must be a directory, otherwise we assume it
-        // is a file (which doesn't need to be true for any cases)
-        struct stat st;
-        if (stat(FileName.c_str(), &st) != 0) {
-            return false;
-        }
-        return S_ISDIR(st.st_mode);
+	return fs::is_directory(fs::status(FileName));
     }
     else
         return false;
-
-    // TODO: Check for valid path name
-    return fs::is_directory(FileName);
 }
 
 unsigned int FileInfo::size () const
 {
-    // not implemented
-    assert(0);
+    // function not used
+    if (!exists())
+	return 0;
+    try {
+        fs::file_size(FileName);
+    } catch(fs::filesystem_error& e) {
+        std::cout << e.what() << std::endl; // filesystem error: cannot get file size: Is a directory [/dev]
+    }
     return 0;
 }
 
@@ -261,12 +249,7 @@ TimeInfo FileInfo::lastModified() const
 {
     TimeInfo ti = TimeInfo::null();
     if (exists()) {
-
-        struct stat st;
-        if (stat(FileName.c_str(), &st) == 0) {
-            ti.setTime_t(st.st_mtime);
-        }
-
+	ti = (TimeInfo)fs::last_write_time(FileName);
     }
     return ti;
 }
@@ -311,19 +294,21 @@ bool FileInfo::copyTo(const char* NewName) const
     return file.is_open() && copy.is_open();
 }
 
-bool FileInfo::createDirectory(void) const
-{
-    return mkdir(FileName.c_str(), 0777) == 0;
+bool FileInfo::createDirectory(void) const {
+    return fs::create_directory(FileName); //.c_str(), 0777) == 0
 }
 
 bool FileInfo::deleteDirectory(void) const
 {
     if (isDir() == false ) return false;
-    return rmdir(FileName.c_str()) == 0;
+    std::uintmax_t n = fs::remove_all(FileName);
+    std::cout << "Deleted " << n << " files or directories\n";
+    return !isDir();
 }
 
-bool FileInfo::deleteDirectoryRecursive(void) const
-{
+bool FileInfo::deleteDirectoryRecursive(void) const {
+  return deleteDirectory();
+  /*
     if (isDir() == false ) return false;
     std::vector<Base::FileInfo> List = getDirectoryContent();
 
@@ -341,24 +326,12 @@ bool FileInfo::deleteDirectoryRecursive(void) const
         }
     }
     return deleteDirectory();
+    */
 }
 
-std::vector<Base::FileInfo> FileInfo::getDirectoryContent(void) const
-{
+std::vector<Base::FileInfo> FileInfo::getDirectoryContent(void) const {
     std::vector<Base::FileInfo> List;
-    DIR* dp(0);
-    struct dirent* dentry(0);
-    if ((dp = opendir(FileName.c_str())) == NULL)
-    {
-        return List;
-    }
-
-    while ((dentry = readdir(dp)) != NULL)
-    {
-        std::string dir = dentry->d_name;
-        if (dir != "." && dir != "..")
-            List.push_back(FileInfo(FileName + "/" + dir));
-    }
-    closedir(dp);
+    for(auto& p: fs::directory_iterator(FileName))
+      List.push_back(FileInfo(p.path()));
     return List;
 }

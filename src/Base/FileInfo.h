@@ -26,9 +26,6 @@
 #ifndef BASE_FILEINFO_H
 #define BASE_FILEINFO_H
 
-#ifndef __cplusplus
-#define __cplusplus 201703L
-#endif
 #include <filesystem>
 namespace fs = std::filesystem;
 
@@ -133,7 +130,7 @@ public:
     /// Get a unique File Name in the given or (if 0) in the temp path
     static std::string getTempFileName(const char* FileName=0, const char* path=0);
     /// Get the path to the dir which is considered to temp files
-    static const std::string &getTempPath(void);
+    static const std::string getTempPath(void);
     //@}
 
 protected:

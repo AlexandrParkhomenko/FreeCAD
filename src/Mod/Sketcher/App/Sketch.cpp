@@ -30,7 +30,7 @@
 #include <Base/Writer.h>
 #include <Base/Reader.h>
 #include <Base/Exception.h>
-#include <Base/TimeInfo.h>
+//#include <Base/TimeInfo.h>
 #include <Base/Console.h>
 #include <Base/VectorPy.h>
 
@@ -121,7 +121,7 @@ int Sketch::setUpSketch(const std::vector<Part::Geometry *> &GeoList,
                         const std::vector<Constraint *> &ConstraintList,
                         int extGeoCount)
 {
-    Base::TimeInfo start_time;
+//    Base::TimeInfo start_time;
 
     clear();
 
@@ -158,11 +158,10 @@ int Sketch::setUpSketch(const std::vector<Part::Geometry *> &GeoList,
 
     calculateDependentParametersElements();
 
-    if (debugMode==GCS::Minimal || debugMode==GCS::IterationLevel) {
-        Base::TimeInfo end_time;
-
-        Base::Console().Log("Sketcher::setUpSketch()-T:%s\n",Base::TimeInfo::diffTime(start_time,end_time).c_str());
-    }
+ //   if (debugMode==GCS::Minimal || debugMode==GCS::IterationLevel) {
+ //       Base::TimeInfo end_time;
+ //       Base::Console().Log("Sketcher::setUpSketch()-T:%s\n",Base::TimeInfo::diffTime(start_time,end_time).c_str());
+ //   }
 
     return GCSsys.dofsNumber();
 }
@@ -3084,7 +3083,7 @@ bool Sketch::updateNonDrivingConstraints()
 
 int Sketch::solve(void)
 {
-    Base::TimeInfo start_time;
+//    Base::TimeInfo start_time;
     if (!isInitMove) { // make sure we are in single subsystem mode
         GCSsys.clearByTag(-1);
         isFine = true;
@@ -3209,14 +3208,11 @@ int Sketch::solve(void)
         } // soltype
     }
 
-    Base::TimeInfo end_time;
-
-    if(debugMode==GCS::Minimal || debugMode==GCS::IterationLevel){
-
-        Base::Console().Log("Sketcher::Solve()-%s-T:%s\n",solvername.c_str(),Base::TimeInfo::diffTime(start_time,end_time).c_str());
-    }
-
-    SolveTime = Base::TimeInfo::diffTimeF(start_time,end_time);
+//    Base::TimeInfo end_time;
+//    if(debugMode==GCS::Minimal || debugMode==GCS::IterationLevel){
+//        Base::Console().Log("Sketcher::Solve()-%s-T:%s\n",solvername.c_str(),Base::TimeInfo::diffTime(start_time,end_time).c_str());
+//    }
+//    SolveTime = Base::TimeInfo::diffTimeF(start_time,end_time);
     return ret;
 }
 

@@ -94,21 +94,19 @@
 # include <QAction>
 # include <QMenu>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
-#include <Base/Console.h>
-#include <Base/Parameter.h>
-#include <Base/Exception.h>
-#include <Base/TimeInfo.h>
+#include "Base/Console.h"
+#include "Base/Parameter.h"
+#include "Base/Exception.h"
 
-#include <App/Application.h>
-#include <App/Document.h>
+#include "App/Application.h"
+#include "App/Document.h"
 
-#include <Gui/SoFCUnifiedSelection.h>
-#include <Gui/SoFCSelectionAction.h>
-#include <Gui/Selection.h>
-#include <Gui/View3DInventorViewer.h>
-#include <Gui/Utilities.h>
-#include <Gui/Control.h>
+#include "Gui/SoFCUnifiedSelection.h"
+#include "Gui/SoFCSelectionAction.h"
+#include "Gui/Selection.h"
+#include "Gui/View3DInventorViewer.h"
+#include "Gui/Utilities.h"
+#include "Gui/Control.h"
 
 #include "ViewProviderExt.h"
 #include "SoBrepPointSet.h"
@@ -905,7 +903,7 @@ void ViewProviderPartExt::updateVisual(const TopoDS_Shape& inputShape)
     }
 
     // time measurement and book keeping
-    Base::TimeInfo start_time;
+    //# start_time;
     int numTriangles=0,numNodes=0,numNorms=0,numFaces=0,numEdges=0,numLines=0;
     std::set<int> faceEdges;
 
@@ -1216,8 +1214,8 @@ void ViewProviderPartExt::updateVisual(const TopoDS_Shape& inputShape)
 
 #   ifdef FC_DEBUG
         // printing some information
-        Base::Console().Log("ViewProvider update time: %f s\n",Base::TimeInfo::diffTimeF(start_time,Base::TimeInfo()));
-        Base::Console().Log("Shape tria info: Faces:%d Edges:%d Nodes:%d Triangles:%d IdxVec:%d\n",numFaces,numEdges,numNodes,numTriangles,numLines);
+//#        Base::Console().Log("ViewProvider update time: %f s\n",start_time-end_time));
+//#        Base::Console().Log("Shape tria info: Faces:%d Edges:%d Nodes:%d Triangles:%d IdxVec:%d\n",numFaces,numEdges,numNodes,numTriangles,numLines);
 #   endif
     VisualTouched = false;
 }
