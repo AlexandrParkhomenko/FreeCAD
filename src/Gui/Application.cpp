@@ -1490,7 +1490,7 @@ void Application::runApplication(void)
     std::map<std::string,std::string>::const_iterator it;
 
     // A new QApplication
-    Base::Console().Log("Init: Creating Gui::Application and QApplication\n");
+    std::cout << ("Init: Creating Gui::Application and QApplication\n");
     // if application not yet created by the splasher
     int argc = App::Application::GetARGC();
 //#    GUISingleApplication mainApp(argc, App::Application::GetARGV());
@@ -1631,16 +1631,16 @@ void Application::runApplication(void)
         if (context.create()) {
             context.makeCurrent(&window);
             if (!context.functions()->hasOpenGLFeature(QOpenGLFunctions::Framebuffers)) {
-                Base::Console().Log("This system does not support framebuffer objects\n");
+                std::cout << ("This system does not support framebuffer objects\n");
             }
             if (!context.functions()->hasOpenGLFeature(QOpenGLFunctions::NPOTTextures)) {
-                Base::Console().Log("This system does not support NPOT textures\n");
+                std::cout << ("This system does not support NPOT textures\n");
             }
 
             int major = context.format().majorVersion();
             int minor = context.format().minorVersion();
             const char* glVersion = reinterpret_cast<const char*>(glGetString(GL_VERSION));
-            Base::Console().Log("OpenGL version is: %d.%d (%s)\n", major, minor, glVersion);
+            std::cout << ("OpenGL version is: %d.%d (%s)\n", major, minor, glVersion);
         }
     }
 
@@ -1685,7 +1685,7 @@ void Application::runApplication(void)
 
     // running the GUI init script
     try {
-        Base::Console().Log("Run Gui init script\n");
+        std::cout << ("Run Gui init script\n");
         runInitGuiScript();
     }
     catch (const Base::Exception& e) {
@@ -1697,7 +1697,7 @@ void Application::runApplication(void)
 
     // Activate the correct workbench
     std::string start = App::Application::Config()["StartWorkbench"];
-    Base::Console().Log("Init: Activating default workbench %s\n", start.c_str());
+    std::cout << ("Init: Activating default workbench %s\n", start.c_str());
     start = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/General")->
                            GetASCII("AutoloadModule", start.c_str());
     // if the auto workbench is not visible then force to use the default workbech
@@ -1716,7 +1716,7 @@ void Application::runApplication(void)
 
     // show the main window
     if (!hidden) {
-        Base::Console().Log("Init: Showing main window\n");
+        std::cout << ("Init: Showing main window\n");
         mw.loadWindowSettings();
     }
 
@@ -1747,7 +1747,7 @@ void Application::runApplication(void)
     QTimer::singleShot(0, &mw, SLOT(delayedStartup()));
 
     // run the Application event loop
-    Base::Console().Log("Init: Entering event loop\n");
+    std::cout << ("Init: Entering event loop\n");
 
     // boot phase reference point
     // https://forum.freecadweb.org/viewtopic.php?f=10&t=21665
@@ -1758,6 +1758,7 @@ void Application::runApplication(void)
         s << App::Application::getTempPath() << App::GetApplication().getExecutableName()
           << "_" << QCoreApplication::applicationPid() << ".lock";
         // open a lock file with the PID
+        std::cout << "lock: " << s.str() << std::endl;
         Base::FileInfo fi(s.str());
         Base::ofstream lock(fi);
         boost::interprocess::file_lock flock(s.str().c_str());
@@ -1792,7 +1793,7 @@ void Application::runApplication(void)
         throw;
     }
 
-    Base::Console().Log("Finish: Event loop left\n");
+    std::cout << ("Finish: Event loop left\n");
 }
 
 void Application::checkForPreviousCrashes()

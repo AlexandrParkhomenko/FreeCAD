@@ -50,7 +50,7 @@ FileInfo::FileInfo (const std::string &_FileName){
 }
 
 const std::string FileInfo::getTempPath(void){
-    return (std::string) fs::temp_directory_path();
+  return (std::string) fs::temp_directory_path() + "/";
 }
 
 std::string FileInfo::getTempFileName(const char* /*FileName*/, const char* Path){

@@ -37,7 +37,7 @@
 
 #include "App/Part.h"
 
-#include <zipios/zipoutputstream.hpp>
+//#include <zipios/zipoutputstream.hpp>
 
 using namespace Mesh;
 using namespace MeshCore;
@@ -259,7 +259,7 @@ AmfExporter::AmfExporter( std::string fileName,
         throw Base::FileException("No write permission for file", fileName);
     }
 
-    if (compress) {
+/*    if (compress) {
         auto *zipStreamPtr( new zipios::ZipOutputStream(fi.filePath()) );
 
         // ISO 52915 specifies that compressed AMF files are zip-compressed and
@@ -270,9 +270,9 @@ AmfExporter::AmfExporter( std::string fileName,
         // Default compression seems to work fine.
         outputStreamPtr = zipStreamPtr;
 
-    } else {
+    } else { */
         outputStreamPtr = new Base::ofstream(fi, std::ios::out | std::ios::binary);
-    }
+//    }
 
     if (outputStreamPtr) {
         *outputStreamPtr << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"

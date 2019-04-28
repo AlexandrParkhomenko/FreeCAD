@@ -112,7 +112,6 @@ int main( int argc, char ** argv )
             std::string style = hGrp->GetASCII("NavigationStyle", it->second.c_str());
             hGrp->SetASCII("NavigationStyle", style.c_str());
         }
-
         Gui::Application::initApplication();
 
         // Only if 'RunMode' is set to 'Gui' do the replacement
@@ -175,39 +174,43 @@ int main( int argc, char ** argv )
     }
 
     // Run phase ===========================================================
+    /*
     Base::RedirectStdOutput stdcout;
     Base::RedirectStdLog    stdclog;
     Base::RedirectStdError  stdcerr;
     std::streambuf* oldcout = std::cout.rdbuf(&stdcout);
     std::streambuf* oldclog = std::clog.rdbuf(&stdclog);
     std::streambuf* oldcerr = std::cerr.rdbuf(&stdcerr);
-
-    try {
+*/
+   // try {
         // if console option is set then run in cmd mode
         if (App::Application::Config()["Console"] == "1")
             App::Application::runApplication();
         if (App::Application::Config()["RunMode"] == "Gui" ||
-            App::Application::Config()["RunMode"] == "Internal")
+            App::Application::Config()["RunMode"] == "Internal"){
             Gui::Application::runApplication();
-        else
+        }
+        else {
             App::Application::runApplication();
-    }
+        }
+ /*   }
     catch (const Base::SystemExitException& e) {
         exit(e.getExitCode());
     }
     catch (const Base::Exception& e) {
         e.ReportException();
+        std::cout << "exit(1)" << std::endl;
         exit(1);
     }
     catch (...) {
-        Base::Console().Error("Application unexpectedly terminated\n");
+	std::cerr << "exit(1) Application unexpectedly terminated" << std::endl;
         exit(1);
-    }
-
+    } */
+/*
     std::cout.rdbuf(oldcout);
     std::clog.rdbuf(oldclog);
     std::cerr.rdbuf(oldcerr);
-
+*/
     // Destruction phase ===========================================================
     Base::Console().Log("%s terminating...\n",App::Application::Config()["ExeName"].c_str());
 

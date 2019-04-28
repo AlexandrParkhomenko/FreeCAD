@@ -69,6 +69,7 @@ find_package(SWIG REQUIRED) # pivy <- Draft
 find_package(Eigen3 REQUIRED)
 find_package(Freetype REQUIRED)
 
+set(BUILD_GUI TRUE)
 #GUI v
   set(OpenGL_GL_PREFERENCE "LEGACY") # or "GLVND"
   find_package(OpenGL REQUIRED)

@@ -2091,8 +2091,8 @@ void Application::ExtractUserPath(){
     // In order to write into our data path, we must create some directories, first.
     // If 'AppDataSkipVendor' is defined, the value of 'ExeVendor' must not be part of
     // the path.
-    appData += PATHSEP;
-    appData += ".config";
+//    appData += PATHSEP;
+//    appData += ".config";
     appData += PATHSEP;
     appData += ".";
     if (mConfig.find("AppDataSkipVendor") == mConfig.end()) {
