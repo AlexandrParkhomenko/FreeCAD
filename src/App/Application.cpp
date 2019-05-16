@@ -523,6 +523,7 @@ Document* Application::openDocument(const char * FileName)
     // to only contain valid ASCII characters but the user name will be kept.
     Document* newDoc = newDocument(File.fileNamePure().c_str(), File.fileNamePure().c_str());
 
+    std::cout << "Application::openDocument (" << File.filePath() << ")" << endl;
     newDoc->FileName.setValue(File.filePath());
 
     try {
@@ -1539,16 +1540,16 @@ std::list<std::string> Application::processFiles(const std::list<std::string>& f
         Base::Console().Log("Init:     Processing file: %s\n",file.filePath().c_str());
 
         try {
-            if (file.hasExtension("fcstd") || file.hasExtension("std")) {
+            if (file.hasExtension(".fcstd") || file.hasExtension(".std")) {
                 // try to open
                 Application::_pcSingleton->openDocument(file.filePath().c_str());
                 processed.push_back(*it);
             }
-            else if (file.hasExtension("fcscript") || file.hasExtension("fcmacro")) {
+            else if (file.hasExtension(".fcscript") || file.hasExtension(".fcmacro")) {
                 Base::Interpreter().runFile(file.filePath().c_str(), true);
                 processed.push_back(*it);
             }
-            else if (file.hasExtension("py")) {
+            else if (file.hasExtension(".py")) {
                 try{
                     Base::Interpreter().loadModule(file.fileNamePure().c_str());
                     processed.push_back(*it);

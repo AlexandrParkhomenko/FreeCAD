@@ -129,7 +129,7 @@ SET(FreeCADBase_XML_SRCS
 SOURCE_GROUP("XML" FILES ${FreeCADBase_XML_SRCS})
 
 set(FreeCADBase_MOC_HDRS
-    Debugger.h
+#    Debugger.h
     FutureWatcherProgress.h
 )
 
@@ -178,7 +178,7 @@ SET(FreeCADBase_CPP_SRCS
     Console.cpp
     CoordinateSystem.cpp
     CoordinateSystemPyImp.cpp
-    Debugger.cpp
+#    Debugger.cpp
     Exception.cpp
     ExceptionFactory.cpp
     Factory.cpp
@@ -233,14 +233,14 @@ SET(FreeCADBase_HPP_SRCS
     Builder3D.h
     Console.h
     CoordinateSystem.h
-    Debugger.h
+#    Debugger.h
     Exception.h
     ExceptionFactory.h
     Factory.h
     FileInfo.h
     FileTemplate.h
     FutureWatcherProgress.h
-    fdstream.hpp
+#    fdstream.hpp
 #    gzstream.h
     GeometryPyCXX.h
     Handle.h

@@ -56,6 +56,9 @@ recompute path. Also enables more complicated dependencies beyond trees.
 # include <bitset>
 # include <random>
 
+#include <filesystem>
+namespace fs = std::filesystem;
+
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/subgraph.hpp>
 #include <boost/graph/graphviz.hpp>
@@ -1356,7 +1359,7 @@ void Document::Restore(Base::XMLReader &reader)
     if (reader.hasAttribute("ProgramVersion")) {
         reader.ProgramVersion = reader.getAttribute("ProgramVersion");
     } else {
-        reader.ProgramVersion = "0.17";
+        reader.ProgramVersion = "0.19";
     }
     if (reader.hasAttribute("FileVersion")) {
         reader.FileVersion = reader.getAttributeAsUnsigned("FileVersion");
@@ -1818,11 +1821,13 @@ void Document::restore (void)
     d->objectMap.clear();
     d->activeObject = 0;
 
-    Base::FileInfo fi(FileName.getValue());
+    fs::current_path(FileName.getValue());
+
+    Base::FileInfo fi("Document.xml");
     Base::ifstream file(fi, std::ios::in | std::ios::binary);
     std::streambuf* buf = file.rdbuf();
     //#    std::streamoff size = buf->pubseekoff(0, std::ios::end, std::ios::in);
-    buf->pubseekoff(0, std::ios::beg, std::ios::in);
+    //#    buf->pubseekoff(0, std::ios::beg, std::ios::in);
 //#    if (size < 22) // an empty zip archive has 22 bytes
 //#        throw Base::FileException("Invalid project file",FileName.getValue());
 
