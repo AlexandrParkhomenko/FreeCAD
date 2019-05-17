@@ -1,8 +1,8 @@
 #add_subdirectory(App)
 
-IF (BUILD_GUI)
+#IF (BUILD_GUI)
     PYSIDE_WRAP_RC(Draft_QRC_SRCS Resources/Draft.qrc)
-ENDIF (BUILD_GUI)
+#ENDIF (BUILD_GUI)
 
 SET(Draft_SRCS
     Init.py
