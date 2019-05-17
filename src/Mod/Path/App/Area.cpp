@@ -851,11 +851,7 @@ struct WireJoiner {
         int rcount = 0;
 
         for(auto &info : edges) {
-#if OCC_VERSION_HEX >= 0x070000
             if(BRep_Tool::IsClosed(info.edge))
-#else
-            if(info.p1.SquareDistance(info.p2)<tol)
-#endif
             {
                 builder.Add(comp,BRepBuilderAPI_MakeWire(info.edge).Wire());
                 ++count;

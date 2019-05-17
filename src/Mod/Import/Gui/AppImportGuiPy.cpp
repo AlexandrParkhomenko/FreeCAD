@@ -60,11 +60,7 @@
 # include <TopoDS_Iterator.hxx>
 # include <APIHeaderSection_MakeHeader.hxx>
 # include <OSD_Exception.hxx>
-#if OCC_VERSION_HEX >= 0x060500
 # include <TDataXtd_Shape.hxx>
-# else
-# include <TDataStd_Shape.hxx>
-# endif
 
 #include <CXX/Extensions.hxx>
 #include <CXX/Objects.hxx>
@@ -506,10 +502,8 @@ private:
             ocaf.getPartColors(hierarchical_part, FreeLabels, part_id, Colors);
             ocaf.reallocateFreeShape(hierarchical_part, FreeLabels, part_id, Colors);
 
-#if OCC_VERSION_HEX >= 0x070200
             // Update is not performed automatically anymore: https://tracker.dev.opencascade.org/view.php?id=28055
             XCAFDoc_DocumentTool::ShapeTool(hDoc->Main())->UpdateAssemblies();
-#endif
 
             Base::FileInfo file(Utf8Name.c_str());
             if (file.hasExtension("stp") || file.hasExtension("step")) {
@@ -526,11 +520,7 @@ private:
                 writer.Transfer(hDoc, STEPControl_AsIs);
 
                 // edit STEP header
-#if OCC_VERSION_HEX >= 0x060500
                 APIHeaderSection_MakeHeader makeHeader(writer.ChangeWriter().Model());
-#else
-                APIHeaderSection_MakeHeader makeHeader(writer.Writer().Model());
-#endif
                 Base::Reference<ParameterGrp> hGrp = App::GetApplication().GetUserParameter()
                     .GetGroup("BaseApp")->GetGroup("Preferences")->GetGroup("Mod/Part")->GetGroup("STEP");
 

@@ -3028,7 +3028,6 @@ bool Sketch::updateGeometry()
 
                 bsp->setKnots(knots,mult);
 
-                #if OCC_VERSION_HEX >= 0x060900
                 int index = 0;
                 for(std::vector<int>::const_iterator it5 = mybsp.knotpointGeoids.begin(); it5 != mybsp.knotpointGeoids.end(); ++it5, index++) {
                     if( *it5 != Constraint::GeoUndef) {
@@ -3041,7 +3040,6 @@ bool Sketch::updateGeometry()
                         }
                     }
                 }
-                #endif
 
             }
         } catch (Base::Exception &e) {
