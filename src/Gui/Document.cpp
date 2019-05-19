@@ -854,7 +854,7 @@ void Document::RestoreDocFile(Base::Reader &reader)
 
     // In the file GuiDocument.xml new data files might be added
     if (!xmlReader.getFilenames().empty())
-        xmlReader.readFiles();//static_cast<zipios::ZipInputStream&>(reader.getStream())
+        xmlReader.readFiles();
 
     // reset modified flag
     setModified(false);
@@ -1049,7 +1049,7 @@ void Document::importObjects(const std::vector<App::DocumentObject*>& obj, Base:
 
     // In the file GuiDocument.xml new data files might be added
     if (!xmlReader.getFilenames().empty())
-        xmlReader.readFiles(); //static_cast<zipios::ZipInputStream&>(reader.getStream())
+        xmlReader.readFiles();
 }
 
 void Document::addRootObjectsToGroup(const std::vector<App::DocumentObject*>& obj, App::DocumentObjectGroup* grp)

@@ -136,7 +136,7 @@ std::vector<App::DocumentObject*>
 MergeDocuments::importObjects(std::istream& input)
 {
     this->nameMap.clear();
-    this->stream = &input;//new zipios::ZipInputStream(input);
+    this->stream = &input;
     XMLMergeReader reader(this->nameMap,"<memory>",  *stream);
     std::vector<App::DocumentObject*> objs = appdoc->importObjects(reader);
 
