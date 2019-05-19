@@ -361,23 +361,7 @@ void PropertyFileIncluded::Save (Base::Writer &writer) const
             _cValue = fi.filePath();
     }
 
-    if (writer.isForceXML()) {
-        if (!_cValue.empty()) {
-            Base::FileInfo file(_cValue.c_str());
-            writer.Stream() << writer.ind() << "<FileIncluded data=\""
-                            << file.fileName() << "\">" << std::endl;
-            // write the file in the XML stream
-            writer.incInd();
-            writer.insertBinFile(_cValue.c_str());
-            writer.decInd();
-            writer.Stream() << writer.ind() <<"</FileIncluded>" << endl;
-        }
-        else {
-            writer.Stream() << writer.ind() << "<FileIncluded data=\"\"/>" << std::endl;
-        }
-    }
-    else {
-        // instead initiate an extra file 
+        // bin files not included in xml
         if (!_cValue.empty()) {
             Base::FileInfo file(_cValue.c_str());
             std::string filename = writer.addFile(file.fileName().c_str(), this);
@@ -388,7 +372,6 @@ void PropertyFileIncluded::Save (Base::Writer &writer) const
         else {
             writer.Stream() << writer.ind() << "<FileIncluded file=\"\"/>" << std::endl;
         }
-    }
 }
 
 void PropertyFileIncluded::Restore(Base::XMLReader &reader)
@@ -403,22 +386,6 @@ void PropertyFileIncluded::Restore(Base::XMLReader &reader)
             aboutToSetValue();
             _cValue = getDocTransientPath() + "/" + file;
             _BaseFileName = file;
-            hasSetValue();
-        }
-    }
-    // section is XML stream
-    else if (reader.hasAttribute("data")) {
-        string file (reader.getAttribute("data") );
-        if (!file.empty()) {
-            // is in the document transient path
-            aboutToSetValue();
-            _cValue = getDocTransientPath() + "/" + file;
-            reader.readBinFile(_cValue.c_str());
-            reader.readEndElement("FileIncluded");
-            _BaseFileName = file;
-            // set read-only after restoring the file
-            Base::FileInfo fi(_cValue.c_str());
-            fi.setPermissions(Base::FileInfo::ReadOnly);
             hasSetValue();
         }
     }

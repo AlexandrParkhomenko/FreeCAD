@@ -170,7 +170,6 @@ SET(SWIG_SRCS
 SET(FreeCADBase_CPP_SRCS
     Axis.cpp
     AxisPyImp.cpp
-    Base64.cpp
     BaseClass.cpp
     BaseClassPyImp.cpp
     BoundBoxPyImp.cpp
@@ -227,7 +226,6 @@ SET(SWIG_HEADERS
 
 SET(FreeCADBase_HPP_SRCS
     Axis.h
-    Base64.h
     BaseClass.h
     BoundBox.h
     Builder3D.h

@@ -25,7 +25,6 @@
 #include "Writer.h"
 #include "Persistence.h"
 #include "Exception.h"
-#include "Base64.h"
 #include "FileInfo.h"
 #include "Stream.h"
 #include "Tools.h"
@@ -68,21 +67,6 @@ void Writer::insertAsciiFile(const char* FileName)
     Stream() << "]]>" << endl;
 }
 
-void Writer::insertBinFile(const char* FileName)
-{
-    Base::FileInfo fi(FileName);
-    Base::ifstream from(fi, std::ios::in | std::ios::binary | std::ios::ate);
-    if (!from)
-        throw Base::FileException("Writer::insertAsciiFile() Could not open file!");
-
-    Stream() << "<![CDATA[";
-    std::ifstream::pos_type fileSize = from.tellg();
-    from.seekg(0, std::ios::beg);
-    std::vector<unsigned char> bytes(fileSize);
-    from.read((char*)&bytes[0], fileSize);
-    Stream() << Base::base64_encode(&bytes[0], fileSize);
-    Stream() << "]]>" << endl;
-}
 
 void Writer::setForceXML(bool on)
 {

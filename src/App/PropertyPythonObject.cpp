@@ -26,7 +26,6 @@
 #include "PropertyPythonObject.h"
 #include "DocumentObjectPy.h"
 #include "DocumentObject.h"
-#include "Base/Base64.h"
 #include "Base/Writer.h"
 #include "Base/Reader.h"
 #include "Base/Console.h"
@@ -262,10 +261,10 @@ void PropertyPythonObject::restoreObject(Base::XMLReader &reader)
 
 void PropertyPythonObject::Save (Base::Writer &writer) const
 {
-    //if (writer.isForceXML()) {
+    /*if (writer.isForceXML()) {
         std::string repr = this->toString();
         repr = Base::base64_encode((const unsigned char*)repr.c_str(), repr.size());
-        std::string val = /*encodeValue*/(repr);
+        std::string val = /encodeValue/(repr);
         writer.Stream() << writer.ind() << "<Python value=\"" << val
                         << "\" encoded=\"yes\"";
 
@@ -291,10 +290,10 @@ void PropertyPythonObject::Save (Base::Writer &writer) const
 
         saveObject(writer);
         writer.Stream() << "/>" << std::endl;
-    //}
+    }*/
     //else {
-    //    writer.Stream() << writer.ind() << "<Python file=\"" << 
-    //    writer.addFile("pickle", this) << "\"/>" << std::endl;
+        writer.Stream() << writer.ind() << "<Python file=\"" <<
+        writer.addFile("pickle", this) << "\"/>" << std::endl;
     //}
 }
 
@@ -305,7 +304,7 @@ void PropertyPythonObject::Restore(Base::XMLReader &reader)
         std::string file(reader.getAttribute("file"));
         reader.addFile(file.c_str(),this);
     }
-    else {
+ /*   else {
         bool load_json=false;
         bool load_pickle=false;
         bool load_failed=false;
@@ -370,7 +369,7 @@ void PropertyPythonObject::Restore(Base::XMLReader &reader)
             Base::Console().Warning("PropertyPythonObject::Restore: unsupported serialisation: %s\n", buffer.c_str());
         restoreObject(reader);
         hasSetValue();
-    }
+    } */
 }
 
 void PropertyPythonObject::SaveDocFile (Base::Writer &writer) const

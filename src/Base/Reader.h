@@ -139,8 +139,6 @@ public:
     void readEndElement(const char* ElementName=0);
     /// read until characters are found
     void readCharacters(void);
-    /// read binary file
-    void readBinFile(const char*);
     //@}
 
     /** @name Attribute handling */

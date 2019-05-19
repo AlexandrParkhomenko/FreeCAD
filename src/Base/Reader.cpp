@@ -33,7 +33,6 @@ namespace fs = std::filesystem;
 
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Reader.h"
-#include "Base64.h"
 #include "Exception.h"
 #include "Persistence.h"
 #include "InputSource.h"
@@ -257,21 +256,6 @@ void Base::XMLReader::readCharacters(void)
 {
 }
 
-void Base::XMLReader::readBinFile(const char* filename)
-{
-    Base::FileInfo fi(filename);
-    Base::ofstream to(fi, std::ios::out | std::ios::binary);
-    if (!to)
-        throw Base::FileException("XMLReader::readBinFile() Could not open file!");
-
-    bool ok;
-    do {
-        ok = read(); if (!ok) break;
-    } while (ReadType != EndCDATA);
-
-    to << Base::base64_decode(Characters);
-    to.close();
-}
 
 void Base::XMLReader::readFiles() const{
   for(auto& FileName: fs::directory_iterator(".")){ // need entry

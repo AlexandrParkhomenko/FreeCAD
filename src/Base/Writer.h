@@ -67,8 +67,6 @@ public:
 
     /// insert a file as CDATA section in the XML file
     void insertAsciiFile(const char* FileName);
-    /// insert a binary file BASE64 coded as CDATA section in the XML file
-    void insertBinFile(const char* FileName);
 
     /** @name additional file writing */
     //@{
@@ -199,7 +197,7 @@ public:
      to write out certain objects. The default implementation
      always returns true.
      */
-    virtual bool shouldWrite(const std::string& name, const Base::Persistence *Object) const;
+    //virtual bool shouldWrite(const std::string& name, const Base::Persistence *Object) const;
 
 protected:
     std::string DirName;
