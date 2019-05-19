@@ -13,7 +13,9 @@ git stash save --keep-index
 git stash drop
 
 # vim force quit
-: q!
+:q!
+# vim save&quit
+:wq
 
 #move master ref
 git reset --soft HEAD~1
