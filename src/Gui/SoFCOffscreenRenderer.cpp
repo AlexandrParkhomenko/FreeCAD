@@ -102,7 +102,7 @@ void SoFCOffscreenRenderer::writeToImageFile(const char* filename, const char* c
     }
 
     Base::FileInfo file(filename);
-    if (file.hasExtension("JPG") || file.hasExtension("JPEG")) {
+    if (file.hasExtension(".JPG") || file.hasExtension(".JPEG")) {
         // writing comment in case of jpeg (Qt ignores setText() in case of jpeg)
         std::string com;
         if (strcmp(comment,"")==0)
@@ -147,7 +147,7 @@ void SoFCOffscreenRenderer::writeToImageFile(const char* filename, const char* c
         if (supported) {
             QImage img = image;
             // set keywords for PNG format
-            if (file.hasExtension("PNG")) {
+            if (file.hasExtension(".PNG")) {
                 img.setText(QLatin1String("Title"), QString::fromUtf8(filename));
                 img.setText(QLatin1String("Author"), QLatin1String("FreeCAD"));
                 if (strcmp(comment,"")==0)
@@ -189,7 +189,7 @@ void SoFCOffscreenRenderer::writeToImageFile(const char* filename, const char* c
             if (!writeToFile(filename, file.extension().c_str()))
                 throw Base::FileException("Error writing image file", filename);
         }
-        else if (file.hasExtension("EPS") || file.hasExtension("PS")) {
+        else if (file.hasExtension(".EPS") || file.hasExtension(".PS")) {
             // Any format which is supported by Coin only
             FILE* fd = fopen(filename, "w");
             bool ok = writeToPostScript(fd);
@@ -197,7 +197,7 @@ void SoFCOffscreenRenderer::writeToImageFile(const char* filename, const char* c
             if (!ok)
                 throw Base::FileException("Error writing image file", filename);
         }
-        else if (file.hasExtension("RGB") || file.hasExtension("SGI")) {
+        else if (file.hasExtension(".RGB") || file.hasExtension(".SGI")) {
             // Any format which is supported by Coin only
             FILE* fd = fopen(filename, "w");
             bool ok = writeToRGB(fd);

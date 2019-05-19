@@ -81,13 +81,13 @@ private:
                 throw Py::RuntimeError("No file extension");
 
             std::unique_ptr<Reader> reader;
-            if (file.hasExtension("asc")) {
+            if (file.hasExtension(".asc")) {
                 reader.reset(new AscReader);
             }
-            else if (file.hasExtension("ply")) {
+            else if (file.hasExtension(".ply")) {
                 reader.reset(new PlyReader);
             }
-            else if (file.hasExtension("pcd")) {
+            else if (file.hasExtension(".pcd")) {
                 reader.reset(new PcdReader);
             }
             else {
@@ -193,13 +193,13 @@ private:
                 throw Py::RuntimeError("No file extension");
 
             std::unique_ptr<Reader> reader;
-            if (file.hasExtension("asc")) {
+            if (file.hasExtension(".asc")) {
                 reader.reset(new AscReader);
             }
-            else if (file.hasExtension("ply")) {
+            else if (file.hasExtension(".ply")) {
                 reader.reset(new PlyReader);
             }
-            else if (file.hasExtension("pcd")) {
+            else if (file.hasExtension(".pcd")) {
                 reader.reset(new PcdReader);
             }
             else {
@@ -310,13 +310,13 @@ private:
 
                     const PointKernel& kernel = fea->Points.getValue();
                     std::unique_ptr<Writer> writer;
-                    if (file.hasExtension("asc")) {
+                    if (file.hasExtension(".asc")) {
                         writer.reset(new AscWriter(kernel));
                     }
-                    else if (file.hasExtension("ply")) {
+                    else if (file.hasExtension(".ply")) {
                         writer.reset(new PlyWriter(kernel));
                     }
-                    else if (file.hasExtension("pcd")) {
+                    else if (file.hasExtension(".pcd")) {
                         writer.reset(new PcdWriter(kernel));
                     }
                     else {

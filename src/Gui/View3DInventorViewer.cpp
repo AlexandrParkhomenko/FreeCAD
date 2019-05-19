@@ -1260,18 +1260,18 @@ bool View3DInventorViewer::dumpToFile(SoNode* node, const char* filename, bool b
     bool ret = false;
     Base::FileInfo fi(filename);
 
-    if (fi.hasExtension("idtf") || fi.hasExtension("svg")) {
+    if (fi.hasExtension(".idtf") || fi.hasExtension(".svg")) {
         int ps=4;
         QColor c = Qt::white;
         std::unique_ptr<SoVectorizeAction> vo;
 
-        if (fi.hasExtension("svg")) {
+        if (fi.hasExtension(".svg")) {
             vo = std::unique_ptr<SoVectorizeAction>(new SoFCVectorizeSVGAction());
         }
-        else if (fi.hasExtension("idtf")) {
+        else if (fi.hasExtension(".idtf")) {
             vo = std::unique_ptr<SoVectorizeAction>(new SoFCVectorizeU3DAction());
         }
-        else if (fi.hasExtension("ps") || fi.hasExtension("eps")) {
+        else if (fi.hasExtension(".ps") || fi.hasExtension(".eps")) {
             vo = std::unique_ptr<SoVectorizeAction>(new SoVectorizePSAction());
         }
         else {

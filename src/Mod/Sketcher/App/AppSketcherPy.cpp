@@ -99,7 +99,7 @@ private:
                 pcDoc = App::GetApplication().newDocument(DocName);
             }
 
-            if (file.hasExtension("skf")) {
+            if (file.hasExtension(".skf")) {
                 Sketcher::SketchObjectSF *pcFeature = (Sketcher::SketchObjectSF *)pcDoc->addObject("Sketcher::SketchObjectSF",file.fileNamePure().c_str());
                 pcFeature->SketchFlatFile.setValue(EncodedName.c_str());
 

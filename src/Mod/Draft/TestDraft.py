@@ -138,7 +138,7 @@ class DraftTest(unittest.TestCase):
         #test for a bug introduced by changes attachment code
         box = FreeCAD.ActiveDocument.addObject("Part::Box", "Box")
         clone = Draft.clone(box)
-        self.failUnless(clone.hasExtension("Part::AttachExtension"))
+        self.failUnless(clone.hasExtension(".Part::AttachExtension"))
 
     # modification tools
 

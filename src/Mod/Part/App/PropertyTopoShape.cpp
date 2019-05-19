@@ -381,7 +381,7 @@ void PropertyPartShape::SaveDocFile (Base::Writer &writer) const
 void PropertyPartShape::RestoreDocFile(Base::Reader &reader)
 {
     Base::FileInfo brep(reader.getFileName());
-    if (brep.hasExtension("bin")) {
+    if (brep.hasExtension(".bin")) {
         TopoShape shape;
         shape.importBinary(reader);
         setValue(shape);

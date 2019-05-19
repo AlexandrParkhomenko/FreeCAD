@@ -148,34 +148,34 @@ bool MeshInput::LoadAny(const char* FileName)
 
     Base::ifstream str(fi, std::ios::in | std::ios::binary);
 
-    if (fi.hasExtension("bms")) {
+    if (fi.hasExtension(".bms")) {
         _rclMesh.Read(str);
         return true;
     }
     else {
         // read file
         bool ok = false;
-        if (fi.hasExtension("stl") || fi.hasExtension("ast")) {
+        if (fi.hasExtension(".stl") || fi.hasExtension(".ast")) {
             ok = LoadSTL(str);
         }
-        else if (fi.hasExtension("iv")) {
+        else if (fi.hasExtension(".iv")) {
             ok = LoadInventor( str );
             if (ok && _rclMesh.CountFacets() == 0)
                 Base::Console().Warning("No usable mesh found in file '%s'", FileName);
         }
-        else if (fi.hasExtension("nas") || fi.hasExtension("bdf")) {
+        else if (fi.hasExtension(".nas") || fi.hasExtension(".bdf")) {
             ok = LoadNastran( str );
         }
-        else if (fi.hasExtension("obj")) {
+        else if (fi.hasExtension(".obj")) {
             ok = LoadOBJ( str );
         }
-        else if (fi.hasExtension("smf")) {
+        else if (fi.hasExtension(".smf")) {
             ok = LoadSMF( str );
         }
-        else if (fi.hasExtension("off")) {
+        else if (fi.hasExtension(".off")) {
             ok = LoadOFF( str );
         }
-        else if (fi.hasExtension("ply")) {
+        else if (fi.hasExtension(".ply")) {
             ok = LoadPLY( str );
         }
         else {
@@ -1661,52 +1661,52 @@ void MeshOutput::Transform(const Base::Matrix4D& mat)
 MeshIO::Format MeshOutput::GetFormat(const char* FileName)
 {
     Base::FileInfo file(FileName);
-    if (file.hasExtension("bms")) {
+    if (file.hasExtension(".bms")) {
         return MeshIO::BMS;
     }
-    else if (file.hasExtension("stl")) {
+    else if (file.hasExtension(".stl")) {
         return MeshIO::BSTL;
     }
-    else if (file.hasExtension("ast")) {
+    else if (file.hasExtension(".ast")) {
         return MeshIO::ASTL;
     }
-    else if (file.hasExtension("obj")) {
+    else if (file.hasExtension(".obj")) {
         return MeshIO::OBJ;
     }
-    else if (file.hasExtension("off")) {
+    else if (file.hasExtension(".off")) {
         return MeshIO::OFF;
     }
-    else if (file.hasExtension("ply")) {
+    else if (file.hasExtension(".ply")) {
         return MeshIO::PLY;
     }
-    else if (file.hasExtension("idtf")) {
+    else if (file.hasExtension(".idtf")) {
         return MeshIO::IDTF;
     }
-    else if (file.hasExtension("mgl")) {
+    else if (file.hasExtension(".mgl")) {
         return MeshIO::MGL;
     }
-    else if (file.hasExtension("iv")) {
+    else if (file.hasExtension(".iv")) {
         return MeshIO::IV;
     }
-    else if (file.hasExtension("x3d")) {
+    else if (file.hasExtension(".x3d")) {
         return MeshIO::X3D;
     }
-    else if (file.hasExtension("py")) {
+    else if (file.hasExtension(".py")) {
         return MeshIO::PY;
     }
-    else if (file.hasExtension("wrl") || file.hasExtension("vrml")) {
+    else if (file.hasExtension(".wrl") || file.hasExtension(".vrml")) {
         return MeshIO::VRML;
     }
-    else if (file.hasExtension("wrz")) {
+    else if (file.hasExtension(".wrz")) {
         return MeshIO::WRZ;
     }
-    else if (file.hasExtension("nas") || file.hasExtension("bdf")) {
+    else if (file.hasExtension(".nas") || file.hasExtension(".bdf")) {
         return MeshIO::NAS;
     }
-    else if (file.hasExtension("amf")) {
+    else if (file.hasExtension(".amf")) {
         return MeshIO::AMF;
     }
-    else if (file.hasExtension("smf")) {
+    else if (file.hasExtension(".smf")) {
         return MeshIO::SMF;
     }
     else {

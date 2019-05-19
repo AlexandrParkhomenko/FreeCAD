@@ -371,7 +371,7 @@ private:
             ParameterGrp::handle hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/Mod/Import/hSTEP");
             optionReadShapeCompoundMode = hGrp->GetBool("ReadShapeCompoundMode", optionReadShapeCompoundMode);
 
-            if (file.hasExtension("stp") || file.hasExtension("step")) {
+            if (file.hasExtension(".stp") || file.hasExtension(".step")) {
                 try {
                     STEPCAFControl_Reader aReader;
                     aReader.SetColorMode(true);
@@ -396,7 +396,7 @@ private:
                     pcDoc->recompute();
                 }
             }
-            else if (file.hasExtension("igs") || file.hasExtension("iges")) {
+            else if (file.hasExtension(".igs") || file.hasExtension(".iges")) {
                 Base::Reference<ParameterGrp> hGrp = App::GetApplication().GetUserParameter()
                     .GetGroup("BaseApp")->GetGroup("Preferences")->GetGroup("Mod/Part")->GetGroup("IGES");
 
@@ -441,7 +441,7 @@ private:
             // purge the document before recomputing it to clear it and settle it in the proper
             // way. This is drastically improving STEP rendering time on complex STEP files.
             pcDoc->recompute();
-            if (file.hasExtension("stp") || file.hasExtension("step"))
+            if (file.hasExtension(".stp") || file.hasExtension(".step"))
                 ocaf.setMerge(optionReadShapeCompoundMode);
             ocaf.loadShapes();
             pcDoc->purgeTouched();
@@ -506,7 +506,7 @@ private:
             XCAFDoc_DocumentTool::ShapeTool(hDoc->Main())->UpdateAssemblies();
 
             Base::FileInfo file(Utf8Name.c_str());
-            if (file.hasExtension("stp") || file.hasExtension("step")) {
+            if (file.hasExtension(".stp") || file.hasExtension(".step")) {
                 ParameterGrp::handle hGrp_stp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/Mod/Part/STEP");
                 std::string scheme = hGrp_stp->GetASCII("Scheme", "AP214IS");
                 if (scheme == "AP203")
@@ -535,7 +535,7 @@ private:
                     throw Py::Exception();
                 }
             }
-            else if (file.hasExtension("igs") || file.hasExtension("iges")) {
+            else if (file.hasExtension(".igs") || file.hasExtension(".iges")) {
                 IGESControl_Controller::Init();
                 IGESCAFControl_Writer writer;
                 IGESData_GlobalSection header = writer.Model()->GlobalSection();
@@ -576,7 +576,7 @@ private:
             Handle(TDocStd_Document) hDoc;
             hApp->NewDocument(TCollection_ExtendedString("MDTV-CAF"), hDoc);
 
-            if (file.hasExtension("stp") || file.hasExtension("step")) {
+            if (file.hasExtension(".stp") || file.hasExtension(".step")) {
                 STEPCAFControl_Reader aReader;
                 aReader.SetColorMode(true);
                 aReader.SetNameMode(true);
@@ -592,7 +592,7 @@ private:
                 aReader.Transfer(hDoc);
                 pi->EndScope();
             }
-            else if (file.hasExtension("igs") || file.hasExtension("iges")) {
+            else if (file.hasExtension(".igs") || file.hasExtension(".iges")) {
                 Base::Reference<ParameterGrp> hGrp = App::GetApplication().GetUserParameter()
                     .GetGroup("BaseApp")->GetGroup("Preferences")->GetGroup("Mod/Part")->GetGroup("IGES");
                 IGESControl_Controller::Init();

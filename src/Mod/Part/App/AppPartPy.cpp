@@ -472,7 +472,7 @@ private:
         if (file.extension().empty())
             throw Py::RuntimeError("No file extension");
 
-        if (file.hasExtension("stp") || file.hasExtension("step")) {
+        if (file.hasExtension(".stp") || file.hasExtension(".step")) {
             // create new document and add Import feature
             App::Document *pcDoc = App::GetApplication().newDocument("Unnamed");
 #if 1
@@ -484,7 +484,7 @@ private:
             pcDoc->recompute();
         }
 #if 1
-        else if (file.hasExtension("igs") || file.hasExtension("iges")) {
+        else if (file.hasExtension(".igs") || file.hasExtension(".iges")) {
             App::Document *pcDoc = App::GetApplication().newDocument("Unnamed");
             ImportIgesParts(pcDoc,EncodedName.c_str());
             pcDoc->recompute();
@@ -526,7 +526,7 @@ private:
             pcDoc = App::GetApplication().newDocument(DocName);
         }
 
-        if (file.hasExtension("stp") || file.hasExtension("step")) {
+        if (file.hasExtension(".stp") || file.hasExtension(".step")) {
 #if 1
             ImportStepParts(pcDoc,EncodedName.c_str());
 #else
@@ -537,7 +537,7 @@ private:
             pcDoc->recompute();
         }
 #if 1
-        else if (file.hasExtension("igs") || file.hasExtension("iges")) {
+        else if (file.hasExtension(".igs") || file.hasExtension(".iges")) {
             ImportIgesParts(pcDoc,EncodedName.c_str());
             pcDoc->recompute();
         }

@@ -336,14 +336,14 @@ bool Gui::SoFCDB::writeToFile(SoNode* node, const char* filename, bool binary)
     Base::FileInfo fi(filename);
 
     // Write VRML V2.0
-    if (fi.hasExtension("wrl") || fi.hasExtension("vrml") || fi.hasExtension("wrz")) {
+    if (fi.hasExtension(".wrl") || fi.hasExtension(".vrml") || fi.hasExtension(".wrz")) {
         // If 'wrz' is set then force compression
-        if (fi.hasExtension("wrz"))
+        if (fi.hasExtension(".wrz"))
             binary = true;
 
         ret = SoFCDB::writeToVRML(node, filename, binary);
     }
-    else if (fi.hasExtension("iv")) {
+    else if (fi.hasExtension(".iv")) {
         // Write Inventor in ASCII
         std::string buffer = SoFCDB::writeNodesToString(node);
         Base::ofstream str(Base::FileInfo(filename), std::ios::out);

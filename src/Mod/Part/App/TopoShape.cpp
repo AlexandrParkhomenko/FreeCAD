@@ -519,14 +519,14 @@ void TopoShape::read(const char *FileName)
     if (!File.isReadable())
         throw Base::FileException("File to load not existing or not readable", FileName);
 
-    if (File.hasExtension("igs") || File.hasExtension("iges")) {
+    if (File.hasExtension(".igs") || File.hasExtension(".iges")) {
         // read iges file
         importIges(File.filePath().c_str());
     }
-    else if (File.hasExtension("stp") || File.hasExtension("step")) {
+    else if (File.hasExtension(".stp") || File.hasExtension(".step")) {
         importStep(File.filePath().c_str());
     }
-    else if (File.hasExtension("brp") || File.hasExtension("brep")) {
+    else if (File.hasExtension(".brp") || File.hasExtension(".brep")) {
         // read brep-file
         importBrep(File.filePath().c_str());
     }
@@ -698,18 +698,18 @@ void TopoShape::write(const char *FileName) const
 {
     Base::FileInfo File(FileName);
 
-    if (File.hasExtension("igs") || File.hasExtension("iges")) {
+    if (File.hasExtension(".igs") || File.hasExtension(".iges")) {
         // write iges file
         exportIges(File.filePath().c_str());
     }
-    else if (File.hasExtension("stp") || File.hasExtension("step")) {
+    else if (File.hasExtension(".stp") || File.hasExtension(".step")) {
         exportStep(File.filePath().c_str());
     }
-    else if (File.hasExtension("brp") || File.hasExtension("brep")) {
+    else if (File.hasExtension(".brp") || File.hasExtension(".brep")) {
         // read brep-file
         exportBrep(File.filePath().c_str());
     }
-    else if (File.hasExtension("stl")) {
+    else if (File.hasExtension(".stl")) {
         // read brep-file
         exportStl(File.filePath().c_str(),0);
     }

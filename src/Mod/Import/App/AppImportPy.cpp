@@ -130,7 +130,7 @@ private:
             Handle(TDocStd_Document) hDoc;
             hApp->NewDocument(TCollection_ExtendedString("MDTV-CAF"), hDoc);
 
-            if (file.hasExtension("stp") || file.hasExtension("step")) {
+            if (file.hasExtension(".stp") || file.hasExtension(".step")) {
                 try {
                     STEPCAFControl_Reader aReader;
                     aReader.SetColorMode(true);
@@ -155,7 +155,7 @@ private:
                     pcDoc->recompute();
                 }
             }
-            else if (file.hasExtension("igs") || file.hasExtension("iges")) {
+            else if (file.hasExtension(".igs") || file.hasExtension(".iges")) {
                 Base::Reference<ParameterGrp> hGrp = App::GetApplication().GetUserParameter()
                     .GetGroup("BaseApp")->GetGroup("Preferences")->GetGroup("Mod/Part")->GetGroup("IGES");
 
@@ -312,7 +312,7 @@ private:
             XCAFDoc_DocumentTool::ShapeTool(hDoc->Main())->UpdateAssemblies();
 
             Base::FileInfo file(Utf8Name.c_str());
-            if (file.hasExtension("stp") || file.hasExtension("step")) {
+            if (file.hasExtension(".stp") || file.hasExtension(".step")) {
                 //Interface_Static::SetCVal("write.step.schema", "AP214IS");
                 STEPCAFControl_Writer writer;
                 Interface_Static::SetIVal("write.step.assembly",1);
@@ -335,7 +335,7 @@ private:
                     throw Py::Exception();
                 }
             }
-            else if (file.hasExtension("igs") || file.hasExtension("iges")) {
+            else if (file.hasExtension(".igs") || file.hasExtension(".iges")) {
                 IGESControl_Controller::Init();
                 IGESCAFControl_Writer writer;
                 IGESData_GlobalSection header = writer.Model()->GlobalSection();
@@ -670,7 +670,7 @@ static PyObject * importAssembly(PyObject *self, PyObject *args)
         Handle(TDocStd_Document) hDoc;
         hApp->NewDocument(TCollection_ExtendedString("MDTV-CAF"), hDoc);
 
-        if (file.hasExtension("stp") || file.hasExtension("step")) {
+        if (file.hasExtension(".stp") || file.hasExtension(".step")) {
             try {
                 STEPCAFControl_Reader aReader;
                 aReader.SetColorMode(true);
@@ -696,7 +696,7 @@ static PyObject * importAssembly(PyObject *self, PyObject *args)
                 pcDoc->recompute();
             }
         }
-        else if (file.hasExtension("igs") || file.hasExtension("iges")) {
+        else if (file.hasExtension(".igs") || file.hasExtension(".iges")) {
             try {
                 IGESControl_Controller::Init();
                 Interface_Static::SetIVal("read.surfacecurve.mode",3);

@@ -949,14 +949,14 @@ Py::Object View3DInventorPy::saveVectorGraphic(const Py::Tuple& args)
 
     std::unique_ptr<SoVectorizeAction> vo;
     Base::FileInfo fi(filename);
-    if (fi.hasExtension("ps") || fi.hasExtension("eps")) {
+    if (fi.hasExtension(".ps") || fi.hasExtension(".eps")) {
         vo = std::unique_ptr<SoVectorizeAction>(new SoVectorizePSAction());
         //vo->setGouraudThreshold(0.0f);
     }
-    else if (fi.hasExtension("svg")) {
+    else if (fi.hasExtension(".svg")) {
         vo = std::unique_ptr<SoVectorizeAction>(new SoFCVectorizeSVGAction());
     }
-    else if (fi.hasExtension("idtf")) {
+    else if (fi.hasExtension(".idtf")) {
         vo = std::unique_ptr<SoVectorizeAction>(new SoFCVectorizeU3DAction());
     }
     else {
