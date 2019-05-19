@@ -17,6 +17,6 @@ Here using:
 - swig        == 3.0.12
 
 **Use compressed filesystem:**
-dd if=/dev/zero of=image.img iflag=fullblock bs=1M count=150
-mkfs.btrfs ./image.img
-mount -o compress=lzo ./image.img /mnt
+dd if=/dev/zero of=image.img iflag=fullblock bs=1M count=150  
+mkfs.btrfs ./image.img  
+mount -o compress=lzo ./image.img /mnt  
