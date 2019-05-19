@@ -108,7 +108,6 @@ using Base::Writer;
 using namespace App;
 using namespace std;
 using namespace boost;
-//using namespace zipios;
 
 #if FC_DEBUG
 #  define FC_LOGFEATUREUPDATE

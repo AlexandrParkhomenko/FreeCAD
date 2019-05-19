@@ -91,7 +91,6 @@
 #include "Mod/Mesh/App/Mesh.h"
 #include "Mod/Mesh/App/MeshFeature.h"
 #include "Mod/Mesh/Gui/ViewProviderMeshPy.h"  //# generated from xml
-//#include <zipios/gzipoutputstream.hpp>
 #include <boost/bind.hpp>
 
 #include "ViewProvider.h"
@@ -646,16 +645,10 @@ bool ViewProviderMesh::exportToVrml(const char* filename, const MeshCore::Materi
 
     Base::FileInfo fi(filename);
     if (binary) {
-        Base::ofstream str(fi, std::ios::out | std::ios::binary);
+        Base::ofstream str(fi, std::ios::out | std::ios::binary); //#
         str << buffer;
         str.close();
         return true;
-        /*zipios::GZIPOutputStream gzip(str);
-        if (gzip) {
-            gzip << buffer;
-            gzip.close();
-            return true;
-        }*/
     }
     else {
         Base::ofstream str(fi, std::ios::out);

@@ -29,7 +29,6 @@
 
 #include "Base/FileInfo.h"
 #include "Base/Stream.h"
-//#include <zipios/gzipoutputstream.hpp>
 
 #include "SoFCDB.h"
 #include "SoFCColorBar.h"
@@ -317,13 +316,6 @@ bool Gui::SoFCDB::writeToVRML(SoNode* node, const char* filename, bool binary)
         str << buffer;
         str.close();
         return true;
-        //zipios::GZIPOutputStream gzip(str);
-
-        //if (gzip) {
-        //    gzip << buffer;
-        //    gzip.close();
-        //    return true;
-        //}
     }
     else {
         Base::ofstream str(fi, std::ios::out);

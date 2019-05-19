@@ -28,8 +28,6 @@
 #include <boost/signals2.hpp>
 #include "Base/Persistence.h"
 
-// zipios
-
 namespace App {
 class Document;
 class DocumentObject;

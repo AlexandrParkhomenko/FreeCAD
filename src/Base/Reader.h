@@ -36,8 +36,6 @@
 #include "FileInfo.h"
 #include "Writer.h"
 
-// namespace zipios
-
 XERCES_CPP_NAMESPACE_BEGIN
     class DefaultHandler;
     class SAX2XMLReader;

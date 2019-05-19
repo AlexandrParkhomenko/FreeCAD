@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Writer.h"
 #include "Persistence.h"
 #include "Exception.h"
@@ -35,9 +33,6 @@
 
 using namespace Base;
 using namespace std;
-//using namespace zipios;
-
-
 
 // ---------------------------------------------------------------------------
 //  Writer: Constructors and Destructor

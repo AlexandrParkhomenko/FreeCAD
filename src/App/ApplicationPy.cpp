@@ -183,7 +183,6 @@ PyObject* Application::sLoadFile(PyObject * /*self*/, PyObject *args)
         return 0;
     }
     catch (const std::exception& e) {
-        // might be subclass from zipios
         PyErr_Format(PyExc_IOError, "Invalid project file %s: %s", path, e.what());
         return 0;
     }
@@ -205,7 +204,6 @@ PyObject* Application::sOpenDocument(PyObject * /*self*/, PyObject *args)
         return 0L;
     }
     catch (const std::exception& e) {
-        // might be subclass from zipios
         PyErr_Format(PyExc_IOError, "Invalid project file %s: %s\n", EncodedName.c_str(), e.what());
         return 0L;
     }

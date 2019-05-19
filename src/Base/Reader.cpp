@@ -43,12 +43,7 @@ namespace fs = std::filesystem;
 #include "XMLTools.h"
 
 XERCES_CPP_NAMESPACE_USE
-
 using namespace std;
-//using namespace zipios;
-
-
-
 // ---------------------------------------------------------------------------
 //  Base::XMLReader: Constructors and Destructor
 // ---------------------------------------------------------------------------

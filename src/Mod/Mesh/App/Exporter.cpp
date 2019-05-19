@@ -20,24 +20,19 @@
  *                                                                         *
  ***************************************************************************/
 
-    #include <algorithm>
-    #include <vector>
-    #include <boost/algorithm/string/replace.hpp>
+#include <algorithm>
+#include <vector>
+#include <boost/algorithm/string/replace.hpp>
 
 #include "Exporter.h"
-
 #include "Core/Iterator.h"
-
 #include "Base/Console.h"
 #include "Base/Exception.h"
 #include "Base/FileInfo.h"
 #include "Base/Sequencer.h"
 #include "Base/Stream.h"
 #include "Base/Tools.h"
-
 #include "App/Part.h"
-
-//#include <zipios/zipoutputstream.hpp>
 
 using namespace Mesh;
 using namespace MeshCore;
@@ -258,21 +253,7 @@ AmfExporter::AmfExporter( std::string fileName,
     if ((fi.exists() && !fi.isWritable()) || !di.exists() || !di.isWritable()) {
         throw Base::FileException("No write permission for file", fileName);
     }
-
-/*    if (compress) {
-        auto *zipStreamPtr( new zipios::ZipOutputStream(fi.filePath()) );
-
-        // ISO 52915 specifies that compressed AMF files are zip-compressed and
-        // must contain the AMF XML in an entry with the same name as the
-        // compressed file.  It's OK to have other files in the zip too.
-        zipStreamPtr->putNextEntry( zipios::ZipCDirEntry(fi.fileName()) );
-
-        // Default compression seems to work fine.
-        outputStreamPtr = zipStreamPtr;
-
-    } else { */
-        outputStreamPtr = new Base::ofstream(fi, std::ios::out | std::ios::binary);
-//    }
+    outputStreamPtr = new Base::ofstream(fi, std::ios::out | std::ios::binary);
 
     if (outputStreamPtr) {
         *outputStreamPtr << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
