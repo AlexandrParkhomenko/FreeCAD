@@ -16,7 +16,7 @@ Here using:
 - xerces-c    == 3.2.2
 - swig        == 3.0.12
 
-**Use compressed filesystem:**
+**Use compressed filesystem:**  
 dd if=/dev/zero of=image.img iflag=fullblock bs=1M count=150  
 mkfs.btrfs ./image.img  
 mount -o compress=lzo ./image.img /mnt  
