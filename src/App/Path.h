@@ -18,7 +18,7 @@
  *   write to the Free Software Foundation, Inc., 59 Temple Place,         *
  *   Suite 330, Boston, MA  02111-1307, USA                                *
  *                                                                         *
- ***************************************************************************/
+ **************************************************************************
 
 
 #ifndef APP_Path_H
@@ -33,8 +33,8 @@ namespace App
 {
 
 
-/** Base class of all geometric document objects.
- */
+// Base class of all geometric document objects.
+
 class AppExport Path 
 {
 protected:
@@ -55,3 +55,4 @@ public:
 
 
 #endif // APP_Path_H
+*/

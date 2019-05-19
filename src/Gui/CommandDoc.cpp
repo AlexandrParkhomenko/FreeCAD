@@ -132,8 +132,10 @@ void StdCmdOpen::activated(int iMsg)
     formatList += QObject::tr(allFiles);
 
     QString selectedFilter;
-    QStringList fileList = FileDialog::getOpenFileNames(getMainWindow(),
-        QObject::tr("Open document"), QString(), formatList, &selectedFilter);
+//#    QStringList fileList = FileDialog::getOpenFileNames(getMainWindow(),
+//#        QObject::tr("Open document"), QString(), formatList, &selectedFilter);
+    QStringList fileList = (QStringList) FileDialog::getExistingDirectory(getMainWindow(),//getOpenFileNames
+        QObject::tr("Open document"), QString());
     if (fileList.isEmpty())
         return;
 

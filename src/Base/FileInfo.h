@@ -109,6 +109,7 @@ public:
     //@{
     /// Creates a directory. Returns true if successful; otherwise returns false.
     bool createDirectory( void ) const;
+    void currentPath( void ) const;
     /// Get a list of the directory content
     std::vector<Base::FileInfo> getDirectoryContent(void) const;
     /// Delete an empty directory 

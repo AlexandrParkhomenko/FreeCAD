@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-
-
 /// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Writer.h"
 #include "Persistence.h"
@@ -235,65 +233,25 @@ void Writer::decInd(void)
     indBuf[indent] = '\0';
 }
 
-// ----------------------------------------------------------------------------
-/*
-ZipWriter::ZipWriter(const char* FileName) 
-  : ZipStream(FileName)
-{
-    ZipStream.imbue(std::locale::classic());
-    ZipStream.precision(std::numeric_limits<double>::digits10 + 1);
-    ZipStream.setf(ios::fixed,ios::floatfield);
+FileWriter::FileWriter(const char* FileName){
+  DirName = ".";
+  this->FileStream.open(FileName, std::ios::out | std::ios::binary);
 }
 
-ZipWriter::ZipWriter(std::ostream& os) 
-  : ZipStream(os)
-{
-    ZipStream.imbue(std::locale::classic());
-    ZipStream.precision(std::numeric_limits<double>::digits10 + 1);
-    ZipStream.setf(ios::fixed,ios::floatfield);
-}
-
-void ZipWriter::writeFiles(void)
-{
-    // use a while loop because it is possible that while
-    // processing the files new ones can be added
-    size_t index = 0;
-    while (index < FileList.size()) {
-        FileEntry entry = FileList.begin()[index];
-        ZipStream.putNextEntry(entry.FileName);
-        entry.Object->SaveDocFile(*this);
-        index++;
-    }
-}
-
-ZipWriter::~ZipWriter()
-{
-    ZipStream.close();
-}
-*/
-// ----------------------------------------------------------------------------
-
-FileWriter::FileWriter(const char* DirName) : DirName(DirName)
-{
-}
-
-FileWriter::~FileWriter()
-{
+FileWriter::~FileWriter(){
 }
 
 void FileWriter::putNextEntry(const char* file)
 {
-    std::string fileName = DirName + "/" + file;
+    std::string fileName = file;
     this->FileStream.open(fileName.c_str(), std::ios::out | std::ios::binary);
 }
 
-bool FileWriter::shouldWrite(const std::string& , const Base::Persistence *) const
-{
-    return true;
-}
+//bool FileWriter::shouldWrite(const std::string& , const Base::Persistence *) const {
+//    return true;
+//}
 
-void FileWriter::writeFiles(void)
-{
+void FileWriter::writeFiles(void){
     // use a while loop because it is possible that while
     // processing the files new ones can be added
     size_t index = 0;
@@ -301,7 +259,7 @@ void FileWriter::writeFiles(void)
     while (index < FileList.size()) {
         FileEntry entry = FileList.begin()[index];
 
-        if (shouldWrite(entry.FileName, entry.Object)) {
+//        if (shouldWrite(entry.FileName, entry.Object)) {
             std::string filePath = entry.FileName;
             std::string::size_type pos = 0;
             while ((pos = filePath.find("/", pos)) != std::string::npos) {
@@ -315,8 +273,7 @@ void FileWriter::writeFiles(void)
             this->FileStream.open(fileName.c_str(), std::ios::out | std::ios::binary);
             entry.Object->SaveDocFile(*this);
             this->FileStream.close();
-        }
-
+//        }
         index++;
     }
 }

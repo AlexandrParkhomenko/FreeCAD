@@ -1704,6 +1704,8 @@ bool Document::saveToFile(const char* filename) const
         fn += uuid;
     }
     Base::FileInfo tmp(fn);
+    tmp.createDirectory();
+    tmp.currentPath();
 
     // open extra scope to close ZipWriter properly
     {
