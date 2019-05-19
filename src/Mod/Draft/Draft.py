@@ -5588,7 +5588,7 @@ class _Clone(_DraftObject):
             if o.isDerivedFrom("Part::Feature"):
                 if not o.Shape.isNull():
                     sh = o.Shape.copy()
-            elif o.hasExtension(".App::GeoFeatureGroupExtension"):
+            elif o.hasExtension("App::GeoFeatureGroupExtension"):
                 shps = []
                 for so in o.Group:
                     if so.isDerivedFrom("Part::Feature"):
@@ -5665,7 +5665,7 @@ class _ViewProviderClone:
                     c = (c[0],c[1],c[2],o.ViewObject.Transparency/100.0)
                     for f in o.Shape.Faces:
                         colors.append(c)
-            elif o.hasExtension(".App::GeoFeatureGroupExtension"):
+            elif o.hasExtension("App::GeoFeatureGroupExtension"):
                 for so in vobj.Object.Group:
                     if so.isDerivedFrom("Part::Feature"):
                         if len(so.ViewObject.DiffuseColor) > 1:
