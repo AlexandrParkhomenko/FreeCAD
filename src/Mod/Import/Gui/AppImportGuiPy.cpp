@@ -77,7 +77,6 @@
 #include "Mod/Part/App/ProgressIndicator.h"
 #include "Mod/Part/App/ImportIges.h"
 #include "Mod/Part/App/ImportStep.h"
-#include "Mod/Part/App/encodeFilename.h"
 #include "Mod/Import/App/ImportOCAF.h"
 #include "Mod/Import/App/ExportOCAF.h"
 
@@ -350,7 +349,7 @@ private:
 
         std::string Utf8Name = std::string(Name);
         PyMem_Free(Name);
-        std::string name8bit = Part::encodeFilename(Utf8Name);
+        std::string name8bit = Utf8Name;
 
         try {
             //Base::Console().Log("Insert in Part with %s",Name);
@@ -467,7 +466,7 @@ private:
 
         std::string Utf8Name = std::string(Name);
         PyMem_Free(Name);
-        std::string name8bit = Part::encodeFilename(Utf8Name);
+        std::string name8bit = Utf8Name;
 
         try {
             Py::Sequence list(object);

@@ -220,9 +220,7 @@ int TopoShapeFacePy::PyInit(PyObject* args, PyObject* /*kwd*/)
             }
 
             BRepBuilderAPI_MakeFace mkFace(S
-#if OCC_VERSION_HEX >= 0x060502
               , Precision::Confusion()
-#endif
             );
             if (bound) {
                 Py::List list(bound);
@@ -287,11 +285,6 @@ int TopoShapeFacePy::PyInit(PyObject* args, PyObject* /*kwd*/)
                     case BRepBuilderAPI_ParametersOutOfRange:
                         Standard_Failure::Raise("Parameters out of range");
                         break;
-#if OCC_VERSION_HEX < 0x060500
-                    case BRepBuilderAPI_SurfaceNotC2:
-                        Standard_Failure::Raise("Surface not C2");
-                        break;
-#endif
                     default:
                         Standard_Failure::Raise("Unknown failure");
                         break;

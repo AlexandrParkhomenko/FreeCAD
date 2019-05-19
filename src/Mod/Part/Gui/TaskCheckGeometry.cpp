@@ -167,7 +167,6 @@ QVector<QString> buildBOPCheckResultVector()
   return results;
 }
 
-#if OCC_VERSION_HEX >= 0x060600
 QString getBOPCheckString(const BOPAlgo_CheckStatus &status)
 {
   static QVector<QString> strings = buildBOPCheckResultVector();
@@ -176,7 +175,6 @@ QString getBOPCheckString(const BOPAlgo_CheckStatus &status)
     index = 0;
   return strings.at(index);
 }
-#endif
 
 ResultEntry::ResultEntry()
 {
@@ -408,9 +406,7 @@ void TaskCheckGeometryResults::goCheck()
 
     Handle(Message_ProgressIndicator) theProgress = new BOPProgressIndicator(tr("Check geometry"), Gui::getMainWindow());
     theProgress->NewScope("BOP check...");
-#if OCC_VERSION_HEX >= 0x060900
     theProgress->Show();
-#endif
 
     selectedCount = static_cast<int>(selection.size());
     for (it = selection.begin(); it != selection.end(); ++it)
@@ -587,8 +583,6 @@ QString TaskCheckGeometryResults::getShapeContentString()
 int TaskCheckGeometryResults::goBOPSingleCheck(const TopoDS_Shape& shapeIn, ResultEntry *theRoot, const QString &baseName,
                                                const Handle(Message_ProgressIndicator)& theProgress)
 {
-  //ArgumentAnalyser was moved at version 6.6. no back port for now.
-#if OCC_VERSION_HEX >= 0x060600
   //Reference use: src/BOPTest/BOPTest_CheckCommands.cxx
   
   //I don't why we need to make a copy, but it doesn't work without it.
@@ -641,13 +635,8 @@ BOPCheck.Perform();
   {
     const BOPAlgo_CheckResult &current = BOPResultsIt.Value();
     
-#if OCC_VERSION_HEX < 0x070000
-    const BOPCol_ListOfShape &faultyShapes1 = current.GetFaultyShapes1();
-    BOPCol_ListIteratorOfListOfShape faultyShapes1It(faultyShapes1);
-#else
     const TopTools_ListOfShape &faultyShapes1 = current.GetFaultyShapes1();
     TopTools_ListIteratorOfListOfShape faultyShapes1It(faultyShapes1);
-#endif
     for (;faultyShapes1It.More(); faultyShapes1It.Next())
     {
       const TopoDS_Shape &faultyShape = faultyShapes1It.Value();
@@ -677,9 +666,6 @@ BOPCheck.Perform();
     }
   }
   return 1;
-#else
-  return 0;
-#endif
 }
 
 

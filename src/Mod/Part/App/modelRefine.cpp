@@ -780,8 +780,6 @@ FaceTypedCylinder& ModelRefine::getCylinderObject()
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// TODO: change this version after occ fix. Freecad Mantis 1450
-#if OCC_VERSION_HEX <= 0x7fffff
 void collectConicEdges(const TopoDS_Shell &shell, TopTools_IndexedMapOfShape &map)
 {
   TopTools_IndexedMapOfShape edges;
@@ -801,7 +799,6 @@ void collectConicEdges(const TopoDS_Shell &shell, TopTools_IndexedMapOfShape &ma
       map.Add(currentEdge);
   }
 }
-#endif
 
 FaceTypedBSpline::FaceTypedBSpline() : FaceTypedBase(GeomAbs_BSplineSurface)
 {
@@ -1117,12 +1114,9 @@ bool FaceUniter::process()
         }
         
         BRepLib_FuseEdges edgeFuse(workShell);
-// TODO: change this version after occ fix. Freecad Mantis 1450
-#if OCC_VERSION_HEX <= 0x7fffff
         TopTools_IndexedMapOfShape map;
         collectConicEdges(workShell, map);
         edgeFuse.AvoidEdges(map);
-#endif
         TopTools_DataMapOfShapeShape affectedFaces;
         edgeFuse.Faces(affectedFaces);
         TopTools_DataMapIteratorOfDataMapOfShapeShape mapIt;
@@ -1213,16 +1207,6 @@ void Part::BRepBuilderAPI_RefineModel::Build()
             }
         }
         myShape = mkSolid.Solid();
-
-#if OCC_VERSION_HEX <= 0x060700
-        // With occ 6.7 and older it can happen that a solid is flipped.
-        // In this case it must be reversed
-        GProp_GProps props;
-        BRepGProp::VolumeProperties(myShape, props);
-        if (props.Mass() < 0) {
-            myShape.Reverse();
-        }
-#endif
     }
     else if (myShape.ShapeType() == TopAbs_SHELL) {
         const TopoDS_Shell& shell = TopoDS::Shell(myShape);

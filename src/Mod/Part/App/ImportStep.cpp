@@ -74,7 +74,6 @@
 #include "ImportStep.h"
 #include "PartFeature.h"
 #include "ProgressIndicator.h"
-#include "encodeFilename.h"
 
 using namespace Part;
 
@@ -94,7 +93,7 @@ int Part::ImportStepParts(App::Document *pcDoc, const char* Name)
         str << "File '" << Name << "' does not exist!";
         throw Base::FileException(str.str().c_str());
     }
-    std::string encodednamestr = encodeFilename(std::string(Name));
+    std::string encodednamestr = std::string(Name);
     const char * encodedname = encodednamestr.c_str();
 
     if (aReader.ReadFile((Standard_CString)encodedname) != 

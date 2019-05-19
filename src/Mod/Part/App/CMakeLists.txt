@@ -354,7 +354,6 @@ SET(Part_SRCS
     modelRefine.h
     Tools.cpp
     Tools.h
-    encodeFilename.h
     OCCError.h
     FT2FC.cpp
     FT2FC.h

@@ -889,9 +889,7 @@ private:
             }
 
             BRepBuilderAPI_MakeFace Face(aPlane, 0.0, length, 0.0, width
-#if OCC_VERSION_HEX >= 0x060502
               , Precision::Confusion()
-#endif
             );
             return Py::asObject(new TopoShapeFacePy(new TopoShape((Face.Face()))));
         }

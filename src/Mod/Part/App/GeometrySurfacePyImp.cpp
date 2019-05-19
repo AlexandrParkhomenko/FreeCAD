@@ -258,9 +258,7 @@ PyObject* GeometrySurfacePy::toShape(PyObject *args)
             if (!PyArg_ParseTuple(args, "|dddd", &u1,&u2,&v1,&v2))
                 return 0;
             BRepBuilderAPI_MakeFace mkBuilder(s, u1, u2, v1, v2
-#if OCC_VERSION_HEX >= 0x060502
               , Precision::Confusion()
-#endif
             );
             TopoDS_Shape sh = mkBuilder.Shape();
             return new TopoShapeFacePy(new TopoShape(sh));

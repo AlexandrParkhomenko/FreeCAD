@@ -4407,9 +4407,7 @@ int SketchObject::exposeInternalGeometry(int GeoId)
             }
         }
 
-        #if OCC_VERSION_HEX >= 0x060900
         index=0;
-
         for(it=knotgeoids.begin(), itb=knotpoints.begin(); it!=knotgeoids.end() && itb!=knotpoints.end(); ++it, ++itb, index++) {
 
             if(!(*itb)) // if knot point not existing
@@ -4437,7 +4435,6 @@ int SketchObject::exposeInternalGeometry(int GeoId)
                 incrgeo++;
             }
         }
-        #endif
 
         Q_UNUSED(isfirstweightconstrained);
         // constraint the first weight to allow for seamless weight modification and proper visualization
@@ -4888,10 +4885,6 @@ bool SketchObject::increaseBSplineDegree(int GeoId, int degreeincrement /*= 1*/)
 
 bool SketchObject::modifyBSplineKnotMultiplicity(int GeoId, int knotIndex, int multiplicityincr)
 {
-    #if OCC_VERSION_HEX < 0x060900
-        THROWMT(Base::NotImplementedError, QT_TRANSLATE_NOOP("Exceptions", "This version of OCE/OCC does not support knot operation. You need 6.9.0 or higher."))
-    #endif
-
     if (GeoId < 0 || GeoId > getHighestCurveIndex())
         THROWMT(Base::ValueError,QT_TRANSLATE_NOOP("Exceptions", "BSpline Geometry Index (GeoID) is out of bounds."))
 
@@ -5564,9 +5557,6 @@ void SketchObject::rebuildExternalGeometry(void)
     mov.SetValues(invMat[0][0],invMat[0][1],invMat[0][2],invMat[0][3],
                   invMat[1][0],invMat[1][1],invMat[1][2],invMat[1][3],
                   invMat[2][0],invMat[2][1],invMat[2][2],invMat[2][3]
-#if OCC_VERSION_HEX < 0x060800
-                  , 0.00001, 0.00001
-#endif
                   ); //precision was removed in OCCT CR0025194
 
     gp_Ax3 sketchAx3(gp_Pnt(Pos.x,Pos.y,Pos.z),

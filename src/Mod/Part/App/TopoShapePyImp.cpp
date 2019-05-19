@@ -174,14 +174,9 @@ PyObject* TopoShapePy::copy(PyObject *args)
     }
 
     if (!shape.IsNull()) {
-#if OCC_VERSION_HEX >= 0x070000
         BRepBuilderAPI_Copy c(shape,
                               PyObject_IsTrue(copyGeom) ? Standard_True : Standard_False,
                               PyObject_IsTrue(copyMesh) ? Standard_True : Standard_False);
-#else
-        BRepBuilderAPI_Copy c(shape,
-                              PyObject_IsTrue(copyGeom) ? Standard_True : Standard_False);
-#endif
         static_cast<TopoShapePy*>(cpy)->getTopoShapePtr()->setShape(c.Shape());
     }
     return cpy;
@@ -822,29 +817,6 @@ PyObject*  TopoShapePy::multiFuse(PyObject *args)
     try {
         TopoDS_Shape multiFusedShape = this->getTopoShapePtr()->fuse(shapeVec,tolerance);
         return new TopoShapePy(new TopoShape(multiFusedShape));
-    }
-    catch (Standard_Failure& e) {
-
-        PyErr_SetString(PartExceptionOCCError, e.GetMessageString());
-        return NULL;
-    }
-    catch (const std::exception& e) {
-        PyErr_SetString(PartExceptionOCCError, e.what());
-        return NULL;
-    }
-}
-
-PyObject*  TopoShapePy::oldFuse(PyObject *args)
-{
-    PyObject *pcObj;
-    if (!PyArg_ParseTuple(args, "O!", &(TopoShapePy::Type), &pcObj))
-        return NULL;
-
-    TopoDS_Shape shape = static_cast<TopoShapePy*>(pcObj)->getTopoShapePtr()->getShape();
-    try {
-        // Let's call algorithm computing a fuse operation:
-        TopoDS_Shape fusShape = this->getTopoShapePtr()->oldFuse(shape);
-        return new TopoShapePy(new TopoShape(fusShape));
     }
     catch (Standard_Failure& e) {
 
@@ -1617,11 +1589,7 @@ PyObject* TopoShapePy::makeChamfer(PyObject *args)
                     if (edge.ShapeType() == TopAbs_EDGE) {
                         //Add edge to fillet algorithm
                         const TopoDS_Face& face = TopoDS::Face(mapEdgeFace.FindFromKey(edge).First());
-#if OCC_VERSION_HEX > 0x070300
                         mkChamfer.Add(radius, radius, TopoDS::Edge(edge), face);
-#else
-                        mkChamfer.Add(radius, TopoDS::Edge(edge), face);
-#endif
                     }
                 }
             }
@@ -2418,10 +2386,7 @@ PyObject* _getSupportIndex(char* suppStr, TopoShape* ts, TopoDS_Shape suppShape)
 
 PyObject* TopoShapePy::proximity(PyObject *args)
 {
-#if OCC_VERSION_HEX >= 0x060801
-#if OCC_VERSION_HEX >= 0x060901
     typedef BRepExtrema_MapOfIntegerPackedMapOfInteger BRepExtrema_OverlappedSubShapes;
-#endif
     PyObject* ps2;
     Standard_Real tol = Precision::Confusion();
     if (!PyArg_ParseTuple(args, "O!|d",&(TopoShapePy::Type), &ps2, &tol))
@@ -2508,11 +2473,6 @@ PyObject* TopoShapePy::proximity(PyObject *args)
     }
     //return Py_BuildValue("OO", overlappss1, overlappss2); //subshapes
     return Py_BuildValue("OO", overlappssindex1, overlappssindex2); //face indexes
-#else
-    (void)args;
-    PyErr_SetString(PyExc_NotImplementedError, "proximity requires OCCT >= 6.8.1");
-    return 0;
-#endif
 }
 
 PyObject* TopoShapePy::distToShape(PyObject *args)
@@ -2651,7 +2611,6 @@ PyObject* TopoShapePy::optimalBoundingBox(PyObject *args)
         return 0;
 
     try {
-#if OCC_VERSION_HEX >= 0x070200
         TopoDS_Shape shape = this->getTopoShapePtr()->getShape();
         Bnd_Box bounds;
         BRepBndLib::AddOptimal(shape, bounds,
@@ -2671,9 +2630,6 @@ PyObject* TopoShapePy::optimalBoundingBox(PyObject *args)
 
         Py::BoundingBox pybox(box);
         return Py::new_reference_to(pybox);
-#else
-        throw Py::RuntimeError("Need OCCT 7.2.0 or higher");
-#endif
     }
     catch (const Standard_Failure& e) {
         throw Py::RuntimeError(e.GetMessageString());

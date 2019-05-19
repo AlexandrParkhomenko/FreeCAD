@@ -339,9 +339,7 @@ App::DocumentObjectExecReturn *Plane::execute(void)
     gp_Dir dir(0.0,0.0,1.0);
     Handle(Geom_Plane) aPlane = new Geom_Plane(pnt, dir);
     BRepBuilderAPI_MakeFace mkFace(aPlane, 0.0, L, 0.0, W
-#if OCC_VERSION_HEX >= 0x060502
       , Precision::Confusion()
-#endif
     );
 
     const char *error=0;
@@ -360,11 +358,6 @@ App::DocumentObjectExecReturn *Plane::execute(void)
     case BRepBuilderAPI_ParametersOutOfRange:
         error = "parameters out of range";
         break;
-#if OCC_VERSION_HEX < 0x060500
-    case BRepBuilderAPI_SurfaceNotC2:
-        error = "surface not C2";
-        break;
-#endif
     default:
         error = "unknown error";
         break;
@@ -947,9 +940,7 @@ App::DocumentObjectExecReturn *Spiral::execute(void)
         Handle(Geom_Plane) aPlane = new Geom_Plane(gp_Pnt(0.0,0.0,0.0), gp::DZ());
         Standard_Real range = (myNumRot+1) * myGrowth + 1 + myRadius;
         BRepBuilderAPI_MakeFace mkFace(aPlane, -range, range, -range, range
-#if OCC_VERSION_HEX >= 0x060502
         , Precision::Confusion()
-#endif
         );
         BRepProj_Projection proj(wire, mkFace.Face(), gp::DZ());
         this->Shape.setValue(proj.Shape());
