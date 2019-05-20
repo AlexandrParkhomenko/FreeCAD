@@ -122,7 +122,6 @@ void PropertyExpressionEngine::Paste(const Property &from)
 
     AtomicPropertyChange signaller(*this);
 
-#ifndef USE_OLD_DAG
     //maintain backlinks, verify that this property is owned by a DocumentObject
     App::DocumentObject* parent = dynamic_cast<App::DocumentObject*>(getContainer());
     if (parent) {
@@ -144,13 +143,11 @@ void PropertyExpressionEngine::Paste(const Property &from)
             ++i;
         }
     }
-#endif
     expressions.clear();
 
     for (ExpressionMap::const_iterator it = fromee->expressions.begin(); it != fromee->expressions.end(); ++it) {
         expressions[it->first] = ExpressionInfo(boost::shared_ptr<Expression>(it->second.expression->copy()), it->second.comment.c_str());
 
-#ifndef USE_OLD_DAG
         if (parent) {
             //maintain backlinks
             std::set<ObjectIdentifier> deps;
@@ -167,8 +164,6 @@ void PropertyExpressionEngine::Paste(const Property &from)
                 ++j;
             }
         }
-#endif
-
         expressionChanged(it->first);
     }
 
@@ -406,7 +401,7 @@ void PropertyExpressionEngine::setValue(const ObjectIdentifier & path, boost::sh
             throw Base::RuntimeError(error.c_str());
 
         AtomicPropertyChange signaller(*this);
-#ifndef USE_OLD_DAG
+
         // When overriding an ObjectIdentifier key then first remove
         // the dependency caused by the expression as otherwise it happens
         // that the same object dependency is added twice for the same
@@ -429,11 +424,9 @@ void PropertyExpressionEngine::setValue(const ObjectIdentifier & path, boost::sh
                 }
             }
         }
-#endif
 
         expressions[usePath] = ExpressionInfo(expr, comment);
 
-#ifndef USE_OLD_DAG
         //maintain the backlinks in the documentobject graph datastructure
         if (parent) {
             std::set<ObjectIdentifier> deps;
@@ -448,14 +441,11 @@ void PropertyExpressionEngine::setValue(const ObjectIdentifier & path, boost::sh
                 ++j;
             }
         }
-#endif
-
         expressionChanged(usePath);
     }
     else {
         AtomicPropertyChange signaller(*this);
 
-#ifndef USE_OLD_DAG
         //verify that this property is owned by a DocumentObject
         //verify that the ObjectIdentifier usePath is part of the expression map and
         //that the expression is not null
@@ -474,7 +464,6 @@ void PropertyExpressionEngine::setValue(const ObjectIdentifier & path, boost::sh
                 ++j;
             }
         }
-#endif
 
         expressions.erase(usePath);
         expressionChanged(usePath);

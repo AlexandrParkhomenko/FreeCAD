@@ -13,9 +13,6 @@ ENDIF(DOCDIR)
 
 add_definitions(-DBOOST_${Boost_VERSION})
 
-#if you want to use the old DAG structure uncomment this line
-#add_definitions(-DUSE_OLD_DAG)
-
 # -----------------------------------------------------------------------------
 
 #write relevant cmake variables to a file for later access with python. Exported are all variables 

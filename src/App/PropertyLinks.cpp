@@ -25,8 +25,7 @@
 # include <assert.h>
 # include <sstream>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
-#include <CXX/Objects.hxx>
+#include "CXX/Objects.hxx"
 #include "Base/Exception.h"
 #include "Base/Reader.h"
 #include "Base/Writer.h"
@@ -42,31 +41,18 @@ using namespace App;
 using namespace Base;
 using namespace std;
 
-//**************************************************************************
-//**************************************************************************
 // PropertyLink
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 TYPESYSTEM_SOURCE(App::PropertyLink, App::Property)
 TYPESYSTEM_SOURCE(App::PropertyLinkChild, App::PropertyLink)
 TYPESYSTEM_SOURCE(App::PropertyLinkGlobal, App::PropertyLink)
 
-//**************************************************************************
 // Construction/Destruction
-
-
 PropertyLink::PropertyLink()
-:_pcLink(0)
-{
+:_pcLink(0){
 
 }
 
-
-PropertyLink::~PropertyLink()
-{
-    
-    //in case this property gets dynamically removed
-#ifndef USE_OLD_DAG
+PropertyLink::~PropertyLink(){
     // maintain the back link in the DocumentObject class if it is from a document object
     if (_pcLink && getContainer() && getContainer()->isDerivedFrom(App::DocumentObject::getClassTypeId())) {
         App::DocumentObject* parent = static_cast<DocumentObject*>(getContainer());
@@ -77,8 +63,6 @@ PropertyLink::~PropertyLink()
                 _pcLink->_removeBackLink(parent);
         }
     }
-#endif
-    
 }
 
 //**************************************************************************
@@ -87,7 +71,6 @@ PropertyLink::~PropertyLink()
 void PropertyLink::setValue(App::DocumentObject * lValue)
 {
     aboutToSetValue();
-#ifndef USE_OLD_DAG
     // maintain the back link in the DocumentObject class if it is from a document object
     if (getContainer() && getContainer()->isDerivedFrom(App::DocumentObject::getClassTypeId())) {
         App::DocumentObject* parent = static_cast<DocumentObject*>(getContainer());
@@ -100,7 +83,6 @@ void PropertyLink::setValue(App::DocumentObject * lValue)
                 lValue->_addBackLink(parent);
         }
     }
-#endif
     _pcLink=lValue;
     hasSetValue();
 }
@@ -213,8 +195,6 @@ PropertyLinkList::PropertyLinkList()
 
 PropertyLinkList::~PropertyLinkList()
 {
-    //in case this property gety dynamically removed
-#ifndef USE_OLD_DAG   
     //maintain the back link in the DocumentObject class
     if (!_lValueList.empty() && getContainer() && getContainer()->isDerivedFrom(App::DocumentObject::getClassTypeId())) {
         App::DocumentObject* parent = static_cast<DocumentObject*>(getContainer());
@@ -225,8 +205,6 @@ PropertyLinkList::~PropertyLinkList()
                 obj->_removeBackLink(parent);
         }
     }
-#endif
-
 }
 
 void PropertyLinkList::setSize(int newSize)
@@ -241,7 +219,6 @@ int PropertyLinkList::getSize(void) const
 
 void PropertyLinkList::setValue(DocumentObject* lValue)
 {
-#ifndef USE_OLD_DAG   
     //maintain the back link in the DocumentObject class
     if (getContainer() && getContainer()->isDerivedFrom(App::DocumentObject::getClassTypeId())) {
         App::DocumentObject* parent = static_cast<DocumentObject*>(getContainer());
@@ -254,7 +231,6 @@ void PropertyLinkList::setValue(DocumentObject* lValue)
                 lValue->_addBackLink(parent);
         }
     }
-#endif
     
     if (lValue){
         aboutToSetValue();
@@ -272,7 +248,6 @@ void PropertyLinkList::setValue(DocumentObject* lValue)
 void PropertyLinkList::setValues(const std::vector<DocumentObject*>& lValue)
 {
     aboutToSetValue();
-#ifndef USE_OLD_DAG
     //maintain the back link in the DocumentObject class
     if (getContainer() && getContainer()->isDerivedFrom(App::DocumentObject::getClassTypeId())) {
         App::DocumentObject* parent = static_cast<DocumentObject*>(getContainer());
@@ -285,7 +260,6 @@ void PropertyLinkList::setValues(const std::vector<DocumentObject*>& lValue)
                 obj->_addBackLink(parent);
         }
     }
-#endif
     _lValueList = lValue;
     hasSetValue();
 }
@@ -432,8 +406,6 @@ PropertyLinkSub::PropertyLinkSub()
 
 PropertyLinkSub::~PropertyLinkSub()
 {
-    //in case this property is dynamically removed
-#ifndef USE_OLD_DAG
     if (_pcLinkSub && getContainer() && getContainer()->isDerivedFrom(App::DocumentObject::getClassTypeId())) {
         App::DocumentObject* parent = static_cast<DocumentObject*>(getContainer());
         // before accessing internals make sure the object is not about to be destroyed
@@ -443,7 +415,6 @@ PropertyLinkSub::~PropertyLinkSub()
                 _pcLinkSub->_removeBackLink(parent);
         }
     }
-#endif
 }
 
 //**************************************************************************
@@ -452,7 +423,6 @@ PropertyLinkSub::~PropertyLinkSub()
 void PropertyLinkSub::setValue(App::DocumentObject * lValue, const std::vector<std::string> &SubList)
 {
     aboutToSetValue();
-#ifndef USE_OLD_DAG
     if (getContainer() && getContainer()->isDerivedFrom(App::DocumentObject::getClassTypeId())) {
         App::DocumentObject* parent = static_cast<DocumentObject*>(getContainer());
         // before accessing internals make sure the object is not about to be destroyed
@@ -464,7 +434,6 @@ void PropertyLinkSub::setValue(App::DocumentObject * lValue, const std::vector<s
                 lValue->_addBackLink(parent);
         }
     }
-#endif
     _pcLinkSub=lValue;
     _cSubList = SubList;
     hasSetValue();
@@ -640,8 +609,6 @@ PropertyLinkSubList::PropertyLinkSubList()
 
 PropertyLinkSubList::~PropertyLinkSubList()
 {
-    //in case this property is dynamically removed
-#ifndef USE_OLD_DAG
     //maintain backlinks
     if (!_lValueList.empty() && getContainer() && getContainer()->isDerivedFrom(App::DocumentObject::getClassTypeId())) {
         App::DocumentObject* parent = static_cast<DocumentObject*>(getContainer());
@@ -652,7 +619,6 @@ PropertyLinkSubList::~PropertyLinkSubList()
                 obj->_removeBackLink(parent);
         }
     }
-#endif
 }
 
 void PropertyLinkSubList::setSize(int newSize)
@@ -668,7 +634,6 @@ int PropertyLinkSubList::getSize(void) const
 
 void PropertyLinkSubList::setValue(DocumentObject* lValue,const char* SubName)
 {
-#ifndef USE_OLD_DAG
     //maintain backlinks
     if (getContainer() && getContainer()->isDerivedFrom(App::DocumentObject::getClassTypeId())) {
         App::DocumentObject* parent = static_cast<DocumentObject*>(getContainer());
@@ -681,7 +646,6 @@ void PropertyLinkSubList::setValue(DocumentObject* lValue,const char* SubName)
                 lValue->_addBackLink(parent);
         }
     }
-#endif
     
     if (lValue) {
         aboutToSetValue();
@@ -704,7 +668,6 @@ void PropertyLinkSubList::setValues(const std::vector<DocumentObject*>& lValue,c
     if (lValue.size() != lSubNames.size())
         throw Base::ValueError("PropertyLinkSubList::setValues: size of subelements list != size of objects list");
 
-#ifndef USE_OLD_DAG
     //maintain backlinks. 
     if (getContainer() && getContainer()->isDerivedFrom(App::DocumentObject::getClassTypeId())) {
         App::DocumentObject* parent = static_cast<DocumentObject*>(getContainer());
@@ -722,7 +685,6 @@ void PropertyLinkSubList::setValues(const std::vector<DocumentObject*>& lValue,c
                 obj->_addBackLink(parent);
         }
     }
-#endif
 
     aboutToSetValue();
     _lValueList = lValue;
@@ -740,7 +702,6 @@ void PropertyLinkSubList::setValues(const std::vector<DocumentObject*>& lValue,c
     if (lValue.size() != lSubNames.size())
         throw Base::ValueError("PropertyLinkSubList::setValues: size of subelements list != size of objects list");
     
-#ifndef USE_OLD_DAG
     //maintain backlinks. 
     if (getContainer() && getContainer()->isDerivedFrom(App::DocumentObject::getClassTypeId())) {
         App::DocumentObject* parent = static_cast<DocumentObject*>(getContainer());
@@ -758,7 +719,6 @@ void PropertyLinkSubList::setValues(const std::vector<DocumentObject*>& lValue,c
                 obj->_addBackLink(parent);
         }
     }
-#endif
 
     aboutToSetValue();
     _lValueList = lValue;
@@ -768,7 +728,6 @@ void PropertyLinkSubList::setValues(const std::vector<DocumentObject*>& lValue,c
 
 void PropertyLinkSubList::setValue(DocumentObject* lValue, const std::vector<string> &SubList)
 {
-#ifndef USE_OLD_DAG
     //maintain backlinks.
     if (getContainer() && getContainer()->isDerivedFrom(App::DocumentObject::getClassTypeId())) {
         App::DocumentObject* parent = static_cast<DocumentObject*>(getContainer());
@@ -786,7 +745,6 @@ void PropertyLinkSubList::setValue(DocumentObject* lValue, const std::vector<str
                 lValue->_addBackLink(parent);
         }
     }
-#endif
 
     aboutToSetValue();
     std::size_t size = SubList.size();
@@ -839,7 +797,7 @@ DocumentObject *PropertyLinkSubList::getValue() const
     //FIXME: cache this to avoid iterating each time, to improve speed
     for (std::size_t i = 0; i < this->_lValueList.size(); i++) {
         if (ret == 0)
-            ret = this->_lValueList[i];
+            ret =  this->_lValueList[i];
         if (ret != this->_lValueList[i])
             return 0;
     }
@@ -905,7 +863,6 @@ std::vector<PropertyLinkSubList::SubSet> PropertyLinkSubList::getSubListValues()
 
 PyObject *PropertyLinkSubList::getPyObject(void)
 {
-#if 1
     std::vector<SubSet> subLists = getSubListValues();
     std::size_t count = subLists.size();
 #if 0//FIXME: Should switch to tuple
@@ -928,24 +885,6 @@ PyObject *PropertyLinkSubList::getPyObject(void)
     }
 
     return Py::new_reference_to(sequence);
-#else
-    unsigned int count = getSize();
-#if 0//FIXME: Should switch to tuple
-    Py::Tuple sequence(count);
-#else
-    Py::List sequence(count);
-#endif
-    for (unsigned int i = 0; i<count; i++) {
-        Py::Tuple tup(2);
-        tup[0] = Py::Object(_lValueList[i]->getPyObject());
-        std::string subItem;
-        if (_lSubList.size() > i)
-            subItem = _lSubList[i];
-        tup[1] = Py::String(subItem);
-        sequence[i] = tup;
-    }
-    return Py::new_reference_to(sequence);
-#endif
 }
 
 void PropertyLinkSubList::setPyObject(PyObject *value)

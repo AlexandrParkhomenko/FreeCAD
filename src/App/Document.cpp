@@ -63,13 +63,6 @@ namespace fs = std::filesystem;
 #include <boost/graph/subgraph.hpp>
 #include <boost/graph/graphviz.hpp>
 
-#ifdef USE_OLD_DAG
-#include <boost/graph/topological_sort.hpp>
-#include <boost/graph/depth_first_search.hpp>
-#include <boost/graph/dijkstra_shortest_paths.hpp>
-#include <boost/graph/visitors.hpp>
-#endif //USE_OLD_DAG
-
 #include <boost/bind.hpp>
 #include <boost/regex.hpp>
 #include <unordered_set>
@@ -146,11 +139,6 @@ struct DocumentP
     int iUndoMode;
     unsigned int UndoMemSize;
     unsigned int UndoMaxStackSize;
-#ifdef USE_OLD_DAG
-    DependencyList DepList;
-    std::map<DocumentObject*,Vertex> VertexObjectList;
-    std::map<Vertex,DocumentObject*> vertexMap;
-#endif //USE_OLD_DAG
 
     DocumentP() {
         activeObject = 0;
@@ -1956,130 +1944,10 @@ std::vector<App::DocumentObject*> Document::getInList(const DocumentObject* me) 
     return result;
 }
 
-#ifdef USE_OLD_DAG
-namespace boost {
-// recursive helper function to get all dependencies
-void out_edges_recursive(const Vertex& v, const DependencyList& g, std::set<Vertex>& out)
-{
-    DependencyList::out_edge_iterator j, jend;
-    for (boost::tie(j, jend) = boost::out_edges(v, g); j != jend; ++j) {
-        Vertex n = boost::target(*j, g);
-        std::pair<std::set<Vertex>::iterator, bool> i = out.insert(n);
-        if (i.second)
-            out_edges_recursive(n, g, out);
-    }
-}
-}
-
-std::vector<App::DocumentObject*>
-Document::getDependencyList(const std::vector<App::DocumentObject*>& objs) const
-{
-    DependencyList DepList;
-    std::map<DocumentObject*,Vertex> ObjectMap;
-    std::map<Vertex,DocumentObject*> VertexMap;
-
-    // Filling up the adjacency List
-    for (std::vector<DocumentObject*>::const_iterator it = d->objectArray.begin(); it != d->objectArray.end();++it) {
-        // add the object as Vertex and remember the index
-        Vertex v = add_vertex(DepList);
-        ObjectMap[*it] = v;
-        VertexMap[v] = *it;
-    }
-
-    for (std::vector<DocumentObject*>::const_iterator it = d->objectArray.begin(); it != d->objectArray.end();++it) {
-        std::vector<DocumentObject*> outList = (*it)->getOutList();
-        for (std::vector<DocumentObject*>::const_iterator jt = outList.begin(); jt != outList.end();++jt) {
-            if (*jt) {
-                std::map<DocumentObject*,Vertex>::const_iterator i = ObjectMap.find(*jt);
-
-                if (i == ObjectMap.end()) {
-                    Vertex v = add_vertex(DepList);
-
-                    ObjectMap[*jt] = v;
-                    VertexMap[v] = *jt;
-                }
-            }
-        }
-    }
-
-    // add the edges
-    for (std::vector<DocumentObject*>::const_iterator it = d->objectArray.begin(); it != d->objectArray.end();++it) {
-        std::vector<DocumentObject*> outList = (*it)->getOutList();
-        for (std::vector<DocumentObject*>::const_iterator jt = outList.begin(); jt != outList.end();++jt) {
-            if (*jt) {
-                add_edge(ObjectMap[*it],ObjectMap[*jt],DepList);
-            }
-        }
-    }
-
-    std::list<Vertex> make_order;
-    DependencyList::out_edge_iterator j, jend;
-
-    try {
-        // this sort gives the execute
-        boost::topological_sort(DepList, std::front_inserter(make_order));
-    }
-    catch (const std::exception& e) {
-        std::stringstream ss;
-        ss << "Gathering all dependencies failed, probably due to circular dependencies. Error: ";
-        ss << e.what();
-        throw Base::BadGraphError(ss.str().c_str());
-    }
-
-    std::set<Vertex> out;
-    for (std::vector<App::DocumentObject*>::const_iterator it = objs.begin(); it != objs.end(); ++it) {
-        std::map<DocumentObject*,Vertex>::iterator jt = ObjectMap.find(*it);
-        // ok, object is part of this graph
-        if (jt != ObjectMap.end()) {
-            out.insert(jt->second);
-            out_edges_recursive(jt->second, DepList, out);
-        }
-    }
-
-    std::vector<App::DocumentObject*> ary;
-    ary.reserve(out.size());
-    for (std::set<Vertex>::iterator it = out.begin(); it != out.end(); ++it)
-        ary.push_back(VertexMap[*it]);
-    return ary;
-}
-#endif
-
 void Document::_rebuildDependencyList(void)
 {
-#ifdef USE_OLD_DAG
-    d->VertexObjectList.clear();
-    d->DepList.clear();
-    // Filling up the adjacency List
-    for (std::map<std::string,DocumentObject*>::const_iterator It = d->objectMap.begin(); It != d->objectMap.end();++It) {
-        // add the object as Vertex and remember the index
-        d->VertexObjectList[It->second] = add_vertex(d->DepList);
-    }
-
-    // add the edges
-    for (std::map<std::string,DocumentObject*>::const_iterator It = d->objectMap.begin(); It != d->objectMap.end();++It) {
-        std::vector<DocumentObject*> OutList = It->second->getOutList();
-        for (std::vector<DocumentObject*>::const_iterator It2=OutList.begin();It2!=OutList.end();++It2) {
-            if (*It2) {
-                std::map<DocumentObject*,Vertex>::iterator i = d->VertexObjectList.find(*It2);
-
-                if (i == d->VertexObjectList.end())
-                    d->VertexObjectList[*It2] = add_vertex(d->DepList);
-            }
-        }
-    }
-
-    // add the edges
-    for (std::map<std::string,DocumentObject*>::const_iterator It = d->objectMap.begin(); It != d->objectMap.end();++It) {
-        std::vector<DocumentObject*> OutList = It->second->getOutList();
-        for (std::vector<DocumentObject*>::const_iterator It2=OutList.begin();It2!=OutList.end();++It2) {
-            if (*It2)
-                add_edge(d->VertexObjectList[It->second],d->VertexObjectList[*It2],d->DepList);
-        }
-    }
-#endif
 }
 
-#ifndef USE_OLD_DAG
 std::vector<App::DocumentObject*> Document::getDependencyList(const std::vector<App::DocumentObject*>& objs) const
 {
     std::vector<App::DocumentObject*> dep;
@@ -2098,7 +1966,6 @@ std::vector<App::DocumentObject*> Document::getDependencyList(const std::vector<
 
     return dep;
 }
-#endif // USE_OLD_DAG
 
 
 /**
@@ -2125,135 +1992,6 @@ void Document::renameObjectIdentifiers(const std::map<App::ObjectIdentifier, App
             (*it)->renameObjectIdentifiers(extendedPaths);
 }
 
-#ifdef USE_OLD_DAG
-int Document::recompute()
-{
-    if (testStatus(Document::Recomputing)) {
-        // this is clearly a bug in the calling instance
-        throw Base::RuntimeError("Nested recomputes of a document are not allowed");
-    }
-
-    int objectCount = 0;
-
-    // The 'SkipRecompute' flag can be (tmp.) set to avoid too many
-    // time expensive recomputes
-    bool skip = testStatus(Document::SkipRecompute);
-    if (skip)
-        return 0;
-
-    Base::ObjectStatusLocker<Document::Status, Document> exe(Document::Recomputing, this);
-
-    // delete recompute log
-    for (std::vector<App::DocumentObjectExecReturn*>::iterator it=_RecomputeLog.begin();it!=_RecomputeLog.end();++it)
-        delete *it;
-    _RecomputeLog.clear();
-
-    // updates the dependency graph
-    _rebuildDependencyList();
-
-    std::list<Vertex> make_order;
-    DependencyList::out_edge_iterator j, jend;
-
-    try {
-        // this sort gives the execute
-        boost::topological_sort(d->DepList, std::front_inserter(make_order));
-    }
-    catch (const std::exception& e) {
-        std::cerr << "Document::recompute: " << e.what() << std::endl;
-        return -1;
-    }
-
-    // caching vertex to DocObject
-    for (std::map<DocumentObject*,Vertex>::const_iterator It1= d->VertexObjectList.begin();It1 != d->VertexObjectList.end(); ++It1)
-        d->vertexMap[It1->second] = It1->first;
-
-#ifdef FC_LOGFEATUREUPDATE
-    std::clog << "make ordering: " << std::endl;
-#endif
-
-    std::set<DocumentObject*> recomputeList;
-
-    for (std::list<Vertex>::reverse_iterator i = make_order.rbegin();i != make_order.rend(); ++i) {
-        DocumentObject* Cur = d->vertexMap[*i];
-        if (!Cur || !isIn(Cur)) continue;
-#ifdef FC_LOGFEATUREUPDATE
-        std::clog << Cur->getNameInDocument() << " dep on:" ;
-#endif
-        bool NeedUpdate = false;
-
-        // ask the object if it should be recomputed
-        if (Cur->mustExecute() == 1 || Cur->ExpressionEngine.depsAreTouched()) {
-#ifdef FC_LOGFEATUREUPDATE
-            std::clog << "[touched]";
-#endif
-            NeedUpdate = true;
-        }
-        else {// if (Cur->mustExecute() == -1)
-            // update if one of the dependencies is touched
-            for (boost::tie(j, jend) = out_edges(*i, d->DepList); j != jend; ++j) {
-                DocumentObject* Test = d->vertexMap[target(*j, d->DepList)];
-
-                if (!Test) continue;
-#ifdef FC_LOGFEATUREUPDATE
-                std::clog << " " << Test->getNameInDocument();
-#endif
-                if (Test->isTouched()) {
-                    NeedUpdate = true;
-#ifdef FC_LOGFEATUREUPDATE
-                    std::clog << "[touched]";
-#endif
-                }
-            }
-        }
-        // if one touched recompute
-        if (NeedUpdate) {
-            Cur->touch();
-#ifdef FC_LOGFEATUREUPDATE
-            std::clog << " => Recompute feature";
-#endif
-            recomputeList.insert(Cur);
-        }
-#ifdef FC_LOGFEATUREUPDATE
-        std::clog << std::endl;
-#endif
-    }
-
-#ifdef FC_LOGFEATUREUPDATE
-    std::clog << "Have to recompute the following document objects" << std::endl;
-    for (std::set<DocumentObject*>::const_iterator it = recomputeList.begin(); it != recomputeList.end(); ++it) {
-        std::clog << "  " << (*it)->getNameInDocument() << std::endl;
-    }
-#endif
-
-    for (std::list<Vertex>::reverse_iterator i = make_order.rbegin();i != make_order.rend(); ++i) {
-        DocumentObject* Cur = d->vertexMap[*i];
-        if (!Cur || !isIn(Cur)) continue;
-
-        if (recomputeList.find(Cur) != recomputeList.end() ||
-                Cur->ExpressionEngine.depsAreTouched()) {
-            if ( _recomputeFeature(Cur)) {
-                // if something happened break execution of recompute
-                d->vertexMap.clear();
-                return -1;
-            }
-            signalRecomputedObject(*Cur);
-            ++objectCount;
-        }
-    }
-
-    // reset all touched
-    for (std::map<Vertex,DocumentObject*>::iterator it = d->vertexMap.begin(); it != d->vertexMap.end(); ++it) {
-        if ((it->second) && isIn(it->second))
-            it->second->purgeTouched();
-    }
-    d->vertexMap.clear();
-
-    signalRecomputed(*this);
-
-    return objectCount;
-}
-
-#else //ifdef USE_OLD_DAG
 
 int Document::recompute()
 {
@@ -2324,7 +2062,6 @@ int Document::recompute()
     return objectCount;
 }
 
-#endif // USE_OLD_DAG
 
 /*!
   Does almost the same as topologicalSort() until no object with an input degree of zero
@@ -2837,18 +2574,6 @@ void Document::removeObject(const char* sName)
         // if not saved in undo -> delete object
         signalTransactionRemove(*pos->second, 0);
     }
-
-#ifdef USE_OLD_DAG
-    if (!d->vertexMap.empty()) {
-        // recompute of document is running
-        for (std::map<Vertex,DocumentObject*>::iterator it = d->vertexMap.begin(); it != d->vertexMap.end(); ++it) {
-            if (it->second == pos->second) {
-                it->second = 0; // just nullify the pointer
-                break;
-            }
-        }
-    }
-#endif //USE_OLD_DAG
 
     // Before deleting we must nullify all dependent objects
     breakDependency(pos->second, true);
