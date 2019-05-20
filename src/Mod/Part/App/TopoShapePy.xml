@@ -174,11 +174,6 @@ Beginning from OCCT 6.8.1 a tolerance value can be specified.
 Deprecated: use fuse() instead.</UserDocu>
       </Documentation>
     </Methode>
-    <Methode Name="oldFuse" Const="true">
-      <Documentation>
-        <UserDocu>Union of this and a given topo shape (old algorithm).</UserDocu>
-      </Documentation>
-    </Methode>
     <Methode Name="common" Const="true">
       <Documentation>
         <UserDocu>Intersection of this and a given (list of) topo shape.

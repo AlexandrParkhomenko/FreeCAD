@@ -537,7 +537,7 @@ void TopoShape::importIges(const char *FileName)
         // Ignore construction elements
         // http://www.opencascade.org/org/forum/thread_20603/?forum=3
         aReader.SetReadVisible(Standard_True);
-        if (aReader.ReadFile(filename) != IFSelect_RetDone)
+        if (aReader.ReadFile(FileName) != IFSelect_RetDone)
             throw Base::FileException("Error in reading IGES");
 
         Handle(Message_ProgressIndicator) pi = new ProgressIndicator(100);
@@ -561,7 +561,7 @@ void TopoShape::importStep(const char *FileName)
 {
     try {
         STEPControl_Reader aReader;
-        if (aReader.ReadFile(filename) != IFSelect_RetDone)
+        if (aReader.ReadFile(FileName) != IFSelect_RetDone)
             throw Base::FileException("Error in reading STEP");
 
         Handle(Message_ProgressIndicator) pi = new ProgressIndicator(100);
@@ -589,7 +589,7 @@ void TopoShape::importBrep(const char *FileName)
         Handle(Message_ProgressIndicator) pi = new ProgressIndicator(100);
         pi->NewScope(100, "Reading BREP file...");
         pi->Show();
-        BRepTools::Read(aShape,filename,aBuilder,pi);
+        BRepTools::Read(aShape,FileName,aBuilder,pi);
         pi->EndScope();
         this->_Shape = aShape;
     }
