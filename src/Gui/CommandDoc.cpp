@@ -101,11 +101,11 @@ void StdCmdOpen::activated(int iMsg)
 
     std::vector<std::string> filetypes = App::GetApplication().getImportTypes();
     std::vector<std::string>::iterator it;
-    // Make sure FCStd is the very first fileformat
-    it = std::find(filetypes.begin(), filetypes.end(), "FCStd");
+    // Make sure "freecad" is the very first fileformat
+    it = std::find(filetypes.begin(), filetypes.end(), "freecad");
     if (it != filetypes.end()) {
         filetypes.erase(it);
-        filetypes.insert(filetypes.begin(), "FCStd");
+        filetypes.insert(filetypes.begin(), "freecad");
     }
     for (it=filetypes.begin();it != filetypes.end();++it) {
         formatList += QLatin1String(" *.");
@@ -116,9 +116,9 @@ void StdCmdOpen::activated(int iMsg)
 
     std::map<std::string, std::string> FilterList = App::GetApplication().getImportFilters();
     std::map<std::string, std::string>::iterator jt;
-    // Make sure the format name for FCStd is the very first in the list
+    // Make sure the format name for "freecad" is the very first in the list
     for (jt=FilterList.begin();jt != FilterList.end();++jt) {
-        if (jt->first.find("*.FCStd") != std::string::npos) {
+        if (jt->first.find("*.freecad") != std::string::npos) {
             formatList += QLatin1String(jt->first.c_str());
             formatList += QLatin1String(";;");
             FilterList.erase(jt);
@@ -185,7 +185,7 @@ void StdCmdImport::activated(int iMsg)
     std::vector<std::string> filetypes = App::GetApplication().getImportTypes();
     std::vector<std::string>::const_iterator it;
     for (it=filetypes.begin();it != filetypes.end();++it) {
-        if (*it != "FCStd") {
+        if (*it != "freecad") {
             // ignore the project file format
             formatList += QLatin1String(" *.");
             formatList += QLatin1String(it->c_str());
@@ -198,7 +198,7 @@ void StdCmdImport::activated(int iMsg)
     std::map<std::string, std::string>::const_iterator jt;
     for (jt=FilterList.begin();jt != FilterList.end();++jt) {
         // ignore the project file format
-        if (jt->first.find("(*.FCStd)") == std::string::npos) {
+        if (jt->first.find("(*.freecad)") == std::string::npos) {
             formatList += QLatin1String(jt->first.c_str());
             formatList += QLatin1String(";;");
         }
@@ -274,7 +274,7 @@ void StdCmdExport::activated(int iMsg)
     std::map<std::string, std::string>::const_iterator jt;
     for (jt=FilterList.begin();jt != FilterList.end();++jt) {
         // ignore the project file format
-        if (jt->first.find("(*.FCStd)") == std::string::npos) {
+        if (jt->first.find("(*.freecad)") == std::string::npos) {
             filterList << QString::fromLatin1(jt->first.c_str());
         }
     }
@@ -326,7 +326,7 @@ void StdCmdMergeProjects::activated(int iMsg)
     QString exe = qApp->applicationName();
     QString project = QFileDialog::getOpenFileName(Gui::getMainWindow(),
         QString::fromUtf8(QT_TR_NOOP("Merge project")), FileDialog::getWorkingDirectory(),
-        QString::fromUtf8(QT_TR_NOOP("%1 document (*.FCStd)")).arg(exe));
+        QString::fromUtf8(QT_TR_NOOP("%1 document (*.freecad)")).arg(exe));
     if (!project.isEmpty()) {
         FileDialog::setWorkingDirectory(project);
         App::Document* doc = App::GetApplication().getActiveDocument();

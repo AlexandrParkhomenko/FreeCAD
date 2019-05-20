@@ -526,11 +526,11 @@ QIcon FileIconProvider::icon(IconType type) const
 
 QIcon FileIconProvider::icon(const QFileInfo & info) const
 {
-    if (info.suffix().toLower() == QLatin1String("fcstd")) {
+    if (info.suffix().toLower() == QLatin1String("freecad")) {
         // return QApplication::windowIcon();
         return QIcon(QString::fromLatin1(":/icons/freecad-doc.png"));
     }
-    else if (info.suffix().toLower().startsWith(QLatin1String("fcstd"))) {
+    else if (info.suffix().toLower().startsWith(QLatin1String("freecad"))) {
         QIcon icon(QString::fromLatin1(":/icons/freecad-doc.png"));
         QIcon darkIcon;
         int w = QApplication::style()->pixelMetric(QStyle::PM_ListViewIconSize);

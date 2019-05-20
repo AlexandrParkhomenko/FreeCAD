@@ -1698,6 +1698,9 @@ bool Document::saveToFile(const char* filename) const
     // fails so that the data of the work up to now isn't lost.
     std::string uuid = Base::Uuid::createUuid();
     std::string fn = filename;
+    Base::FileInfo tmpe(filename);
+    if(!tmpe.hasExtension(".freecad"))
+        fn += ".freecad";
     if (policy) {
         fn += ".";
         fn += uuid;

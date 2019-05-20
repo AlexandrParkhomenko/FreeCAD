@@ -204,7 +204,7 @@ QString DocumentRecovery::createProjectFile(const QString& documentXml)
 {
     QString source = documentXml;
     QFileInfo fi(source);
-    QString dest = fi.dir().absoluteFilePath(QString::fromLatin1("fc_recovery_file.fcstd"));
+    QString dest = fi.dir().absoluteFilePath(QString::fromLatin1("fc_recovery_file.freecad"));
 
     std::stringstream str;
     str << doctools << "\n";
@@ -348,8 +348,8 @@ DocumentRecoveryPrivate::Info DocumentRecoveryPrivate::getRecoveryInfo(const QFi
     QDir rec_dir(doc_dir.absoluteFilePath(QLatin1String("fc_recovery_files")));
 
     // compressed recovery file
-    if (doc_dir.exists(QLatin1String("fc_recovery_file.fcstd"))) {
-        file = doc_dir.absoluteFilePath(QLatin1String("fc_recovery_file.fcstd"));
+    if (doc_dir.exists(QLatin1String("fc_recovery_file.freecad"))) {
+        file = doc_dir.absoluteFilePath(QLatin1String("fc_recovery_file.freecad"));
     }
     // separate files for recovery
     else if (rec_dir.exists(QLatin1String("Document.xml"))) {

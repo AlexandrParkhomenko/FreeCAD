@@ -408,7 +408,7 @@ void Application::open(const char* FileName, const char* Module)
             Command::doCommand(Command::App, "%s.open(u\"%s\")", Module, unicodepath.c_str());
 
             // ViewFit
-            if (!File.hasExtension(".FCStd") && sendHasMsgToActiveView("ViewFit")) {
+            if (!File.hasExtension(".freecad") && sendHasMsgToActiveView("ViewFit")) {
                 ParameterGrp::handle hGrp = App::GetApplication().GetParameterGroupByPath
                     ("User parameter:BaseApp/Preferences/View");
                 if (hGrp->GetBool("AutoFitToView", true))
@@ -448,7 +448,7 @@ void Application::importFrom(const char* FileName, const char* DocName, const ch
             Command::doCommand(Command::App, "import %s", Module);
 
             // load the file with the module
-            if (File.hasExtension(".FCStd")) {
+            if (File.hasExtension(".freecad")) {
                 Command::doCommand(Command::App, "%s.open(u\"%s\")"
                                                , Module, unicodepath.c_str());
                 if (activeDocument())

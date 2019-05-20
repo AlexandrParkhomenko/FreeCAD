@@ -148,9 +148,9 @@ SET(PathTests_SRCS
     PathTests/TestPathToolController.py
     PathTests/TestPathTooltable.py
     PathTests/TestPathUtil.py
-    PathTests/boxtest.fcstd
+#    PathTests/boxtest.freecad    #now project in folder
     PathTests/test_centroid_00.ngc
-    PathTests/test_geomop.fcstd
+#    PathTests/test_geomop.freecad    #now project in folder
     PathTests/test_linuxcnc_00.ngc
 )
 
