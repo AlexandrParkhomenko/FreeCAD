@@ -18,8 +18,7 @@ include_directories(${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
 SET(CMAKE_INSTALL_PREFIX "/usr/lib/freecad" CACHE PATH "Installation root directory")
 SET(CMAKE_INSTALL_DATADIR data CACHE PATH "Output directory for data and resource files")
 SET(CMAKE_INSTALL_INCLUDEDIR include CACHE PATH "Output directory for header files")
-# Don't set it without manual adaption of LibDir variable in src/App/FreeCADInit.py
-SET(CMAKE_INSTALL_LIBDIR lib CACHE PATH "Output directory for libraries")
+SET(CMAKE_INSTALL_LIBDIR lib CACHE PATH "Output directory for libraries. Don't set it without manual adaption of LibDir variable in src/App/FreeCADInit.py")
 if(NOT IS_ABSOLUTE ${CMAKE_INSTALL_LIBDIR})
   SET(CMAKE_INSTALL_LIBDIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 endif(NOT IS_ABSOLUTE ${CMAKE_INSTALL_LIBDIR})
@@ -42,7 +41,6 @@ endif(FREECAD_USE_PCL)
 find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
 find_package(Boost COMPONENTS filesystem program_options regex system thread REQUIRED)
 find_package(XercesC REQUIRED)
-#find_package(ZipIos REQUIRED)
 set(PYCXX_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/src" CACHE PATH "Path to the directory containing PyCXX's CXX/Config.hxx")
 set(PYCXX_SOURCE_DIR "${CMAKE_SOURCE_DIR}/src/CXX" CACHE PATH "Path to the directory containing PyCXX's cxxextensions.c")
 set(PYCXX_SOURCES
@@ -69,7 +67,6 @@ find_package(SWIG REQUIRED) # pivy <- Draft
 find_package(Eigen3 REQUIRED)
 find_package(Freetype REQUIRED)
 
-#set(BUILD_GUI TRUE)
 #GUI v
   set(OpenGL_GL_PREFERENCE "LEGACY") # or "GLVND"
   find_package(OpenGL REQUIRED)
