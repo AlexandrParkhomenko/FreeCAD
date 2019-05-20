@@ -1137,7 +1137,7 @@ void segmentation_fault_handler(int sig)
 {
 //FC_OS_LINUX
     (void)sig;
-    std::cerr << "Program received signal SIGSEGV, Segmentation fault. REALY WE HERE?\n";
+    std::cerr << "Program received signal SIGSEGV, Segmentation fault. REALY WE ARE HERE?\n";
     printBacktrace(2);
     exit(1);
 }
@@ -2127,9 +2127,7 @@ void Application::ExtractUserPath(){
 
 }
 
-#if defined (FC_OS_LINUX)
-#include <stdio.h>
-#include <stdlib.h>
+#include <boost/dll/runtime_symbol_info.hpp> //boost::filesystem::path program_location();
 
 std::string Application::FindHomePath(const char* sCall)
 {
@@ -2149,6 +2147,8 @@ std::string Application::FindHomePath(const char* sCall)
             absPath = path;
     }
     else {
+      absPath = boost::dll::program_location().string();
+/*
         // Find the path of the executable. Theoretically, there could occur a
         // race condition when using readlink, but we only use this method to
         // get the absolute path of the executable to compute the actual home
@@ -2160,6 +2160,7 @@ std::string Application::FindHomePath(const char* sCall)
             throw Base::FileSystemError("Cannot determine the absolute path of the executable");
         resolved[nchars] = '\0'; // enforce null termination
         absPath = resolved;
+*/
     }
 
     // should be an absolute path now
@@ -2170,9 +2171,6 @@ std::string Application::FindHomePath(const char* sCall)
 
     return homePath;
 }
-#else
-# error "std::string Application::FindHomePath(const char*) not implemented.  See FreeCAD/FreeCAD"
-#endif
 
 ObjectLabelObserver* ObjectLabelObserver::_singleton = 0;
 
