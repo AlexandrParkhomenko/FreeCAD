@@ -1687,8 +1687,6 @@ bool Document::saveToFile(const char* filename) const
     signalStartSave(*this, filename);
 
     auto hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/Document");
-//#    int compression = hGrp->GetInt("CompressionLevel",3);
-//#    compression = Base::clamp<int>(compression, Z_NO_COMPRESSION, Z_BEST_COMPRESSION);
 
     bool policy = App::GetApplication().GetParameterGroupByPath
                 ("User parameter:BaseApp/Preferences/Document")->GetBool("BackupPolicy",true);
@@ -1698,9 +1696,6 @@ bool Document::saveToFile(const char* filename) const
     // fails so that the data of the work up to now isn't lost.
     std::string uuid = Base::Uuid::createUuid();
     std::string fn = filename;
-    Base::FileInfo tmpe(filename);
-    if(!tmpe.hasExtension(".freecad"))
-        fn += ".freecad";
     if (policy) {
         fn += ".";
         fn += uuid;

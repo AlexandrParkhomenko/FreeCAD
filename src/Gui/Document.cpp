@@ -684,6 +684,8 @@ bool Document::saveAs(void)
     QString fn = FileDialog::getSaveFileName(getMainWindow(), QObject::tr("Save %1 Document").arg(exe), 
         QString(), QString::fromLatin1("%1 %2 (*.freecad)").arg(exe, QObject::tr("Document")));
     if (!fn.isEmpty()) {
+	if(!Base::FileInfo(fn.toUtf8().constData()).hasExtension(".freecad")) //# TODO find erroor with select extension
+	  fn += ".freecad";
         QFileInfo fi;
         fi.setFile(fn);
 
