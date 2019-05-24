@@ -405,7 +405,7 @@ void Application::open(const char* FileName, const char* Module)
             Command::doCommand(Command::App, "import %s", Module);
 
             // load the file with the module
-            Command::doCommand(Command::App, "%s.open(u\"%s\")", Module, unicodepath.c_str());
+            Command::doCommand(Command::App, "%s.open(u\"%s\")  #Application::open", Module, unicodepath.c_str());
 
             // ViewFit
             if (!File.hasExtension(".freecad") && sendHasMsgToActiveView("ViewFit")) {
@@ -449,7 +449,7 @@ void Application::importFrom(const char* FileName, const char* DocName, const ch
 
             // load the file with the module
             if (File.hasExtension(".freecad")) {
-                Command::doCommand(Command::App, "%s.open(u\"%s\")"
+                Command::doCommand(Command::App, "%s.open(u\"%s\")  #Application::importFrom"
                                                , Module, unicodepath.c_str());
                 if (activeDocument())
                     activeDocument()->setModified(false);

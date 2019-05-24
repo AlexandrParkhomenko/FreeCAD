@@ -1567,7 +1567,7 @@ std::list<std::string> Application::processFiles(const std::list<std::string>& f
                     std::string escapedstr = Base::Tools::escapedUnicodeFromUtf8(file.filePath().c_str());
                     Base::Interpreter().loadModule(mods.front().c_str());
                     Base::Interpreter().runStringArg("import %s",mods.front().c_str());
-                    Base::Interpreter().runStringArg("%s.open(u\"%s\")",mods.front().c_str(),
+                    Base::Interpreter().runStringArg("%s.open(u\"%s\")  #Application::processFiles",mods.front().c_str(),
                             escapedstr.c_str());
                     processed.push_back(*it);
                     Base::Console().Log("Command line open: %s.open(u\"%s\")\n",mods.front().c_str(),escapedstr.c_str());
