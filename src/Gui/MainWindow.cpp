@@ -954,7 +954,7 @@ void MainWindow::loadWindowSettings()
     max ? showMaximized() : show();
 
     statusBar()->setVisible(config.value(QString::fromLatin1("StatusBar"), true).toBool());
-    config.endGroup();
+//    config.endGroup();
 
     ToolBarManager::getInstance()->restoreState();
     std::clog << "Toolbars restored" << std::endl;
@@ -975,7 +975,7 @@ void MainWindow::saveWindowSettings()
     config.setValue(QString::fromLatin1("Maximized"), this->isMaximized());
     config.setValue(QString::fromLatin1("MainWindowState"), this->saveState());
     config.setValue(QString::fromLatin1("StatusBar"), this->statusBar()->isVisible());
-    config.endGroup();
+//    config.endGroup();
 
     DockWindowManager::instance()->saveState();
     ToolBarManager::getInstance()->saveState();
