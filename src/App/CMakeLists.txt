@@ -257,17 +257,11 @@ SET(FreeCADApp_SRCS
 )
 add_library(FreeCADApp SHARED ${FreeCADApp_SRCS})
 
-target_link_libraries(FreeCADApp ${FreeCADApp_LIBS})
+target_link_libraries(FreeCADApp ${FreeCADApp_LIBS} -ldl)
 
 SET_BIN_DIR(FreeCADApp FreeCADApp)
 
-if(WIN32)
-    INSTALL(TARGETS FreeCADApp
-        RUNTIME DESTINATION bin
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    )
-else(WIN32)
-    INSTALL(TARGETS FreeCADApp
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    )
-endif(WIN32)
+INSTALL(TARGETS FreeCADApp
+  #RUNTIME DESTINATION bin
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
