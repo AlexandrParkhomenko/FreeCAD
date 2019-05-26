@@ -226,7 +226,7 @@ except Exception as e:
 	Err(traceback.format_exc())
 	Err('-'*80+'\n')
 
-FreeCAD.addImportType("FreeCAD document (*.freecad)","freecad")
+FreeCAD.addImportType("FreeCAD document (*.freecad)","FreeCAD") #second parameter is module type
 
 # set to no gui, is overwritten by InitGui
 App.GuiUp = 0
