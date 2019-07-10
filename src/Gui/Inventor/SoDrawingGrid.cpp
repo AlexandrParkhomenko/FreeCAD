@@ -3,11 +3,7 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-#ifdef FC_OS_MACOSX
-#include <OpenGL/gl.h>
-#else
 #include <GL/gl.h>
-#endif
 #include <Inventor/actions/SoGLRenderAction.h>
 #include <Inventor/elements/SoCacheElement.h>
 #include <Inventor/elements/SoLazyElement.h>

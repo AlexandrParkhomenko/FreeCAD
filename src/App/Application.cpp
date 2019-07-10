@@ -1842,9 +1842,6 @@ void Application::ParseOptions(int ac, char ** av)
     ("visual",     boost::program_options::value< string >(), "set the X-Window to color scheme")
     ("ncols",      boost::program_options::value< int    >(), "set the X-Window to color scheme")
     ("cmap",                                                  "set the X-Window to color scheme")
-#if defined(FC_OS_MACOSX)
-    ("psn",        boost::program_options::value< string >(), "process serial number")
-#endif
     ;
 
     // Ignored options, will be safely ignored. Mostly used by underlaying libs.

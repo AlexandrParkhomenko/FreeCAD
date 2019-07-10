@@ -21,16 +21,6 @@
 #include <CXX/Extensions.hxx>
 
 
-#ifdef FC_OS_MACOSX
-#undef toupper
-#undef tolower
-#undef isupper
-#undef islower
-#undef isspace
-#undef isalpha
-#undef isalnum
-#endif
-
 // Std. configurations
 #include <string>
 #include <map>

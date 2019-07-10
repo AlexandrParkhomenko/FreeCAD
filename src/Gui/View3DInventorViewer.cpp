@@ -58,11 +58,9 @@
 # include <QBitmap>
 # include <QMimeData>
 
-#if !defined(FC_OS_MACOSX)
 # include <GL/gl.h>
 # include <GL/glu.h>
 # include <GL/glext.h>
-#endif
 
 #include <QVariantAnimation>
 

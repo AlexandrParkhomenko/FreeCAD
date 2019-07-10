@@ -442,15 +442,7 @@ void TaskView::keyPressEvent(QKeyEvent* ke)
                 QPushButton *pb = list.at(i);
                 if (pb->isDefault() && pb->isVisible()) {
                     if (pb->isEnabled()) {
-#if defined(FC_OS_MACOSX)
-                        // #0001354: Crash on using Enter-Key for confirmation of chamfer or fillet entries
-                        QPoint pos = QCursor::pos();
-                        QCursor::setPos(pb->parentWidget()->mapToGlobal(pb->pos()));
-#endif
-                        pb->click();
-#if defined(FC_OS_MACOSX)
-                        QCursor::setPos(pos);
-#endif
+                       pb->click();
                     }
                     return;
                 }
@@ -464,15 +456,7 @@ void TaskView::keyPressEvent(QKeyEvent* ke)
                 QAbstractButton *pb = list.at(i);
                 if (box->buttonRole(pb) == QDialogButtonBox::RejectRole) {
                     if (pb->isEnabled()) {
-#if defined(FC_OS_MACOSX)
-                        // #0001354: Crash on using Enter-Key for confirmation of chamfer or fillet entries
-                        QPoint pos = QCursor::pos();
-                        QCursor::setPos(pb->parentWidget()->mapToGlobal(pb->pos()));
-#endif
                         pb->click();
-#if defined(FC_OS_MACOSX)
-                        QCursor::setPos(pos);
-#endif
                     }
                     return;
                 }
