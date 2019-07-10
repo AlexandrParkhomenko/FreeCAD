@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (c) Stefan Tr�ger          (stefantroeger@gmx.net) 2015     *
  *   Copyright (c) Alexander Golubev (Fat-Zer) <fatzer2@gmail.com> 2015    *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 

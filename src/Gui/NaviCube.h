@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) 2017 Kustaa Nyholm  <kustaa.nyholm@sparetimelabs.com>   *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 #ifndef SRC_GUI_NAVICUBE_H_

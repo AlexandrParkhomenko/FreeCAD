@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) 2014 Abdullah Tahiri <abdullah.tahiri.yo@gmail.com	     *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 

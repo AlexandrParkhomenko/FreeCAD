@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (c) Victor Titov (DeepSOIC)                                 *
  *                                           (vv.titov@gmail.com) 2016     *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 # include <QApplication>
 #include "AttacherTexts.h"

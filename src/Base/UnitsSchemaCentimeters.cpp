@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) 2016 Yorik van Havre <yorik@uncreated.net>              *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 

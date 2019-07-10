@@ -1,6 +1,6 @@
 /***************************************************************************
  *                                                                         *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 #ifndef SKETCHERGUI_SOZOOMTRANSLATION_H

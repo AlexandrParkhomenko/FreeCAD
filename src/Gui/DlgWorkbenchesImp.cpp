@@ -2,7 +2,7 @@
  *   Copyright (c) 2015 FreeCAD Developers                                 *
  *   Author: Przemo Firszt <przemo@firszt.eu>                              *
  *   Based on DlgToolbars.cpp file                                         *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 

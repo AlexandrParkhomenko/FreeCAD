@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) Ian Rees                    (ian.rees@gmail.com) 2015   *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 

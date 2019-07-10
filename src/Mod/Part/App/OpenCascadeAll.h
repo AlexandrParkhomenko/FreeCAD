@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) 2007 Werner Mayer <wmayer@users.sourceforge.net>        *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 

@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (c) Victor Titov (DeepSOIC)                                 *
  *                                           (vv.titov@gmail.com) 2014     *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 #define DEBUG_DERIVS 0

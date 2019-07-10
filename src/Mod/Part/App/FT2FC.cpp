@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) wandererfan       <wandererfan (at) gmail.com> 2013     *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 /***************************************************************************
  *  FreeType License (FTL) credit:                                         *

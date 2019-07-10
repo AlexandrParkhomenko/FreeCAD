@@ -1,7 +1,7 @@
 
 /***************************************************************************
  *   Copyright (c) 2004 Juergen Riegel <juergen.riegel@web.de>             *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 

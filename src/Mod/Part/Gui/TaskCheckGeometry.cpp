@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) 2012 Thomas Anderson <blobfish[at]gmx.com>              *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 # include <QBoxLayout>

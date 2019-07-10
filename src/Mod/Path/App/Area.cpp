@@ -1,6 +1,6 @@
 /****************************************************************************
  *   Copyright (c) 2017 Zheng, Lei (realthunder) <realthunder.dev@gmail.com>*
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ****************************************************************************/
 
 # include <cfloat>

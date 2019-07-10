@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (c) 2015 Pavel Strakhov <ri@idzaaus.org>                    *
  *   Copyright (c) 2015 Eivind Kvedalen <eivind@kvedalen.name>             *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 /*

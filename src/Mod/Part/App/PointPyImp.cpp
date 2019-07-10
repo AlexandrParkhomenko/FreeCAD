@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) 2012 Konstantinos Poulios <logari81[at]gmail.com>       *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 

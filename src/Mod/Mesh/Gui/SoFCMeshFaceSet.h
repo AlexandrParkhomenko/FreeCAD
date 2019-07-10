@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) 2006 Werner Mayer <werner.wm.mayer@gmx.de>              *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 #ifndef MESHGUI_SOFC_MESHFACESET_H

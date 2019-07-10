@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) Eivind Kvedalen (eivind@kvedalen.name) 2015             *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 #include "App/Application.h"

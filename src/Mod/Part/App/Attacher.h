@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (c) Victor Titov (DeepSOIC)                                 *
  *                                           (vv.titov@gmail.com) 2015     *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 /**
   *Attacher.h, Attacher.cpp contain the functionality of deriving placement

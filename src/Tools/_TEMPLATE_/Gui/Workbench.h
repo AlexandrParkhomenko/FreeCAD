@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) YEAR YOUR NAME         <Your e-mail address>            *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 

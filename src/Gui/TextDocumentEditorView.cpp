@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) 2017 Markus Hovorka <m.hovorka@live.de>                 *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 

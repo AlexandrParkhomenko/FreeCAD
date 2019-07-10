@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (c) 2018 Abdullah Tahiri <abdullah.tahiri.yo@gmail.com>     *
  *   Copyright (c) 2013 Werner Mayer <wmayer[at]users.sourceforge.net>     *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 

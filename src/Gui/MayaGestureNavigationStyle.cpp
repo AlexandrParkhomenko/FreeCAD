@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) 2015 Victor Titov (DeepSOIC) <vv.titov@gmail.com>       *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************
  *                                                                         *
  *   Minor modifications made by Pablo Gil (pablogil) in order to create   *

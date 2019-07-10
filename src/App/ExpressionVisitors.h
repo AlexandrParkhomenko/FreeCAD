@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) Eivind Kvedalen (eivind@kvedalen.name) 2016             *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 #ifndef RENAMEOBJECTIDENTIFIEREXPRESSIONVISITOR_H

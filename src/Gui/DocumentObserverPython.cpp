@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) 2018 Stefan Tröger <stefantroeger@gmx.net>              *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 

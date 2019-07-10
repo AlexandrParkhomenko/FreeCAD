@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) 2015 Kirill Gavrilov <kirill.gavrilov[at]opencascade.com> *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 

@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) 2017 Ian Rees                  <ian.rees@gmail.com>     *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 #ifndef MESH_EXPORTER_H

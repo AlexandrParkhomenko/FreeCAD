@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) 2005 Imetric 3D GmbH                                    *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 #include "stdexport.h"

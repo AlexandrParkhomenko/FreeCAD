@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (c) 2011 Werner Mayer <wmayer[at]users.sourceforge.net>     *
- *   FreeCAD LICENSE IS LGPL WITHOUT ANY WARRANTY                          *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
 #include "stdexport.h"
