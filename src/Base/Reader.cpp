@@ -253,6 +253,13 @@ void Base::XMLReader::readCharacters(void)
 
 
 void Base::XMLReader::readFiles() const{
+  fs::current_path(
+//  fs::absolute(
+//      ((fs::path)this->_File.currentPath()).parent_path()
+//    )
+      this->_File.dirPath()
+  );
+  std::cout << "Base::XMLReader::readFiles() fs::current_path(): " << fs::current_path() << endl;
   for(auto& FileName: fs::directory_iterator(".")){ // need entry
     std::cout << FileName.path() << endl;
 

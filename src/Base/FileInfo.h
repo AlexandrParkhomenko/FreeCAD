@@ -102,7 +102,7 @@ public:
     /// The size of the file 
     unsigned int size () const;
     /// Returns the time when the file was last modified.
-    std::chrono::system_clock::time_point lastModified() const;
+    std::filesystem::file_time_type lastModified() const;
     //@}
 
     /** @name Directory management*/

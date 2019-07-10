@@ -147,7 +147,7 @@ unsigned int FileInfo::size () const{ // function not used
     return 0;
 }
 
-std::chrono::system_clock::time_point FileInfo::lastModified() const{
+std::filesystem::file_time_type FileInfo::lastModified() const{
     return fs::last_write_time(FileName);
 }
 

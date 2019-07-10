@@ -340,8 +340,9 @@ void StdCmdMergeProjects::activated(int iMsg)
             return;
         }
 
+        std::cout << "StdCmdMergeProjects::activated: " << ((std::string)project.toUtf8().constData()+"/Document.xml") << std::endl;
         doc->openTransaction("Merge project");
-        Base::FileInfo fi((const char*)project.toUtf8());
+        Base::FileInfo fi((const char*)(((std::string)project.toUtf8().constData()+"/Document.xml")).c_str()); //#
         Base::ifstream str(fi, std::ios::in | std::ios::binary);
         MergeDocuments md(doc);
         md.importObjects(str);

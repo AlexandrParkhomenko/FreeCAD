@@ -270,6 +270,7 @@ PyObject*  DocumentPy::sendMsgToViews(PyObject *args)
 PyObject* DocumentPy::mergeProject(PyObject *args)
 {
     char* filename;
+    std::cout << "DocumentPy::mergeProject filename:" << filename << std::endl;
     if (!PyArg_ParseTuple(args, "s", &filename))     // convert args: Python->C 
         return NULL;                             // NULL triggers exception 
 
