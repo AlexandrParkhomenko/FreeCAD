@@ -257,7 +257,7 @@ SET(FreeCADApp_SRCS
 )
 add_library(FreeCADApp SHARED ${FreeCADApp_SRCS})
 
-target_link_libraries(FreeCADApp ${FreeCADApp_LIBS}) # -ldl
+target_link_libraries(FreeCADApp ${FreeCADApp_LIBS} -ldl)
 
 SET_BIN_DIR(FreeCADApp FreeCADApp)
 
