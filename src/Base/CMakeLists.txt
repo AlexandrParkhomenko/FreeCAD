@@ -123,8 +123,6 @@ SET(FreeCADBase_CPP_SRCS
     FileInfo.cpp
     FileTemplate.cpp
     FutureWatcherProgress.cpp
-#    gzstream.cpp
-#    gzstream.h
     GeometryPyCXX.cpp
     Handle.cpp
     InputSource.cpp
