@@ -79,33 +79,3 @@ std::string Persistence::encodeAttribute(const std::string& str)
     return tmp;
 }
 
-void Persistence::dumpToStream(std::ostream& stream, int compression)
-{/*
-//create the writer
-//        std::ifstream writer(stream);
-//        writer.setLevel(compression);
-//        writer.putNextEntry("Persistence.xml");
-//        writer.setMode("BinaryBrep");
-
-
-  std::ofstream writer("Persistence.xml", std::ios::out | std::ios::binary);
-  writer << "<Content>" << std::endl;
-  //save the content (we need to encapsulte it with xml tags to be able to read single element xmls like happen for properties)
-  Save(writer);
-  writer << "</Content>";
-  writer.close();
-*/}
-
-void Persistence::restoreFromStream(std::istream& stream)
-{/*
-    std::ifstream ireader("Persistence.xml", std::ios::in | std::ios::binary);
-    Base::XMLReader reader("", ireader);
-
-    if (!reader.isValid())
-        throw Base::ValueError("Unable to construct reader");
-
-    reader.readElement("Content");
-    Restore(reader);
-    reader.readFiles();
-    restoreFinished();
-*/}

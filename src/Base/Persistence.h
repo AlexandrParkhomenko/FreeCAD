@@ -130,12 +130,6 @@ public:
     /// Encodes an attribute upon saving.
     static std::string encodeAttribute(const std::string&);
 
-    //dump the binary persistence data into into the stream
-    void dumpToStream(std::ostream& stream, int compression);
-
-    //restore the binary persistence data from a stream. Must have the format used by dumpToStream
-    void restoreFromStream(std::istream& stream);
-
 private:
     /** This method is used at the end of restoreFromStream()
      * after all data files have been read in.
