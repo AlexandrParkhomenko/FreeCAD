@@ -32,10 +32,11 @@ const std::string FileInfo::getTempPath(void){
   return (std::string) fs::temp_directory_path() + "/";
 }
 
-std::string FileInfo::getTempFileName(const char* /*FileName*/, const char* Path){
-  //FIXME: using FileName
-  //FIXME: To avoid race conditions we should rather return a stream than a file name.
-    return std::tmpnam((char*)Path);
+/// Get a unique File Name in the given or (if 0) in the temp path
+std::string FileInfo::getTempFileName(const char* FileName, const char* /*Path*/){
+  std::string _FileName = FileName;
+  if(_FileName.length() == 0) _FileName="fix.tmp";
+  return getTempPath()+_FileName;
 }
 
 void FileInfo::setFile(const char* name){
