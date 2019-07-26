@@ -213,7 +213,7 @@ Py::List PropertyContainerPy::getPropertiesList(void) const
 
 
 PyObject* PropertyContainerPy::dumpPropertyContent(PyObject *args, PyObject *kwds)
-{
+{/*
     int compression = 3;
     char* property;
     static char* kwds_def[] = {"Property", "Compression",NULL};
@@ -269,10 +269,10 @@ PyObject* PropertyContainerPy::dumpPropertyContent(PyObject *args, PyObject *kwd
     }
 
     return ba;
-}
+*/}
 
 PyObject* PropertyContainerPy::restorePropertyContent(PyObject *args)
-{
+{/*
     PyObject* buffer;
     char* property;
     if( !PyArg_ParseTuple(args, "sO", &property, &buffer) )
@@ -311,7 +311,7 @@ PyObject* PropertyContainerPy::restorePropertyContent(PyObject *args)
     }
 
     Py_Return;
-}
+*/}
 
 PyObject *PropertyContainerPy::getCustomAttributes(const char* attr) const
 {

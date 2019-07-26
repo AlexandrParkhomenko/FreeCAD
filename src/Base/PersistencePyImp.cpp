@@ -37,7 +37,7 @@ Py::Int PersistencePy::getMemSize(void) const
     return Py::Int((long)getPersistencePtr()->getMemSize());
 }
 
-PyObject* PersistencePy::dumpContent(PyObject *args, PyObject *kwds)
+/*PyObject* PersistencePy::dumpContent(PyObject *args, PyObject *kwds)
 {
     int compression = 3;
     static char* kwds_def[] = {"Compression",NULL};
@@ -48,13 +48,13 @@ PyObject* PersistencePy::dumpContent(PyObject *args, PyObject *kwds)
 
     //setup the stream. the in flag is needed to make "read" work
     std::stringstream stream(std::stringstream::out | std::stringstream::in | std::stringstream::binary);
-    try {
-        getPersistencePtr()->dumpToStream(stream, compression);
-    }
-    catch (...) {
-       PyErr_SetString(PyExc_IOError, "Unable parse content into binary representation");
-       return NULL;
-    }
+//    try {
+//#UNNEDED        getPersistencePtr()->dumpToStream(stream, compression);
+//    }
+//    catch (...) {
+//       PyErr_SetString(PyExc_IOError, "Unable parse content into binary representation");
+//       return NULL;
+//    }
 
     //build the byte array with correct size
     if(!stream.seekp(0, stream.end)) {
@@ -87,9 +87,9 @@ PyObject* PersistencePy::dumpContent(PyObject *args, PyObject *kwds)
     }
 
     return ba;
-}
+}*/
 
-PyObject* PersistencePy::restoreContent(PyObject *args)
+/*PyObject* PersistencePy::restoreContent(PyObject *args)
 {
     PyObject* buffer;
     if( !PyArg_ParseTuple(args, "O", &buffer) )
@@ -122,7 +122,7 @@ PyObject* PersistencePy::restoreContent(PyObject *args)
     }
 
     Py_Return;
-}
+}*/
 
 PyObject *PersistencePy::getCustomAttributes(const char*) const
 {

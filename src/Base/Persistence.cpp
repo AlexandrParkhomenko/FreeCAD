@@ -8,8 +8,6 @@
 #include "Reader.h"
 #include "PyObjectBase.h"
 
-
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Persistence.h"
 
 using namespace Base;
@@ -79,8 +77,8 @@ std::string Persistence::encodeAttribute(const std::string& str)
     return tmp;
 }
 
-void Persistence::dumpToStream(std::ostream& stream, int compression)
-{/*
+/*void Persistence::dumpToStream(std::ostream& stream, int compression)
+{
 //create the writer
 //        std::ifstream writer(stream);
 //        writer.setLevel(compression);
@@ -94,10 +92,10 @@ void Persistence::dumpToStream(std::ostream& stream, int compression)
   Save(writer);
   writer << "</Content>";
   writer.close();
-*/}
+}*/
 
-void Persistence::restoreFromStream(std::istream& stream)
-{/*
+/*void Persistence::restoreFromStream(std::istream& stream)
+{
     std::ifstream ireader("Persistence.xml", std::ios::in | std::ios::binary);
     Base::XMLReader reader("", ireader);
 
@@ -108,4 +106,4 @@ void Persistence::restoreFromStream(std::istream& stream)
     Restore(reader);
     reader.readFiles();
     restoreFinished();
-*/}
+}*/
