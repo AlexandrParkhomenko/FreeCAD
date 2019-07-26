@@ -1402,8 +1402,7 @@ void Document::Restore(Base::XMLReader &reader)
     reader.readEndElement("Document");
 }
 
-void Document::exportObjects(const std::vector<App::DocumentObject*>& obj,
-                             std::ostream& out)
+void Document::exportObjects(const std::vector<App::DocumentObject*>& obj)
 {
     Base::FileWriter writer("Document.xml");
     writer.Stream() << "<?xml version='1.0' encoding='utf-8'?>" << endl;
@@ -1795,7 +1794,7 @@ void Document::restore (void)
 
     Base::FileInfo fi("Document.xml");
     Base::ifstream file(fi, std::ios::in | std::ios::binary);
-    std::streambuf* buf = file.rdbuf();
+    //#    std::streambuf* buf = file.rdbuf();
     //#    std::streamoff size = buf->pubseekoff(0, std::ios::end, std::ios::in);
     //#    buf->pubseekoff(0, std::ios::beg, std::ios::in);
 //#    if (size < 22) // an empty zip archive has 22 bytes
@@ -2757,18 +2756,18 @@ DocumentObject* Document::copyObject(DocumentObject* obj, bool recursive)
 
     QByteArray res;
     res.reserve(memsize);
-    Base::ByteArrayOStreambuf obuf(res);
-    std::ostream ostr(&obuf);
-    this->exportObjects(objs, ostr);
+//#    Base::ByteArrayOStreambuf obuf(res);
+    //#    std::ostream ostr(&obuf);
+    //#    this->exportObjects(objs); //# , ostr
 
-    Base::ByteArrayIStreambuf ibuf(res);
-    std::istream istr(0);
-    istr.rdbuf(&ibuf);
-    std::vector<App::DocumentObject*> newObj = md.importObjects(istr);
-    if (newObj.empty())
-        return 0;
-    else
-        return newObj.back();
+    //#    Base::ByteArrayIStreambuf ibuf(res);
+    //#    std::istream istr(0);
+    //#   istr.rdbuf(&ibuf);
+    //#    std::vector<App::DocumentObject*> newObj = md.importObjects(); //# (istr)
+    //#   if (newObj.empty())
+    //#        return 0;
+    //#    else
+        return objs.back();
 }
 
 DocumentObject* Document::moveObject(DocumentObject* obj, bool recursive)
