@@ -10,7 +10,6 @@
 
 #include <boost/bind.hpp>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Base/Parameter.h"
 #include "App/PropertyStandard.h"
 #include "App/PropertyGeo.h"

@@ -6,7 +6,6 @@
 
 # include <assert.h>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Type.h"
 #include "Exception.h"
 #include "Interpreter.h"

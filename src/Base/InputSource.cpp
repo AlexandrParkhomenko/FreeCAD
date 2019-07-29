@@ -20,7 +20,6 @@
 #include <xercesc/util/XMLString.hpp>
 #include <xercesc/util/XMLUniDefs.hpp>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "InputSource.h"
 #include "Exception.h"
 #include "XMLTools.h"

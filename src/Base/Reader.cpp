@@ -14,7 +14,6 @@
 #include <filesystem>
 namespace fs = std::filesystem;
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Reader.h"
 #include "Exception.h"
 #include "Persistence.h"

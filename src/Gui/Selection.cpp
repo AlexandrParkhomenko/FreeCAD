@@ -12,7 +12,6 @@
 # include <QString>
 # include <QStatusBar>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Application.h"
 #include "Document.h"
 #include "Selection.h"

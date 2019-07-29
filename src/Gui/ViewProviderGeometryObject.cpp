@@ -24,7 +24,6 @@
 # include <Inventor/SoPickedPoint.h>
 # include <Inventor/actions/SoRayPickAction.h> 
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "ViewProviderGeometryObject.h"
 #include "View3DInventorViewer.h"
 #include "SoFCSelection.h"

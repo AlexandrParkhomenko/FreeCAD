@@ -7,7 +7,6 @@
 
 #	include <cassert>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Property.h"
 #include "ObjectIdentifier.h"
 #include "PropertyContainer.h"

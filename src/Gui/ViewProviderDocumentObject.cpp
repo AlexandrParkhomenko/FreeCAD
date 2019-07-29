@@ -12,7 +12,6 @@
 # include <Inventor/nodes/SoMaterial.h>
 # include <Inventor/nodes/SoSeparator.h>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Base/Tools.h"
 #include "Base/Console.h"
 #include "App/Material.h"

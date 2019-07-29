@@ -11,7 +11,6 @@
 # include <QDockWidget>
 # include <QPointer>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Control.h"
 #include "TaskView/TaskView.h"
 

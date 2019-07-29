@@ -57,7 +57,6 @@
 #include <Inventor/SbTime.h>
 #include <boost/scoped_ptr.hpp>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Base/Tools.h"
 #include "Base/Parameter.h"
 #include "Base/Console.h"

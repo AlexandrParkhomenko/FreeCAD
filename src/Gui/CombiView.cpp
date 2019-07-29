@@ -6,8 +6,6 @@
 
 # include <QSplitter>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
-
 #include "CombiView.h"
 #include "BitmapFactory.h"
 #include "PropertyView.h"

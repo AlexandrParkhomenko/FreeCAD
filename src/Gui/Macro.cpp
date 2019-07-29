@@ -11,7 +11,6 @@
 # include <QFile>
 # include <QTextStream>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Macro.h"
 
 #include "Base/Interpreter.h"

@@ -9,7 +9,6 @@
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/nodes/SoSwitch.h>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Base/Exception.h"
 #include "Base/FileInfo.h"
 #include "Base/Stream.h"
