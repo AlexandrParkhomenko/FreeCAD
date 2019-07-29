@@ -423,7 +423,7 @@ public:
         QColor front;
         front.setRgbF(0.8f, 0.8f, 0.8f);
 
-        int w = fm.width(text);
+        int w = fm.horizontalAdvance(text);
         int h = fm.height();
 
         QImage image(w,h,QImage::Format_ARGB32_Premultiplied);
