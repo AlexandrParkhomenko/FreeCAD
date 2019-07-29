@@ -681,13 +681,13 @@ void PythonConsole::printPrompt(PythonConsole::Prompt mode)
     // write normal messages
     if (!d->output.isEmpty()) {
         appendOutput(d->output, (int)PythonConsoleP::Message);
-        d->output = QString::null;
+        d->output = QString();
     }
 
     // write error messages
     if (!d->error.isEmpty()) {
         appendOutput(d->error, (int)PythonConsoleP::Error);
-        d->error = QString::null;
+        d->error = QString();
     }
 
     // Append the prompt string
@@ -1278,7 +1278,7 @@ void PythonConsole::onSaveHistoryAs()
 
 void PythonConsole::onInsertFileName()
 {
-    QString fn = Gui::FileDialog::getOpenFileName(Gui::getMainWindow(), tr("Insert file name"), QString::null,
+    QString fn = Gui::FileDialog::getOpenFileName(Gui::getMainWindow(), tr("Insert file name"), QString(),
         QString::fromLatin1("%1 (*.*)").arg(tr("All Files")));
     if ( fn.isEmpty() )
         return;
