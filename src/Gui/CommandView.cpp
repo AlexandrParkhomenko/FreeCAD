@@ -1686,7 +1686,7 @@ void StdViewScreenShot::activated(int iMsg)
         opt->setBackgroundType(backtype);
 
         fd.setOptionsWidget(FileOptionsDialog::ExtensionRight, opt);
-        fd.setConfirmOverwrite(true);
+        fd.setOption(DontConfirmOverwrite, !enabled);
         opt->onSelectedFilter(fd.selectedNameFilter());
         QObject::connect(&fd, SIGNAL(filterSelected(const QString&)),
                          opt, SLOT(onSelectedFilter(const QString&)));
