@@ -69,7 +69,7 @@ TaskWatcherCommands::TaskWatcherCommands(const char* Filter,const char* commands
     if (commands) {
         CommandManager &mgr = Gui::Application::Instance->commandManager();
         Gui::TaskView::TaskBox *tb = new Gui::TaskView::TaskBox
-            (BitmapFactory().pixmap(pixmap), trUtf8(name), true, 0);
+            (BitmapFactory().pixmap(pixmap), QString::fromUtf8(name), true, 0);
 
         for (const char** i=commands;*i;i++) {
             Command *c = mgr.getCommandByName(*i);

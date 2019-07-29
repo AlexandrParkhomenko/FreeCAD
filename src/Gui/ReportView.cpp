@@ -46,7 +46,7 @@ ReportView::ReportView( QWidget* parent )
 
     // create the output window
     tabOutput = new ReportOutput();
-    tabOutput->setWindowTitle(trUtf8("Output"));
+    tabOutput->setWindowTitle(QString::fromUtf8("Output"));
     tabOutput->setWindowIcon(BitmapFactory().pixmap("MacroEditor"));
     int output = tabWidget->addTab(tabOutput, tabOutput->windowTitle());
     tabWidget->setTabIcon(output, tabOutput->windowIcon());
@@ -54,7 +54,7 @@ ReportView::ReportView( QWidget* parent )
     // create the python console
     tabPython = new PythonConsole();
     tabPython->setWordWrapMode(QTextOption::NoWrap);
-    tabPython->setWindowTitle(trUtf8("Python console"));
+    tabPython->setWindowTitle(QString::fromUtf8("Python console"));
     tabPython->setWindowIcon(BitmapFactory().iconFromTheme("applications-python"));
     int python = tabWidget->addTab(tabPython, tabPython->windowTitle());
     tabWidget->setTabIcon(python, tabPython->windowIcon());
@@ -78,8 +78,8 @@ void ReportView::changeEvent(QEvent *e)
 {
     QWidget::changeEvent(e);
     if (e->type() == QEvent::LanguageChange) {
-        tabOutput->setWindowTitle(trUtf8("Output"));
-        tabPython->setWindowTitle(trUtf8("Python console"));
+        tabOutput->setWindowTitle(QString::fromUtf8("Output"));
+        tabPython->setWindowTitle(QString::fromUtf8("Python console"));
         for (int i=0; i<tabWidget->count();i++)
             tabWidget->setTabText(i, tabWidget->widget(i)->windowTitle());
     }
