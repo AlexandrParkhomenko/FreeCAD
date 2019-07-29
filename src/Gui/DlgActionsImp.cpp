@@ -188,7 +188,7 @@ void DlgCustomActionsImp::on_actionListWidget_itemActivated(QTreeWidgetItem *ite
         actionStatus    -> setText(QString::fromUtf8(pScript->getStatusTip()));
         actionAccel     -> setText(QString::fromLatin1(pScript->getAccel()));
         pixmapLabel->clear();
-        m_sPixmap = QString::null;
+        m_sPixmap = QString();
         const char* name = pScript->getPixmap();
         if (name && std::strlen(name) > 2)
         {
@@ -247,7 +247,7 @@ void DlgCustomActionsImp::on_buttonAddAction_clicked()
     if (!m_sPixmap.isEmpty())
         macro->setPixmap(m_sPixmap.toLatin1());
     pixmapLabel->clear();
-    m_sPixmap = QString::null;
+    m_sPixmap = QString();
 
     if (!actionAccel->text().isEmpty()) {
         macro->setAccel(actionAccel->text().toLatin1());
@@ -300,7 +300,7 @@ void DlgCustomActionsImp::on_buttonReplaceAction_clicked()
     if (!m_sPixmap.isEmpty())
         macro->setPixmap(m_sPixmap.toLatin1());
     pixmapLabel->clear();
-    m_sPixmap = QString::null;
+    m_sPixmap = QString();
 
     if (!actionAccel->text().isEmpty()) {
         macro->setAccel(actionAccel->text().toLatin1());
@@ -465,7 +465,7 @@ void DlgCustomActionsImp::on_buttonChoosePixmap_clicked()
     dlg.exec();
 
     pixmapLabel->clear();
-    m_sPixmap = QString::null;
+    m_sPixmap = QString();
     if (dlg.result() == QDialog::Accepted) {
         QListWidgetItem* item = dlg.currentItem();
         if (item) {

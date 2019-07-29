@@ -9,7 +9,6 @@
 
 #include <stdexcept>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Uuid.h"
 #include "Exception.h"
 #include "Interpreter.h"

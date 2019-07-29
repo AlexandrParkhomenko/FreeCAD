@@ -12,7 +12,6 @@
 #include "App/DocumentObjectGroup.h"
 #include "App/Document.h"
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "ViewProviderMaterialObject.h"
 #include "Application.h"
 #include "Command.h"

@@ -13,7 +13,6 @@
 # include <QMenu>
 # include <QLabel>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "App/Document.h"
 #include "App/GeoFeature.h"
 #include "SelectionView.h"

@@ -397,7 +397,7 @@ void SoFrameLabel::drawImage()
     QStringList lines;
     for (int i=0; i<num; i++) {
         QString line = QString::fromUtf8(s[i].getString());
-        w = std::max<int>(w, fm.width(line));
+        w = std::max<int>(w, fm.horizontalAdvance(line));
         lines << line;
     }
 

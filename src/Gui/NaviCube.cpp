@@ -86,14 +86,17 @@
 
 # include <QOpenGLTexture>
 
-#include <Eigen/Dense>
+// WHY HERE EIGEN??????????????
+ #include <Eigen/Dense>
+#include <GL/gl.h>
 #include <vector>
 #include <map>
 #include <algorithm>
 #include <iostream>
 
 
-using namespace Eigen;
+//
+ using namespace Eigen;
 using namespace std;
 using namespace Gui;
 

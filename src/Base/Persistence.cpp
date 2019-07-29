@@ -8,8 +8,6 @@
 #include "Reader.h"
 #include "PyObjectBase.h"
 
-
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Persistence.h"
 
 using namespace Base;

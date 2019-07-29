@@ -1,10 +1,7 @@
-
 /***************************************************************************
  *   Copyright (c) 2004 Juergen Riegel <juergen.riegel@web.de>             *
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
-
-
 
 # include "InventorAll.h"
 # include <boost/signals2.hpp>
@@ -567,8 +564,6 @@ void Application::slotNewDocument(const App::Document& Doc)
  
     signalNewDocument(*pDoc);
     pDoc->createView(View3DInventor::getClassTypeId());
-    // FIXME: Do we really need this further? Calling processEvents() mixes up order of execution in an
-    // unpredicatable way. At least it seems that with Qt5 we don't need this any more.
 }
 
 void Application::slotDeleteDocument(const App::Document& Doc)
@@ -1623,7 +1618,7 @@ void Application::runApplication(void)
             int major = context.format().majorVersion();
             int minor = context.format().minorVersion();
             const char* glVersion = reinterpret_cast<const char*>(glGetString(GL_VERSION));
-            std::cout << ("OpenGL version is: %d.%d (%s)\n", major, minor, glVersion);
+            std::cout << "OpenGL version is: " << major << "." << minor << " " << glVersion << std::endl;
         }
     }
 
@@ -1680,7 +1675,7 @@ void Application::runApplication(void)
 
     // Activate the correct workbench
     std::string start = App::Application::Config()["StartWorkbench"];
-    std::cout << ("Init: Activating default workbench %s\n", start.c_str());
+    std::cout << "Init: Activating default workbench " << start.c_str() << std::endl;
     start = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/General")->
                            GetASCII("AutoloadModule", start.c_str());
     // if the auto workbench is not visible then force to use the default workbech
@@ -1699,7 +1694,7 @@ void Application::runApplication(void)
 
     // show the main window
     if (!hidden) {
-        std::cout << ("Init: Showing main window\n");
+        std::cout << "Init: Showing main window" << std::endl;
         mw.loadWindowSettings();
     }
 

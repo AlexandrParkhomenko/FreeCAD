@@ -9,7 +9,6 @@
 # include <algorithm>
 # include <functional>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Base/Reader.h"
 #include "Base/Writer.h"
 #include "Base/Console.h"

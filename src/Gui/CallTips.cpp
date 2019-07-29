@@ -122,8 +122,7 @@ void CallTipsList::keyboardSearch(const QString& wordPrefix)
             return;
         }
     }
-
-    setItemSelected(currentItem(), false);
+    currentItem()->setSelected(false);
 }
 
 void CallTipsList::validateCursor()
@@ -665,7 +664,7 @@ bool CallTipsList::eventFilter(QObject * watched, QEvent * event)
 void CallTipsList::callTipItemActivated(QListWidgetItem *item)
 {
     hide();
-    if (!isItemSelected(item)) return;
+    if (!item->isSelected()) return;
 
     QString text = item->text();
     QTextCursor cursor = textEdit->textCursor();

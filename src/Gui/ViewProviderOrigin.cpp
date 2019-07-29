@@ -18,7 +18,6 @@
 #include "App/OriginFeature.h"
 #include "App/Document.h"
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "ViewProviderOrigin.h"
 #include "ViewProviderPlane.h"
 #include "ViewProviderLine.h"

@@ -9,7 +9,6 @@
 #include <limits>
 #include <iomanip>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Property.h"
 #include "Application.h"
 #include "Document.h"

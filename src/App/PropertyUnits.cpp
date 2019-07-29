@@ -9,7 +9,6 @@
 # include <boost/filesystem/path.hpp>
 # include <cfloat>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 
 #include "Base/Exception.h"
 #include "Base/Reader.h"

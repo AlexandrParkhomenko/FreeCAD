@@ -12,7 +12,6 @@
 # include <Inventor/nodes/SoOrthographicCamera.h>
 # include <qmessagebox.h>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "Base/Console.h"
 #include "Base/Exception.h"
 #include "Base/Sequencer.h"

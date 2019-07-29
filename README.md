@@ -8,9 +8,9 @@ Here using:
 - only Path module with dependencies in FreeCAD
 - qt          >= 5.13
 - python      >= 3.7
-- PySide2     == 5.12
-- pyside2-tools == 5.12
-- shiboken2   == 5.12
+- PySide2     == 5.13
+- pyside2-tools == 5.13
+- shiboken2   == 5.13
 - python-six  == 1.12
 - boost       == 1.69
 - xerces-c    == 3.2.2

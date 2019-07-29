@@ -711,7 +711,7 @@ void Document::exportGraphviz(std::ostream& out) const
                 in_use.insert(*vi);
 
             // Add all edges to the in_edges and out_edges multimaps
-            graph_traits<Graph>::edge_iterator ei, ei_end;
+            graph_traits<Graph>::edge_iterator ei, ei_end; //# std=c++20 ini
             tie(ei, ei_end) = edges(DepList);
             for (; ei != ei_end; ++ei) {
                 in_edges.insert(std::make_pair<Vertex, Edge>(target(*ei, DepList), *ei));
@@ -1794,7 +1794,7 @@ void Document::restore (void)
 
     Base::FileInfo fi("Document.xml");
     Base::ifstream file(fi, std::ios::in | std::ios::binary);
-    //# std::streambuf* buf = file.rdbuf();
+    //#    std::streambuf* buf = file.rdbuf();
     //#    std::streamoff size = buf->pubseekoff(0, std::ios::end, std::ios::in);
     //#    buf->pubseekoff(0, std::ios::beg, std::ios::in);
 //#    if (size < 22) // an empty zip archive has 22 bytes
@@ -2757,7 +2757,6 @@ DocumentObject* Document::copyObject(DocumentObject* obj, bool recursive)
     QByteArray res;
     res.reserve(memsize);
     this->exportObjects(objs);
-
     Base::ByteArrayIStreambuf ibuf(res);
     std::istream istr(0);
     istr.rdbuf(&ibuf);

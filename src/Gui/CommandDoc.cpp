@@ -928,10 +928,11 @@ void StdCmdDuplicateSelection::activated(int iMsg)
         }
 
         // save stuff to file
+//#        Base::ofstream str(fi, std::ios::out | std::ios::binary);
         App::Document* doc = sel.front()->getDocument();
         MergeDocuments mimeView(doc);
-        doc->exportObjects(sel);
-        str.close();
+        doc->exportObjects(sel); //# , str
+//#        str.close();
     }
     App::Document* doc = App::GetApplication().getActiveDocument();
     if (doc) {

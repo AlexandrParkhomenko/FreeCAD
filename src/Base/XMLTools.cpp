@@ -7,7 +7,6 @@
 
 # include <assert.h>
 
-/// Here the FreeCAD includes sorted by Base,App,Gui......
 #include "XMLTools.h"
 
 using namespace Base;
