@@ -7,6 +7,7 @@
 # include <cstring>
 # include <algorithm>
 # include <QApplication>
+#include <QScreen> //# for resizeEvent
 # include <QDebug>
 # include <QDesktopWidget>
 # include <QGenericReturnArgument>
@@ -287,9 +288,10 @@ void DlgPreferencesImp::resizeEvent(QResizeEvent* ev)
     if (canEmbedScrollArea) {
         // embed the widget stack into a scroll area if the size is
         // bigger than the available desktop
-        QRect rect = QApplication::desktop()->availableGeometry();
-        int maxHeight = rect.height() - 60;
-        int maxWidth = rect.width();
+        QScreen *screen = QGuiApplication::primaryScreen();
+        QRect  screenGeometry = screen->geometry();
+        int maxHeight = screenGeometry.height(); //#  - 60
+        int maxWidth = screenGeometry.width();
         if (height() > maxHeight || width() > maxWidth) {
             canEmbedScrollArea = false;
             ui->hboxLayout->removeWidget(ui->tabWidgetStack);
