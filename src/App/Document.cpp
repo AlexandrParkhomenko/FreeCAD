@@ -711,7 +711,7 @@ void Document::exportGraphviz(std::ostream& out) const
                 in_use.insert(*vi);
 
             // Add all edges to the in_edges and out_edges multimaps
-            graph_traits<Graph>::edge_iterator ei, ei_end;
+            graph_traits<Graph>::edge_iterator ei, ei_end; //# std=c++20 ini
             tie(ei, ei_end) = edges(DepList);
             for (; ei != ei_end; ++ei) {
                 in_edges.insert(std::make_pair<Vertex, Edge>(target(*ei, DepList), *ei));
