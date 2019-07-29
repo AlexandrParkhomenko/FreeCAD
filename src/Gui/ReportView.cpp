@@ -537,9 +537,9 @@ void ReportOutput::OnChange(Base::Subject<const char*> &rCaller, const char * sR
         
         QFont font(fontFamily, fontSize);
         setFont(font);
-        QFontMetrics metric(font);
-        int width = metric.width(QLatin1String("0000"));
-        setTabStopWidth(width);
+//#        QFontMetrics metric(font);
+//#        int width = metric.horizontalAdvance(QString::fromUtf8("0000"));
+//#        setTabStopWidth(width);
     }
     else if (strcmp(sReason, "RedirectPythonOutput") == 0) {
         bool checked = rclGrp.GetBool(sReason, true);

@@ -508,7 +508,7 @@ void TreeWidget::dragMoveEvent(QDragMoveEvent *event)
         return;
 
     QTreeWidgetItem* targetItem = itemAt(event->pos());
-    if (!targetItem || this->isItemSelected(targetItem)) {
+    if (!targetItem || targetItem->isSelected()) {
         event->ignore();
     }
     else {
@@ -648,7 +648,7 @@ void TreeWidget::dropEvent(QDropEvent *event)
     if (!targetItem)
         return;
     // one of the source items is also the destination item, that's not allowed
-    if (this->isItemSelected(targetItem))
+    if (targetItem->isSelected())
         return;
 
     // filter out the selected items we cannot handle
@@ -1229,14 +1229,14 @@ void DocumentItem::slotInEdit(const Gui::ViewProviderDocumentObject& v)
     ParameterGrp::handle hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/TreeView");
     unsigned long col = hGrp->GetUnsigned("TreeEditColor",4294902015);
     FOREACH_ITEM(item,v)
-        item->setBackgroundColor(0,QColor((col >> 24) & 0xff,(col >> 16) & 0xff,(col >> 8) & 0xff));
+        item->setBackground(0,QColor((col >> 24) & 0xff,(col >> 16) & 0xff,(col >> 8) & 0xff));
     END_FOREACH_ITEM
 }
 
 void DocumentItem::slotResetEdit(const Gui::ViewProviderDocumentObject& v)
 {
     FOREACH_ITEM(item,v)
-        item->setData(0, Qt::BackgroundColorRole,QVariant());
+        item->setData(0, Qt::BackgroundRole,QVariant());
     END_FOREACH_ITEM
 }
 
@@ -1524,9 +1524,9 @@ void DocumentItem::slotHighlightObject (const Gui::ViewProviderDocumentObject& o
         QFont f = item->font(0);
         auto highlight = [&item, &set](const QColor& col){
             if (set)
-                item->setBackgroundColor(0, col);
+                item->setBackground(0, col);
             else
-                item->setData(0, Qt::BackgroundColorRole,QVariant());
+                item->setData(0, Qt::BackgroundRole,QVariant());
         };
 
         switch (high) {
@@ -1672,14 +1672,14 @@ void DocumentItem::setObjectHighlighted(const char* name, bool select)
     Q_UNUSED(name);
     // FOREACH_ITEM_NAME(item,name);
         //pos->second->setData(0, Qt::TextColorRole, QVariant(Qt::red));
-        //treeWidget()->setItemSelected(pos->second, select);
+        //pos->second->setSelected(select);
     // END_FOREACH_ITEM;
 }
 
 void DocumentItem::setObjectSelected(const char* name, bool select)
 {
     FOREACH_ITEM_NAME(item,name);
-        treeWidget()->setItemSelected(item, select);
+        item->setSelected(select);
     END_FOREACH_ITEM;
 }
 
@@ -1697,7 +1697,7 @@ void DocumentItem::updateSelection(void)
 {
     std::vector<App::DocumentObject*> sel;
     FOREACH_ITEM_ALL(item);
-        if (treeWidget()->isItemSelected(item))
+        if (item->isSelected())
             sel.push_back(item->object()->getObject());
     END_FOREACH_ITEM;
 
