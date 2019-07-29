@@ -564,8 +564,6 @@ void Application::slotNewDocument(const App::Document& Doc)
  
     signalNewDocument(*pDoc);
     pDoc->createView(View3DInventor::getClassTypeId());
-    // FIXME: Do we really need this further? Calling processEvents() mixes up order of execution in an
-    // unpredicatable way. At least it seems that with Qt5 we don't need this any more.
 }
 
 void Application::slotDeleteDocument(const App::Document& Doc)
