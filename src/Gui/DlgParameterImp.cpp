@@ -294,10 +294,11 @@ bool validateInput(QWidget* parent, const QString& input)
     if (input.isEmpty())
         return false;
     for (int i=0; i<input.size(); i++) {
-        const char c = input.at(i).toUtf8();
-        if ((c < '0' || c > '9') &&  // Numbers
-            (c < 'A' || c > 'Z') &&  // Uppercase letters
-            (c < 'a' || c > 'z') &&  // Lowercase letters
+        QChar c = input.at(i);
+        if //((c < '0' || c > '9') &&  // Numbers
+           // (c < 'A' || c > 'Z') &&  // Uppercase letters
+           // (c < 'a' || c > 'z') &&  // Lowercase letters
+            (!c.isLetterOrNumber() &&
             (c != ' ')) {            // Space
             QMessageBox::warning(parent, DlgParameterImp::tr("Invalid input"), 
                                          DlgParameterImp::tr("Invalid key name '%1'").arg(input));

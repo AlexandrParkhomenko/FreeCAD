@@ -803,7 +803,7 @@ void MainWindow::processMessages(const QList<QByteArray> & msg)
         }
         files = App::Application::processFiles(files);
         for (std::list<std::string>::iterator it = files.begin(); it != files.end(); ++it) {
-            QString filename = QString(it->c_str(), it->size());
+            QString filename = QString(it->c_str());
             FileDialog::setWorkingDirectory(filename);
         }
     }
@@ -832,7 +832,7 @@ void MainWindow::delayedStartup()
         std::list<std::string> files = App::Application::getCmdLineFiles();
         files = App::Application::processFiles(files);
         for (std::list<std::string>::iterator it = files.begin(); it != files.end(); ++it) {
-            QString filename = QString(it->c_str(), it->size());
+            QString filename = QString(it->c_str());
             FileDialog::setWorkingDirectory(filename);
         }
     }

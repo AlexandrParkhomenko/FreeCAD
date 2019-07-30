@@ -5,6 +5,7 @@
 
 
 #include "Mod/Part/App/TopoShapePy.h"
+#include "Mod/Part/App/OCCError.h"
 #include "Base/VectorPy.h"
 
 #include "Area.h"

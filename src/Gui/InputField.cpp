@@ -547,9 +547,9 @@ void InputField::setFormat(const QString& format)
 {
     if (format.isEmpty())
         return;
-    QChar c = format[0];
+    QChar c = format.at(0);
     Base::QuantityFormat f = this->actQuantity.getFormat();
-    f.format = Base::QuantityFormat::toFormat(c.toUtf8());
+    f.format = Base::QuantityFormat::toFormat(c.toLatin1());
     actQuantity.setFormat(f);
     updateText(actQuantity);
 }

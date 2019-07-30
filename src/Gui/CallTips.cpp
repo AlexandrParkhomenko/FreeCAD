@@ -161,12 +161,13 @@ QString CallTipsList::extractContext(const QString& line) const
     int index = len-1;
     for (int i=0; i<len; i++) {
         int pos = len-1-i;
-        const char ch = line.at(pos).toUtf8();
-        if ((ch >= 48 && ch <= 57)  ||    // Numbers
-            (ch >= 65 && ch <= 90)  ||    // Uppercase letters
-            (ch >= 97 && ch <= 122) ||    // Lowercase letters
-            (ch == '.') || (ch == '_') || // dot or underscore
-            (ch == ' ') || (ch == '\t'))  // whitespace (between dot and text)
+        QChar c = line.at(pos);
+        if //((c >= '0' && c <= '9') ||  // Numbers
+           // (c >= 'A' && c <= 'Z') ||  // Uppercase letters
+           // (c >= 'a' && c <= 'z') ||  // Lowercase letters
+           (c.isLetterOrNumber() ||
+            (c == '.') || (c == '_') || // dot or underscore
+            (c == ' ') || (c == '\t'))  // whitespace (between dot and text)
             index = pos;
         else
             break;
