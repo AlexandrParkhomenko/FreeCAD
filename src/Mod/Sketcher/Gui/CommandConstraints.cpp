@@ -153,7 +153,7 @@ void openEditDatumDialog(Sketcher::SketchObject* sketch, int ConstrNbr)
                     tryAutoRecompute(sketch);
                 }
                 catch (const Base::Exception& e) {
-                    QMessageBox::critical(qApp->activeWindow(), QObject::tr("Dimensional constraint"), QString::fromUtf8(e.what()));
+                    QMessageBox::critical(qApp->activeWindow(), QObject::tr("Dimensional constraint"), QString(e.what()));
                     Gui::Command::abortCommand();
 
                     tryAutoRecomputeIfNotSolve(sketch);
@@ -5260,7 +5260,7 @@ void CmdSketcherConstrainRadius::activated(int iMsg)
                     updateNeeded=false;
                 }
                 catch (const Base::Exception& e) {
-                    QMessageBox::critical(qApp->activeWindow(), QObject::tr("Dimensional constraint"), QString::fromUtf8(e.what()));
+                    QMessageBox::critical(qApp->activeWindow(), QObject::tr("Dimensional constraint"), QString(e.what()));
                     abortCommand();
 
                     tryAutoRecomputeIfNotSolve(Obj); // we have to update the solver after this aborted addition.
@@ -5393,7 +5393,7 @@ void CmdSketcherConstrainRadius::applyConstraint(std::vector<SelIdPair> &selSeq,
                     updateNeeded=false;
                 }
                 catch (const Base::Exception& e) {
-                    QMessageBox::critical(qApp->activeWindow(), QObject::tr("Dimensional constraint"), QString::fromUtf8(e.what()));
+                    QMessageBox::critical(qApp->activeWindow(), QObject::tr("Dimensional constraint"), QString(e.what()));
                     abortCommand();
 
                     tryAutoRecomputeIfNotSolve(Obj); // we have to update the solver after this aborted addition.
@@ -5730,7 +5730,7 @@ void CmdSketcherConstrainDiameter::activated(int iMsg)
                     updateNeeded=false;
                 }
                 catch (const Base::Exception& e) {
-                    QMessageBox::critical(qApp->activeWindow(), QObject::tr("Dimensional constraint"), QString::fromUtf8(e.what()));
+                    QMessageBox::critical(qApp->activeWindow(), QObject::tr("Dimensional constraint"), QString(e.what()));
                     abortCommand();
 
                     tryAutoRecomputeIfNotSolve(Obj); // we have to update the solver after this aborted addition.
@@ -5863,7 +5863,7 @@ void CmdSketcherConstrainDiameter::applyConstraint(std::vector<SelIdPair> &selSe
                         updateNeeded=false;
                     }
                     catch (const Base::Exception& e) {
-                        QMessageBox::critical(qApp->activeWindow(), QObject::tr("Dimensional constraint"), QString::fromUtf8(e.what()));
+                        QMessageBox::critical(qApp->activeWindow(), QObject::tr("Dimensional constraint"), QString(e.what()));
                         abortCommand();
 
                         tryAutoRecomputeIfNotSolve(Obj); // we have to update the solver after this aborted addition.

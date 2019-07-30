@@ -135,7 +135,7 @@ void DlgExpressionInput::textChanged(const QString &text)
         }
     }
     catch (Base::Exception & e) {
-        ui->msg->setText(QString::fromUtf8(e.what()));
+        ui->msg->setText(QString(e.what()));
         QPalette p(ui->msg->palette());
         p.setColor(QPalette::WindowText, Qt::red);
         ui->msg->setPalette(p);

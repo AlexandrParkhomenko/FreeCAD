@@ -33,7 +33,7 @@ DlgMacroRecordImp::DlgMacroRecordImp( QWidget* parent, Qt::WindowFlags fl )
     this->setupUi(this);
 
     // get the macro home path
-    this->macroPath = QString::fromUtf8(getWindowParameter()->GetASCII("MacroPath",
+    this->macroPath = QString(getWindowParameter()->GetASCII("MacroPath",
         App::Application::getUserMacroDir().c_str()).c_str());
     this->macroPath = QDir::toNativeSeparators(QDir(this->macroPath).path() + QDir::separator());
 

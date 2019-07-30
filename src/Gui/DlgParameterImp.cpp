@@ -178,7 +178,7 @@ void DlgParameterImp::onGroupSelected( QTreeWidgetItem * item )
         std::vector<std::pair<std::string,std::string> > mcTextMap = _hcGrp->GetASCIIMap();
         for(std::vector<std::pair<std::string,std::string> >::iterator It2=mcTextMap.begin();It2!=mcTextMap.end();++It2)
         {
-            (void)new ParameterText(paramValue,QString::fromUtf8(It2->first.c_str()),
+            (void)new ParameterText(paramValue,QString(It2->first.c_str()),
                 It2->second.c_str(), _hcGrp);
         }
 
@@ -186,28 +186,28 @@ void DlgParameterImp::onGroupSelected( QTreeWidgetItem * item )
         std::vector<std::pair<std::string,long> > mcIntMap = _hcGrp->GetIntMap();
         for(std::vector<std::pair<std::string,long> >::iterator It3=mcIntMap.begin();It3!=mcIntMap.end();++It3)
         {
-            (void)new ParameterInt(paramValue,QString::fromUtf8(It3->first.c_str()),It3->second, _hcGrp);
+            (void)new ParameterInt(paramValue,QString(It3->first.c_str()),It3->second, _hcGrp);
         }
 
         // filling up Float nodes
         std::vector<std::pair<std::string,double> > mcFloatMap = _hcGrp->GetFloatMap();
         for(std::vector<std::pair<std::string,double> >::iterator It4=mcFloatMap.begin();It4!=mcFloatMap.end();++It4)
         {
-            (void)new ParameterFloat(paramValue,QString::fromUtf8(It4->first.c_str()),It4->second, _hcGrp);
+            (void)new ParameterFloat(paramValue,QString(It4->first.c_str()),It4->second, _hcGrp);
         }
 
         // filling up bool nodes
         std::vector<std::pair<std::string,bool> > mcBoolMap = _hcGrp->GetBoolMap();
         for(std::vector<std::pair<std::string,bool> >::iterator It5=mcBoolMap.begin();It5!=mcBoolMap.end();++It5)
         {
-            (void)new ParameterBool(paramValue,QString::fromUtf8(It5->first.c_str()),It5->second, _hcGrp);
+            (void)new ParameterBool(paramValue,QString(It5->first.c_str()),It5->second, _hcGrp);
         }
 
         // filling up UInt nodes
         std::vector<std::pair<std::string,unsigned long> > mcUIntMap = _hcGrp->GetUnsignedMap();
         for(std::vector<std::pair<std::string,unsigned long> >::iterator It6=mcUIntMap.begin();It6!=mcUIntMap.end();++It6)
         {
-            (void)new ParameterUInt(paramValue,QString::fromUtf8(It6->first.c_str()),It6->second, _hcGrp);
+            (void)new ParameterUInt(paramValue,QString(It6->first.c_str()),It6->second, _hcGrp);
         }
     }
 }
@@ -246,7 +246,7 @@ void DlgParameterImp::onChangeParameterSet(int index)
     // get the path of the last selected group in the editor
     ParameterGrp::handle hGrp = App::GetApplication().GetUserParameter().GetGroup("BaseApp")->GetGroup("Preferences");
     hGrp = hGrp->GetGroup("ParameterEditor");
-    QString path = QString::fromUtf8(hGrp->GetASCII("LastParameterGroup").c_str());
+    QString path = QString(hGrp->GetASCII("LastParameterGroup").c_str());
     QStringList paths = path.split(QLatin1String("."), QString::SkipEmptyParts);
 
     QTreeWidgetItem* parent = 0;
@@ -778,7 +778,7 @@ void ParameterGroupItem::fillUp(void)
     // filing up groups
     std::vector<Base::Reference<ParameterGrp> > vhcParamGrp = _hcGrp->GetGroups();
 
-    setText(0,QString::fromUtf8(_hcGrp->GetGroupName()));
+    setText(0,QString(_hcGrp->GetGroupName()));
     for(std::vector<Base::Reference<ParameterGrp> >::iterator It=vhcParamGrp.begin();It!=vhcParamGrp.end();++It)
         (void)new ParameterGroupItem(this,*It);
 }
@@ -872,7 +872,7 @@ ParameterText::ParameterText ( QTreeWidget * parent, QString label, const char* 
     setIcon(0,BitmapFactory().pixmap("Param_Text") );
     setText(0, label);
     setText(1, QString("Text"));
-    setText(2, QString::fromUtf8(value));
+    setText(2, QString(value));
 }
 
 ParameterText::~ParameterText()

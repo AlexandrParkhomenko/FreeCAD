@@ -453,7 +453,7 @@ void DocumentRecovery::onDeleteSection()
         return;
 
     QList<QTreeWidgetItem*> items = d_ptr->ui.treeWidget->selectedItems();
-    QDir tmp = QString::fromUtf8(App::Application::getTempPath().c_str());
+    QDir tmp = QString(App::Application::getTempPath().c_str());
     for (QList<QTreeWidgetItem*>::iterator it = items.begin(); it != items.end(); ++it) {
         int index = d_ptr->ui.treeWidget->indexOfTopLevelItem(*it);
         QTreeWidgetItem* item = d_ptr->ui.treeWidget->takeTopLevelItem(index);
@@ -489,7 +489,7 @@ void DocumentRecovery::on_buttonCleanup_clicked()
     d_ptr->ui.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     d_ptr->ui.buttonBox->button(QDialogButtonBox::Cancel)->setEnabled(true);
 
-    QDir tmp = QString::fromUtf8(App::Application::getTempPath().c_str());
+    QDir tmp = QString(App::Application::getTempPath().c_str());
     tmp.setNameFilters(QStringList() << QString("*.lock"));
     tmp.setFilter(QDir::Files);
 

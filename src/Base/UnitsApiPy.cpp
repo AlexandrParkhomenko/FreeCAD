@@ -128,7 +128,7 @@ PyObject* UnitsApi::sParseQuantity(PyObject * /*self*/, PyObject *args)
         return NULL;                             // NULL triggers exception
 
     Quantity rtn;
-    QString qstr = QString::fromUtf8(pstr);
+    QString qstr = QString(pstr);
     PyMem_Free(pstr);
     try {
         rtn = Quantity::parse(qstr);

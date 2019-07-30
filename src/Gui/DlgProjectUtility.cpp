@@ -140,7 +140,7 @@ void DlgProjectUtility::on_createButton_clicked()
         return;
     }
 
-    dest = QDir(dest).absoluteFilePath(QString::fromUtf8("project.freecad"));
+    dest = QDir(dest).absoluteFilePath(QString("project.freecad"));
 
     std::stringstream str;
     str << doctools << "\n";

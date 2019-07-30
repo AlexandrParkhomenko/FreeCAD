@@ -364,10 +364,10 @@ QString FileDialog::restoreLocation()
     Base::Reference<ParameterGrp> hPath = App::GetApplication().GetUserParameter().GetGroup("BaseApp")
                                ->GetGroup("Preferences")->GetGroup("General");
     std::string dir = hPath->GetASCII("FileOpenSavePath", path.c_str());
-    QFileInfo fi(QString::fromUtf8(dir.c_str()));
+    QFileInfo fi(QString(dir.c_str()));
     if (!fi.exists())
         dir = path;
-    return QString::fromUtf8(dir.c_str());
+    return QString(dir.c_str());
 }
 
 /*!
@@ -547,7 +547,7 @@ FileChooser::FileChooser ( QWidget * parent )
     completer = new QCompleter ( this );
     completer->setMaxVisibleItems( 12 );
     fs_model = new QFileSystemModel( completer );
-    fs_model->setRootPath(QString::fromUtf8(""));
+    fs_model->setRootPath(QString(""));
     completer->setModel( fs_model );
     lineEdit->setCompleter( completer );
 
@@ -761,7 +761,7 @@ SelectModule::SelectModule (const QString& type, const SelectModule::Dict& types
     hboxLayout->addItem(spacerItem1);
 
     okButton = new QPushButton(this);
-    okButton->setObjectName(QString::fromUtf8("okButton"));
+    okButton->setObjectName(QString("okButton"));
     okButton->setText(tr("Select"));
     okButton->setEnabled(false);
 
@@ -842,7 +842,7 @@ SelectModule::Dict SelectModule::exportHandler(const QStringList& fileNames, con
 
         fileExtension[ext].push_back(*it);
         for (std::map<std::string, std::string>::iterator jt = filters.begin(); jt != filters.end(); ++jt)
-            filetypeHandler[ext][QString::fromUtf8(jt->first.c_str())] = QString(jt->second.c_str());
+            filetypeHandler[ext][QString(jt->first.c_str())] = QString(jt->second.c_str());
         // set the default module handler
         if (!filters.empty())
             dict[*it] = QString(filters.begin()->second.c_str());
@@ -904,7 +904,7 @@ SelectModule::Dict SelectModule::importHandler(const QStringList& fileNames, con
 
         fileExtension[ext].push_back(*it);
         for (std::map<std::string, std::string>::iterator jt = filters.begin(); jt != filters.end(); ++jt)
-            filetypeHandler[ext][QString::fromUtf8(jt->first.c_str())] = QString(jt->second.c_str());
+            filetypeHandler[ext][QString(jt->first.c_str())] = QString(jt->second.c_str());
         // set the default module handler
         if (!filters.empty())
             dict[*it] = QString(filters.begin()->second.c_str());

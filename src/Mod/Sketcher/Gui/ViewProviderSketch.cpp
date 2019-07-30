@@ -2865,7 +2865,7 @@ QString ViewProviderSketch::getPresentationString(const Constraint *constraint)
             if( QString::compare(baseUnitStr, unitStr)==0 )
             {
                 // Example code from: Mod/TechDraw/App/DrawViewDimension.cpp:372
-                QRegExp rxUnits(QString::fromUtf8(" \\D*$"));  //space + any non digits at end of string
+                QRegExp rxUnits(QString(" \\D*$"));  //space + any non digits at end of string
                 userStr.remove(rxUnits);              //getUserString(defaultDecimals) without units
             }
         }
@@ -3081,7 +3081,7 @@ void ViewProviderSketch::drawConstraintIcons()
             if((*it)->Name.empty())
                 thisIcon.label = QString::number(constrId + 1);
             else
-                thisIcon.label = QString::fromUtf8((*it)->Name.c_str());
+                thisIcon.label = QString((*it)->Name.c_str());
             iconQueue.push_back(thisIcon);
 
             // Note that the second translation is meant to be applied after the first.
@@ -3101,7 +3101,7 @@ void ViewProviderSketch::drawConstraintIcons()
             if ((*it)->Name.empty())
                 thisIcon.label = QString();
             else
-                thisIcon.label = QString::fromUtf8((*it)->Name.c_str());
+                thisIcon.label = QString((*it)->Name.c_str());
         }
 
         iconQueue.push_back(thisIcon);

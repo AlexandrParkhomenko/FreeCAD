@@ -238,7 +238,7 @@ void SequencerDialog::setText (const char* pszTxt)
     QThread *thr = d->dlg->thread(); // this is the main thread
 
     // set label text of the dialog
-    d->text = pszTxt ? QString::fromUtf8(pszTxt) : QLatin1String("");
+    d->text = pszTxt ? QString(pszTxt) : QLatin1String("");
     if (thr != currentThread) {
         QMetaObject::invokeMethod(d->dlg, "setLabelText",
             Qt::/*Blocking*/QueuedConnection,

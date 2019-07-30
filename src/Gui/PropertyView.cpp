@@ -47,7 +47,7 @@ PropertyView::PropertyView(QWidget *parent)
     pLayout->setMargin (0);
 
     tabs = new QTabWidget (this);
-    tabs->setObjectName(QString::fromUtf8("propertyTab"));
+    tabs->setObjectName(QString("propertyTab"));
     tabs->setTabPosition(QTabWidget::South);
 #if defined(Q_OS_WIN32)
     tabs->setTabShape(QTabWidget::Triangular);
@@ -304,8 +304,8 @@ void PropertyView::tabChanged(int index)
 void PropertyView::changeEvent(QEvent *e)
 {
     if (e->type() == QEvent::LanguageChange) {
-        tabs->setTabText(0, QString::fromUtf8("View"));
-        tabs->setTabText(1, QString::fromUtf8("Data"));
+        tabs->setTabText(0, QString("View"));
+        tabs->setTabText(1, QString("Data"));
     }
 
     QWidget::changeEvent(e);

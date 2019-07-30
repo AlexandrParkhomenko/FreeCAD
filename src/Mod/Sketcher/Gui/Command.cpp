@@ -447,7 +447,7 @@ void CmdSketcherMapSketch::activated(int iMsg)
         bool ok;
         QStringList items;
         for (std::vector<App::DocumentObject*>::iterator it = sketches.begin(); it != sketches.end(); ++it)
-            items.push_back(QString::fromUtf8((*it)->Label.getValue()));
+            items.push_back(QString((*it)->Label.getValue()));
         QString text = QInputDialog::getItem(Gui::getMainWindow(),
             qApp->translate("Sketcher_MapSketch", "Select sketch"),
             qApp->translate("Sketcher_MapSketch", "Select a sketch from the list"),

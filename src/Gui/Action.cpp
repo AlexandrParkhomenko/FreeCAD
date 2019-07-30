@@ -514,7 +514,7 @@ void WorkbenchGroup::setWorkbenchData(int i, const QString& wb)
     workbenches[i]->setStatusTip(tr("Select the '%1' workbench").arg(name));
     workbenches[i]->setVisible(true);
     if (i < 9)
-        workbenches[i]->setShortcut(QKeySequence(QString::fromUtf8("W,%1").arg(i+1)));
+        workbenches[i]->setShortcut(QKeySequence(QString("W,%1").arg(i+1)));
 }
 
 void WorkbenchGroup::refreshWorkbenchList()
@@ -729,7 +729,7 @@ void RecentFilesAction::restore()
     std::vector<std::string> MRU = hGrp->GetASCIIs("MRU");
     QStringList files;
     for (std::vector<std::string>::iterator it = MRU.begin(); it!=MRU.end();++it)
-        files.append(QString::fromUtf8(it->c_str()));
+        files.append(QString(it->c_str()));
     setFiles(files);
 }
 

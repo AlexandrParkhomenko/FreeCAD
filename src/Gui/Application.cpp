@@ -396,7 +396,7 @@ void Application::open(const char* FileName, const char* Module)
             }
 
             // the original file name is required
-            QString filename = QString::fromUtf8(File.filePath().c_str());
+            QString filename = QString(File.filePath().c_str());
             getMainWindow()->appendRecentFile(filename);
             FileDialog::setWorkingDirectory(filename);
         }
@@ -454,7 +454,7 @@ void Application::importFrom(const char* FileName, const char* DocName, const ch
             }
 
             // the original file name is required
-            QString filename = QString::fromUtf8(File.filePath().c_str());
+            QString filename = QString(File.filePath().c_str());
             getMainWindow()->appendRecentFile(filename);
             FileDialog::setWorkingDirectory(filename);
         }
@@ -509,7 +509,7 @@ void Application::exportTo(const char* FileName, const char* DocName, const char
             // it doesn't need to be added to the recent files list (#0002047)
             std::map<std::string, std::string> importMap = App::GetApplication().getImportFilters(te.c_str());
             if (!importMap.empty())
-                getMainWindow()->appendRecentFile(QString::fromUtf8(File.filePath().c_str()));
+                getMainWindow()->appendRecentFile(QString(File.filePath().c_str()));
 
             // allow exporters to pass _objs__ to submodules before deleting it
             Gui::Command::runCommand(Gui::Command::App, "del __objs__");
@@ -519,7 +519,7 @@ void Application::exportTo(const char* FileName, const char* DocName, const char
             e.ReportException();
             wc.restoreCursor();
             QMessageBox::critical(getMainWindow(), QObject::tr("Export failed"),
-                QString::fromUtf8(e.what()));
+                QString(e.what()));
             wc.setWaitCursor();
         }
     }
@@ -1124,7 +1124,7 @@ QPixmap Application::workbenchIcon(const QString& wb) const
                 }
                 else {
                     // is it a file name...
-                    QString file = QString::fromUtf8(content.c_str());
+                    QString file = QString(content.c_str());
                     icon.load(file);
                     if (icon.isNull()) {
                         // ... or the name of another icon?
@@ -1166,7 +1166,7 @@ QString Application::workbenchToolTip(const QString& wb) const
             Py::Object member = handler.getAttr(std::string("ToolTip"));
             if (member.isString()) {
                 Py::String tip(member);
-                return QString::fromUtf8(tip.as_std_string("utf-8").c_str());
+                return QString(tip.as_std_string("utf-8").c_str());
             }
         }
         catch (Py::Exception& e) {
@@ -1191,7 +1191,7 @@ QString Application::workbenchMenuText(const QString& wb) const
             Py::Object member = handler.getAttr(std::string("MenuText"));
             if (member.isString()) {
                 Py::String tip(member);
-                return QString::fromUtf8(tip.as_std_string("utf-8").c_str());
+                return QString(tip.as_std_string("utf-8").c_str());
             }
         }
         catch (Py::Exception& e) {
@@ -1493,7 +1493,7 @@ void Application::runApplication(void)
         QDir cwd = QDir::current();
         std::list<std::string> files = App::Application::getCmdLineFiles();
         for (std::list<std::string>::iterator jt = files.begin(); jt != files.end(); ++jt) {
-            QString fn = QString::fromUtf8(jt->c_str(), static_cast<int>(jt->size()));
+            QString fn = QString(jt->c_str(), static_cast<int>(jt->size()));
             QFileInfo fi(fn);
             // if path name is relative make it absolute because the running instance
             // cannot determine the full path when trying to load the file
@@ -1519,23 +1519,23 @@ void Application::runApplication(void)
     // set application icon and window title
     it = cfg.find("Application");
     if (it != cfg.end()) {
-        mainApp.setApplicationName(QString::fromUtf8(it->second.c_str()));
+        mainApp.setApplicationName(QString(it->second.c_str()));
     }
     else {
-        mainApp.setApplicationName(QString::fromUtf8(App::GetApplication().getExecutableName()));
+        mainApp.setApplicationName(QString(App::GetApplication().getExecutableName()));
     }
 #ifndef Q_OS_MACX
     mainApp.setWindowIcon(Gui::BitmapFactory().pixmap(App::Application::Config()["AppIcon"].c_str()));
 #endif
     QString plugin;
-    plugin = QString::fromUtf8(App::GetApplication().getHomePath());
+    plugin = QString(App::GetApplication().getHomePath());
     plugin += QLatin1String("/plugins");
     QCoreApplication::addLibraryPath(plugin);
 
     // setup the search paths for Qt style sheets
     QStringList qssPaths;
-    qssPaths << QString::fromUtf8((App::Application::getUserAppDataDir() + "Gui/Stylesheets/").c_str())
-             << QString::fromUtf8((App::Application::getResourceDir() + "Gui/Stylesheets/").c_str())
+    qssPaths << QString((App::Application::getUserAppDataDir() + "Gui/Stylesheets/").c_str())
+             << QString((App::Application::getResourceDir() + "Gui/Stylesheets/").c_str())
              << QLatin1String(":/stylesheets");
     QDir::setSearchPaths(QString("qss"), qssPaths);
 
@@ -1552,7 +1552,7 @@ void Application::runApplication(void)
     std::string searchpath = hTheme->GetASCII("SearchPath");
     if (!searchpath.empty()) {
         QStringList searchPaths = QIcon::themeSearchPaths();
-        searchPaths.prepend(QString::fromUtf8(searchpath.c_str()));
+        searchPaths.prepend(QString(searchpath.c_str()));
         QIcon::setThemeSearchPaths(searchPaths);
     }
 
@@ -1625,16 +1625,16 @@ void Application::runApplication(void)
     // init the Inventor subsystem
     initOpenInventor();
 
-    QString home = QString::fromUtf8(App::GetApplication().getHomePath());
+    QString home = QString(App::GetApplication().getHomePath());
 
     it = cfg.find("WindowTitle");
     if (it != cfg.end()) {
-        QString title = QString::fromUtf8(it->second.c_str());
+        QString title = QString(it->second.c_str());
         mw.setWindowTitle(title);
     }
     it = cfg.find("WindowIcon");
     if (it != cfg.end()) {
-        QString path = QString::fromUtf8(it->second.c_str());
+        QString path = QString(it->second.c_str());
         if (QDir(path).isRelative()) {
             path = QFileInfo(QDir(home), path).absoluteFilePath();
         }
@@ -1642,7 +1642,7 @@ void Application::runApplication(void)
     }
     it = cfg.find("ProgramLogo");
     if (it != cfg.end()) {
-        QString path = QString::fromUtf8(it->second.c_str());
+        QString path = QString(it->second.c_str());
         if (QDir(path).isRelative()) {
             path = QFileInfo(QDir(home), path).absoluteFilePath();
         }
@@ -1776,7 +1776,7 @@ void Application::runApplication(void)
 
 void Application::checkForPreviousCrashes()
 {
-    QDir tmp = QString::fromUtf8(App::Application::getTempPath().c_str());
+    QDir tmp = QString(App::Application::getTempPath().c_str());
     tmp.setNameFilters(QStringList() << QString("*.lock"));
     tmp.setFilter(QDir::Files);
 

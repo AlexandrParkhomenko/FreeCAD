@@ -611,7 +611,7 @@ std::string Application::getResourceDir()
 #ifdef RESOURCEDIR
     std::string path(RESOURCEDIR);
     path.append("/");
-    QDir dir(QString::fromUtf8(RESOURCEDIR));
+    QDir dir(QString(RESOURCEDIR));
     if (dir.isAbsolute())
         return path;
     else
@@ -626,7 +626,7 @@ std::string Application::getHelpDir()
 #ifdef DOCDIR
     std::string path(DOCDIR);
     path.append("/");
-    QDir dir(QString::fromUtf8(DOCDIR));
+    QDir dir(QString(DOCDIR));
     if (dir.isAbsolute())
         return path;
     else
@@ -1695,9 +1695,9 @@ void Application::LoadParameters(void)
             // this will be used.
             std::map<std::string, std::string>::iterator it = mConfig.find("UserParameterTemplate");
             if (it != mConfig.end()) {
-                QString path = QString::fromUtf8(it->second.c_str());
+                QString path = QString(it->second.c_str());
                 if (QDir(path).isRelative()) {
-                    QString home = QString::fromUtf8(mConfig["AppHomePath"].c_str());
+                    QString home = QString(mConfig["AppHomePath"].c_str());
                     path = QFileInfo(QDir(home), path).absoluteFilePath();
                 }
                 QFileInfo fi(path);

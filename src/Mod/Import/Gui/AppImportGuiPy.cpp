@@ -153,7 +153,7 @@ void OCAFBrowser::load(const TDF_Label& label, QTreeWidgetItem* item, const QStr
 
     Handle(TDataStd_Name) name;
     if (label.FindAttribute(TDataStd_Name::GetID(),name)) {
-        QString text = QString("%1 %2").arg(s).arg(QString::fromUtf8(toString(name->Get()).c_str()));
+        QString text = QString("%1 %2").arg(s).arg(QString(toString(name->Get()).c_str()));
         item->setText(0, text);
     }
 
@@ -621,7 +621,7 @@ private:
                 layout->addLayout(boxlayout);
             }
 
-            dlg->setWindowTitle(QString::fromUtf8(file.fileName().c_str()));
+            dlg->setWindowTitle(QString(file.fileName().c_str()));
             dlg->setAttribute(Qt::WA_DeleteOnClose);
             dlg->show();
 

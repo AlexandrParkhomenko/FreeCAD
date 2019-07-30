@@ -244,7 +244,7 @@ namespace Gui {
         }
         else if (role == Qt::DisplayRole) {
             App::Document* doc = d.getDocument();
-            return QString::fromUtf8(doc->Label.getValue());
+            return QString(doc->Label.getValue());
         }
         else if (role == Qt::FontRole) {
             Document* doc = Application::Instance->activeDocument();
@@ -300,7 +300,7 @@ namespace Gui {
         }
         else if (role == Qt::DisplayRole) {
             App::DocumentObject* obj = v.getObject();
-            return QString::fromUtf8(obj->Label.getValue());
+            return QString(obj->Label.getValue());
         }
         else if (role == Qt::FontRole) {
             App::DocumentObject* obj = v.getObject();

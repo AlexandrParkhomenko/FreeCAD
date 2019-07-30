@@ -134,7 +134,7 @@ QDockWidget* DockWindowManager::addDockWindow(const char* name, QWidget* widget,
 
     // set object name and window title needed for i18n stuff
     dw->setObjectName(QLatin1String(name));
-    dw->setWindowTitle(QString::fromUtf8(name));
+    dw->setWindowTitle(QString(name));
     dw->setFeatures(QDockWidget::AllDockWidgetFeatures);
 
     d->_dockedWindows.push_back(dw);

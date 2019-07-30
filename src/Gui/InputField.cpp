@@ -320,7 +320,7 @@ std::vector<QString> InputField::getHistory(void)
             snprintf(hist,20,"Hist%i",i);
             tmp = _handle->GetASCII(hist,"");
             if( tmp != "")
-                res.push_back(QString::fromUtf8(tmp.c_str()));
+                res.push_back(QString(tmp.c_str()));
             else
                 break; // end of history reached
         }
@@ -368,7 +368,7 @@ std::vector<QString> InputField::getSavedValues(void)
             snprintf(hist,20,"Save%i",i);
             tmp = _handle->GetASCII(hist,"");
             if( tmp != "")
-                res.push_back(QString::fromUtf8(tmp.c_str()));
+                res.push_back(QString(tmp.c_str()));
             else
                 break; // end of history reached
         }
@@ -641,7 +641,7 @@ void InputField::keyPressEvent(QKeyEvent *event)
             double dFactor;
             QString unitStr;
             actQuantity.getUserString(dFactor, unitStr);
-            this->setText(QString::fromUtf8("%L1 %2").arg(val).arg(unitStr));
+            this->setText(QString("%L1 %2").arg(val).arg(unitStr));
             event->accept();
         }
         break;
@@ -653,7 +653,7 @@ void InputField::keyPressEvent(QKeyEvent *event)
             double dFactor;
             QString unitStr;
             actQuantity.getUserString(dFactor, unitStr);
-            this->setText(QString::fromUtf8("%L1 %2").arg(val).arg(unitStr));
+            this->setText(QString("%L1 %2").arg(val).arg(unitStr));
             event->accept();
         }
         break;
@@ -682,7 +682,7 @@ void InputField::wheelEvent (QWheelEvent * event)
     QString unitStr;
     actQuantity.getUserString(dFactor, unitStr);
 
-    this->setText(QString::fromUtf8("%L1 %2").arg(val).arg(unitStr));
+    this->setText(QString("%L1 %2").arg(val).arg(unitStr));
     selectNumber();
     event->accept();
 }

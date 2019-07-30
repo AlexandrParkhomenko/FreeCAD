@@ -552,7 +552,7 @@ int PythonDebugger::tracer_callback(PyObject *obj, PyFrameObject *frame, int wha
 
     //no = frame->f_tstate->recursion_depth;
     //std::string funcname = PyString_AsString(frame->f_code->co_name);
-    QString file = QString::fromUtf8(PyUnicode_AsUTF8(frame->f_code->co_filename));
+    QString file = QString(PyUnicode_AsUTF8(frame->f_code->co_filename));
 
     switch (what) {
     case PyTrace_CALL:

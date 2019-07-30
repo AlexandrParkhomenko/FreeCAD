@@ -270,7 +270,7 @@ bool EditorView::open(const QString& fileName)
         return false;
 
     d->lock = true;
-    d->textEdit->setPlainText(QString::fromUtf8(file.readAll()));
+    d->textEdit->setPlainText(QString(file.readAll()));
     d->lock = false;
     d->undos.clear();
     d->redos.clear();

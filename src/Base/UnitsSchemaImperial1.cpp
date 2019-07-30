@@ -327,10 +327,10 @@ QString UnitsSchemaImperialCivil::schemaTranslate(const Base::Quantity& quant, d
     }
     // this schema expresses angles in degrees + minutes + seconds
     else if (unit == Unit::Angle) {
-        unitString = QString::fromUtf8("deg");
-        QString degreeString = QString::fromUtf8("\xC2\xB0");          //degree symbol
-        QString minuteString = QString::fromUtf8("\xE2\x80\xB2");      //prime symbol
-        QString secondString = QString::fromUtf8("\xE2\x80\xB3");      //double prime symbol
+        unitString = QString("deg");
+        QString degreeString = QString("\xC2\xB0");          //degree symbol
+        QString minuteString = QString("\xE2\x80\xB2");      //prime symbol
+        QString secondString = QString("\xE2\x80\xB3");      //double prime symbol
         factor = 1.0;                                  //1deg = 1"\xC2\xB0 "
 
         double totalDegrees = quant.getValue()/factor;
@@ -362,7 +362,7 @@ QString UnitsSchemaImperialCivil::schemaTranslate(const Base::Quantity& quant, d
 //            output << std::setprecision(Base::UnitsApi::getDecimals()) << std::fixed <<
 //                      rawSeconds << secondString.toStdString();
 //        }
-        return QString::fromUtf8(output.str().c_str());
+        return QString(output.str().c_str());
     }
     else {
         // default action for all cases without special treatment:

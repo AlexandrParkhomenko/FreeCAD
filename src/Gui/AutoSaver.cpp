@@ -110,15 +110,15 @@ void AutoSaver::saveDocument(const std::string& name, AutoSaveProperty& saver)
 
         // Write recovery meta file
         QFile file(QString("%1/fc_recovery_file.xml")
-            .arg(QString::fromUtf8(doc->TransientDir.getValue())));
+            .arg(QString(doc->TransientDir.getValue())));
         if (file.open(QFile::WriteOnly)) {
             QTextStream str(&file);
             str.setCodec("UTF-8");
             str << "<?xml version='1.0' encoding='utf-8'?>" << endl
                 << "<AutoRecovery SchemaVersion=\"1\">" << endl;
             str << "  <Status>Created</Status>" << endl;
-            str << "  <Label>" << QString::fromUtf8(doc->Label.getValue()) << "</Label>" << endl; // store the document's current label
-            str << "  <FileName>" << QString::fromUtf8(doc->FileName.getValue()) << "</FileName>" << endl; // store the document's current filename
+            str << "  <Label>" << QString(doc->Label.getValue()) << "</Label>" << endl; // store the document's current label
+            str << "  <FileName>" << QString(doc->FileName.getValue()) << "</FileName>" << endl; // store the document's current filename
             str << "</AutoRecovery>" << endl;
             file.close();
         }

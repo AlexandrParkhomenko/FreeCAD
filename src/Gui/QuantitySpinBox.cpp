@@ -454,7 +454,7 @@ void QuantitySpinBox::resizeEvent(QResizeEvent * event)
 
 void Gui::QuantitySpinBox::keyPressEvent(QKeyEvent *event)
 {
-    if (event->text() == QString::fromUtf8("=") && isBound())
+    if (event->text() == QString("=") && isBound())
         openFormulaDialog();
     else {
         if (!hasExpression())
@@ -690,7 +690,7 @@ void QuantitySpinBox::stepBy(int steps)
     else if (val < d->minimum)
         val = d->minimum;
 
-    lineEdit()->setText(QString::fromUtf8("%L1 %2").arg(val).arg(d->unitStr));
+    lineEdit()->setText(QString("%L1 %2").arg(val).arg(d->unitStr));
     update();
     selectNumber();
 }

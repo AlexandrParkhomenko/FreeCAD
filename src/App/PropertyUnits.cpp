@@ -56,7 +56,7 @@ Base::Quantity PropertyQuantity::createQuantityFromPy(PyObject *value)
     Base::Quantity quant;
 
     if (PyUnicode_Check(value)){
-        quant = Quantity::parse(QString::fromUtf8(PyUnicode_AsUTF8(value)));
+        quant = Quantity::parse(QString(PyUnicode_AsUTF8(value)));
     }
 
     else if (PyFloat_Check(value))

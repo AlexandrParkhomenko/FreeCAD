@@ -174,7 +174,7 @@ void DlgEvaluateMeshImp::slotCreatedObject(const App::DocumentObject& Obj)
 {
     // add new mesh object to the list
     if (Obj.getTypeId().isDerivedFrom(Mesh::Feature::getClassTypeId())) {
-        QString label = QString::fromUtf8(Obj.Label.getValue());
+        QString label = QString(Obj.Label.getValue());
         QString name = QString(Obj.getNameInDocument());
         d->ui.meshNameButton->addItem(label, name);
     }
@@ -214,7 +214,7 @@ void DlgEvaluateMeshImp::slotChangedObject(const App::DocumentObject& Obj, const
         // if the label has changed update the entry in the list
         if (Prop.getTypeId() == App::PropertyString::getClassTypeId() &&
             strcmp(Prop.getName(), "Label") == 0) {
-                QString label = QString::fromUtf8(Obj.Label.getValue());
+                QString label = QString(Obj.Label.getValue());
                 QString name = QString(Obj.getNameInDocument());
                 int index = d->ui.meshNameButton->findData(name);
                 d->ui.meshNameButton->setItemText(index, label);
@@ -320,7 +320,7 @@ void DlgEvaluateMeshImp::refreshList()
     if (this->getDocument()) {
         std::vector<App::DocumentObject*> objs = this->getDocument()->getObjectsOfType(Mesh::Feature::getClassTypeId());
         for (std::vector<App::DocumentObject*>::iterator it = objs.begin(); it != objs.end(); ++it) {
-            items.push_back(qMakePair(QString::fromUtf8((*it)->Label.getValue()),
+            items.push_back(qMakePair(QString((*it)->Label.getValue()),
                                       QString((*it)->getNameInDocument())));
         }
     }

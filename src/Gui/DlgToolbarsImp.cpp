@@ -188,8 +188,8 @@ void DlgCustomToolbars::on_categoryBox_activated(int index)
     if (group == QLatin1String("Macros")) {
         for (std::vector<Command*>::iterator it = aCmds.begin(); it != aCmds.end(); ++it) {
             QTreeWidgetItem* item = new QTreeWidgetItem(commandTreeWidget);
-            item->setText(1, QString::fromUtf8((*it)->getMenuText()));
-            item->setToolTip(1, QString::fromUtf8((*it)->getToolTipText()));
+            item->setText(1, QString((*it)->getMenuText()));
+            item->setToolTip(1, QString((*it)->getToolTipText()));
             item->setData(1, Qt::UserRole, QByteArray((*it)->getName()));
             item->setSizeHint(0, QSize(32, 32));
             if ((*it)->getPixmap())
@@ -252,7 +252,7 @@ void DlgCustomToolbars::importCustomToolbars(const QByteArray& name)
                 item->setSizeHint(0, QSize(32, 32));
             }
             else if (it2->first == "Name") {
-                QString toolbarName = QString::fromUtf8(it2->second.c_str());
+                QString toolbarName = QString(it2->second.c_str());
                 toplevel->setText(0, toolbarName);
             }
             else {
@@ -531,8 +531,8 @@ void DlgCustomToolbars::onAddMacroAction(const QByteArray& macro)
         Command* pCmd = cCmdMgr.getCommandByName(macro);
 
         QTreeWidgetItem* item = new QTreeWidgetItem(commandTreeWidget);
-        item->setText(1, QString::fromUtf8(pCmd->getMenuText()));
-        item->setToolTip(1, QString::fromUtf8(pCmd->getToolTipText()));
+        item->setText(1, QString(pCmd->getMenuText()));
+        item->setToolTip(1, QString(pCmd->getToolTipText()));
         item->setData(1, Qt::UserRole, macro);
         item->setSizeHint(0, QSize(32, 32));
         if (pCmd->getPixmap())
@@ -571,8 +571,8 @@ void DlgCustomToolbars::onModifyMacroAction(const QByteArray& macro)
             QTreeWidgetItem* item = commandTreeWidget->topLevelItem(i);
             QByteArray command = item->data(1, Qt::UserRole).toByteArray();
             if (command == macro) {
-                item->setText(1, QString::fromUtf8(pCmd->getMenuText()));
-                item->setToolTip(1, QString::fromUtf8(pCmd->getToolTipText()));
+                item->setText(1, QString(pCmd->getMenuText()));
+                item->setToolTip(1, QString(pCmd->getToolTipText()));
                 item->setData(1, Qt::UserRole, macro);
                 item->setSizeHint(0, QSize(32, 32));
                 if (pCmd->getPixmap())
@@ -587,7 +587,7 @@ void DlgCustomToolbars::onModifyMacroAction(const QByteArray& macro)
                 QTreeWidgetItem* item = toplevel->child(j);
                 QByteArray command = item->data(0, Qt::UserRole).toByteArray();
                 if (command == macro) {
-                    item->setText(0, QString::fromUtf8(pCmd->getMenuText()));
+                    item->setText(0, QString(pCmd->getMenuText()));
                     if (pCmd->getPixmap())
                         item->setIcon(0, BitmapFactory().iconFromTheme(pCmd->getPixmap()));
                 }

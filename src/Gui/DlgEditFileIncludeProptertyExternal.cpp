@@ -42,10 +42,10 @@ DlgEditFileIncludePropertyExternal::~DlgEditFileIncludePropertyExternal()
 
 int DlgEditFileIncludePropertyExternal::Do(void)
 {
-    QFileInfo file = QString::fromUtf8(Prop.getValue());
+    QFileInfo file = QString(Prop.getValue());
     assert(file.exists());
 
-    QDir tmp = QString::fromUtf8(App::Application::getTempPath().c_str());
+    QDir tmp = QString(App::Application::getTempPath().c_str());
     QString TempFile = tmp.absoluteFilePath(file.fileName());
     QFile::remove(TempFile);
 

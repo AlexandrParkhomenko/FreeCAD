@@ -54,10 +54,10 @@ void TextDocumentEditorView::setupEditor()
     connect(getEditor()->document(), SIGNAL(modificationChanged(bool)),
             this, SLOT(setWindowModified(bool)));
     getEditor()->setReadOnly(textDocument->ReadOnly.getValue());
-    setWindowTitle(QString::fromUtf8(textDocument->Label.getValue())
+    setWindowTitle(QString(textDocument->Label.getValue())
             + QString("[*]"));
     getEditor()->setPlainText(
-            QString::fromUtf8(textDocument->Text.getValue()));
+            QString(textDocument->Text.getValue()));
 }
 
 void TextDocumentEditorView::setupConnection()
@@ -78,7 +78,7 @@ void TextDocumentEditorView::sourceChanged()
 
 void TextDocumentEditorView::refresh()
 {
-    QString text = QString::fromUtf8(
+    QString text = QString(
             textDocument->Text.getValue());
     if (isEditorModified()) {
         QMessageBox msgBox {this};

@@ -182,7 +182,7 @@ bool ViewProviderGroupExtension::extensionOnDelete(const std::vector< std::strin
         QMessageBox::StandardButton choice = 
             QMessageBox::question(getMainWindow(), QObject::tr ( "Delete group content?" ),
                 QObject::tr ( "The %1 is not empty, delete its content as well?")
-                    .arg ( QString::fromUtf8 ( getExtendedViewProvider()->getObject()->Label.getValue () ) ), 
+                    .arg ( QString ( getExtendedViewProvider()->getObject()->Label.getValue () ) ), 
                 QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes );
 
         if (choice == QMessageBox::Yes) {

@@ -1107,7 +1107,7 @@ void Document::createView(const Base::Type& typeId)
 
         const char* name = getDocument()->Label.getValue();
         QString title = QString("%1 : %2[*]")
-            .arg(QString::fromUtf8(name)).arg(d->_iWinCount++);
+            .arg(QString(name)).arg(d->_iWinCount++);
 
         view3D->setWindowTitle(title);
         view3D->setWindowModified(this->isModified());
@@ -1254,7 +1254,7 @@ bool Document::canClose ()
         box.setIcon(QMessageBox::Question);
         box.setWindowTitle(QObject::tr("Unsaved document"));
         box.setText(QObject::tr("Do you want to save your changes to document '%1' before closing?")
-                    .arg(QString::fromUtf8(getDocument()->Label.getValue())));
+                    .arg(QString(getDocument()->Label.getValue())));
         box.setInformativeText(QObject::tr("If you don't save, your changes will be lost."));
         box.setStandardButtons(QMessageBox::Discard | QMessageBox::Cancel | QMessageBox::Save);
         box.setDefaultButton(QMessageBox::Save);

@@ -33,7 +33,7 @@ CombiView::CombiView(Gui::Document* pcDocument, QWidget *parent)
 
     // tabs to switch between Tree/Properties and TaskPanel
     tabs = new QTabWidget ();
-    tabs->setObjectName(QString::fromUtf8("combiTab"));
+    tabs->setObjectName(QString("combiTab"));
     tabs->setTabPosition(QTabWidget::North);
     pLayout->addWidget( tabs, 0, 0 );
 
@@ -48,15 +48,15 @@ CombiView::CombiView(Gui::Document* pcDocument, QWidget *parent)
     // property view
     prop = new PropertyView(this);
     splitter->addWidget(prop);
-    tabs->addTab(splitter, QString::fromUtf8("Model"));
+    tabs->addTab(splitter, QString("Model"));
 
     // task panel
     taskPanel = new Gui::TaskView::TaskView(this);
-    tabs->addTab(taskPanel,  QString::fromUtf8("Tasks"));
+    tabs->addTab(taskPanel,  QString("Tasks"));
 
     // task panel
     //projectView = new Gui::ProjectWidget(this);
-    //tabs->addTab(projectView,  QString::fromUtf8("Project"));
+    //tabs->addTab(projectView,  QString("Project"));
 }
 
 CombiView::~CombiView()
@@ -105,9 +105,9 @@ void CombiView::showTaskView()
 void CombiView::changeEvent(QEvent *e)
 {
     if (e->type() == QEvent::LanguageChange) {
-        tabs->setTabText(0,  QString::fromUtf8("Model"));
-        tabs->setTabText(1,  QString::fromUtf8("Tasks"));
-        //tabs->setTabText(2,  QString::fromUtf8("Project"));
+        tabs->setTabText(0,  QString("Model"));
+        tabs->setTabText(1,  QString("Tasks"));
+        //tabs->setTabText(2,  QString("Project"));
     }
 
     DockWindow::changeEvent(e);

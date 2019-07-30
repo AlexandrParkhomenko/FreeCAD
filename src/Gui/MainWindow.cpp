@@ -803,7 +803,7 @@ void MainWindow::processMessages(const QList<QByteArray> & msg)
         }
         files = App::Application::processFiles(files);
         for (std::list<std::string>::iterator it = files.begin(); it != files.end(); ++it) {
-            QString filename = QString::fromUtf8(it->c_str(), it->size());
+            QString filename = QString(it->c_str(), it->size());
             FileDialog::setWorkingDirectory(filename);
         }
     }
@@ -832,7 +832,7 @@ void MainWindow::delayedStartup()
         std::list<std::string> files = App::Application::getCmdLineFiles();
         files = App::Application::processFiles(files);
         for (std::list<std::string>::iterator it = files.begin(); it != files.end(); ++it) {
-            QString filename = QString::fromUtf8(it->c_str(), it->size());
+            QString filename = QString(it->c_str(), it->size());
             FileDialog::setWorkingDirectory(filename);
         }
     }
@@ -1296,7 +1296,7 @@ void StatusBarObserver::OnChange(Base::Subject<const char*> &rCaller, const char
 void StatusBarObserver::Message(const char * m)
 {
     // Send the event to the main window to allow thread-safety. Qt will delete it when done.
-    QString txt = QString("<font color=\"%1\">%2</font>").arg(this->msg, QString::fromUtf8(m));
+    QString txt = QString("<font color=\"%1\">%2</font>").arg(this->msg, QString(m));
     CustomMessageEvent* ev = new CustomMessageEvent(CustomMessageEvent::Msg, txt);
     QApplication::postEvent(getMainWindow(), ev);
 }
@@ -1307,7 +1307,7 @@ void StatusBarObserver::Message(const char * m)
 void StatusBarObserver::Warning(const char *m)
 {
     // Send the event to the main window to allow thread-safety. Qt will delete it when done.
-    QString txt = QString("<font color=\"%1\">%2</font>").arg(this->wrn, QString::fromUtf8(m));
+    QString txt = QString("<font color=\"%1\">%2</font>").arg(this->wrn, QString(m));
     CustomMessageEvent* ev = new CustomMessageEvent(CustomMessageEvent::Wrn, txt);
     QApplication::postEvent(getMainWindow(), ev);
 }
@@ -1318,7 +1318,7 @@ void StatusBarObserver::Warning(const char *m)
 void StatusBarObserver::Error  (const char *m)
 {
     // Send the event to the main window to allow thread-safety. Qt will delete it when done.
-    QString txt = QString("<font color=\"%1\">%2</font>").arg(this->err, QString::fromUtf8(m));
+    QString txt = QString("<font color=\"%1\">%2</font>").arg(this->err, QString(m));
     CustomMessageEvent* ev = new CustomMessageEvent(CustomMessageEvent::Err, txt);
     QApplication::postEvent(getMainWindow(), ev);
 }
@@ -1329,7 +1329,7 @@ void StatusBarObserver::Error  (const char *m)
 void StatusBarObserver::Log(const char *m)
 {
     // Send the event to the main window to allow thread-safety. Qt will delete it when done.
-    CustomMessageEvent* ev = new CustomMessageEvent(CustomMessageEvent::Log, QString::fromUtf8(m));
+    CustomMessageEvent* ev = new CustomMessageEvent(CustomMessageEvent::Log, QString(m));
     QApplication::postEvent(getMainWindow(), ev);
 }
 

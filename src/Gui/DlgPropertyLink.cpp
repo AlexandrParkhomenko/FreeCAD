@@ -74,7 +74,7 @@ QStringList DlgPropertyLink::propertyLink() const
         list[1] = items[0]->data(Qt::UserRole).toString();
         list[2] = items[0]->text();
         if (list[1].isEmpty())
-            list[2] = QString::fromUtf8("");
+            list[2] = QString("");
         return list;
     }
 }
@@ -92,7 +92,7 @@ QVariantList DlgPropertyLink::propertyLinkList() const
             list[1] = (*it)->data(Qt::UserRole).toString();
             list[2] = (*it)->text();
             if (list[1].isEmpty())
-                list[2] = QString::fromUtf8("");
+                list[2] = QString("");
             varList << list;
         }
     }
@@ -170,7 +170,7 @@ void DlgPropertyLink::findObjects(bool on, const QString& searchText)
             Gui::ViewProvider* vp = Gui::Application::Instance->getViewProvider(*it);
             bool nameOk = true;
             if (!searchText.isEmpty()) { 
-                QString label = QString::fromUtf8((*it)->Label.getValue());
+                QString label = QString((*it)->Label.getValue());
                 if (!label.contains(searchText,Qt::CaseInsensitive))
                     nameOk = false;
             }
@@ -179,7 +179,7 @@ void DlgPropertyLink::findObjects(bool on, const QString& searchText)
                 if (std::find(ignoreList.begin(), ignoreList.end(), *it) == ignoreList.end()) {
                     QListWidgetItem* item = new QListWidgetItem(ui->listWidget);
                     item->setIcon(vp->getIcon());
-                    item->setText(QString::fromUtf8((*it)->Label.getValue()));
+                    item->setText(QString((*it)->Label.getValue()));
                     QByteArray ba((*it)->getNameInDocument());
                     item->setData(Qt::UserRole, ba);
                     // mark items as selected if needed

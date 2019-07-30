@@ -788,14 +788,14 @@ Py::Object UiLoaderPy::load(const Py::Tuple& args)
         QIODevice* device = 0;
         QWidget* parent = 0;
         if (wrap.toCString(args[0], fn)) {
-            file.setFileName(QString::fromUtf8(fn.c_str()));
+            file.setFileName(QString(fn.c_str()));
             if (!file.open(QFile::ReadOnly))
                 throw Py::RuntimeError("Cannot open file");
             device = &file;
         }
         else if (args[0].isString()) {
             fn = (std::string)Py::String(args[0]);
-            file.setFileName(QString::fromUtf8(fn.c_str()));
+            file.setFileName(QString(fn.c_str()));
             if (!file.open(QFile::ReadOnly))
                 throw Py::RuntimeError("Cannot open file");
             device = &file;
@@ -893,7 +893,7 @@ void WidgetFactorySupplier::destruct()
 // ----------------------------------------------------
 
 PrefPageUiProducer::PrefPageUiProducer (const char* filename, const char* group)
-  : fn(QString::fromUtf8(filename))
+  : fn(QString(filename))
 {
     WidgetFactoryInst::instance().AddProducer(filename, this);
     Gui::Dialog::DlgPreferencesImp::addPage(filename, group);
@@ -1111,13 +1111,13 @@ PyResource::~PyResource()
  */
 void PyResource::load(const char* name)
 {
-    QString fn = QString::fromUtf8(name);
+    QString fn = QString(name);
     QFileInfo fi(fn);
 
     // checks whether it's a relative path
     if (fi.isRelative()) {
         QString cwd = QDir::currentPath ();
-        QString home= QDir(QString::fromUtf8(App::GetApplication().getHomePath())).path();
+        QString home= QDir(QString(App::GetApplication().getHomePath())).path();
 
         // search in cwd and home path for the file
         //
@@ -1303,7 +1303,7 @@ Py::Object PyResource::setValue(const Py::Tuple& args)
 
     QVariant v;
     if (PyUnicode_Check(psValue)) {
-        v = QString::fromUtf8(PyUnicode_AsUTF8(psValue));
+        v = QString(PyUnicode_AsUTF8(psValue));
 
 
     }
@@ -1324,7 +1324,7 @@ Py::Object PyResource::setValue(const Py::Tuple& args)
                 continue;
             const char* pItem = PyUnicode_AsUTF8(item);
 
-            str.append(QString::fromUtf8(pItem));
+            str.append(QString(pItem));
         }
 
         v = str;

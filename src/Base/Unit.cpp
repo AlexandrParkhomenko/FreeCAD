@@ -401,7 +401,7 @@ QString Unit::getString(void) const
             ret << ')';
     }
 
-    return QString::fromUtf8(ret.str().c_str());
+    return QString(ret.str().c_str());
 }
 
 QString Unit::getTypeString(void) const

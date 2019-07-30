@@ -163,8 +163,8 @@ void DlgCustomKeyboardImp::on_categoryBox_activated(int index)
     if (group == QLatin1String("Macros")) {
         for (std::vector<Command*>::iterator it = aCmds.begin(); it != aCmds.end(); ++it) {
             QTreeWidgetItem* item = new QTreeWidgetItem(commandTreeWidget);
-            item->setText(1, QString::fromUtf8((*it)->getMenuText()));
-            item->setToolTip(1, QString::fromUtf8((*it)->getToolTipText()));
+            item->setText(1, QString((*it)->getMenuText()));
+            item->setToolTip(1, QString((*it)->getToolTipText()));
             item->setData(1, Qt::UserRole, QByteArray((*it)->getName()));
             item->setSizeHint(0, QSize(32, 32));
             if ((*it)->getPixmap())
@@ -419,8 +419,8 @@ void DlgCustomKeyboardImp::onAddMacroAction(const QByteArray& macro)
         Command* pCmd = cCmdMgr.getCommandByName(macro);
 
         QTreeWidgetItem* item = new QTreeWidgetItem(commandTreeWidget);
-        item->setText(1, QString::fromUtf8(pCmd->getMenuText()));
-        item->setToolTip(1, QString::fromUtf8(pCmd->getToolTipText()));
+        item->setText(1, QString(pCmd->getMenuText()));
+        item->setToolTip(1, QString(pCmd->getToolTipText()));
         item->setData(1, Qt::UserRole, macro);
         item->setSizeHint(0, QSize(32, 32));
         if (pCmd->getPixmap())
@@ -458,8 +458,8 @@ void DlgCustomKeyboardImp::onModifyMacroAction(const QByteArray& macro)
             QTreeWidgetItem* item = commandTreeWidget->topLevelItem(i);
             QByteArray command = item->data(1, Qt::UserRole).toByteArray();
             if (command == macro) {
-                item->setText(1, QString::fromUtf8(pCmd->getMenuText()));
-                item->setToolTip(1, QString::fromUtf8(pCmd->getToolTipText()));
+                item->setText(1, QString(pCmd->getMenuText()));
+                item->setToolTip(1, QString(pCmd->getToolTipText()));
                 item->setData(1, Qt::UserRole, macro);
                 item->setSizeHint(0, QSize(32, 32));
                 if (pCmd->getPixmap())

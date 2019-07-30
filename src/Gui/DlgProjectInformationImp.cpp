@@ -32,14 +32,14 @@ DlgProjectInformationImp::DlgProjectInformationImp(App::Document* doc, QWidget* 
   : QDialog(parent, fl), _doc(doc), ui(new Ui_DlgProjectInformation)
 {
     ui->setupUi(this);
-    ui->lineEditName->setText(QString::fromUtf8(doc->Label.getValue()));
-    ui->lineEditPath->setText(QString::fromUtf8(doc->FileName.getValue()));
-    ui->lineEditUuid->setText(QString::fromUtf8(doc->Uid.getValueStr().c_str()));
-    ui->lineEditCreator->setText(QString::fromUtf8(doc->CreatedBy.getValue()));
-    ui->lineEditDate->setText(QString::fromUtf8(doc->CreationDate.getValue()));
-    ui->lineEditLastMod->setText(QString::fromUtf8(doc->LastModifiedBy.getValue()));
-    ui->lineEditLastModDate->setText(QString::fromUtf8(doc->LastModifiedDate.getValue()));
-    ui->lineEditCompany->setText(QString::fromUtf8(doc->Company.getValue()));
+    ui->lineEditName->setText(QString(doc->Label.getValue()));
+    ui->lineEditPath->setText(QString(doc->FileName.getValue()));
+    ui->lineEditUuid->setText(QString(doc->Uid.getValueStr().c_str()));
+    ui->lineEditCreator->setText(QString(doc->CreatedBy.getValue()));
+    ui->lineEditDate->setText(QString(doc->CreationDate.getValue()));
+    ui->lineEditLastMod->setText(QString(doc->LastModifiedBy.getValue()));
+    ui->lineEditLastModDate->setText(QString(doc->LastModifiedDate.getValue()));
+    ui->lineEditCompany->setText(QString(doc->Company.getValue()));
 
     QList<QByteArray> rawLicenses; rawLicenses
         << "All rights reserved"
@@ -63,16 +63,16 @@ DlgProjectInformationImp::DlgProjectInformationImp(App::Document* doc, QWidget* 
     }
     else {
         index = ui->comboLicense->count();
-        QString text = QString::fromUtf8(doc->License.getValue());
+        QString text = QString(doc->License.getValue());
         ui->comboLicense->addItem(text);
         ui->comboLicense->setCurrentIndex(index);
     }
 
-    ui->lineEditLicenseURL->setText(QString::fromUtf8(doc->LicenseURL.getValue()));
+    ui->lineEditLicenseURL->setText(QString(doc->LicenseURL.getValue()));
 
     // When saving the text to XML the newlines get lost. So we store also the newlines as '\n'.
     // See also accept().
-    QString comment = QString::fromUtf8(doc->Comment.getValue());
+    QString comment = QString(doc->Comment.getValue());
     QStringList lines = comment.split(QLatin1String("\\n"), QString::KeepEmptyParts);
     QString text = lines.join(QLatin1String("\n"));
     ui->textEditComment->setPlainText( text );
@@ -143,7 +143,7 @@ void DlgProjectInformationImp::onLicenseTypeChanged(int index)
             ui->lineEditLicenseURL->setText(QString("http://artlibre.org/licence/lal"));
             break;
         default:
-            ui->lineEditLicenseURL->setText(QString::fromUtf8(_doc->LicenseURL.getValue()));
+            ui->lineEditLicenseURL->setText(QString(_doc->LicenseURL.getValue()));
             break;
     }
 }

@@ -170,7 +170,7 @@ void ToolBarManager::setup(ToolBarItem* toolBarItems)
     QList<QToolBar*> toolbars = toolBars();
     for (QList<ToolBarItem*>::ConstIterator it = items.begin(); it != items.end(); ++it) {
         // search for the toolbar
-        QString name = QString::fromUtf8((*it)->command().c_str());
+        QString name = QString((*it)->command().c_str());
         this->toolbarNames << name;
         QToolBar* toolbar = findToolBar(toolbars, name);
         std::string toolbarName = (*it)->command();

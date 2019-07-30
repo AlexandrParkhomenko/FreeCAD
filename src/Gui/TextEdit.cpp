@@ -74,7 +74,7 @@ void TextEdit::complete()
     if (wordPrefix.isEmpty())
         return;
     
-    QStringList list = toPlainText().split(QRegExp( QString::fromUtf8("\\W+")));
+    QStringList list = toPlainText().split(QRegExp( QString("\\W+")));
     QMap<QString, QString> map;
     QStringList::Iterator it = list.begin();
     while (it != list.end()) {
@@ -157,21 +157,21 @@ struct TextEditorP
     QMap<QString, QColor> colormap; // Color map
     TextEditorP()
     {
-        colormap[ QString::fromUtf8("Text")] = Qt::black;
-        colormap[ QString::fromUtf8("Bookmark")] = Qt::cyan;
-        colormap[ QString::fromUtf8("Breakpoint")] = Qt::red;
-        colormap[ QString::fromUtf8("Keyword")] = Qt::blue;
-        colormap[ QString::fromUtf8("Comment")] = QColor(0, 170, 0);
-        colormap[ QString::fromUtf8("Block comment")] = QColor(160, 160, 164);
-        colormap[ QString::fromUtf8("Number")] = Qt::blue;
-        colormap[ QString::fromUtf8("String")] = Qt::red;
-        colormap[ QString::fromUtf8("Character")] = Qt::red;
-        colormap[ QString::fromUtf8("Class name")] = QColor(255, 170, 0);
-        colormap[ QString::fromUtf8("Define name")] = QColor(255, 170, 0);
-        colormap[ QString::fromUtf8("Operator")] = QColor(160, 160, 164);
-        colormap[ QString::fromUtf8("Python output")] = QColor(170, 170, 127);
-        colormap[ QString::fromUtf8("Python error")] = Qt::red;
-        colormap[ QString::fromUtf8("Current line highlight")] = QColor(224,224,224);
+        colormap[ QString("Text")] = Qt::black;
+        colormap[ QString("Bookmark")] = Qt::cyan;
+        colormap[ QString("Breakpoint")] = Qt::red;
+        colormap[ QString("Keyword")] = Qt::blue;
+        colormap[ QString("Comment")] = QColor(0, 170, 0);
+        colormap[ QString("Block comment")] = QColor(160, 160, 164);
+        colormap[ QString("Number")] = Qt::blue;
+        colormap[ QString("String")] = Qt::red;
+        colormap[ QString("Character")] = Qt::red;
+        colormap[ QString("Class name")] = QColor(255, 170, 0);
+        colormap[ QString("Define name")] = QColor(255, 170, 0);
+        colormap[ QString("Operator")] = QColor(160, 160, 164);
+        colormap[ QString("Python output")] = QColor(170, 170, 127);
+        colormap[ QString("Python error")] = Qt::red;
+        colormap[ QString("Current line highlight")] = QColor(224,224,224);
     }
 };
 } // namespace Gui
@@ -186,7 +186,7 @@ TextEditor::TextEditor(QWidget* parent)
     d = new TextEditorP();
     lineNumberArea = new LineMarker(this);
 
-    QFont serifFont( QString::fromUtf8("Courier"), 10, QFont::Normal);
+    QFont serifFont( QString("Courier"), 10, QFont::Normal);
     setFont(serifFont);
 
     ParameterGrp::handle hPrefGrp = getWindowParameter();
@@ -218,7 +218,7 @@ TextEditor::~TextEditor()
 
 int TextEditor::lineNumberAreaWidth()
 {
-    return fontMetrics().horizontalAdvance(QString::fromUtf8("0000"))+10;
+    return fontMetrics().horizontalAdvance(QString("0000"))+10;
 }
 
 void TextEditor::updateLineNumberAreaWidth(int /* newBlockCount */)
@@ -251,7 +251,7 @@ void TextEditor::highlightCurrentLine()
 
     if (!isReadOnly()) {
         QTextEdit::ExtraSelection selection;
-        QColor lineColor = d->colormap[ QString::fromUtf8("Current line highlight")];
+        QColor lineColor = d->colormap[ QString("Current line highlight")];
         unsigned int col = (lineColor.red() << 24) | (lineColor.green() << 16) | (lineColor.blue() << 8);
         ParameterGrp::handle hPrefGrp = getWindowParameter();
         unsigned long value = static_cast<unsigned long>(col);
@@ -371,7 +371,7 @@ void TextEditor::keyPressEvent (QKeyEvent * e)
                     break; // end of selection reached
                 // if possible remove one tab or several spaces
                 QString text = block.text();
-                if (text.startsWith( QString::fromUtf8("\t"))) {
+                if (text.startsWith( QString("\t"))) {
                     cursor.setPosition(block.position());
                     cursor.deleteChar();
                     selEnd--;
@@ -379,7 +379,7 @@ void TextEditor::keyPressEvent (QKeyEvent * e)
                 else {
                     cursor.setPosition(block.position());
                     for (int i=0; i<indent; i++) {
-                        if (!text.startsWith( QString::fromUtf8(" ")))
+                        if (!text.startsWith( QString(" ")))
                             break;
                         text = text.mid(1);
                         cursor.deleteChar();
@@ -421,14 +421,14 @@ void TextEditor::OnChange(Base::Subject<const char*> &rCaller,const char* sReaso
             col = static_cast<unsigned int>(value);
             color.setRgb((col>>24)&0xff, (col>>16)&0xff, (col>>8)&0xff);
             if (this->highlighter)
-                this->highlighter->setColor( QString::fromUtf8(sReason), color);
+                this->highlighter->setColor( QString(sReason), color);
         }
     }
 
 //#    if (strcmp(sReason, "TabSize") == 0 || strcmp(sReason, "FontSize") == 0) {
 //#        int tabWidth = hPrefGrp->GetInt("TabSize", 4);
 //#        QFontMetrics metric(font());
-//#        int fontSize = metric.horizontalAdvance( QString::fromUtf8("0"));
+//#        int fontSize = metric.horizontalAdvance( QString("0"));
 //#        setTabStopWidth(tabWidth * fontSize);
 //#    }
 

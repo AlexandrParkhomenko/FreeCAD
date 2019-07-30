@@ -89,7 +89,7 @@ void ViewProviderInventorObject::updateData(const App::Property* prop)
     else if (prop == &ivObj->FileName) {
         // read also from file
         const char* filename = ivObj->FileName.getValue();
-        QString fn = QString::fromUtf8(filename);
+        QString fn = QString(filename);
         QFile file(fn);
         SoInput in;
         pcFile->removeAllChildren();

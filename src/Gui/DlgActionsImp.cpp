@@ -44,11 +44,11 @@ DlgCustomActionsImp::DlgCustomActionsImp( QWidget* parent )
         GetParameterGroupByPath("User parameter:BaseApp/Preferences/Macro")
         ->GetASCII("MacroPath",App::Application::getUserMacroDir().c_str());
 
-    QDir d(QString::fromUtf8(cMacroPath.c_str()), QLatin1String("*.FCMacro *.py"));
+    QDir d(QString(cMacroPath.c_str()), QLatin1String("*.FCMacro *.py"));
     for (unsigned int i=0; i<d.count(); i++ )
         actionMacros->insertItem(0,d[i],QVariant(false));
 
-    QString systemMacroDirStr = QString::fromUtf8(App::GetApplication().getHomePath()) + QString::fromUtf8("Macro");
+    QString systemMacroDirStr = QString(App::GetApplication().getHomePath()) + QString("Macro");
     d = QDir(systemMacroDirStr, QLatin1String("*.FCMacro *.py"));
     if (d.exists()) {
         for (unsigned int i=0; i<d.count(); i++ ) {
@@ -143,7 +143,7 @@ void DlgCustomActionsImp::showActions()
         QTreeWidgetItem* item = new QTreeWidgetItem(actionListWidget);
         QByteArray actionName = (*it)->getName();
         item->setData(1, Qt::UserRole, actionName);
-        item->setText(1, QString::fromUtf8((*it)->getMenuText()));
+        item->setText(1, QString((*it)->getMenuText()));
         item->setSizeHint(0, QSize(32, 32));
         if ( (*it)->getPixmap() )
             item->setIcon(0, BitmapFactory().pixmap((*it)->getPixmap()));
@@ -165,7 +165,7 @@ void DlgCustomActionsImp::on_actionListWidget_itemActivated(QTreeWidgetItem *ite
     if ( pScript )
     {
         bool bFound = false;
-        QString scriptName = QString::fromUtf8(pScript->getScriptName());
+        QString scriptName = QString(pScript->getScriptName());
         for (int i = 0; i<actionMacros->count(); i++)
         {
             if (actionMacros->itemText(i).startsWith(scriptName, Qt::CaseSensitive))
@@ -183,9 +183,9 @@ void DlgCustomActionsImp::on_actionListWidget_itemActivated(QTreeWidgetItem *ite
         }
 
         // fill up labels with the command's data
-        actionMenu      -> setText(QString::fromUtf8(pScript->getMenuText()));
-        actionToolTip   -> setText(QString::fromUtf8(pScript->getToolTipText()));
-        actionStatus    -> setText(QString::fromUtf8(pScript->getStatusTip()));
+        actionMenu      -> setText(QString(pScript->getMenuText()));
+        actionToolTip   -> setText(QString(pScript->getToolTipText()));
+        actionStatus    -> setText(QString(pScript->getStatusTip()));
         actionAccel     -> setText(QString(pScript->getAccel()));
         pixmapLabel->clear();
         m_sPixmap = QString();
@@ -194,7 +194,7 @@ void DlgCustomActionsImp::on_actionListWidget_itemActivated(QTreeWidgetItem *ite
         {
             QPixmap p = Gui::BitmapFactory().pixmap(pScript->getPixmap());
             pixmapLabel->setPixmap(p);
-            m_sPixmap = QString::fromUtf8(name); // can also be a path
+            m_sPixmap = QString(name); // can also be a path
         }
     }
 }
@@ -312,9 +312,9 @@ void DlgCustomActionsImp::on_buttonReplaceAction_clicked()
     if (action)
     {
         // does all the text related stuff
-        action->setText(QString::fromUtf8(macro->getMenuText()));
-        action->setToolTip(QString::fromUtf8(macro->getToolTipText()));
-        action->setStatusTip(QString::fromUtf8(macro->getStatusTip()));
+        action->setText(QString(macro->getMenuText()));
+        action->setToolTip(QString(macro->getToolTipText()));
+        action->setStatusTip(QString(macro->getStatusTip()));
         if (macro->getPixmap())
             action->setIcon(Gui::BitmapFactory().pixmap(macro->getPixmap()));
         action->setShortcut(QString(macro->getAccel()));
@@ -413,7 +413,7 @@ void IconDialog::onAddIconPath()
     std::vector<std::string> paths = group->GetASCIIs("CustomPath");
     QStringList pathList;
     for (std::vector<std::string>::iterator it = paths.begin(); it != paths.end(); ++it)
-        pathList << QString::fromUtf8(it->c_str());
+        pathList << QString(it->c_str());
 
     IconFolders dlg(pathList, this);
     dlg.setWindowTitle(tr("Icon folders"));

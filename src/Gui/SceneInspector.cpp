@@ -153,7 +153,7 @@ void DlgInspector::setNodeNames(Gui::Document* doc)
         Gui::ViewProviderDocumentObject* vp = static_cast<Gui::ViewProviderDocumentObject*>(*it);
         App::DocumentObject* obj = vp->getObject();
         if (obj) {
-            QString label = QString::fromUtf8(obj->Label.getValue());
+            QString label = QString(obj->Label.getValue());
             nodeNames[vp->getRoot()] = label;
         }
 

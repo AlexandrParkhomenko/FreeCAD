@@ -472,7 +472,7 @@ SoFCUnifiedSelection::handleEvent(SoHandleEventAction * action)
                                            ,pp->getPoint()[1]
                                            ,pp->getPoint()[2]);
 
-                getMainWindow()->showMessage(QString::fromUtf8(buf));
+                getMainWindow()->showMessage(QString(buf));
 
                 setPreSelection = true;
                 if (Gui::Selection().setPreselect(documentName.c_str()

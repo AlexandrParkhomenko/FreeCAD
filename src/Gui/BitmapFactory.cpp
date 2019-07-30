@@ -76,15 +76,15 @@ BitmapFactoryInst& BitmapFactoryInst::instance(void)
         std::map<std::string,std::string>::const_iterator it;
         it = App::GetApplication().Config().find("ProgramIcons");
         if (it != App::GetApplication().Config().end()) {
-            QString home = QString::fromUtf8(App::GetApplication().getHomePath());
-            QString path = QString::fromUtf8(it->second.c_str());
+            QString home = QString(App::GetApplication().getHomePath());
+            QString path = QString(it->second.c_str());
             if (QDir(path).isRelative()) {
                 path = QFileInfo(QDir(home), path).absoluteFilePath();
             }
             _pcSingleton->addPath(path);
         }
-        _pcSingleton->addPath(QString("%1/icons").arg(QString::fromUtf8(App::GetApplication().getHomePath())));
-        _pcSingleton->addPath(QString("%1/icons").arg(QString::fromUtf8(App::GetApplication().Config()["UserAppData"].c_str())));
+        _pcSingleton->addPath(QString("%1/icons").arg(QString(App::GetApplication().getHomePath())));
+        _pcSingleton->addPath(QString("%1/icons").arg(QString(App::GetApplication().Config()["UserAppData"].c_str())));
         _pcSingleton->addPath(QLatin1String(":/icons/"));
         _pcSingleton->addPath(QLatin1String(":/Icons/"));
     }
@@ -116,7 +116,7 @@ void BitmapFactoryInst::restoreCustomPaths()
         ("User parameter:BaseApp/Preferences/Bitmaps");
     std::vector<std::string> paths = group->GetASCIIs("CustomPath");
     for (std::vector<std::string>::iterator it = paths.begin(); it != paths.end(); ++it) {
-        addPath(QString::fromUtf8(it->c_str()));
+        addPath(QString(it->c_str()));
     }
 }
 
@@ -232,7 +232,7 @@ QPixmap BitmapFactoryInst::pixmap(const char* name) const
         icon = QPixmap(It.value());
 
     // Try whether an absolute path is given
-    QString fn = QString::fromUtf8(name);
+    QString fn = QString(name);
     if (icon.isNull())
         loadPixmap(fn, icon);
 
@@ -268,7 +268,7 @@ QPixmap BitmapFactoryInst::pixmapFromSvg(const char* name, const QSize& size) co
     // If an absolute path is given
     QPixmap icon;
     QString iconPath;
-    QString fn = QString::fromUtf8(name);
+    QString fn = QString(name);
     if (QFile(fn).exists())
         iconPath = fn;
 
@@ -319,9 +319,9 @@ QStringList BitmapFactoryInst::pixmapNames() const
 {
     QStringList names;
     for (QMap<std::string,const char**>::ConstIterator It = d->xpmMap.begin(); It != d->xpmMap.end(); ++It)
-        names << QString::fromUtf8(It.key().c_str());
+        names << QString(It.key().c_str());
     for (QMap<std::string, QPixmap>::ConstIterator It = d->xpmCache.begin(); It != d->xpmCache.end(); ++It) {
-        QString item = QString::fromUtf8(It.key().c_str());
+        QString item = QString(It.key().c_str());
         if (!names.contains(item))
             names << item;
     }

@@ -65,7 +65,7 @@ Py::Object PythonStdout::write(const Py::Tuple& args)
                 const char* string = PyBytes_AsString(unicode);
 
                 int maxlen = qstrlen(string) > 10000 ? 10000 : -1;
-                pyConsole->insertPythonOutput(QString::fromUtf8(string, maxlen));
+                pyConsole->insertPythonOutput(QString(string, maxlen));
                 Py_DECREF(unicode);
             }
         }
@@ -73,7 +73,7 @@ Py::Object PythonStdout::write(const Py::Tuple& args)
             Py::String text(args[0]);
             std::string string = (std::string)text;
             int maxlen = string.size() > 10000 ? 10000 : -1;
-            pyConsole->insertPythonOutput(QString::fromUtf8(string.c_str(), maxlen));
+            pyConsole->insertPythonOutput(QString(string.c_str(), maxlen));
         }
     }
     catch (Py::Exception& e) {
@@ -143,7 +143,7 @@ Py::Object PythonStderr::write(const Py::Tuple& args)
                 const char* string = PyBytes_AsString(unicode);
 
                 int maxlen = qstrlen(string) > 10000 ? 10000 : -1;
-                pyConsole->insertPythonError(QString::fromUtf8(string, maxlen));
+                pyConsole->insertPythonError(QString(string, maxlen));
                 Py_DECREF(unicode);
             }
         }
@@ -151,7 +151,7 @@ Py::Object PythonStderr::write(const Py::Tuple& args)
             Py::String text(args[0]);
             std::string string = (std::string)text;
             int maxlen = string.size() > 10000 ? 10000 : -1;
-            pyConsole->insertPythonError(QString::fromUtf8(string.c_str(), maxlen));
+            pyConsole->insertPythonError(QString(string.c_str(), maxlen));
         }
     }
     catch (Py::Exception& e) {

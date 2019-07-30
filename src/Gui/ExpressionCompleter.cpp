@@ -101,9 +101,9 @@ void ExpressionCompleter::createModelForDocument(const App::Document * doc, QSta
             if (!ExpressionParser::isTokenAnIndentifier(label))
                 label = quote(label);
 
-            docObjItem = new QStandardItem(QString::fromUtf8(label.c_str()));
+            docObjItem = new QStandardItem(QString(label.c_str()));
 
-            docObjItem->setData( QString::fromUtf8(label.c_str()) + QString("."), Qt::UserRole);
+            docObjItem->setData( QString(label.c_str()) + QString("."), Qt::UserRole);
             createModelForDocumentObject(*doi, docObjItem);
             parent->appendRow(docObjItem);
         }

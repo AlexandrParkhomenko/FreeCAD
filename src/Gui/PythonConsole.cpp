@@ -473,7 +473,7 @@ void PythonConsole::OnChange( Base::Subject<const char*> &rCaller,const char* sR
         QFont font(fontFamily, fontSize);
         setFont(font);
 //#        QFontMetrics metric(font);
-//#        int width = metric.width(QString::fromUtf8("0000"));
+//#        int width = metric.width(QString("0000"));
 //#        setTabStopWidth(width);
     } else {
         QMap<QString, QColor>::ConstIterator it = d->colormap.find(QString(sReason));
@@ -1257,7 +1257,7 @@ void PythonConsole::onClearConsole()
 
 void PythonConsole::onSaveHistoryAs()
 {
-    QString cMacroPath = QString::fromUtf8(getDefaultParameter()->GetGroup( "Macro" )->
+    QString cMacroPath = QString(getDefaultParameter()->GetGroup( "Macro" )->
         GetASCII("MacroPath",App::Application::getUserMacroDir().c_str()).c_str());
     QString fn = FileDialog::getSaveFileName(this, tr("Save History"), cMacroPath,
         QString("%1 (*.FCMacro *.py)").arg(tr("Macro Files")));

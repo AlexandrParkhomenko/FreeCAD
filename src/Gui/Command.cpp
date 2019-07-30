@@ -690,14 +690,14 @@ void MacroCommand::activated(int iMsg)
                              ("User parameter:BaseApp/Preferences/Macro")->GetASCII("MacroPath",
                                      App::Application::getUserMacroDir().c_str());
 
-        d = QDir(QString::fromUtf8(cMacroPath.c_str()));
+        d = QDir(QString(cMacroPath.c_str()));
     }
     else {
-        QString dirstr = QString::fromUtf8(App::GetApplication().getHomePath()) + QString::fromUtf8("Macro");
+        QString dirstr = QString(App::GetApplication().getHomePath()) + QString("Macro");
         d = QDir(dirstr);
     }
     
-    QFileInfo fi(d, QString::fromUtf8(sScriptName));
+    QFileInfo fi(d, QString(sScriptName));
     if (!fi.exists()) {
         QMessageBox::critical(Gui::getMainWindow(),
             qApp->translate("Gui::MacroCommand", "Macro file doesn't exist"),
@@ -715,9 +715,9 @@ Action * MacroCommand::createAction(void)
 {
     Action *pcAction;
     pcAction = new Action(this,getMainWindow());
-    pcAction->setText(QString::fromUtf8(sMenuText));
-    pcAction->setToolTip(QString::fromUtf8(sToolTipText));
-    pcAction->setStatusTip(QString::fromUtf8(sStatusTip));
+    pcAction->setText(QString(sMenuText));
+    pcAction->setToolTip(QString(sToolTipText));
+    pcAction->setStatusTip(QString(sStatusTip));
     if (pcAction->statusTip().isEmpty())
         pcAction->setStatusTip(pcAction->toolTip());
     if (sPixmap)

@@ -73,7 +73,7 @@ int UnitPy::PyInit(PyObject* args, PyObject* /*kwd*/)
     PyErr_Clear(); // set by PyArg_ParseTuple()
     char* string;
     if (PyArg_ParseTuple(args,"et", "utf-8", &string)) {
-        QString qstr = QString::fromUtf8(string);
+        QString qstr = QString(string);
         PyMem_Free(string);
         *self = Quantity::parse(qstr).getUnit();
         return 0;

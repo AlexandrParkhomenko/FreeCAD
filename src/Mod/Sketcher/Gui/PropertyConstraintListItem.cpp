@@ -66,7 +66,7 @@ void PropertyConstraintListItem::initialize()
 
             // Get the name
             QString internalName = QString("Constraint%1").arg(id);
-            QString name = QString::fromUtf8((*it)->Name.c_str());
+            QString name = QString((*it)->Name.c_str());
             if (name.isEmpty()) {
                 name = internalName;
                 item->setPropertyName(name);
@@ -189,7 +189,7 @@ void PropertyConstraintListItem::assignProperty(const App::Property* prop)
 
             // Get the name
             QString internalName = QString("Constraint%1").arg(id);
-            QString name = QString::fromUtf8((*it)->Name.c_str());
+            QString name = QString((*it)->Name.c_str());
             if (name.isEmpty()) {
                 name = internalName;
             }

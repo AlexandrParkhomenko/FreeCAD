@@ -43,7 +43,7 @@ QString UnitsSchemaInternal::schemaTranslate(const Quantity &quant, double &fact
             factor = 0.000001;
         }
         else if (UnitValue < 0.1) {
-            unitString = QString::fromUtf8("\xC2\xB5m");
+            unitString = QString("\xC2\xB5m");
             factor = 0.001;
         }
         else if (UnitValue < 10000.0) {
@@ -72,7 +72,7 @@ QString UnitsSchemaInternal::schemaTranslate(const Quantity &quant, double &fact
     else if (unit == Unit::Angle) {
         // TODO Cascade for the Areas
         // default action for all cases without special treatment:
-        unitString = QString::fromUtf8("\xC2\xB0");
+        unitString = QString("\xC2\xB0");
         factor = 1.0;
     }
     else if (unit == Unit::Mass) {
@@ -107,7 +107,7 @@ QString UnitsSchemaInternal::schemaTranslate(const Quantity &quant, double &fact
     }
     else if (unit == Unit::ThermalExpansionCoefficient) {
         if (UnitValue < 0.001) {
-            unitString = QString::fromUtf8("\xC2\xB5m/m/K");
+            unitString = QString("\xC2\xB5m/m/K");
             factor = 0.000001;
         }
         else {

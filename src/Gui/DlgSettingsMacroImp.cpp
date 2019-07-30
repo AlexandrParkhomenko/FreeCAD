@@ -26,7 +26,7 @@ DlgSettingsMacroImp::DlgSettingsMacroImp( QWidget* parent )
     this->MacroPath_2->hide();
 
     if (MacroPath->fileName().isEmpty()) {
-        QDir d(QString::fromUtf8(App::GetApplication().getUserMacroDir().c_str()));
+        QDir d(QString(App::GetApplication().getUserMacroDir().c_str()));
         MacroPath->setFileName(d.path());
     }
 }

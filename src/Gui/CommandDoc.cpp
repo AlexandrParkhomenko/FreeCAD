@@ -246,8 +246,8 @@ void StdCmdExport::activated(int iMsg)
 
     if (Gui::Selection().countObjectsOfType(App::DocumentObject::getClassTypeId()) == 0) {
         QMessageBox::warning(Gui::getMainWindow(),
-            QString::fromUtf8(QT_TR_NOOP("No selection")),
-            QString::fromUtf8(QT_TR_NOOP("Please select first the objects you want to export.")));
+            QString(QT_TR_NOOP("No selection")),
+            QString(QT_TR_NOOP("Please select first the objects you want to export.")));
         return;
     }
 
@@ -308,18 +308,18 @@ void StdCmdMergeProjects::activated(int iMsg)
 
     QString exe = qApp->applicationName();
     QString project = QFileDialog::getExistingDirectory(Gui::getMainWindow(),
-        QString::fromUtf8(QT_TR_NOOP("Merge project")), FileDialog::getWorkingDirectory()
-        //,QString::fromUtf8(QT_TR_NOOP("%1 document (*.freecad)")).arg(exe) //# for getOpenFileName
+        QString(QT_TR_NOOP("Merge project")), FileDialog::getWorkingDirectory()
+        //,QString(QT_TR_NOOP("%1 document (*.freecad)")).arg(exe) //# for getOpenFileName
 		);
     if (!project.isEmpty()) {
         FileDialog::setWorkingDirectory(project);
         App::Document* doc = App::GetApplication().getActiveDocument();
-        QFileInfo info(QString::fromUtf8(doc->FileName.getValue()));
+        QFileInfo info(QString(doc->FileName.getValue()));
         QFileInfo proj(project);
         if (proj == info) {
             QMessageBox::critical(Gui::getMainWindow(),
-                QString::fromUtf8(QT_TR_NOOP("Merge project")),
-                QString::fromUtf8(QT_TR_NOOP("Cannot merge project with itself.")));
+                QString(QT_TR_NOOP("Merge project")),
+                QString(QT_TR_NOOP("Cannot merge project with itself.")));
             return;
         }
 
@@ -1054,7 +1054,7 @@ void StdCmdDelete::activated(int iMsg)
                                 ViewProvider* vp = pGuiDoc->getViewProvider(*lt);
                                 if (!vp->canDelete(obj)) {
                                     autoDeletion = false;
-                                    affectedLabels.insert(QString::fromUtf8((*lt)->Label.getValue()));
+                                    affectedLabels.insert(QString((*lt)->Label.getValue()));
                                 }
                             }
                         }
@@ -1069,7 +1069,7 @@ void StdCmdDelete::activated(int iMsg)
                     App::DocumentObject* obj = ft->getObject();
                     App::Document* objDoc = obj->getDocument();
                     if (actDoc != objDoc) {
-                        inactiveLabels.insert(QString::fromUtf8(obj->Label.getValue()));
+                        inactiveLabels.insert(QString(obj->Label.getValue()));
                         autoDeletion = false;
                     }
                 }

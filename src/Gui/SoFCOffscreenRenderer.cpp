@@ -102,7 +102,7 @@ void SoFCOffscreenRenderer::writeToImageFile(const char* filename, const char* c
         image.save(&buffer, "JPG");
         writeJPEGComment(com, ba);
 
-        QFile file(QString::fromUtf8(filename));
+        QFile file(QString(filename));
         if (file.open(QFile::WriteOnly)) {
             file.write(ba);
             file.close();
@@ -131,20 +131,20 @@ void SoFCOffscreenRenderer::writeToImageFile(const char* filename, const char* c
             QImage img = image;
             // set keywords for PNG format
             if (file.hasExtension(".PNG")) {
-                img.setText(QLatin1String("Title"), QString::fromUtf8(filename));
+                img.setText(QLatin1String("Title"), QString(filename));
                 img.setText(QLatin1String("Author"), QLatin1String("FreeCAD"));
                 if (strcmp(comment,"")==0)
                     img.setText(QLatin1String("Description"), QLatin1String("Screenshot created by FreeCAD"));
                 else if (strcmp(comment,"$MIBA")==0)
                     img.setText(QLatin1String("Description"), QLatin1String(createMIBA(mat).c_str()));
                 else 
-                    img.setText(QLatin1String("Description"), QString::fromUtf8(comment));
+                    img.setText(QLatin1String("Description"), QString(comment));
                 img.setText(QLatin1String("Creation Time"), QDateTime::currentDateTime().toString());
                 img.setText(QLatin1String("Software"), 
-                    QString::fromUtf8(App::GetApplication().getExecutableName()));
+                    QString(App::GetApplication().getExecutableName()));
             }
 
-            QFile f(QString::fromUtf8(filename));
+            QFile f(QString(filename));
             if (f.open(QFile::WriteOnly)) {
                 if (img.save(&f, format.data())) {
                     f.close();

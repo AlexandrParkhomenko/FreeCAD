@@ -108,12 +108,12 @@ void MDIView::onRelabel(Gui::Document *pDoc)
             pos = rx.lastIndexIn(cap);
         }
         if (pos != -1) {
-            cap = QString::fromUtf8(pDoc->getDocument()->Label.getValue());
+            cap = QString(pDoc->getDocument()->Label.getValue());
             cap += rx.cap();
             setWindowTitle(cap);
         }
         else {
-            cap = QString::fromUtf8(pDoc->getDocument()->Label.getValue());
+            cap = QString(pDoc->getDocument()->Label.getValue());
             cap = QString("%1[*]").arg(cap);
             setWindowTitle(cap);
         }

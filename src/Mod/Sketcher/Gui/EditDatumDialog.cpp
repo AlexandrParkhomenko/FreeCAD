@@ -156,7 +156,7 @@ void EditDatumDialog::exec(bool atCursor)
                     tryAutoRecompute(sketch);
                 }
                 catch (const Base::Exception& e) {
-                    QMessageBox::critical(qApp->activeWindow(), QObject::tr("Dimensional constraint"), QString::fromUtf8(e.what()));
+                    QMessageBox::critical(qApp->activeWindow(), QObject::tr("Dimensional constraint"), QString(e.what()));
                     Gui::Command::abortCommand();
                 }
             }

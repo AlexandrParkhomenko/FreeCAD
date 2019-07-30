@@ -247,7 +247,7 @@ FaceColors::FaceColors(ViewProviderPartExt* vp, QWidget* parent)
 {
     Q_UNUSED(parent);
     d->ui->setupUi(this);
-    d->ui->groupBox->setTitle(QString::fromUtf8(vp->getObject()->Label.getValue()));
+    d->ui->groupBox->setTitle(QString(vp->getObject()->Label.getValue()));
     d->ui->colorButton->setDisabled(true);
 
     FaceSelection* gate = new FaceSelection(d->vp->getObject());

@@ -43,7 +43,7 @@ using namespace Gui::TaskView;
 #define CONTEXT_ITEM(ICONSTR,NAMESTR,CMDSTR,FUNC,ACTSONSELECTION) \
 QIcon icon_ ## FUNC( Gui::BitmapFactory().pixmap(ICONSTR) ); \
     QAction* constr_ ## FUNC = menu.addAction(icon_ ## FUNC,tr(NAMESTR), this, SLOT(FUNC()), \
-        QKeySequence(QString::fromUtf8(Gui::Application::Instance->commandManager().getCommandByName(CMDSTR)->getAccel()))); \
+        QKeySequence(QString(Gui::Application::Instance->commandManager().getCommandByName(CMDSTR)->getAccel()))); \
     if(ACTSONSELECTION) constr_ ## FUNC->setEnabled(!items.isEmpty()); else constr_ ## FUNC->setEnabled(true);
 
 /// Defines the member function corresponding to the CONTEXT_ITEM macro
@@ -231,7 +231,7 @@ TaskSketcherElements::TaskSketcherElements(ViewProviderSketch *sketchView)
     proxy = new QWidget(this);
     ui->setupUi(proxy);
 #ifdef Q_OS_MAC
-    QString cmdKey = QString::fromUtf8("\xe2\x8c\x98"); // U+2318
+    QString cmdKey = QString("\xe2\x8c\x98"); // U+2318
 #else
     // translate the text (it's offered by Qt's translation files)
     // but avoid being picked up by lupdate
@@ -763,9 +763,9 @@ void TaskSketcherElements::slotElementsChanged(void)
         if(isNamingBoxChecked) {
             if(size_t(j-3) < linkobjs.size() && size_t(j-3) < linksubs.size()) {
                 linkname =  QString("(ExternalEdge%1, ").arg(j-2) +
-                            QString::fromUtf8(linkobjs[j-3]->getNameInDocument()) +
+                            QString(linkobjs[j-3]->getNameInDocument()) +
                             QString(".") +
-                            QString::fromUtf8(linksubs[j-3].c_str()) +
+                            QString(linksubs[j-3].c_str()) +
                             QString(")");
             }
             else {

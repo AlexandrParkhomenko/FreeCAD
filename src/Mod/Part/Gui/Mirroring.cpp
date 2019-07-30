@@ -83,7 +83,7 @@ void Mirroring::findShapes()
     for (std::vector<App::DocumentObject*>::iterator it = objs.begin(); it!=objs.end(); ++it) {
         const TopoDS_Shape& shape = static_cast<Part::Feature*>(*it)->Shape.getValue();
         if (!shape.IsNull()) {
-            QString label = QString::fromUtf8((*it)->Label.getValue());
+            QString label = QString((*it)->Label.getValue());
             QString name = QString((*it)->getNameInDocument());
             
             QTreeWidgetItem* child = new QTreeWidgetItem();

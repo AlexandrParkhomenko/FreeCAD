@@ -203,7 +203,7 @@ void PrefLineEdit::restorePreferences()
   }
 
   QString text = this->text();
-  text = QString::fromUtf8(getWindowParameter()->GetASCII(entryName(), text.toUtf8()).c_str());
+  text = QString(getWindowParameter()->GetASCII(entryName(), text.toUtf8()).c_str());
   setText(text);
 }
 
@@ -237,7 +237,7 @@ void PrefFileChooser::restorePreferences()
     return;
   }
 
-  QString txt = QString::fromUtf8(getWindowParameter()->GetASCII(entryName(), fileName().toUtf8()).c_str());
+  QString txt = QString(getWindowParameter()->GetASCII(entryName(), fileName().toUtf8()).c_str());
   setFileName(txt);
 }
 
@@ -606,7 +606,7 @@ QStringList PrefQuantitySpinBox::getHistory() const
             hist.append(QByteArray::number(i));
             tmp = d->handle->GetASCII(hist);
             if (!tmp.empty())
-                res.push_back(QString::fromUtf8(tmp.c_str()));
+                res.push_back(QString(tmp.c_str()));
             else
                 break; // end of history reached
         }

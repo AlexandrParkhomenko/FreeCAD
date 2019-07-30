@@ -146,7 +146,7 @@ TaskWatcherPython::TaskWatcherPython(const Py::Object& o)
     if (watcher.hasAttr(std::string("title"))) {
         Py::String name(watcher.getAttr(std::string("title")));
         std::string s = (std::string)name;
-        title = QString::fromUtf8(s.c_str());
+        title = QString(s.c_str());
     }
 
     QPixmap icon;
@@ -243,7 +243,7 @@ TaskDialogPython::TaskDialogPython(const Py::Object& o) : dlg(o)
         QString fn, icon;
         Py::String ui(dlg.getAttr(std::string("ui")));
         std::string path = (std::string)ui;
-        fn = QString::fromUtf8(path.c_str());
+        fn = QString(path.c_str());
 
         QFile file(fn);
         QWidget* form = 0;

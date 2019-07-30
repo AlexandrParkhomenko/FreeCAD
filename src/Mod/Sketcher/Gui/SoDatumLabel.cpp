@@ -86,7 +86,7 @@ void SoDatumLabel::drawImage()
 
     QFont font(QString(name.getValue()), size.getValue());
     QFontMetrics fm(font);
-    QString str = QString::fromUtf8(s[0].getString());
+    QString str = QString(s[0].getString());
 
     int w = fm.width(str);
     int h = fm.height();

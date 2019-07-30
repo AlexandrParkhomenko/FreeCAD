@@ -337,7 +337,7 @@ void CmdMeshExport::activated(int)
 
     App::DocumentObject* docObj = docObjs.front();
 
-    QString dir = QString::fromUtf8(docObj->Label.getValue());
+    QString dir = QString(docObj->Label.getValue());
     QList<QPair<QString, QByteArray> > ext;
     ext << qMakePair<QString, QByteArray>(QString("%1 (*.stl)").arg(QObject::tr("Binary STL")), "STL");
     ext << qMakePair<QString, QByteArray>(QString("%1 (*.stl)").arg(QObject::tr("ASCII STL")), "AST");
@@ -1286,7 +1286,7 @@ void CmdMeshBoundingBox::activated(int)
                                 box.MinX,box.MinY,box.MinZ,box.MaxX,box.MaxY,box.MaxZ);
 
         QString bound = qApp->translate("Mesh_BoundingBox", "Boundings of %1:")
-                .arg(QString::fromUtf8((*it)->Label.getValue()));
+                .arg(QString((*it)->Label.getValue()));
         bound += QString("\n\nMin=<%1,%2,%3>\n\nMax=<%4,%5,%6>")
             .arg(box.MinX).arg(box.MinY).arg(box.MinZ)
             .arg(box.MaxX).arg(box.MaxY).arg(box.MaxZ);

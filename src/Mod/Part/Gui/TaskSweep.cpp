@@ -178,7 +178,7 @@ void SweepWidget::findShapes()
             shape.ShapeType() == TopAbs_WIRE ||
             shape.ShapeType() == TopAbs_EDGE ||
             shape.ShapeType() == TopAbs_VERTEX) {
-            QString label = QString::fromUtf8((*it)->Label.getValue());
+            QString label = QString((*it)->Label.getValue());
             QString name = QString((*it)->getNameInDocument());
             
             QTreeWidgetItem* child = new QTreeWidgetItem();
@@ -295,7 +295,7 @@ bool SweepWidget::accept()
         QString name = child->data(0, Qt::UserRole).toString();
         if (name == QLatin1String(spineObject.c_str())) {
             QMessageBox::critical(this, tr("Wrong selection"), tr("'%1' cannot be used as profile and path.")
-                .arg(QString::fromUtf8(spineLabel.c_str())));
+                .arg(QString(spineLabel.c_str())));
             return false;
         }
         str << "App.getDocument('" << d->document.c_str() << "')." << name << ", ";

@@ -899,7 +899,7 @@ Py::Object View3DInventorPy::saveImage(const Py::Tuple& args)
 
     std::string encodedName = std::string(cFileName);
     PyMem_Free(cFileName);
-    QFileInfo fi(QString::fromUtf8(encodedName.c_str()));
+    QFileInfo fi(QString(encodedName.c_str()));
 
     if (!fi.absoluteDir().exists())
         throw Py::RuntimeError("Directory where to save image doesn't exist");

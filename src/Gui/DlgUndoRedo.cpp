@@ -45,7 +45,7 @@ void UndoDialog::onFetchInfo()
     {
         std::vector<std::string> vecUndos = pcDoc->getUndoVector();
         for (std::vector<std::string>::iterator i=vecUndos.begin(); i!=vecUndos.end(); ++i)
-            addAction(QString::fromUtf8((*i).c_str()), this, SLOT(onSelected()));
+            addAction(QString((*i).c_str()), this, SLOT(onSelected()));
     }
     else
     {
@@ -102,7 +102,7 @@ void RedoDialog::onFetchInfo()
     {
         std::vector<std::string> vecRedos = pcDoc->getRedoVector();
         for (std::vector<std::string>::iterator i=vecRedos.begin(); i!=vecRedos.end(); ++i)
-            addAction(QString::fromUtf8((*i).c_str()), this, SLOT(onSelected()));
+            addAction(QString((*i).c_str()), this, SLOT(onSelected()));
     }
     else
     {

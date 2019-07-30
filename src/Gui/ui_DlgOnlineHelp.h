@@ -34,29 +34,29 @@ public:
     void setupUi(QWidget *Gui__Dialog__DlgOnlineHelp)
     {
         if (Gui__Dialog__DlgOnlineHelp->objectName().isEmpty())
-            Gui__Dialog__DlgOnlineHelp->setObjectName(QString::fromUtf8("Gui__Dialog__DlgOnlineHelp"));
+            Gui__Dialog__DlgOnlineHelp->setObjectName(QString("Gui__Dialog__DlgOnlineHelp"));
         Gui__Dialog__DlgOnlineHelp->resize(395, 440);
         gridLayout = new QGridLayout(Gui__Dialog__DlgOnlineHelp);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(9, 9, 9, 9);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setObjectName(QString("gridLayout"));
         spacerItem = new QSpacerItem(373, 291, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout->addItem(spacerItem, 1, 0, 1, 1);
 
         GroupBoxOther = new QGroupBox(Gui__Dialog__DlgOnlineHelp);
-        GroupBoxOther->setObjectName(QString::fromUtf8("GroupBoxOther"));
+        GroupBoxOther->setObjectName(QString("GroupBoxOther"));
         gridLayout1 = new QGridLayout(GroupBoxOther);
         gridLayout1->setSpacing(6);
         gridLayout1->setContentsMargins(9, 9, 9, 9);
-        gridLayout1->setObjectName(QString::fromUtf8("gridLayout1"));
+        gridLayout1->setObjectName(QString("gridLayout1"));
         TextLabelURL = new QLabel(GroupBoxOther);
-        TextLabelURL->setObjectName(QString::fromUtf8("TextLabelURL"));
+        TextLabelURL->setObjectName(QString("TextLabelURL"));
 
         gridLayout1->addWidget(TextLabelURL, 0, 0, 1, 1);
 
         prefStartPage = new Gui::PrefFileChooser(GroupBoxOther);
-        prefStartPage->setObjectName(QString::fromUtf8("prefStartPage"));
+        prefStartPage->setObjectName(QString("prefStartPage"));
         prefStartPage->setProperty("prefEntry", QVariant(QByteArray("Startpage")));
         prefStartPage->setProperty("prefPath", QVariant(QByteArray("OnlineHelp")));
 

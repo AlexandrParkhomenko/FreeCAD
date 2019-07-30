@@ -288,7 +288,7 @@ void Model::slotChangeObject(const ViewProviderDocumentObject &VPDObjectIn, cons
   {
     const GraphLinkRecord &record = findRecord(&VPDObjectIn, *graphLink);
     auto *text = (*theGraph)[record.vertex].text.get();
-    text->setPlainText(QString::fromUtf8(record.DObject->Label.getValue()));
+    text->setPlainText(QString(record.DObject->Label.getValue()));
   }
   
   //link changes. these require a recalculation of connectors.
@@ -651,7 +651,7 @@ void Model::updateSlot()
     pixmap->setTransform(QTransform::fromTranslate(0.0, rowHeight * currentRow + cheat)); //calculate x location later.
     
     auto *text = (*theGraph)[currentVertex].text.get();
-    text->setPlainText(QString::fromUtf8(findRecord(currentVertex, *graphLink).DObject->Label.getValue()));
+    text->setPlainText(QString(findRecord(currentVertex, *graphLink).DObject->Label.getValue()));
     text->setDefaultTextColor(currentBrush.color());
     maxTextLength = std::max(maxTextLength, static_cast<float>(text->boundingRect().width()));
     text->setTransform(QTransform::fromTranslate

@@ -38,7 +38,7 @@ ReportView::ReportView( QWidget* parent )
     tabLayout->setMargin( 0 );
 
     tabWidget = new QTabWidget( this );
-    tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+    tabWidget->setObjectName(QString("tabWidget"));
     tabWidget->setTabPosition(QTabWidget::South);
     tabWidget->setTabShape(QTabWidget::Rounded);
     tabLayout->addWidget( tabWidget, 0, 0 );
@@ -46,7 +46,7 @@ ReportView::ReportView( QWidget* parent )
 
     // create the output window
     tabOutput = new ReportOutput();
-    tabOutput->setWindowTitle(QString::fromUtf8("Output"));
+    tabOutput->setWindowTitle(QString("Output"));
     tabOutput->setWindowIcon(BitmapFactory().pixmap("MacroEditor"));
     int output = tabWidget->addTab(tabOutput, tabOutput->windowTitle());
     tabWidget->setTabIcon(output, tabOutput->windowIcon());
@@ -54,7 +54,7 @@ ReportView::ReportView( QWidget* parent )
     // create the python console
     tabPython = new PythonConsole();
     tabPython->setWordWrapMode(QTextOption::NoWrap);
-    tabPython->setWindowTitle(QString::fromUtf8("Python console"));
+    tabPython->setWindowTitle(QString("Python console"));
     tabPython->setWindowIcon(BitmapFactory().iconFromTheme("applications-python"));
     int python = tabWidget->addTab(tabPython, tabPython->windowTitle());
     tabWidget->setTabIcon(python, tabPython->windowIcon());
@@ -78,8 +78,8 @@ void ReportView::changeEvent(QEvent *e)
 {
     QWidget::changeEvent(e);
     if (e->type() == QEvent::LanguageChange) {
-        tabOutput->setWindowTitle(QString::fromUtf8("Output"));
-        tabPython->setWindowTitle(QString::fromUtf8("Python console"));
+        tabOutput->setWindowTitle(QString("Output"));
+        tabPython->setWindowTitle(QString("Python console"));
         for (int i=0; i<tabWidget->count();i++)
             tabWidget->setTabText(i, tabWidget->widget(i)->windowTitle());
     }
@@ -306,27 +306,27 @@ void ReportOutput::restoreFont()
 void ReportOutput::Warning(const char * s)
 {
     // Send the event to itself to allow thread-safety. Qt will delete it when done.
-    CustomReportEvent* ev = new CustomReportEvent(ReportHighlighter::Warning, QString::fromUtf8(s));
+    CustomReportEvent* ev = new CustomReportEvent(ReportHighlighter::Warning, QString(s));
     QApplication::postEvent(this, ev);
 }
 
 void ReportOutput::Message(const char * s)
 {
     // Send the event to itself to allow thread-safety. Qt will delete it when done.
-    CustomReportEvent* ev = new CustomReportEvent(ReportHighlighter::Message, QString::fromUtf8(s));
+    CustomReportEvent* ev = new CustomReportEvent(ReportHighlighter::Message, QString(s));
     QApplication::postEvent(this, ev);
 }
 
 void ReportOutput::Error  (const char * s)
 {
     // Send the event to itself to allow thread-safety. Qt will delete it when done.
-    CustomReportEvent* ev = new CustomReportEvent(ReportHighlighter::Error, QString::fromUtf8(s));
+    CustomReportEvent* ev = new CustomReportEvent(ReportHighlighter::Error, QString(s));
     QApplication::postEvent(this, ev);
 }
 
 void ReportOutput::Log (const char * s)
 {
-    QString msg = QString::fromUtf8(s);
+    QString msg = QString(s);
     if (msg.length() < 1000){
         // Send the event to itself to allow thread-safety. Qt will delete it when done.
         CustomReportEvent* ev = new CustomReportEvent(ReportHighlighter::LogText, msg);
@@ -538,7 +538,7 @@ void ReportOutput::OnChange(Base::Subject<const char*> &rCaller, const char * sR
         QFont font(fontFamily, fontSize);
         setFont(font);
 //#        QFontMetrics metric(font);
-//#        int width = metric.horizontalAdvance(QString::fromUtf8("0000"));
+//#        int width = metric.horizontalAdvance(QString("0000"));
 //#        setTabStopWidth(width);
     }
     else if (strcmp(sReason, "RedirectPythonOutput") == 0) {

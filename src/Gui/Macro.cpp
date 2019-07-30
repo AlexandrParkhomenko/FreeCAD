@@ -68,7 +68,7 @@ void MacroManager::open(MacroType eType, const char *sName)
 #endif
 
     // Convert from Utf-8
-    this->macroName = QString::fromUtf8(sName);
+    this->macroName = QString(sName);
     if (!this->macroName.endsWith(QLatin1String(".FCMacro")))
         this->macroName += QLatin1String(".FCMacro");
 
@@ -173,7 +173,7 @@ void MacroManager::addLine(LineType Type, const char* sLine)
             this->pyConsole = Gui::getMainWindow()->findChild<Gui::PythonConsole*>();
         // Python console found?
         if (this->pyConsole)
-            this->pyConsole->printStatement(QString::fromUtf8(sLine));
+            this->pyConsole->printStatement(QString(sLine));
     }
 }
 

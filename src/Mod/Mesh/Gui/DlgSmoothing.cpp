@@ -30,8 +30,8 @@ DlgSmoothing::DlgSmoothing(QWidget* parent)
     connect(bg, SIGNAL(buttonClicked(int)),
             this, SLOT(method_clicked(int)));
 
-    ui->labelLambda->setText(QString::fromUtf8("\xce\xbb"));
-    ui->labelMu->setText(QString::fromUtf8("\xce\xbc"));
+    ui->labelLambda->setText(QString("\xce\xbb"));
+    ui->labelMu->setText(QString("\xce\xbc"));
     this->resize(this->sizeHint());
 }
 

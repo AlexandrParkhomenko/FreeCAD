@@ -385,7 +385,7 @@ void UIntSpinBox::finishFormulaDialog()
 
 void UIntSpinBox::keyPressEvent(QKeyEvent *event)
 {
-    if (event->text() == QString::fromUtf8("=") && isBound())
+    if (event->text() == QString("=") && isBound())
         openFormulaDialog();
     else {
         if (!hasExpression())
@@ -566,7 +566,7 @@ void IntSpinBox::finishFormulaDialog()
 
 void IntSpinBox::keyPressEvent(QKeyEvent *event)
 {
-    if (event->text() == QString::fromUtf8("=") && isBound())
+    if (event->text() == QString("=") && isBound())
         openFormulaDialog();
     else {
         if (!hasExpression())
@@ -747,7 +747,7 @@ void DoubleSpinBox::finishFormulaDialog()
 
 void DoubleSpinBox::keyPressEvent(QKeyEvent *event)
 {
-    if (event->text() == QString::fromUtf8("=") && isBound())
+    if (event->text() == QString("=") && isBound())
         openFormulaDialog();
     else {
         if (!hasExpression())

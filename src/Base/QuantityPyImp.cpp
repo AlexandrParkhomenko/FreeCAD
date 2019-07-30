@@ -78,7 +78,7 @@ int QuantityPy::PyInit(PyObject* args, PyObject* /*kwd*/)
     PyErr_Clear(); // set by PyArg_ParseTuple()
     char* string;
     if (PyArg_ParseTuple(args,"et", "utf-8", &string)) {
-        QString qstr = QString::fromUtf8(string);
+        QString qstr = QString(string);
         PyMem_Free(string);
         try {
             *self = Quantity::parse(qstr);
@@ -167,7 +167,7 @@ PyObject* QuantityPy::getValueAs(PyObject *args)
         PyErr_Clear();
         char* string;
         if (PyArg_ParseTuple(args,"et", "utf-8", &string)) {
-            QString qstr = QString::fromUtf8(string);
+            QString qstr = QString(string);
             PyMem_Free(string);
             quant = Quantity::parse(qstr);
         }

@@ -341,7 +341,7 @@ void DlgExtrusion::findShapes()
         const TopoDS_Shape& shape = static_cast<Part::Feature*>(*it)->Shape.getValue();
         if (canExtrude(shape)) {
             QTreeWidgetItem* item = new QTreeWidgetItem(ui->treeWidget);
-            item->setText(0, QString::fromUtf8((*it)->Label.getValue()));
+            item->setText(0, QString((*it)->Label.getValue()));
             item->setData(0, Qt::UserRole, QString((*it)->getNameInDocument()));
             Gui::ViewProvider* vp = activeGui->getViewProvider(*it);
             if (vp)
@@ -399,7 +399,7 @@ void DlgExtrusion::apply()
         App::Document* activeDoc = App::GetApplication().getDocument(this->document.c_str());
         if (!activeDoc) {
             QMessageBox::critical(this, windowTitle(),
-                tr("The document '%1' doesn't exist.").arg(QString::fromUtf8(this->label.c_str())));
+                tr("The document '%1' doesn't exist.").arg(QString(this->label.c_str())));
             return;
         }
         activeDoc->openTransaction("Extrude");
@@ -447,12 +447,12 @@ void DlgExtrusion::apply()
     }
     catch (Base::Exception &err){
         QMessageBox::critical(this, windowTitle(),
-            tr("Creating Extrusion failed.\n%1").arg(QString::fromUtf8(err.what())));
+            tr("Creating Extrusion failed.\n%1").arg(QString(err.what())));
         return;
     }
     catch(...) {
         QMessageBox::critical(this, windowTitle(),
-            tr("Creating Extrusion failed.\n%1").arg(QString::fromUtf8("Unknown error")));
+            tr("Creating Extrusion failed.\n%1").arg(QString("Unknown error")));
         return;
     }
 }
@@ -594,11 +594,11 @@ bool DlgExtrusion::validate()
         Base::Vector3d dir, base;
         hasValidAxisLink = Part::Extrusion::fetchAxisLink(lnk, base, dir);
     } catch(Base::Exception &err) {
-        errmsg = QString::fromUtf8(err.what());
+        errmsg = QString(err.what());
     } catch(Standard_Failure &err) {
         errmsg = QString::fromLocal8Bit(err.GetMessageString());
     } catch(...) {
-        errmsg = QString::fromUtf8("Unknown error");
+        errmsg = QString("Unknown error");
     }
     if (this->getDirMode() == Part::Extrusion::dmEdge && !hasValidAxisLink){
         if (errmsg.length() > 0)
@@ -620,11 +620,11 @@ bool DlgExtrusion::validate()
             lnk.setValue(&this->getShapeToExtrude()); //simplified - check only for the first shape.
             Part::Extrusion::calculateShapeNormal(lnk);
         } catch(Base::Exception &err) {
-            errmsg = QString::fromUtf8(err.what());
+            errmsg = QString(err.what());
         } catch(Standard_Failure &err) {
             errmsg = QString::fromLocal8Bit(err.GetMessageString());
         } catch(...) {
-            errmsg = QString::fromUtf8("Unknown error");
+            errmsg = QString("Unknown error");
         }
         if (errmsg.length() > 0){
             QMessageBox::critical(this, windowTitle(), tr("Can't determine normal vector of shape to be extruded. Please use other mode. \n\n(%1)").arg(errmsg));

@@ -34,7 +34,7 @@ QString UnitsSchemaMKS::schemaTranslate(const Quantity &quant, double &factor, Q
             factor = 0.000001;
         }
         else if(UnitValue < 0.1) {
-            unitString = QString::fromUtf8("\xC2\xB5m");
+            unitString = QString("\xC2\xB5m");
             factor = 0.001;
         }
         else if(UnitValue < 100.0) {
@@ -136,7 +136,7 @@ QString UnitsSchemaMKS::schemaTranslate(const Quantity &quant, double &factor, Q
     }
     else if (unit == Unit::ThermalExpansionCoefficient) {
         if (UnitValue < 0.001) {
-            unitString = QString::fromUtf8("\xC2\xB5m/m/K");
+            unitString = QString("\xC2\xB5m/m/K");
             factor = 0.000001;
         }
         else {

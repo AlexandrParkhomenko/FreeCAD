@@ -215,7 +215,7 @@ void TreeWidget::contextMenuEvent (QContextMenuEvent * e)
         contextMenu.addMenu(&subMenu);
         QAction* active = 0;
         for (std::vector<App::Document*>::iterator it = docs.begin(); it != docs.end(); ++it) {
-            QString label = QString::fromUtf8((*it)->Label.getValue());
+            QString label = QString((*it)->Label.getValue());
             QAction* action = subMenuGroup.addAction(label);
             action->setCheckable(true);
             action->setStatusTip(tr("Activate document %1").arg(label));
@@ -777,7 +777,7 @@ void TreeWidget::slotNewDocument(const Gui::Document& Doc)
     DocumentItem* item = new DocumentItem(&Doc, this->rootItem);
     this->expandItem(item);
     item->setIcon(0, *documentPixmap);
-    item->setText(0, QString::fromUtf8(Doc.getDocument()->Label.getValue()));
+    item->setText(0, QString(Doc.getDocument()->Label.getValue()));
     DocumentMap[ &Doc ] = item;
 }
 
@@ -801,7 +801,7 @@ void TreeWidget::slotRelabelDocument(const Gui::Document& Doc)
 {
     std::map<const Gui::Document*, DocumentItem*>::iterator it = DocumentMap.find(&Doc);
     if (it != DocumentMap.end()) {
-        it->second->setText(0, QString::fromUtf8(Doc.getDocument()->Label.getValue()));
+        it->second->setText(0, QString(Doc.getDocument()->Label.getValue()));
     }
 }
 
@@ -1281,7 +1281,7 @@ bool DocumentItem::createNewItem(const Gui::ViewProviderDocumentObject& obj,
     }
     else {
         item->setIcon(0, obj.getIcon());
-        item->setText(0, QString::fromUtf8(displayName.c_str()));
+        item->setText(0, QString(displayName.c_str()));
         populateItem(item);
     }
 
@@ -1477,7 +1477,7 @@ void DocumentItem::populateItem(DocumentObjectItem *item, bool refresh)
 
 void DocumentItem::slotChangeObject(const Gui::ViewProviderDocumentObject& view)
 {
-    QString displayName = QString::fromUtf8(view.getObject()->Label.getValue());
+    QString displayName = QString(view.getObject()->Label.getValue());
     FOREACH_ITEM(item,view)
         item->setText(0, displayName);
         populateItem(item, true);

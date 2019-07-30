@@ -193,7 +193,7 @@ void ViewProviderVRMLObject::updateData(const App::Property* prop)
     if (prop == &ivObj->VrmlFile) {
         // read also from file
         const char* filename = ivObj->VrmlFile.getValue();
-        QString fn = QString::fromUtf8(filename);
+        QString fn = QString(filename);
         QFile file(fn);
         SoInput in;
         pcVRML->removeAllChildren();

@@ -48,7 +48,7 @@ TaskWidgetPathCompound::TaskWidgetPathCompound(ViewProviderPathCompound *Compoun
     for (std::vector<App::DocumentObject*>::const_iterator it= Paths.begin();it!=Paths.end();++it) {
         QString name = QString((*it)->getNameInDocument());
         name += QString(" (");
-        name += QString::fromUtf8((*it)->Label.getValue());
+        name += QString((*it)->Label.getValue());
         name += QString(")");
         ui->PathsList->addItem(name);
     }

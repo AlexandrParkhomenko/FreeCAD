@@ -47,12 +47,12 @@ SelectionView::SelectionView(Gui::Document* pcDocument, QWidget *parent)
     QToolButton* clearButton = new QToolButton(this);
     clearButton->setFixedSize(18, 21);
     clearButton->setCursor(Qt::ArrowCursor);
-    clearButton->setStyleSheet(QString::fromUtf8("QToolButton {margin-bottom:1px}"));
+    clearButton->setStyleSheet(QString("QToolButton {margin-bottom:1px}"));
     clearButton->setIcon(BitmapFactory().pixmap(":/icons/edit-cleartext.svg"));
     clearButton->setToolTip(tr("Clears the search field"));
     clearButton->setAutoRaise(true);
     countLabel = new QLabel(this);
-    countLabel->setText(QString::fromUtf8("0"));
+    countLabel->setText(QString("0"));
     countLabel->setToolTip(tr("The number of selected items"));
     hLayout->addWidget(searchBox);
     hLayout->addWidget(clearButton,0,Qt::AlignRight);
@@ -104,7 +104,7 @@ void SelectionView::OnChange(Gui::SelectionSingleton::SubjectType &rCaller,
         App::Document* doc = App::GetApplication().getDocument(Reason.pDocName);
         App::DocumentObject* obj = doc->getObject(Reason.pObjectName);
         str << " (";
-        str << QString::fromUtf8(obj->Label.getValue());
+        str << QString(obj->Label.getValue());
         str << ")";
 
         QListWidgetItem* item = new QListWidgetItem(selObject, selectionView);
@@ -126,7 +126,7 @@ void SelectionView::OnChange(Gui::SelectionSingleton::SubjectType &rCaller,
         App::Document* doc = App::GetApplication().getDocument(Reason.pDocName);
         App::DocumentObject* obj = doc->getObject(Reason.pObjectName);
         str << " (";
-        str << QString::fromUtf8(obj->Label.getValue());
+        str << QString(obj->Label.getValue());
         str << ")";
 
         // remove all items
@@ -158,7 +158,7 @@ void SelectionView::OnChange(Gui::SelectionSingleton::SubjectType &rCaller,
             App::Document* doc = App::GetApplication().getDocument(it->DocName);
             App::DocumentObject* obj = doc->getObject(it->FeatName);
             str << " (";
-            str << QString::fromUtf8(obj->Label.getValue());
+            str << QString(obj->Label.getValue());
             str << ")";
 
             QListWidgetItem* item = new QListWidgetItem(selObject, selectionView);
@@ -180,7 +180,7 @@ void SelectionView::search(const QString& text)
             objects = doc->getObjects();
             selectionView->clear();
             for (std::vector<App::DocumentObject*>::iterator it = objects.begin(); it != objects.end(); ++it) {
-                QString label = QString::fromUtf8((*it)->Label.getValue());
+                QString label = QString((*it)->Label.getValue());
                 if (label.contains(text,Qt::CaseInsensitive)) {
                     searchList.push_back(*it);
                     // save as user data

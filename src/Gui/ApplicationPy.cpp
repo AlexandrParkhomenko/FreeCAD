@@ -343,7 +343,7 @@ PyObject* Application::sOpen(PyObject * /*self*/, PyObject *args)
     std::string Utf8Name = std::string(Name);
     PyMem_Free(Name);
     PY_TRY {
-        QString fileName = QString::fromUtf8(Utf8Name.c_str());
+        QString fileName = QString(Utf8Name.c_str());
         QFileInfo fi;
         fi.setFile(fileName);
         QString ext = fi.suffix().toLower();
@@ -414,7 +414,7 @@ PyObject* Application::sInsert(PyObject * /*self*/, PyObject *args)
     PyMem_Free(Name);
 
     PY_TRY {
-        QString fileName = QString::fromUtf8(Utf8Name.c_str());
+        QString fileName = QString(Utf8Name.c_str());
         QFileInfo fi;
         fi.setFile(fileName);
         QString ext = fi.suffix().toLower();
@@ -496,7 +496,7 @@ PyObject* Application::sExport(PyObject * /*self*/, PyObject *args)
             }
         }
 
-        QString fileName = QString::fromUtf8(Utf8Name.c_str());
+        QString fileName = QString(Utf8Name.c_str());
         QFileInfo fi;
         fi.setFile(fileName);
         QString ext = fi.suffix().toLower();
@@ -662,7 +662,7 @@ PyObject* Application::sAddPreferencePage(PyObject * /*self*/, PyObject *args)
 {
     char *fn, *grp;
     if (PyArg_ParseTuple(args, "ss", &fn,&grp)) {
-        QFileInfo fi(QString::fromUtf8(fn));
+        QFileInfo fi(QString(fn));
         if (!fi.exists()) {
             PyErr_SetString(PyExc_RuntimeError, "UI file does not exist");
             return 0;
@@ -878,11 +878,11 @@ PyObject* Application::sAddResPath(PyObject * /*self*/, PyObject *args)
     char* filePath;
     if (!PyArg_ParseTuple(args, "et", "utf-8", &filePath))
         return NULL;
-    QString path = QString::fromUtf8(filePath);
+    QString path = QString(filePath);
     PyMem_Free(filePath);
     if (QDir::isRelativePath(path)) {
         // Home path ends with '/'
-        QString home = QString::fromUtf8(App::GetApplication().getHomePath());
+        QString home = QString(App::GetApplication().getHomePath());
         path = home + path;
     }
 
@@ -896,11 +896,11 @@ PyObject* Application::sAddLangPath(PyObject * /*self*/, PyObject *args)
     char* filePath;
     if (!PyArg_ParseTuple(args, "et", "utf-8", &filePath))
         return NULL;
-    QString path = QString::fromUtf8(filePath);
+    QString path = QString(filePath);
     PyMem_Free(filePath);
     if (QDir::isRelativePath(path)) {
         // Home path ends with '/'
-        QString home = QString::fromUtf8(App::GetApplication().getHomePath());
+        QString home = QString(App::GetApplication().getHomePath());
         path = home + path;
     }
 
@@ -913,11 +913,11 @@ PyObject* Application::sAddIconPath(PyObject * /*self*/, PyObject *args)
     char* filePath;
     if (!PyArg_ParseTuple(args, "et", "utf-8", &filePath))
         return NULL;
-    QString path = QString::fromUtf8(filePath);
+    QString path = QString(filePath);
     PyMem_Free(filePath);
     if (QDir::isRelativePath(path)) {
         // Home path ends with '/'
-        QString home = QString::fromUtf8(App::GetApplication().getHomePath());
+        QString home = QString(App::GetApplication().getHomePath());
         path = home + path;
     }
 
@@ -948,7 +948,7 @@ PyObject* Application::sAddIcon(PyObject * /*self*/, PyObject *args)
     icon.loadFromData(ary, "XPM");
 
     if (icon.isNull()){
-        QString file = QString::fromUtf8(pixmap);
+        QString file = QString(pixmap);
         icon.load(file);
     }
 
@@ -1154,7 +1154,7 @@ PyObject* Application::sShowPreferences(PyObject * /*self*/, PyObject *args)
         return NULL;
     Gui::Dialog::DlgPreferencesImp cDlg(getMainWindow());
     if (pstr) 
-        cDlg.activateGroupPage(QString::fromUtf8(pstr),idx);
+        cDlg.activateGroupPage(QString(pstr),idx);
     WaitCursor wc;
     wc.restoreCursor();
     cDlg.exec();
@@ -1177,7 +1177,7 @@ PyObject* Application::sCreateViewer(PyObject * /*self*/, PyObject *args)
         {
             View3DInventor* viewer = new View3DInventor(0, 0);
             if (title)
-                viewer->setWindowTitle(QString::fromUtf8(title));
+                viewer->setWindowTitle(QString(title));
             Gui::getMainWindow()->addWindow(viewer);
             return viewer->getPyObject();
         }
@@ -1185,7 +1185,7 @@ PyObject* Application::sCreateViewer(PyObject * /*self*/, PyObject *args)
         {
             SplitView3DInventor* viewer = new SplitView3DInventor(num_of_views, 0, 0);
             if (title)
-                viewer->setWindowTitle(QString::fromUtf8(title));
+                viewer->setWindowTitle(QString(title));
             Gui::getMainWindow()->addWindow(viewer);
             return viewer->getPyObject();
         }

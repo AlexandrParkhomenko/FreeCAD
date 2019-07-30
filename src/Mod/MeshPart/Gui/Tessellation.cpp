@@ -121,7 +121,7 @@ void Tessellation::findShapes()
             edgeLen = std::max<double>(edgeLen, bbox.LengthX());
             edgeLen = std::max<double>(edgeLen, bbox.LengthY());
             edgeLen = std::max<double>(edgeLen, bbox.LengthZ());
-            QString label = QString::fromUtf8((*it)->Label.getValue());
+            QString label = QString((*it)->Label.getValue());
             QString name = QString((*it)->getNameInDocument());
             
             QTreeWidgetItem* child = new QTreeWidgetItem();

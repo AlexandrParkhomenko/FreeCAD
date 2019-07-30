@@ -519,7 +519,7 @@ QVariant PropertyStringItem::value(const App::Property* prop) const
     assert(prop && prop->getTypeId().isDerivedFrom(App::PropertyString::getClassTypeId()));
 
     std::string value = static_cast<const App::PropertyString*>(prop)->getValue();
-    return QVariant(QString::fromUtf8(value.c_str()));
+    return QVariant(QString(value.c_str()));
 }
 
 void PropertyStringItem::setValue(const QVariant& value)
@@ -527,7 +527,7 @@ void PropertyStringItem::setValue(const QVariant& value)
     if (!value.canConvert(QVariant::String))
         return;
     QString val = value.toString();
-    val = QString::fromUtf8(Base::Interpreter().strToPython(val.toUtf8()).c_str());
+    val = QString(Base::Interpreter().strToPython(val.toUtf8()).c_str());
     QString data = QString("\"%1\"").arg(val);
     setPropertyValue(data);
 }
@@ -566,7 +566,7 @@ QVariant PropertyFontItem::value(const App::Property* prop) const
     assert(prop && prop->getTypeId().isDerivedFrom(App::PropertyFont::getClassTypeId()));
 
     std::string value = static_cast<const App::PropertyFont*>(prop)->getValue();
-    return QVariant(QString::fromUtf8(value.c_str()));
+    return QVariant(QString(value.c_str()));
 }
 
 void PropertyFontItem::setValue(const QVariant& value)
@@ -1726,7 +1726,7 @@ void PlacementEditor::showValue(const QVariant& d)
     p.getRotation().getRawValue(dir, angle);
     angle = Base::toDegrees<double>(angle);
     pos = p.getPosition();
-    QString data = QString::fromUtf8("[(%1 %2 %3);%4 \xc2\xb0;(%5 %6 %7)]")
+    QString data = QString("[(%1 %2 %3);%4 \xc2\xb0;(%5 %6 %7)]")
                     .arg(QLocale::system().toString(dir.x,'f',2),
                          QLocale::system().toString(dir.y,'f',2),
                          QLocale::system().toString(dir.z,'f',2),
@@ -1925,7 +1925,7 @@ QVariant PropertyPlacementItem::toolTip(const App::Property* prop) const
     p.getRotation().getRawValue(dir, angle);
     angle = Base::toDegrees<double>(angle);
     pos = p.getPosition();
-    QString data = QString::fromUtf8("Axis: (%1 %2 %3)\n"
+    QString data = QString("Axis: (%1 %2 %3)\n"
                                      "Angle: %4\n"
                                      "Position: (%5  %6  %7)")
             .arg(QLocale::system().toString(dir.x,'f',decimals()),
@@ -1946,7 +1946,7 @@ QVariant PropertyPlacementItem::toString(const QVariant& prop) const
     p.getRotation().getRawValue(dir, angle);
     angle = Base::toDegrees<double>(angle);
     pos = p.getPosition();
-    QString data = QString::fromUtf8("[(%1 %2 %3); %4; (%5  %6  %7)]")
+    QString data = QString("[(%1 %2 %3); %4; (%5  %6  %7)]")
             .arg(QLocale::system().toString(dir.x,'f',2),
                  QLocale::system().toString(dir.y,'f',2),
                  QLocale::system().toString(dir.z,'f',2),
@@ -2034,7 +2034,7 @@ QVariant PropertyEnumItem::value(const App::Property* prop) const
 
     if (currentItem < 0 || currentItem >= static_cast<long>(value.size()))
         return QVariant(QString());
-    return QVariant(QString::fromUtf8(value[currentItem].c_str()));
+    return QVariant(QString(value[currentItem].c_str()));
 }
 
 void PropertyEnumItem::setValue(const QVariant& value)
@@ -2074,12 +2074,12 @@ void PropertyEnumItem::setEditorData(QWidget *editor, const QVariant& data) cons
             const std::vector<std::string>& value = prop->getEnumVector();
             if (it == items.begin()) {
                 for (std::vector<std::string>::const_iterator jt = value.begin(); jt != value.end(); ++jt)
-                    commonModes << QString::fromUtf8(jt->c_str());
+                    commonModes << QString(jt->c_str());
             }
             else {
                 for (std::vector<std::string>::const_iterator jt = value.begin(); jt != value.end(); ++jt) {
-                    if (commonModes.contains(QString::fromUtf8(jt->c_str())))
-                        modes << QString::fromUtf8(jt->c_str());
+                    if (commonModes.contains(QString(jt->c_str())))
+                        modes << QString(jt->c_str());
                 }
 
                 commonModes = modes;
@@ -2142,8 +2142,8 @@ QVariant PropertyStringListItem::toString(const QVariant& prop) const
         list.append(QLatin1String("..."));
     }
 
-    QString text = QString::fromUtf8("[%1]").arg(list.join(QLatin1String(",")));
-    text.replace(QString::fromUtf8("'"),QString::fromUtf8("\\'"));
+    QString text = QString("[%1]").arg(list.join(QLatin1String(",")));
+    text.replace(QString("'"),QString("\\'"));
 
     return QVariant(text);
 }
@@ -2155,7 +2155,7 @@ QVariant PropertyStringListItem::value(const App::Property* prop) const
     QStringList list;
     const std::vector<std::string>& value = ((App::PropertyStringList*)prop)->getValues();
     for ( std::vector<std::string>::const_iterator jt = value.begin(); jt != value.end(); ++jt ) {
-        list << QString::fromUtf8(jt->c_str());
+        list << QString(jt->c_str());
     }
 
     return QVariant(list);
@@ -2171,7 +2171,7 @@ void PropertyStringListItem::setValue(const QVariant& value)
     str << "[";
     for (QStringList::Iterator it = values.begin(); it != values.end(); ++it) {
         QString text(*it);
-        text.replace(QString::fromUtf8("'"),QString::fromUtf8("\\'"));
+        text.replace(QString("'"),QString("\\'"));
 
         std::string pystr = Base::Tools::escapedUnicodeFromUtf8(text.toUtf8());
         str << "u\"" << pystr.c_str() << "\", ";
@@ -2220,7 +2220,7 @@ QVariant PropertyFloatListItem::toString(const QVariant& prop) const
         list = list.mid(0, 10);
         list.append(QLatin1String("..."));
     }
-    QString text = QString::fromUtf8("[%1]").arg(list.join(QLatin1String(",")));
+    QString text = QString("[%1]").arg(list.join(QLatin1String(",")));
     return QVariant(text);
 }
 
@@ -2249,8 +2249,8 @@ void PropertyFloatListItem::setValue(const QVariant& value)
         str << *it << ",";
     }
     str << "]";
-    if (data == QString::fromUtf8("[,]"))
-        data = QString::fromUtf8("[]");
+    if (data == QString("[,]"))
+        data = QString("[]");
     setPropertyValue(data);
 }
 
@@ -2294,7 +2294,7 @@ QVariant PropertyIntegerListItem::toString(const QVariant& prop) const
         list = list.mid(0, 10);
         list.append(QLatin1String("..."));
     }
-    QString text = QString::fromUtf8("[%1]").arg(list.join(QLatin1String(",")));
+    QString text = QString("[%1]").arg(list.join(QLatin1String(",")));
 
     return QVariant(text);
 }
@@ -2324,8 +2324,8 @@ void PropertyIntegerListItem::setValue(const QVariant& value)
         str << *it << ",";
     }
     str << "]";
-    if (data == QString::fromUtf8("[,]"))
-        data = QString::fromUtf8("[]");
+    if (data == QString("[,]"))
+        data = QString("[]");
     setPropertyValue(data);
 }
 
@@ -2620,7 +2620,7 @@ QVariant PropertyMaterialItem::toolTip(const App::Property* prop) const
     QColor sc = value.specularColor.asValue<QColor>();
     QColor ec = value.emissiveColor.asValue<QColor>();
 
-    QString data = QString::fromUtf8(
+    QString data = QString(
         "Diffuse color: [%1, %2, %3]\n"
         "Ambient color: [%4, %5, %6]\n"
         "Specular color: [%7, %8, %9]\n"
@@ -3047,7 +3047,7 @@ QVariant PropertyMaterialListItem::toolTip(const App::Property* prop) const
     QColor sc = value.specularColor.asValue<QColor>();
     QColor ec = value.emissiveColor.asValue<QColor>();
 
-    QString data = QString::fromUtf8(
+    QString data = QString(
         "Diffuse color: [%1, %2, %3]\n"
         "Ambient color: [%4, %5, %6]\n"
         "Specular color: [%7, %8, %9]\n"
@@ -3206,7 +3206,7 @@ QVariant PropertyFileItem::value(const App::Property* prop) const
     assert(prop && prop->getTypeId().isDerivedFrom(App::PropertyFile::getClassTypeId()));
 
     std::string value = static_cast<const App::PropertyFile*>(prop)->getValue();
-    return QVariant(QString::fromUtf8(value.c_str()));
+    return QVariant(QString(value.c_str()));
 }
 
 void PropertyFileItem::setValue(const QVariant& value)
@@ -3257,7 +3257,7 @@ QVariant PropertyPathItem::value(const App::Property* prop) const
     assert(prop && prop->getTypeId().isDerivedFrom(App::PropertyPath::getClassTypeId()));
 
     std::string value = static_cast<const App::PropertyPath*>(prop)->getValue().string();
-    return QVariant(QString::fromUtf8(value.c_str()));
+    return QVariant(QString(value.c_str()));
 }
 
 void PropertyPathItem::setValue(const QVariant& value)
@@ -3309,7 +3309,7 @@ QVariant PropertyTransientFileItem::value(const App::Property* prop) const
     assert(prop && prop->getTypeId().isDerivedFrom(App::PropertyFileIncluded::getClassTypeId()));
 
     std::string value = static_cast<const App::PropertyFileIncluded*>(prop)->getValue();
-    return QVariant(QString::fromUtf8(value.c_str()));
+    return QVariant(QString(value.c_str()));
 }
 
 void PropertyTransientFileItem::setValue(const QVariant& value)
@@ -3467,7 +3467,7 @@ QVariant PropertyLinkItem::value(const App::Property* prop) const
     if (obj) {
         list << QString(obj->getDocument()->getName());
         list << QString(obj->getNameInDocument());
-        list << QString::fromUtf8(obj->Label.getValue());
+        list << QString(obj->Label.getValue());
     }
     else {
         // no object assigned
@@ -3655,7 +3655,7 @@ QVariant PropertyLinkListItem::value(const App::Property* prop) const
             QStringList list;
             list << QString((*it)->getDocument()->getName());
             list << QString((*it)->getNameInDocument());
-            list << QString::fromUtf8((*it)->Label.getValue());
+            list << QString((*it)->Label.getValue());
             list << objName;
             list << QString(prop->getName());
             varList << list;

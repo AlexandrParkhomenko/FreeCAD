@@ -378,7 +378,7 @@ void CallTipsList::extractTipsFromObject(Py::Object& obj, Py::List& list, QMap<Q
                 Py::Object help = attr;
                 if (help.isString()) {
                     Py::String doc(help);
-                    QString longdoc = QString::fromUtf8(doc.as_string().c_str());
+                    QString longdoc = QString(doc.as_string().c_str());
                     int pos = longdoc.indexOf(QLatin1Char('\n'));
                     pos = qMin(pos, 70);
                     if (pos < 0)
@@ -391,7 +391,7 @@ void CallTipsList::extractTipsFromObject(Py::Object& obj, Py::List& list, QMap<Q
                 Py::Object help = attr.getAttr("__doc__");
                 if (help.isString()) {
                     Py::String doc(help);
-                    QString longdoc = QString::fromUtf8(doc.as_string().c_str());
+                    QString longdoc = QString(doc.as_string().c_str());
                     int pos = longdoc.indexOf(QLatin1Char('\n'));
                     pos = qMin(pos, 70);
                     if (pos < 0)
@@ -427,7 +427,7 @@ void CallTipsList::extractTipsFromProperties(Py::Object& obj, QMap<QString, Call
         QString str = QString(It->first.c_str());
         tip.name = str;
         tip.type = CallTip::Property;
-        QString longdoc = QString::fromUtf8(container->getPropertyDocumentation(It->second));
+        QString longdoc = QString(container->getPropertyDocumentation(It->second));
         // a point, mesh or shape property
         if (It->second->isDerivedFrom(Base::Type::fromName("App::PropertyComplexGeoData"))) {
             Py::Object data(It->second->getPyObject(), true);
@@ -435,7 +435,7 @@ void CallTipsList::extractTipsFromProperties(Py::Object& obj, QMap<QString, Call
                 Py::Object help = data.getAttr("__doc__");
                 if (help.isString()) {
                     Py::String doc(help);
-                    longdoc = QString::fromUtf8(doc.as_string().c_str());
+                    longdoc = QString(doc.as_string().c_str());
                 }
             }
         }
