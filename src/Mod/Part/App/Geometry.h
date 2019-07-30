@@ -44,7 +44,7 @@
 #include "Base/Vector3D.h"
 
 #include <boost/uuid/uuid.hpp>
-//#include <boost/uuid/uuid_generators.hpp>
+#include <boost/uuid/uuid_generators.hpp> //# in Geometry.cpp boost::mt19937
 
 namespace Part {
 

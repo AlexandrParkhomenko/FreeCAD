@@ -1046,21 +1046,21 @@ QMimeData * MainWindow::createMimeDataFromSelection () const
     if (use_buffer) {
         mime = QLatin1String("application/x-documentobject");
         Base::ByteArrayOStreambuf buf(res);
-        std::ostream str(&buf);
+        //# std::ostream str(&buf);
         // need this instance to call MergeDocuments::Save()
         App::Document* doc = sel.front()->getDocument();
         MergeDocuments mimeView(doc);
-        doc->exportObjects(sel, str);
+        doc->exportObjects(sel);
     }
     else {
         mime = QLatin1String("application/x-documentobject-file");
         static Base::FileInfo fi(App::Application::getTempFileName());
-        Base::ofstream str(fi, std::ios::out | std::ios::binary);
+        //# Base::ofstream str(fi, std::ios::out | std::ios::binary);
         // need this instance to call MergeDocuments::Save()
         App::Document* doc = sel.front()->getDocument();
         MergeDocuments mimeView(doc);
-        doc->exportObjects(sel, str);
-        str.close();
+        doc->exportObjects(sel);
+        //# str.close();
         res = fi.filePath().c_str();
 
         // store the path name as a custom property and
