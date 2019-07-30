@@ -69,7 +69,7 @@ void ToolBoxManager::setup( ToolBarItem* toolBar ) const
         bar->setOrientation(Qt::Vertical);
         bar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         std::string toolbarName = (*item)->command();
-        bar->setObjectName(QString::fromLatin1((*item)->command().c_str()));
+        bar->setObjectName(QString((*item)->command().c_str()));
         bar->setWindowTitle(QString::fromUtf8(toolbarName.c_str())); // i18n
         _toolBox->addItem( bar, bar->windowTitle() );
 

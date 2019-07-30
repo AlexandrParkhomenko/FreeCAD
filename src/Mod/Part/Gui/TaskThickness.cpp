@@ -229,7 +229,7 @@ bool ThicknessWidget::accept()
         Gui::Command::commitCommand();
     }
     catch (const Base::Exception& e) {
-        QMessageBox::warning(this, tr("Input error"), QString::fromLatin1(e.what()));
+        QMessageBox::warning(this, tr("Input error"), QString(e.what()));
         return false;
     }
 

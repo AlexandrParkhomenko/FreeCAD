@@ -1007,7 +1007,7 @@ bool Application::activateWorkbench(const char* name)
             ok = true; // already active
         // now try to create and activate the matching workbench object
         else if (WorkbenchManager::instance()->activate(name, type)) {
-            getMainWindow()->activateWorkbench(QString::fromLatin1(name));
+            getMainWindow()->activateWorkbench(QString(name));
             this->signalActivateWorkbench(name);
             ok = true;
         }
@@ -1052,7 +1052,7 @@ bool Application::activateWorkbench(const char* name)
     }
     catch (Py::Exception&) {
         Base::PyException e; // extract the Python error text
-        QString msg = QString::fromLatin1(e.what());
+        QString msg = QString(e.what());
         QRegExp rx;
         // ignore '<type 'exceptions.ImportError'>' prefixes
         rx.setPattern(QLatin1String("^\\s*<type 'exceptions.ImportError'>:\\s*"));
@@ -1212,13 +1212,13 @@ QStringList Application::workbenches(void) const
     const char* start = (st != config.end() ? st->second.c_str() : "<none>");
     QStringList hidden, extra;
     if (ht != config.end()) {
-        QString items = QString::fromLatin1(ht->second.c_str());
+        QString items = QString(ht->second.c_str());
         hidden = items.split(QLatin1Char(';'), QString::SkipEmptyParts);
         if (hidden.isEmpty())
             hidden.push_back(QLatin1String(""));
     }
     if (et != config.end()) {
-        QString items = QString::fromLatin1(et->second.c_str());
+        QString items = QString(et->second.c_str());
         extra = items.split(QLatin1Char(';'), QString::SkipEmptyParts);
         if (extra.isEmpty())
             extra.push_back(QLatin1String(""));
@@ -1235,18 +1235,18 @@ QStringList Application::workbenches(void) const
         // add only allowed workbenches
         bool ok = true;
         if (!extra.isEmpty()&&ok) {
-            ok = (extra.indexOf(QString::fromLatin1(wbName)) != -1);
+            ok = (extra.indexOf(QString(wbName)) != -1);
         }
         if (!hidden.isEmpty()&&ok) {
-            ok = (hidden.indexOf(QString::fromLatin1(wbName)) == -1);
+            ok = (hidden.indexOf(QString(wbName)) == -1);
         }
 
         // okay the item is visible
         if (ok)
-            wb.push_back(QString::fromLatin1(wbName));
+            wb.push_back(QString(wbName));
         // also allow start workbench in case it is hidden
         else if (strcmp(wbName, start) == 0)
-            wb.push_back(QString::fromLatin1(wbName));
+            wb.push_back(QString(wbName));
     }
 
     return wb;
@@ -1537,14 +1537,14 @@ void Application::runApplication(void)
     qssPaths << QString::fromUtf8((App::Application::getUserAppDataDir() + "Gui/Stylesheets/").c_str())
              << QString::fromUtf8((App::Application::getResourceDir() + "Gui/Stylesheets/").c_str())
              << QLatin1String(":/stylesheets");
-    QDir::setSearchPaths(QString::fromLatin1("qss"), qssPaths);
+    QDir::setSearchPaths(QString("qss"), qssPaths);
 
     // register action style event type
     ActionStyleEvent::EventType = QEvent::registerEventType(QEvent::User + 1);
 
 
 #if !defined(Q_OS_LINUX)
-    QIcon::setThemeSearchPaths(QIcon::themeSearchPaths() << QString::fromLatin1(":/icons/FreeCAD-default"));
+    QIcon::setThemeSearchPaths(QIcon::themeSearchPaths() << QString(":/icons/FreeCAD-default"));
     QIcon::setThemeName(QLatin1String("FreeCAD-default"));
 #endif
 
@@ -1558,7 +1558,7 @@ void Application::runApplication(void)
 
     std::string name = hTheme->GetASCII("Name");
     if (!name.empty()) {
-        QIcon::setThemeName(QString::fromLatin1(name.c_str()));
+        QIcon::setThemeName(QString(name.c_str()));
     }
 
 #if defined(FC_OS_LINUX)
@@ -1581,7 +1581,7 @@ void Application::runApplication(void)
     if (showVersion) {
         // set main window title with FreeCAD Version
         std::map<std::string, std::string>& config = App::Application::Config();
-        QString title  = QString::fromLatin1(config["VersionName"].c_str());
+        QString title  = QString(config["VersionName"].c_str());
         mw.setWindowTitle(title);
     } else {
         mw.setWindowTitle(mainApp.applicationName());
@@ -1681,7 +1681,7 @@ void Application::runApplication(void)
     // if the auto workbench is not visible then force to use the default workbech
     // and replace the wrong entry in the parameters
     QStringList wb = app.workbenches();
-    if (!wb.contains(QString::fromLatin1(start.c_str()))) {
+    if (!wb.contains(QString(start.c_str()))) {
         start = App::Application::Config()["StartWorkbench"];
         App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/General")->
                               SetASCII("AutoloadModule", start.c_str());
@@ -1777,11 +1777,11 @@ void Application::runApplication(void)
 void Application::checkForPreviousCrashes()
 {
     QDir tmp = QString::fromUtf8(App::Application::getTempPath().c_str());
-    tmp.setNameFilters(QStringList() << QString::fromLatin1("*.lock"));
+    tmp.setNameFilters(QStringList() << QString("*.lock"));
     tmp.setFilter(QDir::Files);
 
     QList<QFileInfo> restoreDocFiles;
-    QString exeName = QString::fromLatin1(App::GetApplication().getExecutableName());
+    QString exeName = QString(App::GetApplication().getExecutableName());
     QList<QFileInfo> locks = tmp.entryInfoList();
     for (QList<QFileInfo>::iterator it = locks.begin(); it != locks.end(); ++it) {
         QString bn = it->baseName();
@@ -1806,7 +1806,7 @@ void Application::checkForPreviousCrashes()
                 }
                 else {
                     int countDeletedDocs = 0;
-                    QString recovery_files = QString::fromLatin1("fc_recovery_files");
+                    QString recovery_files = QString("fc_recovery_files");
                     for (QList<QFileInfo>::iterator it = dirs.begin(); it != dirs.end(); ++it) {
                         QDir doc_dir(it->absoluteFilePath());
                         doc_dir.setFilter(QDir::NoDotAndDotDot|QDir::AllEntries);

@@ -101,7 +101,7 @@ void Tessellation::findShapes()
     Gui::Document* activeGui = Gui::Application::Instance->getDocument(activeDoc);
     if (!activeGui) return;
 
-    this->document = QString::fromLatin1(activeDoc->getName());
+    this->document = QString(activeDoc->getName());
     std::vector<Part::Feature*> objs = activeDoc->getObjectsOfType<Part::Feature>();
 
     double edgeLen = 0;
@@ -122,7 +122,7 @@ void Tessellation::findShapes()
             edgeLen = std::max<double>(edgeLen, bbox.LengthY());
             edgeLen = std::max<double>(edgeLen, bbox.LengthZ());
             QString label = QString::fromUtf8((*it)->Label.getValue());
-            QString name = QString::fromLatin1((*it)->getNameInDocument());
+            QString name = QString((*it)->getNameInDocument());
             
             QTreeWidgetItem* child = new QTreeWidgetItem();
             child->setText(0, label);
@@ -177,19 +177,19 @@ bool Tessellation::accept()
                 double devAngle = ui->spinAngularDeviation->value().getValue();
                 devAngle = Base::toRadians<double>(devAngle);
                 bool relative = ui->relativeDeviation->isChecked();
-                QString param = QString::fromLatin1("Shape=__shape__, "
+                QString param = QString("Shape=__shape__, "
                                                     "LinearDeflection=%1, "
                                                     "AngularDeflection=%2, "
                                                     "Relative=%3")
                     .arg(devFace)
                     .arg(devAngle)
-                    .arg(relative ? QString::fromLatin1("True") : QString::fromLatin1("False"));
+                    .arg(relative ? QString("True") : QString("False"));
                 if (ui->meshShapeColors->isChecked())
-                    param += QString::fromLatin1(",Segments=True");
+                    param += QString(",Segments=True");
                 if (ui->groupsFaceColors->isChecked())
-                    param += QString::fromLatin1(",GroupColors=__doc__.getObject(\"%1\").ViewObject.DiffuseColor")
+                    param += QString(",GroupColors=__doc__.getObject(\"%1\").ViewObject.DiffuseColor")
                             .arg(shape);
-                cmd = QString::fromLatin1(
+                cmd = QString(
                     "__doc__=FreeCAD.getDocument(\"%1\")\n"
                     "__mesh__=__doc__.addObject(\"Mesh::Feature\",\"Mesh\")\n"
                     "__part__=__doc__.getObject(\"%2\")\n"
@@ -208,7 +208,7 @@ bool Tessellation::accept()
                 double maxEdge = ui->spinMaximumEdgeLength->value().getValue();
                 if (!ui->spinMaximumEdgeLength->isEnabled())
                     maxEdge = 0;
-                cmd = QString::fromLatin1(
+                cmd = QString(
                     "__doc__=FreeCAD.getDocument(\"%1\")\n"
                     "__mesh__=__doc__.addObject(\"Mesh::Feature\",\"Mesh\")\n"
                     "__part__=__doc__.getObject(\"%2\")\n"

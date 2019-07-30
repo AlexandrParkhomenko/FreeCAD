@@ -56,7 +56,7 @@ std::string Uuid::createUuid(void)
 void Uuid::setValue(const char* sString) 
 { 
     if (sString) { 
-        QUuid uuid(QString::fromLatin1(sString)); 
+        QUuid uuid(QString(sString)); 
         if (uuid.isNull()) 
             throw std::runtime_error("invalid uuid"); 
         // remove curly braces 

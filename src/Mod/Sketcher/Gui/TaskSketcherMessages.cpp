@@ -83,13 +83,13 @@ void TaskSketcherMessages::slotSolved(QString msg)
 
 void TaskSketcherMessages::on_labelConstrainStatus_linkActivated(const QString &str)
 {
-    if( str == QString::fromLatin1("#conflicting"))
+    if( str == QString("#conflicting"))
         Gui::Application::Instance->commandManager().runCommandByName("Sketcher_SelectConflictingConstraints");
     
-    if( str == QString::fromLatin1("#redundant"))
+    if( str == QString("#redundant"))
         Gui::Application::Instance->commandManager().runCommandByName("Sketcher_SelectRedundantConstraints");
     
-    if( str == QString::fromLatin1("#dofs"))
+    if( str == QString("#dofs"))
         Gui::Application::Instance->commandManager().runCommandByName("Sketcher_SelectElementsWithDoFs");
     
 }

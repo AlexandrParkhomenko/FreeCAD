@@ -126,25 +126,25 @@ ParametersDialog::ParametersDialog(std::vector<float>& val, FitParameter* fitPar
     QPushButton *regionButton;
     regionButton = new QPushButton(this);
     regionButton->setText(tr("Region"));
-    regionButton->setObjectName(QString::fromLatin1("region"));
+    regionButton->setObjectName(QString("region"));
     selectLayout->addWidget(regionButton);
 
     QPushButton *singleButton;
     singleButton = new QPushButton(this);
     singleButton->setText(tr("Triangle"));
-    singleButton->setObjectName(QString::fromLatin1("single"));
+    singleButton->setObjectName(QString("single"));
     selectLayout->addWidget(singleButton);
 
     QPushButton *clearButton;
     clearButton = new QPushButton(this);
     clearButton->setText(tr("Clear"));
-    clearButton->setObjectName(QString::fromLatin1("clear"));
+    clearButton->setObjectName(QString("clear"));
     selectLayout->addWidget(clearButton);
 
     QPushButton *computeButton;
     computeButton = new QPushButton(this);
     computeButton->setText(tr("Compute"));
-    computeButton->setObjectName(QString::fromLatin1("compute"));
+    computeButton->setObjectName(QString("compute"));
     gridLayout->addWidget(computeButton, 2, 0, 1, 1);
 
     QDialogButtonBox *buttonBox;
@@ -281,9 +281,9 @@ void SegmentationBestFit::on_planeParameters_clicked()
     p.resize(6);
     QString base = tr("Base");
     QString axis = tr("Normal");
-    QString x = QString::fromLatin1(" x");
-    QString y = QString::fromLatin1(" y");
-    QString z = QString::fromLatin1(" z");
+    QString x = QString(" x");
+    QString y = QString(" y");
+    QString z = QString(" z");
     list.push_back(std::make_pair(base + x, p[0]));
     list.push_back(std::make_pair(base + y, p[1]));
     list.push_back(std::make_pair(base + z, p[2]));
@@ -308,9 +308,9 @@ void SegmentationBestFit::on_cylinderParameters_clicked()
     QString base = tr("Base");
     QString axis = tr("Axis");
     QString radius = tr("Radius");
-    QString x = QString::fromLatin1(" x");
-    QString y = QString::fromLatin1(" y");
-    QString z = QString::fromLatin1(" z");
+    QString x = QString(" x");
+    QString y = QString(" y");
+    QString z = QString(" z");
     list.push_back(std::make_pair(base + x, p[0]));
     list.push_back(std::make_pair(base + y, p[1]));
     list.push_back(std::make_pair(base + z, p[2]));
@@ -335,9 +335,9 @@ void SegmentationBestFit::on_sphereParameters_clicked()
     p.resize(4);
     QString base = tr("Center");
     QString radius = tr("Radius");
-    QString x = QString::fromLatin1(" x");
-    QString y = QString::fromLatin1(" y");
-    QString z = QString::fromLatin1(" z");
+    QString x = QString(" x");
+    QString y = QString(" y");
+    QString z = QString(" z");
     list.push_back(std::make_pair(base + x, p[0]));
     list.push_back(std::make_pair(base + y, p[1]));
     list.push_back(std::make_pair(base + z, p[2]));

@@ -238,7 +238,7 @@ TaskSketcherElements::TaskSketcherElements(ViewProviderSketch *sketchView)
     const char* ctrlKey = "Ctrl";
     QString cmdKey = QShortcut::tr(ctrlKey);
 #endif
-    QString zKey = QString::fromLatin1("Z");
+    QString zKey = QString("Z");
     ui->Explanation->setText(tr("<html><head/><body><p>&quot;%1&quot;: multiple selection</p>"
                                 "<p>&quot;%2&quot;: switch to next valid type</p></body></html>")
                              .arg(cmdKey).arg(zKey));
@@ -316,11 +316,11 @@ void TaskSketcherElements::onSelectionChanged(const Gui::SelectionChanges& msg)
         if (strcmp(msg.pDocName,sketchView->getSketchObject()->getDocument()->getName())==0 &&
             strcmp(msg.pObjectName,sketchView->getSketchObject()->getNameInDocument())== 0) {
             if (msg.pSubName) {
-                QString expr = QString::fromLatin1(msg.pSubName);
+                QString expr = QString(msg.pSubName);
                 std::string shapetype(msg.pSubName);
                 // if-else edge vertex
                 if (shapetype.size() > 4 && shapetype.substr(0,4) == "Edge") {
-                    QRegExp rx(QString::fromLatin1("^Edge(\\d+)$"));
+                    QRegExp rx(QString("^Edge(\\d+)$"));
                     int pos = expr.indexOf(rx);
                     if (pos > -1) {
                         bool ok;
@@ -339,7 +339,7 @@ void TaskSketcherElements::onSelectionChanged(const Gui::SelectionChanges& msg)
                     }
                 }
                 else if (shapetype.size() > 6 && shapetype.substr(0,6) == "Vertex"){
-                    QRegExp rx(QString::fromLatin1("^Vertex(\\d+)$"));
+                    QRegExp rx(QString("^Vertex(\\d+)$"));
                     int pos = expr.indexOf(rx);
                     if (pos > -1) {
                         bool ok;
@@ -702,44 +702,44 @@ void TaskSketcherElements::slotElementsChanged(void)
         (type == Part::GeomBSplineCurve::getClassTypeId()    && element==2) ? Sketcher_Element_BSpline_EndPoint :
         none,
         type == Part::GeomPoint::getClassTypeId()           ? ( isNamingBoxChecked ?
-                                                                (tr("Point") + QString::fromLatin1("(Edge%1)").arg(i)):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Point")))         :
+                                                                (tr("Point") + QString("(Edge%1)").arg(i)):
+                                                                (QString("%1-").arg(i)+tr("Point")))         :
         type == Part::GeomLineSegment::getClassTypeId()     ? ( isNamingBoxChecked ?
-                                                                (tr("Line") + QString::fromLatin1("(Edge%1)").arg(i)) +
-                                                                (construction?(QString::fromLatin1("-")+tr("Construction")):QString::fromLatin1("")):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Line")))         :
+                                                                (tr("Line") + QString("(Edge%1)").arg(i)) +
+                                                                (construction?(QString("-")+tr("Construction")):QString("")):
+                                                                (QString("%1-").arg(i)+tr("Line")))         :
         type == Part::GeomArcOfCircle::getClassTypeId()     ? ( isNamingBoxChecked ?
-                                                                (tr("Arc") + QString::fromLatin1("(Edge%1)").arg(i)) +
-                                                                (construction?(QString::fromLatin1("-")+tr("Construction")):QString::fromLatin1("")):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Arc")))         :
+                                                                (tr("Arc") + QString("(Edge%1)").arg(i)) +
+                                                                (construction?(QString("-")+tr("Construction")):QString("")):
+                                                                (QString("%1-").arg(i)+tr("Arc")))         :
         type == Part::GeomCircle::getClassTypeId()          ? ( isNamingBoxChecked ?
-                                                                (tr("Circle") + QString::fromLatin1("(Edge%1)").arg(i)) +
-                                                                (construction?(QString::fromLatin1("-")+tr("Construction")):QString::fromLatin1("")):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Circle")))         :
+                                                                (tr("Circle") + QString("(Edge%1)").arg(i)) +
+                                                                (construction?(QString("-")+tr("Construction")):QString("")):
+                                                                (QString("%1-").arg(i)+tr("Circle")))         :
         type == Part::GeomEllipse::getClassTypeId()         ? ( isNamingBoxChecked ?
-                                                                (tr("Ellipse") + QString::fromLatin1("(Edge%1)").arg(i)) +
-                                                                (construction?(QString::fromLatin1("-")+tr("Construction")):QString::fromLatin1("")):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Ellipse")))   :
+                                                                (tr("Ellipse") + QString("(Edge%1)").arg(i)) +
+                                                                (construction?(QString("-")+tr("Construction")):QString("")):
+                                                                (QString("%1-").arg(i)+tr("Ellipse")))   :
         type == Part::GeomArcOfEllipse::getClassTypeId()    ? ( isNamingBoxChecked ?
-                                                                (tr("Elliptical Arc") + QString::fromLatin1("(Edge%1)").arg(i)) +
-                                                                (construction?(QString::fromLatin1("-")+tr("Construction")):QString::fromLatin1("")):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Elliptical Arc")))   :
+                                                                (tr("Elliptical Arc") + QString("(Edge%1)").arg(i)) +
+                                                                (construction?(QString("-")+tr("Construction")):QString("")):
+                                                                (QString("%1-").arg(i)+tr("Elliptical Arc")))   :
         type == Part::GeomArcOfHyperbola::getClassTypeId()    ? ( isNamingBoxChecked ?
-                                                                (tr("Hyperbolic Arc") + QString::fromLatin1("(Edge%1)").arg(i)) +
-                                                                (construction?(QString::fromLatin1("-")+tr("Construction")):QString::fromLatin1("")):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Hyperbolic Arc")))   :
+                                                                (tr("Hyperbolic Arc") + QString("(Edge%1)").arg(i)) +
+                                                                (construction?(QString("-")+tr("Construction")):QString("")):
+                                                                (QString("%1-").arg(i)+tr("Hyperbolic Arc")))   :
         type == Part::GeomArcOfParabola::getClassTypeId()    ? ( isNamingBoxChecked ?
-                                                                (tr("Parabolic Arc") + QString::fromLatin1("(Edge%1)").arg(i)) +
-                                                                (construction?(QString::fromLatin1("-")+tr("Construction")):QString::fromLatin1("")):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Parabolic Arc")))   :
+                                                                (tr("Parabolic Arc") + QString("(Edge%1)").arg(i)) +
+                                                                (construction?(QString("-")+tr("Construction")):QString("")):
+                                                                (QString("%1-").arg(i)+tr("Parabolic Arc")))   :
         type == Part::GeomBSplineCurve::getClassTypeId()    ? ( isNamingBoxChecked ?
-                                                                (tr("BSpline") + QString::fromLatin1("(Edge%1)").arg(i)) +
-                                                                (construction?(QString::fromLatin1("-")+tr("Construction")):QString::fromLatin1("")):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("BSpline")))   :
+                                                                (tr("BSpline") + QString("(Edge%1)").arg(i)) +
+                                                                (construction?(QString("-")+tr("Construction")):QString("")):
+                                                                (QString("%1-").arg(i)+tr("BSpline")))   :
         ( isNamingBoxChecked ?
-          (tr("Other") + QString::fromLatin1("(Edge%1)").arg(i)) +
-          (construction?(QString::fromLatin1("-")+tr("Construction")):QString::fromLatin1("")):
-          (QString::fromLatin1("%1-").arg(i)+tr("Other"))),
+          (tr("Other") + QString("(Edge%1)").arg(i)) +
+          (construction?(QString("-")+tr("Construction")):QString("")):
+          (QString("%1-").arg(i)+tr("Other"))),
         i-1,
         sketchView->getSketchObject()->getVertexIndexGeoPos(i-1,Sketcher::start),
         sketchView->getSketchObject()->getVertexIndexGeoPos(i-1,Sketcher::mid),
@@ -762,14 +762,14 @@ void TaskSketcherElements::slotElementsChanged(void)
 
         if(isNamingBoxChecked) {
             if(size_t(j-3) < linkobjs.size() && size_t(j-3) < linksubs.size()) {
-                linkname =  QString::fromLatin1("(ExternalEdge%1, ").arg(j-2) +
+                linkname =  QString("(ExternalEdge%1, ").arg(j-2) +
                             QString::fromUtf8(linkobjs[j-3]->getNameInDocument()) +
-                            QString::fromLatin1(".") +
+                            QString(".") +
                             QString::fromUtf8(linksubs[j-3].c_str()) +
-                            QString::fromLatin1(")");
+                            QString(")");
             }
             else {
-                linkname = QString::fromLatin1("(ExternalEdge%1)").arg(j-2);
+                linkname = QString("(ExternalEdge%1)").arg(j-2);
             }
         }
 
@@ -805,34 +805,34 @@ void TaskSketcherElements::slotElementsChanged(void)
             none,
             type == Part::GeomPoint::getClassTypeId()         ? ( isNamingBoxChecked ?
                                                                 (tr("Point") + linkname):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Point")))         :
+                                                                (QString("%1-").arg(i)+tr("Point")))         :
             type == Part::GeomLineSegment::getClassTypeId()        ? ( isNamingBoxChecked ?
                                                                 (tr("Line") + linkname):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Line")))         :
+                                                                (QString("%1-").arg(i)+tr("Line")))         :
             type == Part::GeomArcOfCircle::getClassTypeId()        ? ( isNamingBoxChecked ?
                                                                 (tr("Arc") + linkname):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Arc")))         :
+                                                                (QString("%1-").arg(i)+tr("Arc")))         :
             type == Part::GeomCircle::getClassTypeId()        ? ( isNamingBoxChecked ?
                                                                 (tr("Circle") + linkname):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Circle")))         :
+                                                                (QString("%1-").arg(i)+tr("Circle")))         :
             type == Part::GeomEllipse::getClassTypeId()         ? ( isNamingBoxChecked ?
                                                                 (tr("Ellipse") + linkname):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Ellipse")))   :
+                                                                (QString("%1-").arg(i)+tr("Ellipse")))   :
             type == Part::GeomArcOfEllipse::getClassTypeId()    ? ( isNamingBoxChecked ?
                                                                 (tr("Elliptical Arc") + linkname):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Elliptical Arc")))   :
+                                                                (QString("%1-").arg(i)+tr("Elliptical Arc")))   :
             type == Part::GeomArcOfHyperbola::getClassTypeId()    ? ( isNamingBoxChecked ?
                                                                 (tr("Hyperbolic Arc") + linkname):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Hyperbolic Arc")))   :
+                                                                (QString("%1-").arg(i)+tr("Hyperbolic Arc")))   :
             type == Part::GeomArcOfParabola::getClassTypeId()    ? ( isNamingBoxChecked ?
                                                                 (tr("Parabolic Arc") + linkname):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("Parabolic Arc")))   :
+                                                                (QString("%1-").arg(i)+tr("Parabolic Arc")))   :
             type == Part::GeomBSplineCurve::getClassTypeId()    ? ( isNamingBoxChecked ?
                                                                 (tr("BSpline") + linkname):
-                                                                (QString::fromLatin1("%1-").arg(i)+tr("BSpline")))   :
+                                                                (QString("%1-").arg(i)+tr("BSpline")))   :
             ( isNamingBoxChecked ?
             (tr("Other") + linkname):
-            (QString::fromLatin1("%1-").arg(i)+tr("Other"))),
+            (QString("%1-").arg(i)+tr("Other"))),
             -j,
             sketchView->getSketchObject()->getVertexIndexGeoPos(-j,Sketcher::start),
             sketchView->getSketchObject()->getVertexIndexGeoPos(-j,Sketcher::mid),

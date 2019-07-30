@@ -36,7 +36,7 @@ class PartGuiExport TaskAttacher : public Gui::TaskView::TaskBox, public Gui::Se
 
 public:
     TaskAttacher(Gui::ViewProviderDocumentObject *ViewProvider,QWidget *parent = 0, 
-        QString picture = QString::fromLatin1(""), QString text = QString::fromLatin1("Attachment"));
+        QString picture = QString(""), QString text = QString("Attachment"));
     ~TaskAttacher();
 
     bool   getFlip(void) const;

@@ -196,7 +196,7 @@ void DlgRegularSolidImp::on_createSolidButton_clicked()
     }
     catch (const Base::PyException& e) {
         QMessageBox::warning(this, tr("Create %1").arg(comboBox1->currentText()),
-            QString::fromLatin1(e.what()));
+            QString(e.what()));
     }
 }
 

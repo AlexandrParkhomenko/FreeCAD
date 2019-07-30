@@ -79,7 +79,7 @@ DlgImportExportIges::DlgImportExportIges(QWidget* parent)
     bg->addButton(ui->radioButtonBRepOn, 1);
 
     QRegExp rx;
-    rx.setPattern(QString::fromLatin1("[\\x00-\\x7F]+"));
+    rx.setPattern(QString("[\\x00-\\x7F]+"));
     QRegExpValidator* companyValidator = new QRegExpValidator(ui->lineEditCompany);
     companyValidator->setRegExp(rx);
     ui->lineEditCompany->setValidator(companyValidator);
@@ -154,7 +154,7 @@ void DlgImportExportIges::loadSettings()
     ui->lineEditAuthor->setText(QString::fromStdString(hGrp->GetASCII("Author",
         Interface_Static::CVal("write.iges.header.author"))));
   //ui->lineEditProduct->setText(QString::fromStdString(hGrp->GetASCII("Product")));
-    ui->lineEditProduct->setText(QString::fromLatin1(
+    ui->lineEditProduct->setText(QString(
         Interface_Static::CVal("write.iges.header.product")));
 }
 
@@ -188,7 +188,7 @@ DlgImportExportStep::DlgImportExportStep(QWidget* parent)
                                        "the size of the resulting STEP file."));
 
     QRegExp rx;
-    rx.setPattern(QString::fromLatin1("[\\x00-\\x7F]+"));
+    rx.setPattern(QString("[\\x00-\\x7F]+"));
     QRegExpValidator* companyValidator = new QRegExpValidator(ui->lineEditCompany);
     companyValidator->setRegExp(rx);
     ui->lineEditCompany->setValidator(companyValidator);
@@ -280,7 +280,7 @@ void DlgImportExportStep::loadSettings()
     // header info
     ui->lineEditCompany->setText(QString::fromStdString(hStepGrp->GetASCII("Company")));
     ui->lineEditAuthor->setText(QString::fromStdString(hStepGrp->GetASCII("Author")));
-    ui->lineEditProduct->setText(QString::fromLatin1(
+    ui->lineEditProduct->setText(QString(
         Interface_Static::CVal("write.step.product.name")));
 
     // (h)STEP of Import module

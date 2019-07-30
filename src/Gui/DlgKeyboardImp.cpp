@@ -122,7 +122,7 @@ void DlgCustomKeyboardImp::on_commandTreeWidget_currentItemChanged(QTreeWidgetIt
     if (cmd) {
         if (cmd->getAction()) {
             QKeySequence ks = cmd->getAction()->shortcut();
-            QKeySequence ks2 = QString::fromLatin1(cmd->getAccel());
+            QKeySequence ks2 = QString(cmd->getAccel());
             QKeySequence ks3 = editShortcut->text();
 
             if (ks.isEmpty())
@@ -133,7 +133,7 @@ void DlgCustomKeyboardImp::on_commandTreeWidget_currentItemChanged(QTreeWidgetIt
             buttonAssign->setEnabled(!editShortcut->text().isEmpty() && (ks != ks3));
             buttonReset->setEnabled((ks != ks2));
         } else {
-          QKeySequence ks = QString::fromLatin1(cmd->getAccel());
+          QKeySequence ks = QString(cmd->getAccel());
             if (ks.isEmpty())
                 accelLineEditShortcut->setText( tr("none") );
             else
@@ -209,7 +209,7 @@ void DlgCustomKeyboardImp::on_buttonAssign_clicked()
             cmd->getToolTipText());
         if (!accel.isEmpty()) {
             if (!toolTip.isEmpty()) {
-                QString tip = QString::fromLatin1("%1 (%2)")
+                QString tip = QString("%1 (%2)")
                     .arg(toolTip, accel);
                 action->setToolTip(tip);
             }
@@ -225,7 +225,7 @@ void DlgCustomKeyboardImp::on_buttonAssign_clicked()
             statusTip = toolTip;
         if (!accel.isEmpty()) {
             if (!statusTip.isEmpty()) {
-                QString tip = QString::fromLatin1("(%1)\t%2")
+                QString tip = QString("(%1)\t%2")
                     .arg(accel, statusTip);
                 action->setStatusTip(tip);
             }
@@ -291,7 +291,7 @@ void DlgCustomKeyboardImp::on_buttonReset_clicked()
     CommandManager & cCmdMgr = Application::Instance->commandManager();
     Command* cmd = cCmdMgr.getCommandByName(name.constData());
     if (cmd && cmd->getAction()) {
-        cmd->getAction()->setShortcut(QString::fromLatin1(cmd->getAccel()));
+        cmd->getAction()->setShortcut(QString(cmd->getAccel()));
         QString txt = cmd->getAction()->shortcut().toString(QKeySequence::NativeText);
         accelLineEditShortcut->setText((txt.isEmpty() ? tr("none") : txt));
         ParameterGrp::handle hGrp = WindowParameter::getDefaultParameter()->GetGroup("Shortcut");
@@ -308,7 +308,7 @@ void DlgCustomKeyboardImp::on_buttonResetAll_clicked()
     std::vector<Command*> cmds = cCmdMgr.getAllCommands();
     for (std::vector<Command*>::iterator it = cmds.begin(); it != cmds.end(); ++it) {
         if ((*it)->getAction()) {
-          (*it)->getAction()->setShortcut(QKeySequence(QString::fromLatin1((*it)->getAccel()))
+          (*it)->getAction()->setShortcut(QKeySequence(QString((*it)->getAccel()))
                                           .toString(QKeySequence::NativeText));
         }
     }
@@ -352,7 +352,7 @@ void DlgCustomKeyboardImp::on_editShortcut_textChanged(const QString& sc)
                     if ((*jt)->shortcut() == ks) {
                         ++countAmbiguous;
                         ambiguousCommands.push_back(*it);
-                        ambiguousCommand = QString::fromLatin1((*it)->getName()); // store the last one
+                        ambiguousCommand = QString((*it)->getName()); // store the last one
                         ambiguousMenu = qApp->translate((*it)->className(), (*it)->getMenuText());
 
                         QTreeWidgetItem* item = new QTreeWidgetItem(assignedTreeWidget);

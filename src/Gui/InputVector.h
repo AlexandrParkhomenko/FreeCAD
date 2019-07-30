@@ -189,7 +189,7 @@ private:
                 }
 
                 // add a new item before the very last item
-                QString display = QString::fromLatin1("(%1,%2,%3)")
+                QString display = QString("(%1,%2,%3)")
                     .arg(dir.x)
                     .arg(dir.y)
                     .arg(dir.z);
@@ -295,7 +295,7 @@ public:
         }
 
         // add a new item before the very last item
-        QString display = QString::fromLatin1("(%1,%2,%3)")
+        QString display = QString("(%1,%2,%3)")
             .arg(dir.x)
             .arg(dir.y)
             .arg(dir.z);

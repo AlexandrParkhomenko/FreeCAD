@@ -1131,9 +1131,9 @@ bool ViewProviderSketch::mouseMove(const SbVec2s &cursorPos, Gui::View3DInventor
                     if (getSketchObject()->getSolvedSketch().movePoint(GeoId, PosId, vec, false) == 0) {
                         setPositionText(Base::Vector2d(x,y));
                         draw(true,false);
-                        signalSolved(QString::fromLatin1("Solved in %1 sec").arg(getSketchObject()->getSolvedSketch().SolveTime));
+                        signalSolved(QString("Solved in %1 sec").arg(getSketchObject()->getSolvedSketch().SolveTime));
                     } else {
-                        signalSolved(QString::fromLatin1("Unsolved (%1 sec)").arg(getSketchObject()->getSolvedSketch().SolveTime));
+                        signalSolved(QString("Unsolved (%1 sec)").arg(getSketchObject()->getSolvedSketch().SolveTime));
                         //Base::Console().Log("Error solving:%d\n",ret);
                     }
                 }
@@ -1145,9 +1145,9 @@ bool ViewProviderSketch::mouseMove(const SbVec2s &cursorPos, Gui::View3DInventor
                 if (getSketchObject()->getSolvedSketch().movePoint(edit->DragCurve, Sketcher::none, vec, relative) == 0) {
                     setPositionText(Base::Vector2d(x,y));
                     draw(true,false);
-                    signalSolved(QString::fromLatin1("Solved in %1 sec").arg(getSketchObject()->getSolvedSketch().SolveTime));
+                    signalSolved(QString("Solved in %1 sec").arg(getSketchObject()->getSolvedSketch().SolveTime));
                 } else {
-                    signalSolved(QString::fromLatin1("Unsolved (%1 sec)").arg(getSketchObject()->getSolvedSketch().SolveTime));
+                    signalSolved(QString("Unsolved (%1 sec)").arg(getSketchObject()->getSolvedSketch().SolveTime));
                 }
             }
             return true;
@@ -1568,7 +1568,7 @@ void ViewProviderSketch::onSelectionChanged(const Gui::SelectionChanges& msg)
             //        temp += ".";
             //        temp += it->SubName;
             //    }
-            //    new QListWidgetItem(QString::fromLatin1(temp.c_str()), selectionView);
+            //    new QListWidgetItem(QString(temp.c_str()), selectionView);
             //}
         }
         else if (msg.Type == Gui::SelectionChanges::SetPreselect) {
@@ -1639,7 +1639,7 @@ std::set<int> ViewProviderSketch::detectPreselectionConstr(const SoPickedPoint *
                 }
 
                 if (constrIds) {
-                    QString constrIdsStr = QString::fromLatin1(constrIds->string.getValue().getString());
+                    QString constrIdsStr = QString(constrIds->string.getValue().getString());
                     if (edit->combinedConstrBoxes.count(constrIdsStr) && dynamic_cast<SoImage *>(tail)) {
                         // If it's a combined constraint icon
 
@@ -1734,7 +1734,7 @@ std::set<int> ViewProviderSketch::detectPreselectionConstr(const SoPickedPoint *
                     }
                     else {
                         // It's a constraint icon, not a combined one
-                        QStringList constrIdStrings = constrIdsStr.split(QString::fromLatin1(","));
+                        QStringList constrIdStrings = constrIdsStr.split(QString(","));
                         while (!constrIdStrings.empty())
                             constrIndices.insert(constrIdStrings.takeAt(0).toInt());
                     }
@@ -2839,19 +2839,19 @@ QString ViewProviderSketch::getPresentationString(const Constraint *constraint)
         {
             case Base::SI1:
             case Base::MmMin:
-                baseUnitStr = QString::fromLatin1("mm");
+                baseUnitStr = QString("mm");
                 break;
 
             case Base::SI2:
-                baseUnitStr = QString::fromLatin1("m");
+                baseUnitStr = QString("m");
                 break;
 
             case Base::ImperialDecimal:
-                baseUnitStr = QString::fromLatin1("in");
+                baseUnitStr = QString("in");
                 break;
 
             case Base::Centimeters:
-                baseUnitStr = QString::fromLatin1("cm");
+                baseUnitStr = QString("cm");
                 break;
 
             default:
@@ -2879,25 +2879,25 @@ QString ViewProviderSketch::iconTypeFromConstraint(Constraint *constraint)
     /*! TODO: Consider pushing this functionality up into Constraint */
     switch(constraint->Type) {
     case Horizontal:
-        return QString::fromLatin1("small/Constraint_Horizontal_sm");
+        return QString("small/Constraint_Horizontal_sm");
     case Vertical:
-        return QString::fromLatin1("small/Constraint_Vertical_sm");
+        return QString("small/Constraint_Vertical_sm");
     case PointOnObject:
-        return QString::fromLatin1("small/Constraint_PointOnObject_sm");
+        return QString("small/Constraint_PointOnObject_sm");
     case Tangent:
-        return QString::fromLatin1("small/Constraint_Tangent_sm");
+        return QString("small/Constraint_Tangent_sm");
     case Parallel:
-        return QString::fromLatin1("small/Constraint_Parallel_sm");
+        return QString("small/Constraint_Parallel_sm");
     case Perpendicular:
-        return QString::fromLatin1("small/Constraint_Perpendicular_sm");
+        return QString("small/Constraint_Perpendicular_sm");
     case Equal:
-        return QString::fromLatin1("small/Constraint_EqualLength_sm");
+        return QString("small/Constraint_EqualLength_sm");
     case Symmetric:
-        return QString::fromLatin1("small/Constraint_Symmetric_sm");
+        return QString("small/Constraint_Symmetric_sm");
     case SnellsLaw:
-        return QString::fromLatin1("small/Constraint_SnellsLaw_sm");
+        return QString("small/Constraint_SnellsLaw_sm");
     case Block:
-        return QString::fromLatin1("small/Constraint_Block_sm");
+        return QString("small/Constraint_Block_sm");
     default:
         return QString();
     }
@@ -3127,7 +3127,7 @@ void ViewProviderSketch::combineConstraintIcons(IconQueue iconQueue)
         iconQueue.pop_back();
 
         // we group only icons not being Symmetry icons, because we want those on the line
-        if(init.type != QString::fromLatin1("small/Constraint_Symmetric_sm")){
+        if(init.type != QString("small/Constraint_Symmetric_sm")){
 
             IconQueue::iterator i = iconQueue.begin();
             while(i != iconQueue.end()) {
@@ -3135,7 +3135,7 @@ void ViewProviderSketch::combineConstraintIcons(IconQueue iconQueue)
 
                 for(IconQueue::iterator j = thisGroup.begin();
                     j != thisGroup.end(); ++j)
-                    if(i->position.equals(j->position, maxDistSquared) && (*i).type != QString::fromLatin1("small/Constraint_Symmetric_sm")) {
+                    if(i->position.equals(j->position, maxDistSquared) && (*i).type != QString("small/Constraint_Symmetric_sm")) {
                         // Found an icon in iconQueue that's close enough to
                         // a member of thisGroup, so move it into thisGroup
                         thisGroup.push_back(*i);
@@ -3211,7 +3211,7 @@ void ViewProviderSketch::drawMergedConstraintIcons(IconQueue iconQueue)
         maxColorPriority = constrColorPriority(i->constraintId);
 
         if(idString.length())
-            idString.append(QString::fromLatin1(","));
+            idString.append(QString(","));
         idString.append(QString::number(i->constraintId));
 
         if((avPos - i->position).length() < closest) {
@@ -3242,7 +3242,7 @@ void ViewProviderSketch::drawMergedConstraintIcons(IconQueue iconQueue)
                 iconColor= constrColor(i->constraintId);
             }
 
-            idString.append(QString::fromLatin1(",") +
+            idString.append(QString(",") +
                             QString::number(i->constraintId));
 
             i = iconQueue.erase(i);
@@ -3334,7 +3334,7 @@ QImage ViewProviderSketch::renderConstrIcon(const QString &type,
                                             int *vPad)
 {
     // Constants to help create constraint icons
-    QString joinStr = QString::fromLatin1(", ");
+    QString joinStr = QString(", ");
 
     QImage icon = Gui::BitmapFactory().pixmap(type.toLatin1()).toImage();
 
@@ -5573,7 +5573,7 @@ bool ViewProviderSketch::setEdit(int ModNum)
     try{
         Gui::Command::addModule(Gui::Command::Gui,"Show.TempoVis");
         try{
-            QString cmdstr = QString::fromLatin1(
+            QString cmdstr = QString(
                         "ActiveSketch = App.ActiveDocument.getObject('{sketch_name}')\n"
                         "tv = Show.TempoVis(App.ActiveDocument)\n"
                         "if ActiveSketch.ViewObject.HideDependent:\n"
@@ -5589,7 +5589,7 @@ bool ViewProviderSketch::setEdit(int ModNum)
                         "ActiveSketch.ViewObject.TempoVis = tv\n"
                         "del(tv)\n"
                         );
-            cmdstr.replace(QString::fromLatin1("{sketch_name}"),QString::fromLatin1(this->getSketchObject()->getNameInDocument()));
+            cmdstr.replace(QString("{sketch_name}"),QString(this->getSketchObject()->getNameInDocument()));
             QByteArray cmdstr_bytearray = cmdstr.toLatin1();
             Gui::Command::runCommand(Gui::Command::Gui, cmdstr_bytearray);
         } catch (Base::PyException &e){
@@ -5749,14 +5749,14 @@ void ViewProviderSketch::UpdateSolverInformation()
     else if (dofs < 0) { // over-constrained sketch
         std::string msg;
         SketchObject::appendConflictMsg(getSketchObject()->getLastConflicting(), msg);
-        signalSetUp(QString::fromLatin1("<font color='red'>%1<a href=\"#conflicting\"><span style=\" text-decoration: underline; color:#0000ff;\">%2</span></a><br/>%3</font><br/>")
+        signalSetUp(QString("<font color='red'>%1<a href=\"#conflicting\"><span style=\" text-decoration: underline; color:#0000ff;\">%2</span></a><br/>%3</font><br/>")
                     .arg(tr("Over-constrained sketch "))
                     .arg(tr("(click to select)"))
                     .arg(QString::fromStdString(msg)));
         signalSolved(QString());
     }
     else if (hasConflicts) { // conflicting constraints
-        signalSetUp(QString::fromLatin1("<font color='red'>%1<a href=\"#conflicting\"><span style=\" text-decoration: underline; color:#0000ff;\">%2</span></a><br/>%3</font><br/>")
+        signalSetUp(QString("<font color='red'>%1<a href=\"#conflicting\"><span style=\" text-decoration: underline; color:#0000ff;\">%2</span></a><br/>%3</font><br/>")
                     .arg(tr("Sketch contains conflicting constraints "))
                     .arg(tr("(click to select)"))
                     .arg(appendConflictMsg(getSketchObject()->getLastConflicting())));
@@ -5764,7 +5764,7 @@ void ViewProviderSketch::UpdateSolverInformation()
     }
     else {
         if (hasRedundancies) { // redundant constraints
-            signalSetUp(QString::fromLatin1("<font color='orangered'>%1<a href=\"#redundant\"><span style=\" text-decoration: underline; color:#0000ff;\">%2</span></a><br/>%3</font><br/>")
+            signalSetUp(QString("<font color='orangered'>%1<a href=\"#redundant\"><span style=\" text-decoration: underline; color:#0000ff;\">%2</span></a><br/>%3</font><br/>")
                         .arg(tr("Sketch contains redundant constraints "))
                         .arg(tr("(click to select)"))
                         .arg(appendRedundantMsg(getSketchObject()->getLastRedundant())));
@@ -5776,7 +5776,7 @@ void ViewProviderSketch::UpdateSolverInformation()
                     edit->FullyConstrained = true;
 
                 if (!hasRedundancies) {
-                    signalSetUp(QString::fromLatin1("<font color='green'>%1</font>").arg(tr("Fully constrained sketch")));
+                    signalSetUp(QString("<font color='green'>%1</font>").arg(tr("Fully constrained sketch")));
                 }
             }
             else if (!hasRedundancies) {
@@ -5786,10 +5786,10 @@ void ViewProviderSketch::UpdateSolverInformation()
                     signalSetUp(tr("Under-constrained sketch with <a href=\"#dofs\"><span style=\" text-decoration: underline; color:#0000ff;\">%1 degrees</span></a> of freedom").arg(dofs));
             }
 
-            signalSolved(QString::fromLatin1("<font color='green'>%1</font>").arg(tr("Solved in %1 sec").arg(getSketchObject()->getLastSolveTime())));
+            signalSolved(QString("<font color='green'>%1</font>").arg(tr("Solved in %1 sec").arg(getSketchObject()->getLastSolveTime())));
         }
         else {
-            signalSolved(QString::fromLatin1("<font color='red'>%1</font>").arg(tr("Unsolved (%1 sec)").arg(getSketchObject()->getLastSolveTime())));
+            signalSolved(QString("<font color='red'>%1</font>").arg(tr("Unsolved (%1 sec)").arg(getSketchObject()->getLastSolveTime())));
         }
     }
 }
@@ -5991,7 +5991,7 @@ void ViewProviderSketch::unsetEdit(int ModNum)
 
         //visibility autoation
         try{
-            QString cmdstr = QString::fromLatin1(
+            QString cmdstr = QString(
                         "ActiveSketch = App.ActiveDocument.getObject('{sketch_name}')\n"
                         "tv = ActiveSketch.ViewObject.TempoVis\n"
                         "if tv:\n"
@@ -5999,7 +5999,7 @@ void ViewProviderSketch::unsetEdit(int ModNum)
                         "ActiveSketch.ViewObject.TempoVis = None\n"
                         "del(tv)\n"
                         );
-            cmdstr.replace(QString::fromLatin1("{sketch_name}"),QString::fromLatin1(this->getSketchObject()->getNameInDocument()));
+            cmdstr.replace(QString("{sketch_name}"),QString(this->getSketchObject()->getNameInDocument()));
             QByteArray cmdstr_bytearray = cmdstr.toLatin1();
             Gui::Command::runCommand(Gui::Command::Gui, cmdstr_bytearray);
         } catch (Base::PyException &e){
@@ -6042,12 +6042,12 @@ void ViewProviderSketch::setEditViewer(Gui::View3DInventorViewer* viewer, int Mo
     //visibility automation: save camera
     if (! this->TempoVis.getValue().isNone()){
         try{
-            QString cmdstr = QString::fromLatin1(
+            QString cmdstr = QString(
                         "ActiveSketch = App.ActiveDocument.getObject('{sketch_name}')\n"
                         "if ActiveSketch.ViewObject.RestoreCamera:\n"
                         "  ActiveSketch.ViewObject.TempoVis.saveCamera()\n"
                         );
-            cmdstr.replace(QString::fromLatin1("{sketch_name}"),QString::fromLatin1(this->getSketchObject()->getNameInDocument()));
+            cmdstr.replace(QString("{sketch_name}"),QString(this->getSketchObject()->getNameInDocument()));
             QByteArray cmdstr_bytearray = cmdstr.toLatin1();
             Gui::Command::runCommand(Gui::Command::Gui, cmdstr_bytearray);
         } catch (Base::PyException &e){

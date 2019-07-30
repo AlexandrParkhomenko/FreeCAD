@@ -176,7 +176,7 @@ void SoTextLabel::GLRender(SoGLRenderAction *action)
         // The font name is of the form "family:style". If 'style' is given it can be
         // 'Bold', 'Italic' or 'Bold Italic'.
         QFont font;
-        QString fn = QString::fromLatin1(fontname.getString());
+        QString fn = QString(fontname.getString());
         int pos = fn.indexOf(QLatin1Char(':'));
         if (pos > -1) {
             if (fn.indexOf(QLatin1String("Bold"),pos,Qt::CaseInsensitive) > pos)
@@ -383,7 +383,7 @@ void SoFrameLabel::drawImage()
         return;
     }
 
-    QFont font(QString::fromLatin1(name.getValue()), size.getValue());
+    QFont font(QString(name.getValue()), size.getValue());
     QFontMetrics fm(font);
     int w = 0;
     int h = fm.height() * num;

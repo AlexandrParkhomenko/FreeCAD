@@ -406,32 +406,32 @@ QString Unit::getString(void) const
 
 QString Unit::getTypeString(void) const
 {
-    if(*this == Unit::Length                      )       return QString::fromLatin1("Length");
-    if(*this == Unit::Area                        )       return QString::fromLatin1("Area");
-    if(*this == Unit::Volume                      )       return QString::fromLatin1("Volume");
-    if(*this == Unit::Mass                        )       return QString::fromLatin1("Mass");
-    if(*this == Unit::Angle                       )       return QString::fromLatin1("Angle");
-    if(*this == Unit::Density                     )       return QString::fromLatin1("Density");
-    if(*this == Unit::TimeSpan                    )       return QString::fromLatin1("TimeSpan");
-    if(*this == Unit::Velocity                    )       return QString::fromLatin1("Velocity");
-    if(*this == Unit::Acceleration                )       return QString::fromLatin1("Acceleration");
-    if(*this == Unit::Temperature                 )       return QString::fromLatin1("Temperature");
-    if(*this == Unit::ElectricCurrent             )       return QString::fromLatin1("ElectricCurrent");
-    if(*this == Unit::ElectricPotential           )       return QString::fromLatin1("ElectricPotential");
-    if(*this == Unit::AmountOfSubstance           )       return QString::fromLatin1("AmountOfSubstance");
-    if(*this == Unit::LuminousIntensity           )       return QString::fromLatin1("LuminousIntensity");
-    if(*this == Unit::Pressure                    )       return QString::fromLatin1("Pressure");
-    if(*this == Unit::Force                       )       return QString::fromLatin1("Force");
-    if(*this == Unit::Work                        )       return QString::fromLatin1("Work");
-    if(*this == Unit::Power                       )       return QString::fromLatin1("Power");
-    if(*this == Unit::SpecificEnergy              )       return QString::fromLatin1("SpecificEnergy");
-    if(*this == Unit::ThermalConductivity         )       return QString::fromLatin1("ThermalConductivity");
-    if(*this == Unit::ThermalExpansionCoefficient )       return QString::fromLatin1("ThermalExpansionCoefficient");
-    if(*this == Unit::SpecificHeat                )       return QString::fromLatin1("SpecificHeat");
-    if(*this == Unit::ThermalTransferCoefficient  )       return QString::fromLatin1("ThermalTransferCoefficient");
-    if(*this == Unit::HeatFlux                    )       return QString::fromLatin1("HeatFlux");
-    if(*this == Unit::DynamicViscosity            )       return QString::fromLatin1("DynamicViscosity");
-    if(*this == Unit::KinematicViscosity          )       return QString::fromLatin1("KinematicViscosity");
+    if(*this == Unit::Length                      )       return QString("Length");
+    if(*this == Unit::Area                        )       return QString("Area");
+    if(*this == Unit::Volume                      )       return QString("Volume");
+    if(*this == Unit::Mass                        )       return QString("Mass");
+    if(*this == Unit::Angle                       )       return QString("Angle");
+    if(*this == Unit::Density                     )       return QString("Density");
+    if(*this == Unit::TimeSpan                    )       return QString("TimeSpan");
+    if(*this == Unit::Velocity                    )       return QString("Velocity");
+    if(*this == Unit::Acceleration                )       return QString("Acceleration");
+    if(*this == Unit::Temperature                 )       return QString("Temperature");
+    if(*this == Unit::ElectricCurrent             )       return QString("ElectricCurrent");
+    if(*this == Unit::ElectricPotential           )       return QString("ElectricPotential");
+    if(*this == Unit::AmountOfSubstance           )       return QString("AmountOfSubstance");
+    if(*this == Unit::LuminousIntensity           )       return QString("LuminousIntensity");
+    if(*this == Unit::Pressure                    )       return QString("Pressure");
+    if(*this == Unit::Force                       )       return QString("Force");
+    if(*this == Unit::Work                        )       return QString("Work");
+    if(*this == Unit::Power                       )       return QString("Power");
+    if(*this == Unit::SpecificEnergy              )       return QString("SpecificEnergy");
+    if(*this == Unit::ThermalConductivity         )       return QString("ThermalConductivity");
+    if(*this == Unit::ThermalExpansionCoefficient )       return QString("ThermalExpansionCoefficient");
+    if(*this == Unit::SpecificHeat                )       return QString("SpecificHeat");
+    if(*this == Unit::ThermalTransferCoefficient  )       return QString("ThermalTransferCoefficient");
+    if(*this == Unit::HeatFlux                    )       return QString("HeatFlux");
+    if(*this == Unit::DynamicViscosity            )       return QString("DynamicViscosity");
+    if(*this == Unit::KinematicViscosity          )       return QString("KinematicViscosity");
 
     return QString();
 

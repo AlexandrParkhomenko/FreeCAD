@@ -86,7 +86,7 @@ void MacroManager::commit(void)
         // sort import lines and avoid duplicates
         QTextStream str(&file);
         QStringList import;
-        import << QString::fromLatin1("import FreeCAD");
+        import << QString("import FreeCAD");
         QStringList body;
 
         QStringList::Iterator it;
@@ -105,14 +105,14 @@ void MacroManager::commit(void)
         }
 
         QString header;
-        header += QString::fromLatin1("# -*- coding: utf-8 -*-\n\n");
-        header += QString::fromLatin1("# Macro Begin: ");
+        header += QString("# -*- coding: utf-8 -*-\n\n");
+        header += QString("# Macro Begin: ");
         header += this->macroName;
-        header += QString::fromLatin1(" +++++++++++++++++++++++++++++++++++++++++++++++++\n");
+        header += QString(" +++++++++++++++++++++++++++++++++++++++++++++++++\n");
 
-        QString footer = QString::fromLatin1("# Macro End: ");
+        QString footer = QString("# Macro End: ");
         footer += this->macroName;
-        footer += QString::fromLatin1(" +++++++++++++++++++++++++++++++++++++++++++++++++\n");
+        footer += QString(" +++++++++++++++++++++++++++++++++++++++++++++++++\n");
 
         // write the data to the text file
         str << header;
@@ -159,7 +159,7 @@ void MacroManager::addLine(LineType Type, const char* sLine)
             comment = true;
         }
 
-        QStringList lines = QString::fromLatin1(sLine).split(QLatin1String("\n"));
+        QStringList lines = QString(sLine).split(QLatin1String("\n"));
         if (comment) {
             for (QStringList::iterator it = lines.begin(); it != lines.end(); ++it)
                 it->prepend(QLatin1String("#"));
@@ -181,7 +181,7 @@ void MacroManager::setModule(const char* sModule)
 {
     if (this->openMacro && sModule && *sModule != '\0')
     {
-        this->macroInProgress.append(QString::fromLatin1("import %1").arg(QString::fromLatin1(sModule)));
+        this->macroInProgress.append(QString("import %1").arg(QString(sModule)));
     }
 }
 

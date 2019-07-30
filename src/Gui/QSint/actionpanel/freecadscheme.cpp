@@ -243,7 +243,7 @@ QString SystemPanelScheme::systemStyle(const QPalette& p) const
   QColor taskLabelText = p.color(QPalette::Text);
   QColor taskLabelTextOver = p.color(QPalette::Highlight);
 
-  QString style = QString::fromLatin1(
+  QString style = QString(
     "QFrame[class='panel'] {"
         "background-color:qlineargradient(x1:1, y1:0.3, x2:1, y2:0, stop:0 %1, stop:1 %2);"
     "}"

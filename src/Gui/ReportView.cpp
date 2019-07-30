@@ -415,7 +415,7 @@ void ReportOutput::contextMenuEvent ( QContextMenuEvent * e )
 void ReportOutput::onSaveAs()
 {
     QString fn = QFileDialog::getSaveFileName(this, tr("Save Report Output"), QString(),
-        QString::fromLatin1("%1 (*.txt *.log)").arg(tr("Plain Text Files")));
+        QString("%1 (*.txt *.log)").arg(tr("Plain Text Files")));
     if (!fn.isEmpty()) {
         QFileInfo fi(fn);
         if (fi.completeSuffix().isEmpty())
@@ -533,7 +533,7 @@ void ReportOutput::OnChange(Base::Subject<const char*> &rCaller, const char * sR
     }
     else if (strcmp(sReason, "FontSize") == 0 || strcmp(sReason, "Font") == 0) {
         int fontSize = rclGrp.GetInt("FontSize", 10);
-        QString fontFamily = QString::fromLatin1(rclGrp.GetASCII("Font", "Courier").c_str());
+        QString fontFamily = QString(rclGrp.GetASCII("Font", "Courier").c_str());
         
         QFont font(fontFamily, fontSize);
         setFont(font);

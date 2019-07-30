@@ -516,19 +516,19 @@ void DrawSketchHandler::renderSuggestConstraintsCursor(std::vector<AutoConstrain
         switch (it->Type)
         {
         case Horizontal:
-            iconType = QString::fromLatin1("Constraint_Horizontal");
+            iconType = QString("Constraint_Horizontal");
             break;
         case Vertical:
-            iconType = QString::fromLatin1("Constraint_Vertical");
+            iconType = QString("Constraint_Vertical");
             break;
         case Coincident:
-            iconType = QString::fromLatin1("Constraint_PointOnPoint");
+            iconType = QString("Constraint_PointOnPoint");
             break;
         case PointOnObject:
-            iconType = QString::fromLatin1("Constraint_PointOnObject");
+            iconType = QString("Constraint_PointOnObject");
             break;
         case Tangent:
-            iconType = QString::fromLatin1("Constraint_Tangent");
+            iconType = QString("Constraint_Tangent");
             break;
         default:
             break;

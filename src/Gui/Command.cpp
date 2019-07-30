@@ -563,12 +563,12 @@ void Command::applyCommandData(const char* context, Action* action)
     QString accel = action->shortcut().toString(QKeySequence::NativeText);
     if (!accel.isEmpty()) {
         // show shortcut inside tooltip
-        QString ttip = QString::fromLatin1("%1 (%2)")
+        QString ttip = QString("%1 (%2)")
             .arg(action->toolTip(), accel);
         action->setToolTip(ttip);
 
         // show shortcut inside status tip
-        QString stip = QString::fromLatin1("(%1)\t%2")
+        QString stip = QString("(%1)\t%2")
             .arg(accel, action->statusTip());
         action->setStatusTip(stip);
     }
@@ -637,7 +637,7 @@ Action * Command::createAction(void)
     Action *pcAction;
 
     pcAction = new Action(this,getMainWindow());
-    pcAction->setShortcut(QString::fromLatin1(sAccel));
+    pcAction->setShortcut(QString(sAccel));
     applyCommandData(this->className(), pcAction);
     if (sPixmap)
         pcAction->setIcon(Gui::BitmapFactory().iconFromTheme(sPixmap));
@@ -722,17 +722,17 @@ Action * MacroCommand::createAction(void)
         pcAction->setStatusTip(pcAction->toolTip());
     if (sPixmap)
         pcAction->setIcon(Gui::BitmapFactory().pixmap(sPixmap));
-    pcAction->setShortcut(QString::fromLatin1(sAccel));
+    pcAction->setShortcut(QString(sAccel));
 
     QString accel = pcAction->shortcut().toString(QKeySequence::NativeText);
     if (!accel.isEmpty()) {
         // show shortcut inside tooltip
-        QString ttip = QString::fromLatin1("%1 (%2)")
+        QString ttip = QString("%1 (%2)")
             .arg(pcAction->toolTip(), accel);
         pcAction->setToolTip(ttip);
 
         // show shortcut inside status tip
-        QString stip = QString::fromLatin1("(%1)\t%2")
+        QString stip = QString("(%1)\t%2")
             .arg(accel, pcAction->statusTip());
         pcAction->setStatusTip(stip);
     }
@@ -926,7 +926,7 @@ Action * PythonCommand::createAction(void)
     Action *pcAction;
 
     pcAction = new Action(this, qtAction, getMainWindow());
-    pcAction->setShortcut(QString::fromLatin1(getAccel()));
+    pcAction->setShortcut(QString(getAccel()));
     applyCommandData(this->getName(), pcAction);
     if (strcmp(getResource("Pixmap"),"") != 0)
         pcAction->setIcon(Gui::BitmapFactory().iconFromTheme(getResource("Pixmap")));

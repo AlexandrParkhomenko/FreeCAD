@@ -255,14 +255,14 @@ void Placement::applyPlacement(const QString& data, bool incremental)
                 if (jt != props.end()) {
                     QString cmd;
                     if (incremental)
-                        cmd = QString::fromLatin1(
+                        cmd = QString(
                             "App.getDocument(\"%1\").%2.%3=%4.multiply(App.getDocument(\"%1\").%2.%3)")
                             .arg(QLatin1String((*it)->getDocument()->getName()))
                             .arg(QLatin1String((*it)->getNameInDocument()))
                             .arg(QLatin1String(this->propertyName.c_str()))
                             .arg(data);
                     else {
-                        cmd = QString::fromLatin1(
+                        cmd = QString(
                             "App.getDocument(\"%1\").%2.%3=%4")
                             .arg(QLatin1String((*it)->getDocument()->getName()))
                             .arg(QLatin1String((*it)->getNameInDocument()))
@@ -653,7 +653,7 @@ void Placement::setPlacementData(const Base::Placement& p)
 
     if (newitem) {
         // add a new item before the very last item
-        QString display = QString::fromLatin1("(%1,%2,%3)")
+        QString display = QString("(%1,%2,%3)")
             .arg(dir.x)
             .arg(dir.y)
             .arg(dir.z);
@@ -712,7 +712,7 @@ QString Placement::getPlacementString() const
 
     if (index == 0) {
         Base::Vector3d dir = getDirection();
-        cmd = QString::fromLatin1(
+        cmd = QString(
             "App.Placement(App.Vector(%1,%2,%3), App.Rotation(App.Vector(%4,%5,%6),%7), App.Vector(%8,%9,%10))")
             .arg(ui->xPos->value().getValue())
             .arg(ui->yPos->value().getValue())
@@ -726,7 +726,7 @@ QString Placement::getPlacementString() const
             .arg(cnt.z);
     }
     else if (index == 1) {
-        cmd = QString::fromLatin1(
+        cmd = QString(
             "App.Placement(App.Vector(%1,%2,%3), App.Rotation(%4,%5,%6), App.Vector(%7,%8,%9))")
             .arg(ui->xPos->value().getValue())
             .arg(ui->yPos->value().getValue())

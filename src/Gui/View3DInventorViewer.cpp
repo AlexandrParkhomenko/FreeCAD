@@ -1795,7 +1795,7 @@ void View3DInventorViewer::printDimension()
         QString hStr = Base::UnitsApi::schemaTranslate(qHeight);
 
         // Create final string and update window
-        QString dim = QString::fromLatin1("%1 x %2")
+        QString dim = QString("%1 x %2")
                       .arg(wStr, hStr);
         getMainWindow()->setPaneText(2, dim);
     }
@@ -2848,7 +2848,7 @@ SoPath* View3DInventorViewer::pickFilterCB(void* viewer, const SoPickedPoint* pp
                  ,pp->getPoint()[1]
                  ,pp->getPoint()[2]);
 
-        getMainWindow()->showMessage(QString::fromLatin1(buf),3000);
+        getMainWindow()->showMessage(QString(buf),3000);
     }
 
     return pp->getPath();

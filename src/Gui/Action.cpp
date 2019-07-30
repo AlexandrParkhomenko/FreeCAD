@@ -41,7 +41,7 @@ using namespace Gui::Dialog;
 Action::Action (Command* pcCmd, QObject * parent)
   : QObject(parent), _action(new QAction( this )), _pcCmd(pcCmd)
 {
-    _action->setObjectName(QString::fromLatin1(_pcCmd->getName()));
+    _action->setObjectName(QString(_pcCmd->getName()));
     connect(_action, SIGNAL(triggered(bool)), this, SLOT(onActivated()));
 }
 
@@ -49,7 +49,7 @@ Action::Action (Command* pcCmd, QAction* action, QObject * parent)
   : QObject(parent), _action(action), _pcCmd(pcCmd)
 {
     _action->setParent(this);
-    _action->setObjectName(QString::fromLatin1(_pcCmd->getName()));
+    _action->setObjectName(QString(_pcCmd->getName()));
     connect(_action, SIGNAL(triggered(bool)), this, SLOT(onActivated()));
 }
 
@@ -207,7 +207,7 @@ void ActionGroup::addTo(QWidget *w)
             w->addAction(_action);
             QToolButton* tb = w->findChildren<QToolButton*>().last();
             tb->setPopupMode(QToolButton::MenuButtonPopup);
-            tb->setObjectName(QString::fromLatin1("qt_toolbutton_menubutton"));
+            tb->setObjectName(QString("qt_toolbutton_menubutton"));
             QList<QAction*> acts = _group->actions();
             QMenu* menu = new QMenu(tb);
             menu->addActions(acts);
@@ -567,7 +567,7 @@ void WorkbenchGroup::slotAddWorkbench(const char* name)
     QList<QAction*> workbenches = _group->actions();
     for (QList<QAction*>::Iterator it = workbenches.begin(); it != workbenches.end(); ++it) {
         if (!(*it)->isVisible()) {
-            QString wb = QString::fromLatin1(name);
+            QString wb = QString(name);
             QPixmap px = Application::Instance->workbenchIcon(wb);
             QString text = Application::Instance->workbenchMenuText(wb);
             QString tip = Application::Instance->workbenchToolTip(wb);
@@ -584,7 +584,7 @@ void WorkbenchGroup::slotAddWorkbench(const char* name)
 
 void WorkbenchGroup::slotRemoveWorkbench(const char* name)
 {
-    QString workbench = QString::fromLatin1(name);
+    QString workbench = QString(name);
     QList<QAction*> workbenches = _group->actions();
     for (QList<QAction*>::Iterator it = workbenches.begin(); it != workbenches.end(); ++it) {
         if ((*it)->objectName() == workbench) {
@@ -645,7 +645,7 @@ void RecentFilesAction::setFiles(const QStringList& files)
     int numRecentFiles = std::min<int>(recentFiles.count(), files.count());
     for (int index = 0; index < numRecentFiles; index++) {
         QFileInfo fi(files[index]);
-        recentFiles[index]->setText(QString::fromLatin1("%1 %2").arg(index+1).arg(fi.fileName()));
+        recentFiles[index]->setText(QString("%1 %2").arg(index+1).arg(fi.fileName()));
         recentFiles[index]->setStatusTip(tr("Open file %1").arg(files[index]));
         recentFiles[index]->setToolTip(files[index]); // set the full name that we need later for saving
         recentFiles[index]->setData(QVariant(index));
@@ -745,7 +745,7 @@ void RecentFilesAction::save()
     QList<QAction*> recentFiles = _group->actions();
     int num = std::min<int>(count, recentFiles.count());
     for (int index = 0; index < num; index++) {
-        QString key = QString::fromLatin1("MRU%1").arg(index);
+        QString key = QString("MRU%1").arg(index);
         QString value = recentFiles[index]->toolTip();
         if (value.isEmpty())
             break;

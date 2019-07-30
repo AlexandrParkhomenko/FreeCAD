@@ -26,7 +26,7 @@ DockWindowItems::~DockWindowItems()
 void DockWindowItems::addDockWidget(const char* name, Qt::DockWidgetArea pos, bool visibility, bool tabbed)
 {
     DockWindowItem item;
-    item.name = QString::fromLatin1(name);
+    item.name = QString(name);
     item.pos = pos;
     item.visibility = visibility;
     item.tabbed = tabbed;

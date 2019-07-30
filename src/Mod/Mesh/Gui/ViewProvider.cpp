@@ -1500,7 +1500,7 @@ void ViewProviderMesh::faceInfoCallback(void * ud, SoEventCallback * n)
             int point3 = static_cast<const SoPointDetail*>(faceDetail->getPoint(2))->getCoordinateIndex();
             Gui::Flag* flag = new Gui::Flag;
             flag->setText(QObject::tr("Index: %1").arg(uFacet));
-            QString toolTip = QString::fromLatin1("Facet index: %1\n"
+            QString toolTip = QString("Facet index: %1\n"
                                                   "Points: <%2, %3, %4>")
                     .arg(uFacet)
                     .arg(point1).arg(point2).arg(point3);

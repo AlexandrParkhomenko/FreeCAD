@@ -578,7 +578,7 @@ SoFCUnifiedSelection::handleEvent(SoHandleEventAction * action)
                                                        ,pp->getPoint()[1]
                                                        ,pp->getPoint()[2]);
 
-                            getMainWindow()->showMessage(QString::fromLatin1(buf));
+                            getMainWindow()->showMessage(QString(buf));
                         }
                     }
                 }
@@ -617,7 +617,7 @@ SoFCUnifiedSelection::handleEvent(SoHandleEventAction * action)
                                                    ,pp->getPoint()[1]
                                                    ,pp->getPoint()[2]);
 
-                        getMainWindow()->showMessage(QString::fromLatin1(buf));
+                        getMainWindow()->showMessage(QString(buf));
                     }
                 }
 

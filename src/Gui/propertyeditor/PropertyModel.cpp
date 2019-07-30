@@ -211,13 +211,13 @@ void PropertyModel::buildUp(const PropertyModel::PropertyList& props)
         PropertyItem* group = static_cast<PropertyItem*>(PropertySeparatorItem::create());
         group->setParent(rootItem);
         rootItem->appendChild(group);
-        group->setPropertyName(QString::fromLatin1(kt->first.c_str()));
+        group->setPropertyName(QString(kt->first.c_str()));
 
         // setup the items for the properties
         std::vector<std::vector<App::Property*> >::const_iterator it;
         for (it = kt->second.begin(); it != kt->second.end(); ++it) {
             App::Property* prop = it->front();
-            QString editor = QString::fromLatin1(prop->getEditorName());
+            QString editor = QString(prop->getEditorName());
             if (!editor.isEmpty()) {
                 PropertyItem* item = PropertyItemFactory::instance().createPropertyItem(prop->getEditorName());
                 if (!item) {
@@ -228,7 +228,7 @@ void PropertyModel::buildUp(const PropertyModel::PropertyList& props)
                     PropertyItem* child = (PropertyItem*)item;
                     child->setParent(rootItem);
                     rootItem->appendChild(child);
-                    child->setPropertyName(QString::fromLatin1(prop->getName()));
+                    child->setPropertyName(QString(prop->getName()));
                     child->setPropertyData(*it);
                 }
             }
@@ -259,7 +259,7 @@ void PropertyModel::updateProperty(const App::Property& prop)
 
 void PropertyModel::appendProperty(const App::Property& prop)
 {
-    QString editor = QString::fromLatin1(prop.getEditorName());
+    QString editor = QString(prop.getEditorName());
     if (!editor.isEmpty()) {
         PropertyItem* item = PropertyItemFactory::instance().createPropertyItem(prop.getEditorName());
         if (!item) {
@@ -334,7 +334,7 @@ void PropertyModel::appendProperty(const App::Property& prop)
 
         std::vector<App::Property*> data;
         data.push_back(const_cast<App::Property*>(&prop));
-        item->setPropertyName(QString::fromLatin1(prop.getName()));
+        item->setPropertyName(QString(prop.getName()));
         item->setPropertyData(data);
 
         endInsertRows();

@@ -239,7 +239,7 @@ void ToolBarManager::setup(ToolBarItem* item, QToolBar* toolbar) const
     QList<QAction*> actions = toolbar->actions();
     for (QList<ToolBarItem*>::ConstIterator it = items.begin(); it != items.end(); ++it) {
         // search for the action item
-        QAction* action = findAction(actions, QString::fromLatin1((*it)->command().c_str()));
+        QAction* action = findAction(actions, QString((*it)->command().c_str()));
         if (!action) {
             if ((*it)->command() == "Separator") {
                 action = toolbar->addSeparator();
@@ -250,7 +250,7 @@ void ToolBarManager::setup(ToolBarItem* item, QToolBar* toolbar) const
             }
 
             // set the tool button user data
-            if (action) action->setData(QString::fromLatin1((*it)->command().c_str()));
+            if (action) action->setData(QString((*it)->command().c_str()));
         } else {
             // Note: For toolbars we do not remove and re-add the actions
             // because this causes flicker effects. So, it could happen that the order of

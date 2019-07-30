@@ -45,25 +45,25 @@ public:
     MeshInfoWatcher() : TaskWatcher(0)
     {
         labelPoints = new QLabel();
-        labelPoints->setText(QString::fromLatin1("Number of points:"));
+        labelPoints->setText(QString("Number of points:"));
 
         labelFacets = new QLabel();
-        labelFacets->setText(QString::fromLatin1("Number of facets:"));
+        labelFacets->setText(QString("Number of facets:"));
 
         numPoints = new QLabel();
         numFacets = new QLabel();
 
         labelMin = new QLabel();
-        labelMin->setText(QString::fromLatin1("Minimum bound:"));
+        labelMin->setText(QString("Minimum bound:"));
 
         labelMax = new QLabel();
-        labelMax->setText(QString::fromLatin1("Maximum bound:"));
+        labelMax->setText(QString("Maximum bound:"));
 
         numMin = new QLabel();
         numMax = new QLabel();
 
         QGroupBox* box = new QGroupBox();
-        box->setTitle(QString::fromLatin1("Mesh info box"));
+        box->setTitle(QString("Mesh info box"));
         //box->setAutoFillBackground(true);
         QGridLayout* grid = new QGridLayout(box);
         grid->addWidget(labelPoints, 0, 0);
@@ -77,7 +77,7 @@ public:
         grid->addWidget(numMax, 3, 1);
 
         Gui::TaskView::TaskBox* taskbox = new Gui::TaskView::TaskBox(
-            QPixmap(), QString::fromLatin1("Mesh info"), false, 0);
+            QPixmap(), QString("Mesh info"), false, 0);
         taskbox->groupLayout()->addWidget(box);
         Content.push_back(taskbox);
     }
@@ -99,16 +99,16 @@ public:
         if (countPoints > 0) {
             numPoints->setText(QString::number(countPoints));
             numFacets->setText(QString::number(countFacets));
-            numMin->setText(QString::fromLatin1("X: %1\tY: %2\tZ: %3")
+            numMin->setText(QString("X: %1\tY: %2\tZ: %3")
                 .arg(bbox.MinX).arg(bbox.MinX).arg(bbox.MinX));
-            numMax->setText(QString::fromLatin1("X: %1\tY: %2\tZ: %3")
+            numMax->setText(QString("X: %1\tY: %2\tZ: %3")
                 .arg(bbox.MaxX).arg(bbox.MaxX).arg(bbox.MaxX));
         }
         else {
-            numPoints->setText(QString::fromLatin1(""));
-            numFacets->setText(QString::fromLatin1(""));
-            numMin->setText(QString::fromLatin1(""));
-            numMax->setText(QString::fromLatin1(""));
+            numPoints->setText(QString(""));
+            numFacets->setText(QString(""));
+            numMin->setText(QString(""));
+            numMax->setText(QString(""));
         }
     }
 

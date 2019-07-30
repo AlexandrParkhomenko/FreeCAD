@@ -291,7 +291,7 @@ void DlgMacroExecuteImp::on_editButton_clicked()
 
     MacroItem * mitem = static_cast<MacroItem *>(item);
 
-    QString file = QString::fromLatin1("%1/%2").arg(dir.absolutePath(), item->text(0));
+    QString file = QString("%1/%2").arg(dir.absolutePath(), item->text(0));
     PythonEditor* editor = new PythonEditor();
     editor->setWindowIcon(Gui::BitmapFactory().iconFromTheme("applications-python"));
     PythonEditorView* edit = new PythonEditorView(editor, getMainWindow());
@@ -302,7 +302,7 @@ void DlgMacroExecuteImp::on_editButton_clicked()
     if (mitem->systemWide) {
         editor->setReadOnly(true);
         QString shownName;
-        shownName = QString::fromLatin1("%1[*] - [%2]").arg(item->text(0), tr("Read-only"));
+        shownName = QString("%1[*] - [%2]").arg(item->text(0), tr("Read-only"));
         edit->setWindowTitle(shownName);
     }
 
@@ -344,7 +344,7 @@ void DlgMacroExecuteImp::on_createButton_clicked()
             editor->setWindowIcon(Gui::BitmapFactory().iconFromTheme("applications-python"));
             PythonEditorView* edit = new PythonEditorView(editor, getMainWindow());
             edit->open(fi.absoluteFilePath());
-            edit->setWindowTitle(QString::fromLatin1("%1[*]").arg(fn));
+            edit->setWindowTitle(QString("%1[*]").arg(fn));
             edit->resize(400, 300);
             getMainWindow()->addWindow(edit);
             close();

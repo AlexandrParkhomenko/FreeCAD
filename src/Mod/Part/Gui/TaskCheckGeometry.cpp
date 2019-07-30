@@ -711,7 +711,7 @@ void TaskCheckGeometryResults::currentRowChanged (const QModelIndex &current, co
 
 bool TaskCheckGeometryResults::split(QString &input, QString &doc, QString &object, QString &sub)
 {
-    QStringList strings = input.split(QString::fromLatin1("."));
+    QStringList strings = input.split(QString("."));
     if (strings.size() != 3)
         return false;
     doc = strings.at(0);
@@ -932,7 +932,7 @@ Standard_Boolean BOPProgressIndicator::Show (const Standard_Boolean theForce)
     else {
         Handle(TCollection_HAsciiString) aName = GetScope(1).GetName(); //current step
         if (!aName.IsNull())
-            myProgress->setLabelText (QString::fromLatin1(aName->ToCString()));
+            myProgress->setLabelText (QString(aName->ToCString()));
     }
 
     return Standard_True;

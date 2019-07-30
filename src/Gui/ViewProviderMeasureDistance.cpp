@@ -253,7 +253,7 @@ void PointMarker::customEvent(QEvent*)
     md->P1.setValue(Base::Vector3d(pt1[0],pt1[1],pt1[2]));
     md->P2.setValue(Base::Vector3d(pt2[0],pt2[1],pt2[2]));
 
-    QString str = QString::fromLatin1("Distance: %1")
+    QString str = QString("Distance: %1")
         .arg(Base::Quantity(md->Distance.getValue(), Base::Unit::Length).getUserString());
     md->Label.setValue(str.toUtf8().constData());
     doc->commitCommand();

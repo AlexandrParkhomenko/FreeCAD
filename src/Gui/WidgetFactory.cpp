@@ -855,8 +855,8 @@ Py::Object UiLoaderPy::createWidget(const Py::Tuple& args)
 
     }
 
-    QWidget* widget = loader.createWidget(QString::fromLatin1(className.c_str()), parent,
-        QString::fromLatin1(objectName.c_str()));
+    QWidget* widget = loader.createWidget(QString(className.c_str()), parent,
+        QString(objectName.c_str()));
     if (!widget) {
         std::string err = "No such widget class '";
         err += className;
@@ -1187,7 +1187,7 @@ bool PyResource::connect(const char* sender, const char* signal, PyObject* cb)
     QList<QWidget*> list = myDlg->findChildren<QWidget*>();
     QList<QWidget*>::const_iterator it = list.begin();
     QObject *obj;
-    QString sigStr = QString::fromLatin1("2%1").arg(QString::fromLatin1(signal));
+    QString sigStr = QString("2%1").arg(QString(signal));
 
     while ( it != list.end() ) {
         obj = *it;

@@ -359,7 +359,7 @@ PyObject* Application::sOpen(PyObject * /*self*/, PyObject *args)
             if (!Application::Instance->activeDocument())
                 App::GetApplication().newDocument();
             //QString cmd = QString("Gui.activeDocument().addAnnotation(\"%1\",\"%2\")").arg(fi.baseName()).arg(fi.absoluteFilePath());
-            QString cmd = QString::fromLatin1(
+            QString cmd = QString(
                 "App.ActiveDocument.addObject(\"App::InventorObject\",\"%1\")."
                 "FileName=\"%2\"\n"
                 "App.ActiveDocument.ActiveObject.Label=\"%1\"\n"
@@ -378,7 +378,7 @@ PyObject* Application::sOpen(PyObject * /*self*/, PyObject *args)
             SoInput::addDirectoryFirst(path.constData());
 
             //QString cmd = QString("Gui.activeDocument().addAnnotation(\"%1\",\"%2\")").arg(fi.baseName()).arg(fi.absoluteFilePath());
-            QString cmd = QString::fromLatin1(
+            QString cmd = QString(
                 "App.ActiveDocument.addObject(\"App::VRMLObject\",\"%1\")."
                 "VrmlFile=\"%2\"\n"
                 "App.ActiveDocument.ActiveObject.Label=\"%1\"\n"

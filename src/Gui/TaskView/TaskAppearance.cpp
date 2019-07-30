@@ -212,7 +212,7 @@ void TaskAppearance::setDisplayModes(const std::vector<Gui::ViewProvider*>& view
         App::Property* prop = (*it)->getPropertyByName("DisplayMode");
         if (prop && prop->getTypeId() == App::PropertyEnumeration::getClassTypeId()) {
             App::PropertyEnumeration* display = static_cast<App::PropertyEnumeration*>(prop);
-            QString activeMode = QString::fromLatin1(display->getValueAsString());
+            QString activeMode = QString(display->getValueAsString());
             int index = ui->changeMode->findText(activeMode);
             if (index != -1) {
                 ui->changeMode->setCurrentIndex(index);

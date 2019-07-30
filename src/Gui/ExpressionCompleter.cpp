@@ -42,9 +42,9 @@ ExpressionCompleter::ExpressionCompleter(const App::Document * currentDoc, const
 
     /* Create tree with full path to all objects */
     while (di != docs.end()) {
-        QStandardItem* docItem = new QStandardItem(QString::fromLatin1((*di)->getName()));
+        QStandardItem* docItem = new QStandardItem(QString((*di)->getName()));
 
-        docItem->setData(QString::fromLatin1((*di)->getName()) + QString::fromLatin1("#"), Qt::UserRole);
+        docItem->setData(QString((*di)->getName()) + QString("#"), Qt::UserRole);
         createModelForDocument(*di, docItem, forbidden);
 
         model->appendRow(docItem);
@@ -89,9 +89,9 @@ void ExpressionCompleter::createModelForDocument(const App::Document * doc, QSta
             continue;
         }
 
-        QStandardItem* docObjItem = new QStandardItem(QString::fromLatin1((*doi)->getNameInDocument()));
+        QStandardItem* docObjItem = new QStandardItem(QString((*doi)->getNameInDocument()));
 
-        docObjItem->setData(QString::fromLatin1((*doi)->getNameInDocument()) + QString::fromLatin1("."), Qt::UserRole);
+        docObjItem->setData(QString((*doi)->getNameInDocument()) + QString("."), Qt::UserRole);
         createModelForDocumentObject(*doi, docObjItem);
         parent->appendRow(docObjItem);
 
@@ -103,7 +103,7 @@ void ExpressionCompleter::createModelForDocument(const App::Document * doc, QSta
 
             docObjItem = new QStandardItem(QString::fromUtf8(label.c_str()));
 
-            docObjItem->setData( QString::fromUtf8(label.c_str()) + QString::fromLatin1("."), Qt::UserRole);
+            docObjItem->setData( QString::fromUtf8(label.c_str()) + QString("."), Qt::UserRole);
             createModelForDocumentObject(*doi, docObjItem);
             parent->appendRow(docObjItem);
         }
@@ -238,7 +238,7 @@ void ExpressionCompleter::slotUpdate(const QString & prefix)
     std::string completionPrefix;
 
     // Compute start; if prefix starts with =, start parsing from offset 1.
-    int start = (prefix.size() > 0 && prefix.at(0) == QChar::fromLatin1('=')) ? 1 : 0;
+    int start = (prefix.size() > 0 && prefix.at(0) == QChar('=')) ? 1 : 0;
 
     // Tokenize prefix
     std::vector<boost::tuple<int, int, std::string> > tokens = ExpressionParser::tokenize(Base::Tools::toStdString(prefix.mid(start)));
@@ -267,7 +267,7 @@ void ExpressionCompleter::slotUpdate(const QString & prefix)
     if (i == static_cast<ssize_t>(tokens.size()))
         prefixStart = prefix.size();
     else
-        prefixStart = (prefix.at(0) == QChar::fromLatin1('=') ? 1 : 0) + get<1>(tokens[i]);
+        prefixStart = (prefix.at(0) == QChar('=') ? 1 : 0) + get<1>(tokens[i]);
 
     // Build prefix from tokens
     while (i < static_cast<ssize_t>(tokens.size())) {

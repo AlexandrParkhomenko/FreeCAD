@@ -87,7 +87,7 @@ void Picker::createPrimitive(QWidget* widget, const QString& descr, Gui::Documen
         Gui::Command::runCommand(Gui::Command::Gui, "Gui.SendMsgToActiveView(\"ViewFit\")");
     }
     catch (const Base::Exception& e) {
-        QMessageBox::warning(widget, descr, QString::fromLatin1(e.what()));
+        QMessageBox::warning(widget, descr, QString(e.what()));
     }
 }
 
@@ -108,7 +108,7 @@ QString Picker::toPlacement(const gp_Ax2& axis) const
     Base::Rotation rot(Base::convertTo<Base::Vector3d>(theAxis), theAngle);
     gp_Pnt loc = axis.Location();
 
-    return QString::fromLatin1("Base.Placement(Base.Vector(%1,%2,%3),Base.Rotation(%4,%5,%6,%7))")
+    return QString("Base.Placement(Base.Vector(%1,%2,%3),Base.Rotation(%4,%5,%6,%7))")
         .arg(loc.X(),0,'f',Base::UnitsApi::getDecimals())
         .arg(loc.Y(),0,'f',Base::UnitsApi::getDecimals())
         .arg(loc.Z(),0,'f',Base::UnitsApi::getDecimals())
@@ -138,8 +138,8 @@ public:
         Handle(Geom_TrimmedCurve) trim = arc.Value();
         Handle(Geom_Circle) circle = Handle(Geom_Circle)::DownCast(trim->BasisCurve());
 
-        QString name = QString::fromLatin1(doc->getUniqueObjectName("Circle").c_str());
-        return QString::fromLatin1(
+        QString name = QString(doc->getUniqueObjectName("Circle").c_str());
+        return QString(
             "App.ActiveDocument.addObject(\"Part::Circle\",\"%1\")\n"
             "App.ActiveDocument.%1.Radius=%2\n"
             "App.ActiveDocument.%1.Angle0=%3\n"
@@ -351,8 +351,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
             return;
         }
         if (ui.comboBox1->currentIndex() == 0) {         // plane
-            name = QString::fromLatin1(doc->getUniqueObjectName("Plane").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Plane").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Plane\",\"%1\")\n"
                 "App.ActiveDocument.%1.Length=%2\n"
                 "App.ActiveDocument.%1.Width=%3\n"
@@ -365,8 +365,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Plane"));
         }
         else if (ui.comboBox1->currentIndex() == 1) {         // box
-            name = QString::fromLatin1(doc->getUniqueObjectName("Box").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Box").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Box\",\"%1\")\n"
                 "App.ActiveDocument.%1.Length=%2\n"
                 "App.ActiveDocument.%1.Width=%3\n"
@@ -381,8 +381,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Box"));
         }
         else if (ui.comboBox1->currentIndex() == 2) {  // cylinder
-            name = QString::fromLatin1(doc->getUniqueObjectName("Cylinder").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Cylinder").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Cylinder\",\"%1\")\n"
                 "App.ActiveDocument.%1.Radius=%2\n"
                 "App.ActiveDocument.%1.Height=%3\n"
@@ -397,8 +397,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Cylinder"));
         }
         else if (ui.comboBox1->currentIndex() == 3) {  // cone
-            name = QString::fromLatin1(doc->getUniqueObjectName("Cone").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Cone").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Cone\",\"%1\")\n"
                 "App.ActiveDocument.%1.Radius1=%2\n"
                 "App.ActiveDocument.%1.Radius2=%3\n"
@@ -415,8 +415,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Cone"));
         }
         else if (ui.comboBox1->currentIndex() == 4) {  // sphere
-            name = QString::fromLatin1(doc->getUniqueObjectName("Sphere").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Sphere").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Sphere\",\"%1\")\n"
                 "App.ActiveDocument.%1.Radius=%2\n"
                 "App.ActiveDocument.%1.Angle1=%3\n"
@@ -433,8 +433,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Sphere"));
         }
         else if (ui.comboBox1->currentIndex() == 5) {  // ellipsoid
-            name = QString::fromLatin1(doc->getUniqueObjectName("Ellipsoid").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Ellipsoid").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Ellipsoid\",\"%1\")\n"
                 "App.ActiveDocument.%1.Radius1=%2\n"
                 "App.ActiveDocument.%1.Radius2=%3\n"
@@ -455,8 +455,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Ellipsoid"));
         }
         else if (ui.comboBox1->currentIndex() == 6) {  // torus
-            name = QString::fromLatin1(doc->getUniqueObjectName("Torus").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Torus").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Torus\",\"%1\")\n"
                 "App.ActiveDocument.%1.Radius1=%2\n"
                 "App.ActiveDocument.%1.Radius2=%3\n"
@@ -475,8 +475,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Torus"));
         }
         else if (ui.comboBox1->currentIndex() == 7) {  // prism
-            name = QString::fromLatin1(doc->getUniqueObjectName("Prism").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Prism").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Prism\",\"%1\")\n"
                 "App.ActiveDocument.%1.Polygon=%2\n"
                 "App.ActiveDocument.%1.Circumradius=%3\n"
@@ -491,8 +491,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Prism"));
         }
         else if (ui.comboBox1->currentIndex() == 8) {  // wedge
-            name = QString::fromLatin1(doc->getUniqueObjectName("Wedge").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Wedge").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Wedge\",\"%1\")\n"
                 "App.ActiveDocument.%1.Xmin=%2\n"
                 "App.ActiveDocument.%1.Ymin=%3\n"
@@ -521,8 +521,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Wedge"));
         }
         else if (ui.comboBox1->currentIndex() == 9) {  // helix
-            name = QString::fromLatin1(doc->getUniqueObjectName("Helix").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Helix").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Helix\",\"%1\")\n"
                 "App.ActiveDocument.%1.Pitch=%2\n"
                 "App.ActiveDocument.%1.Height=%3\n"
@@ -542,8 +542,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Helix"));
         }
         else if (ui.comboBox1->currentIndex() == 10) {  // spiral
-            name = QString::fromLatin1(doc->getUniqueObjectName("Spiral").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Spiral").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Spiral\",\"%1\")\n"
                 "App.ActiveDocument.%1.Growth=%2\n"
                 "App.ActiveDocument.%1.Rotations=%3\n"
@@ -558,8 +558,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Spiral"));
         }
         else if (ui.comboBox1->currentIndex() == 11) {  // circle
-            name = QString::fromLatin1(doc->getUniqueObjectName("Circle").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Circle").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Circle\",\"%1\")\n"
                 "App.ActiveDocument.%1.Radius=%2\n"
                 "App.ActiveDocument.%1.Angle0=%3\n"
@@ -574,8 +574,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Circle"));
         }
         else if (ui.comboBox1->currentIndex() == 12) {  // ellipse
-            name = QString::fromLatin1(doc->getUniqueObjectName("Ellipse").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Ellipse").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Ellipse\",\"%1\")\n"
                 "App.ActiveDocument.%1.MajorRadius=%2\n"
                 "App.ActiveDocument.%1.MinorRadius=%3\n"
@@ -592,8 +592,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Ellipse"));
         }
         else if (ui.comboBox1->currentIndex() == 13) {  // vertex
-            name = QString::fromLatin1(doc->getUniqueObjectName("Vertex").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Vertex").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Vertex\",\"%1\")\n"
                 "App.ActiveDocument.%1.X=%2\n"
                 "App.ActiveDocument.%1.Y=%3\n"
@@ -608,8 +608,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Vertex"));
         }
         else if (ui.comboBox1->currentIndex() == 14) {  // line
-            name = QString::fromLatin1(doc->getUniqueObjectName("Line").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("Line").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::Line\",\"%1\")\n"
                 "App.ActiveDocument.%1.X1=%2\n"
                 "App.ActiveDocument.%1.Y1=%3\n"
@@ -630,8 +630,8 @@ void DlgPrimitives::createPrimitive(const QString& placement)
                 .arg(tr("Line"));
         }
         else if (ui.comboBox1->currentIndex() == 15) {  // RegularPolygon
-            name = QString::fromLatin1(doc->getUniqueObjectName("RegularPolygon").c_str());
-            cmd = QString::fromLatin1(
+            name = QString(doc->getUniqueObjectName("RegularPolygon").c_str());
+            cmd = QString(
                 "App.ActiveDocument.addObject(\"Part::RegularPolygon\",\"%1\")\n"
                 "App.ActiveDocument.%1.Polygon=%2\n"
                 "App.ActiveDocument.%1.Circumradius=%3\n"
@@ -654,7 +654,7 @@ void DlgPrimitives::createPrimitive(const QString& placement)
     }
     catch (const Base::PyException& e) {
         QMessageBox::warning(this, tr("Create %1")
-            .arg(ui.comboBox1->currentText()), QString::fromLatin1(e.what()));
+            .arg(ui.comboBox1->currentText()), QString(e.what()));
     }
 }
 
@@ -790,7 +790,7 @@ QString Location::toPlacement() const
     Base::Rotation rot(Base::convertTo<Base::Vector3d>(theAxis), theAngle);
     Base::Vector3d loc = ui.loc->getPosition();
 
-    return QString::fromLatin1("Base.Placement(Base.Vector(%1,%2,%3),Base.Rotation(%4,%5,%6,%7))")
+    return QString("Base.Placement(Base.Vector(%1,%2,%3),Base.Rotation(%4,%5,%6,%7))")
         .arg(loc.x,0,'f',Base::UnitsApi::getDecimals())
         .arg(loc.y,0,'f',Base::UnitsApi::getDecimals())
         .arg(loc.z,0,'f',Base::UnitsApi::getDecimals())

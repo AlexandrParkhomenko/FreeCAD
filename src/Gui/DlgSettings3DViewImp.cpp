@@ -183,20 +183,20 @@ void DlgSettings3DViewImp::on_mouseButton_clicked()
     QVariant data = comboNavigationStyle->itemData(comboNavigationStyle->currentIndex(), Qt::UserRole);
     void* instance = Base::Type::createInstanceByName((const char*)data.toByteArray());
     std::unique_ptr<UserNavigationStyle> ns(static_cast<UserNavigationStyle*>(instance));
-    ui.groupBox->setTitle(ui.groupBox->title()+QString::fromLatin1(" ")+comboNavigationStyle->currentText());
+    ui.groupBox->setTitle(ui.groupBox->title()+QString(" ")+comboNavigationStyle->currentText());
     QString descr;
     descr = qApp->translate((const char*)data.toByteArray(),ns->mouseButtons(NavigationStyle::SELECTION));
     descr.replace(QLatin1String("\n"), QLatin1String("<p>"));
-    ui.selectionLabel->setText(QString::fromLatin1("<b>%1</b>").arg(descr));
+    ui.selectionLabel->setText(QString("<b>%1</b>").arg(descr));
     descr = qApp->translate((const char*)data.toByteArray(),ns->mouseButtons(NavigationStyle::PANNING));
     descr.replace(QLatin1String("\n"), QLatin1String("<p>"));
-    ui.panningLabel->setText(QString::fromLatin1("<b>%1</b>").arg(descr));
+    ui.panningLabel->setText(QString("<b>%1</b>").arg(descr));
     descr = qApp->translate((const char*)data.toByteArray(),ns->mouseButtons(NavigationStyle::DRAGGING));
     descr.replace(QLatin1String("\n"), QLatin1String("<p>"));
-    ui.rotationLabel->setText(QString::fromLatin1("<b>%1</b>").arg(descr));
+    ui.rotationLabel->setText(QString("<b>%1</b>").arg(descr));
     descr = qApp->translate((const char*)data.toByteArray(),ns->mouseButtons(NavigationStyle::ZOOMING));
     descr.replace(QLatin1String("\n"), QLatin1String("<p>"));
-    ui.zoomingLabel->setText(QString::fromLatin1("<b>%1</b>").arg(descr));
+    ui.zoomingLabel->setText(QString("<b>%1</b>").arg(descr));
     dlg.exec();
 }
 
@@ -330,7 +330,7 @@ CameraDialog::CameraDialog(QWidget* parent)
     QPushButton *currentViewButton;
     currentViewButton = new QPushButton(this);
     currentViewButton->setText(tr("Current view"));
-    currentViewButton->setObjectName(QString::fromLatin1("currentView"));
+    currentViewButton->setObjectName(QString("currentView"));
     layout->addWidget(currentViewButton, 4, 1, 2, 1);
 
     QObject::connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));

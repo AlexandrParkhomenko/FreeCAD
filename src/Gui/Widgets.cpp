@@ -67,7 +67,7 @@ void CommandIconView::startDrag (Qt::DropActions supportedActions)
     }
 
     QMimeData *mimeData = new QMimeData;
-    mimeData->setData(QString::fromLatin1("text/x-action-items"), itemData);
+    mimeData->setData(QString("text/x-action-items"), itemData);
 
     QDrag *drag = new QDrag(this);
     drag->setMimeData(mimeData);
@@ -395,7 +395,7 @@ void AccelLineEdit::keyPressEvent ( QKeyEvent * e)
         txtLine.clear();
         break;
     default:
-        txtLine += QString::fromLatin1(",");
+        txtLine += QString(",");
         break;
     }
 
@@ -430,7 +430,7 @@ void AccelLineEdit::keyPressEvent ( QKeyEvent * e)
 ClearLineEdit::ClearLineEdit (QWidget * parent)
   : QLineEdit(parent)
 {
-    clearAction = this->addAction(QIcon(QString::fromLatin1(":/icons/edit-cleartext.svg")),
+    clearAction = this->addAction(QIcon(QString(":/icons/edit-cleartext.svg")),
                                         QLineEdit::TrailingPosition);
     connect(clearAction, SIGNAL(triggered()), this, SLOT(clear()));
     connect(this, SIGNAL(textChanged(const QString&)),
@@ -748,7 +748,7 @@ void ColorButton::onRejected()
 UrlLabel::UrlLabel(QWidget * parent, Qt::WindowFlags f)
   : QLabel(parent, f)
 {
-    _url = QString::fromLatin1("http://localhost");
+    _url = QString("http://localhost");
     setToolTip(this->_url);
 }
 
@@ -1202,7 +1202,7 @@ public:
         if (edit) {
             QString inputText = edit->toPlainText();
             if (!inputText.isEmpty()) // let pass empty input, regardless of the type, so user can void the value
-                lines = inputText.split(QString::fromLatin1("\n"));
+                lines = inputText.split(QString("\n"));
         }
         if (!lines.isEmpty()) {
             if (type == 1) { // floats
@@ -1278,7 +1278,7 @@ void LabelEditor::setText(const QString& s)
 {
     this->plainText = s;
 
-    QString text = QString::fromLatin1("[%1]").arg(this->plainText);
+    QString text = QString("[%1]").arg(this->plainText);
     lineEdit->setText(text);
 }
 
@@ -1299,7 +1299,7 @@ void LabelEditor::changeText()
     connect(buttonBox, SIGNAL(rejected()), &dlg, SLOT(reject()));
     if (dlg.exec() == QDialog::Accepted) {
         QString inputText = edit->toPlainText();
-        QString text = QString::fromLatin1("[%1]").arg(inputText);
+        QString text = QString("[%1]").arg(inputText);
         lineEdit->setText(text);
     }
 }

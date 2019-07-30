@@ -2014,7 +2014,7 @@ void CmdSketcherConstrainBlock::activated(int iMsg)
             Base::Console().Error("%s\n", e.what());
             QMessageBox::warning(Gui::getMainWindow(),
                                  QObject::tr("Error"),
-                                 QString::fromLatin1(e.what()));
+                                 QString(e.what()));
 
             Gui::Command::abortCommand();
 
@@ -2060,7 +2060,7 @@ void CmdSketcherConstrainBlock::applyConstraint(std::vector<SelIdPair> &selSeq, 
                 Base::Console().Error("%s\n", e.what());
                 QMessageBox::warning(Gui::getMainWindow(),
                                      QObject::tr("Error"),
-                                     QString::fromLatin1(e.what()));
+                                     QString(e.what()));
 
                 Gui::Command::abortCommand();
 
@@ -3761,7 +3761,7 @@ void CmdSketcherConstrainPerpendicular::activated(int iMsg)
         } else {
             // TODO: Get the exact message from git history and put it here
             strError = QObject::tr("Select some geometry from the sketch.", "perpendicular constraint");
-            if (!strError.isEmpty()) strError.append(QString::fromLatin1("\n\n"));
+            if (!strError.isEmpty()) strError.append(QString("\n\n"));
             QMessageBox::warning(Gui::getMainWindow(), QObject::tr("Wrong selection"),
                                  strError+strBasicHelp);
         }
@@ -3774,7 +3774,7 @@ void CmdSketcherConstrainPerpendicular::activated(int iMsg)
 
     if (!Obj || (SubNames.size() != 2 && SubNames.size() != 3)) {
         strError = QObject::tr("Wrong number of selected objects!","perpendicular constraint");
-        if (!strError.isEmpty()) strError.append(QString::fromLatin1("\n\n"));
+        if (!strError.isEmpty()) strError.append(QString("\n\n"));
         QMessageBox::warning(Gui::getMainWindow(), QObject::tr("Wrong selection"),
             strError+strBasicHelp);
         return;
@@ -3833,7 +3833,7 @@ void CmdSketcherConstrainPerpendicular::activated(int iMsg)
                 Base::Console().Error("%s\n", e.what());
                 QMessageBox::warning(Gui::getMainWindow(),
                                      QObject::tr("Error"),
-                                     QString::fromLatin1(e.what()));
+                                     QString(e.what()));
                 Gui::Command::abortCommand();
 
                 tryAutoRecompute(Obj);
@@ -4069,7 +4069,7 @@ void CmdSketcherConstrainPerpendicular::activated(int iMsg)
         }
     }
 
-    if (!strError.isEmpty()) strError.append(QString::fromLatin1("\n\n"));
+    if (!strError.isEmpty()) strError.append(QString("\n\n"));
     QMessageBox::warning(Gui::getMainWindow(), QObject::tr("Wrong selection"),
         strError+strBasicHelp);
     return;
@@ -4298,7 +4298,7 @@ void CmdSketcherConstrainPerpendicular::applyConstraint(std::vector<SelIdPair> &
             Base::Console().Error("%s\n", e.what());
             QMessageBox::warning(Gui::getMainWindow(),
                                  QObject::tr("Error"),
-                                 QString::fromLatin1(e.what()));
+                                 QString(e.what()));
             Gui::Command::abortCommand();
 
             tryAutoRecompute(Obj);
@@ -4379,7 +4379,7 @@ void CmdSketcherConstrainTangent::activated(int iMsg)
             getSelection().clearSelection();
         } else {
             strError = QObject::tr("Select some geometry from the sketch.", "tangent constraint");
-            if (!strError.isEmpty()) strError.append(QString::fromLatin1("\n\n"));
+            if (!strError.isEmpty()) strError.append(QString("\n\n"));
             QMessageBox::warning(Gui::getMainWindow(), QObject::tr("Wrong selection"),
                                  strError+strBasicHelp);
         }
@@ -4392,7 +4392,7 @@ void CmdSketcherConstrainTangent::activated(int iMsg)
 
     if (SubNames.size() != 2 && SubNames.size() != 3){
         strError = QObject::tr("Wrong number of selected objects!","tangent constraint");
-        if (!strError.isEmpty()) strError.append(QString::fromLatin1("\n\n"));
+        if (!strError.isEmpty()) strError.append(QString("\n\n"));
         QMessageBox::warning(Gui::getMainWindow(), QObject::tr("Wrong selection"),
             strError+strBasicHelp);
         return;
@@ -4451,7 +4451,7 @@ void CmdSketcherConstrainTangent::activated(int iMsg)
                 Base::Console().Error("%s\n", e.what());
                 QMessageBox::warning(Gui::getMainWindow(),
                                      QObject::tr("Error"),
-                                     QString::fromLatin1(e.what()));
+                                     QString(e.what()));
                 Gui::Command::abortCommand();
                 tryAutoRecompute(Obj);
                 return;
@@ -4710,7 +4710,7 @@ void CmdSketcherConstrainTangent::activated(int iMsg)
 
     }
 
-    if (!strError.isEmpty()) strError.append(QString::fromLatin1("\n\n"));
+    if (!strError.isEmpty()) strError.append(QString("\n\n"));
     QMessageBox::warning(Gui::getMainWindow(), QObject::tr("Wrong selection"),
         strError+strBasicHelp);
     return;
@@ -4952,7 +4952,7 @@ void CmdSketcherConstrainTangent::applyConstraint(std::vector<SelIdPair> &selSeq
             Base::Console().Error("%s\n", e.what());
             QMessageBox::warning(Gui::getMainWindow(),
                                  QObject::tr("Error"),
-                                 QString::fromLatin1(e.what()));
+                                 QString(e.what()));
             Gui::Command::abortCommand();
 
             tryAutoRecompute(Obj);
@@ -5963,7 +5963,7 @@ Gui::Action * CmdSketcherCompConstrainRadDia::createAction(void)
     int defaultId = 0;
     pcAction->setProperty("defaultAction", QVariant(defaultId));
 
-    pcAction->setShortcut(QString::fromLatin1(sAccel));
+    pcAction->setShortcut(QString(sAccel));
 
     return pcAction;
 }
@@ -7139,8 +7139,8 @@ void CmdSketcherConstrainSnellsLaw::activated(int iMsg)
         // clear the selection (convenience)
         getSelection().clearSelection();
     } catch (Base::Exception &e) {
-        if (strError.isEmpty()) strError = QString::fromLatin1(e.what());
-        if (!strError.isEmpty()) strError.append(QString::fromLatin1("\n\n"));
+        if (strError.isEmpty()) strError = QString(e.what());
+        if (!strError.isEmpty()) strError.append(QString("\n\n"));
         QMessageBox::warning(Gui::getMainWindow(), QObject::tr("Error"), strError + strHelp);
     }
 }

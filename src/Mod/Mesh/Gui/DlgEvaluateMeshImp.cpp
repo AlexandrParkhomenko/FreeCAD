@@ -175,7 +175,7 @@ void DlgEvaluateMeshImp::slotCreatedObject(const App::DocumentObject& Obj)
     // add new mesh object to the list
     if (Obj.getTypeId().isDerivedFrom(Mesh::Feature::getClassTypeId())) {
         QString label = QString::fromUtf8(Obj.Label.getValue());
-        QString name = QString::fromLatin1(Obj.getNameInDocument());
+        QString name = QString(Obj.getNameInDocument());
         d->ui.meshNameButton->addItem(label, name);
     }
 }
@@ -184,7 +184,7 @@ void DlgEvaluateMeshImp::slotDeletedObject(const App::DocumentObject& Obj)
 {
     // remove mesh objects from the list
     if (Obj.getTypeId().isDerivedFrom(Mesh::Feature::getClassTypeId())) {
-        int index = d->ui.meshNameButton->findData(QString::fromLatin1(Obj.getNameInDocument()));
+        int index = d->ui.meshNameButton->findData(QString(Obj.getNameInDocument()));
         if (index > 0) {
             d->ui.meshNameButton->removeItem(index);
             d->ui.meshNameButton->setDisabled(d->ui.meshNameButton->count() < 2);
@@ -215,7 +215,7 @@ void DlgEvaluateMeshImp::slotChangedObject(const App::DocumentObject& Obj, const
         if (Prop.getTypeId() == App::PropertyString::getClassTypeId() &&
             strcmp(Prop.getName(), "Label") == 0) {
                 QString label = QString::fromUtf8(Obj.Label.getValue());
-                QString name = QString::fromLatin1(Obj.getNameInDocument());
+                QString name = QString(Obj.getNameInDocument());
                 int index = d->ui.meshNameButton->findData(name);
                 d->ui.meshNameButton->setItemText(index, label);
         }
@@ -248,7 +248,7 @@ void DlgEvaluateMeshImp::setMesh(Mesh::Feature* m)
     refreshList();
 
     int ct = d->ui.meshNameButton->count();
-    QString objName = QString::fromLatin1(m->getNameInDocument());
+    QString objName = QString(m->getNameInDocument());
     for (int i=1; i<ct; i++) {
         if (d->ui.meshNameButton->itemData(i).toString() == objName) {
             d->ui.meshNameButton->setCurrentIndex(i);
@@ -321,7 +321,7 @@ void DlgEvaluateMeshImp::refreshList()
         std::vector<App::DocumentObject*> objs = this->getDocument()->getObjectsOfType(Mesh::Feature::getClassTypeId());
         for (std::vector<App::DocumentObject*>::iterator it = objs.begin(); it != objs.end(); ++it) {
             items.push_back(qMakePair(QString::fromUtf8((*it)->Label.getValue()),
-                                      QString::fromLatin1((*it)->getNameInDocument())));
+                                      QString((*it)->getNameInDocument())));
         }
     }
 
@@ -346,9 +346,9 @@ void DlgEvaluateMeshImp::showInformation()
     d->ui.analyzeAllTogether->setEnabled(true);
 
     const MeshKernel& rMesh = d->meshFeature->Mesh.getValue().getKernel();
-    d->ui.textLabel4->setText(QString::fromLatin1("%1").arg(rMesh.CountFacets()));
-    d->ui.textLabel5->setText(QString::fromLatin1("%1").arg(rMesh.CountEdges()));
-    d->ui.textLabel6->setText(QString::fromLatin1("%1").arg(rMesh.CountPoints()));
+    d->ui.textLabel4->setText(QString("%1").arg(rMesh.CountFacets()));
+    d->ui.textLabel5->setText(QString("%1").arg(rMesh.CountEdges()));
+    d->ui.textLabel6->setText(QString("%1").arg(rMesh.CountPoints()));
 }
 
 void DlgEvaluateMeshImp::cleanInformation()
@@ -469,7 +469,7 @@ void DlgEvaluateMeshImp::on_repairOrientationButton_clicked()
                     , docName, objName);
         }
         catch (const Base::Exception& e) {
-            QMessageBox::warning(this, tr("Orientation"), QString::fromLatin1(e.what()));
+            QMessageBox::warning(this, tr("Orientation"), QString(e.what()));
         }
 
         doc->commitCommand();
@@ -578,7 +578,7 @@ void DlgEvaluateMeshImp::on_repairNonmanifoldsButton_clicked()
             }
         } 
         catch (const Base::Exception& e) {
-            QMessageBox::warning(this, tr("Non-manifolds"), QString::fromLatin1(e.what()));
+            QMessageBox::warning(this, tr("Non-manifolds"), QString(e.what()));
         }
         catch (...) {
             QMessageBox::warning(this, tr("Non-manifolds"), tr("Cannot remove non-manifolds"));
@@ -671,7 +671,7 @@ void DlgEvaluateMeshImp::on_repairIndicesButton_clicked()
                     , docName, objName);
         }
         catch (const Base::Exception& e) {
-            QMessageBox::warning(this, tr("Indices"), QString::fromLatin1(e.what()));
+            QMessageBox::warning(this, tr("Indices"), QString(e.what()));
         }
 
         doc->commitCommand();
@@ -737,7 +737,7 @@ void DlgEvaluateMeshImp::on_repairDegeneratedButton_clicked()
                     , docName, objName, d->epsilonDegenerated);
         }
         catch (const Base::Exception& e) {
-            QMessageBox::warning(this, tr("Degenerations"), QString::fromLatin1(e.what()));
+            QMessageBox::warning(this, tr("Degenerations"), QString(e.what()));
         }
 
         doc->commitCommand();
@@ -804,7 +804,7 @@ void DlgEvaluateMeshImp::on_repairDuplicatedFacesButton_clicked()
                     , docName, objName);
         }
         catch (const Base::Exception& e) {
-            QMessageBox::warning(this, tr("Duplicated faces"), QString::fromLatin1(e.what()));
+            QMessageBox::warning(this, tr("Duplicated faces"), QString(e.what()));
         }
 
         doc->commitCommand();
@@ -869,7 +869,7 @@ void DlgEvaluateMeshImp::on_repairDuplicatedPointsButton_clicked()
                     , docName, objName);
         }
         catch (const Base::Exception& e) {
-            QMessageBox::warning(this, tr("Duplicated points"), QString::fromLatin1(e.what()));
+            QMessageBox::warning(this, tr("Duplicated points"), QString(e.what()));
         }
 
         doc->commitCommand();
@@ -954,7 +954,7 @@ void DlgEvaluateMeshImp::on_repairSelfIntersectionButton_clicked()
                     , docName, objName);
         }
         catch (const Base::Exception& e) {
-            QMessageBox::warning(this, tr("Self-intersections"), QString::fromLatin1(e.what()));
+            QMessageBox::warning(this, tr("Self-intersections"), QString(e.what()));
         }
 #else
         Mesh::MeshObject* mesh = d->meshFeature->Mesh.startEditing();
@@ -1040,7 +1040,7 @@ void DlgEvaluateMeshImp::on_repairFoldsButton_clicked()
                     , docName, objName);
         }
         catch (const Base::Exception& e) {
-            QMessageBox::warning(this, tr("Folds"), QString::fromLatin1(e.what()));
+            QMessageBox::warning(this, tr("Folds"), QString(e.what()));
         }
 
         doc->commitCommand();
@@ -1172,10 +1172,10 @@ void DlgEvaluateMeshImp::on_repairAllTogether_clicked()
             } while(d->ui.checkRepeatButton->isChecked() && run && (--max_iter > 0));
         }
         catch (const Base::Exception& e) {
-            QMessageBox::warning(this, tr("Mesh repair"), QString::fromLatin1(e.what()));
+            QMessageBox::warning(this, tr("Mesh repair"), QString(e.what()));
         }
         catch (...) {
-            QMessageBox::warning(this, tr("Mesh repair"), QString::fromLatin1("Unknown error occurred."));
+            QMessageBox::warning(this, tr("Mesh repair"), QString("Unknown error occurred."));
         }
 
         doc->commitCommand();

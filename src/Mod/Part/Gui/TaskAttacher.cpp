@@ -53,22 +53,22 @@ const QString makeRefString(const App::DocumentObject* obj, const std::string& s
     if (obj->getTypeId().isDerivedFrom(App::OriginFeature::getClassTypeId()) ||
         obj->getTypeId().isDerivedFrom(Part::Datum::getClassTypeId()))
         // App::Plane, Line or Datum feature
-        return QString::fromLatin1(obj->getNameInDocument());
+        return QString(obj->getNameInDocument());
 
     if ((sub.size() > 4) && (sub.substr(0,4) == "Face")) {
         int subId = std::atoi(&sub[4]);
-        return QString::fromLatin1(obj->getNameInDocument()) + QString::fromLatin1(":") + QObject::tr("Face") + QString::number(subId);
+        return QString(obj->getNameInDocument()) + QString(":") + QObject::tr("Face") + QString::number(subId);
     } else if ((sub.size() > 4) && (sub.substr(0,4) == "Edge")) {
         int subId = std::atoi(&sub[4]);
-        return QString::fromLatin1(obj->getNameInDocument()) + QString::fromLatin1(":") + QObject::tr("Edge") + QString::number(subId);
+        return QString(obj->getNameInDocument()) + QString(":") + QObject::tr("Edge") + QString::number(subId);
     } else if ((sub.size() > 6) && (sub.substr(0,6) == "Vertex")) {
         int subId = std::atoi(&sub[6]);
-        return QString::fromLatin1(obj->getNameInDocument()) + QString::fromLatin1(":") + QObject::tr("Vertex") + QString::number(subId);
+        return QString(obj->getNameInDocument()) + QString(":") + QObject::tr("Vertex") + QString::number(subId);
     } else {
         //something else that face/edge/vertex. Can be empty string.
-        return QString::fromLatin1(obj->getNameInDocument())
-                + (sub.length()>0 ? QString::fromLatin1(":") : QString())
-                + QString::fromLatin1(sub.c_str());
+        return QString(obj->getNameInDocument())
+                + (sub.length()>0 ? QString(":") : QString())
+                + QString(sub.c_str());
     }
 }
 
@@ -228,7 +228,7 @@ const QString makeHintText(std::set<eRefType> hint)
     for (std::set<eRefType>::const_iterator t = hint.begin(); t != hint.end(); t++) {
         QString tText;
         tText = AttacherGui::getShapeTypeText(*t);
-        result += QString::fromLatin1(result.size() == 0 ? "" : "/") + tText;
+        result += QString(result.size() == 0 ? "" : "/") + tText;
     }
 
     return result;
@@ -277,15 +277,15 @@ bool TaskAttacher::updatePreview()
     try{
         attached = pcAttach->positionBySupport();
     } catch (Base::Exception &err){
-        errMessage = QString::fromLatin1(err.what());
+        errMessage = QString(err.what());
     } catch (Standard_Failure &err){
-        errMessage = tr("OCC error: %1").arg(QString::fromLatin1(err.GetMessageString()));
+        errMessage = tr("OCC error: %1").arg(QString(err.GetMessageString()));
     } catch (...) {
         errMessage = tr("unknown error");
     }
     if (errMessage.length()>0){
         ui->message->setText(tr("Attachment mode failed: %1").arg(errMessage));
-        ui->message->setStyleSheet(QString::fromLatin1("QLabel{color: red;}"));
+        ui->message->setStyleSheet(QString("QLabel{color: red;}"));
     } else {
         if (!attached){
             ui->message->setText(tr("Not attached"));
@@ -293,7 +293,7 @@ bool TaskAttacher::updatePreview()
         } else {
             std::vector<QString> strs = AttacherGui::getUIStrings(pcAttach->attacher().getTypeId(),eMapMode(pcAttach->MapMode.getValue()));
             ui->message->setText(tr("Attached with mode %1").arg(strs[0]));
-            ui->message->setStyleSheet(QString::fromLatin1("QLabel{color: green;}"));
+            ui->message->setStyleSheet(QString("QLabel{color: green;}"));
         }
     }
     QString splmLabelText = attached ? tr("Attachment Offset:") : tr("Attachment Offset (inactive - not attached):");
@@ -377,8 +377,8 @@ void TaskAttacher::onSelectionChanged(const Gui::SelectionChanges& msg)
         }
         catch(Base::Exception& e) {
             //error = true;
-            ui->message->setText(QString::fromLatin1(e.what()));
-            ui->message->setStyleSheet(QString::fromLatin1("QLabel{color: red;}"));
+            ui->message->setText(QString(e.what()));
+            ui->message->setStyleSheet(QString("QLabel{color: red;}"));
         }
 
         QLineEdit* line = getLine(iActiveRef);
@@ -571,9 +571,9 @@ void TaskAttacher::onRefName(const QString& text, unsigned idx)
         return;
     }
 
-    QStringList parts = text.split(QChar::fromLatin1(':'));
+    QStringList parts = text.split(QChar(':'));
     if (parts.length() < 2)
-        parts.push_back(QString::fromLatin1(""));
+        parts.push_back(QString(""));
     // Check whether this is the name of an App::Plane or Part::Datum feature
     App::DocumentObject* obj = ViewProvider->getObject()->getDocument()->getObject(parts[0].toLatin1());
     if (obj == NULL) return;
@@ -595,17 +595,17 @@ void TaskAttacher::onRefName(const QString& text, unsigned idx)
         QRegExp rx;
         std::stringstream ss;
 
-        rx.setPattern(QString::fromLatin1("^") + tr("Face") + QString::fromLatin1("(\\d+)$"));
+        rx.setPattern(QString("^") + tr("Face") + QString("(\\d+)$"));
         if (parts[1].indexOf(rx) >= 0) {
             int faceId = rx.cap(1).toInt();
             ss << "Face" << faceId;
         } else {
-            rx.setPattern(QString::fromLatin1("^") + tr("Edge") + QString::fromLatin1("(\\d+)$"));
+            rx.setPattern(QString("^") + tr("Edge") + QString("(\\d+)$"));
             if (parts[1].indexOf(rx) >= 0) {
                 int lineId = rx.cap(1).toInt();
                 ss << "Edge" << lineId;
             } else {
-                rx.setPattern(QString::fromLatin1("^") + tr("Vertex") + QString::fromLatin1("(\\d+)$"));
+                rx.setPattern(QString("^") + tr("Vertex") + QString("(\\d+)$"));
                 if (parts[1].indexOf(rx) >= 0) {
                     int vertexId = rx.cap(1).toInt();
                     ss << "Vertex" << vertexId;
@@ -781,9 +781,9 @@ void TaskAttacher::updateListOfModes()
             QString tooltip = mstr[1];
 
             if (mmode != mmDeactivated) {
-                tooltip += QString::fromLatin1("\n\n%1\n%2")
+                tooltip += QString("\n\n%1\n%2")
                         .arg(tr("Reference combinations:"),
-                             AttacherGui::getRefListForMode(pcAttach->attacher(),mmode).join(QString::fromLatin1("\n")));
+                             AttacherGui::getRefListForMode(pcAttach->attacher(),mmode).join(QString("\n")));
             }
             item->setToolTip(tooltip);
 
@@ -801,7 +801,7 @@ void TaskAttacher::updateListOfModes()
                     }
                     item->setText(tr("%1 (add %2)").arg(
                                       item->text(),
-                                      buf.join(QString::fromLatin1("+"))
+                                      buf.join(QString("+"))
                                       ));
                 } else {
                     item->setText(tr("%1 (add more references)").arg(item->text()));
@@ -920,7 +920,7 @@ void TaskAttacher::visibilityAutomation(bool opening_not_closing)
         if (!ViewProvider->getObject()->getNameInDocument())
             return;
         try{
-            QString code = QString::fromLatin1(
+            QString code = QString(
                 "import Show\n"
                 "from Show.DepGraphTools import getAllDependent, isContainer\n"
                 "tv = Show.TempoVis(App.ActiveDocument)\n"
@@ -934,8 +934,8 @@ void TaskAttacher::visibilityAutomation(bool opening_not_closing)
                 "\t\t\ttv.show([lnk[0] for lnk in %1.Support])"
                 );
             QByteArray code_2 = code.arg(
-                QString::fromLatin1("App.ActiveDocument.") +
-                QString::fromLatin1(ViewProvider->getObject()->getNameInDocument())
+                QString("App.ActiveDocument.") +
+                QString(ViewProvider->getObject()->getNameInDocument())
                 ).toLatin1();
                 Base::Interpreter().runString(code_2.constData());
         }
@@ -1034,7 +1034,7 @@ bool TaskDlgAttacher::accept()
         document->commitCommand();
     }
     catch (const Base::Exception& e) {
-        QMessageBox::warning(parameter, tr("Datum dialog: Input error"), QString::fromLatin1(e.what()));
+        QMessageBox::warning(parameter, tr("Datum dialog: Input error"), QString(e.what()));
         return false;
     }
 

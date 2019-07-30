@@ -248,7 +248,7 @@ void DlgPreferencesImp::applyChanges()
                 catch (const Base::Exception& e) {
                     ui->listBox->setCurrentRow(i);
                     tabWidget->setCurrentIndex(j);
-                    QMessageBox::warning(this, tr("Wrong parameter"), QString::fromLatin1(e.what()));
+                    QMessageBox::warning(this, tr("Wrong parameter"), QString(e.what()));
                     throw;
                 }
             }

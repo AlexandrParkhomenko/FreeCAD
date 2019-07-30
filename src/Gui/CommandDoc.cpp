@@ -258,7 +258,7 @@ void StdCmdExport::activated(int iMsg)
     for (jt=FilterList.begin();jt != FilterList.end();++jt) {
         // ignore the project file format
         if (jt->first.find("(*.freecad)") == std::string::npos) {
-            filterList << QString::fromLatin1(jt->first.c_str());
+            filterList << QString(jt->first.c_str());
         }
     }
 
@@ -391,7 +391,7 @@ void StdCmdNew::activated(int iMsg)
 {
     Q_UNUSED(iMsg);
     QString cmd;
-    cmd = QString::fromLatin1("App.newDocument(\"%1\")")
+    cmd = QString("App.newDocument(\"%1\")")
         .arg(qApp->translate("StdCmdNew","Unnamed"));
     runCommand(Command::Doc,cmd.toUtf8());
     doCommand(Command::Gui,"Gui.activeDocument().activeView().viewDefaultOrientation()");
@@ -726,7 +726,7 @@ Action * StdCmdUndo::createAction(void)
     Action *pcAction;
 
     pcAction = new UndoAction(this,getMainWindow());
-    pcAction->setShortcut(QString::fromLatin1(sAccel));
+    pcAction->setShortcut(QString(sAccel));
     applyCommandData(this->className(), pcAction);
     if (sPixmap)
         pcAction->setIcon(Gui::BitmapFactory().iconFromTheme(sPixmap));
@@ -769,7 +769,7 @@ Action * StdCmdRedo::createAction(void)
     Action *pcAction;
 
     pcAction = new RedoAction(this,getMainWindow());
-    pcAction->setShortcut(QString::fromLatin1(sAccel));
+    pcAction->setShortcut(QString(sAccel));
     applyCommandData(this->className(), pcAction);
     if (sPixmap)
         pcAction->setIcon(Gui::BitmapFactory().iconFromTheme(sPixmap));

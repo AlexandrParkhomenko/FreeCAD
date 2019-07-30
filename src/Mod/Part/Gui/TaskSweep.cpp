@@ -179,7 +179,7 @@ void SweepWidget::findShapes()
             shape.ShapeType() == TopAbs_EDGE ||
             shape.ShapeType() == TopAbs_VERTEX) {
             QString label = QString::fromUtf8((*it)->Label.getValue());
-            QString name = QString::fromLatin1((*it)->getNameInDocument());
+            QString name = QString((*it)->getNameInDocument());
             
             QTreeWidgetItem* child = new QTreeWidgetItem();
             child->setText(0, label);
@@ -274,14 +274,14 @@ bool SweepWidget::accept()
 
     QString list, solid, frenet;
     if (d->ui.checkSolid->isChecked())
-        solid = QString::fromLatin1("True");
+        solid = QString("True");
     else
-        solid = QString::fromLatin1("False");
+        solid = QString("False");
 
     if (d->ui.checkFrenet->isChecked())
-        frenet = QString::fromLatin1("True");
+        frenet = QString("True");
     else
-        frenet = QString::fromLatin1("False");
+        frenet = QString("False");
 
     QTextStream str(&list);
 
@@ -304,7 +304,7 @@ bool SweepWidget::accept()
     try {
         Gui::WaitCursor wc;
         QString cmd;
-        cmd = QString::fromLatin1(
+        cmd = QString(
             "App.getDocument('%5').addObject('Part::Sweep','Sweep')\n"
             "App.getDocument('%5').ActiveObject.Sections=[%1]\n"
             "App.getDocument('%5').ActiveObject.Spine=%2\n"
@@ -315,7 +315,7 @@ bool SweepWidget::accept()
             .arg(QLatin1String(selection.c_str()))
             .arg(solid)
             .arg(frenet)
-            .arg(QString::fromLatin1(d->document.c_str()));
+            .arg(QString(d->document.c_str()));
 
         Gui::Document* doc = Gui::Application::Instance->getDocument(d->document.c_str());
         if (!doc)
@@ -332,7 +332,7 @@ bool SweepWidget::accept()
         doc->commitCommand();
     }
     catch (const Base::Exception& e) {
-        QMessageBox::warning(this, tr("Input error"), QString::fromLatin1(e.what()));
+        QMessageBox::warning(this, tr("Input error"), QString(e.what()));
         return false;
     }
 

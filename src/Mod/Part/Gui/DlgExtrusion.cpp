@@ -162,7 +162,7 @@ void DlgExtrusion::on_btnSelectEdge_clicked()
 
         //visibility automation
         try{
-            QString code = QString::fromLatin1(
+            QString code = QString(
                         "import Show\n"
                         "tv = Show.TempoVis(App.ActiveDocument)\n"
                         "tv.hide([%1])"
@@ -172,9 +172,9 @@ void DlgExtrusion::on_btnSelectEdge_clicked()
             for (App::DocumentObject* obj: sources){
                 if (!obj)
                     continue;
-                features_to_hide.append(QString::fromLatin1("App.ActiveDocument."));
-                features_to_hide.append(QString::fromLatin1(obj->getNameInDocument()));
-                features_to_hide.append(QString::fromLatin1(", \n"));
+                features_to_hide.append(QString("App.ActiveDocument."));
+                features_to_hide.append(QString(obj->getNameInDocument()));
+                features_to_hide.append(QString(", \n"));
             }
             QByteArray code_2 = code.arg(features_to_hide).toLatin1();
             Base::Interpreter().runString(code_2.constData());
@@ -342,7 +342,7 @@ void DlgExtrusion::findShapes()
         if (canExtrude(shape)) {
             QTreeWidgetItem* item = new QTreeWidgetItem(ui->treeWidget);
             item->setText(0, QString::fromUtf8((*it)->Label.getValue()));
-            item->setData(0, Qt::UserRole, QString::fromLatin1((*it)->getNameInDocument()));
+            item->setData(0, Qt::UserRole, QString((*it)->getNameInDocument()));
             Gui::ViewProvider* vp = activeGui->getViewProvider(*it);
             if (vp)
                 item->setIcon(0, vp->getIcon());
@@ -423,8 +423,8 @@ void DlgExtrusion::apply()
             name = sourceObj->getDocument()->getUniqueObjectName("Extrude").c_str();
             if (addBaseName) {
                 //FIXME: implement
-                //QString baseName = QString::fromLatin1("Extrude_%1").arg(sourceObjectName);
-                //label = QString::fromLatin1("%1_Extrude").arg((*it)->text(0));
+                //QString baseName = QString("Extrude_%1").arg(sourceObjectName);
+                //label = QString("%1_Extrude").arg((*it)->text(0));
             }
 
             Gui::Command::doCommand(Gui::Command::Doc, "f = FreeCAD.getDocument('%s').addObject('Part::Extrusion', '%s')", sourceObj->getDocument()->getName(), name.c_str());
@@ -516,7 +516,7 @@ void DlgExtrusion::getAxisLink(App::PropertyLinkSub& lnk) const
     if (text.length() == 0) {
         lnk.setValue(nullptr);
     } else {
-        QStringList parts = text.split(QChar::fromLatin1(':'));
+        QStringList parts = text.split(QChar(':'));
         App::DocumentObject* obj = App::GetApplication().getActiveDocument()->getObject(parts[0].toLatin1());
         if(!obj){
             throw Base::ValueError(tr("Object not found: %1").arg(parts[0]).toUtf8().constData());
@@ -549,9 +549,9 @@ void DlgExtrusion::setAxisLink(const App::PropertyLinkSub& lnk)
 void DlgExtrusion::setAxisLink(const char* objname, const char* subname)
 {
     if(objname && strlen(objname) > 0){
-        QString txt = QString::fromLatin1(objname);
+        QString txt = QString(objname);
         if (subname && strlen(subname) > 0){
-            txt = txt + QString::fromLatin1(":") + QString::fromLatin1(subname);
+            txt = txt + QString(":") + QString(subname);
         }
         ui->txtLink->setText(txt);
     } else {

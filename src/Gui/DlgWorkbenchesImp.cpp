@@ -21,7 +21,7 @@
 
 using namespace Gui::Dialog;
 
-const QString DlgWorkbenchesImp::all_workbenches = QString::fromLatin1("ALL");
+const QString DlgWorkbenchesImp::all_workbenches = QString("ALL");
 
 /* TRANSLATOR Gui::Dialog::DlgWorkbenchesImp */
 
@@ -225,12 +225,12 @@ void DlgWorkbenchesImp::save_workbenches()
     hGrp->Clear();
 
     if (lw_enabled_workbenches->count() == 0) {
-        enabled_wbs.append(QString::fromLatin1("NoneWorkbench"));
+        enabled_wbs.append(QString("NoneWorkbench"));
     } else {
         for (int i = 0; i < lw_enabled_workbenches->count(); i++) {
             QVariant item_data = lw_enabled_workbenches->item(i)->data(Qt::UserRole);
             QString name = item_data.toString();
-            enabled_wbs.append(name + QString::fromLatin1(","));
+            enabled_wbs.append(name + QString(","));
         }
     }
     hGrp->SetASCII("Enabled", enabled_wbs.toLatin1());
@@ -238,7 +238,7 @@ void DlgWorkbenchesImp::save_workbenches()
     for (int i = 0; i < lw_disabled_workbenches->count(); i++) {
         QVariant item_data = lw_disabled_workbenches->item(i)->data(Qt::UserRole);
         QString name = item_data.toString();
-        disabled_wbs.append(name + QString::fromLatin1(","));
+        disabled_wbs.append(name + QString(","));
     }
     hGrp->SetASCII("Disabled", disabled_wbs.toLatin1());
 }

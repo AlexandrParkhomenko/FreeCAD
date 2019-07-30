@@ -147,7 +147,7 @@ void DlgRevolution::getAxisLink(App::PropertyLinkSub &lnk) const
     if (text.length() == 0) {
         lnk.setValue(nullptr);
     } else {
-        QStringList parts = text.split(QChar::fromLatin1(':'));
+        QStringList parts = text.split(QChar(':'));
         App::DocumentObject* obj = App::GetApplication().getActiveDocument()->getObject(parts[0].toLatin1());
         if(!obj){
             throw Base::ValueError(tr("Object not found: %1").arg(parts[0]).toUtf8().constData());
@@ -199,9 +199,9 @@ void DlgRevolution::setAxisLink(const App::PropertyLinkSub& lnk)
 void DlgRevolution::setAxisLink(const char* objname, const char* subname)
 {
     if(objname && strlen(objname) > 0){
-        QString txt = QString::fromLatin1(objname);
+        QString txt = QString(objname);
         if (subname && strlen(subname) > 0){
-            txt = txt + QString::fromLatin1(":") + QString::fromLatin1(subname);
+            txt = txt + QString(":") + QString(subname);
         }
         ui->txtAxisLink->setText(txt);
     } else {
@@ -322,7 +322,7 @@ void DlgRevolution::findShapes()
         // So allowed are: vertex, edge, wire, face, shell and compound
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->treeWidget);
         item->setText(0, QString::fromUtf8((*it)->Label.getValue()));
-        item->setData(0, Qt::UserRole, QString::fromLatin1((*it)->getNameInDocument()));
+        item->setData(0, Qt::UserRole, QString((*it)->getNameInDocument()));
         Gui::ViewProvider* vp = activeGui->getViewProvider(*it);
         if (vp) item->setIcon(0, vp->getIcon());
     }
@@ -340,38 +340,38 @@ void DlgRevolution::accept()
         QString shape, type, name, solid;
         QList<QTreeWidgetItem *> items = ui->treeWidget->selectedItems();
         if (ui->checkSolid->isChecked()) {
-            solid = QString::fromLatin1("True");}
+            solid = QString("True");}
         else {
-            solid = QString::fromLatin1("False");}
+            solid = QString("False");}
 
         App::PropertyLinkSub axisLink;
         this->getAxisLink(axisLink);
         QString strAxisLink;
         if (axisLink.getValue()){
-            strAxisLink = QString::fromLatin1("(App.ActiveDocument.%1, %2)")
-                    .arg(QString::fromLatin1(axisLink.getValue()->getNameInDocument()))
+            strAxisLink = QString("(App.ActiveDocument.%1, %2)")
+                    .arg(QString(axisLink.getValue()->getNameInDocument()))
                     .arg(axisLink.getSubValues().size() ==  1 ?
-                             QString::fromLatin1("\"%1\"").arg(QString::fromLatin1(axisLink.getSubValues()[0].c_str()))
+                             QString("\"%1\"").arg(QString(axisLink.getSubValues()[0].c_str()))
                              : QString() );
         } else {
-            strAxisLink = QString::fromLatin1("None");
+            strAxisLink = QString("None");
         }
 
         QString symmetric;
         if (ui->checkSymmetric->isChecked()) {
-            symmetric = QString::fromLatin1("True");}
+            symmetric = QString("True");}
         else {
-            symmetric = QString::fromLatin1("False");}
+            symmetric = QString("False");}
 
         for (QList<QTreeWidgetItem *>::iterator it = items.begin(); it != items.end(); ++it) {
             shape = (*it)->data(0, Qt::UserRole).toString();
-            type = QString::fromLatin1("Part::Revolution");
-            name = QString::fromLatin1(activeDoc->getUniqueObjectName("Revolve").c_str());
+            type = QString("Part::Revolution");
+            name = QString(activeDoc->getUniqueObjectName("Revolve").c_str());
             Base::Vector3d axis = this->getDirection();
             Base::Vector3d pos = this->getPosition();
 
 
-            QString code = QString::fromLatin1(
+            QString code = QString(
                 "FreeCAD.ActiveDocument.addObject(\"%1\",\"%2\")\n"
                 "FreeCAD.ActiveDocument.%2.Source = FreeCAD.ActiveDocument.%3\n"
                 "FreeCAD.ActiveDocument.%2.Axis = (%4,%5,%6)\n"

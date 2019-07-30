@@ -38,7 +38,7 @@ using namespace Base;
 //    // check limits
 //    assert(t<9);
 //    // returns 
-//    return QString::fromLatin1(QuantityNames[t]);
+//    return QString(QuantityNames[t]);
 //}
 // === static attributes  ================================================
 double UnitsApi::defaultFactor = 1.0;
@@ -158,7 +158,7 @@ QString UnitsApi::schemaTranslate(const Base::Quantity& quant, double &factor, Q
 //{
 //    return UserPrefSystem->toStrWithUserPrefs(t,Value);
 //    //double UnitValue = Value/UserPrefFactor[t];
-//    //return QString::fromLatin1("%1 %2").arg(UnitValue).arg(UserPrefUnit[t]);
+//    //return QString("%1 %2").arg(UnitValue).arg(UserPrefUnit[t]);
 //}
 //
 //void UnitsApi::toStrWithUserPrefs(QuantityType t,double Value,QString &outValue,QString &outUnit)

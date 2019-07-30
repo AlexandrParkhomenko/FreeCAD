@@ -236,19 +236,19 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
 
     // clears the action label
     d->actionTimer = new QTimer( this );
-    d->actionTimer->setObjectName(QString::fromLatin1("actionTimer"));
+    d->actionTimer->setObjectName(QString("actionTimer"));
     connect(d->actionTimer, SIGNAL(timeout()), d->actionLabel, SLOT(clear()));
 
     // update gui timer
     d->activityTimer = new QTimer(this);
-    d->activityTimer->setObjectName(QString::fromLatin1("activityTimer"));
+    d->activityTimer->setObjectName(QString("activityTimer"));
     connect(d->activityTimer, SIGNAL(timeout()),this, SLOT(updateActions()));
     d->activityTimer->setSingleShot(false);
     d->activityTimer->start(300);
 
     // show main window timer
     d->visibleTimer = new QTimer(this);
-    d->visibleTimer->setObjectName(QString::fromLatin1("visibleTimer"));
+    d->visibleTimer->setObjectName(QString("visibleTimer"));
 //    connect(d->visibleTimer, SIGNAL(timeout()),this, SLOT(showMainWindow()));
     d->visibleTimer->setSingleShot(true);
 
@@ -278,7 +278,7 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
         if (enabled) {
             TreeDockWidget* tree = new TreeDockWidget(0, this);
             tree->setObjectName
-                (QString::fromLatin1(QT_TRANSLATE_NOOP("QDockWidget","Tree view")));
+                (QString(QT_TRANSLATE_NOOP("QDockWidget","Tree view")));
             tree->setMinimumWidth(210);
             pDockMgr->registerDockWindow("Std_TreeView", tree);
         }
@@ -294,7 +294,7 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
         if (enabled) {
             PropertyDockView* pcPropView = new PropertyDockView(0, this);
             pcPropView->setObjectName
-                (QString::fromLatin1(QT_TRANSLATE_NOOP("QDockWidget","Property view")));
+                (QString(QT_TRANSLATE_NOOP("QDockWidget","Property view")));
             pcPropView->setMinimumWidth(210);
             pDockMgr->registerDockWindow("Std_PropertyView", pcPropView);
         }
@@ -304,7 +304,7 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
     if (hiddenDockWindows.find("Std_SelectionView") == std::string::npos) {
         SelectionView* pcSelectionView = new SelectionView(0, this);
         pcSelectionView->setObjectName
-            (QString::fromLatin1(QT_TRANSLATE_NOOP("QDockWidget","Selection view")));
+            (QString(QT_TRANSLATE_NOOP("QDockWidget","Selection view")));
         pcSelectionView->setMinimumWidth(210);
         pDockMgr->registerDockWindow("Std_SelectionView", pcSelectionView);
     }
@@ -312,7 +312,7 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
     // Combo view
     if (hiddenDockWindows.find("Std_CombiView") == std::string::npos) {
         CombiView* pcCombiView = new CombiView(0, this);
-        pcCombiView->setObjectName(QString::fromLatin1(QT_TRANSLATE_NOOP("QDockWidget","Combo View")));
+        pcCombiView->setObjectName(QString(QT_TRANSLATE_NOOP("QDockWidget","Combo View")));
         pcCombiView->setMinimumWidth(150);
         pDockMgr->registerDockWindow("Std_CombiView", pcCombiView);
     }
@@ -322,7 +322,7 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
         ReportOutput* pcReport = new ReportOutput(this);
         pcReport->setWindowIcon(BitmapFactory().pixmap("MacroEditor"));
         pcReport->setObjectName
-            (QString::fromLatin1(QT_TRANSLATE_NOOP("QDockWidget","Report view")));
+            (QString(QT_TRANSLATE_NOOP("QDockWidget","Report view")));
         pDockMgr->registerDockWindow("Std_ReportView", pcReport);
     }
 
@@ -340,7 +340,7 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
 
         pcPython->setWindowIcon(Gui::BitmapFactory().iconFromTheme("applications-python"));
         pcPython->setObjectName
-            (QString::fromLatin1(QT_TRANSLATE_NOOP("QDockWidget","Python console")));
+            (QString(QT_TRANSLATE_NOOP("QDockWidget","Python console")));
         pDockMgr->registerDockWindow("Std_PythonView", pcPython);
     }
 
@@ -363,7 +363,7 @@ MainWindow::MainWindow(QWidget * parent, Qt::WindowFlags f)
         if (enabled) {
             DAG::DockWindow *dagDockWindow = new DAG::DockWindow(nullptr, this);
             dagDockWindow->setObjectName
-                (QString::fromLatin1(QT_TRANSLATE_NOOP("QDockWidget","DAG View")));
+                (QString(QT_TRANSLATE_NOOP("QDockWidget","DAG View")));
             pDockMgr->registerDockWindow("Std_DAGView", dagDockWindow);
         }
     }
@@ -650,16 +650,16 @@ void MainWindow::onWindowsMenuAboutToShow()
         QAction* action = actions.at(index);
         QString text;
         QString title = child->windowTitle();
-        int lastIndex = title.lastIndexOf(QString::fromLatin1("[*]"));
+        int lastIndex = title.lastIndexOf(QString("[*]"));
         if (lastIndex > 0) {
             title = title.left(lastIndex);
             if (child->isWindowModified())
-                title = QString::fromLatin1("%1*").arg(title);
+                title = QString("%1*").arg(title);
         }
         if (index < 9)
-            text = QString::fromLatin1("&%1 %2").arg(index+1).arg(title);
+            text = QString("&%1 %2").arg(index+1).arg(title);
         else
-            text = QString::fromLatin1("%1 %2").arg(index+1).arg(title);
+            text = QString("%1 %2").arg(index+1).arg(title);
         action->setText(text);
         action->setVisible(true);
         action->setChecked(child == active);
@@ -863,7 +863,7 @@ void MainWindow::delayedStartup()
 void MainWindow::appendRecentFile(const QString& filename)
 {
     RecentFilesAction *recent = this->findChild<RecentFilesAction *>
-        (QString::fromLatin1("recentFiles"));
+        (QString("recentFiles"));
     if (recent) {
         recent->appendFile(filename);
     }
@@ -903,11 +903,11 @@ void MainWindow::switchToDockedMode()
 
 void MainWindow::loadWindowSettings()
 {
-    QString vendor = QString::fromLatin1(App::Application::Config()["ExeVendor"].c_str());
-    QString application = QString::fromLatin1(App::Application::Config()["ExeName"].c_str());
+    QString vendor = QString(App::Application::Config()["ExeVendor"].c_str());
+    QString application = QString(App::Application::Config()["ExeName"].c_str());
 //    int major = (QT_VERSION >> 0x10) & 0xff;
 //    int minor = (QT_VERSION >> 0x08) & 0xff;
-//    QString qtver = QString::fromLatin1("Qt%1.%2").arg(major).arg(minor);
+//    QString qtver = QString("Qt%1.%2").arg(major).arg(minor);
     QSettings config(vendor, application);
 
     QRect rect = QApplication::desktop()->availableGeometry();
@@ -915,10 +915,10 @@ void MainWindow::loadWindowSettings()
     int maxWidth = rect.width();
 
 //    config.beginGroup(qtver);
-    QPoint pos = config.value(QString::fromLatin1("Position"), this->pos()).toPoint();
+    QPoint pos = config.value(QString("Position"), this->pos()).toPoint();
     maxWidth -= pos.x();
     maxHeight -= pos.y();
-    this->resize(config.value(QString::fromLatin1("Size"), QSize(maxWidth, maxHeight)).toSize());
+    this->resize(config.value(QString("Size"), QSize(maxWidth, maxHeight)).toSize());
 
     int x1,x2,y1,y2;
     // make sure that the main window is not totally out of the visible rectangle
@@ -929,14 +929,14 @@ void MainWindow::loadWindowSettings()
 
     // tmp. disable the report window to suppress some bothering warnings
     Base::Console().SetEnabledMsgType("ReportOutput", ConsoleMsgType::MsgType_Wrn, false);
-    this->restoreState(config.value(QString::fromLatin1("MainWindowState")).toByteArray());
+    this->restoreState(config.value(QString("MainWindowState")).toByteArray());
     std::clog << "Main window restored" << std::endl;
     Base::Console().SetEnabledMsgType("ReportOutput", ConsoleMsgType::MsgType_Wrn, true);
 
-    bool max = config.value(QString::fromLatin1("Maximized"), false).toBool();
+    bool max = config.value(QString("Maximized"), false).toBool();
     max ? showMaximized() : show();
 
-    statusBar()->setVisible(config.value(QString::fromLatin1("StatusBar"), true).toBool());
+    statusBar()->setVisible(config.value(QString("StatusBar"), true).toBool());
 //    config.endGroup();
 
     ToolBarManager::getInstance()->restoreState();
@@ -945,19 +945,19 @@ void MainWindow::loadWindowSettings()
 
 void MainWindow::saveWindowSettings()
 {
-    QString vendor = QString::fromLatin1(App::Application::Config()["ExeVendor"].c_str());
-    QString application = QString::fromLatin1(App::Application::Config()["ExeName"].c_str());
+    QString vendor = QString(App::Application::Config()["ExeVendor"].c_str());
+    QString application = QString(App::Application::Config()["ExeName"].c_str());
 //    int major = (QT_VERSION >> 0x10) & 0xff;
 //    int minor = (QT_VERSION >> 0x08) & 0xff;
-//    QString qtver = QString::fromLatin1("Qt%1.%2").arg(major).arg(minor);
+//    QString qtver = QString("Qt%1.%2").arg(major).arg(minor);
     QSettings config(vendor, application);
 
 //    config.beginGroup(qtver);
-    config.setValue(QString::fromLatin1("Size"), this->size());
-    config.setValue(QString::fromLatin1("Position"), this->pos());
-    config.setValue(QString::fromLatin1("Maximized"), this->isMaximized());
-    config.setValue(QString::fromLatin1("MainWindowState"), this->saveState());
-    config.setValue(QString::fromLatin1("StatusBar"), this->statusBar()->isVisible());
+    config.setValue(QString("Size"), this->size());
+    config.setValue(QString("Position"), this->pos());
+    config.setValue(QString("Maximized"), this->isMaximized());
+    config.setValue(QString("MainWindowState"), this->saveState());
+    config.setValue(QString("StatusBar"), this->statusBar()->isVisible());
 //    config.endGroup();
 
     DockWindowManager::instance()->saveState();
@@ -1259,9 +1259,9 @@ void MainWindow::customEvent(QEvent* e)
 StatusBarObserver::StatusBarObserver()
   : WindowParameter("OutputWindow")
 {
-    msg = QString::fromLatin1("#000000"); // black
-    wrn = QString::fromLatin1("#ffaa00"); // orange
-    err = QString::fromLatin1("#ff0000"); // red
+    msg = QString("#000000"); // black
+    wrn = QString("#ffaa00"); // orange
+    err = QString("#ff0000"); // red
     Base::Console().AttachObserver(this);
     getWindowParameter()->Attach(this);
     getWindowParameter()->NotifyAll();
@@ -1296,7 +1296,7 @@ void StatusBarObserver::OnChange(Base::Subject<const char*> &rCaller, const char
 void StatusBarObserver::Message(const char * m)
 {
     // Send the event to the main window to allow thread-safety. Qt will delete it when done.
-    QString txt = QString::fromLatin1("<font color=\"%1\">%2</font>").arg(this->msg, QString::fromUtf8(m));
+    QString txt = QString("<font color=\"%1\">%2</font>").arg(this->msg, QString::fromUtf8(m));
     CustomMessageEvent* ev = new CustomMessageEvent(CustomMessageEvent::Msg, txt);
     QApplication::postEvent(getMainWindow(), ev);
 }
@@ -1307,7 +1307,7 @@ void StatusBarObserver::Message(const char * m)
 void StatusBarObserver::Warning(const char *m)
 {
     // Send the event to the main window to allow thread-safety. Qt will delete it when done.
-    QString txt = QString::fromLatin1("<font color=\"%1\">%2</font>").arg(this->wrn, QString::fromUtf8(m));
+    QString txt = QString("<font color=\"%1\">%2</font>").arg(this->wrn, QString::fromUtf8(m));
     CustomMessageEvent* ev = new CustomMessageEvent(CustomMessageEvent::Wrn, txt);
     QApplication::postEvent(getMainWindow(), ev);
 }
@@ -1318,7 +1318,7 @@ void StatusBarObserver::Warning(const char *m)
 void StatusBarObserver::Error  (const char *m)
 {
     // Send the event to the main window to allow thread-safety. Qt will delete it when done.
-    QString txt = QString::fromLatin1("<font color=\"%1\">%2</font>").arg(this->err, QString::fromUtf8(m));
+    QString txt = QString("<font color=\"%1\">%2</font>").arg(this->err, QString::fromUtf8(m));
     CustomMessageEvent* ev = new CustomMessageEvent(CustomMessageEvent::Err, txt);
     QApplication::postEvent(getMainWindow(), ev);
 }

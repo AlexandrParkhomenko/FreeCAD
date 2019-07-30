@@ -45,7 +45,7 @@ namespace Gui {
 namespace Dialog {
 QByteArray toParamEntry(QString name)
 {
-    name.replace(QString::fromLatin1(" "), QString::fromLatin1("_"));
+    name.replace(QString(" "), QString("_"));
     return name.toLatin1();
 }
 

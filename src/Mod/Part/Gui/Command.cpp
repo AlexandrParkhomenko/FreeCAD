@@ -958,11 +958,11 @@ void CmdPartImport::activated(int iMsg)
 {
     Q_UNUSED(iMsg);
     QStringList filter;
-    filter << QString::fromLatin1("STEP (*.stp *.step)");
-    filter << QString::fromLatin1("STEP with colors (*.stp *.step)");
-    filter << QString::fromLatin1("IGES (*.igs *.iges)");
-    filter << QString::fromLatin1("IGES with colors (*.igs *.iges)");
-    filter << QString::fromLatin1("BREP (*.brp *.brep)");
+    filter << QString("STEP (*.stp *.step)");
+    filter << QString("STEP with colors (*.stp *.step)");
+    filter << QString("IGES (*.igs *.iges)");
+    filter << QString("IGES with colors (*.igs *.iges)");
+    filter << QString("BREP (*.brp *.brep)");
 
     QString select;
     QString fn = Gui::FileDialog::getOpenFileName(Gui::getMainWindow(), QString(), QString(), filter.join(QLatin1String(";;")), &select);
@@ -1017,11 +1017,11 @@ void CmdPartExport::activated(int iMsg)
 {
     Q_UNUSED(iMsg);
     QStringList filter;
-    filter << QString::fromLatin1("STEP (*.stp *.step)");
-    filter << QString::fromLatin1("STEP with colors (*.stp *.step)");
-    filter << QString::fromLatin1("IGES (*.igs *.iges)");
-    filter << QString::fromLatin1("IGES with colors (*.igs *.iges)");
-    filter << QString::fromLatin1("BREP (*.brp *.brep)");
+    filter << QString("STEP (*.stp *.step)");
+    filter << QString("STEP with colors (*.stp *.step)");
+    filter << QString("IGES (*.igs *.iges)");
+    filter << QString("IGES with colors (*.igs *.iges)");
+    filter << QString("BREP (*.brp *.brep)");
 
     QString select;
     QString fn = Gui::FileDialog::getSaveFileName(Gui::getMainWindow(), QString(), QString(), filter.join(QLatin1String(";;")), &select);
@@ -1063,12 +1063,12 @@ void CmdPartImportCurveNet::activated(int iMsg)
 {
     Q_UNUSED(iMsg);
     QStringList filter;
-    filter << QString::fromLatin1("%1 (*.stp *.step *.igs *.iges *.brp *.brep)")
+    filter << QString("%1 (*.stp *.step *.igs *.iges *.brp *.brep)")
                  .arg(QObject::tr("All CAD Files"));
-    filter << QString::fromLatin1("STEP (*.stp *.step)");
-    filter << QString::fromLatin1("IGES (*.igs *.iges)");
-    filter << QString::fromLatin1("BREP (*.brp *.brep)");
-    filter << QString::fromLatin1("%1 (*.*)")
+    filter << QString("STEP (*.stp *.step)");
+    filter << QString("IGES (*.igs *.iges)");
+    filter << QString("BREP (*.brp *.brep)");
+    filter << QString("%1 (*.*)")
                  .arg(QObject::tr("All Files"));
 
     QString fn = Gui::FileDialog::getOpenFileName(Gui::getMainWindow(), QString(), QString(), filter.join(QLatin1String(";;")));
@@ -1121,7 +1121,7 @@ void CmdPartMakeSolid::activated(int iMsg)
                     (*it)->Label.getValue());
             }
             else if (type == TopAbs_COMPOUND || type == TopAbs_COMPSOLID) {
-                str = QString::fromLatin1(
+                str = QString(
                     "__s__=App.ActiveDocument.%1.Shape.Faces\n"
                     "__s__=Part.Solid(Part.Shell(__s__))\n"
                     "__o__=App.ActiveDocument.addObject(\"Part::Feature\",\"%1_solid\")\n"
@@ -1133,7 +1133,7 @@ void CmdPartMakeSolid::activated(int iMsg)
                     .arg(QLatin1String((*it)->Label.getValue()));
             }
             else if (type == TopAbs_SHELL) {
-                str = QString::fromLatin1(
+                str = QString(
                     "__s__=App.ActiveDocument.%1.Shape\n"
                     "__s__=Part.Solid(__s__)\n"
                     "__o__=App.ActiveDocument.addObject(\"Part::Feature\",\"%1_solid\")\n"
@@ -1191,7 +1191,7 @@ void CmdPartReverseShape::activated(int iMsg)
     for (std::vector<App::DocumentObject*>::iterator it = objs.begin(); it != objs.end(); ++it) {
         const TopoDS_Shape& shape = static_cast<Part::Feature*>(*it)->Shape.getValue();
         if (!shape.IsNull()) {
-            QString str = QString::fromLatin1(
+            QString str = QString(
                 "__s__=App.ActiveDocument.%1.Shape.copy()\n"
                 "__s__.reverse()\n"
                 "__o__=App.ActiveDocument.addObject(\"Part::Feature\",\"%1_rev\")\n"

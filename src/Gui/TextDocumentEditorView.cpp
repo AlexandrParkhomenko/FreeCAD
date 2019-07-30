@@ -55,7 +55,7 @@ void TextDocumentEditorView::setupEditor()
             this, SLOT(setWindowModified(bool)));
     getEditor()->setReadOnly(textDocument->ReadOnly.getValue());
     setWindowTitle(QString::fromUtf8(textDocument->Label.getValue())
-            + QString::fromLatin1("[*]"));
+            + QString("[*]"));
     getEditor()->setPlainText(
             QString::fromUtf8(textDocument->Text.getValue()));
 }

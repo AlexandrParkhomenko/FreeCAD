@@ -90,7 +90,7 @@ void DlgUnitsCalculator::valueChanged(const Base::Quantity& quant)
         } else {
             double value = quant.getValue()/actUnit.getValue();
             QString val = QLocale::system().toString(value, 'f', Base::UnitsApi::getDecimals());
-            QString out = QString::fromLatin1("%1 %2").arg(val, ui->UnitInput->text());
+            QString out = QString("%1 %2").arg(val, ui->UnitInput->text());
             ui->ValueOutput->setText(out);
             ui->pushButton_Copy->setEnabled(true);
         }
@@ -123,7 +123,7 @@ void DlgUnitsCalculator::help(void)
 void DlgUnitsCalculator::returnPressed(void)
 {
     if (ui->pushButton_Copy->isEnabled()) {
-        ui->textEdit->append(ui->ValueInput->text() + QString::fromLatin1(" = ") + ui->ValueOutput->text());
+        ui->textEdit->append(ui->ValueInput->text() + QString(" = ") + ui->ValueOutput->text());
         ui->ValueInput->pushToHistory();
     }
 }

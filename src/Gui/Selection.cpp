@@ -485,10 +485,10 @@ bool SelectionSingleton::setPreselect(const char* pDocName, const char* pObjectN
             } else {
                 msg = QCoreApplication::translate("SelectionFilter","Not allowed:");
             }
-            msg.append(QString::fromLatin1(" %1.%2.%3 ")
-                  .arg(QString::fromLatin1(pDocName),
-                       QString::fromLatin1(pObjectName),
-                       QString::fromLatin1(pSubName)));
+            msg.append(QString(" %1.%2.%3 ")
+                  .arg(QString(pDocName),
+                       QString(pObjectName),
+                       QString(pSubName)));
 
             if (getMainWindow()) {
                 getMainWindow()->showMessage(msg);
@@ -544,7 +544,7 @@ void SelectionSingleton::setPreselectCoord( float x, float y, float z)
                                                        ,x,y,z);
 
     if (getMainWindow())
-        getMainWindow()->showMessage(QString::fromLatin1(buf));
+        getMainWindow()->showMessage(QString(buf));
 }
 
 void SelectionSingleton::rmvPreselect()

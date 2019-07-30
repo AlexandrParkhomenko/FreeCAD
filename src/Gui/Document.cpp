@@ -649,7 +649,7 @@ bool Document::save(void)
         }
         catch (const Base::Exception& e) {
             QMessageBox::critical(getMainWindow(), QObject::tr("Saving document failed"),
-                QString::fromLatin1(e.what()));
+                QString(e.what()));
         }
         return true;
     }
@@ -665,7 +665,7 @@ bool Document::saveAs(void)
 
     QString exe = qApp->applicationName();
     QString fn = FileDialog::getSaveFileName(getMainWindow(), QObject::tr("Save %1 Document").arg(exe), 
-        QString(), QString::fromLatin1("%1 %2 (*.freecad)").arg(exe, QObject::tr("Document")));
+        QString(), QString("%1 %2 (*.freecad)").arg(exe, QObject::tr("Document")));
     if (!fn.isEmpty()) {
 	if(!Base::FileInfo(fn.toUtf8().constData()).hasExtension(".freecad")) //# TODO find erroor with select extension
 	  fn += ".freecad";
@@ -685,7 +685,7 @@ bool Document::saveAs(void)
         }
         catch (const Base::Exception& e) {
             QMessageBox::critical(getMainWindow(), QObject::tr("Saving document failed"),
-                QString::fromLatin1(e.what()));
+                QString(e.what()));
         }
         return true;
     }
@@ -920,7 +920,7 @@ void Document::SaveDocFile (Base::Writer &writer) const {
             (*it)->onMsg("GetCamera",&ppReturn);
 
             // remove the first line because it's a comment like '#Inventor V2.1 ascii'
-            QStringList lines = QString(QString::fromLatin1(ppReturn)).split(QLatin1String("\n"));
+            QStringList lines = QString(QString(ppReturn)).split(QLatin1String("\n"));
             if (lines.size() > 1) {
                 lines.pop_front();
                 viewPos = lines.join(QLatin1String(" "));
@@ -1106,7 +1106,7 @@ void Document::createView(const Base::Type& typeId)
             view3D->getViewer()->removeViewProvider(getViewProvider(obj));
 
         const char* name = getDocument()->Label.getValue();
-        QString title = QString::fromLatin1("%1 : %2[*]")
+        QString title = QString("%1 : %2[*]")
             .arg(QString::fromUtf8(name)).arg(d->_iWinCount++);
 
         view3D->setWindowTitle(title);

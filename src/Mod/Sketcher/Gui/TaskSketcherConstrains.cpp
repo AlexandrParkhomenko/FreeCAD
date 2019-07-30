@@ -119,7 +119,7 @@ public:
             case Sketcher::Radius:
             case Sketcher::Diameter:
             case Sketcher::Angle:
-                name = QString::fromLatin1("%1 (%2)").arg(name).arg(constraint->getPresentationValue().getUserString());
+                name = QString("%1 (%2)").arg(name).arg(constraint->getPresentationValue().getUserString());
                 break;
             case Sketcher::SnellsLaw: {
                 double v = constraint->getPresentationValue().getValue();
@@ -130,7 +130,7 @@ public:
                 } else {
                     n1 = 1/v;
                 }
-                name = QString::fromLatin1("%1 (%2/%3)").arg(name).arg(n2).arg(n1);
+                name = QString("%1 (%2/%3)").arg(name).arg(n2).arg(n1);
                 break;
             }
             case Sketcher::InternalAlignment:
@@ -144,13 +144,13 @@ public:
 
             if(extended) {
                 if(constraint->Second == Sketcher::Constraint::GeoUndef) {
-                    name = QString::fromLatin1("%1 [(%2,%3)]").arg(name).arg(constraint->First).arg(constraint->FirstPos);
+                    name = QString("%1 [(%2,%3)]").arg(name).arg(constraint->First).arg(constraint->FirstPos);
                 }
                 else if(constraint->Third == Sketcher::Constraint::GeoUndef) {
-                    name = QString::fromLatin1("%1 [(%2,%3),(%4,%5)]").arg(name).arg(constraint->First).arg(constraint->FirstPos).arg(constraint->Second).arg(constraint->SecondPos);
+                    name = QString("%1 [(%2,%3),(%4,%5)]").arg(name).arg(constraint->First).arg(constraint->FirstPos).arg(constraint->Second).arg(constraint->SecondPos);
                 }
                 else {
-                    name = QString::fromLatin1("%1 [(%2,%3),(%4,%5),(%6,%7)]").arg(name).arg(constraint->First).arg(constraint->FirstPos).arg(constraint->Second).arg(constraint->SecondPos).arg(constraint->Third).arg(constraint->ThirdPos);
+                    name = QString("%1 [(%2,%3),(%4,%5),(%6,%7)]").arg(name).arg(constraint->First).arg(constraint->FirstPos).arg(constraint->Second).arg(constraint->SecondPos).arg(constraint->Third).arg(constraint->ThirdPos);
                 }
             }
 
@@ -333,8 +333,8 @@ public:
 protected:
     QPixmap getIcon(const char* name, const QSize& size) const
     {
-        QString key = QString::fromLatin1("%1_%2x%3")
-            .arg(QString::fromLatin1(name))
+        QString key = QString("%1_%2x%3")
+            .arg(QString(name))
             .arg(size.width())
             .arg(size.height());
         QPixmap icon;
@@ -635,8 +635,8 @@ void TaskSketcherConstrains::onSelectionChanged(const Gui::SelectionChanges& msg
         if (strcmp(msg.pDocName,sketchView->getSketchObject()->getDocument()->getName())==0 &&
             strcmp(msg.pObjectName,sketchView->getSketchObject()->getNameInDocument())== 0) {
             if (msg.pSubName) {
-                QRegExp rx(QString::fromLatin1("^Constraint(\\d+)$"));
-                QString expr = QString::fromLatin1(msg.pSubName);
+                QRegExp rx(QString("^Constraint(\\d+)$"));
+                QString expr = QString(msg.pSubName);
                 int pos = expr.indexOf(rx);
                 if (pos > -1) {
                     bool ok;
@@ -764,7 +764,7 @@ void TaskSketcherConstrains::on_listWidgetConstraints_itemChanged(QListWidgetIte
             Gui::Command::abortCommand();
 
             QMessageBox::critical(Gui::MainWindow::getInstance(), tr("Error"),
-                                  QString::fromLatin1(e.what()), QMessageBox::Ok, QMessageBox::Ok);
+                                  QString(e.what()), QMessageBox::Ok, QMessageBox::Ok);
         }
     }
 
@@ -781,7 +781,7 @@ void TaskSketcherConstrains::on_listWidgetConstraints_itemChanged(QListWidgetIte
         Gui::Command::abortCommand();
         
         QMessageBox::critical(Gui::MainWindow::getInstance(), tr("Error"),
-                              QString::fromLatin1(e.what()), QMessageBox::Ok, QMessageBox::Ok);
+                              QString(e.what()), QMessageBox::Ok, QMessageBox::Ok);
     }
 
     inEditMode = false;

@@ -23,7 +23,7 @@ QString UnitsSchemaMmMin::schemaTranslate(const Quantity &quant, double &factor,
 {
     Unit unit = quant.getUnit();
     if (unit == Unit::Length) {
-        unitString = QString::fromLatin1("mm");
+        unitString = QString("mm");
         factor = 1.0;
     }
     else if (unit == Unit::Angle) {
@@ -32,7 +32,7 @@ QString UnitsSchemaMmMin::schemaTranslate(const Quantity &quant, double &factor,
         factor = 1.0;
     }
     else if (unit == Unit::Velocity) {
-        unitString = QString::fromLatin1("mm/min");
+        unitString = QString("mm/min");
         factor = 1./60.;
     }
     else {

@@ -187,7 +187,7 @@ QString DocumentRecovery::createProjectFile(const QString& documentXml)
 {
     QString source = documentXml;
     QFileInfo fi(source);
-    QString dest = fi.dir().absoluteFilePath(QString::fromLatin1("fc_recovery_file.freecad"));
+    QString dest = fi.dir().absoluteFilePath(QString("fc_recovery_file.freecad"));
 
     std::stringstream str;
     str << doctools << "\n";
@@ -242,10 +242,10 @@ void DocumentRecovery::accept()
                 }
             }
             catch (const std::exception& e) {
-                errorInfo = QString::fromLatin1(e.what());
+                errorInfo = QString(e.what());
             }
             catch (const Base::Exception& e) {
-                errorInfo = QString::fromLatin1(e.what());
+                errorInfo = QString(e.what());
             }
             catch (...) {
                 errorInfo = tr("Unknown problem occurred");
@@ -348,16 +348,16 @@ DocumentRecoveryPrivate::Info DocumentRecoveryPrivate::getRecoveryInfo(const QFi
     if (doc_dir.exists(QLatin1String("fc_recovery_file.xml"))) {
         XmlConfig cfg = readXmlFile(info.xmlFile);
 
-        if (cfg.contains(QString::fromLatin1("Label"))) {
-            info.label = cfg[QString::fromLatin1("Label")];
+        if (cfg.contains(QString("Label"))) {
+            info.label = cfg[QString("Label")];
         }
 
-        if (cfg.contains(QString::fromLatin1("FileName"))) {
-            info.fileName = cfg[QString::fromLatin1("FileName")];
+        if (cfg.contains(QString("FileName"))) {
+            info.fileName = cfg[QString("FileName")];
         }
 
-        if (cfg.contains(QString::fromLatin1("Status"))) {
-            QString status = cfg[QString::fromLatin1("Status")];
+        if (cfg.contains(QString("Status"))) {
+            QString status = cfg[QString("Status")];
             if (status == QLatin1String("Deprecated"))
                 info.status = DocumentRecoveryPrivate::Overage;
             else if (status == QLatin1String("Success"))
@@ -410,9 +410,9 @@ DocumentRecoveryPrivate::XmlConfig DocumentRecoveryPrivate::readXmlFile(const QS
     file.close();
 
     QVector<QString> filter;
-    filter << QString::fromLatin1("Label");
-    filter << QString::fromLatin1("FileName");
-    filter << QString::fromLatin1("Status");
+    filter << QString("Label");
+    filter << QString("FileName");
+    filter << QString("Status");
 
     QDomElement child;
     if (!root.isNull()) {
@@ -490,10 +490,10 @@ void DocumentRecovery::on_buttonCleanup_clicked()
     d_ptr->ui.buttonBox->button(QDialogButtonBox::Cancel)->setEnabled(true);
 
     QDir tmp = QString::fromUtf8(App::Application::getTempPath().c_str());
-    tmp.setNameFilters(QStringList() << QString::fromLatin1("*.lock"));
+    tmp.setNameFilters(QStringList() << QString("*.lock"));
     tmp.setFilter(QDir::Files);
 
-    QString exeName = QString::fromLatin1(App::GetApplication().getExecutableName());
+    QString exeName = QString(App::GetApplication().getExecutableName());
     QList<QFileInfo> locks = tmp.entryInfoList();
     for (QList<QFileInfo>::iterator it = locks.begin(); it != locks.end(); ++it) {
         QString bn = it->baseName();

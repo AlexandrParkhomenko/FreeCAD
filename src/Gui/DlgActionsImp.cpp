@@ -186,7 +186,7 @@ void DlgCustomActionsImp::on_actionListWidget_itemActivated(QTreeWidgetItem *ite
         actionMenu      -> setText(QString::fromUtf8(pScript->getMenuText()));
         actionToolTip   -> setText(QString::fromUtf8(pScript->getToolTipText()));
         actionStatus    -> setText(QString::fromUtf8(pScript->getStatusTip()));
-        actionAccel     -> setText(QString::fromLatin1(pScript->getAccel()));
+        actionAccel     -> setText(QString(pScript->getAccel()));
         pixmapLabel->clear();
         m_sPixmap = QString();
         const char* name = pScript->getPixmap();
@@ -317,17 +317,17 @@ void DlgCustomActionsImp::on_buttonReplaceAction_clicked()
         action->setStatusTip(QString::fromUtf8(macro->getStatusTip()));
         if (macro->getPixmap())
             action->setIcon(Gui::BitmapFactory().pixmap(macro->getPixmap()));
-        action->setShortcut(QString::fromLatin1(macro->getAccel()));
+        action->setShortcut(QString(macro->getAccel()));
 
         QString accel = action->shortcut().toString(QKeySequence::NativeText);
         if (!accel.isEmpty()) {
             // show shortcut inside tooltip
-            QString ttip = QString::fromLatin1("%1 (%2)")
+            QString ttip = QString("%1 (%2)")
                 .arg(action->toolTip(), accel);
             action->setToolTip(ttip);
 
             // show shortcut inside status tip
-            QString stip = QString::fromLatin1("(%1)\t%2")
+            QString stip = QString("(%1)\t%2")
                 .arg(accel, action->statusTip());
             action->setStatusTip(stip);
         }
@@ -438,7 +438,7 @@ void IconDialog::onAddIconPath()
                 QStringList filters;
                 QList<QByteArray> formats = QImageReader::supportedImageFormats();
                 for (QList<QByteArray>::iterator jt = formats.begin(); jt != formats.end(); ++jt)
-                    filters << QString::fromLatin1("*.%1").arg(QString::fromLatin1(*jt).toLower());
+                    filters << QString("*.%1").arg(QString(*jt).toLower());
                 QDir d(*it);
                 d.setNameFilters(filters);
                 QFileInfoList fi = d.entryInfoList();
@@ -487,7 +487,7 @@ QString DlgCustomActionsImp::newActionName()
     do
     {
         bUsed = false;
-        sName = QString::fromLatin1("Std_Macro_%1").arg( id++ );
+        sName = QString("Std_Macro_%1").arg( id++ );
 
         std::vector<Command*>::iterator it;
         for ( it = aclCurMacros.begin(); it!= aclCurMacros.end(); ++it )

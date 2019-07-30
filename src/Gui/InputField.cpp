@@ -61,11 +61,11 @@ InputField::InputField(QWidget * parent)
     iconLabel->setCursor(Qt::ArrowCursor);
     QPixmap pixmap = getValidationIcon(":/icons/button_valid.svg", QSize(sizeHint().height(),sizeHint().height()));
     iconLabel->setPixmap(pixmap);
-    iconLabel->setStyleSheet(QString::fromLatin1("QLabel { border: none; padding: 0px; }"));
+    iconLabel->setStyleSheet(QString("QLabel { border: none; padding: 0px; }"));
     iconLabel->hide();
     connect(this, SIGNAL(textChanged(const QString&)), this, SLOT(updateIconLabel(const QString&)));
     int frameWidth = style()->pixelMetric(QStyle::PM_DefaultFrameWidth);
-    setStyleSheet(QString::fromLatin1("QLineEdit { padding-right: %1px } ").arg(iconLabel->sizeHint().width() + frameWidth + 1));
+    setStyleSheet(QString("QLineEdit { padding-right: %1px } ").arg(iconLabel->sizeHint().width() + frameWidth + 1));
     QSize msz = minimumSizeHint();
     setMinimumSize(qMax(msz.width(), iconLabel->sizeHint().height() + frameWidth * 2 + 2),
                    qMax(msz.height(), iconLabel->sizeHint().height() + frameWidth * 2 + 2));
@@ -119,8 +119,8 @@ bool InputField::apply()
 
 QPixmap InputField::getValidationIcon(const char* name, const QSize& size) const
 {
-    QString key = QString::fromLatin1("%1_%2x%3")
-        .arg(QString::fromLatin1(name))
+    QString key = QString("%1_%2x%3")
+        .arg(QString(name))
         .arg(size.width())
         .arg(size.height());
     QPixmap icon;
@@ -168,7 +168,7 @@ void InputField::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu *editMenu = createStandardContextMenu();
     editMenu->setTitle(tr("Edit"));
-    QMenu* menu = new QMenu(QString::fromLatin1("InputFieldContextmenu"));
+    QMenu* menu = new QMenu(QString("InputFieldContextmenu"));
 
     menu->addMenu(editMenu);
     menu->addSeparator();
@@ -235,7 +235,7 @@ void InputField::newInput(const QString & text)
             res = Quantity::parse(input);
     }
     catch(Base::Exception &e){
-        QString errorText = QString::fromLatin1(e.what());
+        QString errorText = QString(e.what());
         QPixmap pixmap = getValidationIcon(":/icons/button_invalid.svg", QSize(sizeHint().height(),sizeHint().height()));
         iconLabel->setPixmap(pixmap);
         parseError(errorText);
@@ -250,7 +250,7 @@ void InputField::newInput(const QString & text)
     if(!actUnit.isEmpty() && !res.getUnit().isEmpty() && actUnit != res.getUnit()){
         QPixmap pixmap = getValidationIcon(":/icons/button_invalid.svg", QSize(sizeHint().height(),sizeHint().height()));
         iconLabel->setPixmap(pixmap);
-        parseError(QString::fromLatin1("Wrong unit"));
+        parseError(QString("Wrong unit"));
         validInput = false;
         return;
     }
@@ -450,7 +450,7 @@ QString InputField::rawText(void) const
     QString unit;
     double value = actQuantity.getValue();
     actQuantity.getUserString(factor, unit);
-    return QString::fromLatin1("%1 %2").arg(value / factor).arg(unit);
+    return QString("%1 %2").arg(value / factor).arg(unit);
 }
 
 /// expects the string in C locale and internally converts it into the OS-specific locale
@@ -540,7 +540,7 @@ void InputField::setPrecision(const int precision)
 
 QString InputField::getFormat() const
 {
-    return QString(QChar::fromLatin1(actQuantity.getFormat().toFormat()));
+    return QString(QChar(actQuantity.getFormat().toFormat()));
 }
 
 void InputField::setFormat(const QString& format)
