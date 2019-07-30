@@ -12,9 +12,9 @@ set(Path_Scripts
 #    TestPathApp.py
 )
 
-if(BUILD_GUI)
+#if(BUILD_GUI)
     list (APPEND Path_Scripts InitGui.py)
-endif(BUILD_GUI)
+#endif(BUILD_GUI)
 
 INSTALL(
     FILES

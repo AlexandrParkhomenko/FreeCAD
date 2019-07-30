@@ -8,9 +8,9 @@ set(_TEMPLATE__Scripts
     Init.py
 )
 
-if(BUILD_GUI)
+#if(BUILD_GUI)
     list (APPEND _TEMPLATE__Scripts InitGui.py)
-endif(BUILD_GUI)
+#endif(BUILD_GUI)
 
 add_custom_target(_TEMPLATE_Scripts ALL
     SOURCES ${_TEMPLATE__Scripts}

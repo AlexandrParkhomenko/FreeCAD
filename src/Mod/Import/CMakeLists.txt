@@ -11,9 +11,9 @@ set(Import_Scripts
     stepZ.py
 )
 
-if(BUILD_GUI)
+#if(BUILD_GUI)
     list (APPEND Import_Scripts InitGui.py)
-endif(BUILD_GUI)
+#endif(BUILD_GUI)
 
 add_custom_target(ImportScripts ALL
     SOURCES ${Import_Scripts}

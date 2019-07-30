@@ -11,12 +11,12 @@ set(Part_Scripts
     TestPartApp.py
 )
 
-if(BUILD_GUI)
+#if(BUILD_GUI)
     list (APPEND Part_Scripts
           InitGui.py
           TestPartGui.py
     )
-endif(BUILD_GUI)
+#endif(BUILD_GUI)
 
 set(AttachmentEditor_Scripts
     AttachmentEditor/__init__.py

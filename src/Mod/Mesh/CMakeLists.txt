@@ -10,9 +10,9 @@ set(Mesh_Scripts
     App/MeshTestsApp.py
 )
 
-if(BUILD_GUI)
+#if(BUILD_GUI)
     list (APPEND Mesh_Scripts InitGui.py)
-endif(BUILD_GUI)
+#endif(BUILD_GUI)
 
 add_custom_target(MeshScripts ALL
     SOURCES ${Mesh_Scripts}

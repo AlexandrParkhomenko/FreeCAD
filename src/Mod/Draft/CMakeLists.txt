@@ -37,12 +37,12 @@ fc_copy_sources(Draft "${CMAKE_BINARY_DIR}/Mod/Draft" ${Draft_SRCS})
 
 fc_copy_sources(Draft "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_DATADIR}/Mod/Draft" ${DraftGuiIcon_SVG})
 
-IF (BUILD_GUI)
+#IF (BUILD_GUI)
     fc_target_copy_resource(Draft
         ${CMAKE_CURRENT_BINARY_DIR}
         ${CMAKE_BINARY_DIR}/Mod/Draft
         Draft_rc.py)
-ENDIF (BUILD_GUI)
+#ENDIF (BUILD_GUI)
 
 INSTALL(
     FILES

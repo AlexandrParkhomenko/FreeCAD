@@ -8,9 +8,9 @@ set(Points_Scripts
     Init.py
 )
 
-if(BUILD_GUI)
+#if(BUILD_GUI)
     list (APPEND Points_Scripts InitGui.py)
-endif(BUILD_GUI)
+#endif(BUILD_GUI)
 
 INSTALL(
     FILES
