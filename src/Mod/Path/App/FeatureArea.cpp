@@ -87,7 +87,7 @@ App::DocumentObjectExecReturn *FeatureArea::execute(void)
     }
 
     myShapes.clear();
-    if(myArea.getSectionCount()==0) 
+    if(myArea.getSectionCount()==0)
         myShapes.push_back(myArea.getShape(-1));
     else {
         myShapes.reserve(myArea.getSectionCount());

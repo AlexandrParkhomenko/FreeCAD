@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import FreeCAD
@@ -11,7 +10,6 @@ import FreeCADGui
 import PathScripts.PathEngrave as PathEngrave
 import PathScripts.PathLog as PathLog
 import PathScripts.PathOpGui as PathOpGui
-import PathScripts.PathSelection as PathSelection
 import PathScripts.PathUtils as PathUtils
 
 from PySide import QtCore, QtGui
@@ -20,7 +18,9 @@ __title__ = "Path Engrave Operation UI"
 __author__ = "sliptonic (Brad Collette)"
 __doc__ = "Engrave operation page controller and command implementation."
 
-if False:
+LOGLEVEL = False
+
+if LOGLEVEL:
     PathLog.setLevel(PathLog.Level.DEBUG, PathLog.thisModule())
     PathLog.trackModule(PathLog.thisModule())
 else:

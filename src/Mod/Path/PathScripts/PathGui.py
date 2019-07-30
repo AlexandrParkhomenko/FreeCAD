@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import FreeCAD
-import FreeCADGui
 import PathScripts.PathGeom as PathGeom
 import PathScripts.PathLog as PathLog
 import PySide
@@ -20,7 +18,9 @@ __doc__ = "A collection of helper and utility functions for the Path GUI."
 def translate(context, text, disambig=None):
     return PySide.QtCore.QCoreApplication.translate(context, text, disambig)
 
-if False:
+LOGLEVEL = False
+
+if LOGLEVEL:
     PathLog.setLevel(PathLog.Level.DEBUG, PathLog.thisModule())
     PathLog.trackModule(PathLog.thisModule())
 else:
@@ -29,6 +29,7 @@ else:
 def _getProperty(obj, prop):
     o = obj
     attr = obj
+    name = None
     for name in prop.split('.'):
         o = attr
         if not hasattr(o, name):
@@ -44,12 +45,12 @@ def _getProperty(obj, prop):
 
 def getProperty(obj, prop):
     '''getProperty(obj, prop) ... answer obj's property defined by its canonical name.'''
-    o, attr, name = _getProperty(obj, prop)
+    o, attr, name = _getProperty(obj, prop) # pylint: disable=unused-variable
     return attr
 
 def setProperty(obj, prop, value):
     '''setProperty(obj, prop, value) ... set the property value of obj's property defined by its canonical name.'''
-    o, attr, name = _getProperty(obj, prop)
+    o, attr, name = _getProperty(obj, prop) # pylint: disable=unused-variable
     if o and name:
         setattr(o, name, value)
 

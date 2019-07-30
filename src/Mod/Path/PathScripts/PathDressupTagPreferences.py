@@ -1,20 +1,18 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import FreeCAD
-import FreeCADGui
 import PathScripts.PathPreferences as PathPreferences
 import PathScripts.PathPreferencesPathDressup as PathPreferencesPathDressup
 
 from PySide import QtCore
 
 
-# Qt tanslation handling
+# Qt translation handling
 def translate(context, text, disambig=None):
     return QtCore.QCoreApplication.translate(context, text, disambig)
 
@@ -59,8 +57,10 @@ class HoldingTagPreferences:
         return PathPreferences.preferences().GetFloat(cls.DefaultHoldingTagRadius, ifNotSet)
 
     def __init__(self):
-        self.form = FreeCADGui.PySideUic.loadUi(":/preferences/PathDressupHoldingTags.ui")
-        self.label = translate("Path_DressupTag", 'Holding Tag')
+        if FreeCAD.GuiUp:
+            import FreeCADGui
+            self.form = FreeCADGui.PySideUic.loadUi(":/preferences/PathDressupHoldingTags.ui")
+            self.label = translate("Path_DressupTag", 'Holding Tag')
 
     def loadSettings(self):
         self.form.ifWidth.setText(FreeCAD.Units.Quantity(self.defaultWidth(0), FreeCAD.Units.Length).UserString)

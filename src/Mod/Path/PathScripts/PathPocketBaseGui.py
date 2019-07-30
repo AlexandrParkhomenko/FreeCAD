@@ -1,20 +1,16 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import FreeCAD
 import FreeCADGui
-import PathScripts.PathLog as PathLog
 import PathScripts.PathGui as PathGui
 import PathScripts.PathOpGui as PathOpGui
-import PathScripts.PathPocket as PathPocket
-import PathScripts.PathSelection as PathSelection
 
-from PySide import QtCore, QtGui
+from PySide import QtCore #, QtGui
 
 __title__ = "Path Pocket Base Operation UI"
 __author__ = "sliptonic (Brad Collette)"
@@ -40,7 +36,7 @@ class TaskPanelOpPage(PathOpGui.TaskPanelPage):
           FeatureFacing  ... used for face milling operation
           FeatureOutline ... used for pocket-shape operation
         Must be overwritten by subclasses'''
-        pass
+        pass # pylint: disable=unnecessary-pass
 
     def getForm(self):
         '''getForm() ... returns UI, adapted to the results from pocketFeatures()'''
@@ -56,9 +52,9 @@ class TaskPanelOpPage(PathOpGui.TaskPanelPage):
         if not (FeatureOutline & self.pocketFeatures()):
             form.useOutline.hide()
 
-        if True:
-            # currently doesn't have an effect or is experimental
-            form.minTravel.hide()
+        # if True:
+        #     # currently doesn't have an effect or is experimental
+        #     form.minTravel.hide()
 
         return form
 

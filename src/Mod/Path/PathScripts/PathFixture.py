@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2015 Dan Falck <ddfalck@gmail.com>                      *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 ''' Used to create CNC machine fixture offsets such as G54,G55, etc...'''
 
@@ -10,9 +9,9 @@ import FreeCAD
 import FreeCADGui
 import Path
 import PathScripts.PathUtils as PathUtils
-from PySide import QtCore  #, QtGui
+from PySide import QtCore#, QtGui
 
-# Qt tanslation handling
+# Qt translation handling
 def translate(context, text, disambig=None):
     return QtCore.QCoreApplication.translate(context, text, disambig)
 
@@ -66,11 +65,8 @@ class _ViewProviderFixture:
     def getIcon(self):  # optional
         return ":/icons/Path-Datums.svg"
 
-#    def attach(self): #optional
-#        # this is executed on object creation and object load from file
-#        pass
-
     def onChanged(self, vobj, prop):  # optional
+        # pylint: disable=unused-argument
         mode = 2
         vobj.setEditorMode('LineWidth', mode)
         vobj.setEditorMode('MarkerColor', mode)
@@ -106,7 +102,7 @@ class CommandPathFixture:
         if FreeCAD.ActiveDocument is not None:
             for o in FreeCAD.ActiveDocument.Objects:
                 if o.Name[:3] == "Job":
-                        return True
+                    return True
         return False
 
     def Activated(self):

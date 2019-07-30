@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2018 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import FreeCAD
@@ -12,7 +11,7 @@ import PathScripts.PathGui as PathGui
 import PathScripts.PathIconViewProvider as PathIconViewProvider
 import PathScripts.PathLog as PathLog
 import PathScripts.PathSetupSheet as PathSetupSheet
-import PathScripts.PathSetupSheetOpPrototype as PathSetupSheetOpPrototype
+# import PathScripts.PathSetupSheetOpPrototype as PathSetupSheetOpPrototype
 import PathScripts.PathSetupSheetOpPrototypeGui as PathSetupSheetOpPrototypeGui
 import PathScripts.PathUtil as PathUtil
 
@@ -22,11 +21,13 @@ __title__ = "Setup Sheet Editor"
 __author__ = "sliptonic (Brad Collette)"
 __doc__ = "Task panel editor for a SetupSheet"
 
-# Qt tanslation handling
+# Qt translation handling
 def translate(context, text, disambig=None):
     return QtCore.QCoreApplication.translate(context, text, disambig)
 
-if False:
+LOGLEVEL = False
+
+if LOGLEVEL:
     PathLog.setLevel(PathLog.Level.DEBUG, PathLog.thisModule())
     PathLog.trackModule(PathLog.thisModule())
 else:
@@ -40,12 +41,9 @@ class ViewProvider:
         PathLog.track(name)
         vobj.Proxy = self
         self.icon = name
-        mode = 2
-        #vobj.setEditorMode('BoundingBox', mode)
-        #vobj.setEditorMode('DisplayMode', mode)
-        #vobj.setEditorMode('Selectable', mode)
-        #vobj.setEditorMode('ShapeColor', mode)
-        #vobj.setEditorMode('Transparency', mode)
+        # mode = 2
+        self.obj = None
+        self.vobj = None
 
     def attach(self, vobj):
         PathLog.track()
@@ -129,6 +127,10 @@ class OpTaskPanel:
         self.props = sorted(op.properties())
         self.prototype = op.prototype(name)
 
+        # initialized later
+        self.delegate = None
+        self.model = None
+
     def updateData(self, topLeft, bottomRight):
         if 0 == topLeft.column():
             isset = self.model.item(topLeft.row(), 0).checkState() == QtCore.Qt.Checked
@@ -203,7 +205,7 @@ class OpsDefaultEditor:
     def __init__(self, obj, form):
         self.form = form
         self.obj = obj
-        self.ops = sorted([OpTaskPanel(self.obj, name, op) for name, op in PathUtil.keyValueIter(PathSetupSheet._RegisteredOps)], key = lambda op: op.name)
+        self.ops = sorted([OpTaskPanel(self.obj, name, op) for name, op in PathUtil.keyValueIter(PathSetupSheet._RegisteredOps)], key = lambda op: op.name) # pylint: disable=protected-access
         if form:
             parent = form.tabOpDefaults
             for op in self.ops:
@@ -261,6 +263,12 @@ class GlobalEditor(object):
     def __init__(self, obj, form):
         self.form = form
         self.obj = obj
+
+        # initialized later
+        self.clearanceHeightOffs = None
+        self.safeHeightOffs = None
+        self.rapidHorizontal = None
+        self.rapidVertical = None
 
     def reject(self):
         pass

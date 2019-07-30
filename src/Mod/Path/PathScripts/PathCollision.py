@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import FreeCAD
@@ -16,12 +15,8 @@ PathLog.setLevel(PathLog.Level.DEBUG, LOG_MODULE)
 PathLog.trackModule('PathCollision')
 FreeCAD.setLogLevel('Path.Area', 0)
 
-if FreeCAD.GuiUp:
-    import FreeCADGui
-    # from PySide import QtGui
 
-
-# Qt tanslation handling
+# Qt translation handling
 def translate(context, text, disambig=None):
     return QtCore.QCoreApplication.translate(context, text, disambig)
 
@@ -37,20 +32,21 @@ class _CollisionSim:
         obj.Proxy = self
 
     def execute(self, fp):
-        "'''Do something when doing a recomputation, this method is mandatory'''"
-        pass
+        '''Do something when doing a recomputation, this method is mandatory'''
+        print('_CollisionSim', fp)
 
 
 class _ViewProviderCollisionSim:
     def __init__(self, vobj):
+        self.Object = vobj.Object
         vobj.Proxy = self
         vobj.addProperty("App::PropertyLink", "Original", "reference", QtCore.QT_TRANSLATE_NOOP("App::Property", "The base object this collision refers to"))
 
     def attach(self, vobj):
         self.Object = vobj.Object
-        return
 
     def setEdit(self, vobj, mode=0):
+        # pylint: disable=unused-argument
         return True
 
     def getIcon(self):
@@ -60,9 +56,11 @@ class _ViewProviderCollisionSim:
         return None
 
     def __setstate__(self, state):
+        # pylint: disable=unused-argument
         return None
 
     def onDelete(self, feature, subelements):
+        # pylint: disable=unused-argument
         feature.Original.ViewObject.Visibility = True
         return True
 
@@ -88,9 +86,9 @@ def getCollisionObject(baseobject, simobject):
         colorassignment = []
         gougedShape = baseobject.Shape.cut(simobject)
 
-        for idx, i in enumerate(gougedShape.Faces):
+        for i in gougedShape.Faces:
             match = False
-            for jdx, j in enumerate(cVol.Faces):
+            for j in cVol.Faces:
                 if __compareBBSpace(i.BoundBox, j.BoundBox):
                     match = True
             if match is True:

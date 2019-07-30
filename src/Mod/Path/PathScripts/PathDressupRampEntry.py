@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2017 Pekka Roivainen <pekkaroi@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 import FreeCAD
-import FreeCADGui
 import Path
 import Part
 import PathScripts.PathDressup as PathDressup
@@ -17,8 +15,11 @@ import math
 from PathScripts import PathUtils
 from PySide import QtCore
 
+if FreeCAD.GuiUp:
+    import FreeCADGui
 
-# Qt tanslation handling
+
+# Qt translation handling
 def translate(text, context="Path_DressupRampEntry", disambig=None):
     return QtCore.QCoreApplication.translate(context, text, disambig)
 
@@ -41,6 +42,15 @@ class ObjectDressup:
         obj.RampFeedRate = ['Horizontal Feed Rate', 'Vertical Feed Rate', 'Custom']
         obj.Proxy = self
         self.setEditorProperties(obj)
+
+        # initialized later
+        self.wire = None
+        self.angle = None
+        self.rapids = None
+        self.method = None
+        self.outedges = None
+        self.ignoreAboveEnabled = None
+        self.ignoreAbove = None
 
     def __getstate__(self):
         return None
@@ -348,6 +358,7 @@ class ObjectDressup:
         curPoint = p0  # start from the upper point of plunge
         done = False
         goingForward = True
+        i = 0
         while not done:
             for i, redge in enumerate(rampedges):
                 if redge.Length >= rampremaining:
@@ -414,6 +425,7 @@ class ObjectDressup:
         curPoint = p0  # start from the upper point of plunge
         done = False
 
+        i = 0
         while not done:
             for i, redge in enumerate(rampedges):
                 if redge.Length >= rampremaining:
@@ -603,7 +615,7 @@ class ObjectDressup:
 class ViewProviderDressup:
 
     def __init__(self, vobj):
-        vobj.Proxy = self
+        self.obj = vobj.Object
 
     def attach(self, vobj):
         self.obj = vobj.Object
@@ -622,8 +634,9 @@ class ViewProviderDressup:
         return [self.obj.Base]
 
     def onDelete(self, arg1=None, arg2=None):
-        PathLog.debug("Deleting Dressup")
         '''this makes sure that the base operation is added back to the project and visible'''
+        # pylint: disable=unused-argument
+        PathLog.debug("Deleting Dressup")
         FreeCADGui.ActiveDocument.getObject(arg1.Object.Base.Name).Visibility = True
         job = PathUtils.findParentJob(self.obj)
         job.Proxy.addOperation(arg1.Object.Base, arg1.Object)
@@ -638,6 +651,7 @@ class ViewProviderDressup:
 
 
 class CommandPathDressupRampEntry:
+    # pylint: disable=no-init
 
     def GetResources(self):
         return {'Pixmap': 'Path-Dressup',
@@ -675,7 +689,7 @@ class CommandPathDressupRampEntry:
         FreeCADGui.doCommand('job = PathScripts.PathUtils.findParentJob(base)')
         FreeCADGui.doCommand('obj.Base = base')
         FreeCADGui.doCommand('job.Proxy.addOperation(obj, base)')
-        FreeCADGui.doCommand('PathScripts.PathDressupRampEntry.ViewProviderDressup(obj.ViewObject)')
+        FreeCADGui.doCommand('obj.ViewObject.Proxy = PathScripts.PathDressupRampEntry.ViewProviderDressup(obj.ViewObject)')
         FreeCADGui.doCommand('Gui.ActiveDocument.getObject(base.Name).Visibility = False')
         FreeCADGui.doCommand('dbo.setup(obj)')
         FreeCAD.ActiveDocument.commitTransaction()

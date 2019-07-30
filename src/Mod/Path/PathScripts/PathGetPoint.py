@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import Draft
@@ -41,6 +40,14 @@ class TaskPanel:
         self.buttonBox = None
         self.onPath = onPath
         self.obj = None
+
+        self.pt = None
+        self.point = None
+        self.pointCbClick = None
+        self.pointCbMove = None
+        self.pointWhenDone = None
+        self.escape = None
+        self.view = None
 
     def setupUi(self):
         '''setupUi() ... internal function - do not call.'''
@@ -131,6 +138,7 @@ class TaskPanel:
                 self.pointAcceptAndContinue()
 
         def cancel():
+            # pylint: disable=unused-variable
             self.pointReject()
 
         self.pointWhenDone = whenDone

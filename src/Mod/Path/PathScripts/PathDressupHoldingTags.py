@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 import FreeCAD
 import Part
@@ -15,16 +14,14 @@ import PathScripts.PathUtil as PathUtil
 import PathScripts.PathUtils as PathUtils
 import copy
 import math
-import sys
-import traceback
 
 from PathScripts.PathDressupTagPreferences import HoldingTagPreferences
 from PathScripts.PathUtils import waiting_effects
 from PySide import QtCore
 
-"""Holding Tags Dressup object and FreeCAD command"""
+LOGLEVEL = False
 
-if False:
+if LOGLEVEL:
     PathLog.setLevel(PathLog.Level.DEBUG, PathLog.thisModule())
     PathLog.trackModule()
 else:
@@ -32,7 +29,7 @@ else:
 
 failures = []
 
-# Qt tanslation handling
+# Qt translation handling
 def translate(context, text, disambig=None):
     return QtCore.QCoreApplication.translate(context, text, disambig)
 
@@ -84,9 +81,9 @@ def debugCone(vector, r1, r2, height, label, color=None):
 
 
 class Tag:
-    def __init__(self, id, x, y, width, height, angle, radius, enabled=True):
+    def __init__(self, nr, x, y, width, height, angle, radius, enabled=True):
         PathLog.track("%.2f, %.2f, %.2f, %.2f, %.2f, %.2f, %d" % (x, y, width, height, angle, radius, enabled))
-        self.id = id
+        self.nr = nr
         self.x = x
         self.y = y
         self.width = math.fabs(width)
@@ -96,6 +93,14 @@ class Tag:
         self.radius = radius if FreeCAD.Units.Quantity == type(radius) else FreeCAD.Units.Quantity(radius, FreeCAD.Units.Length)
         self.enabled = enabled
         self.isSquare = False
+
+        # initialized later
+        self.toolRadius = None
+        self.realRadius = None
+        self.r1 = None
+        self.r2 = None
+        self.solid = None
+        self.z = None
 
     def fullWidth(self):
         return 2 * self.toolRadius + self.width
@@ -161,13 +166,13 @@ class Tag:
     def filterIntersections(self, pts, face):
         if type(face.Surface) == Part.Cone or type(face.Surface) == Part.Cylinder or type(face.Surface) == Part.Toroid:
             PathLog.track("it's a cone/cylinder, checking z")
-            return list(filter(lambda pt: pt.z >= self.bottom() and pt.z <= self.top(), pts))
+            return list([pt for pt in pts if pt.z >= self.bottom() and pt.z <= self.top()])
         if type(face.Surface) == Part.Plane:
             PathLog.track("it's a plane, checking R")
             c = face.Edges[0].Curve
             if (type(c) == Part.Circle):
-                return list(filter(lambda pt: (pt - c.Center).Length <= c.Radius or PathGeom.isRoughly((pt - c.Center).Length, c.Radius), pts))
-        print("==== we got a %s" % face.Surface)
+                return list([pt for pt in pts if (pt - c.Center).Length <= c.Radius or PathGeom.isRoughly((pt - c.Center).Length, c.Radius)])
+        PathLog.error("==== we got a %s" % face.Surface)
 
     def isPointOnEdge(self, pt, edge):
         param = edge.Curve.parameter(pt)
@@ -252,6 +257,18 @@ class MapWireToTag:
         self.complete = False
         self.haveProblem = False
 
+        # initialized later
+        self.edgePoints = None
+        self.edgesCleanup = None
+        self.edgesOrder = None
+        self.entryEdges = None
+        self.exit = None
+        self.exitEdges = None
+        self.finalEdge = None
+        self.offendingEdge = None
+        self.realEntry = None
+        self.realExit = None
+
     def addEdge(self, edge):
         debugEdge(edge, '..........')
         self.edges.append(edge)
@@ -308,16 +325,16 @@ class MapWireToTag:
         # if there are no edges connected to entry/exit, it means the plunge in/out is vertical
         # we need to add in the missing segment and collect the new entry/exit edges.
         if not self.entryEdges:
-            print("fill entryEdges ...")
+            PathLog.debug("fill entryEdges ...")
             self.realEntry = sorted(self.edgePoints, key=lambda p: (p - self.entry).Length)[0]
-            self.entryEdges = list(filter(lambda e: PathGeom.edgeConnectsTo(e, self.realEntry), edges))
+            self.entryEdges = list([e for e in edges if PathGeom.edgeConnectsTo(e, self.realEntry)])
             edges.append(Part.Edge(Part.LineSegment(self.entry, self.realEntry)))
         else:
             self.realEntry = None
         if not self.exitEdges:
-            print("fill exitEdges ...")
+            PathLog.debug("fill exitEdges ...")
             self.realExit = sorted(self.edgePoints, key=lambda p: (p - self.exit).Length)[0]
-            self.exitEdges = list(filter(lambda e: PathGeom.edgeConnectsTo(e, self.realExit), edges))
+            self.exitEdges = list([e for e in edges if PathGeom.edgeConnectsTo(e, self.realExit)])
             edges.append(Part.Edge(Part.LineSegment(self.realExit, self.exit)))
         else:
             self.realExit = None
@@ -391,13 +408,13 @@ class MapWireToTag:
             if lastP == p0:
                 self.edgesOrder.append(outputEdges)
                 self.edgesOrder.append(edges)
-                print('input edges:')
+                PathLog.debug('input edges:')
                 for e in inputEdges:
                     debugEdge(e, '  ', False)
-                print('ordered edges:')
+                PathLog.debug('ordered edges:')
                 for e, flip in outputEdges:
                     debugEdge(e, '  %c ' % ('<' if flip else '>'), False)
-                print('remaining edges:')
+                PathLog.debug('remaining edges:')
                 for e in edges:
                     debugEdge(e, '    ', False)
                 raise ValueError("No connection to %s" % (p0))
@@ -433,13 +450,13 @@ class MapWireToTag:
                 wire.add(edge)
 
         shell = wire.extrude(FreeCAD.Vector(0, 0, self.tag.height + 1))
-        nullFaces = list(filter(lambda f: PathGeom.isRoughly(f.Area, 0), shell.Faces))
+        nullFaces = list([f for f in shell.Faces if PathGeom.isRoughly(f.Area, 0)])
         if nullFaces:
             return shell.removeShape(nullFaces)
         return shell
 
     def commandsForEdges(self):
-        global failures
+        global failures # pylint: disable=global-statement
         if self.edges:
             try:
                 shape = self.shell().common(self.tag.solid)
@@ -460,7 +477,7 @@ class MapWireToTag:
                     commands.append(Path.Command('G0', {'X': rapid.x, 'Y': rapid.y, 'Z': rapid.z}))
                     rapid = None
                 return commands
-            except Exception as e:
+            except Exception as e: # pylint: disable=broad-except
                 PathLog.error("Exception during processing tag @(%.2f, %.2f) (%s) - disabling the tag" % (self.tag.x, self.tag.y, e.args[0]))
                 #if sys.version_info.major < 3:
                 #    traceback.print_exc(e)
@@ -485,7 +502,7 @@ class MapWireToTag:
                 self.offendingEdge = edge
                 debugEdge(edge, 'offending Edge:', False)
                 o = self.tag.originAt(self.tag.z)
-                print('originAt: (%.2f, %.2f, %.2f)' % (o.x, o.y, o.z))
+                PathLog.debug('originAt: (%.2f, %.2f, %.2f)' % (o.x, o.y, o.z))
                 i = edge.valueAt(edge.FirstParameter)
             if PathGeom.pointsCoincide(i, edge.valueAt(edge.FirstParameter)):
                 self.tail = edge
@@ -536,7 +553,7 @@ class PathData:
             wire = Part.Wire(bottom)
             if wire.isClosed():
                 return wire
-        except Exception as e:
+        except Exception: # pylint: disable=broad-except
             #if sys.version_info.major < 3:
             #    traceback.print_exc(e)
             #else:
@@ -565,6 +582,7 @@ class PathData:
         return (edges[0], edges[-1])
 
     def generateTags(self, obj, count, width=None, height=None, angle=None, radius=None, spacing=None):
+        # pylint: disable=unused-argument
         PathLog.track(count, width, height, angle, spacing)
         # for e in self.baseWire.Edges:
         #    debugMarker(e.Vertexes[0].Point, 'base', (0.0, 1.0, 1.0), 0.2)
@@ -667,7 +685,7 @@ class PathData:
         ordered = []
         for edge in self.bottomEdges:
             ts = [t for t in tags if PathGeom.isRoughly(0, Part.Vertex(t.originAt(self.minZ)).distToShape(edge)[0], 0.1)]
-            for t in sorted(ts, key=lambda t: (t.originAt(self.minZ) - edge.valueAt(edge.FirstParameter)).Length):
+            for t in sorted(ts, key=lambda t, edge=edge: (t.originAt(self.minZ) - edge.valueAt(edge.FirstParameter)).Length):
                 tags.remove(t)
                 ordered.append(t)
         # disable all tags that are not on the base wire.
@@ -709,6 +727,10 @@ class ObjectTagDressup:
 
         self.obj = obj
         self.solids = []
+        self.tags = []
+        self.pathData = None
+        self.toolRadius = None
+        self.mappers = []
 
     def __getstate__(self):
         return None
@@ -717,13 +739,13 @@ class ObjectTagDressup:
         return None
 
     def supportsTagGeneration(self, obj):
-        if not hasattr(self, 'pathData'):
+        if not self.pathData:
             self.setup(obj)
         return self.pathData.supportsTagGeneration()
 
     def generateTags(self, obj, count):
         if self.supportsTagGeneration(obj):
-            if hasattr(self, "pathData"):
+            if self.pathData:
                 self.tags = self.pathData.generateTags(obj, count, obj.Width.Value, obj.Height.Value, obj.Angle, obj.Radius.Value, None)
                 obj.Positions = [tag.originAt(self.pathData.minZ) for tag in self.tags]
                 obj.Disabled = []
@@ -820,7 +842,7 @@ class ObjectTagDressup:
         return Path.Path(commands)
 
     def problems(self):
-        return list(filter(lambda m: m.haveProblem, self.mappers))
+        return list([m for m in self.mappers if m.haveProblem])
 
     def createTagsPositionDisabled(self, obj, positionsIn, disabledIn):
         rawTags = []
@@ -853,7 +875,7 @@ class ObjectTagDressup:
                 PathLog.debug("previousTag = %d [%s]" % (i, prev))
             else:
                 disabled.append(i)
-            tag.id = i  # assigne final id
+            tag.nr = i  # assigne final nr
             tags.append(tag)
             positions.append(tag.originAt(self.pathData.minZ))
         return (tags, positions, disabled)
@@ -878,7 +900,7 @@ class ObjectTagDressup:
 
         pathData = self.setup(obj)
         if not pathData:
-            print("execute - no pathData")
+            PathLog.debug("execute - no pathData")
             return
 
         self.tags = []
@@ -890,13 +912,13 @@ class ObjectTagDressup:
                 obj.Disabled = disabled
 
         if not self.tags:
-            print("execute - no tags")
+            PathLog.debug("execute - no tags")
             obj.Path = obj.Base.Path
             return
 
         try:
             self.processTags(obj)
-        except Exception as e:
+        except Exception as e: # pylint: disable=broad-except
             PathLog.error("processing tags failed clearing all tags ... '%s'" % (e.args[0]))
             #if sys.version_info.major < 3:
             #    traceback.print_exc(e)
@@ -909,15 +931,15 @@ class ObjectTagDressup:
         solids = []
         for tag in self.tags:
             solids.append(tag.solid)
-            if not tag.enabled and tag.id not in disabled:
-                disabled.append(tag.id)
+            if not tag.enabled and tag.nr not in disabled:
+                disabled.append(tag.nr)
         self.solids = solids
         if obj.Disabled != disabled:
             obj.Disabled = disabled
 
     @waiting_effects
     def processTags(self, obj):
-        global failures
+        global failures # pylint: disable=global-statement
         failures = []
         tagID = 0
         if PathLog.getLevel(PathLog.thisModule()) == PathLog.Level.DEBUG:
@@ -959,7 +981,7 @@ class ObjectTagDressup:
 
     def setXyEnabled(self, triples):
         PathLog.track()
-        if not hasattr(self, 'pathData'):
+        if not self.pathData:
             self.setup(self.obj)
         positions = []
         disabled = []
@@ -972,12 +994,12 @@ class ObjectTagDressup:
         self.processTags(self.obj)
 
     def pointIsOnPath(self, obj, point):
-        if not hasattr(self, 'pathData'):
+        if not self.pathData:
             self.setup(obj)
         return self.pathData.pointIsOnPath(point)
 
     def pointAtBottom(self, obj, point):
-        if not hasattr(self, 'pathData'):
+        if not self.pathData:
             self.setup(obj)
         return self.pathData.pointAtBottom(point)
 
@@ -994,7 +1016,7 @@ def Create(baseObject, name='DressupTag'):
         PathLog.error(translate('Path_DressupTag', 'Please select a Profile object'))
         return None
 
-    obj = FreeCAD.ActiveDocument.addObject("Path::FeaturePython", "TagDressup")
+    obj = FreeCAD.ActiveDocument.addObject("Path::FeaturePython", name)
     dbo = ObjectTagDressup(obj, baseObject)
     job = PathUtils.findParentJob(baseObject)
     job.Proxy.addOperation(obj, baseObject)

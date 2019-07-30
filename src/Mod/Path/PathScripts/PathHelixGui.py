@@ -3,7 +3,7 @@
 # ***************************************************************************
 # *                                                                         *
 # *   Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import FreeCAD
@@ -13,11 +13,13 @@ import PathScripts.PathHelix as PathHelix
 import PathScripts.PathLog as PathLog
 import PathScripts.PathOpGui as PathOpGui
 
-from PySide import QtCore, QtGui
+from PySide import QtCore
 
 __doc__ = "Helix operation page controller and command implementation."
 
-if False:
+LOGLEVEL = False
+
+if LOGLEVEL:
     PathLog.setLevel(PathLog.Level.DEBUG, PathLog.thisModule())
     PathLog.trackModule(PathLog.thisModule())
 else:

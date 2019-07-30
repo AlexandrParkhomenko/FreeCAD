@@ -205,7 +205,7 @@ static bool getShapePlane(const TopoDS_Shape &shape, gp_Pln &pln) {
     //
     // ADD NOTE: Okay, one thing I find out that for face shape, this
     // FindSurface may produce plane at the wrong position, so use
-    // adaptor to get the underlaying surface plane directly (see
+    // adaptor to get the underlying surface plane directly (see
     // above).  It remains to be seen that if FindSurface has the same
     // problem on wires
     pln = GeomAdaptor_Surface(finder.Surface()).Plane();
@@ -2059,7 +2059,7 @@ TopoDS_Shape Area::makePocket(int index, PARAM_ARGS(PARAM_FARG,AREA_PARAMS_POCKE
         done = true;
         break;
     }default:
-        throw Base::ValueError("unknown poket mode");
+        throw Base::ValueError("unknown pocket mode");
     }
 
     if(!done) {
@@ -2114,7 +2114,7 @@ TopoDS_Shape Area::toShape(const CCurve &_c, const gp_Trsf *trsf, int reorient) 
             continue;
         }
         gp_Pnt pnext(v.m_p.x,v.m_p.y,0);
-        if(pnext.SquareDistance(pt)<Precision::SquareConfusion())
+        if(pnext.SquareDistance(pt)<=Precision::SquareConfusion())
             continue;
         if(v.m_type == 0) {
             auto edge = BRepBuilderAPI_MakeEdge(pt,pnext).Edge();
@@ -2191,7 +2191,7 @@ TopoDS_Shape Area::toShape(const CCurve &_c, const gp_Trsf *trsf, int reorient) 
             builder.Add(compound,hWires->Value(i));
         shape = compound;
     }
-    
+
     if(trsf)
         shape.Move(TopLoc_Location(*trsf));
     return shape;
@@ -2502,7 +2502,7 @@ struct ShapeInfo{
 
             //checking the case of bestpoint == wire start
             if(state==0 && !mySupportEdge &&
-               pprev.SquareDistance(myBestPt)<Precision::SquareConfusion()) {
+               pprev.SquareDistance(myBestPt)<=Precision::SquareConfusion()) {
                 pend = myBestWire->pend();
                 return myBestWire->wire;
             }
@@ -2524,7 +2524,7 @@ struct ShapeInfo{
                 Handle_Geom_Curve curve = BRep_Tool::Curve(edge, first, last);
                 pt = curve->Value(last);
                 bool reversed;
-                if(pprev.SquareDistance(pt)<Precision::SquareConfusion()) {
+                if(pprev.SquareDistance(pt)<=Precision::SquareConfusion()) {
                     reversed = true;
                     pt = curve->Value(first);
                 }else
@@ -2594,7 +2594,7 @@ struct ShapeInfo{
                             continue;
                         }
                     }
-                }else if(myBestPt.SquareDistance(pprev)<Precision::SquareConfusion()){
+                }else if(myBestPt.SquareDistance(pprev)<=Precision::SquareConfusion()){
                     pend = pprev;
                     // AREA_TRACE("break vertex");
                     //if best point is on some vertex
@@ -2625,7 +2625,7 @@ struct ShapeInfo{
         std::list<TopoDS_Shape> wires;
 
         if(myWires.empty() ||
-           pstart.SquareDistance(myStartPt)>Precision::SquareConfusion()) 
+           pstart.SquareDistance(myStartPt)>Precision::SquareConfusion())
         {
             nearest(pstart);
             if(myWires.empty())
@@ -2704,9 +2704,9 @@ struct ShapeInfoBuilder {
         if(!pos.Direct()) pos = gp_Ax3(pos.Ax2());
         const gp_Dir &dir = pos.Direction();
         gp_Ax3 dstPos;
-        bool x0 = fabs(dir.X())<Precision::Confusion();
-        bool y0 = fabs(dir.Y())<Precision::Confusion();
-        bool z0 = fabs(dir.Z())<Precision::Confusion();
+        bool x0 = fabs(dir.X())<=Precision::Confusion();
+        bool y0 = fabs(dir.Y())<=Precision::Confusion();
+        bool z0 = fabs(dir.Z())<=Precision::Confusion();
         switch(myArcPlane) {
         case Area::ArcPlaneAuto: {
             if(x0&&y0){
@@ -2805,7 +2805,7 @@ typedef Standard_Real (gp_Pnt::*AxisGetter)() const;
 typedef void (gp_Pnt::*AxisSetter)(Standard_Real);
 
 std::list<TopoDS_Shape> Area::sortWires(const std::list<TopoDS_Shape> &shapes,
-    bool has_start, gp_Pnt *_pstart, gp_Pnt *_pend, 
+    bool has_start, gp_Pnt *_pstart, gp_Pnt *_pend,
     double *stepdown_hint, short *_parc_plane,
     PARAM_ARGS(PARAM_FARG,AREA_PARAMS_SORT))
 {
@@ -2941,7 +2941,7 @@ std::list<TopoDS_Shape> Area::sortWires(const std::list<TopoDS_Shape> &shapes,
         FC_TIME_LOG(t,"plane merging");
     }
 
-    FC_DURATION_DECL_INIT(td);
+    //FC_DURATION_DECL_INIT(td);
 
     if(use_bound) {
         bounds.SetGap(0.0);

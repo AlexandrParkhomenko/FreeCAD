@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2018 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import FreeCAD
 import Part
-import Path
 import PathScripts.PathGeom as PathGeom
 import PathScripts.PathLog as PathLog
 import math
@@ -19,7 +17,9 @@ __title__ = "PathOpTools - Tools for Path operations."
 __author__ = "sliptonic (Brad Collette)"
 __doc__ = "Collection of functions used by various Path operations. The functions are specific to Path and the algorithms employed by Path's operations."
 
-if False:
+LOGLEVEL = False
+
+if LOGLEVEL:
     PathLog.setLevel(PathLog.Level.DEBUG, PathLog.thisModule())
     PathLog.trackModule(PathLog.thisModule())
 else:
@@ -27,7 +27,7 @@ else:
 
 PrintWireDebug = False
 
-# Qt tanslation handling
+# Qt translation handling
 def translate(context, text, disambig=None):
     return QtCore.QCoreApplication.translate(context, text, disambig)
 
@@ -174,7 +174,7 @@ def offsetWire(wire, base, offset, forward):
             return Part.Wire([edge])
 
         # if we get to this point the assumption is that makeOffset2D can deal with the edge
-        pass
+        pass # pylint: disable=unnecessary-pass
 
     owire = orientWire(wire.makeOffset2D(offset), True)
     debugWire('makeOffset2D_%d' % len(wire.Edges), owire)
@@ -186,7 +186,7 @@ def offsetWire(wire, base, offset, forward):
         PathLog.track('closed - inside')
         try:
             owire = wire.makeOffset2D(-offset)
-        except:
+        except Exception: # pylint: disable=broad-except
             # most likely offsetting didn't work because the wire is a hole
             # and the offset is too big - making the hole vanish
             return None

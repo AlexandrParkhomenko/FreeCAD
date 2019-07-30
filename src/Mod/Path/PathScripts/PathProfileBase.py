@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
-import FreeCAD
 import PathScripts.PathAreaOp as PathAreaOp
 import PathScripts.PathLog as PathLog
-import PathScripts.PathOp as PathOp
 
 from PySide import QtCore
 
@@ -17,13 +14,15 @@ __title__ = "Base Path Profile Operation"
 __author__ = "sliptonic (Brad Collette)"
 __doc__ = "Base class and implementation for Path profile operations."
 
-if False:
+LOGLEVEL = False
+
+if LOGLEVEL:
     PathLog.setLevel(PathLog.Level.DEBUG, PathLog.thisModule())
     PathLog.trackModule(PathLog.thisModule())
 else:
     PathLog.setLevel(PathLog.Level.INFO, PathLog.thisModule())
 
-# Qt tanslation handling
+# Qt translation handling
 def translate(context, text, disambig=None):
     return QtCore.QCoreApplication.translate(context, text, disambig)
 

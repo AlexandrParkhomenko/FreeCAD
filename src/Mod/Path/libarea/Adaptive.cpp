@@ -1,6 +1,6 @@
 /**************************************************************************
 *   Copyright (c) Kresimir Tusek         (kresimir.tusek@gmail.com) 2018  *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 ***************************************************************************/
 
 #include "Adaptive.hpp"
@@ -604,7 +604,7 @@ void SmoothPaths(Paths &paths, double stepSize, long pointCount, long iterations
 				points.push_back(pair<size_t /*path index*/, IntPoint>(i, pt));
 				continue;
 			}
-			const auto &back=points.back();
+			const auto back=points.back();
 			const IntPoint & lastPt = back.second;
 
 

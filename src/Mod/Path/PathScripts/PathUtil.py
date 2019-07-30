@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 '''
@@ -17,11 +16,11 @@ other than PathLog, then it probably doesn't belong here.
 '''
 
 import six
-
 import PathScripts.PathLog as PathLog
-import sys
 
-if False:
+LOGLEVEL = False
+
+if LOGLEVEL:
     PathLog.setLevel(PathLog.Level.DEBUG, PathLog.thisModule())
     PathLog.trackModule(PathLog.thisModule())
 else:
@@ -44,6 +43,9 @@ def isValidBaseObject(obj):
         return False
     if obj.TypeId in NotValidBaseTypeIds:
         PathLog.debug("%s is blacklisted (%s)" % (obj.Label, obj.TypeId))
+        return False
+    if hasattr(obj, 'Sheets') or hasattr(obj, 'TagText'): # Arch.Panels and Arch.PanelCut
+        PathLog.debug("%s is not an Arch.Panel" % (obj.Label))
         return False
     return True
 
@@ -85,7 +87,7 @@ There is currently a bug that invalidates the DAG if an object
 is deleted that still has one or more expressions attached to it.
 Use this function to remove all expressions before deletion.'''
     if hasattr(obj, 'ExpressionEngine'):
-        for attr,expr in obj.ExpressionEngine:
+        for attr, expr in obj.ExpressionEngine: # pylint: disable=unused-variable
             obj.setExpression(attr, None)
 
 def toUnicode(string):

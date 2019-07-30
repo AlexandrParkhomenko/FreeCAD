@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2015 Dan Falck <ddfalck@gmail.com>                      *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 ''' Post Process command that will make use of the Output File and Post Processor entries in PathJob '''
 
@@ -26,21 +25,23 @@ LOG_MODULE = PathLog.thisModule()
 PathLog.setLevel(PathLog.Level.DEBUG, LOG_MODULE)
 
 
-# Qt tanslation handling
+# Qt translation handling
 def translate(context, text, disambig=None):
     return QtCore.QCoreApplication.translate(context, text, disambig)
 
 
 class _TempObject:
-        Path = None
-        Name = "Fixture"
-        InList = []
-        Label = "Fixture"
+    # pylint: disable=no-init
+    Path = None
+    Name = "Fixture"
+    InList = []
+    Label = "Fixture"
 
 
 class DlgSelectPostProcessor:
 
     def __init__(self, parent=None):
+        # pylint: disable=unused-argument
         self.dialog = FreeCADGui.PySideUic.loadUi(":/panels/DlgSelectPostProcessor.ui")
         firstItem = None
         for post in PathPreferences.allEnabledPostProcessors():
@@ -74,6 +75,7 @@ class DlgSelectPostProcessor:
         return None
 
 class CommandPathPost:
+    # pylint: disable=no-init
     subpart = 1
 
     def resolveFileName(self, job):
@@ -169,7 +171,7 @@ class CommandPathPost:
 
         return False
 
-    def exportObjectsWith(self, objs, job, needFilename=True, filepart=None):
+    def exportObjectsWith(self, objs, job, needFilename=True):
         PathLog.track()
         # check if the user has a project and has set the default post and
         # output filename
@@ -215,7 +217,7 @@ class CommandPathPost:
             elif hasattr(sel, "Path"):
                 try:
                     job = PathUtils.findParentJob(sel)
-                except:
+                except Exception: # pylint: disable=broad-except
                     job = None
             else:
                 job = None
@@ -359,7 +361,7 @@ class CommandPathPost:
                 postlist.append(sublist)
 
         fail = True
-        rc = ''
+        rc = '' # pylint: disable=unused-variable
         if split:
             for slist in postlist:
                 (fail, rc) = self.exportObjectsWith(slist, job)

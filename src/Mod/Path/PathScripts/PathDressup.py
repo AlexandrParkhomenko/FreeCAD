@@ -3,16 +3,16 @@
 # ***************************************************************************
 # *                                                                         *
 # *   Copyright (c) 2018 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import FreeCAD
-import FreeCADGui
 import PathScripts.PathJob as PathJob
 
 def selection():
     '''isActive() ... return True if a dressup command is possible.'''
-    if FreeCAD.ActiveDocument:
+    if FreeCAD.ActiveDocument and FreeCAD.GuiUp:
+        import FreeCADGui
         sel = FreeCADGui.Selection.getSelectionEx()
         if len(sel) == 1 and sel[0].Object.isDerivedFrom("Path::Feature") and PathJob.Instances():
             return sel[0].Object

@@ -1,6 +1,6 @@
 /**************************************************************************
 *   Copyright (c) Kresimir Tusek         (kresimir.tusek@gmail.com) 2018  *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 ***************************************************************************/
 
 #include "clipper.hpp"

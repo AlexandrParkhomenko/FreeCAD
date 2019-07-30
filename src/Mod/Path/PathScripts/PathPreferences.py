@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2014 Yorik van Havre <yorik@uncreated.net>              *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import FreeCAD
@@ -102,10 +101,10 @@ def defaultJobTemplate():
         return template
     return ''
 
-def setJobDefaults(filePath, jobTemplate, geometryTolerance, curveAccuracy):
-    PathLog.track("(%s='%s', %s, %s, %s)" % (DefaultFilePath, filePath, jobTemplate, geometryTolerance, curveAccuracy))
+def setJobDefaults(fileName, jobTemplate, geometryTolerance, curveAccuracy):
+    PathLog.track("(%s='%s', %s, %s, %s)" % (DefaultFilePath, fileName, jobTemplate, geometryTolerance, curveAccuracy))
     pref = preferences()
-    pref.SetString(DefaultFilePath, filePath)
+    pref.SetString(DefaultFilePath, fileName)
     pref.SetString(DefaultJobTemplate, jobTemplate)
     pref.SetFloat(GeometryTolerance, geometryTolerance)
     pref.SetFloat(LibAreaCurveAccuracy, curveAccuracy)
@@ -115,7 +114,7 @@ def postProcessorBlacklist():
     blacklist = pref.GetString(PostProcessorBlacklist, "")
     if not blacklist:
         return []
-    return eval(blacklist)
+    return eval(blacklist) # pylint: disable=eval-used
 
 def setPostProcessorDefaults(processor, args, blacklist):
     pref = preferences()
@@ -124,9 +123,9 @@ def setPostProcessorDefaults(processor, args, blacklist):
     pref.SetString(PostProcessorBlacklist, "%s" % (blacklist))
 
 
-def setOutputFileDefaults(file, policy):
+def setOutputFileDefaults(fileName, policy):
     pref = preferences()
-    pref.SetString(PostProcessorOutputFile, file)
+    pref.SetString(PostProcessorOutputFile, fileName)
     pref.SetString(PostProcessorOutputPolicy, policy)
 
 def defaultOutputFile():

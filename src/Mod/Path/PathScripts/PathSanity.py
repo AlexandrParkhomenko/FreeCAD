@@ -1,6 +1,6 @@
 # ***************************************************************************
 # *   (c) Sliptonic (shopinthewoods@gmail.com)  2016                        *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************/
 
 '''This file has utilities for checking and catching common errors in FreeCAD
@@ -12,7 +12,7 @@ import FreeCADGui
 import PathScripts
 import PathScripts.PathLog as PathLog
 # import PathScripts.PathCollision as PC
-# Qt tanslation handling
+# Qt translation handling
 def translate(context, text, disambig=None):
     return QtCore.QCoreApplication.translate(context, text, disambig)
 

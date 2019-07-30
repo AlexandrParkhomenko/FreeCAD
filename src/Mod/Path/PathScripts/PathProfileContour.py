@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2016 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import FreeCAD
 import Part
 import Path
-import PathScripts.PathAreaOp as PathAreaOp
 import PathScripts.PathProfileBase as PathProfileBase
 import PathScripts.PathLog as PathLog
 
@@ -18,13 +16,15 @@ from PySide import QtCore
 
 FreeCAD.setLogLevel('Path.Area', 0)
 
-if False:
+LOGLEVEL = False
+
+if LOGLEVEL:
     PathLog.setLevel(PathLog.Level.DEBUG, PathLog.thisModule())
     PathLog.trackModule(PathLog.thisModule())
 else:
     PathLog.setLevel(PathLog.Level.INFO, PathLog.thisModule())
 
-# Qt tanslation handling
+# Qt translation handling
 def translate(context, text, disambig=None):
     return QtCore.QCoreApplication.translate(context, text, disambig)
 
@@ -86,5 +86,5 @@ def Create(name, obj = None):
     '''Create(name) ... Creates and returns a Contour operation.'''
     if obj is None:
         obj   = FreeCAD.ActiveDocument.addObject("Path::FeaturePython", name)
-    proxy = ObjectContour(obj, name)
+    obj.Proxy = ObjectContour(obj, name)
     return obj

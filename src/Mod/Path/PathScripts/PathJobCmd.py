@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import FreeCAD
@@ -18,11 +17,13 @@ import json
 
 from PySide import QtCore, QtGui
 
-# Qt tanslation handling
+# Qt translation handling
 def translate(context, text, disambig=None):
     return QtCore.QCoreApplication.translate(context, text, disambig)
 
-if False:
+LOGLEVEL = False
+
+if LOGLEVEL:
     PathLog.setLevel(PathLog.Level.DEBUG, PathLog.thisModule())
     PathLog.trackModule(PathLog.thisModule())
 else:
@@ -34,6 +35,9 @@ class CommandJobCreate:
     When activated the command opens a dialog allowing the user to select a base object (has to be a solid)
     and a template to be used for the initial creation.
     '''
+
+    def __init__(self):
+        pass
 
     def GetResources(self):
         return {'Pixmap': 'Path-Job',
@@ -72,6 +76,10 @@ class CommandJobTemplateExport:
     on Job creation and be available for selection.
     '''
 
+
+    def __init__(self):
+        pass
+
     def GetResources(self):
         return {'Pixmap': 'Path-ExportTemplate',
                 'MenuText': QtCore.QT_TRANSLATE_NOOP("Path_Job", "Export Template"),
@@ -108,7 +116,14 @@ class CommandJobTemplateExport:
                 "Path - Job Template",
                 PathPreferences.filePath(),
                 "job_*.json")[0]
-        if foo: 
+        if foo:
+            s = '/'
+            splitList = foo.split(s)
+            li = len(splitList) - 1
+            if splitList[li][-5:] == '.json':
+                if splitList[li][:4] != 'job_' and splitList[li][:4] != 'Job_':
+                    splitList[li] = 'Job_' + splitList[li]
+                    foo = s.join(splitList)
             cls.Execute(job, foo, dialog)
 
     @classmethod

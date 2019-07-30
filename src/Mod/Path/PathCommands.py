@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-
 # ***************************************************************************
 # *                                                                         *
 # *   Copyright (c) 2016 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import FreeCAD
@@ -20,12 +19,11 @@ from PathScripts.PathUtils import findParentJob
 if FreeCAD.GuiUp:
     import FreeCADGui
     from PySide import QtCore
-    from DraftTools import translate
 else:
     def translate(ctxt, txt):
         return txt
 
-__title__="FreeCAD Path Commands"
+__title__ = "FreeCAD Path Commands"
 __author__ = "sliptonic"
 
 
@@ -61,9 +59,8 @@ class _CommandSelectLoop:
             PathLog.error(exc)
             traceback.print_exc(exc)
             return False
-        
+
     def Activated(self):
-        #from PathScripts.PathUtils import loopdetect
         from PathScripts.PathUtils import horizontalEdgeLoop
         from PathScripts.PathUtils import horizontalFaceLoop
         sel = FreeCADGui.Selection.getSelectionEx()[0]
@@ -87,7 +84,7 @@ class _CommandSelectLoop:
             for e in elist:
                 for i in loopwire.Edges:
                     if e.hashCode() == i.hashCode():
-                        FreeCADGui.Selection.addSelection(obj, "Edge"+str(elist.index(e)+1))
+                        FreeCADGui.Selection.addSelection(obj, "Edge" + str(elist.index(e) + 1))
 
     def formsPartOfALoop(self, obj, sub, names):
         if names[0][0:4] != 'Edge':
@@ -118,7 +115,7 @@ class _ToggleOperation:
         try:
             obj = FreeCADGui.Selection.getSelectionEx()[0].Object
             return isinstance(obj.Proxy, PathScripts.PathOp.ObjectOp)
-        except:
+        except(IndexError, AttributeError):
             return False
 
     def Activated(self):
@@ -143,7 +140,7 @@ class _CopyOperation:
         try:
             obj = FreeCADGui.Selection.getSelectionEx()[0].Object
             return isinstance(obj.Proxy, PathScripts.PathOp.ObjectOp)
-        except:
+        except(IndexError, AttributeError):
             return False
 
     def Activated(self):

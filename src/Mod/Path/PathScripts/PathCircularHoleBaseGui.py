@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************************************
-# *                                                                         *
 # *   Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
 import FreeCAD
@@ -17,7 +16,9 @@ __title__ = "Base for Circular Hole based operations' UI"
 __author__ = "sliptonic (Brad Collette)"
 __doc__ = "Implementation of circular hole specific base geometry page controller."
 
-if False:
+LOGLEVEL = False
+
+if LOGLEVEL:
     PathLog.setLevel(PathLog.Level.DEBUG, PathLog.thisModule())
     PathLog.trackModule(PathLog.thisModule())
 else:
@@ -38,7 +39,7 @@ class TaskPanelHoleGeometryPage(PathOpGui.TaskPanelBaseGeometryPage):
         return FreeCADGui.PySideUic.loadUi(":/panels/PageBaseHoleGeometryEdit.ui")
 
     def initPage(self, obj):
-        self.updating = False
+        self.updating = False # pylint: disable=attribute-defined-outside-init
 
     def setFields(self, obj):
         '''setFields(obj) ... fill form with values from obj'''
@@ -46,7 +47,7 @@ class TaskPanelHoleGeometryPage(PathOpGui.TaskPanelBaseGeometryPage):
         self.form.baseList.blockSignals(True)
         self.form.baseList.clearContents()
         self.form.baseList.setRowCount(0)
-        for i, (base, subs) in enumerate(obj.Base):
+        for (base, subs) in obj.Base:
             for sub in subs:
                 self.form.baseList.insertRow(self.form.baseList.rowCount())
 
@@ -62,7 +63,8 @@ class TaskPanelHoleGeometryPage(PathOpGui.TaskPanelBaseGeometryPage):
                 item.setData(self.DataObjectSub, sub)
                 self.form.baseList.setItem(self.form.baseList.rowCount()-1, 0, item)
 
-                item = QtGui.QTableWidgetItem("{:.3f}".format(obj.Proxy.holeDiameter(obj, base, sub)))
+                dia = obj.Proxy.holeDiameter(obj, base, sub)
+                item = QtGui.QTableWidgetItem("{:.3f}".format(dia))
                 item.setData(self.DataFeatureName, name)
                 item.setData(self.DataObject, base)
                 item.setData(self.DataObjectSub, sub)
@@ -107,7 +109,7 @@ class TaskPanelHoleGeometryPage(PathOpGui.TaskPanelBaseGeometryPage):
         self.form.baseList.blockSignals(False)
         #self.obj.Proxy.execute(self.obj)
         FreeCAD.ActiveDocument.recompute()
-        self.setFields(self.obj);
+        self.setFields(self.obj)
 
     def updateBase(self):
         '''updateBase() ... helper function to transfer current table to obj'''
@@ -121,15 +123,15 @@ class TaskPanelHoleGeometryPage(PathOpGui.TaskPanelBaseGeometryPage):
             PathLog.debug("keeping (%s.%s)" % (obj.Label, sub))
             newlist.append(base)
         PathLog.debug("obj.Base=%s newlist=%s" % (self.obj.Base, newlist))
-        self.updating = True
+        self.updating = True # pylint: disable=attribute-defined-outside-init
         self.obj.Base = newlist
-        self.updating = False
+        self.updating = False # pylint: disable=attribute-defined-outside-init
 
     def checkedChanged(self):
         '''checkeChanged() ... callback when checked status of a base feature changed'''
         PathLog.track()
         disabled = []
-        for i in xrange(0, self.form.baseList.rowCount()):
+        for i in range(0, self.form.baseList.rowCount()):
             item = self.form.baseList.item(i, 0)
             if item.checkState() != QtCore.Qt.Checked:
                 disabled.append(item.data(self.DataFeatureName))

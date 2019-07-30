@@ -1,6 +1,6 @@
 # ***************************************************************************
 # *   (c) Yorik van Havre (yorik@uncreated.net) 2014                        *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************/
 
 class PathCommandGroup:
@@ -58,7 +58,7 @@ class PathWorkbench (Workbench):
 
         # build commands list
         projcmdlist = ["Path_Job", "Path_Post"]
-        toolcmdlist = ["Path_Inspect", "Path_ToolLibraryEdit", "Path_SelectLoop"] #, "Path_Simulator"
+        toolcmdlist = ["Path_Inspect", "Path_ToolLibraryEdit", "Path_SelectLoop", "Path_OpActiveToggle"] #, "Path_Simulator"
         prepcmdlist = ["Path_Fixture", "Path_Comment", "Path_Stop", "Path_Custom"]
         twodopcmdlist = ["Path_Contour", "Path_Profile_Faces", "Path_Profile_Edges", "Path_Pocket_Shape", "Path_Drilling", "Path_MillFace", "Path_Helix", "Path_Adaptive" ]
         threedopcmdlist = ["Path_Pocket_3D"]
@@ -72,17 +72,19 @@ class PathWorkbench (Workbench):
         engravecmdgroup = ['Path_EngraveTools']
         FreeCADGui.addCommand('Path_EngraveTools', PathCommandGroup(engravecmdlist, QtCore.QT_TRANSLATE_NOOP("Path", 'Engraving Operations')))
 
+        threedcmdgroup = threedopcmdlist
         if PathPreferences.experimentalFeaturesEnabled():
             projcmdlist.append("Path_Sanity")
             prepcmdlist.append("Path_Shape")
             extracmdlist.extend(["Path_Area", "Path_Area_Workplane"])
 
-            threedopcmdlist.append("Path_Surface")
-            threedcmdgroup = ['Path_3dTools']
-            FreeCADGui.addCommand('Path_3dTools', PathCommandGroup(threedopcmdlist, QtCore.QT_TRANSLATE_NOOP("Path",'3D Operations')))
-
-        else:
-            threedcmdgroup = threedopcmdlist
+            try:
+                import ocl # pylint: disable=unused-variable
+                threedopcmdlist.append("Path_Surface")
+                threedcmdgroup = ['Path_3dTools']
+                FreeCADGui.addCommand('Path_3dTools', PathCommandGroup(threedopcmdlist, QtCore.QT_TRANSLATE_NOOP("Path",'3D Operations')))
+            except ImportError:
+                FreeCAD.Console.PrintError("OpenCamLib is not working!\n")
 
         self.appendToolbar(QtCore.QT_TRANSLATE_NOOP("Path", "Project Setup"), projcmdlist)
         self.appendToolbar(QtCore.QT_TRANSLATE_NOOP("Path", "Tool Commands"), toolcmdlist)
