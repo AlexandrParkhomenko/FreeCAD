@@ -49,7 +49,7 @@ def Startup():
         from PathScripts import PathSanity
         from PathScripts import PathSetupSheetGui
         from PathScripts import PathSimpleCopy
-        from PathScripts import PathSimulatorGui
+#        from PathScripts import PathSimulatorGui
         from PathScripts import PathStop
         try:
             import ocl
