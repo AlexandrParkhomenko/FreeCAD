@@ -122,13 +122,13 @@ void DlgImportExportIges::saveSettings()
     hGrp->SetBool("SkipBlankEntities", ui->checkSkipBlank->isChecked());
 
     // header info
-    hGrp->SetASCII("Company", ui->lineEditCompany->text().toLatin1());
-    hGrp->SetASCII("Author", ui->lineEditAuthor->text().toLatin1());
-  //hGrp->SetASCII("Product", ui->lineEditProduct->text().toLatin1());
+    hGrp->SetASCII("Company", ui->lineEditCompany->text().toUtf8());
+    hGrp->SetASCII("Author", ui->lineEditAuthor->text().toUtf8());
+  //hGrp->SetASCII("Product", ui->lineEditProduct->text().toUtf8());
 
-    Interface_Static::SetCVal("write.iges.header.company", ui->lineEditCompany->text().toLatin1());
-    Interface_Static::SetCVal("write.iges.header.author", ui->lineEditAuthor->text().toLatin1());
-  //Interface_Static::SetCVal("write.iges.header.product", ui->lineEditProduct->text().toLatin1());
+    Interface_Static::SetCVal("write.iges.header.company", ui->lineEditCompany->text().toUtf8());
+    Interface_Static::SetCVal("write.iges.header.author", ui->lineEditAuthor->text().toUtf8());
+  //Interface_Static::SetCVal("write.iges.header.product", ui->lineEditProduct->text().toUtf8());
 }
 
 void DlgImportExportIges::loadSettings()
@@ -245,9 +245,9 @@ void DlgImportExportStep::saveSettings()
     }
 
     // header info
-    hStepGrp->SetASCII("Company", ui->lineEditCompany->text().toLatin1());
-    hStepGrp->SetASCII("Author", ui->lineEditAuthor->text().toLatin1());
-  //hStepGrp->SetASCII("Product", ui->lineEditProduct->text().toLatin1());
+    hStepGrp->SetASCII("Company", ui->lineEditCompany->text().toUtf8());
+    hStepGrp->SetASCII("Author", ui->lineEditAuthor->text().toUtf8());
+  //hStepGrp->SetASCII("Product", ui->lineEditProduct->text().toUtf8());
 
     // (h)STEP of Import module
     ui->checkBoxMergeCompound->onSave();
@@ -272,7 +272,7 @@ void DlgImportExportStep::loadSettings()
     // scheme
     QString ap = QString::fromStdString(hStepGrp->GetASCII("Scheme",
         Interface_Static::CVal("write.step.schema")));
-    if (ap.startsWith(QLatin1String("AP203")))
+    if (ap.startsWith(QString("AP203")))
         ui->radioButtonAP203->setChecked(true);
     else
         ui->radioButtonAP214->setChecked(true);

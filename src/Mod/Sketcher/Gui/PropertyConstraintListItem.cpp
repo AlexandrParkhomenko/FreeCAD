@@ -256,7 +256,7 @@ QVariant PropertyConstraintListItem::value(const App::Property* prop) const
                 PropertyConstraintListItem* unnamednode = qobject_cast<PropertyConstraintListItem*>(child);
                 if (unnamednode) {
                     unnamednode->blockEvent = true;
-                    unnamednode->setProperty(internalName.toLatin1(), QVariant::fromValue<Base::Quantity>(quant));
+                    unnamednode->setProperty(internalName.toUtf8(), QVariant::fromValue<Base::Quantity>(quant));
                     unnamednode->blockEvent = false;
                 }
                 else {
@@ -266,7 +266,7 @@ QVariant PropertyConstraintListItem::value(const App::Property* prop) const
             }
             else {
                 self->blockEvent = true;
-                self->setProperty(internalName.toLatin1(), QVariant::fromValue<Base::Quantity>(quant));
+                self->setProperty(internalName.toUtf8(), QVariant::fromValue<Base::Quantity>(quant));
                 self->blockEvent = false;
             }
         }

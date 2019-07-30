@@ -341,7 +341,7 @@ QVariant PropertyItem::editorData(QWidget * /*editor*/) const
 QString PropertyItem::propertyName() const
 {
     if (propName.isEmpty())
-        return QLatin1String(QT_TRANSLATE_NOOP("App::Property", "<empty>"));
+        return QString(QT_TRANSLATE_NOOP("App::Property", "<empty>"));
     return propName;
 }
 
@@ -356,7 +356,7 @@ void PropertyItem::setPropertyName(const QString& name)
             if (!upper) {
                 QChar last = display.at(display.length()-1);
                 if (!last.isSpace())
-                    display += QLatin1String(" ");
+                    display += QString(" ");
             }
         }
         upper = name[i].isUpper();
@@ -365,7 +365,7 @@ void PropertyItem::setPropertyName(const QString& name)
 
     propName = display;
 
-    QString str = QApplication::translate("App::Property", propName.toLatin1());
+    QString str = QApplication::translate("App::Property", propName.toUtf8());
     displayText = str;
 }
 
@@ -1073,7 +1073,7 @@ void PropertyBoolItem::setValue(const QVariant& value)
     if (!value.canConvert(QVariant::Bool))
         return;
     bool val = value.toBool();
-    QString data = (val ? QLatin1String("True") : QLatin1String("False"));
+    QString data = (val ? QString("True") : QString("False"));
     setPropertyValue(data);
 }
 
@@ -1081,8 +1081,8 @@ QWidget* PropertyBoolItem::createEditor(QWidget* parent, const QObject* receiver
 {
     QComboBox *cb = new QComboBox(parent);
     cb->setFrame(false);
-    cb->addItem(QLatin1String("false"));
-    cb->addItem(QLatin1String("true"));
+    cb->addItem(QString("false"));
+    cb->addItem(QString("true"));
     cb->setDisabled(isReadOnly());
     QObject::connect(cb, SIGNAL(activated(int)), receiver, method);
     return cb;
@@ -1108,15 +1108,15 @@ PropertyVectorItem::PropertyVectorItem()
 {
     m_x = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_x->setParent(this);
-    m_x->setPropertyName(QLatin1String("x"));
+    m_x->setPropertyName(QString("x"));
     this->appendChild(m_x);
     m_y = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_y->setParent(this);
-    m_y->setPropertyName(QLatin1String("y"));
+    m_y->setPropertyName(QString("y"));
     this->appendChild(m_y);
     m_z = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_z->setParent(this);
-    m_z->setPropertyName(QLatin1String("z"));
+    m_z->setPropertyName(QString("z"));
     this->appendChild(m_z);
 }
 
@@ -1220,15 +1220,15 @@ PropertyVectorDistanceItem::PropertyVectorDistanceItem()
 {
     m_x = static_cast<PropertyUnitItem*>(PropertyUnitItem::create());
     m_x->setParent(this);
-    m_x->setPropertyName(QLatin1String("x"));
+    m_x->setPropertyName(QString("x"));
     this->appendChild(m_x);
     m_y = static_cast<PropertyUnitItem*>(PropertyUnitItem::create());
     m_y->setParent(this);
-    m_y->setPropertyName(QLatin1String("y"));
+    m_y->setPropertyName(QString("y"));
     this->appendChild(m_y);
     m_z = static_cast<PropertyUnitItem*>(PropertyUnitItem::create());
     m_z->setParent(this);
-    m_z->setPropertyName(QLatin1String("z"));
+    m_z->setPropertyName(QString("z"));
     this->appendChild(m_z);
 }
 
@@ -1339,82 +1339,82 @@ PropertyMatrixItem::PropertyMatrixItem()
     const int decimals=16;
     m_a11 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a11->setParent(this);
-    m_a11->setPropertyName(QLatin1String("A11"));
+    m_a11->setPropertyName(QString("A11"));
     m_a11->setDecimals(decimals);
     this->appendChild(m_a11);
     m_a12 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a12->setParent(this);
-    m_a12->setPropertyName(QLatin1String("A12"));
+    m_a12->setPropertyName(QString("A12"));
     m_a12->setDecimals(decimals);
     this->appendChild(m_a12);
     m_a13 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a13->setParent(this);
-    m_a13->setPropertyName(QLatin1String("A13"));
+    m_a13->setPropertyName(QString("A13"));
     m_a13->setDecimals(decimals);
     this->appendChild(m_a13);
     m_a14 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a14->setParent(this);
-    m_a14->setPropertyName(QLatin1String("A14"));
+    m_a14->setPropertyName(QString("A14"));
     m_a14->setDecimals(decimals);
     this->appendChild(m_a14);
     m_a21 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a21->setParent(this);
-    m_a21->setPropertyName(QLatin1String("A21"));
+    m_a21->setPropertyName(QString("A21"));
     m_a21->setDecimals(decimals);
     this->appendChild(m_a21);
     m_a22 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a22->setParent(this);
-    m_a22->setPropertyName(QLatin1String("A22"));
+    m_a22->setPropertyName(QString("A22"));
     m_a22->setDecimals(decimals);
     this->appendChild(m_a22);
     m_a23 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a23->setParent(this);
-    m_a23->setPropertyName(QLatin1String("A23"));
+    m_a23->setPropertyName(QString("A23"));
     m_a23->setDecimals(decimals);
     this->appendChild(m_a23);
     m_a24 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a24->setParent(this);
-    m_a24->setPropertyName(QLatin1String("A24"));
+    m_a24->setPropertyName(QString("A24"));
     m_a24->setDecimals(decimals);
     this->appendChild(m_a24);
     m_a31 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a31->setParent(this);
-    m_a31->setPropertyName(QLatin1String("A31"));
+    m_a31->setPropertyName(QString("A31"));
     m_a31->setDecimals(decimals);
     this->appendChild(m_a31);
     m_a32 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a32->setParent(this);
-    m_a32->setPropertyName(QLatin1String("A32"));
+    m_a32->setPropertyName(QString("A32"));
     m_a32->setDecimals(decimals);
     this->appendChild(m_a32);
     m_a33 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a33->setParent(this);
-    m_a33->setPropertyName(QLatin1String("A33"));
+    m_a33->setPropertyName(QString("A33"));
     m_a33->setDecimals(decimals);
     this->appendChild(m_a33);
     m_a34 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a34->setParent(this);
-    m_a34->setPropertyName(QLatin1String("A34"));
+    m_a34->setPropertyName(QString("A34"));
     m_a34->setDecimals(decimals);
     this->appendChild(m_a34);
     m_a41 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a41->setParent(this);
-    m_a41->setPropertyName(QLatin1String("A41"));
+    m_a41->setPropertyName(QString("A41"));
     m_a41->setDecimals(decimals);
     this->appendChild(m_a41);
     m_a42 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a42->setParent(this);
-    m_a42->setPropertyName(QLatin1String("A42"));
+    m_a42->setPropertyName(QString("A42"));
     m_a42->setDecimals(decimals);
     this->appendChild(m_a42);
     m_a43 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a43->setParent(this);
-    m_a43->setPropertyName(QLatin1String("A43"));
+    m_a43->setPropertyName(QString("A43"));
     m_a43->setDecimals(decimals);
     this->appendChild(m_a43);
     m_a44 = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     m_a44->setParent(this);
-    m_a44->setPropertyName(QLatin1String("A44"));
+    m_a44->setPropertyName(QString("A44"));
     m_a44->setDecimals(decimals);
     this->appendChild(m_a44);
 }
@@ -1688,7 +1688,7 @@ PlacementEditor::PlacementEditor(const QString& name, QWidget * parent)
     : LabelButton(parent), _task(0)
 {
     propertyname = name;
-    propertyname.replace(QLatin1String(" "), QLatin1String(""));
+    propertyname.replace(QString(" "), QString(""));
 }
 
 PlacementEditor::~PlacementEditor()
@@ -1759,16 +1759,16 @@ PropertyPlacementItem::PropertyPlacementItem() : init_axis(false), changed_value
 {
     m_a = static_cast<PropertyUnitItem*>(PropertyUnitItem::create());
     m_a->setParent(this);
-    m_a->setPropertyName(QLatin1String(QT_TRANSLATE_NOOP("App::Property", "Angle")));
+    m_a->setPropertyName(QString(QT_TRANSLATE_NOOP("App::Property", "Angle")));
     this->appendChild(m_a);
     m_d = static_cast<PropertyVectorItem*>(PropertyVectorItem::create());
     m_d->setParent(this);
-    m_d->setPropertyName(QLatin1String(QT_TRANSLATE_NOOP("App::Property", "Axis")));
+    m_d->setPropertyName(QString(QT_TRANSLATE_NOOP("App::Property", "Axis")));
     m_d->setReadOnly(true);
     this->appendChild(m_d);
     m_p = static_cast<PropertyVectorDistanceItem*>(PropertyVectorDistanceItem::create());
     m_p->setParent(this);
-    m_p->setPropertyName(QLatin1String(QT_TRANSLATE_NOOP("App::Property", "Position")));
+    m_p->setPropertyName(QString(QT_TRANSLATE_NOOP("App::Property", "Position")));
     m_p->setReadOnly(true);
     this->appendChild(m_p);
 }
@@ -2139,10 +2139,10 @@ QVariant PropertyStringListItem::toString(const QVariant& prop) const
     QStringList list = prop.toStringList();
     if (list.size() > 10) {
         list = list.mid(0, 10);
-        list.append(QLatin1String("..."));
+        list.append(QString("..."));
     }
 
-    QString text = QString("[%1]").arg(list.join(QLatin1String(",")));
+    QString text = QString("[%1]").arg(list.join(QString(",")));
     text.replace(QString("'"),QString("\\'"));
 
     return QVariant(text);
@@ -2218,9 +2218,9 @@ QVariant PropertyFloatListItem::toString(const QVariant& prop) const
     QStringList list = prop.toStringList();
     if (list.size() > 10) {
         list = list.mid(0, 10);
-        list.append(QLatin1String("..."));
+        list.append(QString("..."));
     }
-    QString text = QString("[%1]").arg(list.join(QLatin1String(",")));
+    QString text = QString("[%1]").arg(list.join(QString(",")));
     return QVariant(text);
 }
 
@@ -2292,9 +2292,9 @@ QVariant PropertyIntegerListItem::toString(const QVariant& prop) const
     QStringList list = prop.toStringList();
     if (list.size() > 10) {
         list = list.mid(0, 10);
-        list.append(QLatin1String("..."));
+        list.append(QString("..."));
     }
-    QString text = QString("[%1]").arg(list.join(QLatin1String(",")));
+    QString text = QString("[%1]").arg(list.join(QString(",")));
 
     return QVariant(text);
 }
@@ -2424,32 +2424,32 @@ PropertyMaterialItem::PropertyMaterialItem()
 {
     diffuse = static_cast<PropertyColorItem*>(PropertyColorItem::create());
     diffuse->setParent(this);
-    diffuse->setPropertyName(QLatin1String("DiffuseColor"));
+    diffuse->setPropertyName(QString("DiffuseColor"));
     this->appendChild(diffuse);
 
     ambient = static_cast<PropertyColorItem*>(PropertyColorItem::create());
     ambient->setParent(this);
-    ambient->setPropertyName(QLatin1String("AmbientColor"));
+    ambient->setPropertyName(QString("AmbientColor"));
     this->appendChild(ambient);
 
     specular = static_cast<PropertyColorItem*>(PropertyColorItem::create());
     specular->setParent(this);
-    specular->setPropertyName(QLatin1String("SpecularColor"));
+    specular->setPropertyName(QString("SpecularColor"));
     this->appendChild(specular);
 
     emissive = static_cast<PropertyColorItem*>(PropertyColorItem::create());
     emissive->setParent(this);
-    emissive->setPropertyName(QLatin1String("EmissiveColor"));
+    emissive->setPropertyName(QString("EmissiveColor"));
     this->appendChild(emissive);
 
     shininess = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     shininess->setParent(this);
-    shininess->setPropertyName(QLatin1String("Shininess"));
+    shininess->setPropertyName(QString("Shininess"));
     this->appendChild(shininess);
 
     transparency = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     transparency->setParent(this);
-    transparency->setPropertyName(QLatin1String("Transparency"));
+    transparency->setPropertyName(QString("Transparency"));
     this->appendChild(transparency);
 }
 
@@ -2737,32 +2737,32 @@ PropertyMaterialListItem::PropertyMaterialListItem()
     // This editor gets a list of materials but it only edits the first item.
     diffuse = static_cast<PropertyColorItem*>(PropertyColorItem::create());
     diffuse->setParent(this);
-    diffuse->setPropertyName(QLatin1String("DiffuseColor"));
+    diffuse->setPropertyName(QString("DiffuseColor"));
     this->appendChild(diffuse);
 
     ambient = static_cast<PropertyColorItem*>(PropertyColorItem::create());
     ambient->setParent(this);
-    ambient->setPropertyName(QLatin1String("AmbientColor"));
+    ambient->setPropertyName(QString("AmbientColor"));
     this->appendChild(ambient);
 
     specular = static_cast<PropertyColorItem*>(PropertyColorItem::create());
     specular->setParent(this);
-    specular->setPropertyName(QLatin1String("SpecularColor"));
+    specular->setPropertyName(QString("SpecularColor"));
     this->appendChild(specular);
 
     emissive = static_cast<PropertyColorItem*>(PropertyColorItem::create());
     emissive->setParent(this);
-    emissive->setPropertyName(QLatin1String("EmissiveColor"));
+    emissive->setPropertyName(QString("EmissiveColor"));
     this->appendChild(emissive);
 
     shininess = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     shininess->setParent(this);
-    shininess->setPropertyName(QLatin1String("Shininess"));
+    shininess->setPropertyName(QString("Shininess"));
     this->appendChild(shininess);
 
     transparency = static_cast<PropertyFloatItem*>(PropertyFloatItem::create());
     transparency->setParent(this);
-    transparency->setPropertyName(QLatin1String("Transparency"));
+    transparency->setPropertyName(QString("Transparency"));
     this->appendChild(transparency);
 }
 
@@ -3360,8 +3360,8 @@ LinkSelection::~LinkSelection()
 void LinkSelection::select()
 {
     Gui::Selection().clearSelection();
-    Gui::Selection().addSelection((const char*)link[0].toLatin1(),
-                                  (const char*)link[1].toLatin1());
+    Gui::Selection().addSelection((const char*)link[0].toUtf8(),
+                                  (const char*)link[1].toUtf8());
     this->deleteLater();
 }
 
@@ -3378,7 +3378,7 @@ LinkLabel::LinkLabel (QWidget * parent) : QWidget(parent)
     label->setTextFormat(Qt::RichText);
     layout->addWidget(label);
 
-    editButton = new QPushButton(QLatin1String("..."), this);
+    editButton = new QPushButton(QString("..."), this);
 #if defined (Q_OS_MAC)
     editButton->setAttribute(Qt::WA_LayoutUsesWidgetRect); // layout size from QMacStyle was not correct
 #endif
@@ -3551,7 +3551,7 @@ LinkListLabel::LinkListLabel (QWidget * parent) : QWidget(parent)
     label->setAutoFillBackground(true);
     layout->addWidget(label);
 
-    editButton = new QPushButton(QLatin1String("..."), this);
+    editButton = new QPushButton(QString("..."), this);
     editButton->setToolTip(tr("Change the linked objects"));
     layout->addWidget(editButton);
 

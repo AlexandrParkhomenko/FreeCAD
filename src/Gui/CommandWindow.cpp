@@ -412,7 +412,7 @@ Action * StdCmdWindowsMenu::createAction(void)
             this->className(), sStatusTip));
     }
 
-    QAction* sep = pcAction->addAction(QLatin1String(""));
+    QAction* sep = pcAction->addAction(QString(""));
     sep->setSeparator(true);
 
     return pcAction;

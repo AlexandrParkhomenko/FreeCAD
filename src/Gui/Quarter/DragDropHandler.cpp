@@ -141,7 +141,7 @@ DragDropHandlerP::dropEvent(QDropEvent * event)
     QUrl url = mimedata->urls().takeFirst();
     if (url.scheme().isEmpty() || url.scheme().toLower() == QString("file") ) {
       // attempt to open file
-      if (!in.openFile(url.toLocalFile().toLatin1().constData())) return;
+      if (!in.openFile(url.toLocalFile().toUtf8().constData())) return;
     }
   } else if (mimedata->hasText()) {
     bytes = mimedata->text().toUtf8();

@@ -180,7 +180,7 @@ bool LoftWidget::accept()
         if (!doc)
             throw Base::RuntimeError("Document doesn't exist anymore");
         doc->openCommand("Loft");
-        Gui::Command::runCommand(Gui::Command::App, cmd.toLatin1());
+        Gui::Command::runCommand(Gui::Command::App, cmd.toUtf8());
         doc->getDocument()->recompute();
         App::DocumentObject* obj = doc->getDocument()->getActiveObject();
         if (obj && !obj->isValid()) {

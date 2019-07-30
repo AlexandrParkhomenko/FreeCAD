@@ -316,7 +316,7 @@ void TextEditor::keyPressEvent (QKeyEvent * e)
         ParameterGrp::handle hPrefGrp = getWindowParameter();
         int indent = hPrefGrp->GetInt( "IndentSize", 4 );
         bool space = hPrefGrp->GetBool( "Spaces", false );
-        QString ch = space ? QString(indent, QLatin1Char(' '))
+        QString ch = space ? QString(indent, QChar(' '))
                            : QString("\t");
 
         QTextCursor cursor = textCursor();

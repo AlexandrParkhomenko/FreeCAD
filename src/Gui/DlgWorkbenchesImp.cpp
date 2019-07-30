@@ -189,7 +189,7 @@ QStringList DlgWorkbenchesImp::load_enabled_workbenches()
 
     hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Workbenches");
     enabled_wbs = QString::fromStdString(hGrp->GetASCII("Enabled", all_workbenches.toStdString().c_str()).c_str());
-    enabled_wbs_list = enabled_wbs.split(QLatin1String(","), QString::SkipEmptyParts);
+    enabled_wbs_list = enabled_wbs.split(QString(","), QString::SkipEmptyParts);
 
     if (enabled_wbs_list.at(0) == all_workbenches) {
         enabled_wbs_list.removeFirst();
@@ -210,7 +210,7 @@ QStringList DlgWorkbenchesImp::load_disabled_workbenches()
 
     hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Workbenches");
     disabled_wbs = QString::fromStdString(hGrp->GetASCII("Disabled", ""));
-    disabled_wbs_list = disabled_wbs.split(QLatin1String(","), QString::SkipEmptyParts);
+    disabled_wbs_list = disabled_wbs.split(QString(","), QString::SkipEmptyParts);
 
     return disabled_wbs_list;
 }
@@ -233,14 +233,14 @@ void DlgWorkbenchesImp::save_workbenches()
             enabled_wbs.append(name + QString(","));
         }
     }
-    hGrp->SetASCII("Enabled", enabled_wbs.toLatin1());
+    hGrp->SetASCII("Enabled", enabled_wbs.toUtf8());
 
     for (int i = 0; i < lw_disabled_workbenches->count(); i++) {
         QVariant item_data = lw_disabled_workbenches->item(i)->data(Qt::UserRole);
         QString name = item_data.toString();
         disabled_wbs.append(name + QString(","));
     }
-    hGrp->SetASCII("Disabled", disabled_wbs.toLatin1());
+    hGrp->SetASCII("Disabled", disabled_wbs.toUtf8());
 }
 
 #include "moc_DlgWorkbenchesImp.cpp"

@@ -549,7 +549,7 @@ void TaskCheckGeometryResults::buildShapeContent(const QString &baseName, const 
   std::ostringstream stream;
   if (!shapeContentString.empty())
     stream << std::endl << std::endl;
-  stream << baseName.toLatin1().data() << ":" << std::endl;
+  stream << baseName.toUtf8().data() << ":" << std::endl;
   
   BRepTools_ShapeSet set;
   set.Add(shape);
@@ -703,7 +703,7 @@ void TaskCheckGeometryResults::currentRowChanged (const QModelIndex &current, co
                 QString doc, object, sub;
                 if (!this->split((*stringIt), doc, object, sub))
                     continue;
-                Gui::Selection().addSelection(doc.toLatin1(), object.toLatin1(), sub.toLatin1());
+                Gui::Selection().addSelection(doc.toUtf8(), object.toUtf8(), sub.toUtf8());
             }
         }
     }

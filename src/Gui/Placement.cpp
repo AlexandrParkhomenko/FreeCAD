@@ -257,20 +257,20 @@ void Placement::applyPlacement(const QString& data, bool incremental)
                     if (incremental)
                         cmd = QString(
                             "App.getDocument(\"%1\").%2.%3=%4.multiply(App.getDocument(\"%1\").%2.%3)")
-                            .arg(QLatin1String((*it)->getDocument()->getName()))
-                            .arg(QLatin1String((*it)->getNameInDocument()))
-                            .arg(QLatin1String(this->propertyName.c_str()))
+                            .arg(QString((*it)->getDocument()->getName()))
+                            .arg(QString((*it)->getNameInDocument()))
+                            .arg(QString(this->propertyName.c_str()))
                             .arg(data);
                     else {
                         cmd = QString(
                             "App.getDocument(\"%1\").%2.%3=%4")
-                            .arg(QLatin1String((*it)->getDocument()->getName()))
-                            .arg(QLatin1String((*it)->getNameInDocument()))
-                            .arg(QLatin1String(this->propertyName.c_str()))
+                            .arg(QString((*it)->getDocument()->getName()))
+                            .arg(QString((*it)->getNameInDocument()))
+                            .arg(QString(this->propertyName.c_str()))
                             .arg(data);
                     }
 
-                    Gui::Command::runCommand(Gui::Command::App, cmd.toLatin1());
+                    Gui::Command::runCommand(Gui::Command::App, cmd.toUtf8());
                 }
             }
 
@@ -814,7 +814,7 @@ void TaskPlacement::open()
 
 void TaskPlacement::setPropertyName(const QString& name)
 {
-    widget->propertyName = (const char*)name.toLatin1();
+    widget->propertyName = (const char*)name.toUtf8();
 }
 
 QDialogButtonBox::StandardButtons TaskPlacement::getStandardButtons() const

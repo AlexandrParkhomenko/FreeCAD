@@ -136,14 +136,14 @@ bool TextDocumentEditorView::canClose()
         QAbstractButton* saveBtn = box.button(QMessageBox::Save);
         if (saveBtn->shortcut().isEmpty()) {
             QString text = saveBtn->text();
-            text.prepend(QLatin1Char('&'));
+            text.prepend(QChar('&'));
             saveBtn->setShortcut(QKeySequence::mnemonic(text));
         }
 
         QAbstractButton* discardBtn = box.button(QMessageBox::Discard);
         if (discardBtn->shortcut().isEmpty()) {
             QString text = discardBtn->text();
-            text.prepend(QLatin1Char('&'));
+            text.prepend(QChar('&'));
             discardBtn->setShortcut(QKeySequence::mnemonic(text));
         }
 

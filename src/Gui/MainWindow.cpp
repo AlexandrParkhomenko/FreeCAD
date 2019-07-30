@@ -1044,7 +1044,7 @@ QMimeData * MainWindow::createMimeDataFromSelection () const
     WaitCursor wc;
     QString mime;
     if (use_buffer) {
-        mime = QLatin1String("application/x-documentobject");
+        mime = QString("application/x-documentobject");
         Base::ByteArrayOStreambuf buf(res);
         //# std::ostream str(&buf);
         // need this instance to call MergeDocuments::Save()
@@ -1053,7 +1053,7 @@ QMimeData * MainWindow::createMimeDataFromSelection () const
         doc->exportObjects(sel);
     }
     else {
-        mime = QLatin1String("application/x-documentobject-file");
+        mime = QString("application/x-documentobject-file");
         static Base::FileInfo fi(App::Application::getTempFileName());
         //# Base::ofstream str(fi, std::ios::out | std::ios::binary);
         // need this instance to call MergeDocuments::Save()
@@ -1078,16 +1078,16 @@ bool MainWindow::canInsertFromMimeData (const QMimeData * source) const
     if (!source)
         return false;
     return
-        source->hasFormat(QLatin1String("application/x-documentobject")) ||
-        source->hasFormat(QLatin1String("application/x-documentobject-file"));
+        source->hasFormat(QString("application/x-documentobject")) ||
+        source->hasFormat(QString("application/x-documentobject-file"));
 }
 
 void MainWindow::insertFromMimeData (const QMimeData * mimeData)
 {
     if (!mimeData)
         return;
-    if (mimeData->hasFormat(QLatin1String("application/x-documentobject"))) {
-        QByteArray res = mimeData->data(QLatin1String("application/x-documentobject"));
+    if (mimeData->hasFormat(QString("application/x-documentobject"))) {
+        QByteArray res = mimeData->data(QString("application/x-documentobject"));
         App::Document* doc = App::GetApplication().getActiveDocument();
         if (!doc) doc = App::GetApplication().newDocument();
 
@@ -1105,8 +1105,8 @@ void MainWindow::insertFromMimeData (const QMimeData * mimeData)
         }
         doc->commitTransaction();
     }
-    else if (mimeData->hasFormat(QLatin1String("application/x-documentobject-file"))) {
-        QByteArray res = mimeData->data(QLatin1String("application/x-documentobject-file"));
+    else if (mimeData->hasFormat(QString("application/x-documentobject-file"))) {
+        QByteArray res = mimeData->data(QString("application/x-documentobject-file"));
         App::Document* doc = App::GetApplication().getActiveDocument();
         if (!doc) doc = App::GetApplication().newDocument();
 
@@ -1219,12 +1219,12 @@ void MainWindow::customEvent(QEvent* e)
         Gui::CustomMessageEvent* ce = static_cast<Gui::CustomMessageEvent*>(e);
         QString msg = ce->message();
         if (ce->type() == CustomMessageEvent::Log) {
-            if (msg.startsWith(QLatin1String("#Inventor V2.1 ascii "))) {
+            if (msg.startsWith(QString("#Inventor V2.1 ascii "))) {
                 Gui::Document *d = Application::Instance->activeDocument();
                 if (d) {
                     ViewProviderExtern *view = new ViewProviderExtern();
                     try {
-                        view->setModeByString("1",msg.toLatin1().constData());
+                        view->setModeByString("1",msg.toUtf8().constData());
                         d->setAnnotationViewProvider("Vdbg",view);
                     }
                     catch (...) {

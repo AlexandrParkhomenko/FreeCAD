@@ -284,7 +284,7 @@ void StdCmdFreezeViews::activated(int iMsg)
         QList<QAction*> acts = pcAction->actions();
         QString data = acts[iMsg]->toolTip();
         QString send = QString("SetCamera %1").arg(data);
-        getGuiApplication()->sendMsgToActiveView(send.toLatin1());
+        getGuiApplication()->sendMsgToActiveView(send.toUtf8());
     }
 }
 
@@ -320,7 +320,7 @@ void StdCmdFreezeViews::onSaveViews()
                 }
             }
 
-            str << "    <Camera settings=\"" << viewPos.toLatin1().constData() << "\"/>" << endl;
+            str << "    <Camera settings=\"" << viewPos.toUtf8().constData() << "\"/>" << endl;
         }
 
         str << "  </Views>" << endl;
@@ -361,13 +361,13 @@ void StdCmdFreezeViews::onRestoreViews()
     if (!xmlDocument.setContent(&file, true, &errorStr, &errorLine, &errorColumn)) {
         std::cerr << "Parse error in XML content at line " << errorLine
                   << ", column " << errorColumn << ": "
-                  << (const char*)errorStr.toLatin1() << std::endl;
+                  << (const char*)errorStr.toUtf8() << std::endl;
         return;
     }
 
     // get the root element
     QDomElement root = xmlDocument.documentElement();
-    if (root.tagName() != QLatin1String("FrozenViews")) {
+    if (root.tagName() != QString("FrozenViews")) {
         std::cerr << "Unexpected XML structure" << std::endl;
         return;
     }
@@ -1696,7 +1696,7 @@ void StdViewScreenShot::activated(int iMsg)
             QString fn = fd.selectedFiles().front();
             // We must convert '\' path separators to '/' before otherwise
             // Python would interpret them as escape sequences.
-            fn.replace(QLatin1Char('\\'), QLatin1Char('/'));
+            fn.replace(QChar('\\'), QChar('/'));
 
             Gui::WaitCursor wc;
 
@@ -1713,7 +1713,7 @@ void StdViewScreenShot::activated(int iMsg)
                 }
             }
 
-            hExt->SetASCII("OffscreenImageFormat", (const char*)format.toLatin1());
+            hExt->SetASCII("OffscreenImageFormat", (const char*)format.toUtf8());
 
             // which background chosen
             const char* background;
@@ -1731,8 +1731,8 @@ void StdViewScreenShot::activated(int iMsg)
                 // Replace newline escape sequence trough '\\n' string to build one big string,
                 // otherwise Python would interpret it as an invalid command.
                 // Python does the decoding for us.
-                QStringList lines = comment.split(QLatin1String("\n"), QString::KeepEmptyParts );
-                    comment = lines.join(QLatin1String("\\n"));
+                QStringList lines = comment.split(QString("\n"), QString::KeepEmptyParts );
+                    comment = lines.join(QString("\\n"));
                 doCommand(Gui,"Gui.activeDocument().activeView().saveImage('%s',%d,%d,'%s','%s')",
                             fn.toUtf8().constData(),w,h,background,comment.toUtf8().constData());
             }

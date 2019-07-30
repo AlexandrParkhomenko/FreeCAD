@@ -37,16 +37,16 @@ TextureMapping::TextureMapping(QWidget* parent, Qt::WindowFlags fl)
     ui->checkGlobal->hide();
 
     // set a dummy string which is not a valid file name
-    fileName = QLatin1String("<>");
+    fileName = QString("<>");
 
     // add all supported QImage formats
     QStringList formats;
     QList<QByteArray> qtformats = QImageReader::supportedImageFormats();
     for (QList<QByteArray>::Iterator it = qtformats.begin(); it != qtformats.end(); ++it) {
-        formats << QString("*.%1").arg(QLatin1String(*it));
+        formats << QString("*.%1").arg(QString(*it));
     }
     
-    ui->fileChooser->setFilter(tr("Image files (%1)").arg(formats.join(QLatin1String(" "))));
+    ui->fileChooser->setFilter(tr("Image files (%1)").arg(formats.join(QString(" "))));
 
     this->tex = new SoTexture2();
     this->tex->ref();

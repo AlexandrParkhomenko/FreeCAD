@@ -138,7 +138,7 @@ void CallTipsList::validateCursor()
         QString word = cursor.selectedText();
         if (!word.isEmpty()) {
             // the following text might be an operator, brackets, ...
-            const QChar underscore =  QLatin1Char('_');
+            const QChar underscore =  QChar('_');
             const QChar ch = word.at(0);
             if (!ch.isLetterOrNumber() && ch != underscore)
                 word.clear();
@@ -161,7 +161,7 @@ QString CallTipsList::extractContext(const QString& line) const
     int index = len-1;
     for (int i=0; i<len; i++) {
         int pos = len-1-i;
-        const char ch = line.at(pos).toLatin1();
+        const char ch = line.at(pos).toUtf8();
         if ((ch >= 48 && ch <= 57)  ||    // Numbers
             (ch >= 65 && ch <= 90)  ||    // Uppercase letters
             (ch >= 97 && ch <= 122) ||    // Lowercase letters
@@ -187,16 +187,16 @@ QMap<QString, CallTip> CallTipsList::extractTips(const QString& context) const
         Py::Dict dict = module.getDict();
 
         // this is used to filter out input of the form "1."
-        QStringList items = context.split(QLatin1Char('.'));
+        QStringList items = context.split(QChar('.'));
         QString modname = items.front();
         items.pop_front();
-        if (!dict.hasKey(std::string(modname.toLatin1())))
+        if (!dict.hasKey(std::string(modname.toUtf8())))
             return tips; // unknown object
 #if 0
         // get the Python object we need
-        Py::Object obj = dict.getItem(std::string(modname.toLatin1()));
+        Py::Object obj = dict.getItem(std::string(modname.toUtf8()));
         while (!items.isEmpty()) {
-            QByteArray name = items.front().toLatin1();
+            QByteArray name = items.front().toUtf8();
             std::string attr = name.constData();
             items.pop_front();
             if (obj.hasAttr(attr))
@@ -206,7 +206,7 @@ QMap<QString, CallTip> CallTipsList::extractTips(const QString& context) const
         }
 #else
         // Don't use hasattr & getattr because if a property is bound to a method this will be executed twice.
-        PyObject* code = Py_CompileString(static_cast<const char*>(context.toLatin1()), "<CallTipsList>", Py_eval_input);
+        PyObject* code = Py_CompileString(static_cast<const char*>(context.toUtf8()), "<CallTipsList>", Py_eval_input);
         if (!code) {
             PyErr_Clear();
             return tips;
@@ -374,12 +374,12 @@ void CallTipsList::extractTipsFromObject(Py::Object& obj, Py::List& list, QMap<Q
                 tip.type = CallTip::Member;
             }
 
-            if (str == QLatin1String("__doc__") && attr.isString()) {
+            if (str == QString("__doc__") && attr.isString()) {
                 Py::Object help = attr;
                 if (help.isString()) {
                     Py::String doc(help);
                     QString longdoc = QString(doc.as_string().c_str());
-                    int pos = longdoc.indexOf(QLatin1Char('\n'));
+                    int pos = longdoc.indexOf(QChar('\n'));
                     pos = qMin(pos, 70);
                     if (pos < 0)
                         pos = qMin(longdoc.length(), 70);
@@ -392,7 +392,7 @@ void CallTipsList::extractTipsFromObject(Py::Object& obj, Py::List& list, QMap<Q
                 if (help.isString()) {
                     Py::String doc(help);
                     QString longdoc = QString(doc.as_string().c_str());
-                    int pos = longdoc.indexOf(QLatin1Char('\n'));
+                    int pos = longdoc.indexOf(QChar('\n'));
                     pos = qMin(pos, 70);
                     if (pos < 0)
                         pos = qMin(longdoc.length(), 70);
@@ -440,7 +440,7 @@ void CallTipsList::extractTipsFromProperties(Py::Object& obj, QMap<QString, Call
             }
         }
         if (!longdoc.isEmpty()) {
-            int pos = longdoc.indexOf(QLatin1Char('\n'));
+            int pos = longdoc.indexOf(QChar('\n'));
             pos = qMin(pos, 70);
             if (pos < 0)
                 pos = qMin(longdoc.length(), 70);
@@ -673,7 +673,7 @@ void CallTipsList::callTipItemActivated(QListWidgetItem *item)
     QString sel = cursor.selectedText();
     if (!sel.isEmpty()) {
         // in case the cursor moved too far on the right side
-        const QChar underscore =  QLatin1Char('_');
+        const QChar underscore =  QChar('_');
         const QChar ch = sel.at(sel.count()-1);
         if (!ch.isLetterOrNumber() && ch != underscore)
             cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor);
@@ -687,13 +687,13 @@ void CallTipsList::callTipItemActivated(QListWidgetItem *item)
     if (this->doCallCompletion
      && (callTip.type == CallTip::Method || callTip.type == CallTip::Class))
     {
-      cursor.insertText( QLatin1String("()") ); //< just append parenthesis to identifier even inserted.
+      cursor.insertText( QString("()") ); //< just append parenthesis to identifier even inserted.
 
       /**
        * Try to find out if call needs arguments.
        * For this we search the description for appropriate hints ...
        */
-      QRegExp argumentMatcher( QRegExp::escape( callTip.name ) + QLatin1String("\\s*\\(\\s*\\w+.*\\)") );
+      QRegExp argumentMatcher( QRegExp::escape( callTip.name ) + QString("\\s*\\(\\s*\\w+.*\\)") );
       argumentMatcher.setMinimal( true ); //< set regex non-greedy!
       if (argumentMatcher.indexIn( callTip.description ) != -1)
       {
@@ -716,14 +716,14 @@ void CallTipsList::callTipItemActivated(QListWidgetItem *item)
 QString CallTipsList::stripWhiteSpace(const QString& str) const
 {
     QString stripped = str;
-    QStringList lines = str.split(QLatin1String("\n"));
+    QStringList lines = str.split(QString("\n"));
     int minspace=INT_MAX;
     int line=0;
     for (QStringList::iterator it = lines.begin(); it != lines.end(); ++it, ++line) {
         if (it->count() > 0 && line > 0) {
             int space = 0;
             for (int i=0; i<it->count(); i++) {
-                if ((*it)[i] == QLatin1Char('\t'))
+                if ((*it)[i] == QChar('\t'))
                     space++;
                 else
                     break;
@@ -747,7 +747,7 @@ QString CallTipsList::stripWhiteSpace(const QString& str) const
             }
         }
 
-        stripped = strippedlines.join(QLatin1String("\n"));
+        stripped = strippedlines.join(QString("\n"));
     }
 
     return stripped;

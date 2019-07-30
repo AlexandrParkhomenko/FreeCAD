@@ -355,7 +355,7 @@ PyObject* Application::sOpen(PyObject * /*self*/, PyObject *args)
             }
         }
 
-        if (ext == QLatin1String("iv")) {
+        if (ext == QString("iv")) {
             if (!Application::Instance->activeDocument())
                 App::GetApplication().newDocument();
             //QString cmd = QString("Gui.activeDocument().addAnnotation(\"%1\",\"%2\")").arg(fi.baseName()).arg(fi.absoluteFilePath());
@@ -367,9 +367,9 @@ PyObject* Application::sOpen(PyObject * /*self*/, PyObject *args)
                 .arg(fi.baseName(), fi.absoluteFilePath());
             Base::Interpreter().runString(cmd.toUtf8());
         }
-        else if (ext == QLatin1String("wrl") ||
-                 ext == QLatin1String("vrml") ||
-                 ext == QLatin1String("wrz")) {
+        else if (ext == QString("wrl") ||
+                 ext == QString("vrml") ||
+                 ext == QString("wrz")) {
             if (!Application::Instance->activeDocument())
                 App::GetApplication().newDocument();
 
@@ -387,8 +387,8 @@ PyObject* Application::sOpen(PyObject * /*self*/, PyObject *args)
             Base::Interpreter().runString(cmd.toUtf8());
             SoInput::removeDirectory(path.constData());
         }
-        else if (ext == QLatin1String("py") || ext == QLatin1String("fcmacro") ||
-                 ext == QLatin1String("fcscript")) {
+        else if (ext == QString("py") || ext == QString("fcmacro") ||
+                 ext == QString("fcscript")) {
             PythonEditor* editor = new PythonEditor();
             editor->setWindowIcon(Gui::BitmapFactory().iconFromTheme("applications-python"));
             PythonEditorView* edit = new PythonEditorView(editor, getMainWindow());
@@ -397,7 +397,7 @@ PyObject* Application::sOpen(PyObject * /*self*/, PyObject *args)
             getMainWindow()->addWindow( edit );
         }
         else {
-            Base::Console().Error("File type '%s' not supported\n", ext.toLatin1().constData());
+            Base::Console().Error("File type '%s' not supported\n", ext.toUtf8().constData());
         }
     } PY_CATCH;
 
@@ -418,7 +418,7 @@ PyObject* Application::sInsert(PyObject * /*self*/, PyObject *args)
         QFileInfo fi;
         fi.setFile(fileName);
         QString ext = fi.suffix().toLower();
-        if (ext == QLatin1String("iv")) {
+        if (ext == QString("iv")) {
             App::Document *doc = 0;
             if (DocName)
                 doc = App::GetApplication().getDocument(DocName);
@@ -434,9 +434,9 @@ PyObject* Application::sInsert(PyObject * /*self*/, PyObject *args)
                 ->setValue((const char*)fi.absoluteFilePath().toUtf8());
             doc->recompute();
         }
-        else if (ext == QLatin1String("wrl") ||
-                 ext == QLatin1String("vrml") ||
-                 ext == QLatin1String("wrz")) {
+        else if (ext == QString("wrl") ||
+                 ext == QString("vrml") ||
+                 ext == QString("wrz")) {
             App::Document *doc = 0;
             if (DocName)
                 doc = App::GetApplication().getDocument(DocName);
@@ -458,8 +458,8 @@ PyObject* Application::sInsert(PyObject * /*self*/, PyObject *args)
 
             SoInput::removeDirectory(path.constData());
         }
-        else if (ext == QLatin1String("py") || ext == QLatin1String("fcmacro") ||
-                 ext == QLatin1String("fcscript")) {
+        else if (ext == QString("py") || ext == QString("fcmacro") ||
+                 ext == QString("fcscript")) {
             PythonEditor* editor = new PythonEditor();
             editor->setWindowIcon(Gui::BitmapFactory().iconFromTheme("applications-python"));
             PythonEditorView* edit = new PythonEditorView(editor, getMainWindow());
@@ -468,7 +468,7 @@ PyObject* Application::sInsert(PyObject * /*self*/, PyObject *args)
             getMainWindow()->addWindow( edit );
         }
         else {
-            Base::Console().Error("File type '%s' not supported\n", ext.toLatin1().constData());
+            Base::Console().Error("File type '%s' not supported\n", ext.toUtf8().constData());
         }
     } PY_CATCH;
 
@@ -500,8 +500,8 @@ PyObject* Application::sExport(PyObject * /*self*/, PyObject *args)
         QFileInfo fi;
         fi.setFile(fileName);
         QString ext = fi.suffix().toLower();
-        if (ext == QLatin1String("iv") || ext == QLatin1String("wrl") ||
-            ext == QLatin1String("vrml") || ext == QLatin1String("wrz")) {
+        if (ext == QString("iv") || ext == QString("wrl") ||
+            ext == QString("vrml") || ext == QString("wrz")) {
 
             // build up the graph
             SoSeparator* sep = new SoSeparator();
@@ -533,7 +533,7 @@ PyObject* Application::sExport(PyObject * /*self*/, PyObject *args)
             SoFCDB::writeToFile(sep, Utf8Name.c_str(), binary);
             sep->unref();
         }
-        else if (ext == QLatin1String("pdf")) {
+        else if (ext == QString("pdf")) {
             // get the view that belongs to the found document
             Gui::Document* gui_doc = Application::Instance->getDocument(doc);
             if (gui_doc) {
@@ -550,7 +550,7 @@ PyObject* Application::sExport(PyObject * /*self*/, PyObject *args)
             }
         }
         else {
-            Base::Console().Error("File type '%s' not supported\n", ext.toLatin1().constData());
+            Base::Console().Error("File type '%s' not supported\n", ext.toUtf8().constData());
         }
     } PY_CATCH;
 

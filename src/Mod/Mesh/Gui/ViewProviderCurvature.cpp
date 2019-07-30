@@ -430,10 +430,10 @@ public:
 
         App::AnnotationLabel* anno = static_cast<App::AnnotationLabel*>
             (group->addObject("App::AnnotationLabel", internalname.c_str()));
-        QStringList lines = s.split(QLatin1String("\n"));
+        QStringList lines = s.split(QString("\n"));
         std::vector<std::string> text;
         for (QStringList::Iterator it = lines.begin(); it != lines.end(); ++it)
-            text.push_back((const char*)it->toLatin1());
+            text.push_back((const char*)it->toUtf8());
         anno->LabelText.setValues(text);
         std::stringstream str;
         str << "Curvature info (" << group->Group.getSize() << ")";

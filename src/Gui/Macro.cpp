@@ -69,8 +69,8 @@ void MacroManager::open(MacroType eType, const char *sName)
 
     // Convert from Utf-8
     this->macroName = QString(sName);
-    if (!this->macroName.endsWith(QLatin1String(".FCMacro")))
-        this->macroName += QLatin1String(".FCMacro");
+    if (!this->macroName.endsWith(QString(".FCMacro")))
+        this->macroName += QString(".FCMacro");
 
     this->macroInProgress.clear();
     this->openMacro = true;
@@ -92,8 +92,8 @@ void MacroManager::commit(void)
         QStringList::Iterator it;
         for (it = this->macroInProgress.begin(); it != this->macroInProgress.end(); ++it )
         {
-            if ((*it).startsWith(QLatin1String("import ")) ||
-                (*it).startsWith(QLatin1String("#import ")))
+            if ((*it).startsWith(QString("import ")) ||
+                (*it).startsWith(QString("#import ")))
             {
                 if (import.indexOf(*it) == -1)
                     import.push_back(*it);
@@ -117,10 +117,10 @@ void MacroManager::commit(void)
         // write the data to the text file
         str << header;
         for (it = import.begin(); it != import.end(); ++it)
-            str << (*it) << QLatin1Char('\n');
-        str << QLatin1Char('\n');
+            str << (*it) << QChar('\n');
+        str << QChar('\n');
         for (it = body.begin(); it != body.end(); ++it)
-            str << (*it) << QLatin1Char('\n');
+            str << (*it) << QChar('\n');
         str << footer;
 
         Base::Console().Log("Commit macro: %s\n",(const char*)this->macroName.toUtf8());
@@ -159,10 +159,10 @@ void MacroManager::addLine(LineType Type, const char* sLine)
             comment = true;
         }
 
-        QStringList lines = QString(sLine).split(QLatin1String("\n"));
+        QStringList lines = QString(sLine).split(QString("\n"));
         if (comment) {
             for (QStringList::iterator it = lines.begin(); it != lines.end(); ++it)
-                it->prepend(QLatin1String("#"));
+                it->prepend(QString("#"));
         }
         this->macroInProgress.append(lines);
     }

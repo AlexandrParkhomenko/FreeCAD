@@ -44,12 +44,12 @@ DlgCustomActionsImp::DlgCustomActionsImp( QWidget* parent )
         GetParameterGroupByPath("User parameter:BaseApp/Preferences/Macro")
         ->GetASCII("MacroPath",App::Application::getUserMacroDir().c_str());
 
-    QDir d(QString(cMacroPath.c_str()), QLatin1String("*.FCMacro *.py"));
+    QDir d(QString(cMacroPath.c_str()), QString("*.FCMacro *.py"));
     for (unsigned int i=0; i<d.count(); i++ )
         actionMacros->insertItem(0,d[i],QVariant(false));
 
     QString systemMacroDirStr = QString(App::GetApplication().getHomePath()) + QString("Macro");
-    d = QDir(systemMacroDirStr, QLatin1String("*.FCMacro *.py"));
+    d = QDir(systemMacroDirStr, QString("*.FCMacro *.py"));
     if (d.exists()) {
         for (unsigned int i=0; i<d.count(); i++ ) {
             actionMacros->insertItem(0,d[i],QVariant(true));
@@ -214,7 +214,7 @@ void DlgCustomActionsImp::on_buttonAddAction_clicked()
     }
 
     // search for the command in the manager
-    QByteArray actionName = newActionName().toLatin1();
+    QByteArray actionName = newActionName().toUtf8();
     CommandManager& rclMan = Application::Instance->commandManager();
     MacroCommand* macro = new MacroCommand(actionName, actionMacros->itemData(actionMacros->currentIndex()).toBool());
     rclMan.addCommand( macro );
@@ -245,12 +245,12 @@ void DlgCustomActionsImp::on_buttonAddAction_clicked()
     actionStatus->clear();
 
     if (!m_sPixmap.isEmpty())
-        macro->setPixmap(m_sPixmap.toLatin1());
+        macro->setPixmap(m_sPixmap.toUtf8());
     pixmapLabel->clear();
     m_sPixmap = QString();
 
     if (!actionAccel->text().isEmpty()) {
-        macro->setAccel(actionAccel->text().toLatin1());
+        macro->setAccel(actionAccel->text().toUtf8());
     }
     actionAccel->clear();
 
@@ -298,12 +298,12 @@ void DlgCustomActionsImp::on_buttonReplaceAction_clicked()
     actionStatus->clear();
 
     if (!m_sPixmap.isEmpty())
-        macro->setPixmap(m_sPixmap.toLatin1());
+        macro->setPixmap(m_sPixmap.toUtf8());
     pixmapLabel->clear();
     m_sPixmap = QString();
 
     if (!actionAccel->text().isEmpty()) {
-        macro->setAccel(actionAccel->text().toLatin1());
+        macro->setAccel(actionAccel->text().toUtf8());
     }
     actionAccel->clear();
 
@@ -492,7 +492,7 @@ QString DlgCustomActionsImp::newActionName()
         std::vector<Command*>::iterator it;
         for ( it = aclCurMacros.begin(); it!= aclCurMacros.end(); ++it )
         {
-            if (sName == QLatin1String((*it)->getName()))
+            if (sName == QString((*it)->getName()))
             {
                 bUsed = true;
                 break;

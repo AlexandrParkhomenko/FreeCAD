@@ -62,7 +62,7 @@ void StdCmdWorkbench::activated(int i)
     try {
         Workbench* w = WorkbenchManager::instance()->active();
         QList<QAction*> items = static_cast<WorkbenchGroup*>(_pcAction)->actions();
-        std::string switch_to = (const char*)items[i]->objectName().toLatin1();
+        std::string switch_to = (const char*)items[i]->objectName().toUtf8();
         if (w) {
             std::string current_w = w->name();
             if (switch_to == current_w)
@@ -71,10 +71,10 @@ void StdCmdWorkbench::activated(int i)
         doCommand(Gui, "Gui.activateWorkbench(\"%s\")", switch_to.c_str());
     }
     catch(const Base::PyException& e) {
-        QString msg(QLatin1String(e.what()));
+        QString msg(QString(e.what()));
         // ignore '<type 'exceptions.*Error'>' prefixes
         QRegExp rx;
-        rx.setPattern(QLatin1String("^\\s*<type 'exceptions.\\w*'>:\\s*"));
+        rx.setPattern(QString("^\\s*<type 'exceptions.\\w*'>:\\s*"));
         int pos = rx.indexIn(msg);
         if (pos != -1)
             msg = msg.mid(rx.matchedLength());
@@ -137,7 +137,7 @@ void StdCmdRecentFiles::activated(int iMsg)
 Action * StdCmdRecentFiles::createAction(void)
 {
     RecentFilesAction* pcAction = new RecentFilesAction(this, getMainWindow());
-    pcAction->setObjectName(QLatin1String("recentFiles"));
+    pcAction->setObjectName(QString("recentFiles"));
     pcAction->setDropDownMenu(true);
     applyCommandData(this->className(), pcAction);
     return pcAction;

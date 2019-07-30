@@ -85,7 +85,7 @@ DlgMacroExecuteImp::~DlgMacroExecuteImp()
 void DlgMacroExecuteImp::fillUpList(void)
 {
     // lists all files in macro path
-    QDir dir(this->macroPath, QLatin1String("*.FCMacro *.py"));
+    QDir dir(this->macroPath, QString("*.FCMacro *.py"));
 
     // fill up with the directory
     userMacroListBox->clear();
@@ -95,7 +95,7 @@ void DlgMacroExecuteImp::fillUpList(void)
     }
 
     QString dirstr = QString(App::GetApplication().getHomePath()) + QString("Macro");
-    dir = QDir(dirstr, QLatin1String("*.FCMacro *.py"));
+    dir = QDir(dirstr, QString("*.FCMacro *.py"));
 
     systemMacroListBox->clear();
     if (dir.exists()) {
@@ -318,8 +318,8 @@ void DlgMacroExecuteImp::on_createButton_clicked()
     if (!fn.isEmpty())
     {
         QString suffix = QFileInfo(fn).suffix().toLower();
-        if (suffix != QLatin1String("fcmacro") && suffix != QLatin1String("py"))
-            fn += QLatin1String(".FCMacro");
+        if (suffix != QString("fcmacro") && suffix != QString("py"))
+            fn += QString(".FCMacro");
         QDir dir(this->macroPath);
         // create the macroPath if nonexistent
         if (!dir.exists()) {
@@ -407,8 +407,8 @@ void DlgMacroExecuteImp::on_renameButton_clicked()
         tr("Enter new name:"), QLineEdit::Normal, oldName, 0);
     if (!fn.isEmpty() && fn != oldName) {
         QString suffix = QFileInfo(fn).suffix().toLower();
-        if (suffix != QLatin1String("fcmacro") && suffix != QLatin1String("py"))
-            fn += QLatin1String(".FCMacro");
+        if (suffix != QString("fcmacro") && suffix != QString("py"))
+            fn += QString(".FCMacro");
         QFileInfo fi(dir, fn);
         // check if new name exists
         if (fi.exists()) {
@@ -494,8 +494,8 @@ void DlgMacroExecuteImp::on_duplicateButton_clicked()
         tr("Enter new name:"), QLineEdit::Normal, oldNameDigitized, 0);
     if (!fn.isEmpty() && fn != oldName) {
         QString suffix = QFileInfo(fn).suffix().toLower();
-        if (suffix != QLatin1String("fcmacro") && suffix != QLatin1String("py")){
-            fn += QLatin1String(".FCMacro");
+        if (suffix != QString("fcmacro") && suffix != QString("py")){
+            fn += QString(".FCMacro");
         }
         QFileInfo fi(dir, fn);
         // check again if new name exists in case user changed it

@@ -82,17 +82,17 @@ public:
         case 1:
             if (copy.at(0) == locale.decimalPoint()) {
                 state = QValidator::Intermediate;
-                copy.prepend(QLatin1Char('0'));
+                copy.prepend(QChar('0'));
                 pos++;
                 len++;
                 goto end;
             }
-            else if (copy.at(0) == QLatin1Char('+')) {
+            else if (copy.at(0) == QChar('+')) {
                 // the quantity parser doesn't allow numbers of the form '+1.0'
                 state = QValidator::Invalid;
                 goto end;
             }
-            else if (copy.at(0) == QLatin1Char('-')) {
+            else if (copy.at(0) == QChar('-')) {
                 if (minus)
                     state = QValidator::Intermediate;
                 else
@@ -102,14 +102,14 @@ public:
             break;
         case 2:
             if (copy.at(1) == locale.decimalPoint()
-                && (plus && copy.at(0) == QLatin1Char('+'))) {
+                && (plus && copy.at(0) == QChar('+'))) {
                 state = QValidator::Intermediate;
                 goto end;
             }
             if (copy.at(1) == locale.decimalPoint()
-                && (minus && copy.at(0) == QLatin1Char('-'))) {
+                && (minus && copy.at(0) == QChar('-'))) {
                 state = QValidator::Intermediate;
-                copy.insert(1, QLatin1Char('0'));
+                copy.insert(1, QChar('0'));
                 pos++;
                 len++;
                 goto end;
@@ -144,10 +144,10 @@ public:
             bool ok = false;
             double value = min;
 
-            if (locale.negativeSign() != QLatin1Char('-'))
-                copy.replace(locale.negativeSign(), QLatin1Char('-'));
-            if (locale.positiveSign() != QLatin1Char('+'))
-                copy.replace(locale.positiveSign(), QLatin1Char('+'));
+            if (locale.negativeSign() != QChar('-'))
+                copy.replace(locale.negativeSign(), QChar('-'));
+            if (locale.positiveSign() != QChar('+'))
+                copy.replace(locale.positiveSign(), QChar('+'));
 
             try {
                 QString copy2 = copy;
@@ -288,9 +288,9 @@ void QuantitySpinBox::setBoundToByName(const QString &name)
     try {
         // get document
         App::Document *doc = App::GetApplication().getActiveDocument();
-        QStringList list = name.split(QLatin1Char('#'));
+        QStringList list = name.split(QChar('#'));
         if (list.size() > 1) {
-            doc = App::GetApplication().getDocument(list.front().toLatin1());
+            doc = App::GetApplication().getDocument(list.front().toUtf8());
             list.pop_front();
         }
 
@@ -300,10 +300,10 @@ void QuantitySpinBox::setBoundToByName(const QString &name)
         }
 
         // first element is assumed to be the document name
-        list = list.front().split(QLatin1Char('.'));
+        list = list.front().split(QChar('.'));
 
         // get object
-        App::DocumentObject* obj = doc->getObject(list.front().toLatin1());
+        App::DocumentObject* obj = doc->getObject(list.front().toUtf8());
         if (!obj) {
             qDebug() << "No object " << list.front() << " in document";
             return;
@@ -316,7 +316,7 @@ void QuantitySpinBox::setBoundToByName(const QString &name)
         path.setDocumentObjectName(std::string(obj->getNameInDocument()), true);
 
         for (QStringList::iterator it = list.begin(); it != list.end(); ++it) {
-            path << App::ObjectIdentifier::Component::SimpleComponent(it->toLatin1().constData());
+            path << App::ObjectIdentifier::Component::SimpleComponent(it->toUtf8().constData());
         }
 
         if (path.getProperty())
@@ -527,7 +527,7 @@ void QuantitySpinBox::userInput(const QString & text)
     }
     else if (state == QValidator::Intermediate) {
         tmp = tmp.trimmed();
-        tmp += QLatin1Char(' ');
+        tmp += QChar(' ');
         tmp += d->unitStr;
         Base::Quantity res2 = d->validateAndInterpret(tmp, pos, state);
         if (state == QValidator::Acceptable) {

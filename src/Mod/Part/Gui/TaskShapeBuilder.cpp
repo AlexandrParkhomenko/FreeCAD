@@ -218,7 +218,7 @@ void ShapeBuilderWidget::createEdgeFromVertex()
 
     try {
         Gui::Application::Instance->activeDocument()->openCommand("Edge");
-        Gui::Command::runCommand(Gui::Command::App, cmd.toLatin1());
+        Gui::Command::runCommand(Gui::Command::App, cmd.toUtf8());
         Gui::Application::Instance->activeDocument()->commitCommand();
     }
     catch (const Base::Exception&) {
@@ -259,7 +259,7 @@ void ShapeBuilderWidget::createWireFromEdge()
     ).arg(list);
     try {
         Gui::Application::Instance->activeDocument()->openCommand("Wire");
-        Gui::Command::runCommand(Gui::Command::App, cmd.toLatin1());
+        Gui::Command::runCommand(Gui::Command::App, cmd.toUtf8());
         Gui::Application::Instance->activeDocument()->commitCommand();
     }
     catch (const Base::Exception&) {
@@ -311,7 +311,7 @@ void ShapeBuilderWidget::createFaceFromVertex()
 
     try {
         Gui::Application::Instance->activeDocument()->openCommand("Face");
-        Gui::Command::runCommand(Gui::Command::App, cmd.toLatin1());
+        Gui::Command::runCommand(Gui::Command::App, cmd.toUtf8());
         Gui::Application::Instance->activeDocument()->commitCommand();
     }
     catch (const Base::Exception&) {
@@ -363,7 +363,7 @@ void ShapeBuilderWidget::createFaceFromEdge()
 
     try {
         Gui::Application::Instance->activeDocument()->openCommand("Face");
-        Gui::Command::runCommand(Gui::Command::App, cmd.toLatin1());
+        Gui::Command::runCommand(Gui::Command::App, cmd.toUtf8());
         Gui::Application::Instance->activeDocument()->commitCommand();
     }
     catch (const Base::Exception&) {
@@ -426,7 +426,7 @@ void ShapeBuilderWidget::createShellFromFace()
 
     try {
         Gui::Application::Instance->activeDocument()->openCommand("Shell");
-        Gui::Command::runCommand(Gui::Command::App, cmd.toLatin1());
+        Gui::Command::runCommand(Gui::Command::App, cmd.toUtf8());
         Gui::Application::Instance->activeDocument()->commitCommand();
     }
     catch (const Base::Exception&) {
@@ -478,7 +478,7 @@ void ShapeBuilderWidget::createSolidFromShell()
 
     try {
         Gui::Application::Instance->activeDocument()->openCommand("Solid");
-        Gui::Command::runCommand(Gui::Command::App, cmd.toLatin1());
+        Gui::Command::runCommand(Gui::Command::App, cmd.toUtf8());
         Gui::Application::Instance->activeDocument()->commitCommand();
     }
     catch (const Base::Exception&) {

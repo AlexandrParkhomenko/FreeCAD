@@ -76,7 +76,7 @@ void DlgMacroRecordImp::on_buttonStart_clicked()
 
     // search in the macro path first for an already existing macro
     QString fn = this->macroPath + lineEditPath->text();
-    if (!fn.endsWith(QLatin1String(".FCMacro"))) fn += QLatin1String(".FCMacro");
+    if (!fn.endsWith(QString(".FCMacro"))) fn += QString(".FCMacro");
     QFileInfo fi(fn);
     if (fi.isFile() && fi.exists()) {
         if (QMessageBox::question(this, tr("Existing macro"),

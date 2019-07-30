@@ -148,7 +148,7 @@ void DlgRevolution::getAxisLink(App::PropertyLinkSub &lnk) const
         lnk.setValue(nullptr);
     } else {
         QStringList parts = text.split(QChar(':'));
-        App::DocumentObject* obj = App::GetApplication().getActiveDocument()->getObject(parts[0].toLatin1());
+        App::DocumentObject* obj = App::GetApplication().getActiveDocument()->getObject(parts[0].toUtf8());
         if(!obj){
             throw Base::ValueError(tr("Object not found: %1").arg(parts[0]).toUtf8().constData());
         }
@@ -157,7 +157,7 @@ void DlgRevolution::getAxisLink(App::PropertyLinkSub &lnk) const
             return;
         } else if (parts.size() == 2) {
             std::vector<std::string> subs;
-            subs.push_back(std::string(parts[1].toLatin1().constData()));
+            subs.push_back(std::string(parts[1].toUtf8().constData()));
             lnk.setValue(obj,subs);
         }
     }
@@ -218,7 +218,7 @@ std::vector<App::DocumentObject*> DlgRevolution::getShapesToRevolve() const
 
     std::vector<App::DocumentObject*> objects;
     for (int i = 0; i < items.size(); i++) {
-        App::DocumentObject* obj = doc->getObject(items[i]->data(0, Qt::UserRole).toString().toLatin1());
+        App::DocumentObject* obj = doc->getObject(items[i]->data(0, Qt::UserRole).toString().toUtf8());
         if (!obj)
             throw Base::RuntimeError("Object not found");
         objects.push_back(obj);
@@ -393,9 +393,9 @@ void DlgRevolution::accept()
                 .arg(strAxisLink) //%12
                 .arg(symmetric) //13
                 ;
-            Gui::Command::runCommand(Gui::Command::App, code.toLatin1());
-            QByteArray to = name.toLatin1();
-            QByteArray from = shape.toLatin1();
+            Gui::Command::runCommand(Gui::Command::App, code.toUtf8());
+            QByteArray to = name.toUtf8();
+            QByteArray from = shape.toUtf8();
             Gui::Command::copyVisual(to, "ShapeColor", from);
             Gui::Command::copyVisual(to, "LineColor", from);
             Gui::Command::copyVisual(to, "PointColor", from);

@@ -104,7 +104,7 @@ int main( int argc, char ** argv )
         QApplication app(argc,argv);
         QString appName = QString(App::Application::Config()["ExeName"].c_str());
         QString msg = QString(e.what());
-        QString s = QLatin1String("<pre>") + msg + QLatin1String("</pre>");
+        QString s = QString("<pre>") + msg + QString("</pre>");
         QMessageBox::critical(0, appName, s);
         exit(1);
     }
@@ -112,7 +112,7 @@ int main( int argc, char ** argv )
         QApplication app(argc,argv);
         QString appName = QString(App::Application::Config()["ExeName"].c_str());
         QString msg = QString(e.what());
-        QString s = QLatin1String("<pre>") + msg + QLatin1String("</pre>");
+        QString s = QString("<pre>") + msg + QString("</pre>");
 
         QMessageBox msgBox;
         msgBox.setIcon(QMessageBox::Information);

@@ -180,8 +180,8 @@ void GraphvizView::updateSvgItem(const App::Document &doc)
     QProcess * dotProc = thread->dotProcess();
     QProcess * flatProc = thread->unflattenProcess();
     QStringList args, flatArgs;
-    args << QLatin1String("-Tsvg");
-    flatArgs << QLatin1String("-c2 -l2");
+    args << QString("-Tsvg");
+    flatArgs << QString("-c2 -l2");
 
 #ifdef FC_OS_LINUX
     QString path = QString(hGrp->GetASCII("Graphviz", "/usr/bin").c_str());
@@ -295,7 +295,7 @@ QByteArray GraphvizView::exportGraph(const QString& format)
     QProcess dotProc, flatProc;
     QStringList args, flatArgs;
     args << QString("-T%1").arg(format);
-    flatArgs << QLatin1String("-c2 -l2");
+    flatArgs << QString("-c2 -l2");
 
 #ifdef FC_OS_LINUX
     QString path = QString(hGrp->GetASCII("Graphviz", "/usr/bin").c_str());
@@ -358,7 +358,7 @@ bool GraphvizView::onMsg(const char* pMsg,const char**)
             filter << it->first;
 
         QString selectedFilter;
-        QString fn = Gui::FileDialog::getSaveFileName(this, tr("Export graph"), QString(), filter.join(QLatin1String(";;")), &selectedFilter);
+        QString fn = Gui::FileDialog::getSaveFileName(this, tr("Export graph"), QString(), filter.join(QString(";;")), &selectedFilter);
         if (!fn.isEmpty()) {
             QString format;
             for (QList< QPair<QString, QString> >::iterator it = formatMap.begin(); it != formatMap.end(); ++it) {
@@ -437,7 +437,7 @@ void GraphvizView::printPdf()
     filter << QString("%1 (*.pdf)").arg(tr("PDF format"));
 
     QString selectedFilter;
-    QString fn = Gui::FileDialog::getSaveFileName(this, tr("Export graph"), QString(), filter.join(QLatin1String(";;")), &selectedFilter);
+    QString fn = Gui::FileDialog::getSaveFileName(this, tr("Export graph"), QString(), filter.join(QString(";;")), &selectedFilter);
     if (!fn.isEmpty()) {
         QByteArray buffer = exportGraph(selectedFilter);
         if (buffer.isEmpty())

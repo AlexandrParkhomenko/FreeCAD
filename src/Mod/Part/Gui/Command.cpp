@@ -965,7 +965,7 @@ void CmdPartImport::activated(int iMsg)
     filter << QString("BREP (*.brp *.brep)");
 
     QString select;
-    QString fn = Gui::FileDialog::getOpenFileName(Gui::getMainWindow(), QString(), QString(), filter.join(QLatin1String(";;")), &select);
+    QString fn = Gui::FileDialog::getOpenFileName(Gui::getMainWindow(), QString(), QString(), filter.join(QString(";;")), &select);
     if (!fn.isEmpty()) {
         Gui::WaitCursor wc;
         App::Document* pDoc = getDocument();
@@ -1024,7 +1024,7 @@ void CmdPartExport::activated(int iMsg)
     filter << QString("BREP (*.brp *.brep)");
 
     QString select;
-    QString fn = Gui::FileDialog::getSaveFileName(Gui::getMainWindow(), QString(), QString(), filter.join(QLatin1String(";;")), &select);
+    QString fn = Gui::FileDialog::getSaveFileName(Gui::getMainWindow(), QString(), QString(), filter.join(QString(";;")), &select);
     if (!fn.isEmpty()) {
         App::Document* pDoc = getDocument();
         if (!pDoc) return; // no document
@@ -1071,12 +1071,12 @@ void CmdPartImportCurveNet::activated(int iMsg)
     filter << QString("%1 (*.*)")
                  .arg(QObject::tr("All Files"));
 
-    QString fn = Gui::FileDialog::getOpenFileName(Gui::getMainWindow(), QString(), QString(), filter.join(QLatin1String(";;")));
+    QString fn = Gui::FileDialog::getOpenFileName(Gui::getMainWindow(), QString(), QString(), filter.join(QString(";;")));
     if (!fn.isEmpty()) {
         QFileInfo fi; fi.setFile(fn);
         openCommand("Part Import Curve Net");
-        doCommand(Doc,"f = App.activeDocument().addObject(\"Part::CurveNet\",\"%s\")", (const char*)fi.baseName().toLatin1());
-        doCommand(Doc,"f.FileName = \"%s\"",(const char*)fn.toLatin1());
+        doCommand(Doc,"f = App.activeDocument().addObject(\"Part::CurveNet\",\"%s\")", (const char*)fi.baseName().toUtf8());
+        doCommand(Doc,"f.FileName = \"%s\"",(const char*)fn.toUtf8());
         commitCommand();
         updateActive();
     }
@@ -1129,8 +1129,8 @@ void CmdPartMakeSolid::activated(int iMsg)
                     "__o__.Shape=__s__\n"
                     "del __s__, __o__"
                     )
-                    .arg(QLatin1String((*it)->getNameInDocument()))
-                    .arg(QLatin1String((*it)->Label.getValue()));
+                    .arg(QString((*it)->getNameInDocument()))
+                    .arg(QString((*it)->Label.getValue()));
             }
             else if (type == TopAbs_SHELL) {
                 str = QString(
@@ -1141,8 +1141,8 @@ void CmdPartMakeSolid::activated(int iMsg)
                     "__o__.Shape=__s__\n"
                     "del __s__, __o__"
                     )
-                    .arg(QLatin1String((*it)->getNameInDocument()))
-                    .arg(QLatin1String((*it)->Label.getValue()));
+                    .arg(QString((*it)->getNameInDocument()))
+                    .arg(QString((*it)->Label.getValue()));
             }
             else {
                 Base::Console().Message("%s is ignored because it is neither a shell nor a compound.\n",
@@ -1151,7 +1151,7 @@ void CmdPartMakeSolid::activated(int iMsg)
 
             try {
                 if (!str.isEmpty())
-                    runCommand(Doc, str.toLatin1());
+                    runCommand(Doc, str.toUtf8());
             }
             catch (const Base::Exception& e) {
                 Base::Console().Error("Cannot convert %s because %s.\n",
@@ -1199,12 +1199,12 @@ void CmdPartReverseShape::activated(int iMsg)
                 "__o__.Shape=__s__\n"
                 "del __s__, __o__"
                 )
-                .arg(QLatin1String((*it)->getNameInDocument()))
-                .arg(QLatin1String((*it)->Label.getValue()));
+                .arg(QString((*it)->getNameInDocument()))
+                .arg(QString((*it)->Label.getValue()));
 
             try {
                 if (!str.isEmpty())
-                    runCommand(Doc, str.toLatin1());
+                    runCommand(Doc, str.toUtf8());
             }
             catch (const Base::Exception& e) {
                 Base::Console().Error("Cannot convert %s because %s.\n",

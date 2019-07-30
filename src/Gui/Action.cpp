@@ -465,7 +465,7 @@ WorkbenchGroup::WorkbenchGroup (  Command* pcCmd, QObject * parent )
   : ActionGroup( pcCmd, parent )
 {
     for (int i=0; i<50; i++) {
-        QAction* action = _group->addAction(QLatin1String(""));
+        QAction* action = _group->addAction(QString(""));
         action->setVisible(false);
         action->setCheckable(true);
         action->setData(QVariant(i)); // set the index
@@ -696,7 +696,7 @@ void RecentFilesAction::activateFile(int id)
         // invokes appendFile()
         SelectModule::Dict dict = SelectModule::importHandler(filename);
         for (SelectModule::Dict::iterator it = dict.begin(); it != dict.end(); ++it) {
-            Application::Instance->open(it.key().toUtf8(), it.value().toLatin1());
+            Application::Instance->open(it.key().toUtf8(), it.value().toUtf8());
             break;
         }
     }
@@ -708,7 +708,7 @@ void RecentFilesAction::resizeList(int size)
     int diff = this->visibleItems - this->maximumItems;
     // create new items if needed
     for (int i=0; i<diff; i++)
-        _group->addAction(QLatin1String(""))->setVisible(false);
+        _group->addAction(QString(""))->setVisible(false);
     setFiles(files());
 }
 
@@ -725,7 +725,7 @@ void RecentFilesAction::restore()
 
     int count = std::max<int>(this->maximumItems, this->visibleItems);
     for (int i=0; i<count; i++)
-        _group->addAction(QLatin1String(""))->setVisible(false);
+        _group->addAction(QString(""))->setVisible(false);
     std::vector<std::string> MRU = hGrp->GetASCIIs("MRU");
     QStringList files;
     for (std::vector<std::string>::iterator it = MRU.begin(); it!=MRU.end();++it)
@@ -749,7 +749,7 @@ void RecentFilesAction::save()
         QString value = recentFiles[index]->toolTip();
         if (value.isEmpty())
             break;
-        hGrp->SetASCII(key.toLatin1(), value.toUtf8());
+        hGrp->SetASCII(key.toUtf8(), value.toUtf8());
     }
 
     hGrp->SetInt("RecentFiles", count); // restore

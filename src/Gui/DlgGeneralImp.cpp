@@ -66,7 +66,7 @@ DlgGeneralImp::~DlgGeneralImp()
  */
 void DlgGeneralImp::setRecentFileSize()
 {
-    RecentFilesAction *recent = getMainWindow()->findChild<RecentFilesAction *>(QLatin1String("recentFiles"));
+    RecentFilesAction *recent = getMainWindow()->findChild<RecentFilesAction *>(QString("recentFiles"));
     if (recent) {
         ParameterGrp::handle hGrp = WindowParameter::getDefaultParameter()->GetGroup("RecentFiles");
         recent->resizeList(hGrp->GetInt("RecentFiles", 4));
@@ -79,7 +79,7 @@ void DlgGeneralImp::saveSettings()
     QVariant data = ui->AutoloadModuleCombo->itemData(index);
     QString startWbName = data.toString();
     App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/General")->
-                          SetASCII("AutoloadModule", startWbName.toLatin1());
+                          SetASCII("AutoloadModule", startWbName.toUtf8());
 
     ui->RecentFiles->onSave();
     ui->PythonWordWrap->onSave();
@@ -114,7 +114,7 @@ void DlgGeneralImp::saveSettings()
         ActionStyleEvent e(ActionStyleEvent::Restore);
         qApp->sendEvent(getMainWindow(), &e);
         if (ui->tiledBackground->isChecked()) {
-            //mdi->setBackground(QPixmap(QLatin1String(":/icons/background.png")));
+            //mdi->setBackground(QPixmap(QString(":/icons/background.png")));
             mdi->setBackground(QBrush(QColor(0,0,160)));
         }
         else {
@@ -130,7 +130,7 @@ void DlgGeneralImp::loadSettings()
     std::string start = App::Application::Config()["StartWorkbench"];
     start = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/General")->
                                   GetASCII("AutoloadModule", start.c_str());
-    QString startWbName = QLatin1String(start.c_str());
+    QString startWbName = QString(start.c_str());
     ui->AutoloadModuleCombo->setCurrentIndex(ui->AutoloadModuleCombo->findData(startWbName));
 
     ui->RecentFiles->onRestore();

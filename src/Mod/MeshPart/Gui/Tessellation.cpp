@@ -151,7 +151,7 @@ bool Tessellation::accept()
         return false;
     }
 
-    App::Document* activeDoc = App::GetApplication().getDocument((const char*)this->document.toLatin1());
+    App::Document* activeDoc = App::GetApplication().getDocument((const char*)this->document.toUtf8());
     if (!activeDoc) {
         QMessageBox::critical(this, windowTitle(),
             tr("No such document '%1'.").arg(this->document));
@@ -231,7 +231,7 @@ bool Tessellation::accept()
                     Gui::ViewProvider* vpm = Gui::Application::Instance->getViewProvider
                             (activeDoc->getActiveObject());
                     Gui::ViewProvider* vpp = Gui::Application::Instance->getViewProvider
-                            (activeDoc->getObject(shape.toLatin1()));
+                            (activeDoc->getObject(shape.toUtf8()));
                     MeshGui::ViewProviderMesh* vpmesh = dynamic_cast<MeshGui::ViewProviderMesh*>(vpm);
                     PartGui::ViewProviderPart* vppart = dynamic_cast<PartGui::ViewProviderPart*>(vpp);
                     if (vpmesh && vppart) {

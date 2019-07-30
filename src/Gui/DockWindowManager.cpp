@@ -36,7 +36,7 @@ void DockWindowItems::addDockWidget(const char* name, Qt::DockWidgetArea pos, bo
 void DockWindowItems::setDockingArea(const char* name, Qt::DockWidgetArea pos)
 {
     for (QList<DockWindowItem>::iterator it = _items.begin(); it != _items.end(); ++it) {
-        if (it->name == QLatin1String(name)) {
+        if (it->name == QString(name)) {
             it->pos = pos;
             break;
         }
@@ -46,7 +46,7 @@ void DockWindowItems::setDockingArea(const char* name, Qt::DockWidgetArea pos)
 void DockWindowItems::setVisibility(const char* name, bool v)
 {
     for (QList<DockWindowItem>::iterator it = _items.begin(); it != _items.end(); ++it) {
-        if (it->name == QLatin1String(name)) {
+        if (it->name == QString(name)) {
             it->visibility = v;
             break;
         }
@@ -133,7 +133,7 @@ QDockWidget* DockWindowManager::addDockWindow(const char* name, QWidget* widget,
     dw->setWidget(widget);
 
     // set object name and window title needed for i18n stuff
-    dw->setObjectName(QLatin1String(name));
+    dw->setObjectName(QString(name));
     dw->setWindowTitle(QString(name));
     dw->setFeatures(QDockWidget::AllDockWidgetFeatures);
 
@@ -148,7 +148,7 @@ QDockWidget* DockWindowManager::addDockWindow(const char* name, QWidget* widget,
 QWidget* DockWindowManager::getDockWindow(const char* name) const
 {
     for (QList<QDockWidget*>::ConstIterator it = d->_dockedWindows.begin(); it != d->_dockedWindows.end(); ++it) {
-        if ((*it)->objectName() == QLatin1String(name))
+        if ((*it)->objectName() == QString(name))
             return (*it)->widget();
     }
 
@@ -173,7 +173,7 @@ QWidget* DockWindowManager::removeDockWindow(const char* name)
 {
     QWidget* widget=0;
     for (QList<QDockWidget*>::Iterator it = d->_dockedWindows.begin(); it != d->_dockedWindows.end(); ++it) {
-        if ((*it)->objectName() == QLatin1String(name)) {
+        if ((*it)->objectName() == QString(name)) {
             QDockWidget* dw = *it;
             d->_dockedWindows.erase(it);
             getMainWindow()->removeDockWidget(dw);
@@ -223,7 +223,7 @@ void DockWindowManager::removeDockWindow(QWidget* widget)
 void DockWindowManager::retranslate()
 {
     for (QList<QDockWidget*>::Iterator it = d->_dockedWindows.begin(); it != d->_dockedWindows.end(); ++it) {
-        (*it)->setWindowTitle(QDockWidget::tr((*it)->objectName().toLatin1()));
+        (*it)->setWindowTitle(QDockWidget::tr((*it)->objectName().toUtf8()));
     }
 }
 
@@ -248,10 +248,10 @@ void DockWindowManager::retranslate()
  */
 bool DockWindowManager::registerDockWindow(const char* name, QWidget* widget)
 {
-    QMap<QString, QPointer<QWidget> >::Iterator it = d->_dockWindows.find(QLatin1String(name));
+    QMap<QString, QPointer<QWidget> >::Iterator it = d->_dockWindows.find(QString(name));
     if (it != d->_dockWindows.end() || !widget)
         return false;
-    d->_dockWindows[QLatin1String(name)] = widget;
+    d->_dockWindows[QString(name)] = widget;
     widget->hide(); // hide the widget if not used
     return true;
 }
@@ -259,9 +259,9 @@ bool DockWindowManager::registerDockWindow(const char* name, QWidget* widget)
 QWidget* DockWindowManager::unregisterDockWindow(const char* name)
 {
     QWidget* widget = 0;
-    QMap<QString, QPointer<QWidget> >::Iterator it = d->_dockWindows.find(QLatin1String(name));
+    QMap<QString, QPointer<QWidget> >::Iterator it = d->_dockWindows.find(QString(name));
     if (it != d->_dockWindows.end()) {
-        widget = d->_dockWindows.take(QLatin1String(name));
+        widget = d->_dockWindows.take(QString(name));
     }
 
     return widget;
@@ -281,7 +281,7 @@ void DockWindowManager::setup(DockWindowItems* items)
     QList<QDockWidget*> areas[4];
     for (QList<DockWindowItem>::ConstIterator it = dws.begin(); it != dws.end(); ++it) {
         QDockWidget* dw = findDockWidget(docked, it->name);
-        QByteArray dockName = it->name.toLatin1();
+        QByteArray dockName = it->name.toUtf8();
         bool visible = hPref->GetBool(dockName.constData(), it->visibility);
 
         if (!dw) {

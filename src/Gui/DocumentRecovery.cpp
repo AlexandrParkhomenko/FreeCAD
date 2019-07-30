@@ -222,7 +222,7 @@ void DocumentRecovery::accept()
             try {
                 QString file = it->projectFile;
                 QFileInfo fi(file);
-                if (fi.fileName() == QLatin1String("Document.xml"))
+                if (fi.fileName() == QString("Document.xml"))
                     file = createProjectFile(it->projectFile);
                 App::Document* document = App::GetApplication().newDocument();
                 documentName = document->getName();
@@ -328,15 +328,15 @@ DocumentRecoveryPrivate::Info DocumentRecoveryPrivate::getRecoveryInfo(const QFi
 
     QString file;
     QDir doc_dir(fi.absoluteFilePath());
-    QDir rec_dir(doc_dir.absoluteFilePath(QLatin1String("fc_recovery_files")));
+    QDir rec_dir(doc_dir.absoluteFilePath(QString("fc_recovery_files")));
 
     // compressed recovery file
-    if (doc_dir.exists(QLatin1String("fc_recovery_file.freecad"))) {
-        file = doc_dir.absoluteFilePath(QLatin1String("fc_recovery_file.freecad"));
+    if (doc_dir.exists(QString("fc_recovery_file.freecad"))) {
+        file = doc_dir.absoluteFilePath(QString("fc_recovery_file.freecad"));
     }
     // separate files for recovery
-    else if (rec_dir.exists(QLatin1String("Document.xml"))) {
-        file = rec_dir.absoluteFilePath(QLatin1String("Document.xml"));
+    else if (rec_dir.exists(QString("Document.xml"))) {
+        file = rec_dir.absoluteFilePath(QString("Document.xml"));
     }
 
     info.status = DocumentRecoveryPrivate::Created;
@@ -344,8 +344,8 @@ DocumentRecoveryPrivate::Info DocumentRecoveryPrivate::getRecoveryInfo(const QFi
     info.tooltip = fi.fileName();
 
     // when the Xml meta exists get some relevant information
-    info.xmlFile = doc_dir.absoluteFilePath(QLatin1String("fc_recovery_file.xml"));
-    if (doc_dir.exists(QLatin1String("fc_recovery_file.xml"))) {
+    info.xmlFile = doc_dir.absoluteFilePath(QString("fc_recovery_file.xml"));
+    if (doc_dir.exists(QString("fc_recovery_file.xml"))) {
         XmlConfig cfg = readXmlFile(info.xmlFile);
 
         if (cfg.contains(QString("Label"))) {
@@ -358,11 +358,11 @@ DocumentRecoveryPrivate::Info DocumentRecoveryPrivate::getRecoveryInfo(const QFi
 
         if (cfg.contains(QString("Status"))) {
             QString status = cfg[QString("Status")];
-            if (status == QLatin1String("Deprecated"))
+            if (status == QString("Deprecated"))
                 info.status = DocumentRecoveryPrivate::Overage;
-            else if (status == QLatin1String("Success"))
+            else if (status == QString("Success"))
                 info.status = DocumentRecoveryPrivate::Success;
-            else if (status == QLatin1String("Failure"))
+            else if (status == QString("Failure"))
                 info.status = DocumentRecoveryPrivate::Failure;
         }
 
@@ -403,7 +403,7 @@ DocumentRecoveryPrivate::XmlConfig DocumentRecoveryPrivate::readXmlFile(const QS
     }
 
     QDomElement root = domDocument.documentElement();
-    if (root.tagName() != QLatin1String("AutoRecovery")) {
+    if (root.tagName() != QString("AutoRecovery")) {
         return cfg;
     }
 

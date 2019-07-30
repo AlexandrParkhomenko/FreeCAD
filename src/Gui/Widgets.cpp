@@ -95,7 +95,7 @@ ActionSelector::ActionSelector(QWidget* parent)
   : QWidget(parent)
 {
     addButton = new QPushButton(this);
-    addButton->setObjectName(QLatin1String("addButton"));
+    addButton->setObjectName(QString("addButton"));
     addButton->setMinimumSize(QSize(30, 30));
     addButton->setIcon(BitmapFactory().pixmap("button_right"));
     gridLayout = new QGridLayout(this);
@@ -107,7 +107,7 @@ ActionSelector::ActionSelector(QWidget* parent)
     gridLayout->addItem(spacerItem1, 0, 1, 1, 1);
 
     removeButton = new QPushButton(this);
-    removeButton->setObjectName(QLatin1String("removeButton"));
+    removeButton->setObjectName(QString("removeButton"));
     removeButton->setMinimumSize(QSize(30, 30));
     removeButton->setIcon(BitmapFactory().pixmap("button_left"));
     removeButton->setAutoDefault(true);
@@ -116,14 +116,14 @@ ActionSelector::ActionSelector(QWidget* parent)
     gridLayout->addWidget(removeButton, 2, 1, 1, 1);
 
     upButton = new QPushButton(this);
-    upButton->setObjectName(QLatin1String("upButton"));
+    upButton->setObjectName(QString("upButton"));
     upButton->setMinimumSize(QSize(30, 30));
     upButton->setIcon(BitmapFactory().pixmap("button_up"));
 
     gridLayout->addWidget(upButton, 3, 1, 1, 1);
 
     downButton = new QPushButton(this);
-    downButton->setObjectName(QLatin1String("downButton"));
+    downButton->setObjectName(QString("downButton"));
     downButton->setMinimumSize(QSize(30, 30));
     downButton->setIcon(BitmapFactory().pixmap("button_down"));
     downButton->setAutoDefault(true);
@@ -136,7 +136,7 @@ ActionSelector::ActionSelector(QWidget* parent)
     vboxLayout->addWidget(labelAvailable);
 
     availableWidget = new QTreeWidget(this);
-    availableWidget->setObjectName(QLatin1String("availableTreeWidget"));
+    availableWidget->setObjectName(QString("availableTreeWidget"));
     availableWidget->setRootIsDecorated(false);
     availableWidget->setHeaderLabels(QStringList() << QString());
     availableWidget->header()->hide();
@@ -150,7 +150,7 @@ ActionSelector::ActionSelector(QWidget* parent)
     vboxLayout1->addWidget(labelSelected);
 
     selectedWidget = new QTreeWidget(this);
-    selectedWidget->setObjectName(QLatin1String("selectedTreeWidget"));
+    selectedWidget->setObjectName(QString("selectedTreeWidget"));
     selectedWidget->setRootIsDecorated(false);
     selectedWidget->setHeaderLabels(QStringList() << QString());
     selectedWidget->header()->hide();
@@ -776,7 +776,7 @@ void UrlLabel::mouseReleaseEvent (QMouseEvent *)
         PyObject* dict = PyModule_GetDict(module);
         PyObject* func = PyDict_GetItemString(dict, "open");
         if (func) {
-            PyObject* args = Py_BuildValue("(s)", (const char*)this->_url.toLatin1());
+            PyObject* args = Py_BuildValue("(s)", (const char*)this->_url.toUtf8());
             PyObject* result = PyEval_CallObject(func,args);
             // decrement the args and module reference
             Py_XDECREF(result);
@@ -815,7 +815,7 @@ LabelButton::LabelButton (QWidget * parent)
     label->setAutoFillBackground(true);
     layout->addWidget(label);
 
-    button = new QPushButton(QLatin1String("..."), this);
+    button = new QPushButton(QString("..."), this);
 #if defined (Q_OS_MAC)
     button->setAttribute(Qt::WA_LayoutUsesWidgetRect); // layout size from QMacStyle was not correct
 #endif
@@ -1114,7 +1114,7 @@ int PropertyListEditor::lineNumberAreaWidth()
         ++digits;
     }
 
-    int space = 3 + fontMetrics().width(QLatin1Char('9')) * digits;
+    int space = 3 + fontMetrics().width(QChar('9')) * digits;
 
     return space;
 }
@@ -1248,7 +1248,7 @@ LabelEditor::LabelEditor (QWidget * parent)
     connect(lineEdit, SIGNAL(textChanged(const QString &)),
             this, SLOT(validateText(const QString &)));
 
-    button = new QPushButton(QLatin1String("..."), this);
+    button = new QPushButton(QString("..."), this);
 #if defined (Q_OS_MAC)
     button->setAttribute(Qt::WA_LayoutUsesWidgetRect); // layout size from QMacStyle was not correct
 #endif
@@ -1309,7 +1309,7 @@ void LabelEditor::changeText()
  */
 void LabelEditor::validateText(const QString& text)
 {
-    if (text.startsWith(QLatin1String("[")) && text.endsWith(QLatin1String("]"))) {
+    if (text.startsWith(QString("[")) && text.endsWith(QString("]"))) {
         this->plainText = text.mid(1, text.size()-2);
         Q_EMIT textChanged(this->plainText);
     }
@@ -1322,7 +1322,7 @@ void LabelEditor::setButtonText(const QString& txt)
 {
     button->setText(txt);
     int w1 = 2*button->fontMetrics().width(txt);
-    int w2 = 2*button->fontMetrics().width(QLatin1String(" ... "));
+    int w2 = 2*button->fontMetrics().width(QString(" ... "));
     button->setFixedWidth((w1 > w2 ? w1 : w2));
 }
 

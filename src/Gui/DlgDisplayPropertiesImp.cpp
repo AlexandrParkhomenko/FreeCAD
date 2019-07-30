@@ -258,14 +258,14 @@ void DlgDisplayPropertiesImp::on_changeMode_activated(const QString& s)
         App::Property* prop = (*It)->getPropertyByName("DisplayMode");
         if (prop && prop->getTypeId() == App::PropertyEnumeration::getClassTypeId()) {
             App::PropertyEnumeration* Display = (App::PropertyEnumeration*)prop;
-            Display->setValue((const char*)s.toLatin1());
+            Display->setValue((const char*)s.toUtf8());
         }
     }
 }
 
 void DlgDisplayPropertiesImp::on_changePlot_activated(const QString&s)
 {
-    Base::Console().Log("Plot = %s\n",(const char*)s.toLatin1());
+    Base::Console().Log("Plot = %s\n",(const char*)s.toUtf8());
 }
 
 /**
@@ -367,12 +367,12 @@ void DlgDisplayPropertiesImp::setDisplayModes(const std::vector<Gui::ViewProvide
             const std::vector<std::string>& value = display->getEnumVector();
             if (it == views.begin()) {
                 for (std::vector<std::string>::const_iterator jt = value.begin(); jt != value.end(); ++jt)
-                    commonModes << QLatin1String(jt->c_str());
+                    commonModes << QString(jt->c_str());
             }
             else {
                 for (std::vector<std::string>::const_iterator jt = value.begin(); jt != value.end(); ++jt) {
-                    if (commonModes.contains(QLatin1String(jt->c_str())))
-                        modes << QLatin1String(jt->c_str());
+                    if (commonModes.contains(QString(jt->c_str())))
+                        modes << QString(jt->c_str());
                 }
 
                 commonModes = modes;

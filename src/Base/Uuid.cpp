@@ -49,7 +49,7 @@ std::string Uuid::createUuid(void)
     QString uuid = QUuid::createUuid().toString();
     uuid = uuid.mid(1);
     uuid.chop(1);
-    Uuid = (const char*)uuid.toLatin1();
+    Uuid = (const char*)uuid.toUtf8();
     return Uuid;
 }
 
@@ -63,7 +63,7 @@ void Uuid::setValue(const char* sString)
         QString id = quuid.toString(); 
         id = id.mid(1); 
         id.chop(1); 
-        _uuid = (const char*)id.toLatin1(); 
+        _uuid = (const char*)id.toUtf8(); 
     } 
 } 
 

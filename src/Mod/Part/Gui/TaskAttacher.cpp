@@ -88,7 +88,7 @@ void TaskAttacher::makeRefStrings(std::vector<QString>& refstrings, std::vector<
 }
 
 TaskAttacher::TaskAttacher(Gui::ViewProviderDocumentObject *ViewProvider,QWidget *parent, QString picture, QString text)
-    : TaskBox(Gui::BitmapFactory().pixmap(picture.toLatin1()), text, true, parent),
+    : TaskBox(Gui::BitmapFactory().pixmap(picture.toUtf8()), text, true, parent),
       ViewProvider(ViewProvider)
 {
     //check if we are attachable
@@ -575,7 +575,7 @@ void TaskAttacher::onRefName(const QString& text, unsigned idx)
     if (parts.length() < 2)
         parts.push_back(QString(""));
     // Check whether this is the name of an App::Plane or Part::Datum feature
-    App::DocumentObject* obj = ViewProvider->getObject()->getDocument()->getObject(parts[0].toLatin1());
+    App::DocumentObject* obj = ViewProvider->getObject()->getDocument()->getObject(parts[0].toUtf8());
     if (obj == NULL) return;
 
     std::string subElement;
@@ -612,7 +612,7 @@ void TaskAttacher::onRefName(const QString& text, unsigned idx)
                 } else {
                     //none of Edge/Vertex/Face. May be empty string.
                     //Feed in whatever user supplied, even if invalid.
-                    ss << parts[1].toLatin1().constData();
+                    ss << parts[1].toUtf8().constData();
                 }
             }
         }
@@ -936,7 +936,7 @@ void TaskAttacher::visibilityAutomation(bool opening_not_closing)
             QByteArray code_2 = code.arg(
                 QString("App.ActiveDocument.") +
                 QString(ViewProvider->getObject()->getNameInDocument())
-                ).toLatin1();
+                ).toUtf8();
                 Base::Interpreter().runString(code_2.constData());
         }
         catch (const Base::Exception &e){

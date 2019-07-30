@@ -108,11 +108,11 @@ void DlgPropertyLink::findObjects(bool on, const QString& searchText)
     QString proName = link[4]; // property name
 
     bool isSingleSelection = (ui->listWidget->selectionMode() == QAbstractItemView::SingleSelection);
-    App::Document* doc = App::GetApplication().getDocument((const char*)docName.toLatin1());
+    App::Document* doc = App::GetApplication().getDocument((const char*)docName.toUtf8());
     if (doc) {
         Base::Type baseType = App::DocumentObject::getClassTypeId();
         if (!on) {
-            App::DocumentObject* obj = doc->getObject((const char*)objName.toLatin1());
+            App::DocumentObject* obj = doc->getObject((const char*)objName.toUtf8());
             if (obj) {
                 Base::Type objType = obj->getTypeId();
                 // get only geometric types
@@ -136,8 +136,8 @@ void DlgPropertyLink::findObjects(bool on, const QString& searchText)
 
         // build ignore list
         std::vector<App::DocumentObject*> ignoreList;
-        App::DocumentObject* par = doc->getObject((const char*)parName.toLatin1());
-        App::Property* prop = par->getPropertyByName((const char*)proName.toLatin1());
+        App::DocumentObject* par = doc->getObject((const char*)parName.toUtf8());
+        App::Property* prop = par->getPropertyByName((const char*)proName.toUtf8());
         if (prop) {
             // for multi-selection we need all objects
             if (isSingleSelection) {

@@ -293,7 +293,7 @@ void CmdMeshImport::activated(int)
 
     // Allow multi selection
     QStringList fn = Gui::FileDialog::getOpenFileNames(Gui::getMainWindow(),
-        QObject::tr("Import mesh"), QString(), filter.join(QLatin1String(";;")));
+        QObject::tr("Import mesh"), QString(), filter.join(QString(";;")));
     for (QStringList::Iterator it = fn.begin(); it != fn.end(); ++it) {
         QFileInfo fi;
         fi.setFile(*it);
@@ -360,10 +360,10 @@ void CmdMeshExport::activated(int)
 
     QString format;
     QString fn = Gui::FileDialog::getSaveFileName(Gui::getMainWindow(),
-        QObject::tr("Export mesh"), dir, filter.join(QLatin1String(";;")), &format);
+        QObject::tr("Export mesh"), dir, filter.join(QString(";;")), &format);
     if (!fn.isEmpty()) {
         QFileInfo fi(fn);
-        QByteArray extension = fi.suffix().toLatin1();
+        QByteArray extension = fi.suffix().toUtf8();
         for (QList<QPair<QString, QByteArray> >::iterator it = ext.begin(); it != ext.end(); ++it) {
             if (it->first == format) {
                 extension = it->second;

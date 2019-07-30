@@ -354,5 +354,5 @@ Py::Object PythonStdin::repr()
 
 Py::Object PythonStdin::readline(const Py::Tuple& /*args*/)
 {
-    return Py::String( (const char *)pyConsole->readline().toLatin1() );
+    return Py::String( (const char *)pyConsole->readline().toUtf8() );
 }

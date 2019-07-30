@@ -107,7 +107,7 @@ DlgSettingsEditorImp::DlgSettingsEditorImp( QWidget* parent )
     this->displayItems->header()->hide();
     for (QVector<QPair<QString, unsigned int> >::ConstIterator it = d->colormap.begin(); it != d->colormap.end(); ++it) {
         QTreeWidgetItem* item = new QTreeWidgetItem(this->displayItems);
-        item->setText(0, tr((*it).first.toLatin1()));
+        item->setText(0, tr((*it).first.toUtf8()));
     }
     pythonSyntax = new PythonSyntaxHighlighter(textEdit1);
     pythonSyntax->setDocument(textEdit1->document());
@@ -156,11 +156,11 @@ void DlgSettingsEditorImp::saveSettings()
     ParameterGrp::handle hGrp = WindowParameter::getDefaultParameter()->GetGroup("Editor");
     for (QVector<QPair<QString, unsigned int> >::ConstIterator it = d->colormap.begin(); it != d->colormap.end(); ++it) {
         unsigned long col = static_cast<unsigned long>((*it).second);
-        hGrp->SetUnsigned((*it).first.toLatin1(), col);
+        hGrp->SetUnsigned((*it).first.toUtf8(), col);
     }
 
     hGrp->SetInt( "FontSize", fontSize->value() );
-    hGrp->SetASCII( "Font", fontFamily->currentText().toLatin1() );
+    hGrp->SetASCII( "Font", fontFamily->currentText().toUtf8() );
 }
 
 void DlgSettingsEditorImp::loadSettings()
@@ -188,7 +188,7 @@ void DlgSettingsEditorImp::loadSettings()
     ParameterGrp::handle hGrp = WindowParameter::getDefaultParameter()->GetGroup("Editor");
     for (QVector<QPair<QString, unsigned int> >::Iterator it = d->colormap.begin(); it != d->colormap.end(); ++it){
         unsigned long col = static_cast<unsigned long>((*it).second);
-        col = hGrp->GetUnsigned((*it).first.toLatin1(), col);
+        col = hGrp->GetUnsigned((*it).first.toUtf8(), col);
         (*it).second = static_cast<unsigned int>(col);
         QColor color;
         color.setRgb((col >> 24) & 0xff, (col >> 16) & 0xff, (col >> 8) & 0xff);
@@ -200,7 +200,7 @@ void DlgSettingsEditorImp::loadSettings()
     fontSize->setValue(10);
     fontSize->setValue( hGrp->GetInt("FontSize", fontSize->value()) );
 
-    QByteArray fontName = this->font().family().toLatin1();
+    QByteArray fontName = this->font().family().toUtf8();
 
     QFontDatabase fdb;
     QStringList familyNames = fdb.families( QFontDatabase::Any );
@@ -221,7 +221,7 @@ void DlgSettingsEditorImp::changeEvent(QEvent *e)
     if (e->type() == QEvent::LanguageChange) {
         int index = 0;
         for (QVector<QPair<QString, unsigned int> >::ConstIterator it = d->colormap.begin(); it != d->colormap.end(); ++it)
-            this->displayItems->topLevelItem(index++)->setText(0, tr((*it).first.toLatin1()));
+            this->displayItems->topLevelItem(index++)->setText(0, tr((*it).first.toUtf8()));
         this->retranslateUi(this);
     } else {
         QWidget::changeEvent(e);

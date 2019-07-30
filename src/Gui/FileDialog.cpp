@@ -58,7 +58,7 @@ FileDialog::~FileDialog()
 
 void FileDialog::onSelectedFilter(const QString& /*filter*/)
 {
-    QRegExp rx(QLatin1String("\\(\\*.(\\w+)"));
+    QRegExp rx(QString("\\(\\*.(\\w+)"));
     QString suf = selectedNameFilter();
     if (rx.indexIn(suf) >= 0) {
         suf = rx.cap(1);
@@ -118,13 +118,13 @@ QString FileDialog::getSaveFileName (QWidget * parent, const QString & caption, 
         QFileInfo fi(dir);
         if (fi.isRelative()) {
             dirName = getWorkingDirectory();
-            dirName += QLatin1String("/");
+            dirName += QString("/");
             dirName += fi.fileName();
         }
     
         // get the suffix for the filter
         QRegExp rx;
-        rx.setPattern(QLatin1String("\\s(\\(\\*\\.\\w{1,})\\W"));
+        rx.setPattern(QString("\\s(\\(\\*\\.\\w{1,})\\W"));
         int index = rx.indexIn(filter);
         if (index != -1) {
             // get the suffix with the leading dot
@@ -164,7 +164,7 @@ QString FileDialog::getSaveFileName (QWidget * parent, const QString & caption, 
         dlg.setAcceptMode(QFileDialog::AcceptSave);
         dlg.setDirectory(dirName);
         dlg.setOptions(options);
-        dlg.setNameFilters(filter.split(QLatin1String(";;")));
+        dlg.setNameFilters(filter.split(QString(";;")));
         dlg.onSelectedFilter(dlg.selectedNameFilter());
         dlg.setNameFilterDetailsVisible(true);
         dlg.setConfirmOverwrite(true);
@@ -241,7 +241,7 @@ QString FileDialog::getOpenFileName(QWidget * parent, const QString & caption, c
         dlg.setAcceptMode(QFileDialog::AcceptOpen);
         dlg.setDirectory(dirName);
         dlg.setOptions(options);
-        dlg.setNameFilters(filter.split(QLatin1String(";;")));
+        dlg.setNameFilters(filter.split(QString(";;")));
         dlg.setNameFilterDetailsVisible(true);
         if (dlg.exec() == QDialog::Accepted) {
             if (selectedFilter)
@@ -300,7 +300,7 @@ QStringList FileDialog::getOpenFileNames (QWidget * parent, const QString & capt
         dlg.setAcceptMode(QFileDialog::AcceptOpen);
         dlg.setDirectory(dirName);
         dlg.setOptions(options);
-        dlg.setNameFilters(filter.split(QLatin1String(";;")));
+        dlg.setNameFilters(filter.split(QString(";;")));
         dlg.setNameFilterDetailsVisible(true);
         if (dlg.exec() == QDialog::Accepted) {
             if (selectedFilter)
@@ -408,10 +408,10 @@ void FileOptionsDialog::accept()
     // Fixes a bug of the default implementation when entering an asterisk
     QLineEdit* filename = this->findChild<QLineEdit*>();
     QString fn = filename->text();
-    if (fn.startsWith(QLatin1String("*"))) {
+    if (fn.startsWith(QString("*"))) {
         QFileInfo fi(fn);
         QString ext = fi.suffix();
-        ext.prepend(QLatin1String("*."));
+        ext.prepend(QString("*."));
         QStringList filters = this->nameFilters();
         bool ok=false;
         // Compare the given suffix with the suffixes of all filters
@@ -442,7 +442,7 @@ void FileOptionsDialog::accept()
     else if (!fn.isEmpty()) {
         QFileInfo fi(fn);
         QString ext = fi.completeSuffix();
-        QRegExp rx(QLatin1String("\\(\\*.(\\w+)"));
+        QRegExp rx(QString("\\(\\*.(\\w+)"));
         QString suf = selectedNameFilter();
         if (rx.indexIn(suf) >= 0)
             suf = rx.cap(1);
@@ -509,11 +509,11 @@ QIcon FileIconProvider::icon(IconType type) const
 
 QIcon FileIconProvider::icon(const QFileInfo & info) const
 {
-    if (info.suffix().toLower() == QLatin1String("freecad")) {
+    if (info.suffix().toLower() == QString("freecad")) {
         // return QApplication::windowIcon();
         return QIcon(QString(":/icons/freecad-doc.png"));
     }
-    else if (info.suffix().toLower().startsWith(QLatin1String("freecad"))) {
+    else if (info.suffix().toLower().startsWith(QString("freecad"))) {
         QIcon icon(QString(":/icons/freecad-doc.png"));
         QIcon darkIcon;
         int w = QApplication::style()->pixelMetric(QStyle::PM_ListViewIconSize);
@@ -558,7 +558,7 @@ FileChooser::FileChooser ( QWidget * parent )
 
     connect(lineEdit, SIGNAL(editingFinished()), this, SLOT(editingFinished()));
 
-    button = new QPushButton(QLatin1String("..."), this);
+    button = new QPushButton(QString("..."), this);
 
     layout->addWidget(button);
 
@@ -688,7 +688,7 @@ void FileChooser::setButtonText( const QString& txt )
 {
     button->setText( txt );
     int w1 = 2*button->fontMetrics().width(txt);
-    int w2 = 2*button->fontMetrics().width(QLatin1String(" ... "));
+    int w2 = 2*button->fontMetrics().width(QString(" ... "));
     button->setFixedWidth( (w1 > w2 ? w1 : w2) );
 }
 
@@ -730,14 +730,14 @@ SelectModule::SelectModule (const QString& type, const SelectModule::Dict& types
         QString module = it.value();
 
         // ignore file types in (...)
-        rx.setPattern(QLatin1String("\\s+\\([\\w\\*\\s\\.]+\\)$"));
+        rx.setPattern(QString("\\s+\\([\\w\\*\\s\\.]+\\)$"));
         int pos = rx.indexIn(filter);
         if (pos != -1) {
             filter = filter.left(pos);
         }
 
         // ignore Gui suffix in module name
-        rx.setPattern(QLatin1String("Gui$"));
+        rx.setPattern(QString("Gui$"));
         pos = rx.indexIn(module);
         if (pos != -1) {
             module = module.left(pos);
@@ -833,11 +833,11 @@ SelectModule::Dict SelectModule::exportHandler(const QStringList& fileNames, con
     for (QStringList::const_iterator it = fileNames.begin(); it != fileNames.end(); ++it) {
         QFileInfo fi(*it);
         QString ext = fi.completeSuffix().toLower();
-        std::map<std::string, std::string> filters = App::GetApplication().getExportFilters(ext.toLatin1());
+        std::map<std::string, std::string> filters = App::GetApplication().getExportFilters(ext.toUtf8());
         
         if (filters.empty()) {
             ext = fi.suffix().toLower();
-            filters = App::GetApplication().getExportFilters(ext.toLatin1());
+            filters = App::GetApplication().getExportFilters(ext.toUtf8());
         }
 
         fileExtension[ext].push_back(*it);
@@ -895,11 +895,11 @@ SelectModule::Dict SelectModule::importHandler(const QStringList& fileNames, con
     for (QStringList::const_iterator it = fileNames.begin(); it != fileNames.end(); ++it) {
         QFileInfo fi(*it);
         QString ext = fi.completeSuffix().toLower();
-        std::map<std::string, std::string> filters = App::GetApplication().getImportFilters(ext.toLatin1());
+        std::map<std::string, std::string> filters = App::GetApplication().getImportFilters(ext.toUtf8());
         
         if (filters.empty()) {
             ext = fi.suffix().toLower();
-            filters = App::GetApplication().getImportFilters(ext.toLatin1());
+            filters = App::GetApplication().getImportFilters(ext.toUtf8());
         }
 
         fileExtension[ext].push_back(*it);

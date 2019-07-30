@@ -56,54 +56,54 @@ void SyntaxHighlighter::setColor(const QString& type, const QColor& col)
         return; // no such type
     if (old == col)
         return; 
-    if (type == QLatin1String("Text"))
+    if (type == QString("Text"))
         d->cNormalText = col;
-    else if (type == QLatin1String("Comment"))
+    else if (type == QString("Comment"))
         d->cComment = col;
-    else if (type == QLatin1String("Block comment"))
+    else if (type == QString("Block comment"))
         d->cBlockcomment = col;
-    else if (type == QLatin1String("Number"))
+    else if (type == QString("Number"))
         d->cNumber = col;
-    else if (type == QLatin1String("String"))
+    else if (type == QString("String"))
         d->cLiteral = col;
-    else if (type == QLatin1String("Keyword"))
+    else if (type == QString("Keyword"))
         d->cKeyword = col;
-    else if (type == QLatin1String("Class name"))
+    else if (type == QString("Class name"))
         d->cClassName = col;
-    else if (type == QLatin1String("Define name"))
+    else if (type == QString("Define name"))
         d->cDefineName = col;
-    else if (type == QLatin1String("Operator"))
+    else if (type == QString("Operator"))
         d->cOperator = col;
-    else if (type == QLatin1String("Python output"))
+    else if (type == QString("Python output"))
         d->cOutput = col;
-    else if (type == QLatin1String("Python error"))
+    else if (type == QString("Python error"))
         d->cError = col;
     colorChanged(type, col);
 }
 
 QColor SyntaxHighlighter::color(const QString& type)
 {
-    if (type == QLatin1String("Text"))
+    if (type == QString("Text"))
         return d->cNormalText;
-    else if (type == QLatin1String("Comment"))
+    else if (type == QString("Comment"))
         return d->cComment;
-    else if (type == QLatin1String("Block comment"))
+    else if (type == QString("Block comment"))
         return d->cBlockcomment;
-    else if (type == QLatin1String("Number"))
+    else if (type == QString("Number"))
         return d->cNumber;
-    else if (type == QLatin1String("String"))
+    else if (type == QString("String"))
         return d->cLiteral;
-    else if (type == QLatin1String("Keyword"))
+    else if (type == QString("Keyword"))
         return d->cKeyword;
-    else if (type == QLatin1String("Class name"))
+    else if (type == QString("Class name"))
         return d->cClassName;
-    else if (type == QLatin1String("Define name"))
+    else if (type == QString("Define name"))
         return d->cDefineName;
-    else if (type == QLatin1String("Operator"))
+    else if (type == QString("Operator"))
         return d->cOperator;
-    else if (type == QLatin1String("Python output"))
+    else if (type == QString("Python output"))
         return d->cOutput;
-    else if (type == QLatin1String("Python error"))
+    else if (type == QString("Python error"))
         return d->cError;
     else
         return QColor(); // not found

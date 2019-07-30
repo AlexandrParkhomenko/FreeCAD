@@ -46,7 +46,7 @@ namespace Dialog {
 QByteArray toParamEntry(QString name)
 {
     name.replace(QString(" "), QString("_"));
-    return name.toLatin1();
+    return name.toUtf8();
 }
 
 void DlgCheckableMessageBox::showMessage(const QString& header, const QString& message, bool check, const QString& checkText)

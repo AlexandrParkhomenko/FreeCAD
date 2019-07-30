@@ -3318,7 +3318,7 @@ void ViewProviderSketch::drawMergedConstraintIcons(IconQueue iconQueue)
     }
 
     edit->combinedConstrBoxes[idString] = boundingBoxes;
-    thisInfo->string.setValue(idString.toLatin1().data());
+    thisInfo->string.setValue(idString.toUtf8().data());
     sendConstraintIconToCoin(compositeIcon, thisDest);
 }
 
@@ -3336,7 +3336,7 @@ QImage ViewProviderSketch::renderConstrIcon(const QString &type,
     // Constants to help create constraint icons
     QString joinStr = QString(", ");
 
-    QImage icon = Gui::BitmapFactory().pixmap(type.toLatin1()).toImage();
+    QImage icon = Gui::BitmapFactory().pixmap(type.toUtf8()).toImage();
 
     QFont font = QApplication::font();
     font.setPixelSize(11);
@@ -3419,7 +3419,7 @@ void ViewProviderSketch::drawTypicalConstraintIcon(const constrIconQueueItem &i)
                                     QList<QColor>() << color,
                                     i.iconRotation);
 
-    i.infoPtr->string.setValue(QString::number(i.constraintId).toLatin1().data());
+    i.infoPtr->string.setValue(QString::number(i.constraintId).toUtf8().data());
     sendConstraintIconToCoin(image, i.destination);
 }
 
@@ -5590,7 +5590,7 @@ bool ViewProviderSketch::setEdit(int ModNum)
                         "del(tv)\n"
                         );
             cmdstr.replace(QString("{sketch_name}"),QString(this->getSketchObject()->getNameInDocument()));
-            QByteArray cmdstr_bytearray = cmdstr.toLatin1();
+            QByteArray cmdstr_bytearray = cmdstr.toUtf8();
             Gui::Command::runCommand(Gui::Command::Gui, cmdstr_bytearray);
         } catch (Base::PyException &e){
             Base::Console().Error("ViewProviderSketch::setEdit: visibility automation failed with an error: \n");
@@ -6000,7 +6000,7 @@ void ViewProviderSketch::unsetEdit(int ModNum)
                         "del(tv)\n"
                         );
             cmdstr.replace(QString("{sketch_name}"),QString(this->getSketchObject()->getNameInDocument()));
-            QByteArray cmdstr_bytearray = cmdstr.toLatin1();
+            QByteArray cmdstr_bytearray = cmdstr.toUtf8();
             Gui::Command::runCommand(Gui::Command::Gui, cmdstr_bytearray);
         } catch (Base::PyException &e){
             Base::Console().Error("ViewProviderSketch::unsetEdit: visibility automation failed with an error: \n");
@@ -6048,7 +6048,7 @@ void ViewProviderSketch::setEditViewer(Gui::View3DInventorViewer* viewer, int Mo
                         "  ActiveSketch.ViewObject.TempoVis.saveCamera()\n"
                         );
             cmdstr.replace(QString("{sketch_name}"),QString(this->getSketchObject()->getNameInDocument()));
-            QByteArray cmdstr_bytearray = cmdstr.toLatin1();
+            QByteArray cmdstr_bytearray = cmdstr.toUtf8();
             Gui::Command::runCommand(Gui::Command::Gui, cmdstr_bytearray);
         } catch (Base::PyException &e){
             Base::Console().Error("ViewProviderSketch::setEdit: visibility automation failed with an error: \n");

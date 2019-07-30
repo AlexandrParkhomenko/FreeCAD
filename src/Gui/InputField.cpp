@@ -549,7 +549,7 @@ void InputField::setFormat(const QString& format)
         return;
     QChar c = format[0];
     Base::QuantityFormat f = this->actQuantity.getFormat();
-    f.format = Base::QuantityFormat::toFormat(c.toLatin1());
+    f.format = Base::QuantityFormat::toFormat(c.toUtf8());
     actQuantity.setFormat(f);
     updateText(actQuantity);
 }
@@ -690,10 +690,10 @@ void InputField::wheelEvent (QWheelEvent * event)
 void InputField::fixup(QString& input) const
 {
     input.remove(locale().groupSeparator());
-    if (locale().negativeSign() != QLatin1Char('-'))
-        input.replace(locale().negativeSign(), QLatin1Char('-'));
-    if (locale().positiveSign() != QLatin1Char('+'))
-        input.replace(locale().positiveSign(), QLatin1Char('+'));
+    if (locale().negativeSign() != QChar('-'))
+        input.replace(locale().negativeSign(), QChar('-'));
+    if (locale().positiveSign() != QChar('+'))
+        input.replace(locale().positiveSign(), QChar('+'));
 }
 
 QValidator::State InputField::validate(QString& input, int& pos) const

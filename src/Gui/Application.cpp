@@ -408,7 +408,7 @@ void Application::open(const char* FileName, const char* Module)
     else {
         wc.restoreCursor();
         QMessageBox::warning(getMainWindow(), QObject::tr("Unknown filetype"),
-            QObject::tr("Cannot open unknown filetype: %1").arg(QLatin1String(te.c_str())));
+            QObject::tr("Cannot open unknown filetype: %1").arg(QString(te.c_str())));
         wc.setWaitCursor();
         return;
     }
@@ -466,7 +466,7 @@ void Application::importFrom(const char* FileName, const char* DocName, const ch
     else {
         wc.restoreCursor();
         QMessageBox::warning(getMainWindow(), QObject::tr("Unknown filetype"),
-            QObject::tr("Cannot open unknown filetype: %1").arg(QLatin1String(te.c_str())));
+            QObject::tr("Cannot open unknown filetype: %1").arg(QString(te.c_str())));
         wc.setWaitCursor();
     }
 }
@@ -526,7 +526,7 @@ void Application::exportTo(const char* FileName, const char* DocName, const char
     else {
         wc.restoreCursor();
         QMessageBox::warning(getMainWindow(), QObject::tr("Unknown filetype"),
-            QObject::tr("Cannot save to unknown filetype: %1").arg(QLatin1String(te.c_str())));
+            QObject::tr("Cannot save to unknown filetype: %1").arg(QString(te.c_str())));
         wc.setWaitCursor();
     }
 }
@@ -1055,14 +1055,14 @@ bool Application::activateWorkbench(const char* name)
         QString msg = QString(e.what());
         QRegExp rx;
         // ignore '<type 'exceptions.ImportError'>' prefixes
-        rx.setPattern(QLatin1String("^\\s*<type 'exceptions.ImportError'>:\\s*"));
+        rx.setPattern(QString("^\\s*<type 'exceptions.ImportError'>:\\s*"));
         int pos = rx.indexIn(msg);
         while ( pos != -1 ) {
             msg = msg.mid(rx.matchedLength());
             pos = rx.indexIn(msg);
         }
 
-        Base::Console().Error("%s\n", (const char*)msg.toLatin1());
+        Base::Console().Error("%s\n", (const char*)msg.toUtf8());
         if (!d->startingUp)
             Base::Console().Error("%s\n", e.getStackTrace().c_str());
         else
@@ -1083,7 +1083,7 @@ QPixmap Application::workbenchIcon(const QString& wb) const
 {
     Base::PyGILStateLocker lock;
     // get the python workbench object from the dictionary
-    PyObject* pcWorkbench = PyDict_GetItemString(_pcWorkbenchDictionary, wb.toLatin1());
+    PyObject* pcWorkbench = PyDict_GetItemString(_pcWorkbenchDictionary, wb.toUtf8());
     // test if the workbench exists
     if (pcWorkbench) {
         // make a unique icon name
@@ -1157,7 +1157,7 @@ QString Application::workbenchToolTip(const QString& wb) const
 {
     // get the python workbench object from the dictionary
     Base::PyGILStateLocker lock;
-    PyObject* pcWorkbench = PyDict_GetItemString(_pcWorkbenchDictionary, wb.toLatin1());
+    PyObject* pcWorkbench = PyDict_GetItemString(_pcWorkbenchDictionary, wb.toUtf8());
     // test if the workbench exists
     if (pcWorkbench) {
         // get its ToolTip member if possible
@@ -1181,7 +1181,7 @@ QString Application::workbenchMenuText(const QString& wb) const
 {
     // get the python workbench object from the dictionary
     Base::PyGILStateLocker lock;
-    PyObject* pcWorkbench = PyDict_GetItemString(_pcWorkbenchDictionary, wb.toLatin1());
+    PyObject* pcWorkbench = PyDict_GetItemString(_pcWorkbenchDictionary, wb.toUtf8());
     // test if the workbench exists
     if (pcWorkbench) {
         // get its ToolTip member if possible
@@ -1213,15 +1213,15 @@ QStringList Application::workbenches(void) const
     QStringList hidden, extra;
     if (ht != config.end()) {
         QString items = QString(ht->second.c_str());
-        hidden = items.split(QLatin1Char(';'), QString::SkipEmptyParts);
+        hidden = items.split(QChar(';'), QString::SkipEmptyParts);
         if (hidden.isEmpty())
-            hidden.push_back(QLatin1String(""));
+            hidden.push_back(QString(""));
     }
     if (et != config.end()) {
         QString items = QString(et->second.c_str());
-        extra = items.split(QLatin1Char(';'), QString::SkipEmptyParts);
+        extra = items.split(QChar(';'), QString::SkipEmptyParts);
         if (extra.isEmpty())
-            extra.push_back(QLatin1String(""));
+            extra.push_back(QString(""));
     }
 
     PyObject *key, *value;
@@ -1529,14 +1529,14 @@ void Application::runApplication(void)
 #endif
     QString plugin;
     plugin = QString(App::GetApplication().getHomePath());
-    plugin += QLatin1String("/plugins");
+    plugin += QString("/plugins");
     QCoreApplication::addLibraryPath(plugin);
 
     // setup the search paths for Qt style sheets
     QStringList qssPaths;
     qssPaths << QString((App::Application::getUserAppDataDir() + "Gui/Stylesheets/").c_str())
              << QString((App::Application::getResourceDir() + "Gui/Stylesheets/").c_str())
-             << QLatin1String(":/stylesheets");
+             << QString(":/stylesheets");
     QDir::setSearchPaths(QString("qss"), qssPaths);
 
     // register action style event type
@@ -1545,7 +1545,7 @@ void Application::runApplication(void)
 
 #if !defined(Q_OS_LINUX)
     QIcon::setThemeSearchPaths(QIcon::themeSearchPaths() << QString(":/icons/FreeCAD-default"));
-    QIcon::setThemeName(QLatin1String("FreeCAD-default"));
+    QIcon::setThemeName(QString("FreeCAD-default"));
 #endif
 
     ParameterGrp::handle hTheme = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/Bitmaps/Theme");
@@ -1704,7 +1704,7 @@ void Application::runApplication(void)
 
     std::string style = hGrp->GetASCII("StyleSheet");
     if (!style.empty()) {
-        QFile f(QLatin1String(style.c_str()));
+        QFile f(QString(style.c_str()));
         if (f.open(QFile::ReadOnly)) {
             mdi->setBackground(QBrush(Qt::NoBrush));
             QTextStream str(&f);
@@ -1818,7 +1818,7 @@ void Application::checkForPreviousCrashes()
                                 countDeletedDocs++;
                         }
                         // search for the existence of a recovery file
-                        else if (doc_dir.exists(QLatin1String("fc_recovery_file.xml"))) {
+                        else if (doc_dir.exists(QString("fc_recovery_file.xml"))) {
                             // store the transient directory in case it's not empty
                             restoreDocFiles << *it;
                         }

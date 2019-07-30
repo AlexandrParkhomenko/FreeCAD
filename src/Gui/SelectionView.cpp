@@ -232,9 +232,9 @@ void SelectionView::select(QListWidgetItem* item)
 
     //Gui::Selection().clearSelection();
     Gui::Command::runCommand(Gui::Command::Gui,"Gui.Selection.clearSelection()");
-    //Gui::Selection().addSelection(elements[0].toLatin1(),elements[1].toLatin1(),0);
+    //Gui::Selection().addSelection(elements[0].toUtf8(),elements[1].toUtf8(),0);
     QString cmd = QString("Gui.Selection.addSelection(App.getDocument(\"%1\").getObject(\"%2\"))").arg(elements[0], elements[1]);
-    Gui::Command::runCommand(Gui::Command::Gui,cmd.toLatin1());
+    Gui::Command::runCommand(Gui::Command::Gui,cmd.toUtf8());
 }
 
 void SelectionView::deselect(void)
@@ -246,9 +246,9 @@ void SelectionView::deselect(void)
     if (elements.size() < 2)
         return;
 
-    //Gui::Selection().rmvSelection(elements[0].toLatin1(),elements[1].toLatin1(),0);
+    //Gui::Selection().rmvSelection(elements[0].toUtf8(),elements[1].toUtf8(),0);
     QString cmd = QString("Gui.Selection.removeSelection(App.getDocument(\"%1\").getObject(\"%2\"))").arg(elements[0], elements[1]);
-    Gui::Command::runCommand(Gui::Command::Gui,cmd.toLatin1());
+    Gui::Command::runCommand(Gui::Command::Gui,cmd.toUtf8());
 }
 
 void SelectionView::zoom(void)
@@ -272,7 +272,7 @@ void SelectionView::touch(void)
     if (elements.size() < 2)
         return;
     QString cmd = QString("App.getDocument(\"%1\").getObject(\"%2\").touch()").arg(elements[0], elements[1]);
-    Gui::Command::runCommand(Gui::Command::Doc,cmd.toLatin1());
+    Gui::Command::runCommand(Gui::Command::Doc,cmd.toUtf8());
 }
 
 void SelectionView::toPython(void)
@@ -286,20 +286,20 @@ void SelectionView::toPython(void)
 
     try {
         QString cmd = QString("obj = App.getDocument(\"%1\").getObject(\"%2\")").arg(elements[0], elements[1]);
-        Gui::Command::runCommand(Gui::Command::Gui,cmd.toLatin1());
+        Gui::Command::runCommand(Gui::Command::Gui,cmd.toUtf8());
         if (elements.length() > 2) {
-            App::Document* doc = App::GetApplication().getDocument(elements[0].toLatin1());
-            App::DocumentObject* obj = doc->getObject(elements[1].toLatin1());
+            App::Document* doc = App::GetApplication().getDocument(elements[0].toUtf8());
+            App::DocumentObject* obj = doc->getObject(elements[1].toUtf8());
             QString property = getProperty(obj);
 
             cmd = QString("shp = App.getDocument(\"%1\").getObject(\"%2\").%3")
                     .arg(elements[0], elements[1], property);
-            Gui::Command::runCommand(Gui::Command::Gui,cmd.toLatin1());
+            Gui::Command::runCommand(Gui::Command::Gui,cmd.toUtf8());
 
             if (supportPart(obj, elements[2])) {
                 cmd = QString("elt = App.getDocument(\"%1\").getObject(\"%2\").%3.%4")
                         .arg(elements[0], elements[1], property, elements[2]);
-                Gui::Command::runCommand(Gui::Command::Gui,cmd.toLatin1());
+                Gui::Command::runCommand(Gui::Command::Gui,cmd.toUtf8());
             }
         }
     }
@@ -315,16 +315,16 @@ void SelectionView::showPart(void)
         return;
     QStringList elements = item->data(Qt::UserRole).toStringList();
     if (elements.length() > 2) {
-        App::Document* doc = App::GetApplication().getDocument(elements[0].toLatin1());
-        App::DocumentObject* obj = doc->getObject(elements[1].toLatin1());
+        App::Document* doc = App::GetApplication().getDocument(elements[0].toUtf8());
+        App::DocumentObject* obj = doc->getObject(elements[1].toUtf8());
         QString module = getModule(obj->getTypeId().getName());
         QString property = getProperty(obj);
         if (!module.isEmpty() && !property.isEmpty() && supportPart(obj, elements[2])) {
             try {
-                Gui::Command::addModule(Gui::Command::Gui, module.toLatin1());
+                Gui::Command::addModule(Gui::Command::Gui, module.toUtf8());
                 QString cmd = QString("%1.show(App.getDocument(\"%2\").getObject(\"%3\").%4.%5)")
                         .arg(module, elements[0], elements[1], property, elements[2]);
-                Gui::Command::runCommand(Gui::Command::Gui,cmd.toLatin1());
+                Gui::Command::runCommand(Gui::Command::Gui,cmd.toUtf8());
             }
             catch (const Base::Exception& e) {
                 e.ReportException();

@@ -140,7 +140,7 @@ void OCAFBrowser::load(QTreeWidget* theTree)
     theTree->clear();
 
     QTreeWidgetItem* root = new QTreeWidgetItem();
-    root->setText(0, QLatin1String("0"));
+    root->setText(0, QString("0"));
     root->setIcon(0, myGroupIcon);
     theTree->addTopLevelItem(root);
 
@@ -232,7 +232,7 @@ void OCAFBrowser::load(const TDF_Label& label, QTreeWidgetItem* item, const QStr
                 child->setText(0, text);
             }
             else {
-                child->setText(0, QLatin1String(attr->DynamicType()->Name()));
+                child->setText(0, QString(attr->DynamicType()->Name()));
             }
         }
     }

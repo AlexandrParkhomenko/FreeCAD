@@ -264,7 +264,7 @@ void Command::invoke(int i)
     catch (Base::Exception &e) {
         e.ReportException();
         // Pop-up a dialog for FreeCAD-specific exceptions
-        QMessageBox::critical(Gui::getMainWindow(), QObject::tr("Exception"), QLatin1String(e.what()));
+        QMessageBox::critical(Gui::getMainWindow(), QObject::tr("Exception"), QString(e.what()));
     }
     catch (std::exception &e) {
         Base::Console().Error("C++ exception thrown (%s)\n", e.what());
@@ -587,7 +587,7 @@ const char* Command::keySequenceToAccel(int sk) const
     QKeySequence::StandardKey type = (QKeySequence::StandardKey)sk;
     QKeySequence ks(type);
     QString qs = ks.toString();
-    QByteArray data = qs.toLatin1();
+    QByteArray data = qs.toUtf8();
 
     return (strings[sk] = static_cast<const char*>(data)).c_str();
 }

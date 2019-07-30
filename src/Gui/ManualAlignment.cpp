@@ -1223,14 +1223,14 @@ void ManualAlignment::probePickedCallback(void * ud, SoEventCallback * n)
             else
                 nPoints = self->myFixedGroup.countPoints();
             QMenu menu;
-            QAction* fi = menu.addAction(QLatin1String("&Align"));
-            QAction* rem = menu.addAction(QLatin1String("&Remove last point"));
+            QAction* fi = menu.addAction(QString("&Align"));
+            QAction* rem = menu.addAction(QString("&Remove last point"));
             //QAction* cl = menu.addAction("C&lear");
-            QAction* ca = menu.addAction(QLatin1String("&Cancel"));
+            QAction* ca = menu.addAction(QString("&Cancel"));
             fi->setEnabled(self->canAlign());
             rem->setEnabled(nPoints > 0);
             menu.addSeparator();
-            QAction* sync = menu.addAction(QLatin1String("&Synchronize views"));
+            QAction* sync = menu.addAction(QString("&Synchronize views"));
             sync->setCheckable(true);
             if (self->d->sensorCam1->getAttachedNode())
                 sync->setChecked(true);

@@ -18,12 +18,12 @@
 using namespace Gui::Dialog;
 
 namespace Gui { namespace Dialog {
-typedef std::vector< std::pair<QLatin1String, QString> > GroupMap;
+typedef std::vector< std::pair<QString, QString> > GroupMap;
 
 struct GroupMap_find {
-    const QLatin1String& item;
-    GroupMap_find(const QLatin1String& item) : item(item) {}
-    bool operator () (const std::pair<QLatin1String, QString>& elem) const
+    const QString& item;
+    GroupMap_find(const QString& item) : item(item) {}
+    bool operator () (const std::pair<QString, QString>& elem) const
     {
         return elem.first == item;
     }
@@ -60,17 +60,17 @@ DlgCustomCommandsImp::DlgCustomCommandsImp( QWidget* parent  )
     std::map<std::string,Command*> sCommands = cCmdMgr.getCommands();
 
     GroupMap groupMap;
-    groupMap.push_back(std::make_pair(QLatin1String("File"), QString()));
-    groupMap.push_back(std::make_pair(QLatin1String("Edit"), QString()));
-    groupMap.push_back(std::make_pair(QLatin1String("View"), QString()));
-    groupMap.push_back(std::make_pair(QLatin1String("Standard-View"), QString()));
-    groupMap.push_back(std::make_pair(QLatin1String("Tools"), QString()));
-    groupMap.push_back(std::make_pair(QLatin1String("Window"), QString()));
-    groupMap.push_back(std::make_pair(QLatin1String("Help"), QString()));
-    groupMap.push_back(std::make_pair(QLatin1String("Macros"), qApp->translate("Gui::MacroCommand", "Macros")));
+    groupMap.push_back(std::make_pair(QString("File"), QString()));
+    groupMap.push_back(std::make_pair(QString("Edit"), QString()));
+    groupMap.push_back(std::make_pair(QString("View"), QString()));
+    groupMap.push_back(std::make_pair(QString("Standard-View"), QString()));
+    groupMap.push_back(std::make_pair(QString("Tools"), QString()));
+    groupMap.push_back(std::make_pair(QString("Window"), QString()));
+    groupMap.push_back(std::make_pair(QString("Help"), QString()));
+    groupMap.push_back(std::make_pair(QString("Macros"), qApp->translate("Gui::MacroCommand", "Macros")));
 
     for (std::map<std::string,Command*>::iterator it = sCommands.begin(); it != sCommands.end(); ++it) {
-        QLatin1String group(it->second->getGroupName());
+        QString group(it->second->getGroupName());
         QString text = qApp->translate(it->second->className(), it->second->getGroupName());
         GroupMap::iterator jt;
         jt = std::find_if(groupMap.begin(), groupMap.end(), GroupMap_find(group));
@@ -126,8 +126,8 @@ void DlgCustomCommandsImp::onGroupActivated(QTreeWidgetItem* item)
     commandTreeWidget->clear();
 
     CommandManager & cCmdMgr = Application::Instance->commandManager();
-    std::vector<Command*> aCmds = cCmdMgr.getGroupCommands(group.toLatin1());
-    if (group == QLatin1String("Macros")) {
+    std::vector<Command*> aCmds = cCmdMgr.getGroupCommands(group.toUtf8());
+    if (group == QString("Macros")) {
         for (std::vector<Command*>::iterator it = aCmds.begin(); it != aCmds.end(); ++it) {
             QTreeWidgetItem* item = new QTreeWidgetItem(commandTreeWidget);
             item->setText(1, QString((*it)->getMenuText()));
@@ -161,7 +161,7 @@ void DlgCustomCommandsImp::onAddMacroAction(const QByteArray& macro)
 
     QVariant data = item->data(0, Qt::UserRole);
     QString group = data.toString();
-    if (group == QLatin1String("Macros"))
+    if (group == QString("Macros"))
     {
         CommandManager & cCmdMgr = Application::Instance->commandManager();
         Command* pCmd = cCmdMgr.getCommandByName(macro);
@@ -184,7 +184,7 @@ void DlgCustomCommandsImp::onRemoveMacroAction(const QByteArray& macro)
 
     QVariant data = item->data(0, Qt::UserRole);
     QString group = data.toString();
-    if (group == QLatin1String("Macros"))
+    if (group == QString("Macros"))
     {
         for (int i=0; i<commandTreeWidget->topLevelItemCount(); i++) {
             QTreeWidgetItem* item = commandTreeWidget->topLevelItem(i);
@@ -206,7 +206,7 @@ void DlgCustomCommandsImp::onModifyMacroAction(const QByteArray& macro)
 
     QVariant data = item->data(0, Qt::UserRole);
     QString group = data.toString();
-    if (group == QLatin1String("Macros"))
+    if (group == QString("Macros"))
     {
         CommandManager & cCmdMgr = Application::Instance->commandManager();
         Command* pCmd = cCmdMgr.getCommandByName(macro);

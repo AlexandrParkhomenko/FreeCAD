@@ -920,10 +920,10 @@ void Document::SaveDocFile (Base::Writer &writer) const {
             (*it)->onMsg("GetCamera",&ppReturn);
 
             // remove the first line because it's a comment like '#Inventor V2.1 ascii'
-            QStringList lines = QString(QString(ppReturn)).split(QLatin1String("\n"));
+            QStringList lines = QString(QString(ppReturn)).split(QString("\n"));
             if (lines.size() > 1) {
                 lines.pop_front();
-                viewPos = lines.join(QLatin1String(" "));
+                viewPos = lines.join(QString(" "));
                 break;
             }
         }
@@ -931,7 +931,7 @@ void Document::SaveDocFile (Base::Writer &writer) const {
 
     writer.incInd(); // indentation for camera settings
     writer.Stream() << writer.ind() << "<Camera settings=\"" 
-                    << (const char*)viewPos.toLatin1() <<"\"/>" << std::endl;
+                    << (const char*)viewPos.toUtf8() <<"\"/>" << std::endl;
     writer.decInd(); // indentation for camera settings
     writer.Stream() << "</Document>" << std::endl;
 }
@@ -1264,14 +1264,14 @@ bool Document::canClose ()
         QAbstractButton* saveBtn = box.button(QMessageBox::Save);
         if (saveBtn->shortcut().isEmpty()) {
             QString text = saveBtn->text();
-            text.prepend(QLatin1Char('&'));
+            text.prepend(QChar('&'));
             saveBtn->setShortcut(QKeySequence::mnemonic(text));
         }
 
         QAbstractButton* discardBtn = box.button(QMessageBox::Discard);
         if (discardBtn->shortcut().isEmpty()) {
             QString text = discardBtn->text();
-            text.prepend(QLatin1Char('&'));
+            text.prepend(QChar('&'));
             discardBtn->setShortcut(QKeySequence::mnemonic(text));
         }
 

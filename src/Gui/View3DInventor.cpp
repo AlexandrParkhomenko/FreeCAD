@@ -227,7 +227,7 @@ void View3DInventor::OnChange(ParameterGrp::SubjectType &rCaller,ParameterGrp::M
         std::string pos = rGrp.GetASCII("HeadlightDirection");
         QString flt = QString("([-+]?[0-9]+\\.?[0-9]+)");
         QRegExp rx(QString("^\\(%1,%1,%1\\)$").arg(flt));
-        if (rx.indexIn(QLatin1String(pos.c_str())) > -1) {
+        if (rx.indexIn(QString(pos.c_str())) > -1) {
             float x = rx.cap(1).toFloat();
             float y = rx.cap(2).toFloat();
             float z = rx.cap(3).toFloat();
@@ -252,7 +252,7 @@ void View3DInventor::OnChange(ParameterGrp::SubjectType &rCaller,ParameterGrp::M
         std::string pos = rGrp.GetASCII("BacklightDirection");
         QString flt = QString("([-+]?[0-9]+\\.?[0-9]+)");
         QRegExp rx(QString("^\\(%1,%1,%1\\)$").arg(flt));
-        if (rx.indexIn(QLatin1String(pos.c_str())) > -1) {
+        if (rx.indexIn(QString(pos.c_str())) > -1) {
             float x = rx.cap(1).toFloat();
             float y = rx.cap(2).toFloat();
             float z = rx.cap(3).toFloat();

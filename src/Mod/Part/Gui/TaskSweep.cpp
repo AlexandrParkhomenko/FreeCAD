@@ -293,7 +293,7 @@ bool SweepWidget::accept()
     for (int i=0; i<count; i++) {
         QTreeWidgetItem* child = d->ui.selector->selectedTreeWidget()->topLevelItem(i);
         QString name = child->data(0, Qt::UserRole).toString();
-        if (name == QLatin1String(spineObject.c_str())) {
+        if (name == QString(spineObject.c_str())) {
             QMessageBox::critical(this, tr("Wrong selection"), tr("'%1' cannot be used as profile and path.")
                 .arg(QString(spineLabel.c_str())));
             return false;
@@ -312,7 +312,7 @@ bool SweepWidget::accept()
             "App.getDocument('%5').ActiveObject.Frenet=%4\n"
             )
             .arg(list)
-            .arg(QLatin1String(selection.c_str()))
+            .arg(QString(selection.c_str()))
             .arg(solid)
             .arg(frenet)
             .arg(QString(d->document.c_str()));
@@ -321,7 +321,7 @@ bool SweepWidget::accept()
         if (!doc)
             throw Base::RuntimeError("Document doesn't exist anymore");
         doc->openCommand("Sweep");
-        Gui::Command::runCommand(Gui::Command::App, cmd.toLatin1());
+        Gui::Command::runCommand(Gui::Command::App, cmd.toUtf8());
         doc->getDocument()->recompute();
         App::DocumentObject* obj = doc->getDocument()->getActiveObject();
         if (obj && !obj->isValid()) {

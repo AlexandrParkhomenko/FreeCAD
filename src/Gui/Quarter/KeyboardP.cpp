@@ -83,7 +83,7 @@ KeyboardP::keyEvent(QKeyEvent * qevent)
 
   //Need to use a temporary to avoid reference becoming deleted before
   //we get a hold of it.
-  QByteArray tmp = qevent->text().toLatin1();
+  QByteArray tmp = qevent->text().toUtf8();
   const char * printable = tmp.constData();
   this->keyboard->setPrintableCharacter(*printable);
   this->keyboard->setKey(sokey);
