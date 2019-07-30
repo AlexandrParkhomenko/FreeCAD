@@ -102,7 +102,7 @@ void SoFCOffscreenRenderer::writeToImageFile(const char* filename, const char* c
         image.save(&buffer, "JPG");
         writeJPEGComment(com, ba);
 
-        QFile file(QString(filename));
+        QFile file(filename);
         if (file.open(QFile::WriteOnly)) {
             file.write(ba);
             file.close();
@@ -131,7 +131,7 @@ void SoFCOffscreenRenderer::writeToImageFile(const char* filename, const char* c
             QImage img = image;
             // set keywords for PNG format
             if (file.hasExtension(".PNG")) {
-                img.setText(QLatin1String("Title"), QString(filename));
+                img.setText(QLatin1String("Title"), filename);
                 img.setText(QLatin1String("Author"), QLatin1String("FreeCAD"));
                 if (strcmp(comment,"")==0)
                     img.setText(QLatin1String("Description"), QLatin1String("Screenshot created by FreeCAD"));
@@ -144,7 +144,7 @@ void SoFCOffscreenRenderer::writeToImageFile(const char* filename, const char* c
                     QString(App::GetApplication().getExecutableName()));
             }
 
-            QFile f(QString(filename));
+            QFile f(filename);
             if (f.open(QFile::WriteOnly)) {
                 if (img.save(&f, format.data())) {
                     f.close();

@@ -196,7 +196,7 @@ struct BaseExport Tools
      * @param s std::string, expected to be UTF-8 encoded.
      * @return String represented as a QString.
      */
-    static inline QString fromStdString(const std::string & s) { return QString(s.c_str(), s.size()); }
+    static inline QString fromStdString(const std::string & s) { return QString(s.c_str()); }
 };
 
 

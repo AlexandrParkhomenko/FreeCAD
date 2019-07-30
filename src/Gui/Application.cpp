@@ -1493,7 +1493,7 @@ void Application::runApplication(void)
         QDir cwd = QDir::current();
         std::list<std::string> files = App::Application::getCmdLineFiles();
         for (std::list<std::string>::iterator jt = files.begin(); jt != files.end(); ++jt) {
-            QString fn = QString(jt->c_str(), static_cast<int>(jt->size()));
+            QString fn = QString(jt->c_str());
             QFileInfo fi(fn);
             // if path name is relative make it absolute because the running instance
             // cannot determine the full path when trying to load the file

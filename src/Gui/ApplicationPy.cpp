@@ -662,7 +662,7 @@ PyObject* Application::sAddPreferencePage(PyObject * /*self*/, PyObject *args)
 {
     char *fn, *grp;
     if (PyArg_ParseTuple(args, "ss", &fn,&grp)) {
-        QFileInfo fi(QString(fn));
+        QFileInfo fi(fn);
         if (!fi.exists()) {
             PyErr_SetString(PyExc_RuntimeError, "UI file does not exist");
             return 0;
