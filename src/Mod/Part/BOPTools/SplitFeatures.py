@@ -15,7 +15,7 @@ import Part
 
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide2 import QtCore, QtGui
+    from PySide2 import QtCore, QtWidgets
 
 #-------------------------- translation-related code ----------------------------------------
 #(see forum thread "A new Part tool is being born... JoinFeatures!"
@@ -26,12 +26,12 @@ if FreeCAD.GuiUp:
         def _fromUtf8(s):
             return s
     try:
-        _encoding = QtGui.QApplication.UnicodeUTF8
+        _encoding = QtWidgets.QApplication.UnicodeUTF8
         def _translate(context, text, disambig):
-            return QtGui.QApplication.translate(context, text, disambig, _encoding)
+            return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
     except AttributeError:
         def _translate(context, text, disambig):
-            return QtGui.QApplication.translate(context, text, disambig)
+            return QtWidgets.QApplication.translate(context, text, disambig)
 #--------------------------/translation-related code ----------------------------------------
 
 def getIconPath(icon_dot_svg):
@@ -130,13 +130,13 @@ def cmdCreateBooleanFragmentsFeature(name, mode):
         FreeCADGui.doCommand("j.Proxy.execute(j)")
         FreeCADGui.doCommand("j.purgeTouched()")
     except Exception as err:
-        mb = QtGui.QMessageBox()
+        mb = QtWidgets.QMessageBox()
         mb.setIcon(mb.Icon.Warning)
         mb.setText(_translate("Part_SplitFeatures","Computing the result failed with an error: \n\n{err}\n\nClick 'Continue' to create the feature anyway, or 'Abort' to cancel.", None)
                    .format(err= str(err)))
         mb.setWindowTitle(_translate("Part_SplitFeatures","Bad selection", None))
-        btnAbort = mb.addButton(QtGui.QMessageBox.StandardButton.Abort)
-        btnOK = mb.addButton(_translate("Part_SplitFeatures","Continue",None), QtGui.QMessageBox.ButtonRole.ActionRole)
+        btnAbort = mb.addButton(QtWidgets.QMessageBox.StandardButton.Abort)
+        btnOK = mb.addButton(_translate("Part_SplitFeatures","Continue",None), QtWidgets.QMessageBox.ButtonRole.ActionRole)
         mb.setDefaultButton(btnOK)
 
         mb.exec_()
@@ -162,7 +162,7 @@ class CommandBooleanFragments:
         if len(FreeCADGui.Selection.getSelectionEx()) >= 1 :
             cmdCreateBooleanFragmentsFeature(name= "BooleanFragments", mode= "Standard")
         else:
-            mb = QtGui.QMessageBox()
+            mb = QtWidgets.QMessageBox()
             mb.setIcon(mb.Icon.Warning)
             mb.setText(_translate("Part_SplitFeatures", "Select at least two objects, or one or more compounds, first! If only one compound is selected, the compounded shapes will be intersected between each other (otherwise, compounds with self-intersections are invalid).", None))
             mb.setWindowTitle(_translate("Part_SplitFeatures","Bad selection", None))
@@ -251,13 +251,13 @@ def cmdCreateSliceFeature(name, mode, transaction= True):
         FreeCADGui.doCommand("f.Proxy.execute(f)")
         FreeCADGui.doCommand("f.purgeTouched()")
     except Exception as err:
-        mb = QtGui.QMessageBox()
+        mb = QtWidgets.QMessageBox()
         mb.setIcon(mb.Icon.Warning)
         mb.setText(_translate("Part_SplitFeatures","Computing the result failed with an error: \n\n{err}\n\nClick 'Continue' to create the feature anyway, or 'Abort' to cancel.", None)
                    .format(err= str(err)))
         mb.setWindowTitle(_translate("Part_SplitFeatures","Bad selection", None))
-        btnAbort = mb.addButton(QtGui.QMessageBox.StandardButton.Abort)
-        btnOK = mb.addButton(_translate("Part_SplitFeatures","Continue",None), QtGui.QMessageBox.ButtonRole.ActionRole)
+        btnAbort = mb.addButton(QtWidgets.QMessageBox.StandardButton.Abort)
+        btnOK = mb.addButton(_translate("Part_SplitFeatures","Continue",None), QtWidgets.QMessageBox.ButtonRole.ActionRole)
         mb.setDefaultButton(btnOK)
 
         mb.exec_()
@@ -298,7 +298,7 @@ class CommandSlice:
         if len(FreeCADGui.Selection.getSelectionEx()) > 1 :
             cmdCreateSliceFeature(name= "Slice", mode= "Split")
         else:
-            mb = QtGui.QMessageBox()
+            mb = QtWidgets.QMessageBox()
             mb.setIcon(mb.Icon.Warning)
             mb.setText(_translate("Part_SplitFeatures", "Select at least two objects, first! First one is the object to be sliced; the rest are objects to slice with.", None))
             mb.setWindowTitle(_translate("Part_SplitFeatures","Bad selection", None))
@@ -322,7 +322,7 @@ class CommandSliceApart:
         if len(FreeCADGui.Selection.getSelectionEx()) > 1 :
             cmdSliceApart()
         else:
-            mb = QtGui.QMessageBox()
+            mb = QtWidgets.QMessageBox()
             mb.setIcon(mb.Icon.Warning)
             mb.setText(_translate("Part_SplitFeatures", "Select at least two objects, first! First one is the object to be sliced; the rest are objects to slice with.", None))
             mb.setWindowTitle(_translate("Part_SplitFeatures","Bad selection", None))
@@ -424,13 +424,13 @@ def cmdCreateXORFeature(name):
         FreeCADGui.doCommand("j.Proxy.execute(j)")
         FreeCADGui.doCommand("j.purgeTouched()")
     except Exception as err:
-        mb = QtGui.QMessageBox()
+        mb = QtWidgets.QMessageBox()
         mb.setIcon(mb.Icon.Warning)
         mb.setText(_translate("Part_SplitFeatures","Computing the result failed with an error: \n\n{err}\n\nClick 'Continue' to create the feature anyway, or 'Abort' to cancel.", None)
                    .format(err= str(err)))
         mb.setWindowTitle(_translate("Part_SplitFeatures","Bad selection", None))
-        btnAbort = mb.addButton(QtGui.QMessageBox.StandardButton.Abort)
-        btnOK = mb.addButton(_translate("Part_SplitFeatures","Continue",None), QtGui.QMessageBox.ButtonRole.ActionRole)
+        btnAbort = mb.addButton(QtWidgets.QMessageBox.StandardButton.Abort)
+        btnOK = mb.addButton(_translate("Part_SplitFeatures","Continue",None), QtWidgets.QMessageBox.ButtonRole.ActionRole)
         mb.setDefaultButton(btnOK)
 
         mb.exec_()
@@ -456,7 +456,7 @@ class CommandXOR:
         if len(FreeCADGui.Selection.getSelectionEx()) >= 1 :
             cmdCreateXORFeature(name= "XOR")
         else:
-            mb = QtGui.QMessageBox()
+            mb = QtWidgets.QMessageBox()
             mb.setIcon(mb.Icon.Warning)
             mb.setText(_translate("Part_SplitFeatures", "Select at least two objects, or one or more compounds, first! If only one compound is selected, the compounded shapes will be intersected between each other (otherwise, compounds with self-intersections are invalid).", None))
             mb.setWindowTitle(_translate("Part_SplitFeatures","Bad selection", None))

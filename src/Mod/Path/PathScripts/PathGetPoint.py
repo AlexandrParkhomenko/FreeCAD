@@ -10,7 +10,7 @@ import FreeCAD
 import FreeCADGui
 import PathScripts.PathLog as PathLog
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtWidgets
 from pivy import coin
 
 __title__ = "Path GetPoint UI"
@@ -66,9 +66,9 @@ class TaskPanel:
         '''addEscapeShortcut() ... internal function - do not call.'''
         # The only way I could get to intercept the escape key, or really any key was
         # by creating an action with a shortcut .....
-        self.escape = QtGui.QAction(self.formPoint)
+        self.escape = QtWidgets.QAction(self.formPoint)
         self.escape.setText('Done')
-        self.escape.setShortcut(QtGui.QKeySequence.fromString('Esc'))
+        self.escape.setShortcut(QtWidgets.QKeySequence.fromString('Esc'))
         QtCore.QObject.connect(self.escape, QtCore.SIGNAL('triggered()'), self.pointDone)
         self.formPoint.addAction(self.escape)
 

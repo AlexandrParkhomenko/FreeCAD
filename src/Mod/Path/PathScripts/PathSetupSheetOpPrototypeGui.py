@@ -9,7 +9,7 @@ import FreeCAD
 import PathScripts.PathLog as PathLog
 import PathScripts.PathSetupSheetOpPrototype as PathSetupSheetOpPrototype
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 
 __title__ = "Setup Sheet Editor"
 __author__ = "sliptonic (Brad Collette)"
@@ -51,7 +51,7 @@ class _PropertyEnumEditor(_PropertyEditor):
 
     def widget(self, parent):
         PathLog.track(self.prop.name, self.prop.getEnumValues())
-        return QtGui.QComboBox(parent)
+        return QtWidgets.QComboBox(parent)
 
     def setEditorData(self, widget):
         widget.clear()
@@ -69,7 +69,7 @@ class _PropertyBoolEditor(_PropertyEditor):
     '''Editor for boolean values - uses a combo box.'''
 
     def widget(self, parent):
-        return QtGui.QComboBox(parent)
+        return QtWidgets.QComboBox(parent)
 
     def setEditorData(self, widget):
         widget.clear()
@@ -85,7 +85,7 @@ class _PropertyStringEditor(_PropertyEditor):
     '''Editor for string values - uses a line edit.'''
 
     def widget(self, parent):
-        return QtGui.QLineEdit(parent)
+        return QtWidgets.QLineEdit(parent)
 
     def setEditorData(self, widget):
         text = '' if self.prop.getValue() is None else self.prop.getValue()
@@ -98,7 +98,7 @@ class _PropertyLengthEditor(_PropertyEditor):
     '''Editor for length values - uses a line edit.'''
 
     def widget(self, parent):
-        return QtGui.QLineEdit(parent)
+        return QtWidgets.QLineEdit(parent)
 
     def setEditorData(self, widget):
         quantity = self.prop.getValue()
@@ -113,7 +113,7 @@ class _PropertyPercentEditor(_PropertyEditor):
     '''Editor for percent values - uses a spin box.'''
 
     def widget(self, parent):
-        return QtGui.QSpinBox(parent)
+        return QtWidgets.QSpinBox(parent)
 
     def setEditorData(self, widget):
         widget.setRange(0, 100)
@@ -129,7 +129,7 @@ class _PropertyIntegerEditor(_PropertyEditor):
     '''Editor for integer values - uses a spin box.'''
 
     def widget(self, parent):
-        return QtGui.QSpinBox(parent)
+        return QtWidgets.QSpinBox(parent)
 
     def setEditorData(self, widget):
         value = self.prop.getValue()
@@ -144,7 +144,7 @@ class _PropertyFloatEditor(_PropertyEditor):
     '''Editor for float values - uses a double spin box.'''
 
     def widget(self, parent):
-        return QtGui.QDoubleSpinBox(parent)
+        return QtWidgets.QDoubleSpinBox(parent)
 
     def setEditorData(self, widget):
         value = self.prop.getValue()

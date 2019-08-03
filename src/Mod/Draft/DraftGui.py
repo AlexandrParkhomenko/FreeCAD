@@ -25,7 +25,7 @@ Report to Draft.py for info
 import FreeCAD, FreeCADGui, os, Draft, sys, DraftVecUtils, math
 
 try:
-    from PySide2 import QtCore, QtGui, QtSvg
+    from PySide2 import QtCore, QtGui, QtWidgets, QtSvg
 except ImportError:
     FreeCAD.Console.PrintMessage("Error: Python-PySide2 package must be installed on your system to use the Draft module.")
 
@@ -33,7 +33,7 @@ try:
     if sys.version_info.major >= 3:
         _encoding = None
     else:
-        _encoding = QtGui.QApplication.UnicodeUTF8
+        _encoding = QtWidgets.QApplication.UnicodeUTF8
     def translate(context, text, utf8_decode=True):
         """convenience function for Qt translator
             context: str
@@ -45,11 +45,11 @@ try:
                 on python3 as for python3 we are returning utf-8 encoded unicode by default!
         """
         if sys.version_info.major >= 3:
-            return QtGui.QApplication.translate(context, text, None)
+            return QtWidgets.QApplication.translate(context, text, None)
         elif utf8_decode:
-            return QtGui.QApplication.translate(context, text, None, _encoding)
+            return QtWidgets.QApplication.translate(context, text, None, _encoding)
         else:
-            return QtGui.QApplication.translate(context, text, None, _encoding).encode("utf8")
+            return QtWidgets.QApplication.translate(context, text, None, _encoding).encode("utf8")
 
 except AttributeError:
     def translate(context, text, utf8_decode=False):
@@ -63,17 +63,17 @@ except AttributeError:
                 on python3 as for python3 we are returning utf-8 encoded unicode by default!
         """
         if sys.version_info.major >= 3:
-            return QtGui.QApplication.translate(context, text, None)
+            return QtWidgets.QApplication.translate(context, text, None)
         elif QtCore.qVersion() > "4":
             if utf8_decode:
-                return QtGui.QApplication.translate(context, text, None)
+                return QtWidgets.QApplication.translate(context, text, None)
             else:
-                return QtGui.QApplication.translate(context, text, None).encode("utf8")
+                return QtWidgets.QApplication.translate(context, text, None).encode("utf8")
         else:
             if utf8_decode:
-                return QtGui.QApplication.translate(context, text, None, _encoding)
+                return QtWidgets.QApplication.translate(context, text, None, _encoding)
             else:
-                return QtGui.QApplication.translate(context, text, None, _encoding).encode("utf8")
+                return QtWidgets.QApplication.translate(context, text, None, _encoding).encode("utf8")
 
 def utf8_decode(text):
     """py2: str     -> unicode
@@ -254,32 +254,32 @@ def displayExternal(internValue,decimals=None,dim='Length',showUnit=True,unit=No
 # Customized widgets
 #---------------------------------------------------------------------------
 
-class DraftBaseWidget(QtGui.QWidget):
+class DraftBaseWidget(QtWidgets.QWidget):
     def __init__(self,parent = None):
-        QtGui.QWidget.__init__(self,parent)
+        QtWidgets.QWidget.__init__(self,parent)
     def eventFilter(self, widget, event):
         if event.type() == QtCore.QEvent.KeyPress and event.key()==inCommandShortcuts["CycleSnap"][0]:
             if hasattr(FreeCADGui,"Snapper"):
                 FreeCADGui.Snapper.cycleSnapObject()
             return True
-        return QtGui.QWidget.eventFilter(self, widget, event)
+        return QtWidgets.QWidget.eventFilter(self, widget, event)
 
 class DraftDockWidget(DraftBaseWidget):
     "custom Widget that emits a resized() signal when resized"
     def __init__(self,parent = None):
-        QtGui.QWidget.__init__(self,parent)
+        QtWidgets.QWidget.__init__(self,parent)
     def resizeEvent(self,event):
         self.emit(QtCore.SIGNAL("resized()"))
     def changeEvent(self, event):
         if event.type() == QtCore.QEvent.LanguageChange:
             self.emit(QtCore.SIGNAL("retranslate()"))
         else:
-            QtGui.QWidget.changeEvent(self,event)
+            QtWidgets.QWidget.changeEvent(self,event)
                         
-class DraftLineEdit(QtGui.QLineEdit):
+class DraftLineEdit(QtWidgets.QLineEdit):
     "custom QLineEdit widget that has the power to catch Escape keypress"
     def __init__(self, parent=None):
-        QtGui.QLineEdit.__init__(self, parent)
+        QtWidgets.QLineEdit.__init__(self, parent)
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_Escape:
             self.emit(QtCore.SIGNAL("escaped()"))
@@ -288,7 +288,7 @@ class DraftLineEdit(QtGui.QLineEdit):
         elif event.key() == QtCore.Qt.Key_Down:
             self.emit(QtCore.SIGNAL("down()"))
         else:
-            QtGui.QLineEdit.keyPressEvent(self, event)
+            QtWidgets.QLineEdit.keyPressEvent(self, event)
 
 class DraftTaskPanel:
     def __init__(self,widget,extra=None):
@@ -300,7 +300,7 @@ class DraftTaskPanel:
         else:
             self.form = widget
     def getStandardButtons(self):
-        return int(QtGui.QDialogButtonBox.Close)
+        return int(QtWidgets.QDialogButtonBox.Close)
     def accept(self):
         if hasattr(FreeCADGui,"draftToolBar"):
             return FreeCADGui.draftToolBar.validatePoint()
@@ -354,7 +354,7 @@ class DraftToolBar:
         if self.taskmode:
             # add only a dummy widget, since widgets are created on demand
             self.baseWidget = DraftBaseWidget()
-            self.tray = QtGui.QToolBar(None)
+            self.tray = QtWidgets.QToolBar(None)
             self.tray.setObjectName("Draft tray")
             self.tray.setWindowTitle("Draft tray")
             self.toptray = self.tray
@@ -368,7 +368,7 @@ class DraftToolBar:
 
         else:
             # create the draft Toolbar                
-            self.draftWidget = QtGui.QDockWidget()
+            self.draftWidget = QtWidgets.QDockWidget()
             self.baseWidget = DraftDockWidget()
             self.draftWidget.setObjectName("draftToolbar")
             self.draftWidget.setTitleBarWidget(self.baseWidget)
@@ -378,7 +378,7 @@ class DraftToolBar:
             self.draftWidget.setVisible(False)
             self.draftWidget.toggleViewAction().setVisible(False)                               
             self.baseWidget.setObjectName("draftToolbar")
-            self.layout = QtGui.QHBoxLayout(self.baseWidget)
+            self.layout = QtWidgets.QHBoxLayout(self.baseWidget)
             self.layout.setObjectName("layout")
             self.toptray = self.layout
             self.bottomtray = self.layout
@@ -395,7 +395,7 @@ class DraftToolBar:
         p = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/General")
         bsize = p.GetInt("ToolbarIconSize",24)+2
         isize = p.GetInt("ToolbarIconSize",24)/3*2
-        button = QtGui.QPushButton(self.baseWidget)
+        button = QtWidgets.QPushButton(self.baseWidget)
         button.setObjectName(name)
         button.setMaximumSize(QtCore.QSize(width,bsize))
         if hide:
@@ -410,7 +410,7 @@ class DraftToolBar:
         return button
 
     def _label (self,name, layout, hide=True):
-        label = QtGui.QLabel(self.baseWidget)
+        label = QtWidgets.QLabel(self.baseWidget)
         label.setObjectName(name)
         if hide: label.hide()
         layout.addWidget(label)
@@ -432,7 +432,7 @@ class DraftToolBar:
         inputfield.setObjectName(name)
         if hide: inputfield.hide()
         if not width:
-            sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Preferred)
+            sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
             inputfield.setSizePolicy(sizePolicy)
         else:
             inputfield.setMaximumWidth(width)
@@ -441,10 +441,10 @@ class DraftToolBar:
 
     def _spinbox (self,name, layout, val=None, vmax=None, hide=True, double=False, size=None):
         if double:
-            sbox = QtGui.QDoubleSpinBox(self.baseWidget)
+            sbox = QtWidgets.QDoubleSpinBox(self.baseWidget)
             sbox.setDecimals(FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Units").GetInt("Decimals",2))
         else:
-            sbox = QtGui.QSpinBox(self.baseWidget)
+            sbox = QtWidgets.QSpinBox(self.baseWidget)
         sbox.setObjectName(name)
         if val: sbox.setValue(val)
         if vmax: sbox.setMaximum(vmax)
@@ -454,7 +454,7 @@ class DraftToolBar:
         return sbox
 
     def _checkbox (self,name, layout, checked=True, hide=True):
-        chk = QtGui.QCheckBox(self.baseWidget)
+        chk = QtWidgets.QCheckBox(self.baseWidget)
         chk.setChecked(checked)
         chk.setObjectName(name)
         if hide: chk.hide()
@@ -462,7 +462,7 @@ class DraftToolBar:
         return chk
 
     def _combo (self,name,layout,hide=True):
-        cb = QtGui.QComboBox(self.baseWidget)
+        cb = QtWidgets.QComboBox(self.baseWidget)
         cb.setObjectName(name)
         if hide: cb.hide()
         layout.addWidget(cb)
@@ -489,10 +489,10 @@ class DraftToolBar:
 
         # point
 
-        xl = QtGui.QHBoxLayout()
-        yl = QtGui.QHBoxLayout()
-        zl = QtGui.QHBoxLayout()
-        bl = QtGui.QHBoxLayout()
+        xl = QtWidgets.QHBoxLayout()
+        yl = QtWidgets.QHBoxLayout()
+        zl = QtWidgets.QHBoxLayout()
+        bl = QtWidgets.QHBoxLayout()
         self.layout.addLayout(xl)
         self.layout.addLayout(yl)
         self.layout.addLayout(zl)
@@ -515,8 +515,8 @@ class DraftToolBar:
         
         # additional line controls
 
-        ll = QtGui.QHBoxLayout()
-        al = QtGui.QHBoxLayout()
+        ll = QtWidgets.QHBoxLayout()
+        al = QtWidgets.QHBoxLayout()
         self.layout.addLayout(ll)
         self.layout.addLayout(al)
         self.labellength = self._label("labellength", ll)
@@ -547,16 +547,16 @@ class DraftToolBar:
  
         # options
         
-        fl = QtGui.QHBoxLayout()
+        fl = QtWidgets.QHBoxLayout()
         self.layout.addLayout(fl) 
         self.numFacesLabel = self._label("numfaceslabel", fl)      
         self.numFaces = self._spinbox("numFaces", fl, 3)
-        ol = QtGui.QHBoxLayout()
+        ol = QtWidgets.QHBoxLayout()
         self.layout.addLayout(ol)
         self.offsetLabel = self._label("offsetlabel", ol)
         self.offsetValue = self._inputfield("offsetValue", ol)
         self.offsetValue.setText(FreeCAD.Units.Quantity(0,FreeCAD.Units.Length).UserString)
-        rl = QtGui.QHBoxLayout()
+        rl = QtWidgets.QHBoxLayout()
         self.layout.addLayout(rl)
         self.labelRadius = self._label("labelRadius", rl)
         self.radiusValue = self._inputfield("radiusValue", rl)
@@ -577,12 +577,12 @@ class DraftToolBar:
         self.currentViewButton = self._pushbutton("view", self.layout,icon="view-isometric")
         self.resetPlaneButton = self._pushbutton("none", self.layout,icon="view-axonometric")
         self.isCopy = self._checkbox("isCopy",self.layout,checked=False)
-        gl = QtGui.QHBoxLayout()
+        gl = QtWidgets.QHBoxLayout()
         self.layout.addLayout(gl)
         self.gridLabel = self._label("gridLabel", gl)
         self.gridValue = self._inputfield("gridValue", gl)
         self.gridValue.setText(FreeCAD.Units.Quantity(0,FreeCAD.Units.Length).UserString)
-        ml = QtGui.QHBoxLayout()
+        ml = QtWidgets.QHBoxLayout()
         self.layout.addLayout(ml)
         self.mainlineLabel = self._label("mainlineLabel", ml)
         self.mainlineValue = self._spinbox("mainlineValue", ml)
@@ -590,11 +590,11 @@ class DraftToolBar:
 
         # spacer
         if not self.taskmode:
-            spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding,
-                                           QtGui.QSizePolicy.Minimum)
+            spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding,
+                                           QtWidgets.QSizePolicy.Minimum)
         else:
-            spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum,
-                                           QtGui.QSizePolicy.Expanding)
+            spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum,
+                                           QtWidgets.QSizePolicy.Expanding)
         self.layout.addItem(spacerItem)
         
 
@@ -839,7 +839,7 @@ class DraftToolBar:
             self.isTaskOn = True
             todo.delay(FreeCADGui.Control.closeDialog,None)
             self.baseWidget = DraftBaseWidget()
-            self.layout = QtGui.QVBoxLayout(self.baseWidget)
+            self.layout = QtWidgets.QVBoxLayout(self.baseWidget)
             self.setupToolBar(task=True)
             self.retranslateUi(self.baseWidget)
             self.panel = DraftTaskPanel(self.baseWidget,extra)
@@ -855,7 +855,7 @@ class DraftToolBar:
                         else:
                             self.form = [extra]
                 def getStandardButtons(self):
-                    return int(QtGui.QDialogButtonBox.Close)
+                    return int(QtWidgets.QDialogButtonBox.Close)
                 def accept(self):
                     FreeCADGui.ActiveDocument.resetEdit()
                     return True
@@ -993,10 +993,10 @@ class DraftToolBar:
         self.showCommandOptions(title)
         
     def labelUi(self,title=translate("draft","Label"),callback=None):
-        w = QtGui.QWidget()
+        w = QtWidgets.QWidget()
         w.setWindowTitle(translate("draft","Label type", utf8_decode=True))
-        l = QtGui.QVBoxLayout(w)
-        combo = QtGui.QComboBox()
+        l = QtWidgets.QVBoxLayout(w)
+        combo = QtWidgets.QComboBox()
         for s in ["Custom","Name","Label","Position","Length","Area","Volume","Tag","Material"]:
             combo.addItem(s)
         combo.setCurrentIndex(["Custom","Name","Label","Position","Length","Area","Volume","Tag","Material"].index(Draft.getParam("labeltype","Custom")))
@@ -1025,7 +1025,7 @@ class DraftToolBar:
         self.mask = None
         if self.taskmode:
             self.isTaskOn = False
-            self.baseWidget = QtGui.QWidget()
+            self.baseWidget = QtWidgets.QWidget()
         else:
             self.setTitle(translate("draft", "None"))
             self.labelx.setText(translate("draft", "X"))
@@ -1279,9 +1279,9 @@ class DraftToolBar:
     def relocate(self):
         "relocates the right-aligned buttons depending on the toolbar size"
         if self.baseWidget.geometry().width() < 400:
-            self.layout.setDirection(QtGui.QBoxLayout.TopToBottom)
+            self.layout.setDirection(QtWidgets.QBoxLayout.TopToBottom)
         else:
-            self.layout.setDirection(QtGui.QBoxLayout.LeftToRight)
+            self.layout.setDirection(QtWidgets.QBoxLayout.LeftToRight)
 
     def makeDumbTask(self,extra=None,callback=None):
         "create a dumb taskdialog to prevent deleting the temp object"
@@ -1290,7 +1290,7 @@ class DraftToolBar:
                 if extra:
                     self.form = [extra]
             def getStandardButtons(self):
-                return int(QtGui.QDialogButtonBox.Close)
+                return int(QtWidgets.QDialogButtonBox.Close)
             def reject(self):
                 if callback:
                     callback()
@@ -1327,7 +1327,7 @@ class DraftToolBar:
     def getcol(self):
         "opens a color picker dialog"
         oldColor = self.color
-        self.color=QtGui.QColorDialog.getColor()
+        self.color=QtWidgets.QColorDialog.getColor()
         if not QtGui.QColor.isValid(self.color): #user canceled
             self.color = oldColor
             return
@@ -1351,7 +1351,7 @@ class DraftToolBar:
     def getfacecol(self):
         "opens a color picker dialog"
         oldColor = self.facecolor
-        self.facecolor=QtGui.QColorDialog.getColor()
+        self.facecolor=QtWidgets.QColorDialog.getColor()
         if not QtGui.QColor.isValid(self.facecolor): #user canceled
             self.facecolor = oldColor
             return
@@ -1508,7 +1508,7 @@ class DraftToolBar:
                     dialogCaption = translate("draft", "Select a Font file")
                     dialogDir = os.path.dirname(Draft.getParam("FontFile",)) # reasonable default?
                     dialogFilter = "Fonts (*.ttf *.pfb *.otf);;All files (*.*)"
-                    fname = QtGui.QFileDialog.getOpenFileName(self.baseWidget,
+                    fname = QtWidgets.QFileDialog.getOpenFileName(self.baseWidget,
                                                               dialogCaption, 
                                                               dialogDir,
                                                               dialogFilter)
@@ -1874,11 +1874,11 @@ class DraftToolBar:
                 if hasattr(self.panel,"form"):
                     if isinstance(self.panel.form,list):
                         for w in self.panel.form:
-                            c = w.findChild(QtGui.QCheckBox,"ContinueCmd")
+                            c = w.findChild(QtWidgets.QCheckBox,"ContinueCmd")
                             if c:
                                 c.toggle()
                     else:
-                        c = self.panel.form.findChild(QtGui.QCheckBox,"ContinueCmd")
+                        c = self.panel.form.findChild(QtWidgets.QCheckBox,"ContinueCmd")
                         if c:
                             c.toggle()
         except:
@@ -1906,7 +1906,7 @@ class DraftToolBar:
 
     def popupMenu(self,mlist):
         "pops up a menu filled with the given list"
-        self.groupmenu = QtGui.QMenu()
+        self.groupmenu = QtWidgets.QMenu()
         for i in mlist:
             self.groupmenu.addAction(i)
         pos = FreeCADGui.getMainWindow().cursor().pos()
@@ -2125,10 +2125,10 @@ class DraftToolBar:
         #    def shouldShow(self):
         #        return True
         #self.traywidget = QtGui.QWidget()
-        #self.tray = QtGui.QVBoxLayout(self.traywidget)
+        #self.tray = QtWidgets.QVBoxLayout(self.traywidget)
         #self.tray.setObjectName("traylayout")
-        #self.toptray = QtGui.QHBoxLayout()
-        #self.bottomtray = QtGui.QHBoxLayout()
+        #self.toptray = QtWidgets.QHBoxLayout()
+        #self.bottomtray = QtWidgets.QHBoxLayout()
         #self.tray.addLayout(self.toptray)
         #self.tray.addLayout(self.bottomtray)
         #self.setupTray()
@@ -2170,26 +2170,26 @@ class FacebinderTaskPanel:
     def __init__(self):
         
         self.obj = None
-        self.form = QtGui.QWidget()
+        self.form = QtWidgets.QWidget()
         self.form.setObjectName("FacebinderTaskPanel")
-        self.grid = QtGui.QGridLayout(self.form)
+        self.grid = QtWidgets.QGridLayout(self.form)
         self.grid.setObjectName("grid")
-        self.title = QtGui.QLabel(self.form)
+        self.title = QtWidgets.QLabel(self.form)
         self.grid.addWidget(self.title, 0, 0, 1, 2)
 
         # tree
-        self.tree = QtGui.QTreeWidget(self.form)
+        self.tree = QtWidgets.QTreeWidget(self.form)
         self.grid.addWidget(self.tree, 1, 0, 1, 2)
         self.tree.setColumnCount(2)
         self.tree.setHeaderLabels(["Name","Subelement"])
 
         # buttons
-        self.addButton = QtGui.QPushButton(self.form)
+        self.addButton = QtWidgets.QPushButton(self.form)
         self.addButton.setObjectName("addButton")
         self.addButton.setIcon(QtGui.QIcon(":/icons/Arch_Add.svg"))
         self.grid.addWidget(self.addButton, 3, 0, 1, 1)
 
-        self.delButton = QtGui.QPushButton(self.form)
+        self.delButton = QtWidgets.QPushButton(self.form)
         self.delButton.setObjectName("delButton")
         self.delButton.setIcon(QtGui.QIcon(":/icons/Arch_Remove.svg"))
         self.grid.addWidget(self.delButton, 3, 1, 1, 1)
@@ -2205,7 +2205,7 @@ class FacebinderTaskPanel:
         return True
 
     def getStandardButtons(self):
-        return int(QtGui.QDialogButtonBox.Ok)
+        return int(QtWidgets.QDialogButtonBox.Ok)
 
     def update(self):
         'fills the treewidget'
@@ -2214,12 +2214,12 @@ class FacebinderTaskPanel:
             for f in self.obj.Faces:
                 if isinstance(f[1],tuple):
                     for subf in f[1]:
-                        item = QtGui.QTreeWidgetItem(self.tree)
+                        item = QtWidgets.QTreeWidgetItem(self.tree)
                         item.setText(0,f[0].Name)
                         item.setIcon(0,QtGui.QIcon(":/icons/Tree_Part.svg"))
                         item.setText(1,subf)  
                 else:
-                    item = QtGui.QTreeWidgetItem(self.tree)
+                    item = QtWidgets.QTreeWidgetItem(self.tree)
                     item.setText(0,f[0].Name)
                     item.setIcon(0,QtGui.QIcon(":/icons/Tree_Part.svg"))
                     item.setText(1,f[1])
@@ -2277,10 +2277,10 @@ class FacebinderTaskPanel:
         return True
 
     def retranslateUi(self, TaskPanel):
-        TaskPanel.setWindowTitle(QtGui.QApplication.translate("draft", "Faces", None))
-        self.delButton.setText(QtGui.QApplication.translate("draft", "Remove", None))
-        self.addButton.setText(QtGui.QApplication.translate("draft", "Add", None))
-        self.title.setText(QtGui.QApplication.translate("draft", "Facebinder elements", None))
+        TaskPanel.setWindowTitle(QtWidgets.QApplication.translate("draft", "Faces", None))
+        self.delButton.setText(QtWidgets.QApplication.translate("draft", "Remove", None))
+        self.addButton.setText(QtWidgets.QApplication.translate("draft", "Add", None))
+        self.title.setText(QtWidgets.QApplication.translate("draft", "Facebinder elements", None))
 
 
 class ScaleTaskPanel:
@@ -2289,43 +2289,43 @@ class ScaleTaskPanel:
 
     def __init__(self):
         self.sourceCmd = None
-        self.form = QtGui.QWidget()
-        layout = QtGui.QGridLayout(self.form)
-        self.xLabel = QtGui.QLabel()
+        self.form = QtWidgets.QWidget()
+        layout = QtWidgets.QGridLayout(self.form)
+        self.xLabel = QtWidgets.QLabel()
         layout.addWidget(self.xLabel,0,0,1,1)
-        self.xValue = QtGui.QDoubleSpinBox()
+        self.xValue = QtWidgets.QDoubleSpinBox()
         self.xValue.setDecimals(Draft.getParam("precision"))
         self.xValue.setRange(.0000001,1000000.0)
         self.xValue.setValue(1)
         layout.addWidget(self.xValue,0,1,1,1)
-        self.yLabel = QtGui.QLabel()
+        self.yLabel = QtWidgets.QLabel()
         layout.addWidget(self.yLabel,1,0,1,1)
-        self.yValue = QtGui.QDoubleSpinBox()
+        self.yValue = QtWidgets.QDoubleSpinBox()
         self.yValue.setDecimals(Draft.getParam("precision"))
         self.yValue.setRange(.0000001,1000000.0)
         self.yValue.setValue(1)
         layout.addWidget(self.yValue,1,1,1,1)
-        self.zLabel = QtGui.QLabel()
+        self.zLabel = QtWidgets.QLabel()
         layout.addWidget(self.zLabel,2,0,1,1)
-        self.zValue = QtGui.QDoubleSpinBox()
+        self.zValue = QtWidgets.QDoubleSpinBox()
         self.zValue.setDecimals(Draft.getParam("precision"))
         self.zValue.setRange(.0000001,1000000.0)
         self.zValue.setValue(1)
         layout.addWidget(self.zValue,2,1,1,1)
-        self.lock = QtGui.QCheckBox()
+        self.lock = QtWidgets.QCheckBox()
         layout.addWidget(self.lock,3,0,1,2)
-        self.relative = QtGui.QCheckBox()
+        self.relative = QtWidgets.QCheckBox()
         layout.addWidget(self.relative,4,0,1,2)
-        self.rLabel = QtGui.QLabel()
+        self.rLabel = QtWidgets.QLabel()
         layout.addWidget(self.rLabel,5,0,1,2)
-        self.isClone = QtGui.QRadioButton()
+        self.isClone = QtWidgets.QRadioButton()
         layout.addWidget(self.isClone,6,0,1,2)
         self.isClone.setChecked(True)
-        self.isOriginal = QtGui.QRadioButton()
+        self.isOriginal = QtWidgets.QRadioButton()
         layout.addWidget(self.isOriginal,7,0,1,2)
-        self.isCopy = QtGui.QRadioButton()
+        self.isCopy = QtWidgets.QRadioButton()
         layout.addWidget(self.isCopy,8,0,1,2)
-        self.pickrefButton = QtGui.QPushButton()
+        self.pickrefButton = QtWidgets.QPushButton()
         layout.addWidget(self.pickrefButton,9,0,1,2)
         QtCore.QObject.connect(self.xValue,QtCore.SIGNAL("valueChanged(double)"),self.setValue)
         QtCore.QObject.connect(self.yValue,QtCore.SIGNAL("valueChanged(double)"),self.setValue)
@@ -2342,17 +2342,17 @@ class ScaleTaskPanel:
             self.sourceCmd.scaleGhost(self.xValue.value(),self.yValue.value(),self.zValue.value(),self.relative.isChecked())
         
     def retranslateUi(self,widget=None):
-        self.form.setWindowTitle(QtGui.QApplication.translate("Draft", "Scale", None))
-        self.xLabel.setText(QtGui.QApplication.translate("Draft", "X factor", None))
-        self.yLabel.setText(QtGui.QApplication.translate("Draft", "Y factor", None))
-        self.zLabel.setText(QtGui.QApplication.translate("Draft", "Z factor", None))
-        self.lock.setText(QtGui.QApplication.translate("Draft", "Uniform scaling", None))
-        self.relative.setText(QtGui.QApplication.translate("Draft", "Working plane orientation", None))
-        self.rLabel.setText(QtGui.QApplication.translate("Draft", "Result", None))
-        self.isClone.setText(QtGui.QApplication.translate("Draft", "Create a clone", None))
-        self.isOriginal.setText(QtGui.QApplication.translate("Draft", "Modify original", None))
-        self.isCopy.setText(QtGui.QApplication.translate("Draft", "Create a copy", None))
-        self.pickrefButton.setText(QtGui.QApplication.translate("Draft", "Pick from/to points", None))
+        self.form.setWindowTitle(QtWidgets.QApplication.translate("Draft", "Scale", None))
+        self.xLabel.setText(QtWidgets.QApplication.translate("Draft", "X factor", None))
+        self.yLabel.setText(QtWidgets.QApplication.translate("Draft", "Y factor", None))
+        self.zLabel.setText(QtWidgets.QApplication.translate("Draft", "Z factor", None))
+        self.lock.setText(QtWidgets.QApplication.translate("Draft", "Uniform scaling", None))
+        self.relative.setText(QtWidgets.QApplication.translate("Draft", "Working plane orientation", None))
+        self.rLabel.setText(QtWidgets.QApplication.translate("Draft", "Result", None))
+        self.isClone.setText(QtWidgets.QApplication.translate("Draft", "Create a clone", None))
+        self.isOriginal.setText(QtWidgets.QApplication.translate("Draft", "Modify original", None))
+        self.isCopy.setText(QtWidgets.QApplication.translate("Draft", "Create a copy", None))
+        self.pickrefButton.setText(QtWidgets.QApplication.translate("Draft", "Pick from/to points", None))
 
     def pickRef(self):
         if self.sourceCmd:
@@ -2393,7 +2393,7 @@ class ScaleTaskPanel:
 #                w.setWindowTitle(newText)
 
 #    #handle children
-#    wKids = w.findChildren(QtGui.QWidget)
+#    wKids = w.findChildren(QtWidgets.QWidget)
 #    for i in wKids:
 #        className = i.metaObject().className()
 #        if hasattr(i,"text") and hasattr(i,"setText"):
@@ -2420,10 +2420,10 @@ class ScaleTaskPanel:
 class ShapeStringTaskPanel:
     '''A TaskPanel for ShapeString'''
     def __init__(self):
-        self.form = QtGui.QWidget()
+        self.form = QtWidgets.QWidget()
         self.form.setObjectName("ShapeStringTaskPanel")
         self.form.setWindowTitle(translate("draft","ShapeString"))
-        layout = QtGui.QVBoxLayout(self.form)
+        layout = QtWidgets.QVBoxLayout(self.form)
         uiFile = QtCore.QFile(u":/ui/TaskShapeString.ui")  #this has to change if ui not in Resource file
         loader = FreeCADGui.UiLoader()
         self.task = loader.load(uiFile)

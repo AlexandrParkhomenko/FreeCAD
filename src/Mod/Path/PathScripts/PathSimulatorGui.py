@@ -15,7 +15,7 @@ _filePath = os.path.dirname(os.path.abspath(__file__))
 
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide2 import QtGui, QtCore
+    from PySide2 import QtCore, QtWidgets
 
 # compiled with pyrcc4 -py3 Resources\CAM_Sim.qrc -o CAM_Sim_rc.py
 
@@ -36,7 +36,7 @@ class CAMSimTaskUi:
 
 
 def TSError(msg):
-    QtGui.QMessageBox.information(None, "Path Simulation", msg)
+    QtWidgets.QMessageBox.information(None, "Path Simulation", msg)
 
 
 class PathSimulation:
@@ -443,7 +443,7 @@ class PathSimulation:
         form.listOperations.clear()
         self.operations = []
         for op in j.Operations.OutList:
-            listItem = QtGui.QListWidgetItem(op.ViewObject.Icon, op.Label)
+            listItem = QtWidgets.QListWidgetItem(op.ViewObject.Icon, op.Label)
             listItem.setFlags(listItem.flags() | QtCore.Qt.ItemIsUserCheckable)
             listItem.setCheckState(QtCore.Qt.CheckState.Checked)
             self.operations.append(op)

@@ -69,8 +69,8 @@ class CommandEditAttachment:
         try:
             editAttachment()
         except Exception as err:
-            from PySide2 import QtGui
-            mb = QtGui.QMessageBox()
+            from PySide2 import QtWidgets
+            mb = QtWidgets.QMessageBox()
             mb.setIcon(mb.Icon.Warning)
             mb.setText(str(err))
             mb.setWindowTitle("Error")

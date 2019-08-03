@@ -13,7 +13,7 @@ import PathScripts.PathStock as PathStock
 import json
 
 from FreeCAD import Units
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 from PathScripts.PathPostProcessor import PostProcessor
 
 
@@ -124,7 +124,7 @@ class JobPreferencesPage:
 
         blacklist = PathPreferences.postProcessorBlacklist()
         for processor in PathPreferences.allAvailablePostProcessors():
-            item = QtGui.QListWidgetItem(processor)
+            item = QtWidgets.QListWidgetItem(processor)
             if processor in blacklist:
                 item.setCheckState(QtCore.Qt.CheckState.Unchecked)
             else:
@@ -267,7 +267,7 @@ class JobPreferencesPage:
         path = self.form.leDefaultJobTemplate.text()
         if not path:
             path = self.bestGuessForFilePath()
-        foo = QtGui.QFileDialog.getOpenFileName(QtGui.QApplication.activeWindow(),
+        foo = QtWidgets.QFileDialog.getOpenFileName(QtWidgets.QApplication.activeWindow(),
                 "Path - Job Template",
                 path,
                 "job_*.json")[0]
@@ -277,13 +277,13 @@ class JobPreferencesPage:
 
     def browseDefaultFilePath(self):
         path = self.bestGuessForFilePath()
-        foo = QtGui.QFileDialog.getExistingDirectory(QtGui.QApplication.activeWindow(), "Path - External File Directory", path)
+        foo = QtWidgets.QFileDialog.getExistingDirectory(QtWidgets.QApplication.activeWindow(), "Path - External File Directory", path)
         if foo:
             self.form.leDefaultFilePath.setText(foo)
 
     def browseOutputFile(self):
         path = self.form.leOutputFile.text()
-        foo = QtGui.QFileDialog.getExistingDirectory(QtGui.QApplication.activeWindow(), "Path - Output File/Directory", path)
+        foo = QtWidgets.QFileDialog.getExistingDirectory(QtWidgets.QApplication.activeWindow(), "Path - Output File/Directory", path)
         if foo:
             self.form.leOutputFile.setText(foo)
 

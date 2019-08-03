@@ -17,7 +17,7 @@ import PathScripts.PathUtils as PathUtils
 import os
 
 from PathScripts.PathPostProcessor import PostProcessor
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 
 
 LOG_MODULE = PathLog.thisModule()
@@ -45,7 +45,7 @@ class DlgSelectPostProcessor:
         self.dialog = FreeCADGui.PySideUic.loadUi(":/panels/DlgSelectPostProcessor.ui")
         firstItem = None
         for post in PathPreferences.allEnabledPostProcessors():
-            item = QtGui.QListWidgetItem(post)
+            item = QtWidgets.QListWidgetItem(post)
             item.setFlags(QtCore.Qt.ItemFlag.ItemIsSelectable | QtCore.Qt.ItemFlag.ItemIsEnabled)
             self.dialog.lwPostProcessor.addItem(item)
             if not firstItem:
@@ -53,7 +53,7 @@ class DlgSelectPostProcessor:
         if firstItem:
             self.dialog.lwPostProcessor.setCurrentItem(firstItem)
         else:
-            self.dialog.buttonBox.button(QtGui.QDialogButtonBox.Ok).setEnabled(False)
+            self.dialog.buttonBox.button(QtWidgets.QDialogButtonBox.Ok).setEnabled(False)
         self.tooltips = {}
         self.dialog.lwPostProcessor.itemDoubleClicked.connect(self.dialog.accept)
         self.dialog.lwPostProcessor.setMouseTracking(True)
@@ -137,7 +137,7 @@ class CommandPathPost:
                 filename = "%s%03d%s" % (fn, n, ext)
 
         if openDialog:
-            foo = QtGui.QFileDialog.getSaveFileName(QtGui.QApplication.activeWindow(), "Output File", filename)
+            foo = QtWidgets.QFileDialog.getSaveFileName(QtWidgets.QApplication.activeWindow(), "Output File", filename)
             if foo:
                 filename = foo[0]
             else:

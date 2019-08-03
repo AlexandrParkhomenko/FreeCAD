@@ -14,7 +14,7 @@ import PathScripts.PathUtil as PathUtil
 import glob
 import os
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 from collections import Counter
 
 # Qt translation handling
@@ -29,15 +29,15 @@ if LOGLEVEL:
 else:
     PathLog.setLevel(PathLog.Level.INFO, PathLog.thisModule())
 
-class _ItemDelegate(QtGui.QStyledItemDelegate):
+class _ItemDelegate(QtWidgets.QStyledItemDelegate):
 
     def __init__(self, controller, parent):
         self.controller = controller
-        QtGui.QStyledItemDelegate.__init__(self, parent)
+        QtWidgets.QStyledItemDelegate.__init__(self, parent)
 
     def createEditor(self, parent, option, index):
         # pylint: disable=unused-argument
-        editor = QtGui.QSpinBox(parent)
+        editor = QtWidgets.QSpinBox(parent)
         self.controller.setupColumnEditor(index, editor)
         return editor
 
@@ -50,8 +50,8 @@ class JobCreate:
         self.itemsSolid = QtGui.QStandardItem(translate('PathJob', 'Solids'))
         self.items2D    = QtGui.QStandardItem(translate('PathJob', '2D'))
         self.itemsJob   = QtGui.QStandardItem(translate('PathJob', 'Jobs'))
-        self.dialog.templateGroup.hide()
-        self.dialog.modelGroup.hide()
+        #// self.dialog.templateGroup.hide()
+        #// self.dialog.modelGroup.hide()
         # debugging support
         self.candidates = None
         self.delegate = None
@@ -162,8 +162,8 @@ class JobCreate:
         if expandJobs:
             self.dialog.modelTree.setExpanded(self.itemsJob.index(), True)
 
-        self.dialog.modelTree.setEditTriggers(QtGui.QAbstractItemView.AllEditTriggers)
-        self.dialog.modelTree.setSelectionBehavior(QtGui.QAbstractItemView.SelectItems)
+        self.dialog.modelTree.setEditTriggers(QtWidgets.QAbstractItemView.AllEditTriggers)
+        self.dialog.modelTree.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectItems)
 
         self.dialog.modelGroup.show()
 
@@ -319,13 +319,13 @@ class JobTemplateExport:
 
         self.dialog.settingsOpsList.clear()
         for op in opsWithSettings:
-            item = QtGui.QListWidgetItem(op)
+            item = QtWidgets.QListWidgetItem(op)
             item.setCheckState(QtCore.Qt.CheckState.Checked)
             self.dialog.settingsOpsList.addItem(item)
 
         self.dialog.toolsList.clear()
         for tc in sorted(job.ToolController, key=lambda o: o.Label):
-            item = QtGui.QListWidgetItem(tc.Label)
+            item = QtWidgets.QListWidgetItem(tc.Label)
             item.setData(self.DataObject, tc)
             item.setCheckState(QtCore.Qt.CheckState.Checked)
             self.dialog.toolsList.addItem(item)

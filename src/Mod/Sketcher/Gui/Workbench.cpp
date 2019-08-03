@@ -4,7 +4,6 @@
  ***************************************************************************/
 
 
-
 # include <qobject.h>
 
 #include "Workbench.h"
@@ -35,19 +34,19 @@ Workbench::~Workbench()
 Gui::MenuItem* Workbench::setupMenuBar() const
 {
     Gui::MenuItem* root = StdWorkbench::setupMenuBar();
-    Gui::MenuItem* item = root->findItem("&Windows");
 
+/* //#    Gui::MenuItem* item = root->findItem("&Windows");
 // == Profile menu ==========================================
     Gui::MenuItem* profile = new Gui::MenuItem;
     root->insertItem(item, profile);
     profile->setCommand("P&rofiles");
 
     *profile << "Sketcher_ProfilesHexagon1";
-
+*/
 // == Sketcher menu ==========================================
 
     Gui::MenuItem* sketch = new Gui::MenuItem;
-    root->insertItem(profile, sketch);
+//#    root->insertItem(profile, sketch);
     sketch->setCommand("S&ketch");
     Gui::MenuItem* geom = new Gui::MenuItem();
     geom->setCommand("Sketcher geometries");

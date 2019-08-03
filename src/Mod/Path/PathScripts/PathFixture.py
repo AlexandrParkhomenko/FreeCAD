@@ -9,7 +9,7 @@ import FreeCAD
 import FreeCADGui
 import Path
 import PathScripts.PathUtils as PathUtils
-from PySide2 import QtCore#, QtGui
+from PySide2 import QtCore
 
 # Qt translation handling
 def translate(context, text, disambig=None):

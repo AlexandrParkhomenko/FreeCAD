@@ -92,7 +92,7 @@ void DlgExpressionInput::textChanged(const QString &text)
     try {
         //resize the input field according to text size
         QFontMetrics fm(ui->expression->font());
-        int width = fm.width(text) + 15;
+        int width = fm.horizontalAdvance(text) + 15;
         if (width < minimumWidth)
             ui->expression->setMinimumWidth(minimumWidth);
         else

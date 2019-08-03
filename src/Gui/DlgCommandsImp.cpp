@@ -220,7 +220,7 @@ void DlgCustomCommandsImp::onModifyMacroAction(const QByteArray& macro)
                 item->setSizeHint(0, QSize(32, 32));
                 if (pCmd->getPixmap())
                     item->setIcon(0, BitmapFactory().iconFromTheme(pCmd->getPixmap()));
-                if (commandTreeWidget->isItemSelected(item))
+                if (item->isSelected())
                     onDescription(item);
                 break;
             }

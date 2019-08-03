@@ -9,7 +9,7 @@ import FreeCAD, Part
 
 #if FreeCAD.GuiUp:
 #    import FreeCADGui
-#    from PySide2 import QtCore, QtGui
+#    from PySide2 import QtCore, QtGui, QtWidgets
 
 __title__="JoinFeatures module (legacy)"
 __author__ = "DeepSOIC"
@@ -25,12 +25,12 @@ FreeCAD v0.16. Do not use. Use BOPTools.JoinFeatures instead."
 #    def _fromUtf8(s):
 #        return s
 #try:
-#    _encoding = QtGui.QApplication.UnicodeUTF8
+#    _encoding = QtWidgets.QApplication.UnicodeUTF8
 #    def _translate(context, text, disambig):
-#        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+#        return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
 #except AttributeError:
 #    def _translate(context, text, disambig):
-#        return QtGui.QApplication.translate(context, text, disambig)
+#        return QtWidgets.QApplication.translate(context, text, disambig)
 ##--------------------------/translation-related code ----------------------------------------
 
 # -------------------------- common stuff --------------------------------------------------
@@ -156,13 +156,13 @@ class _ViewProviderPartJoinFeature:
 #        FreeCADGui.doCommand("j.Proxy.execute(j)")
 #        FreeCADGui.doCommand("j.purgeTouched()")
 #    except Exception as err:
-#        mb = QtGui.QMessageBox()
+#        mb = QtWidgets.QMessageBox()
 #        mb.setIcon(mb.Icon.Warning)
 #        mb.setText(_translate("Part_JoinFeatures","Computing the result failed with an error: {err}. Click 'Continue' to create the feature anyway, or 'Abort' to cancel.", None)
 #                   .format(err= str(err)))
 #        mb.setWindowTitle(_translate("Part_JoinFeatures","Bad selection", None))
-#        btnAbort = mb.addButton(QtGui.QMessageBox.StandardButton.Abort)
-#        btnOK = mb.addButton(_translate("Part_JoinFeatures","Continue",None), QtGui.QMessageBox.ButtonRole.ActionRole)
+#        btnAbort = mb.addButton(QtWidgets.QMessageBox.StandardButton.Abort)
+#        btnOK = mb.addButton(_translate("Part_JoinFeatures","Continue",None), QtWidgets.QMessageBox.ButtonRole.ActionRole)
 #        mb.setDefaultButton(btnOK)
 #
 #        mb.exec_()
@@ -195,7 +195,7 @@ def getIconPath(icon_dot_svg):
 #        if len(FreeCADGui.Selection.getSelectionEx()) == 2 :
 #            CreateJoinFeature(name = "Connect", mode = "Connect")
 #        else:
-#            mb = QtGui.QMessageBox()
+#            mb = QtWidgets.QMessageBox()
 #            mb.setIcon(mb.Icon.Warning)
 #            mb.setText(_translate("Part_JoinFeatures", "Two solids need to be selected, first!", None))
 #            mb.setWindowTitle(_translate("Part_JoinFeatures","Bad selection", None))
@@ -226,7 +226,7 @@ def getIconPath(icon_dot_svg):
 #        if len(FreeCADGui.Selection.getSelection()) == 2 :
 #            CreateJoinFeature(name = "Embed", mode = "Embed")
 #        else:
-#            mb = QtGui.QMessageBox()
+#            mb = QtWidgets.QMessageBox()
 #            mb.setIcon(mb.Icon.Warning)
 #            mb.setText(_translate("Part_JoinFeatures","Select base object, then the object to embed, and invoke this tool.", None))
 #            mb.setWindowTitle(_translate("Part_JoinFeatures","Bad selection", None))
@@ -259,7 +259,7 @@ def getIconPath(icon_dot_svg):
 #        if len(FreeCADGui.Selection.getSelection()) == 2 :
 #            CreateJoinFeature(name = "Cutout", mode = "Cutout")
 #        else:
-#            mb = QtGui.QMessageBox()
+#            mb = QtWidgets.QMessageBox()
 #            mb.setIcon(mb.Icon.Warning)
 #            mb.setText(_translate("Part_JoinFeatures","Select the object to make a cutout in, then the object that should fit into the cutout, and invoke this tool.", None))
 #            mb.setWindowTitle(_translate("Part_JoinFeatures","Bad selection", None))

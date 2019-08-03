@@ -67,7 +67,11 @@ INSTALL(TARGETS MeshPart DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 
 ################################ flat mesh ###############################
-if (BUILD_FLAT_MESH)
+# ELSE ERRORS
+#flatmesh-commands are not available
+#flatmesh needs pybind11 as build dependency
+#No module named 'flatmesh'Draft workbench deactivated
+#if (BUILD_FLAT_MESH)
     if (FREECAD_USE_PYBIND11)
         SET(FLATMESH_SRCS
             MeshFlattening.cpp
@@ -123,5 +127,5 @@ if (BUILD_FLAT_MESH)
             endif()
         endif()
     endif()
-endif(BUILD_FLAT_MESH)
+#endif(BUILD_FLAT_MESH)
 ############################################################################

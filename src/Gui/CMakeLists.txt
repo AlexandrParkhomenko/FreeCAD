@@ -54,30 +54,37 @@ include_directories(
         ${Qt5UiTools_LIBRARIES}
     )
 
-if(SHIBOKEN_INCLUDE_DIR)
+### MOVE THIS TO ROOT CMakeLists.txt
+find_package(PkgConfig REQUIRED)
+pkg_check_modules("PySide2" REQUIRED pyside2)
+#MESSAGE(STATUS "PySide2: ${PySide2_INCLUDE_DIRS}")
+# -- PySide2: /usr/include/PySide2;/usr/include/python3.7m;/usr/include/shiboken2/
+# get first element
+list(GET PySide2_INCLUDE_DIRS 0 PySide2_INCLUDE_DIR)
+pkg_check_modules("Shiboken2" REQUIRED shiboken2)
+
+if(Shiboken2_INCLUDE_DIRS)
     add_definitions(-DHAVE_SHIBOKEN2)
     include_directories(
-        ${SHIBOKEN_INCLUDE_DIR}
+        ${Shiboken2_INCLUDE_DIRS}
     )
     list(APPEND FreeCADGui_LIBS
-        ${SHIBOKEN_LIBRARY}
+        ${Shiboken2_LIBRARIES}
     )
-endif(SHIBOKEN_INCLUDE_DIR)
+endif(Shiboken2_INCLUDE_DIRS)
 
-if(PYSIDE_INCLUDE_DIR)
+if(PySide2_INCLUDE_DIRS)
     include_directories(
-        ${PYSIDE_INCLUDE_DIR}
-        ${PYSIDE_INCLUDE_DIR}/QtCore
-        ${PYSIDE_INCLUDE_DIR}/QtGui
+        ${PySide2_INCLUDE_DIRS}
+        ${PySide2_INCLUDE_DIR}/QtCore
+        ${PySide2_INCLUDE_DIR}/QtGui
+        ${PySide2_INCLUDE_DIR}/QtWidgets
     )
     list(APPEND FreeCADGui_LIBS
-        ${PYSIDE_LIBRARY}
-    )
-    include_directories(
-      ${PYSIDE_INCLUDE_DIR}/QtWidgets
+        ${PySide2_LIBRARIES}
     )
     add_definitions(-DHAVE_PYSIDE2)
-endif(PYSIDE_INCLUDE_DIR)
+endif(PySide2_INCLUDE_DIRS)
 
 generate_from_xml(DocumentPy)
 generate_from_xml(PythonWorkbenchPy)

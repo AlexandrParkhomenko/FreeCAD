@@ -8,7 +8,7 @@
 These are a common functions and classes for creating custom post processors.
 '''
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 import FreeCAD
 
 FreeCADGui = None
@@ -44,16 +44,16 @@ class GCodeHighlighter(QtGui.QSyntaxHighlighter):
 
 
 
-class GCodeEditorDialog(QtGui.QDialog):
+class GCodeEditorDialog(QtWidgets.QDialog):
     def __init__(self, parent = None):
         if parent is None:
             parent = FreeCADGui.getMainWindow()
-        QtGui.QDialog.__init__(self,parent)
+        QtWidgets.QDialog.__init__(self,parent)
 
-        layout = QtGui.QVBoxLayout(self)
+        layout = QtWidgets.QVBoxLayout(self)
 
         # nice text editor widget for editing the gcode
-        self.editor = QtGui.QTextEdit()
+        self.editor = QtWidgets.QTextEdit()
         font = QtGui.QFont()
         font.setFamily("Courier")
         font.setFixedPitch(True)
@@ -64,8 +64,8 @@ class GCodeEditorDialog(QtGui.QDialog):
         layout.addWidget(self.editor)
 
         # OK and Cancel buttons
-        self.buttons = QtGui.QDialogButtonBox(
-            QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Cancel,
+        self.buttons = QtWidgets.QDialogButtonBox(
+            QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel,
             QtCore.Qt.Horizontal, self)
         layout.addWidget(self.buttons)
 
@@ -90,7 +90,7 @@ class GCodeEditorDialog(QtGui.QDialog):
         params.SetInt("posY", self.y())
         params.SetInt("width", self.size().width())
         params.SetInt("height", self.size().height())
-        return QtGui.QDialog.done(self, *args, **kwargs)
+        return QtWidgets.QDialog.done(self, *args, **kwargs)
 
 
 def stringsplit(commandline):

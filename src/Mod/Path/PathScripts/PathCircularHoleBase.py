@@ -563,7 +563,7 @@ class ObjectOp(PathOp.ObjectOp):
         if show is True:
             if len(self.guiMsgs) > 0:
                 if FreeCAD.GuiUp:
-                    from PySide2.QtGui import QMessageBox
+                    from PySide2.QtWidgets import QMessageBox
                     for entry in self.guiMsgs:
                         (title, msg) = entry
                         QMessageBox.warning(None, title, msg)

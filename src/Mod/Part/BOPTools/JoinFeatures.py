@@ -15,7 +15,7 @@ import Part
 
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide2 import QtCore, QtGui
+    from PySide2 import QtCore, QtWidgets
     # -------------------------- common stuff --------------------------------------------------
     
     #-------------------------- translation-related code ----------------------------------------
@@ -28,12 +28,12 @@ if FreeCAD.GuiUp:
         def _fromUtf8(s):
             return s
     try:
-        _encoding = QtGui.QApplication.UnicodeUTF8
+        _encoding = QtWidgets.QApplication.UnicodeUTF8
         def _translate(context, text, disambig):
-            return QtGui.QApplication.translate(context, text, disambig, _encoding)
+            return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
     except AttributeError:
         def _translate(context, text, disambig):
-            return QtGui.QApplication.translate(context, text, disambig)
+            return QtWidgets.QApplication.translate(context, text, disambig)
 else:
     def _translate(context, text, disambig):
         return text
@@ -63,13 +63,13 @@ def cmdCreateJoinFeature(name, mode):
         FreeCADGui.doCommand("j.Proxy.execute(j)")
         FreeCADGui.doCommand("j.purgeTouched()")
     except Exception as err:
-        mb = QtGui.QMessageBox()
+        mb = QtWidgets.QMessageBox()
         mb.setIcon(mb.Icon.Warning)
         mb.setText(_translate("Part_JoinFeatures","Computing the result failed with an error: \n\n{err}\n\n Click 'Continue' to create the feature anyway, or 'Abort' to cancel.", None)
                    .format(err= str(err)))
         mb.setWindowTitle(_translate("Part_JoinFeatures","Bad selection", None))
-        btnAbort = mb.addButton(QtGui.QMessageBox.StandardButton.Abort)
-        btnOK = mb.addButton(_translate("Part_JoinFeatures","Continue",None), QtGui.QMessageBox.ButtonRole.ActionRole)
+        btnAbort = mb.addButton(QtWidgets.QMessageBox.StandardButton.Abort)
+        btnOK = mb.addButton(_translate("Part_JoinFeatures","Continue",None), QtWidgets.QMessageBox.ButtonRole.ActionRole)
         mb.setDefaultButton(btnOK)
 
         mb.exec_()
@@ -174,7 +174,7 @@ class CommandConnect:
         if len(FreeCADGui.Selection.getSelectionEx()) >= 1 :
             cmdCreateJoinFeature(name = "Connect", mode = "Connect")
         else:
-            mb = QtGui.QMessageBox()
+            mb = QtWidgets.QMessageBox()
             mb.setIcon(mb.Icon.Warning)
             mb.setText(_translate("Part_JoinFeatures", "Select at least two objects, or one or more compounds, first!", None))
             mb.setWindowTitle(_translate("Part_JoinFeatures","Bad selection", None))
@@ -261,7 +261,7 @@ class CommandEmbed:
         if len(FreeCADGui.Selection.getSelectionEx()) == 2 :
             cmdCreateJoinFeature(name = "Embed", mode = "Embed")
         else:
-            mb = QtGui.QMessageBox()
+            mb = QtWidgets.QMessageBox()
             mb.setIcon(mb.Icon.Warning)
             mb.setText(_translate("Part_JoinFeatures","Select base object, then the object to embed, and invoke this tool.", None))
             mb.setWindowTitle(_translate("Part_JoinFeatures","Bad selection", None))
@@ -350,7 +350,7 @@ class CommandCutout:
         if len(FreeCADGui.Selection.getSelectionEx()) == 2 :
             cmdCreateJoinFeature(name = "Cutout", mode = "Cutout")
         else:
-            mb = QtGui.QMessageBox()
+            mb = QtWidgets.QMessageBox()
             mb.setIcon(mb.Icon.Warning)
             mb.setText(_translate("Part_JoinFeatures","Select the object to make a cutout in, then the object that should fit into the cutout, and invoke this tool.", None))
             mb.setWindowTitle(_translate("Part_JoinFeatures","Bad selection", None))

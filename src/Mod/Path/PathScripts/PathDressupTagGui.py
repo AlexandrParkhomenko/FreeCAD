@@ -13,7 +13,7 @@ import PathScripts.PathLog as PathLog
 import PathScripts.PathPreferences as PathPreferences
 import PathScripts.PathUtils as PathUtils
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 from pivy import coin
 
 PathLog.setLevel(PathLog.Level.INFO, PathLog.thisModule())
@@ -59,10 +59,10 @@ class PathDressupTagTaskPanel:
         self.editItem = None
 
     def getStandardButtons(self):
-        return int(QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Apply | QtGui.QDialogButtonBox.Cancel)
+        return int(QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Apply | QtWidgets.QDialogButtonBox.Cancel)
 
     def clicked(self, button):
-        if button == QtGui.QDialogButtonBox.Apply:
+        if button == QtWidgets.QDialogButtonBox.Apply:
             self.getFields()
             self.obj.Proxy.execute(self.obj)
             self.isDirty = False
@@ -147,7 +147,7 @@ class PathDressupTagTaskPanel:
         self.form.lwTags.clear()
         for i, pos in enumerate(self.Positions):
             lbl = "%d: (%.2f, %.2f)" % (i, pos.x, pos.y)
-            item = QtGui.QListWidgetItem(lbl)
+            item = QtWidgets.QListWidgetItem(lbl)
             item.setData(self.DataX, pos.x)
             item.setData(self.DataY, pos.y)
             item.setData(self.DataZ, pos.z)

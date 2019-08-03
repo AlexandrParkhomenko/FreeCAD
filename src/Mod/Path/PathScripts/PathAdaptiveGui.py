@@ -4,7 +4,7 @@
 # ***************************************************************************/
 
 import PathScripts.PathOpGui as PathOpGui
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 import PathScripts.PathAdaptive as PathAdaptive
 
 
@@ -13,105 +13,105 @@ class TaskPanelOpPage(PathOpGui.TaskPanelPage):
         self.setTitle("Adaptive path operation")
 
     def getForm(self):
-        form = QtGui.QWidget()
-        layout = QtGui.QVBoxLayout()
+        form = QtWidgets.QWidget()
+        layout = QtWidgets.QVBoxLayout()
 
         # tool controller
-        hlayout = QtGui.QHBoxLayout()
-        form.ToolController = QtGui.QComboBox()
-        form.ToolControllerLabel = QtGui.QLabel("Tool Controller")
+        hlayout = QtWidgets.QHBoxLayout()
+        form.ToolController = QtWidgets.QComboBox()
+        form.ToolControllerLabel = QtWidgets.QLabel("Tool Controller")
         hlayout.addWidget(form.ToolControllerLabel)
         hlayout.addWidget(form.ToolController)
         layout.addLayout(hlayout)
 
         # cut region
-        formLayout = QtGui.QFormLayout()
-        form.Side = QtGui.QComboBox()
+        formLayout = QtWidgets.QFormLayout()
+        form.Side = QtWidgets.QComboBox()
         form.Side.addItem("Inside")
         form.Side.addItem("Outside")
         form.Side.setToolTip("Cut inside or outside of the selected shapes")
-        formLayout.addRow(QtGui.QLabel("Cut Region"), form.Side)
+        formLayout.addRow(QtWidgets.QLabel("Cut Region"), form.Side)
 
         # operation type
-        form.OperationType = QtGui.QComboBox()
+        form.OperationType = QtWidgets.QComboBox()
         form.OperationType.addItem("Clearing")
         form.OperationType.addItem("Profiling")
         form.OperationType.setToolTip("Type of adaptive operation")
-        formLayout.addRow(QtGui.QLabel("Operation Type"), form.OperationType)
+        formLayout.addRow(QtWidgets.QLabel("Operation Type"), form.OperationType)
 
         # step over
-        form.StepOver = QtGui.QSpinBox()
+        form.StepOver = QtWidgets.QSpinBox()
         form.StepOver.setMinimum(15)
         form.StepOver.setMaximum(75)
         form.StepOver.setSingleStep(1)
         form.StepOver.setValue(25)
         form.StepOver.setToolTip("Optimal value for tool stepover")
-        formLayout.addRow(QtGui.QLabel("Step Over Percent"), form.StepOver)
+        formLayout.addRow(QtWidgets.QLabel("Step Over Percent"), form.StepOver)
 
         # tolerance
-        form.Tolerance = QtGui.QSlider(QtCore.Qt.Horizontal)
+        form.Tolerance = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         form.Tolerance.setMinimum(5)
         form.Tolerance.setMaximum(15)
         form.Tolerance.setTickInterval(1)
         form.Tolerance.setValue(10)
-        form.Tolerance.setTickPosition(QtGui.QSlider.TicksBelow)
+        form.Tolerance.setTickPosition(QtWidgets.QSlider.TicksBelow)
         form.Tolerance.setToolTip("Influences calculation performance vs stability and accuracy.")
-        formLayout.addRow(QtGui.QLabel("Accuracy vs Performance"), form.Tolerance)
+        formLayout.addRow(QtWidgets.QLabel("Accuracy vs Performance"), form.Tolerance)
 
         # helix angle
-        form.HelixAngle = QtGui.QDoubleSpinBox()
+        form.HelixAngle = QtWidgets.QDoubleSpinBox()
         form.HelixAngle.setMinimum(0.1)
         form.HelixAngle.setMaximum(90)
         form.HelixAngle.setSingleStep(0.1)
         form.HelixAngle.setValue(5)
         form.HelixAngle.setToolTip("Angle of the helix ramp entry")
-        formLayout.addRow(QtGui.QLabel("Helix Ramp Angle"), form.HelixAngle)
+        formLayout.addRow(QtWidgets.QLabel("Helix Ramp Angle"), form.HelixAngle)
 
         # helix diam. limit
-        form.HelixDiameterLimit = QtGui.QDoubleSpinBox()
+        form.HelixDiameterLimit = QtWidgets.QDoubleSpinBox()
         form.HelixDiameterLimit.setMinimum(0.0)
         form.HelixDiameterLimit.setMaximum(90)
         form.HelixDiameterLimit.setSingleStep(0.1)
         form.HelixDiameterLimit.setValue(0)
         form.HelixDiameterLimit.setToolTip("If >0 it limits the helix ramp diameter\notherwise the 75 percent of tool diameter is used as helix diameter")
-        formLayout.addRow(QtGui.QLabel("Helix Max Diameter"), form.HelixDiameterLimit)
+        formLayout.addRow(QtWidgets.QLabel("Helix Max Diameter"), form.HelixDiameterLimit)
 
         # lift distance
-        form.LiftDistance = QtGui.QDoubleSpinBox()
+        form.LiftDistance = QtWidgets.QDoubleSpinBox()
         form.LiftDistance.setMinimum(0.0)
         form.LiftDistance.setMaximum(1000)
         form.LiftDistance.setSingleStep(0.1)
         form.LiftDistance.setValue(1.0)
         form.LiftDistance.setToolTip("How much to lift the tool up during the rapid linking moves over cleared regions.\nIf linking path is not clear tool is raised to clearence height.")
-        formLayout.addRow(QtGui.QLabel("Lift Distance"), form.LiftDistance)
+        formLayout.addRow(QtWidgets.QLabel("Lift Distance"), form.LiftDistance)
 
         # KeepToolDownRatio
-        form.KeepToolDownRatio = QtGui.QDoubleSpinBox()
+        form.KeepToolDownRatio = QtWidgets.QDoubleSpinBox()
         form.KeepToolDownRatio.setMinimum(1.0)
         form.KeepToolDownRatio.setMaximum(10)
         form.KeepToolDownRatio.setSingleStep(1)
         form.KeepToolDownRatio.setValue(3.0)
         form.KeepToolDownRatio.setToolTip("Max length of keep-tool-down linking path compared to direct distance between points.\nIf exceeded link will be done by raising the tool to clearence height.")
-        formLayout.addRow(QtGui.QLabel("Keep Tool Down Ratio"), form.KeepToolDownRatio)
+        formLayout.addRow(QtWidgets.QLabel("Keep Tool Down Ratio"), form.KeepToolDownRatio)
 
         # stock to leave
-        form.StockToLeave = QtGui.QDoubleSpinBox()
+        form.StockToLeave = QtWidgets.QDoubleSpinBox()
         form.StockToLeave.setMinimum(0.0)
         form.StockToLeave.setMaximum(1000)
         form.StockToLeave.setSingleStep(0.1)
         form.StockToLeave.setValue(0)
         form.StockToLeave.setToolTip("How much material to leave (i.e. for finishing operation)")
-        formLayout.addRow(QtGui.QLabel("Stock to Leave"), form.StockToLeave)
+        formLayout.addRow(QtWidgets.QLabel("Stock to Leave"), form.StockToLeave)
 
         # Force inside out
-        form.ForceInsideOut = QtGui.QCheckBox()
+        form.ForceInsideOut = QtWidgets.QCheckBox()
         form.ForceInsideOut.setChecked(True)
-        formLayout.addRow(QtGui.QLabel("Force Clearing Inside-Out"), form.ForceInsideOut)
+        formLayout.addRow(QtWidgets.QLabel("Force Clearing Inside-Out"), form.ForceInsideOut)
 
         layout.addLayout(formLayout)
 
         # stop button
-        form.StopButton = QtGui.QPushButton("Stop")
+        form.StopButton = QtWidgets.QPushButton("Stop")
         form.StopButton.setCheckable(True)
         layout.addWidget(form.StopButton)
 

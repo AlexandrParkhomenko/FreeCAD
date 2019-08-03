@@ -5,7 +5,7 @@
 # *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 
 # Qt translation handling
 def translate(context, text, disambig=None):
@@ -19,7 +19,7 @@ def RegisterDressup(dressup):
 class DressupPreferencesPage:
     def __init__(self, parent=None):
         # pylint: disable=unused-argument
-        self.form = QtGui.QToolBox()
+        self.form = QtWidgets.QToolBox()
         self.form.setWindowTitle(translate("Path_PreferencesPathDressup", 'Dressups'))
         pages = []
         for dressup in _dressups:

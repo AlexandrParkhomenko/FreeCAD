@@ -26,7 +26,7 @@ except ImportError as err:
 
 if App.GuiUp:
     import FreeCADGui as Gui
-    from PySide2 import QtCore, QtGui
+    from PySide2 import QtCore, QtGui, QtWidgets
     from FreeCADGui import PySideUic as uic
 
 #-------------------------- translation-related code ----------------------------------------
@@ -38,12 +38,12 @@ except AttributeError:
     def _fromUtf8(s):
         return s
 try:
-    _encoding = QtGui.QApplication.UnicodeUTF8
+    _encoding = QtWidgets.QApplication.UnicodeUTF8
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+        return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
+        return QtWidgets.QApplication.translate(context, text, disambig)
 #--------------------------/translation-related code ----------------------------------------
 
 def linkSubList_convertToOldStyle(references):
@@ -190,15 +190,15 @@ class AttachmentEditorTaskPanel(FrozenClass):
             self.obj_is_attachable = False
             self.attacher = Part.AttachEngine()
 
-            mb = QtGui.QMessageBox()
+            mb = QtWidgets.QMessageBox()
             mb.setIcon(mb.Icon.Warning)
             mb.setText(_translate('AttachmentEditor',
                          "{obj} is not attachable. You can still use attachment editor dialog to align the object, but the attachment won't be parametric."
                          ,None)
                        .format(obj= obj_to_attach.Label))
             mb.setWindowTitle(_translate('AttachmentEditor',"Attachment",None))
-            btnAbort = mb.addButton(QtGui.QMessageBox.StandardButton.Abort)
-            btnOK = mb.addButton(_translate('AttachmentEditor',"Continue",None),QtGui.QMessageBox.ButtonRole.ActionRole)
+            btnAbort = mb.addButton(QtWidgets.QMessageBox.StandardButton.Abort)
+            btnOK = mb.addButton(_translate('AttachmentEditor',"Continue",None),QtWidgets.QMessageBox.ButtonRole.ActionRole)
             mb.setDefaultButton(btnOK)
             mb.exec_()
             if mb.clickedButton() is btnAbort:
@@ -208,7 +208,7 @@ class AttachmentEditorTaskPanel(FrozenClass):
 
         import os
         self.form=uic.loadUi(os.path.dirname(__file__) + os.path.sep + 'TaskAttachmentEditor.ui')
-        self.form.setWindowIcon(QtGui.QIcon(':/icons/Part_Attachment.svg'))
+        self.form.setWindowIcon(QtWidgets.QDialog(':/icons/Part_Attachment.svg'))
         self.form.setWindowTitle(_translate('AttachmentEditor',"Attachment",None))
 
         self.refLines = [self.form.lineRef1,
@@ -279,10 +279,10 @@ class AttachmentEditorTaskPanel(FrozenClass):
 
     # task dialog handling
     def getStandardButtons(self):
-        return int(QtGui.QDialogButtonBox.Ok) | int(QtGui.QDialogButtonBox.Cancel)| int(QtGui.QDialogButtonBox.Apply)
+        return int(QtWidgets.QDialogButtonBox.Ok) | int(QtWidgets.QDialogButtonBox.Cancel)| int(QtWidgets.QDialogButtonBox.Apply)
 
     def clicked(self,button):
-        if button == QtGui.QDialogButtonBox.Apply:
+        if button == QtWidgets.QDialogButtonBox.Apply:
             if self.obj_is_attachable:
                 self.writeParameters()
             self.updatePreview()
@@ -459,7 +459,7 @@ class AttachmentEditorTaskPanel(FrozenClass):
 
             # add valid modes
             for m in valid_modes:
-                item = QtGui.QListWidgetItem()
+                item = QtWidgets.QListWidgetItem()
                 txt = self.attacher.getModeInfo(m)['UserFriendlyName']
                 item.setText(txt)
                 item.setData(self.KEYmode,m)
@@ -472,7 +472,7 @@ class AttachmentEditorTaskPanel(FrozenClass):
                 item.setSelected(self.attacher.Mode == m)
             # add potential modes
             for m in sugr['reachableModes'].keys():
-                item = QtGui.QListWidgetItem()
+                item = QtWidgets.QListWidgetItem()
                 txt = self.attacher.getModeInfo(m)['UserFriendlyName']
                 listlistrefs = sugr['reachableModes'][m]
                 if len(listlistrefs) == 1:

@@ -13,7 +13,7 @@ from .Explode import explodeCompound
 import FreeCAD
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide2 import QtGui
+    from PySide2 import QtWidgets #  QtGui,
     from PySide2 import QtCore
 
 
@@ -24,12 +24,12 @@ if FreeCAD.GuiUp:
         def _fromUtf8(s):
             return s
     try:
-        _encoding = QtGui.QApplication.UnicodeUTF8
+        _encoding = QtWidgets.QApplication.UnicodeUTF8
         def _translate(context, text, disambig):
-            return QtGui.QApplication.translate(context, text, disambig, _encoding)
+            return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
     except AttributeError:
         def _translate(context, text, disambig):
-            return QtGui.QApplication.translate(context, text, disambig)
+            return QtWidgets.QApplication.translate(context, text, disambig)
 
 
 # command class
@@ -45,7 +45,7 @@ class _CommandExplodeCompound:
         if len(FreeCADGui.Selection.getSelection()) == 1:
             cmdExplode()
         else:
-            mb = QtGui.QMessageBox()
+            mb = QtWidgets.QMessageBox()
             mb.setIcon(mb.Icon.Warning)
             mb.setText(_translate("Part_ExplodeCompound", "Select a shape that is a compound, first!", None))
             mb.setWindowTitle(_translate("Part_ExplodeCompound", "Bad selection", None))

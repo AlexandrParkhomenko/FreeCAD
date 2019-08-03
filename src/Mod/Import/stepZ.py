@@ -16,7 +16,7 @@ import shutil
 import sys, os, re
 import ImportGui
 import PySide2
-from PySide2 import QtGui, QtCore
+from PySide2 import QtGui, QtCore, QtWidgets
 import tempfile
 
 ___stpZversion___ = "1.3.2"
@@ -127,8 +127,8 @@ def export(objs,filename):
         
     if os.path.exists(outfpath_stp):
         sayzw("File cannot be compressed because a file with the same name exists '"+ outfpath_stp +"'")
-        QtGui.QApplication.restoreOverrideCursor()
-        reply = QtGui.QMessageBox.information(None,"info", "File cannot be compressed because\na file with the same name exists\n'"+ outfpath_stp + "'")
+        QtWidgets.QApplication.restoreOverrideCursor()
+        reply = QtWidgets.QMessageBox.information(None,"info", "File cannot be compressed because\na file with the same name exists\n'"+ outfpath_stp + "'")
     else:    
         ImportGui.export(objs,outfpath_stp)
         with builtin.open(outfpath_stp, 'rb') as f_in:

@@ -18,7 +18,7 @@ from FreeCAD import Vector
 from PathScripts import PathJob
 from PathScripts import PathLog
 from PySide2 import QtCore
-from PySide2 import QtGui
+from PySide2 import QtWidgets
 
 LOGLEVEL = False
 
@@ -40,7 +40,7 @@ def waiting_effects(function):
     def new_function(*args, **kwargs):
         if not FreeCAD.GuiUp:
             return function(*args, **kwargs)
-        QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+        QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
         res = None
         try:
             res = function(*args, **kwargs)
@@ -49,7 +49,7 @@ def waiting_effects(function):
         #    raise e
         #    print("Error {}".format(e.args[0]))
         finally:
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
         return res
     return new_function
 

@@ -12,7 +12,7 @@ import PathScripts.PathGui as PathGui
 import PathScripts.PathLog as PathLog
 import PathScripts.PathOpGui as PathOpGui
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 
 __title__ = "Path Deburr Operation UI"
 __author__ = "sliptonic (Brad Collette)"
@@ -40,10 +40,10 @@ class TaskPanelOpPage(PathOpGui.TaskPanelPage):
         self.opImagePath = "{}Mod/Path/Images/Ops/{}".format(FreeCAD.getHomePath(), 'chamfer.svg') # pylint: disable=attribute-defined-outside-init
         self.opImage = QtGui.QPixmap(self.opImagePath) # pylint: disable=attribute-defined-outside-init
         self.form.opImage.setPixmap(self.opImage)
-        iconMiter = QtGui.QIcon(':/icons/edge-join-miter-not.svg')
-        iconMiter.addFile(':/icons/edge-join-miter.svg', state=QtGui.QIcon.On)
-        iconRound = QtGui.QIcon(':/icons/edge-join-round-not.svg')
-        iconRound.addFile(':/icons/edge-join-round.svg', state=QtGui.QIcon.On)
+        iconMiter = QtGui.QDialog(':/icons/edge-join-miter-not.svg')
+        iconMiter.addFile(':/icons/edge-join-miter.svg', state=QtGui.QDialog.On)
+        iconRound = QtGui.QDialog(':/icons/edge-join-round-not.svg')
+        iconRound.addFile(':/icons/edge-join-round.svg', state=QtGui.QDialog.On)
         self.form.joinMiter.setIcon(iconMiter)
         self.form.joinRound.setIcon(iconRound)
 

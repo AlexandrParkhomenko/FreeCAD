@@ -17,7 +17,7 @@ import json
 import os
 import xml.sax
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 
 PathLog.setLevel(PathLog.Level.INFO, PathLog.thisModule())
 #PathLog.trackModule(PathLog.thisModule())
@@ -492,7 +492,7 @@ class EditorPanel():
 
     def importFile(self):
         "imports a tooltable from a file"
-        filename = QtGui.QFileDialog.getOpenFileName(self.form, translate( "TooltableEditor", "Open tooltable", None), None, "{};;{};;{}".format(ToolLibraryManager.TooltableTypeJSON, ToolLibraryManager.TooltableTypeXML, ToolLibraryManager.TooltableTypeHeekscad))
+        filename = QtWidgets.QFileDialog.getOpenFileName(self.form, translate( "TooltableEditor", "Open tooltable", None), None, "{};;{};;{}".format(ToolLibraryManager.TooltableTypeJSON, ToolLibraryManager.TooltableTypeXML, ToolLibraryManager.TooltableTypeHeekscad))
         if filename[0]:
             listname = '<Main>'
             if self.TLM.read(filename, listname):
@@ -501,7 +501,7 @@ class EditorPanel():
 
     def exportFile(self):
         "export a tooltable to a file"
-        filename = QtGui.QFileDialog.getSaveFileName(self.form, translate("TooltableEditor", "Save tooltable", None), None, "{};;{};;{}".format(ToolLibraryManager.TooltableTypeJSON, ToolLibraryManager.TooltableTypeXML, ToolLibraryManager.TooltableTypeLinuxCNC))
+        filename = QtWidgets.QFileDialog.getSaveFileName(self.form, translate("TooltableEditor", "Save tooltable", None), None, "{};;{};;{}".format(ToolLibraryManager.TooltableTypeJSON, ToolLibraryManager.TooltableTypeXML, ToolLibraryManager.TooltableTypeLinuxCNC))
 
         if filename[0]:
             #listname = self.form.listView.selectedIndexes()[0].data()
@@ -569,7 +569,7 @@ class EditorPanel():
         FreeCAD.ActiveDocument.recompute()
 
     def getStandardButtons(self):
-        return int(QtGui.QDialogButtonBox.Ok)
+        return int(QtWidgets.QDialogButtonBox.Ok)
 
     def setupUi(self):
         # Connect Signals and Slots

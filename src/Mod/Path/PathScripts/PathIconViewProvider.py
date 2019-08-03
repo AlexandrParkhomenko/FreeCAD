@@ -76,9 +76,9 @@ class ViewProvider(object):
     def setupContextMenu(self, vobj, menu):
         # pylint: disable=unused-argument
         PathLog.track()
-        from PySide2 import QtCore, QtGui
+        from PySide2 import QtCore, QtWidgets
         edit = QtCore.QCoreApplication.translate('Path', 'Edit', None)
-        action = QtGui.QAction(edit, menu)
+        action = QtWidgets.QAction(edit, menu)
         action.triggered.connect(self.setEdit)
         menu.addAction(action)
 

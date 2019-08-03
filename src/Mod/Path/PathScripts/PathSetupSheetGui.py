@@ -15,7 +15,7 @@ import PathScripts.PathSetupSheet as PathSetupSheet
 import PathScripts.PathSetupSheetOpPrototypeGui as PathSetupSheetOpPrototypeGui
 import PathScripts.PathUtil as PathUtil
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 
 __title__ = "Setup Sheet Editor"
 __author__ = "sliptonic (Brad Collette)"
@@ -80,7 +80,7 @@ class ViewProvider:
     def doubleClicked(self, vobj):
         self.setEdit(vobj)
 
-class Delegate(QtGui.QStyledItemDelegate):
+class Delegate(QtWidgets.QStyledItemDelegate):
     PropertyRole = QtCore.Qt.UserRole + 1
     EditorRole   = QtCore.Qt.UserRole + 2
 

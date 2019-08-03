@@ -19,7 +19,7 @@ import PathScripts.PathUtil as PathUtil
 import PathScripts.PathUtils as PathUtils
 import importlib
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 
 __title__ = "Path Operation UI base classes"
 __author__ = "sliptonic (Brad Collette)"
@@ -168,7 +168,7 @@ class ViewProvider(object):
         PathLog.track()
         for action in menu.actions():
             menu.removeAction(action)
-        action = QtGui.QAction(translate('Path', 'Edit'), menu)
+        action = QtWidgets.QAction(translate('Path', 'Edit'), menu)
         action.triggered.connect(self.setEdit)
         menu.addAction(action)
 
@@ -370,7 +370,7 @@ class TaskPanelBaseGeometryPage(TaskPanelPage):
         self.form.baseList.clear()
         for base in self.obj.Base:
             for sub in base[1]:
-                item = QtGui.QListWidgetItem("%s.%s" % (base[0].Label, sub))
+                item = QtWidgets.QListWidgetItem("%s.%s" % (base[0].Label, sub))
                 item.setData(self.DataObject, base[0])
                 item.setData(self.DataObjectSub, sub)
                 self.form.baseList.addItem(item)
@@ -509,9 +509,9 @@ class TaskPanelBaseLocationPage(TaskPanelPage):
     def getForm(self):
         self.formLoc = FreeCADGui.PySideUic.loadUi(":/panels/PageBaseLocationEdit.ui")
         if QtCore.qVersion()[0] == '4':
-            self.formLoc.baseList.horizontalHeader().setResizeMode(QtGui.QHeaderView.Stretch)
+            self.formLoc.baseList.horizontalHeader().setResizeMode(QtWidgets.QHeaderView.Stretch)
         else:
-            self.formLoc.baseList.horizontalHeader().setSectionResizeMode(QtGui.QHeaderView.Stretch)
+            self.formLoc.baseList.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         self.getPoint = PathGetPoint.TaskPanel(self.formLoc.addRemoveEdit)
         return self.formLoc
 
@@ -531,11 +531,11 @@ class TaskPanelBaseLocationPage(TaskPanelPage):
         for location in self.obj.Locations:
             self.formLoc.baseList.insertRow(self.formLoc.baseList.rowCount())
 
-            item = QtGui.QTableWidgetItem("%.2f" % location.x)
+            item = QtWidgets.QTableWidgetItem("%.2f" % location.x)
             item.setData(self.DataLocation, location.x)
             self.formLoc.baseList.setItem(self.formLoc.baseList.rowCount()-1, 0, item)
 
-            item = QtGui.QTableWidgetItem("%.2f" % location.y)
+            item = QtWidgets.QTableWidgetItem("%.2f" % location.y)
             item.setData(self.DataLocation, location.y)
             self.formLoc.baseList.setItem(self.formLoc.baseList.rowCount()-1, 1, item)
         self.formLoc.baseList.resizeColumnToContents(0)
@@ -849,7 +849,7 @@ class TaskPanel(object):
         if taskPanelLayout < 2:
             opTitle = opPage.getTitle(obj)
             opPage.setTitle(translate('PathOp', 'Operation'))
-            toolbox = QtGui.QToolBox()
+            toolbox = QtWidgets.QToolBox()
             if taskPanelLayout == 0:
                 for page in self.featurePages:
                     toolbox.addItem(page.form, page.getTitle(obj))
@@ -859,7 +859,7 @@ class TaskPanel(object):
                     toolbox.addItem(page.form, page.getTitle(obj))
             toolbox.setWindowTitle(opTitle)
             if opPage.getIcon(obj):
-                toolbox.setWindowIcon(QtGui.QIcon(opPage.getIcon(obj)))
+                toolbox.setWindowIcon(QtWidgets.QDialog(opPage.getIcon(obj)))
 
             self.form = toolbox
         elif taskPanelLayout == 2:
@@ -930,11 +930,11 @@ class TaskPanel(object):
     def pageDirtyChanged(self, page):
         '''pageDirtyChanged(page) ... internal callback'''
         # pylint: disable=unused-argument
-        self.buttonBox.button(QtGui.QDialogButtonBox.Apply).setEnabled(self.isDirty())
+        self.buttonBox.button(QtWidgets.QDialogButtonBox.Apply).setEnabled(self.isDirty())
 
     def clicked(self, button):
         '''clicked(button) ... callback invoked when the user presses any of the task panel buttons.'''
-        if button == QtGui.QDialogButtonBox.Apply:
+        if button == QtWidgets.QDialogButtonBox.Apply:
             self.panelGetFields()
             self.setClean()
             FreeCAD.ActiveDocument.recompute()
@@ -971,7 +971,7 @@ class TaskPanel(object):
 
     def getStandardButtons(self):
         '''getStandardButtons() ... returns the Buttons for the task panel.'''
-        return int(QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Apply | QtGui.QDialogButtonBox.Cancel)
+        return int(QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Apply | QtWidgets.QDialogButtonBox.Cancel)
 
     def setupUi(self):
         '''setupUi() ... internal function to initialise all pages.'''

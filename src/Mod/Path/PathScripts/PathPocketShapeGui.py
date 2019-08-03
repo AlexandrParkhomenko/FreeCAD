@@ -15,7 +15,7 @@ import PathScripts.PathOpGui as PathOpGui
 import PathScripts.PathPocketShape as PathPocketShape
 import PathScripts.PathPocketBaseGui as PathPocketBaseGui
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 from pivy import coin
 
 __title__ = "Path Pocket Shape Operation UI"
@@ -137,8 +137,8 @@ class TaskPanelExtensionPage(PathOpGui.TaskPanelPage):
 
         self.defaultLength = PathGui.QuantitySpinBox(self.form.defaultLength, obj, 'ExtensionLengthDefault') # pylint: disable=attribute-defined-outside-init
 
-        self.form.extensionTree.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
-        self.form.extensionTree.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
+        self.form.extensionTree.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.form.extensionTree.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
 
         self.switch = coin.SoSwitch() # pylint: disable=attribute-defined-outside-init
         self.obj.ViewObject.RootNode.addChild(self.switch)

@@ -906,7 +906,7 @@ class TaskPanel:
         itemList = []
         for loc, (enabled, inaccessible, ids) in PathUtil.keyValueIter(self.obj.Proxy.boneStateList(self.obj)):
             lbl = '(%.2f, %.2f): %s' % (loc[0], loc[1], ','.join(str(id) for id in ids))
-            item = QtGui.QListWidgetItem(lbl)
+            item = QtWidgets.QListWidgetItem(lbl)
             if enabled:
                 item.setCheckState(QtCore.Qt.CheckState.Checked)
             else:
@@ -1093,7 +1093,7 @@ class CommandDressupDogbone:
 
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide2 import QtGui
+    from PySide2 import QtWidgets
     FreeCADGui.addCommand('Path_DressupDogbone', CommandDressupDogbone())
 
 FreeCAD.Console.PrintLog("Loading DressupDogbone... done\n")

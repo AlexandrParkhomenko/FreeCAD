@@ -10,7 +10,7 @@ import FreeCADGui
 import PathScripts.PathLog as PathLog
 import PathScripts.PathOpGui as PathOpGui
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 
 __title__ = "Base for Circular Hole based operations' UI"
 __author__ = "sliptonic (Brad Collette)"
@@ -51,7 +51,7 @@ class TaskPanelHoleGeometryPage(PathOpGui.TaskPanelBaseGeometryPage):
             for sub in subs:
                 self.form.baseList.insertRow(self.form.baseList.rowCount())
 
-                item = QtGui.QTableWidgetItem("%s.%s" % (base.Label, sub))
+                item = QtWidgets.QTableWidgetItem("%s.%s" % (base.Label, sub))
                 item.setFlags(item.flags() | QtCore.Qt.ItemIsUserCheckable)
                 if obj.Proxy.isHoleEnabled(obj, base, sub):
                     item.setCheckState(QtCore.Qt.Checked)
@@ -64,7 +64,7 @@ class TaskPanelHoleGeometryPage(PathOpGui.TaskPanelBaseGeometryPage):
                 self.form.baseList.setItem(self.form.baseList.rowCount()-1, 0, item)
 
                 dia = obj.Proxy.holeDiameter(obj, base, sub)
-                item = QtGui.QTableWidgetItem("{:.3f}".format(dia))
+                item = QtWidgets.QTableWidgetItem("{:.3f}".format(dia))
                 item.setData(self.DataFeatureName, name)
                 item.setData(self.DataObject, base)
                 item.setData(self.DataObjectSub, sub)

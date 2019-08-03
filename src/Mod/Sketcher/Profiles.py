@@ -1,16 +1,16 @@
 #***************************************************************************
-#*                                                                         *
 #*   Copyright (c) 2014 - Juergen Riegel <FreeCAD@juergen-riegel.net>      *  
 #*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 #***************************************************************************
-
+'''
 import FreeCAD, Sketcher
 
 if FreeCAD.GuiUp:
     import FreeCADGui,SketcherGui,os
-    from PySide2 import QtCore, QtGui
+    from PySide2 import QtCore, QtGui, QWidgets
     from PySide2.QtCore import Qt
-    from PySide2.QtGui import QApplication, QCursor
+    from PySide2.QtGui import QCursor
+    from PySide2.QWidgets import QApplication
     from FreeCADGui import PySideUic as uic
 
     #s=os.path.dirname(__file__)
@@ -37,10 +37,10 @@ class _CommandProfileHexagon1:
     "The basis hexagon profile command definition"
     def GetResources(self):
         return {'Pixmap'  : 'Sketcher_ProfilesHexagon1',
-                'MenuText': QtCore.QT_TRANSLATE_NOOP("Sketcher_ProfilesHexagon1","Creates a hexagonal profile"),
+                'MenuText': "Creates a hexagonal profile",
                 'Accel': "",
                 'CmdType': "ForEdit",
-                'ToolTip': QtCore.QT_TRANSLATE_NOOP("Sketcher_ProfilesHexagon1","Creates a hexagonal profile in the sketch")}
+                'ToolTip': "Creates a hexagonal profile in the sketch"}
         
     def Activated(self):
         FreeCAD.ActiveDocument.openTransaction("Create hexagon profile")
@@ -56,4 +56,5 @@ class _CommandProfileHexagon1:
         return isProfileActive()
 
 
-FreeCADGui.addCommand('Sketcher_ProfilesHexagon1',_CommandProfileHexagon1())
+FreeCADGui.addCommand('Sketcher_ProfilesHexagon1', _CommandProfileHexagon1())
+'''

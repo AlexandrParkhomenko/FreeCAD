@@ -25,7 +25,7 @@ import PathScripts.PathUtils as PathUtils
 import math
 import traceback
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 from collections import Counter
 from contextlib import contextmanager
 from pivy import coin
@@ -252,7 +252,7 @@ class ViewProvider:
         PathLog.track()
         for action in menu.actions():
             menu.removeAction(action)
-        action = QtGui.QAction(translate('Path', 'Edit'), menu)
+        action = QtWidgets.QAction(translate('Path', 'Edit'), menu)
         action.triggered.connect(self.setEdit)
         menu.addAction(action)
 
@@ -553,7 +553,7 @@ class TaskPanel:
         self.form.toolControllerList.horizontalHeaderItem(1).setText('#')
         self.form.toolControllerList.horizontalHeaderItem(2).setText(vUnit)
         self.form.toolControllerList.horizontalHeaderItem(3).setText(vUnit)
-        self.form.toolControllerList.horizontalHeader().setResizeMode(0, QtGui.QHeaderView.Stretch)
+        self.form.toolControllerList.horizontalHeader().setResizeMode(0, QtWidgets.QHeaderView.Stretch)
         self.form.toolControllerList.resizeColumnsToContents()
 
         currentPostProcessor = self.obj.PostProcessor
@@ -685,30 +685,30 @@ class TaskPanel:
 
             self.form.toolControllerList.insertRow(row)
 
-            item = QtGui.QTableWidgetItem(tc.Label)
+            item = QtWidgets.QTableWidgetItem(tc.Label)
             item.setData(self.DataObject, tc)
             item.setData(self.DataProperty, 'Label')
             self.form.toolControllerList.setItem(row, 0, item)
 
-            item = QtGui.QTableWidgetItem("%d" % tc.ToolNumber)
+            item = QtWidgets.QTableWidgetItem("%d" % tc.ToolNumber)
             item.setTextAlignment(QtCore.Qt.AlignRight)
             item.setData(self.DataObject, tc)
             item.setData(self.DataProperty, 'Number')
             self.form.toolControllerList.setItem(row, 1, item)
 
-            item = QtGui.QTableWidgetItem("%g" % tc.HorizFeed.getValueAs(vUnit))
+            item = QtWidgets.QTableWidgetItem("%g" % tc.HorizFeed.getValueAs(vUnit))
             item.setTextAlignment(QtCore.Qt.AlignRight)
             item.setData(self.DataObject, tc)
             item.setData(self.DataProperty, 'HorizFeed')
             self.form.toolControllerList.setItem(row, 2, item)
 
-            item = QtGui.QTableWidgetItem("%g" % tc.VertFeed.getValueAs(vUnit))
+            item = QtWidgets.QTableWidgetItem("%g" % tc.VertFeed.getValueAs(vUnit))
             item.setTextAlignment(QtCore.Qt.AlignRight)
             item.setData(self.DataObject, tc)
             item.setData(self.DataProperty, 'VertFeed')
             self.form.toolControllerList.setItem(row, 3, item)
 
-            item = QtGui.QTableWidgetItem("%s%g" % ('+' if tc.SpindleDir == 'Forward' else '-', tc.SpindleSpeed))
+            item = QtWidgets.QTableWidgetItem("%s%g" % ('+' if tc.SpindleDir == 'Forward' else '-', tc.SpindleSpeed))
             item.setTextAlignment(QtCore.Qt.AlignRight)
             item.setData(self.DataObject, tc)
             item.setData(self.DataProperty, 'Spindle')
@@ -746,7 +746,7 @@ class TaskPanel:
 
         self.form.operationsList.clear()
         for child in self.obj.Operations.Group:
-            item = QtGui.QListWidgetItem(child.Label)
+            item = QtWidgets.QListWidgetItem(child.Label)
             item.setData(self.DataObject, child)
             self.form.operationsList.addItem(item)
 
@@ -763,7 +763,7 @@ class TaskPanel:
         self.setupOps.setFields()
 
     def setPostProcessorOutputFile(self):
-        filename = QtGui.QFileDialog.getSaveFileName(self.form, translate("Path_Job", "Select Output File"), None, translate("Path_Job", "All Files (*.*)"))
+        filename = QtWidgets.QFileDialog.getSaveFileName(self.form, translate("Path_Job", "Select Output File"), None, translate("Path_Job", "All Files (*.*)"))
         if filename and filename[0]:
             self.obj.PostProcessorOutputFile = str(filename[0])
             self.setFields()

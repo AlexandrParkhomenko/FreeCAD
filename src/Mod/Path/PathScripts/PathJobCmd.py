@@ -15,7 +15,7 @@ import PathScripts.PathStock as PathStock
 import PathScripts.PathUtil as PathUtil
 import json
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 
 # Qt translation handling
 def translate(context, text, disambig=None):
@@ -112,7 +112,7 @@ class CommandJobTemplateExport:
 
     @classmethod
     def SaveDialog(cls, job, dialog):
-        foo = QtGui.QFileDialog.getSaveFileName(QtGui.QApplication.activeWindow(),
+        foo = QtWidgets.QFileDialog.getSaveFileName(QtWidgets.QApplication.activeWindow(),
                 "Path - Job Template",
                 PathPreferences.filePath(),
                 "job_*.json")[0]

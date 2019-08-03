@@ -20,7 +20,7 @@ import FreeCAD, FreeCADGui, math, Draft, DraftGui, DraftTrackers, DraftVecUtils,
 from collections import OrderedDict
 from FreeCAD import Vector
 from pivy import coin
-from PySide2 import QtCore,QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 
 class Snapper:
     """The Snapper objects contains all the functionality used by draft
@@ -155,7 +155,7 @@ class Snapper:
         if not hasattr(self,"toolbar"):
             self.makeSnapToolBar()
         mw = FreeCADGui.getMainWindow()
-        bt = mw.findChild(QtGui.QToolBar,"Draft Snap")
+        bt = mw.findChild(QtWidgets.QToolBar,"Draft Snap")
         if not bt:
             mw.addToolBar(self.toolbar)
         else:
@@ -953,13 +953,13 @@ class Snapper:
         "setCursor(self,mode=None): sets or resets the cursor to the given mode or resets"
         if self.selectMode:
             mw = FreeCADGui.getMainWindow()
-            for w in mw.findChild(QtGui.QMdiArea).findChildren(QtGui.QWidget):
+            for w in mw.findChild(QtWidgets.QMdiArea).findChildren(QtWidgets.QWidget):
                 if w.metaObject().className() == "SIM::Coin3D::Quarter::QuarterWidget":
                     w.unsetCursor()
             self.cursorMode = None
         elif not mode:
             mw = FreeCADGui.getMainWindow()
-            for w in mw.findChild(QtGui.QMdiArea).findChildren(QtGui.QWidget):
+            for w in mw.findChild(QtWidgets.QMdiArea).findChildren(QtWidgets.QWidget):
                 if w.metaObject().className() == "SIM::Coin3D::Quarter::QuarterWidget":
                     w.unsetCursor()
             self.cursorMode = None
@@ -977,7 +977,7 @@ class Snapper:
                 qp.end()
                 cur = QtGui.QCursor(newicon,8,8)
                 mw = FreeCADGui.getMainWindow()
-                for w in mw.findChild(QtGui.QMdiArea).findChildren(QtGui.QWidget):
+                for w in mw.findChild(QtWidgets.QMdiArea).findChildren(QtWidgets.QWidget):
                     if w.metaObject().className() == "SIM::Coin3D::Quarter::QuarterWidget":
                         w.setCursor(cur)
                 self.cursorMode = mode
@@ -1224,13 +1224,13 @@ class Snapper:
     def makeSnapToolBar(self):
         "builds the Snap toolbar"
         mw = FreeCADGui.getMainWindow()
-        self.toolbar = QtGui.QToolBar(mw)
+        self.toolbar = QtWidgets.QToolBar(mw)
         mw.addToolBar(QtCore.Qt.TopToolBarArea, self.toolbar)
         self.toolbar.setObjectName("Draft Snap")
         self.toolbar.setWindowTitle(QtCore.QCoreApplication.translate("Workbench", "Draft Snap"))
         self.toolbarButtons = []
         # grid button
-        self.gridbutton = QtGui.QAction(mw)
+        self.gridbutton = QtWidgets.QAction(mw)
         self.gridbutton.setIcon(QtGui.QIcon.fromTheme("Draft_Grid", QtGui.QIcon(":/icons/Draft_Grid.svg")))
         self.gridbutton.setText(QtCore.QCoreApplication.translate("Draft_ToggleGrid","Grid"))
         self.gridbutton.setToolTip(QtCore.QCoreApplication.translate("Draft_ToggleGrid","Toggles the Draft grid On/Off"))
@@ -1239,7 +1239,7 @@ class Snapper:
         QtCore.QObject.connect(self.gridbutton,QtCore.SIGNAL("triggered()"),self.toggleGrid)
         self.toolbar.addAction(self.gridbutton)
         # master button
-        self.masterbutton = QtGui.QAction(mw)
+        self.masterbutton = QtWidgets.QAction(mw)
         self.masterbutton.setIcon(QtGui.QIcon.fromTheme("Snap_Lock", QtGui.QIcon(":/icons/Snap_Lock.svg")))
         self.masterbutton.setText(QtCore.QCoreApplication.translate("Draft_Snap_Lock","Lock"))
         self.masterbutton.setToolTip(QtCore.QCoreApplication.translate("Draft_Snap_Lock","Toggle On/Off"))
@@ -1251,7 +1251,7 @@ class Snapper:
         self.toolbar.addAction(self.masterbutton)
         for c,i in self.cursors.items():
             if i:
-                b = QtGui.QAction(mw)
+                b = QtWidgets.QAction(mw)
                 b.setIcon(QtGui.QIcon.fromTheme(i.replace(':/icons/', '').replace('.svg', ''), QtGui.QIcon(i)))
                 if c == "passive":
                     b.setText(QtCore.QCoreApplication.translate("Draft_Snap_Near","Nearest"))
@@ -1268,7 +1268,7 @@ class Snapper:
                 QtCore.QObject.connect(b,QtCore.SIGNAL("toggled(bool)"),self.saveSnapModes)
         # adding non-snap button
         for n in ["Dimensions","WorkingPlane"]:
-            b = QtGui.QAction(mw)
+            b = QtWidgets.QAction(mw)
             b.setIcon(QtGui.QIcon.fromTheme("Snap_" + n, QtGui.QIcon(":/icons/Snap_"+n+".svg")))
             b.setText(QtCore.QCoreApplication.translate("Draft_Snap_"+n,n))
             b.setToolTip(QtCore.QCoreApplication.translate("Draft_Snap_"+n,n))
@@ -1349,7 +1349,7 @@ class Snapper:
         if not hasattr(self,"toolbar"):
             self.makeSnapToolBar()
         mw = FreeCADGui.getMainWindow()
-        bt = mw.findChild(QtGui.QToolBar,"Draft Snap")
+        bt = mw.findChild(QtWidgets.QToolBar,"Draft Snap")
         if not bt:
             mw.addToolBar(self.toolbar)
             self.toolbar.setParent(mw)

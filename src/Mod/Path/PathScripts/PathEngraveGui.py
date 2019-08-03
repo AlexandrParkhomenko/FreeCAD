@@ -12,7 +12,7 @@ import PathScripts.PathLog as PathLog
 import PathScripts.PathOpGui as PathOpGui
 import PathScripts.PathUtils as PathUtils
 
-from PySide2 import QtCore, QtGui
+from PySide2 import QtCore, QtWidgets
 
 __title__ = "Path Engrave Operation UI"
 __author__ = "sliptonic (Brad Collette)"
@@ -72,7 +72,7 @@ class TaskPanelBaseGeometryPage(PathOpGui.TaskPanelBaseGeometryPage):
         self.super().setFields(obj)
         self.form.baseList.blockSignals(True)
         for shape in self.obj.BaseShapes:
-            item = QtGui.QListWidgetItem(shape.Label)
+            item = QtWidgets.QListWidgetItem(shape.Label)
             item.setData(self.super().DataObject, shape)
             item.setData(self.super().DataObjectSub, None)
             self.form.baseList.addItem(item)

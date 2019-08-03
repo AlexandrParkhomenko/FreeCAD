@@ -23,7 +23,7 @@ __author__ = "Yorik van Havre, Werner Mayer, Martin Burbaum, Ken Cline, Dmitry C
 
 import sys, os, FreeCAD, FreeCADGui, WorkingPlane, math, re, Draft, Draft_rc, DraftVecUtils
 from FreeCAD import Vector
-from PySide2 import QtCore,QtGui
+from PySide2 import QtCore, QtWidgets
 from DraftGui import todo, translate, utf8_decode
 from DraftSnap import *
 from DraftTrackers import *
@@ -5807,19 +5807,19 @@ class Draft_Slope():
             if Draft.getType(obj) != "Wire":
                 msg(translate("draft", "This tool only works with Wires and Lines")+"\n")
                 return
-        w = QtGui.QWidget()
+        w = QtWidgets.QWidget()
         w.setWindowTitle(translate("Draft","Slope"))
-        layout = QtGui.QHBoxLayout(w)
-        label = QtGui.QLabel(w)
+        layout = QtWidgets.QHBoxLayout(w)
+        label = QtWidgets.QLabel(w)
         label.setText(translate("Draft", "Slope")+":")
         layout.addWidget(label)
-        self.spinbox = QtGui.QDoubleSpinBox(w)
+        self.spinbox = QtWidgets.QDoubleSpinBox(w)
         self.spinbox.setMinimum(-9999.99)
         self.spinbox.setMaximum(9999.99)
         self.spinbox.setSingleStep(0.01)
         self.spinbox.setToolTip(translate("Draft", "Slope to give selected Wires/Lines: 0 = horizontal, 1 = 45deg up, -1 = 45deg down"))
         layout.addWidget(self.spinbox)
-        taskwidget = QtGui.QWidget()
+        taskwidget = QtWidgets.QWidget()
         taskwidget.form = w
         taskwidget.accept = self.accept
         FreeCADGui.Control.showDialog(taskwidget)

@@ -4652,8 +4652,8 @@ class _ViewProviderWire(_ViewProviderDraft):
         return []
 
     def setupContextMenu(self,vobj,menu):
-        from PySide2 import QtCore,QtGui
-        action1 = QtGui.QAction(QtGui.QIcon(":/icons/Draft_Edit.svg"),"Flatten this wire",menu)
+        from PySide2 import QtCore, QtGui, QtWidgets
+        action1 = QtWidgets.QAction(QtGui.QIcon(":/icons/Draft_Edit.svg"),"Flatten this wire",menu)
         QtCore.QObject.connect(action1,QtCore.SIGNAL("triggered()"),self.flatten)
         menu.addAction(action1)
 
@@ -6087,11 +6087,11 @@ class ViewProviderWorkingPlaneProxy:
         return True
 
     def setupContextMenu(self,vobj,menu):
-        from PySide2 import QtCore,QtGui
-        action1 = QtGui.QAction(QtGui.QIcon(":/icons/Draft_SelectPlane.svg"),"Write camera position",menu)
+        from PySide2 import QtCore, QtGui, QtWidgets
+        action1 = QtWidgets.QAction(QtGui.QIcon(":/icons/Draft_SelectPlane.svg"),"Write camera position",menu)
         QtCore.QObject.connect(action1,QtCore.SIGNAL("triggered()"),self.writeCamera)
         menu.addAction(action1)
-        action2 = QtGui.QAction(QtGui.QIcon(":/icons/Draft_SelectPlane.svg"),"Write objects state",menu)
+        action2 = QtWidgets.QAction(QtGui.QIcon(":/icons/Draft_SelectPlane.svg"),"Write objects state",menu)
         QtCore.QObject.connect(action2,QtCore.SIGNAL("triggered()"),self.writeState)
         menu.addAction(action2)
 

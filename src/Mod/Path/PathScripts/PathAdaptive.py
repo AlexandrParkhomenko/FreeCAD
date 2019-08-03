@@ -4,7 +4,6 @@
 # ***************************************************************************/
 
 
-
 import PathScripts.PathOp as PathOp
 import PathScripts.PathUtils as PathUtils
 import Path
