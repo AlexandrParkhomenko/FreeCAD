@@ -373,7 +373,7 @@ class ObjectJob:
     @classmethod
     def isBaseCandidate(cls, obj):
         '''Answer true if the given object can be used as a Base for a job.'''
-        return PathUtil.isValidBaseObject(obj) or isArchPanelSheet(obj)
+        return PathUtil.isValidBaseObject(obj) # or isArchPanelSheet(obj)
 
 def Instances():
     '''Instances() ... Return all Jobs in the current active document.'''
