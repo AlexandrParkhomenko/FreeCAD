@@ -17,8 +17,8 @@ from DraftGeomUtils import geomType
 from FreeCAD import Vector
 from PathScripts import PathJob
 from PathScripts import PathLog
-from PySide import QtCore
-from PySide import QtGui
+from PySide2 import QtCore
+from PySide2 import QtGui
 
 LOGLEVEL = False
 

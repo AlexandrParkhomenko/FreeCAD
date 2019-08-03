@@ -15,8 +15,8 @@ import FreeCAD,FreeCADGui
 import shutil
 import sys, os, re
 import ImportGui
-import PySide
-from PySide import QtGui, QtCore
+import PySide2
+from PySide2 import QtGui, QtCore
 import tempfile
 
 ___stpZversion___ = "1.3.2"

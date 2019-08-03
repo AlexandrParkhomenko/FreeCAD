@@ -6,7 +6,7 @@
 '''This file has utilities for checking and catching common errors in FreeCAD
 Path projects.  Ideally, the user could execute these utilities from an icon
 to make sure tools are selected and configured and defaults have been revised'''
-from PySide import QtCore
+from PySide2 import QtCore
 import FreeCAD
 import FreeCADGui
 import PathScripts

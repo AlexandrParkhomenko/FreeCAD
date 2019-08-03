@@ -4,7 +4,7 @@
 # ***************************************************************************/
 
 import PathScripts.PathOpGui as PathOpGui
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 import PathScripts.PathAdaptive as PathAdaptive
 
 

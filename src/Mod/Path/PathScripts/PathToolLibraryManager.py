@@ -17,7 +17,7 @@ import json
 import os
 import xml.sax
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 
 PathLog.setLevel(PathLog.Level.INFO, PathLog.thisModule())
 #PathLog.trackModule(PathLog.thisModule())

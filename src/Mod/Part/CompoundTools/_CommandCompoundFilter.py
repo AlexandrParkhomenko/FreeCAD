@@ -12,8 +12,8 @@ __doc__ = "Compound Filter: remove some children from a compound (features)."
 import FreeCAD
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide import QtGui
-    from PySide import QtCore
+    from PySide2 import QtGui
+    from PySide2 import QtCore
 
 
 # translation-related code

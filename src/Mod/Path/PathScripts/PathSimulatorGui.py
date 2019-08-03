@@ -15,7 +15,7 @@ _filePath = os.path.dirname(os.path.abspath(__file__))
 
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide import QtGui, QtCore
+    from PySide2 import QtGui, QtCore
 
 # compiled with pyrcc4 -py3 Resources\CAM_Sim.qrc -o CAM_Sim_rc.py
 

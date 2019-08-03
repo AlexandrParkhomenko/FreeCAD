@@ -12,7 +12,7 @@ import PathScripts.PathLog as PathLog
 import math
 
 from FreeCAD import Vector
-from PySide import QtCore
+from PySide2 import QtCore
 
 __title__ = "PathGeom - geometry utilities for Path"
 __author__ = "sliptonic (Brad Collette)"

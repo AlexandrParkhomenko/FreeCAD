@@ -5,7 +5,7 @@
 # *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 # ***************************************************************************
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 
 # Qt translation handling
 def translate(context, text, disambig=None):

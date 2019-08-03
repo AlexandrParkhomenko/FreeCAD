@@ -8,7 +8,7 @@
 import PathScripts.PathAreaOp as PathAreaOp
 import PathScripts.PathLog as PathLog
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 __title__ = "Base Path Profile Operation"
 __author__ = "sliptonic (Brad Collette)"

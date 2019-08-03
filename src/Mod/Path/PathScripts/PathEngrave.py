@@ -13,7 +13,7 @@ import PathScripts.PathLog as PathLog
 import PathScripts.PathOp as PathOp
 import PathScripts.PathUtils as PathUtils
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 __doc__ = "Class and implementation of Path Engrave operation"
 

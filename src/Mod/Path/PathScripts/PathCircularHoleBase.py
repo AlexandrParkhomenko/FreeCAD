@@ -12,7 +12,7 @@ import PathScripts.PathLog as PathLog
 import PathScripts.PathOp as PathOp
 import PathScripts.PathUtils as PathUtils
 
-from PySide import QtCore
+from PySide2 import QtCore
 import PathScripts.PathGeom as PathGeom
 
 import math
@@ -563,7 +563,7 @@ class ObjectOp(PathOp.ObjectOp):
         if show is True:
             if len(self.guiMsgs) > 0:
                 if FreeCAD.GuiUp:
-                    from PySide.QtGui import QMessageBox
+                    from PySide2.QtGui import QMessageBox
                     for entry in self.guiMsgs:
                         (title, msg) = entry
                         QMessageBox.warning(None, title, msg)

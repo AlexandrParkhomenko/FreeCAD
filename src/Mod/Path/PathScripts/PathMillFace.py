@@ -11,7 +11,7 @@ import PathScripts.PathLog as PathLog
 import PathScripts.PathPocketBase as PathPocketBase
 import PathScripts.PathUtils as PathUtils
 
-from PySide import QtCore
+from PySide2 import QtCore
 import numpy
 
 __title__ = "Path Mill Face Operation"

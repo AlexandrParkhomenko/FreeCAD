@@ -7,7 +7,7 @@
 
 import FreeCAD
 import FreeCADGui
-from PySide import QtCore
+from PySide2 import QtCore
 
 __doc__ = """Path Copy object and FreeCAD command"""
 

@@ -12,7 +12,7 @@ import PathScripts.PathOp as PathOp
 import PathScripts.PathPocketBase as PathPocketBase
 import PathScripts.PathUtils as PathUtils
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 __title__ = "Path 3D Pocket Operation"
 __author__ = "Yorik van Havre <yorik@uncreated.net>"

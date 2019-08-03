@@ -9,7 +9,7 @@
 import FreeCAD
 import FreeCADGui
 import Path
-from PySide import QtCore
+from PySide2 import QtCore
 
 # Qt translation handling
 def translate(context, text, disambig=None):

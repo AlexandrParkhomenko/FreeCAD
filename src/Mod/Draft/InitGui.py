@@ -32,9 +32,9 @@ class DraftWorkbench (Workbench):
             FreeCAD.Console.PrintWarning("Error: Unknown error while trying to load Pivy\n")
         else:
             try:
-                import PySide
+                import PySide2
             except ImportError:
-                FreeCAD.Console.PrintWarning("Error: PySide not found, Draft workbench will be disabled.\n")
+                FreeCAD.Console.PrintWarning("Error: PySide2 not found, Draft workbench will be disabled.\n")
             else:
                 depsOK = True
         if not depsOK:

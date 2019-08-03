@@ -12,7 +12,7 @@ import PathScripts.PathLog as PathLog
 import PathScripts.PathOp as PathOp
 import copy
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 __doc__ = "Base class for all ops in the engrave family."
 

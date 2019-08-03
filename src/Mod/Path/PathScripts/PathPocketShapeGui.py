@@ -15,7 +15,7 @@ import PathScripts.PathOpGui as PathOpGui
 import PathScripts.PathPocketShape as PathPocketShape
 import PathScripts.PathPocketBaseGui as PathPocketBaseGui
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 from pivy import coin
 
 __title__ = "Path Pocket Shape Operation UI"

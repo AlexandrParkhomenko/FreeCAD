@@ -7,7 +7,7 @@
 
 import FreeCAD
 import PathScripts.PathLog as PathLog
-from PySide import QtCore
+from PySide2 import QtCore
 from PathScripts.PathUtils import waiting_effects
 
 LOG_MODULE = 'PathCollision'

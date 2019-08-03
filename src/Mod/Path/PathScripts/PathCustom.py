@@ -7,7 +7,7 @@
 import FreeCAD
 import FreeCADGui
 import Path
-from PySide import QtCore
+from PySide2 import QtCore
 
 __doc__ = """Path Custom object and FreeCAD command"""
 

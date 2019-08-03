@@ -23,7 +23,7 @@ __author__ = "Yorik van Havre, Werner Mayer, Martin Burbaum, Ken Cline, Dmitry C
 
 import sys, os, FreeCAD, FreeCADGui, WorkingPlane, math, re, Draft, Draft_rc, DraftVecUtils
 from FreeCAD import Vector
-from PySide import QtCore,QtGui
+from PySide2 import QtCore,QtGui
 from DraftGui import todo, translate, utf8_decode
 from DraftSnap import *
 from DraftTrackers import *

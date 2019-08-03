@@ -17,7 +17,7 @@ import PathScripts.PathUtils as PathUtils
 import os
 
 from PathScripts.PathPostProcessor import PostProcessor
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 
 
 LOG_MODULE = PathLog.thisModule()

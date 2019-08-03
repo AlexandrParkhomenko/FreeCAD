@@ -6,7 +6,7 @@
 # ***************************************************************************
 import FreeCAD
 import Path
-from PySide import QtCore
+from PySide2 import QtCore
 import math
 import DraftVecUtils as D
 import PathScripts.PathUtils as PathUtils

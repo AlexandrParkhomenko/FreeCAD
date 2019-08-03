@@ -16,7 +16,7 @@ import PathScripts.PathUtils as PathUtils
 import numpy
 
 #  from PathScripts.PathUtils import depth_params
-from PySide import QtCore
+from PySide2 import QtCore
 
 __title__ = "Path Profile Faces Operation"
 __author__ = "sliptonic (Brad Collette)"

@@ -14,7 +14,7 @@ import PathScripts.PathUtil as PathUtil
 import PathScripts.PathUtils as PathUtils
 
 from PathScripts.PathUtils import waiting_effects
-from PySide import QtCore
+from PySide2 import QtCore
 
 __title__ = "Base class for all operations."
 __author__ = "sliptonic (Brad Collette)"

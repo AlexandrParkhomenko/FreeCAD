@@ -11,7 +11,7 @@ import PathScripts.PathIconViewProvider as PathIconViewProvider
 import PathScripts.PathLog as PathLog
 import math
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 
 LOGLEVEL = False

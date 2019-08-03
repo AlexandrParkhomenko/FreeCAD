@@ -9,7 +9,7 @@ import FreeCAD
 import PathScripts.PathLog as PathLog
 import PathScripts.PathSetupSheetOpPrototype as PathSetupSheetOpPrototype
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 
 __title__ = "Setup Sheet Editor"
 __author__ = "sliptonic (Brad Collette)"

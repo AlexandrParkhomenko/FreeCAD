@@ -10,7 +10,7 @@ import PathScripts.PathOpGui as PathOpGui
 import PathScripts.PathPocket as PathPocket
 import PathScripts.PathPocketBaseGui as PathPocketBaseGui
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 __title__ = "Path Pocket Operation UI"
 __author__ = "sliptonic (Brad Collette)"

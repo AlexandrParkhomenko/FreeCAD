@@ -13,7 +13,7 @@ import PathScripts.PathOp as PathOp
 import PathScripts.PathOpTools as PathOpTools
 import math
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 LOGLEVEL = False
 

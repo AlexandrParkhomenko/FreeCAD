@@ -10,7 +10,7 @@ import FreeCADGui
 import PathScripts.PathGui as PathGui
 import PathScripts.PathOpGui as PathOpGui
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 __title__ = "Path Profile Operation Base UI"
 __author__ = "sliptonic (Brad Collette)"

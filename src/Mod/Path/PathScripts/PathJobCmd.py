@@ -15,7 +15,7 @@ import PathScripts.PathStock as PathStock
 import PathScripts.PathUtil as PathUtil
 import json
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 
 # Qt translation handling
 def translate(context, text, disambig=None):

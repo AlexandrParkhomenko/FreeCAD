@@ -8,7 +8,7 @@
 import FreeCAD
 import PathScripts.PathGeom as PathGeom
 import PathScripts.PathLog as PathLog
-import PySide
+import PySide2
 
 
 __title__ = "Path UI helper and utility functions"
@@ -16,7 +16,7 @@ __author__ = "sliptonic (Brad Collette)"
 __doc__ = "A collection of helper and utility functions for the Path GUI."
 
 def translate(context, text, disambig=None):
-    return PySide.QtCore.QCoreApplication.translate(context, text, disambig)
+    return PySide2.QtCore.QCoreApplication.translate(context, text, disambig)
 
 LOGLEVEL = False
 

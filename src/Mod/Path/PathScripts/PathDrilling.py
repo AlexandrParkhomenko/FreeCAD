@@ -20,7 +20,7 @@ import PathScripts.PathLog as PathLog
 import PathScripts.PathOp as PathOp
 import PathScripts.PathUtils as PathUtils
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 __title__ = "Path Drilling Operation"
 __author__ = "sliptonic (Brad Collette)"

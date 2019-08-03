@@ -11,7 +11,7 @@ import PathScripts.PathGeom as PathGeom
 import PathScripts.PathLog as PathLog
 import math
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 __title__ = "PathOpTools - Tools for Path operations."
 __author__ = "sliptonic (Brad Collette)"

@@ -17,7 +17,7 @@ import PathScripts.PathUtil as PathUtil
 import json
 
 from PathScripts.PathPostProcessor import PostProcessor
-from PySide import QtCore
+from PySide2 import QtCore
 
 LOGLEVEL = False
 

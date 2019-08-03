@@ -12,7 +12,7 @@ import PathScripts.PathGui as PathGui
 import PathScripts.PathLog as PathLog
 import PathScripts.PathOpGui as PathOpGui
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 
 __title__ = "Path Deburr Operation UI"
 __author__ = "sliptonic (Brad Collette)"

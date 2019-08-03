@@ -14,7 +14,7 @@ import PathScripts.PathUtils as PathUtils
 import math
 
 from PathScripts.PathDressupTagPreferences import HoldingTagPreferences
-from PySide import QtCore
+from PySide2 import QtCore
 
 PathLog.setLevel(PathLog.Level.DEBUG, PathLog.thisModule())
 PathLog.trackModule()

@@ -11,7 +11,7 @@ import PathScripts.PathSurface as PathSurface
 import PathScripts.PathGui as PathGui
 import PathScripts.PathOpGui as PathOpGui
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 __title__ = "Path Surface Operation UI"
 __author__ = "sliptonic (Brad Collette)"

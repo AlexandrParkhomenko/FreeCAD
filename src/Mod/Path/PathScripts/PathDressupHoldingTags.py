@@ -17,7 +17,7 @@ import math
 
 from PathScripts.PathDressupTagPreferences import HoldingTagPreferences
 from PathScripts.PathUtils import waiting_effects
-from PySide import QtCore
+from PySide2 import QtCore
 
 LOGLEVEL = False
 

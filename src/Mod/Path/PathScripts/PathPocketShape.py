@@ -23,7 +23,7 @@ import PathScripts.PathPocketBase as PathPocketBase
 import PathScripts.PathUtils as PathUtils
 import math
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 __title__ = "Path Pocket Shape Operation"
 __author__ = "sliptonic (Brad Collette)"

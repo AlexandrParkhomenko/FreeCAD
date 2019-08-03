@@ -15,7 +15,7 @@ import PathScripts.PathLog as PathLog
 import PathScripts.PathUtil as PathUtil
 import PathScripts.PathUtils as PathUtils
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 LOG_MODULE = PathLog.thisModule()
 
@@ -1093,7 +1093,7 @@ class CommandDressupDogbone:
 
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide import QtGui
+    from PySide2 import QtGui
     FreeCADGui.addCommand('Path_DressupDogbone', CommandDressupDogbone())
 
 FreeCAD.Console.PrintLog("Loading DressupDogbone... done\n")

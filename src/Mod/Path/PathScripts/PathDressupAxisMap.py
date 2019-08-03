@@ -10,7 +10,7 @@ import math
 import PathScripts.PathGeom as PathGeom
 import PathScripts.PathUtils as PathUtils
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 if FreeCAD.GuiUp:
     import FreeCADGui

@@ -13,7 +13,7 @@ import PathScripts.PathLog as PathLog
 import math
 
 from PathScripts import PathUtils
-from PySide import QtCore
+from PySide2 import QtCore
 
 if FreeCAD.GuiUp:
     import FreeCADGui

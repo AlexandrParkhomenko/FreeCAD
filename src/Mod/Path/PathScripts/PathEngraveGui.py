@@ -12,7 +12,7 @@ import PathScripts.PathLog as PathLog
 import PathScripts.PathOpGui as PathOpGui
 import PathScripts.PathUtils as PathUtils
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 
 __title__ = "Path Engrave Operation UI"
 __author__ = "sliptonic (Brad Collette)"

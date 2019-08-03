@@ -10,7 +10,7 @@ import PathScripts.PathGeom as PathGeom
 import PathScripts.PathLog as PathLog
 import PathScripts.PathSetupSheetOpPrototype as PathSetupSheetOpPrototype
 import PathScripts.PathUtil as PathUtil
-import PySide
+import PySide2
 
 __title__ = "Setup Sheet for a Job."
 __author__ = "sliptonic (Brad Collette)"
@@ -27,7 +27,7 @@ else:
     PathLog.setLevel(PathLog.Level.INFO, PathLog.thisModule())
 
 def translate(context, text, disambig=None):
-    return PySide.QtCore.QCoreApplication.translate(context, text, disambig)
+    return PySide2.QtCore.QCoreApplication.translate(context, text, disambig)
 
 class Template:
     HorizRapid = 'HorizRapid'

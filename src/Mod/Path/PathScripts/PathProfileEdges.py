@@ -14,7 +14,7 @@ import PathScripts.PathProfileBase as PathProfileBase
 import PathScripts.PathUtils as PathUtils
 
 from DraftGeomUtils import findWires
-from PySide import QtCore
+from PySide2 import QtCore
 
 LOGLEVEL = False
 

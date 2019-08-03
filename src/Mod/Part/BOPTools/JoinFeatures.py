@@ -15,7 +15,7 @@ import Part
 
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide import QtCore, QtGui
+    from PySide2 import QtCore, QtGui
     # -------------------------- common stuff --------------------------------------------------
     
     #-------------------------- translation-related code ----------------------------------------

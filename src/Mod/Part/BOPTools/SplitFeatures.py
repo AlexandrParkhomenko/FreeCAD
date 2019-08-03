@@ -15,7 +15,7 @@ import Part
 
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide import QtCore, QtGui
+    from PySide2 import QtCore, QtGui
 
 #-------------------------- translation-related code ----------------------------------------
 #(see forum thread "A new Part tool is being born... JoinFeatures!"

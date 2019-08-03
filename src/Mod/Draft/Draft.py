@@ -35,8 +35,8 @@ from pivy import coin
 
 if FreeCAD.GuiUp:
     import FreeCADGui, Draft_rc
-    from PySide import QtCore
-    from PySide.QtCore import QT_TRANSLATE_NOOP
+    from PySide2 import QtCore
+    from PySide2.QtCore import QT_TRANSLATE_NOOP
     gui = True
     #from DraftGui import translate
 else:
@@ -521,7 +521,7 @@ def select(objs=None):
 def loadSvgPatterns():
     "loads the default Draft SVG patterns and custom patters if available"
     import importSVG
-    from PySide import QtCore
+    from PySide2 import QtCore
     FreeCAD.svgpatterns = {}
     # getting default patterns
     patfiles = QtCore.QDir(":/patterns").entryList()
@@ -560,7 +560,7 @@ def loadTexture(filename,size=None):
     is defined (an int or a tuple), and provided the input image is a png file,
     it will be scaled to match the given size."""
     if gui:
-        from PySide import QtGui,QtSvg
+        from PySide2 import QtGui,QtSvg
         try:
             p = QtGui.QImage(filename)
             # buggy - TODO: allow to use resolutions
@@ -3302,7 +3302,7 @@ class _ViewProviderDraft:
         if prop in ["TextureImage","Pattern","DiffuseColor"]:
             if hasattr(self.Object,"Shape"):
                 if self.Object.Shape.Faces:
-                    from PySide import QtCore
+                    from PySide2 import QtCore
                     path = None
                     if hasattr(vobj,"TextureImage"):
                         if vobj.TextureImage:
@@ -4652,7 +4652,7 @@ class _ViewProviderWire(_ViewProviderDraft):
         return []
 
     def setupContextMenu(self,vobj,menu):
-        from PySide import QtCore,QtGui
+        from PySide2 import QtCore,QtGui
         action1 = QtGui.QAction(QtGui.QIcon(":/icons/Draft_Edit.svg"),"Flatten this wire",menu)
         QtCore.QObject.connect(action1,QtCore.SIGNAL("triggered()"),self.flatten)
         menu.addAction(action1)
@@ -6087,7 +6087,7 @@ class ViewProviderWorkingPlaneProxy:
         return True
 
     def setupContextMenu(self,vobj,menu):
-        from PySide import QtCore,QtGui
+        from PySide2 import QtCore,QtGui
         action1 = QtGui.QAction(QtGui.QIcon(":/icons/Draft_SelectPlane.svg"),"Write camera position",menu)
         QtCore.QObject.connect(action1,QtCore.SIGNAL("triggered()"),self.writeCamera)
         menu.addAction(action1)

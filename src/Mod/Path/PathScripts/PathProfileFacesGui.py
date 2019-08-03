@@ -10,7 +10,7 @@ import PathScripts.PathOpGui as PathOpGui
 import PathScripts.PathProfileBaseGui as PathProfileBaseGui
 import PathScripts.PathProfileFaces as PathProfileFaces
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 __title__ = "Path Profile based on faces Operation UI"
 __author__ = "sliptonic (Brad Collette)"

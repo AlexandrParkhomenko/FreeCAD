@@ -10,7 +10,7 @@ import FreeCAD
 import FreeCADGui
 import PathScripts.PathLog as PathLog
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 from pivy import coin
 
 __title__ = "Path GetPoint UI"

@@ -10,7 +10,7 @@ import FreeCAD
 import Path
 import PathScripts.PathLog as PathLog
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 LOGLEVEL = False
 

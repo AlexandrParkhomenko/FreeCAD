@@ -9,7 +9,7 @@ import FreeCAD
 import FreeCADGui
 import Path
 import PathScripts
-from PySide import QtCore
+from PySide2 import QtCore
 import math
 
 __doc__ = """Path Array object and FreeCAD command"""

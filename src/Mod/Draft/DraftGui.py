@@ -25,9 +25,9 @@ Report to Draft.py for info
 import FreeCAD, FreeCADGui, os, Draft, sys, DraftVecUtils, math
 
 try:
-    from PySide import QtCore, QtGui, QtSvg
+    from PySide2 import QtCore, QtGui, QtSvg
 except ImportError:
-    FreeCAD.Console.PrintMessage("Error: Python-pyside package must be installed on your system to use the Draft module.")
+    FreeCAD.Console.PrintMessage("Error: Python-PySide2 package must be installed on your system to use the Draft module.")
 
 try:
     if sys.version_info.major >= 3:
@@ -1495,7 +1495,7 @@ class DraftToolBar:
                 if self.SStringValue.text():
                     #print("debug: D_G DraftToolBar.validateSString type(SStringValue.text): "  str(type(self.SStringValue.text)))
                     #self.sourceCmd.validSString(str(self.SStringValue.text()))    # QString to QByteArray to PyString
-                    self.sourceCmd.validSString(self.SStringValue.text())    # PySide returns Unicode from QString
+                    self.sourceCmd.validSString(self.SStringValue.text())    # PySide2 returns Unicode from QString
                 else:
                     FreeCAD.Console.PrintMessage(translate("draft", "Please enter a text string."))                     
               

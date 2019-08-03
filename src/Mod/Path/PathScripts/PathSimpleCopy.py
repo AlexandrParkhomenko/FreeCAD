@@ -7,7 +7,7 @@
 import FreeCAD
 import FreeCADGui
 import PathScripts
-from PySide import QtCore
+from PySide2 import QtCore
 
 __doc__ = """Path SimpleCopy command"""
 

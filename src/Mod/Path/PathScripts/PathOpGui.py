@@ -19,7 +19,7 @@ import PathScripts.PathUtil as PathUtil
 import PathScripts.PathUtils as PathUtils
 import importlib
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 
 __title__ = "Path Operation UI base classes"
 __author__ = "sliptonic (Brad Collette)"

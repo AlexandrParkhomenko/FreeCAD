@@ -13,8 +13,8 @@ from .Explode import explodeCompound
 import FreeCAD
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide import QtGui
-    from PySide import QtCore
+    from PySide2 import QtGui
+    from PySide2 import QtCore
 
 
 # translation-related code

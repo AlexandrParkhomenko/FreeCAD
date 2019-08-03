@@ -8,7 +8,7 @@
 These are a common functions and classes for creating custom post processors.
 '''
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 import FreeCAD
 
 FreeCADGui = None

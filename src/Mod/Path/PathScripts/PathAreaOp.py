@@ -15,7 +15,7 @@ import Draft
 import math
 
 # from PathScripts.PathUtils import waiting_effects
-from PySide import QtCore
+from PySide2 import QtCore
 if FreeCAD.GuiUp:
     import FreeCADGui
 
@@ -699,7 +699,7 @@ class ObjectOp(PathOp.ObjectOp):
         if show is True:
             if len(self.guiMsgs) > 0:
                 if FreeCAD.GuiUp:
-                    from PySide.QtGui import QMessageBox
+                    from PySide2.QtGui import QMessageBox
                     for entry in self.guiMsgs:
                         (title, msg) = entry
                         QMessageBox.warning(None, title, msg)

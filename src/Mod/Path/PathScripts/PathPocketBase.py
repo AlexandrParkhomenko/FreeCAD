@@ -9,7 +9,7 @@ import PathScripts.PathAreaOp as PathAreaOp
 import PathScripts.PathLog as PathLog
 import PathScripts.PathOp as PathOp
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 __title__ = "Base Path Pocket Operation"
 __author__ = "sliptonic (Brad Collette)"

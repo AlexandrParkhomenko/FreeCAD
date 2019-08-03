@@ -20,7 +20,7 @@ import FreeCAD, FreeCADGui, math, Draft, DraftGui, DraftTrackers, DraftVecUtils,
 from collections import OrderedDict
 from FreeCAD import Vector
 from pivy import coin
-from PySide import QtCore,QtGui
+from PySide2 import QtCore,QtGui
 
 class Snapper:
     """The Snapper objects contains all the functionality used by draft

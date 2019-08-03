@@ -10,7 +10,7 @@ import PathScripts.PathOpGui as PathOpGui
 import PathScripts.PathProfileBaseGui as PathProfileBaseGui
 import PathScripts.PathProfileContour as PathProfileContour
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 __title__ = "Path Contour Operation UI"
 __author__ = "sliptonic (Brad Collette)"

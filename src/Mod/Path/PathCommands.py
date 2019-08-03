@@ -18,7 +18,7 @@ from PathScripts.PathUtils import findParentJob
 
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide import QtCore
+    from PySide2 import QtCore
 else:
     def translate(ctxt, txt):
         return txt

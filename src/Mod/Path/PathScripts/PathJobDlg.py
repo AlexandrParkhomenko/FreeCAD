@@ -14,7 +14,7 @@ import PathScripts.PathUtil as PathUtil
 import glob
 import os
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 from collections import Counter
 
 # Qt translation handling

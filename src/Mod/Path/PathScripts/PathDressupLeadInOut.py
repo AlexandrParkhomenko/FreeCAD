@@ -13,7 +13,7 @@ import PathScripts.PathLog as PathLog
 import PathScripts.PathUtils as PathUtils
 import math
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 __doc__ = """LeadInOut Dressup MASHIN-CRC USE ROLL-ON ROLL-OFF to profile"""
 

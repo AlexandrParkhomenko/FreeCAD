@@ -9,7 +9,7 @@ import FreeCAD
 import PathScripts.PathPreferences as PathPreferences
 import PathScripts.PathPreferencesPathDressup as PathPreferencesPathDressup
 
-from PySide import QtCore
+from PySide2 import QtCore
 
 
 # Qt translation handling

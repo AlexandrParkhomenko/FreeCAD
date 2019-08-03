@@ -12,7 +12,7 @@ import PathScripts.PathProfileBase as PathProfileBase
 import PathScripts.PathLog as PathLog
 
 from PathScripts import PathUtils
-from PySide import QtCore
+from PySide2 import QtCore
 
 FreeCAD.setLogLevel('Path.Area', 0)
 

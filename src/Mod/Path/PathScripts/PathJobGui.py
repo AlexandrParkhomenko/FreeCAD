@@ -25,7 +25,7 @@ import PathScripts.PathUtils as PathUtils
 import math
 import traceback
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 from collections import Counter
 from contextlib import contextmanager
 from pivy import coin

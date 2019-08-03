@@ -4,7 +4,7 @@
 # ***************************************************************************/
 
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 import FreeCAD
 import FreeCADGui
 import Path

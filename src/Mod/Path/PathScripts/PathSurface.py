@@ -46,7 +46,7 @@ import PathScripts.PathLog as PathLog
 import PathScripts.PathUtils as PathUtils
 import PathScripts.PathOp as PathOp
 
-from PySide import QtCore
+from PySide2 import QtCore
 import time
 import math
 
