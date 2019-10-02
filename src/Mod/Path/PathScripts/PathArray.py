@@ -1,8 +1,7 @@
-# ***************************************************************************
-# *   Copyright (c) 2015 Yorik van Havre <yorik@uncreated.net>              *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************
-
+################################################################################
+#  Copyright (c) 2015 Yorik van Havre <yorik@uncreated.net>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 import FreeCAD
 import FreeCADGui
 import Path

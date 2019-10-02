@@ -1,7 +1,7 @@
-# ***************************************************************************
-# *   Copyright (c) 2015 Dan Falck <ddfalck@gmail.com>                        *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
+################################################################################
+#  Copyright (c) 2015 Dan Falck <ddfalck@gmail.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 import FreeCAD
 from FreeCAD import Units
 import datetime

@@ -1,7 +1,6 @@
 #
 # $Id: py-kdtree_test.py 2268 2008-08-20 10:08:58Z richert $
-#
-
+################################################################################
 import unittest
 
 from kdtree import KDTree_2Int, KDTree_4Int, KDTree_3Float, KDTree_4Float, KDTree_6Float

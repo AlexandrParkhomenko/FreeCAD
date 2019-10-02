@@ -1,9 +1,7 @@
-#/***************************************************************************
-# *   Copyright (c) 2016 Victor Titov (DeepSOIC) <vv.titov@gmail.com>       *
-# *                                                                         *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
-
+################################################################################
+#  Copyright (c) 2016 Victor Titov (DeepSOIC) <vv.titov@gmail.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 from __future__ import absolute_import
 
 import FreeCAD as App

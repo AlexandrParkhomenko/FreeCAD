@@ -1,10 +1,9 @@
 #  -*- coding: utf-8 -*-
 
-# ***************************************************************************
-# *   Copyright (c) 2017 LTS <SammelLothar@gmx.de> under LGPL               *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************
-
+################################################################################
+#  Copyright (c) 2017 LTS <SammelLothar@gmx.de> under LGPL
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 import FreeCAD
 import Path
 import PathScripts.PathDressup as PathDressup

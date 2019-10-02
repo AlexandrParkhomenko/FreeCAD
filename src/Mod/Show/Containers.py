@@ -1,10 +1,8 @@
-#/***************************************************************************
-# *   Copyright (c) Victor Titov (DeepSOIC)                                 *
-# *                                           (vv.titov@gmail.com) 2018     *
-# *                                                                         *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
-
+################################################################################
+#  Copyright (c) Victor Titov (DeepSOIC)
+#  (vv.titov@gmail.com) 2018
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 #This is a temporary replacement for C++-powered Container class that should be eventually introduced into FreeCAD
 
 class Container(object):

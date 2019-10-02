@@ -5,12 +5,11 @@
 # This is the second one of three init scripts, the third one
 # runs when the gui is up
 
-#***************************************************************************
-#*   (c) Werner Mayer <werner.wm.mayer@gmx.de> 2004                        *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#*   Werner Mayer 2004                                                     *
-#***************************************************************************/
-
+################################################################################
+#  (c) Werner Mayer <werner.wm.mayer@gmx.de> 2004
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+#  Werner Mayer 2004
+################################################################################
 class MeshWorkbench (Workbench):
     "Mesh workbench object"
     def __init__(self):

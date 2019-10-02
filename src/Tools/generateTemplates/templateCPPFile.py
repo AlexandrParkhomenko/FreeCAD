@@ -1,5 +1,4 @@
 #! python
-# -*- coding: utf-8 -*-
 # (c) 2006 Juergen Riegel 
 
 import template
@@ -13,8 +12,8 @@ class TemplateCPPFile (template.ModelTemplate):
 
 Template = """
 /***************************************************************************
- *   Copyright (c) YEAR YOUR NAME         <Your e-mail address>            *
- *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+ *   Copyright (c) YEAR YOUR NAME         <Your e-mail address>
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
  ***************************************************************************/
 
 """

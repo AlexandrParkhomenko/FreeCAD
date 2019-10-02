@@ -1,9 +1,7 @@
-#***************************************************************************
-#*   (c) Jon Nordby (jononor@gmail.com) 2015                               *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************/
-
-
+################################################################################
+#  (c) Jon Nordby (jononor@gmail.com) 2015
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 TOOLTIP='''
 FreeCAD Path post-processor to output code for the Roland Modela MDX-## machines.
 

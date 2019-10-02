@@ -1,7 +1,7 @@
-# ***************************************************************************
-# *   Copyright (c) 2015 Dan Falck <ddfalck@gmail.com>                      *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************
+################################################################################
+#  Copyright (c) 2015 Dan Falck <ddfalck@gmail.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 ''' Tool Controller defines tool, spindle speed and feed rates for Path Operations '''
 
 import FreeCAD

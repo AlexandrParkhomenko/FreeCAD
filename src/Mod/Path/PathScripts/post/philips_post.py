@@ -1,9 +1,7 @@
-#***************************************************************************
-#*                                                                         *
-#*   Copyright (c) 2016 Christoph Blaue <blaue@fh-westkueste.de>           *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************
-
+################################################################################
+#  Copyright (c) 2016 Christoph Blaue <blaue@fh-westkueste.de>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 # reload in python console:
 #   import generic_post
 #   reload(generic_post)
@@ -27,7 +25,7 @@ limited memory it seems sensible to reduce the number of commands and
 parameters, like e.g. suppress the units in the header and at every hop.
 '''
 
-#***************************************************************************
+################################################################################
 # user editable stuff here
 
 COMMAND_SPACE = " "
@@ -268,8 +266,7 @@ GCODE_FOOTER = "M30"
 # linenumbers are inserted automatically if LINENUMBERS is True
 
 # don't edit with the stuff below the next line unless you know what you're doing :)
-#***************************************************************************
-
+################################################################################
 linenr = 0  # variable has to be global because it is used by linenumberify and export
 
 if open.__module__ in ['__builtin__','io']:

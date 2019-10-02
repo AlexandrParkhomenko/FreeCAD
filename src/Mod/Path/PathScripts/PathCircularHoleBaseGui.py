@@ -1,8 +1,7 @@
-# ***************************************************************************
-# *   Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>               *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************
-
+################################################################################
+#  Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 import FreeCAD
 import FreeCADGui
 import PathScripts.PathLog as PathLog

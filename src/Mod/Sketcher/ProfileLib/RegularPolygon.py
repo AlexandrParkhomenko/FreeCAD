@@ -1,10 +1,8 @@
-#***************************************************************************
-#*                                                                         *
-#*   Copyright (c) 2014 - Johan Kristensen,                                *
-#*                        Juergen Riegel <FreeCAD@juergen-riegel.net>      *  
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************
-
+################################################################################
+#  Copyright (c) 2014 - Johan Kristensen,
+#  Juergen Riegel <FreeCAD@juergen-riegel.net>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 import FreeCAD, FreeCADGui, Sketcher, Part, math
 
 

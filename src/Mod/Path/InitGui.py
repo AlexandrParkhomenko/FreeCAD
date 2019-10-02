@@ -1,8 +1,7 @@
-# ***************************************************************************
-# *   (c) Yorik van Havre (yorik@uncreated.net) 2014                        *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
-
+################################################################################
+#  (c) Yorik van Havre (yorik@uncreated.net) 2014
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 class PathCommandGroup:
     def __init__(self, cmdlist, menu, tooltip = None):
         self.cmdlist = cmdlist

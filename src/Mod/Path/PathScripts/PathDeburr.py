@@ -1,8 +1,7 @@
-# ***************************************************************************
-# *   Copyright (c) 2018 sliptonic <shopinthewoods@gmail.com>               *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************
-
+################################################################################
+#  Copyright (c) 2018 sliptonic <shopinthewoods@gmail.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 import FreeCAD
 import Part
 import PathScripts.PathEngraveBase as PathEngraveBase

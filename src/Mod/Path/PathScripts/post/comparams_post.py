@@ -1,8 +1,7 @@
-#***************************************************************************
-#*                                                                         *
-#*   Copyright (c) 2015 Dan Falck <ddfalck@gmail.com>                      *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************
+################################################################################
+#  Copyright (c) 2015 Dan Falck <ddfalck@gmail.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 TOOLTIP=''' Example Post, using Path.Commands instead of Path.toGCode strings for Path gcode output. '''
 
 import FreeCAD

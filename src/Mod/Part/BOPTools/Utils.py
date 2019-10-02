@@ -1,10 +1,8 @@
-#/***************************************************************************
-# *   Copyright (c) Victor Titov (DeepSOIC)                                 *
-# *                                           (vv.titov@gmail.com) 2016     *
-# *                                                                         *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
-
+################################################################################
+#  Copyright (c) Victor Titov (DeepSOIC)
+#  (vv.titov@gmail.com) 2016
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 __title__="BOPTools.Utils module"
 __author__ = "DeepSOIC"
 __doc__ = "Utility code, used by various modules of BOPTools."

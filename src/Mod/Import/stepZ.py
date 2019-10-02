@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
-#****************************************************************************
-#*                                                                          *
-#*  StepZ Import Export compressed STEP files for FreeCAD                   *
-#*  Copyright (c) 2018                                                      *
-#*  Maurice easyw@katamail.com                                              *
-#*                                                                          *
-#*  License: LGPLv2+                                                        *
+################################################################################
+#  StepZ Import Export compressed STEP files for FreeCAD
+#  Copyright (c) 2018
+#  Maurice easyw@katamail.com
+################################################################################
+#  License: LGPLv2+
 
 # workaround for unicode in gzipping filename
 # OCC7 doesn't support non-ASCII characters at the moment
@@ -22,7 +20,7 @@ import tempfile
 ___stpZversion___ = "1.3.2"
 
 
-import builtins as builtin  #py3
+import builtins as builtin  ################################################################################
 import gzip as gz
     
 # import stepZ; reload(stepZ); import gzip_utf8; reload(gzip_utf8)
@@ -67,7 +65,7 @@ def open(filename):
     tempdir = tempfile.gettempdir() # get the current temporary directory
     tempfilepath = os.path.join(tempdir,fname + u'.stp')
 
-    with builtin.open(tempfilepath, 'wb') as f: #py3
+    with builtin.open(tempfilepath, 'wb') as f: ################################################################################
         f.write(file_content)
     #ImportGui.insert(filepath)
     ImportGui.open(tempfilepath)
@@ -92,7 +90,7 @@ def insert(filename,doc):
     tempdir = tempfile.gettempdir() # get the current temporary directory
     tempfilepath = os.path.join(tempdir,fname + u'.stp')
     
-    with builtin.open(tempfilepath, 'wb') as f: #py3
+    with builtin.open(tempfilepath, 'wb') as f: ################################################################################
         f.write(file_content)
     ImportGui.insert(tempfilepath, doc)
     #ImportGui.open(tempfilepath)

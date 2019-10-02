@@ -1,8 +1,7 @@
-# ***************************************************************************
-# *   (c) Sliptonic (shopinthewoods@gmail.com)  2016                        *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
-
+################################################################################
+#  (c) Sliptonic (shopinthewoods@gmail.com)  2016
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 '''This file has utilities for checking and catching common errors in FreeCAD
 Path projects.  Ideally, the user could execute these utilities from an icon
 to make sure tools are selected and configured and defaults have been revised'''

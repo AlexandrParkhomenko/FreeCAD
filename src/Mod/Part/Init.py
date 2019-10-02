@@ -1,13 +1,8 @@
-# FreeCAD init script of the part module  
-# (c) 2001 Juergen Riegel
-
-#***************************************************************************
-#*   (c) Juergen Riegel (juergen.riegel@web.de) 2002                       * 
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#*   Juergen Riegel 2002                                                   *
-#***************************************************************************/
-
-
+################################################################################
+#  (c) Juergen Riegel (juergen.riegel@web.de) 2001
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+#  FreeCAD init script of the part module  
+################################################################################
 #FreeCAD.addImportType("CAD formats (*.igs *.iges *.step *.stp *.brep *.brp)","Part")
 #FreeCAD.addExportType("CAD formats (*.igs *.iges *.step *.stp *.brep *.brp)","Part")
 FreeCAD.addImportType("BREP format (*.brep *.brp)","Part")

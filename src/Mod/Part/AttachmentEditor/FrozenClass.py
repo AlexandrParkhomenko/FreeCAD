@@ -1,10 +1,8 @@
-#/***************************************************************************
-# *   Copyright (c) Victor Titov (DeepSOIC)                                 *
-# *                                           (vv.titov@gmail.com) 2016     *
-# *                                                                         *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
-
+################################################################################
+#  Copyright (c) Victor Titov (DeepSOIC)
+#  (vv.titov@gmail.com) 2016
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 # adapted from http://stackoverflow.com/a/3603824/6285007
 class FrozenClass(object):
     '''FrozenClass: prevents adding new attributes to class outside of __init__'''

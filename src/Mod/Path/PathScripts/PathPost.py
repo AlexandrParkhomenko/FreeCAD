@@ -1,7 +1,7 @@
-# ***************************************************************************
-# *   Copyright (c) 2015 Dan Falck <ddfalck@gmail.com>                      *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************
+################################################################################
+#  Copyright (c) 2015 Dan Falck <ddfalck@gmail.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 ''' Post Process command that will make use of the Output File and Post Processor entries in PathJob '''
 
 import FreeCAD

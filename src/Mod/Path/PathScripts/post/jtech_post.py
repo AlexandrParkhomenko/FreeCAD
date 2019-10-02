@@ -1,7 +1,7 @@
-# ***************************************************************************
-# *   (c) sliptonic (shopinthewoods@gmail.com) 2018                        *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
+################################################################################
+#  (c) sliptonic (shopinthewoods@gmail.com) 2018
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 from __future__ import print_function
 import FreeCAD
 from FreeCAD import Units
@@ -134,8 +134,7 @@ def processArguments(argstring):
             MODAL = True
         if args.axis_modal:
             OUTPUT_DOUBLES = False
-        POWER_ON_DELAY = float(args.power_on_delay) / 1000 #milliseconds
-
+        POWER_ON_DELAY = float(args.power_on_delay) / 1000 ################################################################################
     except:
         return False
 

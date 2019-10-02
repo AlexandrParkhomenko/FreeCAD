@@ -1,9 +1,7 @@
-# /**************************************************************************
-# *   Copyright (c) Kresimir Tusek         (kresimir.tusek@gmail.com) 2018  *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
-
-
+################################################################################
+#  Copyright (c) Kresimir Tusek         (kresimir.tusek@gmail.com) 2018
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 import PathScripts.PathOp as PathOp
 import PathScripts.PathUtils as PathUtils
 import Path

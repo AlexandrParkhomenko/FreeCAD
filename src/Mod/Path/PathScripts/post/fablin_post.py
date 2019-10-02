@@ -1,12 +1,10 @@
-#***************************************************************************
-#*   (c) imarin 2017                                                       *
-#*                                                                         *
-#*   heavily based on gbrl post-procesor by:                               *
-#*   (c) sliptonic (shopinthewoods@gmail.com) 2014                         *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************/
-
-
+################################################################################
+#  (c) imarin 2017
+################################################################################
+#  heavily based on gbrl post-procesor by:
+#  (c) sliptonic (shopinthewoods@gmail.com) 2014
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 '''
 Generate g-code compatible with fablin from a Path.
 

@@ -1,9 +1,7 @@
-# ***************************************************************************
-# *                                                                         *
-# *   Copyright (c) 2016 - Victor Titov (DeepSOIC) <vv.titov@gmail.com>     *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************
-
+################################################################################
+#  Copyright (c) 2016 - Victor Titov (DeepSOIC) <vv.titov@gmail.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 __title__ = "CompoundTools.CompoundFilter"
 __author__ = "DeepSOIC, Bernd Hahnebach"
 __doc__ = "Compound Filter: remove some children from a compound (features)."

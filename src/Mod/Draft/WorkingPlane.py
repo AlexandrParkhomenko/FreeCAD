@@ -1,11 +1,8 @@
-#***************************************************************************
-#*                                                                         *
-#*   Copyright (c) 2009, 2010                                              *
-#*   Ken Cline <cline@frii.com>                                            *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************
-
-
+################################################################################
+#  Copyright (c) 2009, 2010
+#  Ken Cline <cline@frii.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 import FreeCAD, math, DraftVecUtils
 from FreeCAD import Vector
 

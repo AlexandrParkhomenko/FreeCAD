@@ -1,11 +1,10 @@
- #***************************************************************************
-#*   (c) sliptonic (shopinthewoods@gmail.com) 2014                        *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#*   This file has been modified from Sliptonis original Linux CNC post    *
-#*   for use with a Dynapath 20 controller all changes and Modifications   *
-#*   (c) Linden (Linden@aktfast.net) 2016                                  *
-#*                                                                         *
-#***************************************************************************/
+ ################################################################################
+#  (c) sliptonic (shopinthewoods@gmail.com) 2014
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+#  This file has been modified from Sliptonis original Linux CNC post
+#  for use with a Dynapath 20 controller all changes and Modifications
+#  (c) Linden (Linden@aktfast.net) 2016
+################################################################################
 TOOLTIP='''
 This is a postprocessor file for the Path workbench. It is used to
 take a pseudo-gcode fragment outputted by a Path object, and output

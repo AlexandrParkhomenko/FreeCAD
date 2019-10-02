@@ -1,5 +1,4 @@
 #! python
-# -*- coding: utf-8 -*-
 # (c) 2006 Juergen Riegel 
 
 from . import template
@@ -549,7 +548,7 @@ PyObject * @self.export.Name@::staticCallback_@i.Name@ (PyObject *self, PyObject
         PyErr_SetString(Base::BaseExceptionFreeCADError,"Unknown C++ exception");
         return NULL;
     }
-#endif
+################################################################################
 }
 
 -
@@ -1123,9 +1122,7 @@ int @self.export.Name@::setCustomAttributes(const char* /*attr*/, PyObject* /*ob
     return 0; 
 }
 -
-#endif
-
-
+################################################################################
 """	
 
 	# Here's the template for the user part of the implementation. This does NOT get overridden if it already exists.

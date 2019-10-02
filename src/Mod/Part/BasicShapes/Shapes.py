@@ -1,9 +1,7 @@
-# ***************************************************************************
-# *                                                                         *
-# *   Copyright (c) 2019 Werner Mayer <wmayer[at]users.sourceforge.net>     *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************
-
+################################################################################
+#  Copyright (c) 2019 Werner Mayer <wmayer[at]users.sourceforge.net>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 __title__ = "BasicShapes.Shapes"
 __author__ = "Werner Mayer"
 __doc__ = "Basic shapes"

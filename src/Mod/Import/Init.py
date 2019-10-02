@@ -1,14 +1,11 @@
 # FreeCAD init script of the Import module  
 # (c) 2001 Juergen Riegel
 
-#***************************************************************************
-#*   (c) Juergen Riegel (juergen.riegel@web.de) 2002                       * 
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#*   Juergen Riegel 2002                                                   *
-#***************************************************************************/
-
-
-
+################################################################################
+#  (c) Juergen Riegel (juergen.riegel@web.de) 2002
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+#  Juergen Riegel 2002
+################################################################################
 # Append the open handler
 #FreeCAD.addImportType("STEP 214 (*.step *.stp)","ImportGui")
 #FreeCAD.addExportType("STEP 214 (*.step *.stp)","ImportGui")

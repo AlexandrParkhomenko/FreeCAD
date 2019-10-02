@@ -1,9 +1,7 @@
-#***************************************************************************
-#*   (c) Yorik van Havre (yorik@uncreated.net) 2014                        *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************/
-
-
+################################################################################
+#  (c) Yorik van Havre (yorik@uncreated.net) 2014
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 '''
 These are a common functions and classes for creating custom post processors.
 '''
@@ -108,9 +106,9 @@ def stringsplit(commandline):
 
 def fmt(num,dec,units):
     ''' used to format axis moves, feedrate, etc for decimal places and units'''
-    if units == 'G21': #metric
+    if units == 'G21': ################################################################################
         fnum = '%.*f' % (dec, num)
-    else: #inch
+    else: ################################################################################
         fnum = '%.*f' % (dec, num/25.4) #since FreeCAD uses metric units internally
     return fnum
 

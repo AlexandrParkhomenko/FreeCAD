@@ -1,6 +1,6 @@
-# ***************************************************************************
-# *   (c) sliptonic (shopinthewoods@gmail.com) 2014                        *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+################################################################################
+#  (c) sliptonic (shopinthewoods@gmail.com) 2014
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
 # ***************************************************************************/import FreeCAD
 from FreeCAD import Units
 import Path

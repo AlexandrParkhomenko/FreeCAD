@@ -1,10 +1,8 @@
-#/***************************************************************************
-# *   Copyright (c) Victor Titov (DeepSOIC)                                 *
-# *                                           (vv.titov@gmail.com) 2016     *
-# *                                                                         *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
-
+################################################################################
+#  Copyright (c) Victor Titov (DeepSOIC)
+#  (vv.titov@gmail.com) 2016
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 __title__="BOPTools.GeneralFuseResult module"
 __author__ = "DeepSOIC"
 __doc__ = "Implementation of GeneralFuseResult class, which parses return of generalFuse."
@@ -382,7 +380,7 @@ class GeneralFuseReturnBuilder(FrozenClass):
             i_piece_existing, dummy = self._piece_to_index.get(hash, (None, None))
 
         if i_piece_existing is None:
-            #adding
+            ################################################################################
             self.pieces.append(piece_shape)
             i_piece_existing = len(self.pieces)-1
             if hash is not None:

@@ -1,10 +1,8 @@
-#***************************************************************************
-#*                                                                         *
-#*   Copyright (c) 2009, 2010                                              *
-#*   Yorik van Havre <yorik@uncreated.net>, Ken Cline <cline@frii.com>     *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************
-
+################################################################################
+#  Copyright (c) 2009, 2010
+#  Yorik van Havre <yorik@uncreated.net>, Ken Cline <cline@frii.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 __title__="FreeCAD Draft Workbench - Geometry library"
 __author__ = "Yorik van Havre, Jacques-Antoine Gaudin, Ken Cline"
 
@@ -2580,7 +2578,7 @@ def innerSoddyCircle(circle1, circle2, circle3):
 
 def circleFrom3CircleTangents(circle1, circle2, circle3):
     '''
-    http://en.wikipedia.org/wiki/Problem_of_Apollonius#Inversive_methods
+    http://en.wikipedia.org/wiki/Problem_of_Apollonius################################################################################
     http://mathworld.wolfram.com/ApolloniusCircle.html
     http://mathworld.wolfram.com/ApolloniusProblem.html
     '''

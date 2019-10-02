@@ -1,9 +1,7 @@
-#***************************************************************************
-#*                                                                         *
-#*   Copyright (c) 2009 Yorik van Havre <yorik@uncreated.net>              * 
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************
-
+################################################################################
+#  Copyright (c) 2009 Yorik van Havre <yorik@uncreated.net>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 # add Import/Export types
 App.addImportType("Autodesk DXF 2D (*.dxf)","importDXF") 
 App.addImportType("SVG as geometry (*.svg)","importSVG")

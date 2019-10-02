@@ -1,14 +1,11 @@
-# ***************************************************************************
-# *   Copyright (c) 2014 Yorik van Havre <yorik@uncreated.net>              *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************
-# *                                                                         *
-# *   Additional modifications and contributions beginning 2019             *
-# *   Focus: 4th-axis integration                                           *
-# *   by Russell Johnson  <russ4262@gmail.com>                              *
-# *                                                                         *
-# ***************************************************************************
-
+################################################################################
+#  Copyright (c) 2014 Yorik van Havre <yorik@uncreated.net>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
+#  Additional modifications and contributions beginning 2019
+#  Focus: 4th-axis integration
+#  by Russell Johnson  <russ4262@gmail.com>
+################################################################################
 from __future__ import print_function
 
 import FreeCAD

@@ -1,9 +1,7 @@
-# ***************************************************************************
-# *                                                                         *
-# *   Copyright (c) 2016 - Victor Titov (DeepSOIC) <vv.titov@gmail.com>     *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************
-
+################################################################################
+#  Copyright (c) 2016 - Victor Titov (DeepSOIC) <vv.titov@gmail.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 __title__ = "CompoundTools._CommandExplodeCompound"
 __author__ = "DeepSOIC"
 __doc__ = "ExplodeCompound: create a bunch of CompoundFilter objects to split a compound into pieces."
