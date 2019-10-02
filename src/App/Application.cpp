@@ -3,7 +3,7 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  *   Juergen Riegel 2002                                                   *
  ***************************************************************************/
-//# OSDEPENDENT
+//# OSDEPENDENT exceptions. See below FC_OS_LINUX
 
 #include "stdexport.h"
 
@@ -19,7 +19,6 @@
 #include "Application.h"
 #include "Document.h"
 
-// FreeCAD Base header
 #include "Base/Interpreter.h"
 #include "Base/Exception.h"
 #include "Base/Parameter.h"
@@ -106,7 +105,6 @@ using namespace Base;
 using namespace App;
 using namespace std;
 
-//#define PATHSEP '/' //#define PATHSEP '\\'
 #define PATHSEP boost::filesystem::path::separator;
 
 /** Observer that watches relabeled objects and make sure that the labels inside
@@ -1069,7 +1067,7 @@ static void freecadNewHandler ()
     throw Base::MemoryException();
 }
 
-#if defined(FC_OS_LINUX)
+//FC_OS_LINUX
 #include <execinfo.h>
 #include <dlfcn.h>
 #include <cxxabi.h>
@@ -1113,7 +1111,6 @@ void printBacktrace(size_t skip=0)
 
     free(symbols);
 }
-#endif
 
 void segmentation_fault_handler(int sig)
 {
@@ -1801,7 +1798,6 @@ void Application::ParseOptions(int ac, char ** av)
     descr += ".log";
     boost::program_options::options_description config("Configuration");
     config.add_options()
-    //("write-log,l", value<string>(), "write a log file")
     ("write-log,l", descr.c_str())
     ("log-file", value<string>(), "Unlike --write-log this allows logging to an arbitrary file")
     ("user-cfg,u", value<string>(),"User config file to load/save user settings")
@@ -1844,11 +1840,6 @@ void Application::ParseOptions(int ac, char ** av)
     ("cmap",                                                  "set the X-Window to color scheme")
     ;
 
-    // Ignored options, will be safely ignored. Mostly used by underlaying libs.
-    //boost::program_options::options_description x11("X11 options");
-    //x11.add_options()
-    //    ("display",  boost::program_options::value< string >(), "set the X-Server")
-    //    ;
     //0000723: improper handling of qt specific command line arguments
     std::vector<std::string> args;
     bool merge=false;
@@ -1996,7 +1987,6 @@ void Application::ParseOptions(int ac, char ** av)
 
     if (vm.count("write-log")) {
         mConfig["LoggingFile"] = "1";
-        //mConfig["LoggingFileName"] = vm["write-log"].as<string>();
         mConfig["LoggingFileName"] = mConfig["UserAppData"] + mConfig["ExeName"] + ".log";
     }
 
@@ -2096,7 +2086,6 @@ void Application::ExtractUserPath(){
         if (!fi.createDirectory()) {
             std::string error = "Cannot create directory ";
             error += appData;
-            // Want more details on console
             std::cerr << error << std::endl;
             throw Base::FileSystemError(error);
         }
@@ -2127,19 +2116,6 @@ std::string Application::FindHomePath(const char* sCall)
     }
     else {
       absPath = boost::dll::program_location().string();
-/*
-        // Find the path of the executable. Theoretically, there could occur a
-        // race condition when using readlink, but we only use this method to
-        // get the absolute path of the executable to compute the actual home
-        // path. In the worst case we simply get q wrong path and FreeCAD is not
-        // able to load its modules.
-        char resolved[PATH_MAX];
-        int nchars = readlink("/proc/self/exe", resolved, PATH_MAX); // linuxway
-        if (nchars < 0 || nchars >= PATH_MAX)
-            throw Base::FileSystemError("Cannot determine the absolute path of the executable");
-        resolved[nchars] = '\0'; // enforce null termination
-        absPath = resolved;
-*/
     }
 
     // should be an absolute path now

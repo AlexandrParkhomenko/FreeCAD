@@ -3,8 +3,6 @@
 #  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
 #  FreeCAD init script of the part module  
 ################################################################################
-#FreeCAD.addImportType("CAD formats (*.igs *.iges *.step *.stp *.brep *.brp)","Part")
-#FreeCAD.addExportType("CAD formats (*.igs *.iges *.step *.stp *.brep *.brp)","Part")
 FreeCAD.addImportType("BREP format (*.brep *.brp)","Part")
 FreeCAD.addExportType("BREP format (*.brep *.brp)","Part")
 FreeCAD.addImportType("IGES format (*.iges *.igs)","Part")
