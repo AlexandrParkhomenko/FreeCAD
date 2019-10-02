@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # ***************************************************************************
 # *   Copyright (c) 2016 Lorenz Hüdepohl <dev@stellardeath.org>             *
 # *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
