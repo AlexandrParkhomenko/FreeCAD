@@ -1956,7 +1956,7 @@ def getDXF(obj,direction=None):
     object. If direction is given, the object is projected in 2D.'''
     plane = None
     result = ""
-    if obj.isDerivedFrom("Drawing::View") # or obj.isDerivedFrom("TechDraw::DrawView"):
+    if obj.isDerivedFrom("Drawing::View"): # or obj.isDerivedFrom("TechDraw::DrawView")
         if obj.Source.isDerivedFrom("App::DocumentObjectGroup"):
             for o in obj.Source.Group:
                 result += getDXF(o,obj.Direction)
