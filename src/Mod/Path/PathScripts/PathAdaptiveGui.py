@@ -1,8 +1,7 @@
-# /**************************************************************************
-# *   Copyright (c) Kresimir Tusek         (kresimir.tusek@gmail.com) 2018  *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
-
+################################################################################
+#  Copyright (c) Kresimir Tusek         (kresimir.tusek@gmail.com) 2018
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 import PathScripts.PathOpGui as PathOpGui
 from PySide2 import QtCore, QtGui, QtWidgets
 import PathScripts.PathAdaptive as PathAdaptive

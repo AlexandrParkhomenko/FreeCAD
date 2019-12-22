@@ -1,16 +1,11 @@
-# -*- coding: utf-8 -*-
-
-# ***************************************************************************
-# *   Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>               *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************
-# *                                                                         *
-# *   Additional modifications and contributions beginning 2019             *
-# *   Focus: 4th-axis integration                                           *
-# *   by Russell Johnson  <russ4262@gmail.com>                              *
-# *                                                                         *
-# ***************************************************************************
-
+################################################################################
+#  Copyright (c) 2017 sliptonic <shopinthewoods@gmail.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
+#  Additional modifications and contributions beginning 2019
+#  Focus: 4th-axis integration
+#  by Russell Johnson  <russ4262@gmail.com>
+################################################################################
 # SCRIPT NOTES:
 # - Need test models for testing vertical faces scenarios.
 
@@ -506,8 +501,7 @@ class ObjectPocket(PathPocketBase.ObjectPocket):
             for shape in PathGeom.combineConnectedShapes(self.horiz):
                 shape.sewShape()
                 #  shape.tessellate(0.1)
-                self.horizontal.append(shape)    ###
-
+                self.horizontal.append(shape)    ##################################################################################
                 for face in self.horizontal:
                     # extrude all faces up to StartDepth and those are the removal shapes
                     (strDep, finDep) = self.calculateStartFinalDepths(obj, face, stock)

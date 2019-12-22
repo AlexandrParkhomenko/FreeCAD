@@ -1,8 +1,8 @@
-#***************************************************************************
-#*   (c) Yorik van Havre (yorik@uncreated.net) 2014                        *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************/
-            
+################################################################################
+#  (c) Yorik van Havre (yorik@uncreated.net) 2014
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
+
 # Get the Parameter Group of this module
 ParGrp = App.ParamGet("System parameter:Modules").GetGroup("Path")
 

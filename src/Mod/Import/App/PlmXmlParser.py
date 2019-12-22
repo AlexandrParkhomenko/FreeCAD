@@ -1,11 +1,9 @@
 # PlmXmlParser
-#***************************************************************************
-#*   (c) Juergen Riegel (FreeCAD@juergen-riegel.net) 2015                  *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#*   Juergen Riegel 2015                                                   *
-#***************************************************************************/
-
-
+################################################################################
+#  (c) Juergen Riegel (FreeCAD@juergen-riegel.net) 2015
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+#  Juergen Riegel 2015
+################################################################################
 import xml.etree.ElementTree as ET
 
 FreeCAD_On = False

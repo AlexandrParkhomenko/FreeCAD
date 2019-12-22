@@ -1,10 +1,8 @@
-#***************************************************************************
-#*                                                                         *
-#*   Copyright (c) 2011                                                    *  
-#*   Yorik van Havre <yorik@uncreated.net>                                 *  
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************
-
+################################################################################
+#  Copyright (c) 2011
+#  Yorik van Havre <yorik@uncreated.net>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 __title__="FreeCAD Draft Trackers"
 __author__ = "Yorik van Havre"
 
@@ -35,7 +33,7 @@ class Tracker:
         if dotted:
             drawstyle.style = coin.SoDrawStyle.LINES
             drawstyle.lineWeight = 3
-            drawstyle.linePattern = 0x0f0f #0xaa
+            drawstyle.linePattern = 0x0f0f ################################################################################
         node = coin.SoSeparator()
         for c in [drawstyle, color] + children:
             node.addChild(c)

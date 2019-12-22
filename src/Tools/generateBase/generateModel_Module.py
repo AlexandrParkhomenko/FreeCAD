@@ -5,8 +5,7 @@
 # Update it with: python generateDS.py -o generateModel_Module.py generateMetaModel_Module.xsd
 #
 # WARNING! All changes made in this file will be lost!
-#
-
+################################################################################
 import sys
 import getopt
 from xml.dom import minidom
@@ -15,8 +14,7 @@ from xml.dom import Node
 #
 # If you have installed IPython you can uncomment and use the following.
 # IPython is available from http://ipython.scipy.org/.
-#
-
+################################################################################
 ## from IPython.Shell import IPShellEmbed
 ## args = ''
 ## ipshell = IPShellEmbed(args,
@@ -29,8 +27,7 @@ from xml.dom import Node
 
 #
 # Support/utility functions.
-#
-
+################################################################################
 def showIndent(outfile, level):
     for idx in range(level):
         outfile.write('    ')
@@ -124,8 +121,7 @@ class MixedContainer:
 
 #
 # Data representation classes.
-#
-
+################################################################################
 class GenerateModel:
     subclass = None
     def __init__(self, Module=None, PythonExport=None):

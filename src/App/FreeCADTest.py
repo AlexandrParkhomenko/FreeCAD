@@ -3,15 +3,11 @@
 #
 # Testing the function of the base system and run
 # (if existing) the test function of the modules
-#
-
-#***************************************************************************
-#*   (c) Juergen Riegel (juergen.riegel@web.de) 2002                       *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#*   Juergen Riegel 2002                                                   *
-#***************************************************************************/
-
-
+################################################################################
+#  (c) Juergen Riegel (juergen.riegel@web.de) 2002
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+#  Juergen Riegel 2002
+################################################################################
 Log ("FreeCAD test running...\n\n")
 
 import sys

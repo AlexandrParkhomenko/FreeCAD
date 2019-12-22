@@ -1,5 +1,4 @@
 #! python
-# -*- coding: utf-8 -*-
 # (c) 2006 Juergen Riegel 
 
 from . import template
@@ -14,7 +13,7 @@ class TemplateModuleAppMain (template.ModelTemplate):
 
 	Template = """
 /***************************************************************************
- *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
+ *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
  ***************************************************************************/
 
 #include "FCConfig.h"

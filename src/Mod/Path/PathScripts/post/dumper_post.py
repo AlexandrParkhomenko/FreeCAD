@@ -1,7 +1,7 @@
-# ***************************************************************************
-# *   (c) sliptonic (shopinthewoods@gmail.com) 2014                        *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
+################################################################################
+#  (c) sliptonic (shopinthewoods@gmail.com) 2014
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 TOOLTIP='''
 Dumper is an extremely simple postprocessor file for the Path workbench. It is used
 to dump the command list from one or more Path objects for simple inspection. This post

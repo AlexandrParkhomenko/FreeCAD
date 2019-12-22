@@ -1,40 +1,37 @@
-# -*- coding: utf-8 -*-
-
-# ***************************************************************************
-# *   Copyright (c) 2016 sliptonic <shopinthewoods@gmail.com>               *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************
-# *                                                                         *
-# *   Additional modifications and contributions beginning 2019             *
-# *   by Russell Johnson  <russ4262@gmail.com>                              *
-# *   Version: Rev. 3t Usable                                               *
-# *                                                                         *
-# ***************************************************************************
-# Revision Notes
-# - Continue implementation of cut patterns: zigzag, line (line is used to force cut modes: climb, conventional)
-# - Continue implementation of ignore waste feature for planar scans
-# - Planar Op: move scan result(self.CLP) to local scope(CLP)
-# - Implemented @sliptonic's meshFromShape() parameter improvements for better, faster mesh creation
-
-# RELEASE NOTES
-# Only G0 and G1 gcode commands are used throughout.
-# CutMode: Climb, Conventional is only functional for some operations, like waterline and rotational scans
-# CutPattern: only functional for some operations
-# IgnoreWaste: not implemented yet - target op is for planar dropcutter
-# High density/resolution, mult-layer scans require significantly more processing time.
-# Rotational scans are very processor intensive.
-# Rotational scans take a longer time to complete.
-# Multi-pass rotational scans require a very long time to complete,
-#       even at larger SampleInterval values - ex: 1mm, 0.5mm
-# Remember, the larger the model, the more time to complete an operation!
-#       Rotational require even more time. Multi-pass require much, much more time.
-# This release is NOT bug-free.
-# After changing an operational value in the Properties list, press the ENTER key.
-#       Change all desired values, one at a time, pressing ENTER key after each change.
-#       When all property changes complete, click the blue recompute icon under user menus.
-# If you have an existing 3D Surface Op in your Job(s), you will need to delete it and recreate
-#       with this updated script installed because it may contain additional properties not
-#       created with the original version.
+################################################################################
+#  Copyright (c) 2016 sliptonic <shopinthewoods@gmail.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
+#  Additional modifications and contributions beginning 2019
+#  by Russell Johnson  <russ4262@gmail.com>
+#  Version: Rev. 3t Usable
+#
+#  Revision Notes
+#  - Continue implementation of cut patterns: zigzag, line (line is used to force cut modes: climb, conventional)
+#  - Continue implementation of ignore waste feature for planar scans
+#  - Planar Op: move scan result(self.CLP) to local scope(CLP)
+#  - Implemented @sliptonic's meshFromShape() parameter improvements for better, faster mesh creation
+#
+#  RELEASE NOTES
+#  Only G0 and G1 gcode commands are used throughout.
+#  CutMode: Climb, Conventional is only functional for some operations, like waterline and rotational scans
+#  CutPattern: only functional for some operations
+#  IgnoreWaste: not implemented yet - target op is for planar dropcutter
+#  High density/resolution, mult-layer scans require significantly more processing time.
+#  Rotational scans are very processor intensive.
+#  Rotational scans take a longer time to complete.
+#  Multi-pass rotational scans require a very long time to complete,
+#        even at larger SampleInterval values - ex: 1mm, 0.5mm
+#  Remember, the larger the model, the more time to complete an operation!
+#        Rotational require even more time. Multi-pass require much, much more time.
+#  This release is NOT bug-free.
+#  After changing an operational value in the Properties list, press the ENTER key.
+#        Change all desired values, one at a time, pressing ENTER key after each change.
+#        When all property changes complete, click the blue recompute icon under user menus.
+#  If you have an existing 3D Surface Op in your Job(s), you will need to delete it and recreate
+#        with this updated script installed because it may contain additional properties not
+#        created with the original version.
+################################################################################
 
 
 from __future__ import print_function
@@ -1771,7 +1768,7 @@ class ObjectSurface(PathOp.ObjectOp):
 
     def setOclCutter(self, obj):
         # Set cutter details
-        #  https://www.freecadweb.org/api/dd/dfe/classPath_1_1Tool.html#details
+        #  https://www.freecadweb.org/api/dd/dfe/classPath_1_1Tool.html################################################################################
         diam_1 = obj.ToolController.Tool.Diameter
         lenOfst = obj.ToolController.Tool.LengthOffset
         FR = obj.ToolController.Tool.FlatRadius

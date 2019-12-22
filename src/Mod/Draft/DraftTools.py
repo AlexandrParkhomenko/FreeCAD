@@ -1,12 +1,10 @@
 # -*- coding: utf8 -*-
 
-#***************************************************************************
-#*                                                                         *
-#*   Copyright (c) 2009, 2010                                              *
-#*   Yorik van Havre <yorik@uncreated.net>, Ken Cline <cline@frii.com>     *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************
-
+################################################################################
+#  Copyright (c) 2009, 2010
+#  Yorik van Havre <yorik@uncreated.net>, Ken Cline <cline@frii.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 __title__="FreeCAD Draft Workbench GUI Tools"
 __author__ = "Yorik van Havre, Werner Mayer, Martin Burbaum, Ken Cline, Dmitry Chigrin"
 
@@ -25,8 +23,8 @@ import sys, os, FreeCAD, FreeCADGui, WorkingPlane, math, re, Draft, Draft_rc, Dr
 from FreeCAD import Vector
 from PySide2 import QtCore, QtWidgets
 from DraftGui import todo, translate, utf8_decode
-from DraftSnap import *
-from DraftTrackers import *
+from DraftSnap import
+from DraftTrackers import
 from pivy import coin
 
 #---------------------------------------------------------------------------
@@ -4566,7 +4564,7 @@ class Edit(Modifier):
                 if Draft.getType(self.obj) in ["BezCurve"]:
                     knot = None
                     ispole = self.editing % self.obj.Degree #
-                    if ispole == 0: #knot
+                    if ispole == 0: ################################################################################
                         if self.obj.Degree >=3:
                             if self.editing >= 1: #move left pole
                                 knotidx = self.editing if self.editing < len(pts) else 0
@@ -4597,11 +4595,11 @@ class Edit(Modifier):
                         segment = knot / self.obj.Degree -1
                         cont=self.obj.Continuity[segment] if \
                             len(self.obj.Continuity) > segment else 0
-                        if cont == 1: #tangent
+                        if cont == 1: ################################################################################
                             pts[changep] = self.obj.Proxy.modifytangentpole(\
                                     pts[knot],editPnt,pts[changep])
                             self.trackers[changep].set(pts[changep])
-                        elif cont ==2: #symmetric
+                        elif cont ==2: ################################################################################
                             pts[changep] = self.obj.Proxy.modifysymmetricpole(\
                                     pts[knot],editPnt)
                             self.trackers[changep].set(pts[changep])
@@ -4727,8 +4725,7 @@ class Edit(Modifier):
             self.ui.editUi("Arc")
             self.editpoints.append(self.obj.Shape.Vertexes[0].Point)#First endpoint
             self.editpoints.append(self.obj.Shape.Vertexes[1].Point)#Second endpoint
-            self.editpoints.append(self.getArcMid())#Midpoint
-               
+            self.editpoints.append(self.getArcMid())################################################################################
     def updateCirclePts(self,ep1=1,ep2=1,ep3=1,ep4=1):
         self.obj.recompute()
         if ep1 == 1:
@@ -4795,7 +4792,7 @@ class Edit(Modifier):
                         p1=v
                         p2=self.getArcMid()
                         p3=self.obj.Shape.Vertexes[1].Point                    
-                    elif self.editing == 3:#midpoint
+                    elif self.editing == 3:################################################################################
                         p1=self.obj.Shape.Vertexes[0].Point
                         p2=v
                         p3=self.obj.Shape.Vertexes[1].Point
@@ -4966,7 +4963,7 @@ class Edit(Modifier):
                     elif style == 'Symmetric':
                         pts[changep] = self.obj.Proxy.modifysymmetricpole(\
                                 pts[knot],pts[keepp])
-                    else: #sharp
+                    else: ################################################################################
                         pass #
             else:
                 msg(translate("draft", "Selection is not a Knot\n"),'warning')
@@ -5013,10 +5010,10 @@ class Edit(Modifier):
         self.resetTrackers()
 
     def resetTrackersBezier(self):
-        knotmarkers = (coin.SoMarkerSet.DIAMOND_FILLED_9_9,#sharp
-                coin.SoMarkerSet.SQUARE_FILLED_9_9,        #tangent
-                coin.SoMarkerSet.HOURGLASS_FILLED_9_9)     #symmetric
-        polemarker = coin.SoMarkerSet.CIRCLE_FILLED_9_9    #pole
+        knotmarkers = (coin.SoMarkerSet.DIAMOND_FILLED_9_9,################################################################################
+                coin.SoMarkerSet.SQUARE_FILLED_9_9,        ################################################################################
+                coin.SoMarkerSet.HOURGLASS_FILLED_9_9)     ################################################################################
+        polemarker = coin.SoMarkerSet.CIRCLE_FILLED_9_9    ################################################################################
         self.trackers=[]
         cont=self.obj.Continuity
         firstknotcont = cont[-1] if (self.obj.Closed and cont) else 0

@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-
-# ***************************************************************************
-# *   Copyright (c) 2015 Dan Falck <ddfalck@gmail.com>                      *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************
+################################################################################
+#  Copyright (c) 2015 Dan Falck <ddfalck@gmail.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 ''' Used for CNC machine plane selection G17,G18,G19 '''
 
 import FreeCAD

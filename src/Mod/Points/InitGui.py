@@ -5,14 +5,11 @@
 # This is the second one of three init scripts, the third one
 # runs when the gui is up
 
-#***************************************************************************
-#*   (c) Juergen Riegel (juergen.riegel@web.de) 2002                       *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#*   Juergen Riegel 2002                                                   *
-#***************************************************************************/
-
-
-
+################################################################################
+#  (c) Juergen Riegel (juergen.riegel@web.de) 2002
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+#  Juergen Riegel 2002
+################################################################################
 class PointsWorkbench ( Workbench ):
     "Points workbench object"
     def __init__(self):

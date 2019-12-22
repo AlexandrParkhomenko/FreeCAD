@@ -1,8 +1,7 @@
-# ***************************************************************************
-# *   (c) sliptonic (shopinthewoods<at>gmail.com) 2014                      *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
-
+################################################################################
+#  (c) sliptonic (shopinthewoods<at>gmail.com) 2014
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 '''
 This is a preprocessor file for the Path workbench. Its aim is to
 parse the contents of a given OpenSBP file, and transform it to make it
@@ -167,9 +166,9 @@ def parse(inputstring):
                 continue
 
             else:
-                if words[7] == "1": #CW
+                if words[7] == "1": ################################################################################
                     s = "G2"
-                else: #CCW
+                else: ################################################################################
                     s = "G3"
 
 

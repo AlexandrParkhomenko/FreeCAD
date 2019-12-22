@@ -1,9 +1,7 @@
-# ***************************************************************************
-# *   (c) Yorik van Havre (yorik@uncreated.net) 2015                        *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
-
-
+################################################################################
+#  (c) Yorik van Havre (yorik@uncreated.net) 2015
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 from PySide2 import QtCore, QtGui, QtWidgets
 import FreeCAD
 import FreeCADGui

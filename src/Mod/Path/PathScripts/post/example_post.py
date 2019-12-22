@@ -1,7 +1,7 @@
-# ***************************************************************************
-# *   (c) Yorik van Havre (yorik@uncreated.net) 2014                        *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
+################################################################################
+#  (c) Yorik van Havre (yorik@uncreated.net) 2014
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 TOOLTIP='''
 This is an example postprocessor file for the Path workbench. It is used
 to save a list of FreeCAD Path objects to a file.

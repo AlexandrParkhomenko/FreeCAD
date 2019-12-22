@@ -1,9 +1,7 @@
-# ***************************************************************************
-# *   (c) Yorik van Havre (yorik@uncreated.net) 2014                        *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
-
-
+################################################################################
+#  (c) Yorik van Havre (yorik@uncreated.net) 2014
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 '''
 This is an example preprocessor file for the Path workbench. Its aim is to
 open a gcode file, parse its contents, and create the appropriate objects

@@ -1,8 +1,7 @@
-#***************************************************************************
-#*   (c) sliptonic (shopinthewoods@gmail.com) 2014                        *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************/
-
+################################################################################
+#  (c) sliptonic (shopinthewoods@gmail.com) 2014
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 import FreeCAD
 from FreeCAD import Units
 import PathScripts.PostUtils as PostUtils
@@ -18,10 +17,9 @@ grbl_post.export(object, "/path/to/file.ncc")
 '''
 
 
-# ***************************************************************************
-# * Globals set customization preferences
-# ***************************************************************************
-
+################################################################################
+#  Globals set customization preferences
+################################################################################
 # Default values for command line arguments:
 OUTPUT_COMMENTS = True            # default output of comments in output gCode file
 OUTPUT_HEADER = True              # default output header in output gCode file
@@ -50,10 +48,9 @@ PRE_OPERATION = ''''''            # Pre operation text will be inserted before e
 POST_OPERATION = ''''''           # Post operation text will be inserted after every operation
 TOOL_CHANGE = ''''''              # Tool Change commands will be inserted before a tool change
 
-# ***************************************************************************
-# * End of customization
-# ***************************************************************************
-
+################################################################################
+#  End of customization
+################################################################################
 # Parser arguments list & definition
 parser = argparse.ArgumentParser(prog='grbl_G81', add_help=False)
 parser.add_argument('--comments',           action='store_true', help='output comment (default)')
@@ -73,9 +70,9 @@ parser.add_argument('--inches',             action='store_true', help='Convert o
 TOOLTIP_ARGS = parser.format_help()
 
 
-# ***************************************************************************
-# * Internal global variables
-# ***************************************************************************
+################################################################################
+#  Internal global variables
+################################################################################
 MOTION_COMMANDS = ['G0', 'G00', 'G1', 'G01', 'G2', 'G02', 'G3', 'G03']  # Motion gCode commands definition
 RAPID_MOVES = ['G0', 'G00']                                             # Rapid moves gCode commands definition
 SUPPRESS_COMMANDS = ['G98', 'G80']                                      # These commands are ignored by commenting them out
@@ -86,8 +83,8 @@ CURRENT_Y = 0
 CURRENT_Z = 0
 
 
-# ***************************************************************************
-# * to distinguish python built-in open function from the one declared below
+################################################################################
+#  to distinguish python built-in open function from the one declared below
 if open.__module__ in ['__builtin__', 'io']:
   pythonopen = open
 

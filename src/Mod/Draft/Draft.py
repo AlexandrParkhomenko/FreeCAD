@@ -1,13 +1,8 @@
-# -*- coding: utf-8 -*-
-
-#***************************************************************************
-#*                                                                         *
-#*   Copyright (c) 2009, 2010                                              *
-#*   Yorik van Havre <yorik@uncreated.net>, Ken Cline <cline@frii.com>     *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************
-
-
+################################################################################
+#  Copyright (c) 2009, 2010
+#  Yorik van Havre <yorik@uncreated.net>, Ken Cline <cline@frii.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 __title__="FreeCAD Draft Workbench"
 __author__ = "Yorik van Havre, Werner Mayer, Martin Burbaum, Ken Cline, Dmitry Chigrin, Daniel Falck"
 
@@ -4874,9 +4869,8 @@ class _BezCurve(_DraftObject):
         obj.Closed = False
         obj.Degree = 3
         obj.Continuity = []
-        #obj.setEditorMode("Degree",2)#hide
-        obj.setEditorMode("Continuity",1)#ro
-
+        #obj.setEditorMode("Degree",2)################################################################################
+        obj.setEditorMode("Continuity",1)################################################################################
     def execute(self, fp):
         self.createGeometry(fp)
         fp.positionBySupport()
@@ -4885,7 +4879,7 @@ class _BezCurve(_DraftObject):
         """split the points into segments"""
         if not fp.Closed and len(fp.Points) >= 2: #allow lower degree segment
             poles=fp.Points[1:]
-        elif fp.Closed and len(fp.Points) >= fp.Degree: #drawable
+        elif fp.Closed and len(fp.Points) >= fp.Degree: ################################################################################
             #poles=fp.Points[1:(fp.Degree*(len(fp.Points)//fp.Degree))]+fp.Points[0:1]
             poles=fp.Points[1:]+fp.Points[0:1]
         else:

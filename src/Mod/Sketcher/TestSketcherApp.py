@@ -3,7 +3,6 @@
 #   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
 #**************************************************************************
 
-
 import FreeCAD, os, sys, unittest, Part, Sketcher
 App = FreeCAD
 

@@ -2,12 +2,10 @@ from __future__ import print_function
 import datetime
 from PathScripts import PostUtils
 
-# ***************************************************************************
-# *   (c) sliptonic (shopinthewoods@gmail.com) 2014                         *
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
-
-
+################################################################################
+#  (c) sliptonic (shopinthewoods@gmail.com) 2014
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 TOOLTIP='''
 This is an postprocessor file for the Path workbench. It will output path data
 in a format suitable for OpenSBP controllers like shopbot.  This postprocessor,

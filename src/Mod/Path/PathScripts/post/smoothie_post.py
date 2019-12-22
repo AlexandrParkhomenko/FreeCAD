@@ -1,8 +1,7 @@
-# ***************************************************************************
-# *   (c) sliptonic (shopinthewoods@gmail.com) 2017                        *
-# *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-# ***************************************************************************/
-
+################################################################################
+#  (c) sliptonic (shopinthewoods@gmail.com) 2017
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 import argparse
 import datetime
 from PathScripts import PostUtils

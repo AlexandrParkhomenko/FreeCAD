@@ -1,10 +1,8 @@
-#***************************************************************************
-#*                                                                         *
-#*   Copyright (c) 2015 - Victor Titov (DeepSOIC)                          *
-#*                                               <vv.titov@gmail.com>      *  
-#*   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#***************************************************************************
-
+################################################################################
+#  Copyright (c) 2015 - Victor Titov (DeepSOIC)
+#  <vv.titov@gmail.com>
+#  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 import FreeCAD, Part
 
 #if FreeCAD.GuiUp:
@@ -166,7 +164,7 @@ class _ViewProviderPartJoinFeature:
 #        mb.setDefaultButton(btnOK)
 #
 #        mb.exec_()
-#        
+################################################################################
 #        if mb.clickedButton() is btnAbort:
 #            FreeCAD.ActiveDocument.abortTransaction()
 #            return
@@ -190,7 +188,7 @@ def getIconPath(icon_dot_svg):
 #                'MenuText': QtCore.QT_TRANSLATE_NOOP("Part_ConnectFeature","Connect objects"),
 #                'Accel': "",
 #                'ToolTip': QtCore.QT_TRANSLATE_NOOP("Part_ConnectFeature","Fuses objects, taking care to preserve voids.")}
-#        
+################################################################################
 #    def Activated(self):
 #        if len(FreeCADGui.Selection.getSelectionEx()) == 2 :
 #            CreateJoinFeature(name = "Connect", mode = "Connect")
@@ -200,13 +198,13 @@ def getIconPath(icon_dot_svg):
 #            mb.setText(_translate("Part_JoinFeatures", "Two solids need to be selected, first!", None))
 #            mb.setWindowTitle(_translate("Part_JoinFeatures","Bad selection", None))
 #            mb.exec_()
-#            
+################################################################################
 #    def IsActive(self):
 #        if FreeCAD.ActiveDocument:
 #            return True
 #        else:
 #            return False
-#            
+################################################################################
 #FreeCADGui.addCommand('Part_JoinConnect',_CommandConnectFeature())
 #
 ## -------------------------- /ConnectObjectsFeature --------------------------------------------------
@@ -221,7 +219,7 @@ def getIconPath(icon_dot_svg):
 #                'MenuText': QtCore.QT_TRANSLATE_NOOP("Part_EmbedFeature","Embed object"),
 #                'Accel': "",
 #                'ToolTip': QtCore.QT_TRANSLATE_NOOP("Part_EmbedFeature","Fuses one object into another, taking care to preserve voids.")}
-#        
+################################################################################
 #    def Activated(self):
 #        if len(FreeCADGui.Selection.getSelection()) == 2 :
 #            CreateJoinFeature(name = "Embed", mode = "Embed")
@@ -232,7 +230,7 @@ def getIconPath(icon_dot_svg):
 #            mb.setWindowTitle(_translate("Part_JoinFeatures","Bad selection", None))
 #            mb.exec_()
 #
-#        
+################################################################################
 #    def IsActive(self):
 #        if FreeCAD.ActiveDocument:
 #            return True
@@ -254,7 +252,7 @@ def getIconPath(icon_dot_svg):
 #                'MenuText': QtCore.QT_TRANSLATE_NOOP("Part_CutoutFeature","Cutout for object"),
 #                'Accel': "",
 #                'ToolTip': QtCore.QT_TRANSLATE_NOOP("Part_CutoutFeature","Makes a cutout in one object to fit another object.")}
-#        
+################################################################################
 #    def Activated(self):
 #        if len(FreeCADGui.Selection.getSelection()) == 2 :
 #            CreateJoinFeature(name = "Cutout", mode = "Cutout")
