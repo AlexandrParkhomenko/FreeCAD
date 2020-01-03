@@ -106,9 +106,9 @@ def stringsplit(commandline):
 
 def fmt(num,dec,units):
     ''' used to format axis moves, feedrate, etc for decimal places and units'''
-    if units == 'G21': ################################################################################
+    if units == 'G21': #metric
         fnum = '%.*f' % (dec, num)
-    else: ################################################################################
+    else: #inch
         fnum = '%.*f' % (dec, num/25.4) #since FreeCAD uses metric units internally
     return fnum
 

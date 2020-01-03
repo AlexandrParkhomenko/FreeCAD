@@ -1768,7 +1768,7 @@ class ObjectSurface(PathOp.ObjectOp):
 
     def setOclCutter(self, obj):
         # Set cutter details
-        #  https://www.freecadweb.org/api/dd/dfe/classPath_1_1Tool.html################################################################################
+        #  https://www.freecadweb.org/api/dd/dfe/classPath_1_1Tool.html#details
         diam_1 = obj.ToolController.Tool.Diameter
         lenOfst = obj.ToolController.Tool.LengthOffset
         FR = obj.ToolController.Tool.FlatRadius

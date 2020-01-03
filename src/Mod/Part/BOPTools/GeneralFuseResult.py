@@ -380,7 +380,7 @@ class GeneralFuseReturnBuilder(FrozenClass):
             i_piece_existing, dummy = self._piece_to_index.get(hash, (None, None))
 
         if i_piece_existing is None:
-            ################################################################################
+            #adding
             self.pieces.append(piece_shape)
             i_piece_existing = len(self.pieces)-1
             if hash is not None:

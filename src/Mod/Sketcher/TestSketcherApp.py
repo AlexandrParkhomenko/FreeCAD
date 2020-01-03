@@ -1,7 +1,7 @@
-#**************************************************************************
-#   (c) Juergen Riegel (FreeCAD@juergen-riegel.net) 2011      LGPL        *
-#   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
-#**************************************************************************
+################################################################################
+#   (c) Juergen Riegel (FreeCAD@juergen-riegel.net) 2011      LGPL
+#   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
+################################################################################
 
 import FreeCAD, os, sys, unittest, Part, Sketcher
 App = FreeCAD

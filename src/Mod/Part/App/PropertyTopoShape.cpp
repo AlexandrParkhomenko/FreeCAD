@@ -4,7 +4,8 @@
  ***************************************************************************/
 
 
-
+#include <iostream>
+#include <fstream>
 # include <sstream>
 # include <BRepAdaptor_Curve.hxx>
 # include <BRepAdaptor_Surface.hxx>
@@ -46,6 +47,7 @@
 #include "TopoShapeCompSolidPy.h"
 #include "TopoShapeCompoundPy.h"
 
+using namespace std;
 using namespace Part;
 
 TYPESYSTEM_SOURCE(Part::PropertyPartShape , App::PropertyComplexGeoData);

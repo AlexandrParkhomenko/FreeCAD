@@ -7,7 +7,7 @@
 ParGrp = App.ParamGet("System parameter:Modules").GetGroup("Path")
 
 # Set the needed information
-ParGrp.SetString("HelpIndex",        "Path/Help/index.html")
+#ParGrp.SetString("HelpIndex",        "Path/Help/index.html")
 ParGrp.SetString("WorkBenchName",    "Path")
 ParGrp.SetString("WorkBenchModule",  "PathWorkbench.py")
 

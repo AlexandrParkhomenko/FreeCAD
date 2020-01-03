@@ -184,7 +184,7 @@ def getSVG(obj,scale=1,linewidth=0.35,fontsize=12,fillstyle="shape color",direct
                             if iscircle:
                                 rx = ry = c.Radius
                                 rot = 0
-                            else: ################################################################################
+                            else: #ellipse
                                 rx = c.MajorRadius
                                 ry = c.MinorRadius
                                 rot = math.degrees(c.AngleXU * (c.Axis * \

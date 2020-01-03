@@ -4,7 +4,6 @@
 #  (c) Yorik van Havre <yorik@uncreated.net> 2013
 #  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
 ################################################################################
-################################################################################
 import FreeCAD, os, unittest, FreeCADGui, Draft
 
 class DraftTest(unittest.TestCase):

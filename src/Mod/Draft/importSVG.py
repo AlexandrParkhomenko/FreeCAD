@@ -1,4 +1,3 @@
-
 ################################################################################
 #  Copyright (c) 2009 Yorik van Havre <yorik@uncreated.net>
 #  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
@@ -248,7 +247,7 @@ def getsize(length,mode='discard',base=1):
         with mode 'css': convert the unit to px assuming 90dpi
         with mode 'mm': convert the unit to millimeter assuming 90dpi"""
         tomm={
-                '' : 25.4/90, ################################################################################
+                '' : 25.4/90, #default
                 'px' : 25.4/90,
                 'pt' : 1.25*25.4/90,
                 'pc' : 15*25.4/90,
@@ -261,7 +260,7 @@ def getsize(length,mode='discard',base=1):
                 '%': 100 #arbitrarily chosen; has to depend on vieport size or (for filling patterns) on bounding box
                 }
         topx={
-                '' : 1.0, ################################################################################
+                '' : 1.0, #default
                 'px' : 1.0,
                 'pt' : 1.25,
                 'pc' : 15,
@@ -313,7 +312,7 @@ def makewire(path,checkclosed=False,donttry=False):
 
 def arccenter2end(center,rx,ry,angle1,angledelta,xrotation=0.0):
         '''calculate start and end vector and flags of an arc given in center parametrization
-        see http://www.w3.org/TR/SVG/implnote.html################################################################################
+        see http://www.w3.org/TR/SVG/implnote.html#ArcImplementationNotes
         returns (v1,v2,largerc,sweep)'''
         vr1=Vector(rx*math.cos(angle1),ry*math.sin(angle1),0)
         vr2=Vector(rx*math.cos(angle1+angledelta),ry*math.sin(angle1+angledelta),0)
@@ -327,7 +326,7 @@ def arccenter2end(center,rx,ry,angle1,angledelta,xrotation=0.0):
 
 def arcend2center(lastvec,currentvec,rx,ry,xrotation=0.0,correction=False):
         '''calculate (positive and negative) possible centers for an arc in endpoint parameterization
-        see http://www.w3.org/TR/SVG/implnote.html################################################################################
+        see http://www.w3.org/TR/SVG/implnote.html#ArcImplementationNotes
         rotation or x-axis has to be specified in radians (CCW)
         the sweepflag is interpreted as: sweepflag <==>  arc is travelled clockwise 
         returns [(vcenter+,angle1+,angledelta+),(...-)]'''
@@ -674,7 +673,7 @@ class svgHandler(xml.sax.ContentHandler):
                                                         if swapaxis or xrotation >  10**(-1*Draft.precision()):
                                                                 m3=FreeCAD.Matrix()
                                                                 m3.move(vcenter)
-                                                                rot90=FreeCAD.Matrix(0,-1,0,0,1,0) ################################################################################
+                                                                rot90=FreeCAD.Matrix(0,-1,0,0,1,0) #90
                                                                 #swapaxism=FreeCAD.Matrix(0,1,0,0,1,0) 
                                                                 if swapaxis:
                                                                         m3=m3.multiply(rot90)
@@ -684,9 +683,9 @@ class svgHandler(xml.sax.ContentHandler):
                                                         seg = e1a.toShape()
                                                         if sweepflag:
                                                                 seg.reverse()
-                                                                #obj = self.doc.addObject("Part::Feature",'DEBUG %s'%pathname) ################################################################################
-                                                                #obj.Shape = seg ################################################################################
-                                                                #seg = Part.LineSegment(lastvec,currentvec).toShape() ################################################################################
+                                                                #obj = self.doc.addObject("Part::Feature",'DEBUG %s'%pathname) #DEBUG
+                                                                #obj.Shape = seg #DEBUG
+                                                                #seg = Part.LineSegment(lastvec,currentvec).toShape() #DEBUG
                                                 lastvec = currentvec
                                                 lastpole = None
                                                 path.append(seg)
@@ -934,7 +933,7 @@ class svgHandler(xml.sax.ContentHandler):
                                 sh = Part.Ellipse(c,ry,rx).toShape()
                                 m3=FreeCAD.Matrix()
                                 m3.move(c)
-                                rot90=FreeCAD.Matrix(0,-1,0,0,1,0) ################################################################################
+                                rot90=FreeCAD.Matrix(0,-1,0,0,1,0) #90
                                 m3=m3.multiply(rot90)
                                 m3.move(c.multiply(-1))
                                 sh.transformShape(m3)
@@ -1061,7 +1060,7 @@ class svgHandler(xml.sax.ContentHandler):
                         if self.transform:
                                 FreeCAD.Console.PrintMessage("applying object transform: %s\n" % self.transform)
                                 #sh = transformCopyShape(sh,self.transform)
-                                # see issue ################################################################################
+                                # see issue #2062
                                 sh = sh.transformGeometry(self.transform)
                         for transform in self.grouptransform[::-1]:
                                 FreeCAD.Console.PrintMessage("applying group transform: %s\n" % transform)

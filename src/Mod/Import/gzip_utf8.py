@@ -362,7 +362,7 @@ class GzipFile(io.BufferedIOBase):
 
         # Gzip files can be padded with zeroes and still have archives.
         # Consume all zero bytes and set the file position to the first
-        # non-zero byte. See http://www.gzip.org/################################################################################
+        # non-zero byte. See http://www.gzip.org/#faq8
         c = "\x00"
         while c == "\x00":
             c = self.fileobj.read(1)

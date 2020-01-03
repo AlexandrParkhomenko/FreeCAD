@@ -2578,7 +2578,7 @@ def innerSoddyCircle(circle1, circle2, circle3):
 
 def circleFrom3CircleTangents(circle1, circle2, circle3):
     '''
-    http://en.wikipedia.org/wiki/Problem_of_Apollonius################################################################################
+    http://en.wikipedia.org/wiki/Problem_of_Apollonius#Inversive_methods
     http://mathworld.wolfram.com/ApolloniusCircle.html
     http://mathworld.wolfram.com/ApolloniusProblem.html
     '''

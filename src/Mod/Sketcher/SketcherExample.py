@@ -1,7 +1,7 @@
 # Example how to use the basic sketcher tools
-from Sketcher import
-from Part import
-from FreeCAD import
+from Sketcher import *
+from Part import *
+from FreeCAD import *
 import FreeCAD as App
 
 # set some constances for the constraints

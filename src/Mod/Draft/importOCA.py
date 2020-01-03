@@ -1,5 +1,3 @@
-# -*- coding: utf8 -*-
-
 ################################################################################
 #  Copyright (c) 2009 Yorik van Havre <yorik@uncreated.net>
 #  FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY
