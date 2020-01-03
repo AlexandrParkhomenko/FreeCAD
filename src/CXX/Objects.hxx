@@ -1,5 +1,7 @@
 //-----------------------------------------------------------------------------
 //
+// Copyright (c) 1998 - 2007, The Regents of the University of California
+// Produced at the Lawrence Livermore National Laboratory
 // All rights reserved.
 //
 // This file is part of PyCXX. For details,see http://cxx.sourceforge.net/. The

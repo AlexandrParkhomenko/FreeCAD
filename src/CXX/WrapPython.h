@@ -39,6 +39,7 @@
 #define __PyCXX_wrap_python_hxx__
 
 // On some platforms we have to include time.h to get select defined
+//# OSDEPENDENT
 #include <sys/time.h>
 
 // Python.h will redefine these and generate warning in the process
@@ -46,9 +47,7 @@
 #undef _POSIX_C_SOURCE
 
 // pull in python definitions
-#undef slots
 #include "FCConfig.h"
-#define slots
 
 // fix issue with Python assuming that isspace, toupper etc are macros
 #if defined(isspace)
