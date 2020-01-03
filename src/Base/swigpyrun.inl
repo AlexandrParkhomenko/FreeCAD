@@ -54,8 +54,7 @@ void cleanupSWIG_T(const char* TypeName)
         return;
 
     PyObject *module, *dict;
-    PyInterpreterState *interp = PyThreadState_GET()->interp;
-    PyObject *modules = interp->modules;
+    PyObject *modules = PyImport_GetModuleDict();
     module = PyDict_GetItemString(modules, "__builtin__");
     if (module != NULL && PyModule_Check(module)) {
         dict = PyModule_GetDict(module);
@@ -72,7 +71,6 @@ void cleanupSWIG_T(const char* TypeName)
         pos = 0;
         while (PyDict_Next(dict, &pos, &key, &value)) {
             if (value != Py_None && PyUnicode_Check(key)) {
-
                 void* ptr = 0;
                 if (SWIG_ConvertPtr(value, &ptr, 0, 0) == 0)
                     PyDict_SetItem(dict, key, Py_None);
