@@ -4,18 +4,18 @@ For info see http://www.freecadweb.org
 
 Here using:
 - archlinux
-- opencascade == 7.3.0
+- opencascade == 7.4.0
 - only Path module with dependencies in FreeCAD
-- qt          >= 5.13
-- python      >= 3.7
-- PySide2     == 5.13
-- pyside2-tools == 5.13
-- shiboken2   == 5.13
-- python-six  == 1.12
-- boost       == 1.69
+- qt          >= 5.14
+- python      >= 3.8
+- PySide2     == 5.14
+- pyside2-tools == 5.14
+- shiboken2   == 5.14
+- python-six  == 1.13
+- boost       == 1.71
 - xerces-c    == 3.2.2
-- swig        == 4.0.0
-- gcc         == 9.1.0
+- swig        == 4.0.1
+- gcc         == 9.2.0
 
 
 **Use compressed filesystem:**  
