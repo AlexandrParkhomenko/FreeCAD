@@ -123,7 +123,8 @@ def set_type_constants(nameSpace):
 
 #
 # For debugging.
-################################################################################
+#
+
 # Print only if DEBUG is true.
 DEBUG = 1
 def dbgprint(level, msg):
@@ -138,7 +139,8 @@ def pplist(lst):
 
 #
 # Representation of element definition.
-################################################################################
+#
+
 def showLevel(outfile, level):
     for idx in range(level):
         outfile.write('    ')
@@ -723,7 +725,8 @@ class XschemaHandler(handler.ContentHandler):
 
 #
 # Code generation
-################################################################################
+#
+
 def generateExportFn_1(outfile, child, name, fill):
     cleanName = cleanupName(name)
     if child.getType() in StringType or \
@@ -940,7 +943,8 @@ def generateExportFn(outfile, prefix, element):
 
 #
 # Generate exportLiteral method.
-################################################################################
+#
+
 def generateExportLiteralFn_1(outfile, child, name, fill):
     mappedName = mapName(name)
     if child.getType() in StringType or \
@@ -1158,7 +1162,8 @@ def generateExportLiteralFn(outfile, prefix, element):
 
 #
 # Generate build method.
-################################################################################
+#
+
 def generateBuildAttributes(outfile, element, hasAttributes):
     attrDefs = element.getAttributeDefs()
     for key in attrDefs:
@@ -1980,7 +1985,8 @@ def generateClasses(outfile, prefix, element, delayed):
 
 #
 # Generate the SAX handler class for SAX parsing.
-################################################################################
+#
+
 SAX_STARTELEMENT_1 = """\
     def startElement(self, name, attrs):
         done = 0
@@ -2378,7 +2384,10 @@ TEMPLATE_HEADER = """\
 # Update it with: python generateDS.py -o generateModel_Module.py generateMetaModel_Module.xsd
 #
 # WARNING! All changes made in this file will be lost!
-################################################################################
+#
+
+from __future__ import print_function # this allows py2 to print(str1,str2) correctly
+
 import sys
 import getopt
 from xml.dom import minidom
@@ -2387,7 +2396,8 @@ from xml.dom import Node
 #
 # If you have installed IPython you can uncomment and use the following.
 # IPython is available from http://ipython.scipy.org/.
-################################################################################
+#
+
 ## from IPython.Shell import IPShellEmbed
 ## args = ''
 ## ipshell = IPShellEmbed(args,
@@ -2400,7 +2410,8 @@ from xml.dom import Node
 
 #
 # Support/utility functions.
-################################################################################
+#
+
 def showIndent(outfile, level):
     for idx in range(level):
         outfile.write('    ')
@@ -2494,7 +2505,8 @@ class MixedContainer:
 
 #
 # Data representation classes.
-################################################################################
+#
+
 """
 
 # Fool (and straighten out) the syntax highlighting.
@@ -2844,7 +2856,8 @@ TEMPLATE_SUBCLASS_HEADER = """\
 
 #
 # Generated %s by generateDS.py.
-################################################################################
+#
+
 import sys
 from xml.dom import minidom
 from xml.sax import handler, make_parser
