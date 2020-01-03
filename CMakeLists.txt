@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR) #https://cmake.org/cmake/help/v3.12/module/FindPython3.html#module:FindPython3
 #name
 project(FreeCAD)
-set(PACKAGE_VERSION_NAME "FreeCAD.0.19.Path")
+set(PACKAGE_VERSION_NAME "FreeCAD.0.20.Path")
 configure_file(${CMAKE_SOURCE_DIR}/src/Version.h.cmake ${CMAKE_SOURCE_DIR}/src/Version.h)
 #compilator
 set(CMAKE_BUILD_TYPE "Release")  #for shiboken2
 set(CMAKE_CXX_STANDARD 20) #CXX_STANDARD_REQUIRED YES  #CXX_EXTENSIONS NO
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-write-strings ${CMAKE_CXX_FLAGS}") #-Werror -Wno-deprecated -pedantic-errors
-set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--no-undefined")  # get linker errors
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-write-strings ${CMAKE_CXX_FLAGS} ") #-Werror -Wno-deprecated -pedantic-errors
+set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--no-undefined ")  # get linker errors
 
 include(AddFileDependencies)
 include(${CMAKE_SOURCE_DIR}/Macros.cmake)
@@ -31,7 +31,7 @@ MESSAGE(STATUS "includedir: ${CMAKE_INSTALL_INCLUDEDIR}")
 MESSAGE(STATUS "libdir: ${CMAKE_INSTALL_LIBDIR}")
 
 OPTION(FREECAD_USE_EXTERNAL_SMESH "Use system installed smesh instead of the bundled." OFF)
-OPTION(FREECAD_USE_QT_FILEDIALOG "Use Qt's file dialog instead of the native one." ON)
+OPTION(FREECAD_USE_QT_FILEDIALOG "Use Qt's file dialog instead of the native one." OFF)
 
 OPTION(FREECAD_USE_PCL "Build the features that use PCL libs" OFF)
 if(FREECAD_USE_PCL)
@@ -79,7 +79,7 @@ find_package(Freetype REQUIRED)
     set(COIN3D_VERSION ${Coin_VERSION})
 
 find_package(
-  Qt5 #5.12
+  Qt5
   COMPONENTS
   Core Xml # Network
   Widgets PrintSupport OpenGL Svg UiTools Concurrent
