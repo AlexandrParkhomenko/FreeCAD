@@ -107,8 +107,6 @@ find_package(
 find_package(Shiboken2 REQUIRED)
 find_package(PySide2 REQUIRED)
 MESSAGE(STATUS "PySide2_DIR: ${PySide2_DIR}")
-FIND_PROGRAM(PYSIDE2UICBINARY NAMES uic)
-FIND_PROGRAM(PYSIDE2RCCBINARY NAMES rcc)
 
     file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/Ext/PySide)
     file(WRITE ${CMAKE_BINARY_DIR}/Ext/PySide/__init__.py "# PySide wrapper\n"
@@ -139,10 +137,8 @@ MACRO(PYSIDE_WRAP_RC outfiles)
   GET_FILENAME_COMPONENT(infile ${it} ABSOLUTE)
   SET(outfile "${CMAKE_CURRENT_BINARY_DIR}/${outfile}_rc.py")
     ADD_CUSTOM_COMMAND(OUTPUT "${outfile}"
-      COMMAND "${PYSIDE2RCCBINARY}" "${infile}" -o "${outfile}"
+      COMMAND pyrcc5 "${infile}" -o "${outfile}"
       COMMAND sed -i "/^# /d" "${outfile}" # delete pyside2-rcc header with comments and date
-      COMMAND sed -i "/^\s*\/\/ /d"  "${outfile}" # delete c-onestring-comments
-      COMMAND sed -i "/^[/*]\*/d"  "${outfile}" # delete /* ** */
       MAIN_DEPENDENCY "${infile}"
     )
   list(APPEND ${outfiles} ${outfile})

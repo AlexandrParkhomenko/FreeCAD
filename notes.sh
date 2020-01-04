@@ -30,3 +30,11 @@ git apply revert.patch
   #local
   git checkout
 
+
+sed -i "/^\s*\/\/ /d"  "${outfile}" # delete c-onestring-comments
+sed -i "/^[/*]\*/d"  "${outfile}" # delete /* ** */
+
+#cmake
+FIND_PROGRAM(PYSIDE2UICBINARY NAMES pyuic5)
+FIND_PROGRAM(PYSIDE2RCCBINARY NAMES pyrcc5)
+
