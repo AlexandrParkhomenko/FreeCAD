@@ -141,6 +141,8 @@ MACRO(PYSIDE_WRAP_RC outfiles)
     ADD_CUSTOM_COMMAND(OUTPUT "${outfile}"
       COMMAND "${PYSIDE2RCCBINARY}" "${infile}" -o "${outfile}"
       COMMAND sed -i "/^# /d" "${outfile}" # delete pyside2-rcc header with comments and date
+      COMMAND sed -i "/^\s*\/\/ /d"  "${outfile}" # delete c-onestring-comments
+      COMMAND sed -i "/^[/*]\*/d"  "${outfile}" # delete /* ** */
       MAIN_DEPENDENCY "${infile}"
     )
   list(APPEND ${outfiles} ${outfile})

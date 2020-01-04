@@ -856,7 +856,7 @@ class TaskPanel(object):
                     toolbox.addItem(page.form, page.getTitle(obj))
             toolbox.setWindowTitle(opTitle)
             if opPage.getIcon(obj):
-                toolbox.setWindowIcon(QtWidgets.QDialog(opPage.getIcon(obj)))
+                toolbox.setWindowIcon(QtGui.QIcon(opPage.getIcon(obj)))
 
             self.form = toolbox
         elif taskPanelLayout == 2:

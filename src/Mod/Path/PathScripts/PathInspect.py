@@ -72,7 +72,7 @@ class GCodeEditorDialog(QtWidgets.QDialog):
     def __init__(self, PathObj, parent=FreeCADGui.getMainWindow()):
         self.PathObj = PathObj
         QtWidgets.QDialog.__init__(self, parent)
-        layout = QtGui.QVBoxLayout(self)
+        layout = QtWidgets.QVBoxLayout(self)
 
         p = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/Path")
         c = p.GetUnsigned("DefaultHighlightPathColor", 4286382335)
