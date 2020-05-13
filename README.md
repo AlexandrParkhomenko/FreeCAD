@@ -12,7 +12,7 @@ Here using:
 - pyside2-tools == 5.14
 - shiboken2   == 5.14
 - python-six  == 1.13
-- boost       == 1.71
+- boost       == 1.72
 - xerces-c    == 3.2.2
 - swig        == 4.0.1
 - gcc         == 9.2.0
