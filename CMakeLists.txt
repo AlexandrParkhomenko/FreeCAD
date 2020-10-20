@@ -92,13 +92,13 @@ find_package(
     # There is probably a cleaner solution than this
     macro(fc_wrap_cpp outfiles )
       # get include dirs
-      qt5_get_moc_flags(moc_flags)
+      qt5_get_moc_flags(moc_flags) # qt5_get_moc_flags is not part of the official API, and might be removed in Qt 6.
       set(moc_files ${ARGN})
 
       foreach(it ${moc_files})
         get_filename_component(it ${it} ABSOLUTE)
-        qt5_make_output_file(${it} moc_ cpp outfile)
-        qt5_create_moc_command(${it} ${outfile} "${moc_flags}" "${moc_options}" "${moc_target}" "${moc_depends}")
+        qt5_make_output_file(${it} moc_ cpp outfile) # qt5_make_output_file is not part of the official API, and might be removed in Qt 6.
+        qt5_create_moc_command(${it} ${outfile} "${moc_flags}" "${moc_options}" "${moc_target}" "${moc_depends}") # qt5_create_moc_command is not part of the official API, and might be removed in Qt 6.
         set(${outfiles} ${${outfiles}} ${outfile})
         add_file_dependencies(${it} ${outfile})
       endforeach(it)
