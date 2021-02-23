@@ -84,11 +84,6 @@ int Part::ImportStepParts(App::Document *pcDoc, const char* Name)
         throw Base::FileException("Cannot open STEP file");
     }
 
-    Handle(Message_ProgressIndicator) pi = new ProgressIndicator(100);
-    aReader.WS()->MapReader()->SetProgress(pi);
-    pi->NewScope(100, "Reading STEP file...");
-    pi->Show();
-
     // Root transfers
     Standard_Integer nbr = aReader.NbRootsForTransfer();
     //aReader.PrintCheckTransfer (failsonly, IFSelect_ItemsByEntity);
@@ -96,7 +91,6 @@ int Part::ImportStepParts(App::Document *pcDoc, const char* Name)
         Base::Console().Log("STEP: Transferring Root %d\n",n);
         aReader.TransferRoot(n);
     }
-    pi->EndScope();
 
     // Collecting resulting entities
     Standard_Integer nbs = aReader.NbShapes();

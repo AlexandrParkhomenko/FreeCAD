@@ -17,7 +17,7 @@
 # include <QFutureWatcher>
 # include <QKeyEvent>
 # include <QtConcurrentMap>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 # include "FCConfig.h"
 # include <Inventor/nodes/SoBaseColor.h>
 # include <Inventor/nodes/SoCoordinate3.h>

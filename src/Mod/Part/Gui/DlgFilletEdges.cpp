@@ -23,7 +23,7 @@
 # include <QItemSelection>
 # include <QItemSelectionModel>
 # include <QTimer>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 # include "FCConfig.h"
 # include <Inventor/actions/SoSearchAction.h>
 # include <Inventor/details/SoLineDetail.h>

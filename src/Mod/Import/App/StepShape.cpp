@@ -70,13 +70,13 @@ int StepShape::read(const char* fileName)
 
     std::cout << "dump of step header:" << std::endl;
 
-    model->DumpHeader(msg);
+    model->DumpHeader(std::cout);
 
     for(int nent=1;nent<=model->NbEntities();nent++) {
       Handle(Standard_Transient) entity=model->Entity(nent);
       
       std::cout << "label entity " << nent << ":" ;
-      model->PrintLabel(entity,msg);
+      model->PrintLabel(entity, std::cout);
       std::cout << ";"<< entity->DynamicType()->Name() << std::endl;
     }
 

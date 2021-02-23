@@ -9,7 +9,7 @@
 # include <QApplication>
 # include <QMenu>
 # include <QPixmap>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 
 #include "App/Part.h"
 #include "App/Document.h"

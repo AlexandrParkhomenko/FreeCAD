@@ -52,7 +52,7 @@
 # include <QTextStream>
 # include <QKeyEvent>
 
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 
 #include <Inventor/SbTime.h>
 #include <boost/scoped_ptr.hpp>

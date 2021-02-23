@@ -14,18 +14,6 @@
 
 namespace Part {
 
-class Standard_EXPORT ProgressIndicator : public Message_ProgressIndicator
-{
-public:
-    ProgressIndicator (int theMaxVal = 100);
-    virtual ~ProgressIndicator ();
-
-    virtual Standard_Boolean Show (const Standard_Boolean theForce = Standard_True);
-    virtual Standard_Boolean UserBreak();
-
-private:
-    std::unique_ptr<Base::SequencerLauncher> myProgress;
-};
 
 }
 

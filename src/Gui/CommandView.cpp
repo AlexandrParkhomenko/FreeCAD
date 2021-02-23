@@ -17,7 +17,7 @@
 # include <QMessageBox>
 # include <QPainter>
 # include <QTextStream>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 
 #include "Command.h"
 #include "Action.h"

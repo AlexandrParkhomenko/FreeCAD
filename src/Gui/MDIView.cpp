@@ -4,7 +4,7 @@
  ***************************************************************************/
 
 # include <boost/signals2.hpp>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 # include <qapplication.h>
 # include <qregexp.h>
 # include <QEvent>

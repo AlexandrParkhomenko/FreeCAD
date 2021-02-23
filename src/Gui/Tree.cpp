@@ -5,7 +5,7 @@
 
 
 
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 # include <QAction>
 # include <QActionGroup>
 # include <QApplication>

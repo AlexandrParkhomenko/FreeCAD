@@ -7,7 +7,7 @@
 
 # include <QMenu>
 # include <QPlainTextEdit>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 
 #include "Base/Type.h"
 #include "Gui/ViewProviderDocumentObject.h"

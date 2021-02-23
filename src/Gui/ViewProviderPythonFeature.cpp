@@ -12,7 +12,7 @@
 # include <QFileInfo>
 # include <QMenu>
 # include <QPixmap>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 # include <Inventor/nodes/SoDrawStyle.h>
 # include <Inventor/nodes/SoMaterial.h>
 # include <Inventor/nodes/SoSeparator.h>

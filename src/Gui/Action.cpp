@@ -6,7 +6,7 @@
 
 
 # include <boost/signals2.hpp>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 # include <QAbstractItemView>
 # include <QActionEvent>
 # include <QApplication>

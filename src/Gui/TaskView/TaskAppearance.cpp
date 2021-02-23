@@ -4,7 +4,7 @@
  ***************************************************************************/
 
 # include <algorithm>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 
 #include "ui_TaskAppearance.h"
 #include "TaskAppearance.h"

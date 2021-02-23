@@ -10,7 +10,7 @@
 # include <QPixmap>
 # include <Inventor/actions/SoGetBoundingBoxAction.h>
 # include <Inventor/nodes/SoSeparator.h>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 
 
 #include "Base/Vector3D.h"

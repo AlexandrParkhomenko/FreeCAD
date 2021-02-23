@@ -10,7 +10,7 @@
 # include <QRunnable>
 # include <QTextStream>
 # include <QThreadPool>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 # include <sstream>
 
 #include "AutoSaver.h"

@@ -9,7 +9,7 @@
 # include <QTreeWidget>
 # include <TopoDS_Shape.hxx>
 # include <TopExp_Explorer.hxx>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 # include <cfloat>
 # include "FCConfig.h"
 # include <Inventor/system/inttypes.h>

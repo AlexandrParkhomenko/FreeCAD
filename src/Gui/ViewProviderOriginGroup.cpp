@@ -6,7 +6,7 @@
 
 # include <Inventor/actions/SoGetBoundingBoxAction.h>
 # include <Inventor/nodes/SoSeparator.h>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 
 #include "Base/Console.h"
 #include "App/OriginGroupExtension.h"

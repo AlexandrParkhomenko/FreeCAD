@@ -3,10 +3,13 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
+#ifndef BOOST_BIND_BIND_HPP_INCLUDED
 #include <boost/bind/bind.hpp>
+#endif
 #include <QAbstractEventDispatcher>
 #include <QVBoxLayout>
 
+#include <memory>
 #include <sstream>
 
 #include "Base/Console.h"

@@ -4,7 +4,7 @@
  ***************************************************************************/
 
 # include <stack>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 #include "MergeDocuments.h"
 #include "Base/Console.h"
 #include "Base/Reader.h"

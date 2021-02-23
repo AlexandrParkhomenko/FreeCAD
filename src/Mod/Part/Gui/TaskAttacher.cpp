@@ -9,7 +9,7 @@
 # include <QMessageBox>
 # include <Precision.hxx>
 # include <Standard_Failure.hxx>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 
 #include "Base/Console.h"
 #include "Base/Interpreter.h"

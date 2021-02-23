@@ -523,17 +523,11 @@ void TopoShape::importIges(const char *FileName)
         if (aReader.ReadFile(FileName) != IFSelect_RetDone)
             throw Base::FileException("Error in reading IGES");
 
-        Handle(Message_ProgressIndicator) pi = new ProgressIndicator(100);
-        pi->NewScope(100, "Reading IGES file...");
-        pi->Show();
-        aReader.WS()->MapReader()->SetProgress(pi);
-
         // make brep
         aReader.ClearShapes();
         aReader.TransferRoots();
         // one shape that contains all subshapes
         this->_Shape = aReader.OneShape();
-        pi->EndScope();
     }
     catch (Standard_Failure& e) {
         throw Base::CADKernelError(e.GetMessageString());
@@ -547,16 +541,10 @@ void TopoShape::importStep(const char *FileName)
         if (aReader.ReadFile(FileName) != IFSelect_RetDone)
             throw Base::FileException("Error in reading STEP");
 
-        Handle(Message_ProgressIndicator) pi = new ProgressIndicator(100);
-        aReader.WS()->MapReader()->SetProgress(pi);
-        pi->NewScope(100, "Reading STEP file...");
-        pi->Show();
-
         // Root transfers
         aReader.TransferRoots();
         // one shape that contains all subshapes
         this->_Shape = aReader.OneShape();
-        pi->EndScope();
     }
     catch (Standard_Failure& e) {
         throw Base::CADKernelError(e.GetMessageString());
@@ -569,11 +557,7 @@ void TopoShape::importBrep(const char *FileName)
         // read brep-file
         BRep_Builder aBuilder;
         TopoDS_Shape aShape;
-        Handle(Message_ProgressIndicator) pi = new ProgressIndicator(100);
-        pi->NewScope(100, "Reading BREP file...");
-        pi->Show();
-        BRepTools::Read(aShape,FileName,aBuilder,pi);
-        pi->EndScope();
+        BRepTools::Read(aShape,FileName,aBuilder);
         this->_Shape = aShape;
     }
     catch (Standard_Failure& e) {
@@ -587,14 +571,7 @@ void TopoShape::importBrep(std::istream& str, int indicator)
         // read brep-file
         BRep_Builder aBuilder;
         TopoDS_Shape aShape;
-        if (indicator) {
-            Handle(Message_ProgressIndicator) pi = new ProgressIndicator(100);
-            pi->NewScope(100, "Reading BREP file...");
-            pi->Show();
-            BRepTools::Read(aShape,str,aBuilder,pi);
-            pi->EndScope();
-        } else
-            BRepTools::Read(aShape,str,aBuilder);
+        BRepTools::Read(aShape,str,aBuilder);
         this->_Shape = aShape;
     }
     catch (Standard_Failure& e) {
@@ -681,10 +658,6 @@ void TopoShape::exportStep(const char *filename) const
 
         const Handle(XSControl_TransferWriter)& hTransferWriter = aWriter.WS()->TransferWriter();
         Handle(Transfer_FinderProcess) hFinder = hTransferWriter->FinderProcess();
-        Handle(Message_ProgressIndicator) pi = new ProgressIndicator(100);
-        hFinder->SetProgress(pi);
-        pi->NewScope(100, "Writing STEP file...");
-        pi->Show();
 
         if (aWriter.Transfer(this->_Shape, STEPControl_AsIs) != IFSelect_RetDone)
             throw Base::FileException("Error in transferring STEP");
@@ -698,7 +671,6 @@ void TopoShape::exportStep(const char *filename) const
 
         if (aWriter.Write(filename) != IFSelect_RetDone)
             throw Base::FileException("Writing of STEP failed");
-        pi->EndScope();
     }
     catch (Standard_Failure& e) {
         throw Base::CADKernelError(e.GetMessageString());
@@ -3071,13 +3043,7 @@ void TopoShape::setFaces(const std::vector<Base::Vector3d> &Points,
 
     aSewingTool.Load(aComp);
 
-    Handle(Message_ProgressIndicator) pi = new ProgressIndicator(100);
-    pi->NewScope(100, "Sewing Faces...");
-    pi->Show();
-
-    aSewingTool.Perform(pi);
     _Shape = aSewingTool.SewedShape();
-    pi->EndScope();
     if (_Shape.IsNull())
         _Shape = aComp;
 }

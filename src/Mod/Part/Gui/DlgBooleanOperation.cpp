@@ -7,7 +7,7 @@
 # include <QTreeWidget>
 # include <TopoDS_Shape.hxx>
 # include <TopExp_Explorer.hxx>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 
 #include "DlgBooleanOperation.h"
 #include "ui_DlgBooleanOperation.h"

@@ -6,7 +6,7 @@
 
 
 # include <algorithm>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 
 #include "ui_TaskSelectLinkProperty.h"
 #include "TaskSelectLinkProperty.h"

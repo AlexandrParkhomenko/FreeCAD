@@ -5,7 +5,7 @@
 
 # include <assert.h>
 # include <string>
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 # include <QApplication>
 # include <QString>
 # include <QStatusBar>

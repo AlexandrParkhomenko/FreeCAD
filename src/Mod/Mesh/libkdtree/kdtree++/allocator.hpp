@@ -74,7 +74,7 @@ namespace KDTree
       void
       _M_destroy_node(_Node_* __p)
       {
-        _M_node_allocator.destroy(__p);
+        /////////////// TODO!!!           _M_node_allocator.destroy(__p);
       }
     };
 

@@ -3,7 +3,7 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-# include <boost/bind.hpp>
+# include <boost/bind/bind.hpp>
 
 #include "TaskDlgEditSketch.h"
 #include "ViewProviderSketch.h"
