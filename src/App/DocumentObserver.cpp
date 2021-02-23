@@ -7,7 +7,7 @@
 
 # include <sstream>
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 #include "Application.h"
 #include "Document.h"
@@ -15,6 +15,7 @@
 #include "DocumentObserver.h"
 
 using namespace App;
+namespace bp = boost::placeholders;
 
 
 DocumentT::DocumentT()
@@ -177,18 +178,18 @@ std::string DocumentObjectT::getObjectPython() const
 DocumentObserver::DocumentObserver() : _document(0)
 {
     this->connectApplicationCreatedDocument = App::GetApplication().signalNewDocument.connect(boost::bind
-        (&DocumentObserver::slotCreatedDocument, this, _1));
+        (&DocumentObserver::slotCreatedDocument, this, bp::_1));
     this->connectApplicationDeletedDocument = App::GetApplication().signalDeleteDocument.connect(boost::bind
-        (&DocumentObserver::slotDeletedDocument, this, _1));
+        (&DocumentObserver::slotDeletedDocument, this, bp::_1));
 }
 
 DocumentObserver::DocumentObserver(Document* doc) : _document(0)
 {
     // Connect to application and given document
     this->connectApplicationCreatedDocument = App::GetApplication().signalNewDocument.connect(boost::bind
-        (&DocumentObserver::slotCreatedDocument, this, _1));
+        (&DocumentObserver::slotCreatedDocument, this, bp::_1));
     this->connectApplicationDeletedDocument = App::GetApplication().signalDeleteDocument.connect(boost::bind
-        (&DocumentObserver::slotDeletedDocument, this, _1));
+        (&DocumentObserver::slotDeletedDocument, this, bp::_1));
     attachDocument(doc);
 }
 
@@ -212,15 +213,15 @@ void DocumentObserver::attachDocument(Document* doc)
         _document = doc;
 
         this->connectDocumentCreatedObject = _document->signalNewObject.connect(boost::bind
-            (&DocumentObserver::slotCreatedObject, this, _1));
+            (&DocumentObserver::slotCreatedObject, this, bp::_1));
         this->connectDocumentDeletedObject = _document->signalDeletedObject.connect(boost::bind
-            (&DocumentObserver::slotDeletedObject, this, _1));
+            (&DocumentObserver::slotDeletedObject, this, bp::_1));
         this->connectDocumentChangedObject = _document->signalChangedObject.connect(boost::bind
-            (&DocumentObserver::slotChangedObject, this, _1, _2));
+            (&DocumentObserver::slotChangedObject, this, bp::_1, bp::_2));
         this->connectDocumentRecomputedObject = _document->signalRecomputedObject.connect(boost::bind
-            (&DocumentObserver::slotRecomputedObject, this, _1));
+            (&DocumentObserver::slotRecomputedObject, this, bp::_1));
         this->connectDocumentRecomputed = _document->signalRecomputed.connect(boost::bind
-            (&DocumentObserver::slotRecomputedDocument, this, _1));
+            (&DocumentObserver::slotRecomputedDocument, this, bp::_1));
     }
 }
 

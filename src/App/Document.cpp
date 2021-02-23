@@ -46,7 +46,7 @@ namespace fs = std::filesystem;
 #include <boost/graph/subgraph.hpp>
 #include <boost/graph/graphviz.hpp>
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <boost/regex.hpp>
 #include <unordered_set>
 #include <unordered_map>

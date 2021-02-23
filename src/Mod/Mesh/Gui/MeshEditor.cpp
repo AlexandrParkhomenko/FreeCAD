@@ -3,8 +3,6 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-
-
 # include <algorithm>
 # include <QMenu>
 # include <QTimer>
@@ -41,6 +39,7 @@
 #include "Gui/View3DInventorViewer.h"
 
 using namespace MeshGui;
+namespace bp = boost::placeholders;
 
 PROPERTY_SOURCE(MeshGui::ViewProviderFace, Gui::ViewProviderDocumentObject)
 
@@ -438,7 +437,7 @@ void MeshFillHole::startEditing(MeshGui::ViewProviderMesh* vp)
     viewer->addEventCallback(SoEvent::getClassTypeId(),
         MeshFillHole::fileHoleCallback, this);
     myConnection = App::GetApplication().signalChangedObject.connect(
-        boost::bind(&MeshFillHole::slotChangedObject, this, _1, _2));
+        boost::bind(&MeshFillHole::slotChangedObject, this, bp::_1, bp::_2));
 
     myBoundariesRoot->removeAllChildren();
     myBoundariesRoot->addChild(viewer->getHeadlight());

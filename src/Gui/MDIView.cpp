@@ -3,8 +3,6 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-
-
 # include <boost/signals2.hpp>
 # include <boost/bind.hpp>
 # include <qapplication.h>
@@ -23,6 +21,7 @@
 #include "ViewProviderDocumentObject.h"
 
 using namespace Gui;
+namespace bp = boost::placeholders;
 
 TYPESYSTEM_SOURCE_ABSTRACT(Gui::MDIView,Gui::BaseView);
 
@@ -35,7 +34,7 @@ MDIView::MDIView(Gui::Document* pcDocument,QWidget* parent, Qt::WindowFlags wfla
     if (pcDocument)
     {
       connectDelObject = pcDocument->signalDeletedObject.connect
-        (boost::bind(&ActiveObjectList::objectDeleted, &ActiveObjects, _1));
+        (boost::bind(&ActiveObjectList::objectDeleted, &ActiveObjects, bp::_1));
       assert(connectDelObject.connected());
     }
 }

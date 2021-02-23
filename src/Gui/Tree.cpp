@@ -39,6 +39,7 @@
 #include "Widgets.h"
 
 using namespace Gui;
+namespace bp = boost::placeholders;
 
 QPixmap*  TreeWidget::documentPixmap = 0;
 const int TreeWidget::DocumentType = 1000;
@@ -95,11 +96,11 @@ TreeWidget::TreeWidget(QWidget* parent)
             this, SLOT(onSearchObjects()));
 
     // Setup connections
-    connectNewDocument = Application::Instance->signalNewDocument.connect(boost::bind(&TreeWidget::slotNewDocument, this, _1));
-    connectDelDocument = Application::Instance->signalDeleteDocument.connect(boost::bind(&TreeWidget::slotDeleteDocument, this, _1));
-    connectRenDocument = Application::Instance->signalRenameDocument.connect(boost::bind(&TreeWidget::slotRenameDocument, this, _1));
-    connectActDocument = Application::Instance->signalActiveDocument.connect(boost::bind(&TreeWidget::slotActiveDocument, this, _1));
-    connectRelDocument = Application::Instance->signalRelabelDocument.connect(boost::bind(&TreeWidget::slotRelabelDocument, this, _1));
+    connectNewDocument = Application::Instance->signalNewDocument.connect(boost::bind(&TreeWidget::slotNewDocument, this, bp::_1));
+    connectDelDocument = Application::Instance->signalDeleteDocument.connect(boost::bind(&TreeWidget::slotDeleteDocument, this, bp::_1));
+    connectRenDocument = Application::Instance->signalRenameDocument.connect(boost::bind(&TreeWidget::slotRenameDocument, this, bp::_1));
+    connectActDocument = Application::Instance->signalActiveDocument.connect(boost::bind(&TreeWidget::slotActiveDocument, this, bp::_1));
+    connectRelDocument = Application::Instance->signalRelabelDocument.connect(boost::bind(&TreeWidget::slotRelabelDocument, this, bp::_1));
 
     QStringList labels;
     labels << tr("Labels & Attributes");
@@ -1179,16 +1180,16 @@ DocumentItem::DocumentItem(const Gui::Document* doc, QTreeWidgetItem * parent)
     : QTreeWidgetItem(parent, TreeWidget::DocumentType), pDocument(doc)
 {
     // Setup connections
-    connectNewObject = doc->signalNewObject.connect(boost::bind(&DocumentItem::slotNewObject, this, _1));
-    connectDelObject = doc->signalDeletedObject.connect(boost::bind(&DocumentItem::slotDeleteObject, this, _1));
-    connectChgObject = doc->signalChangedObject.connect(boost::bind(&DocumentItem::slotChangeObject, this, _1));
-    connectRenObject = doc->signalRelabelObject.connect(boost::bind(&DocumentItem::slotRenameObject, this, _1));
-    connectActObject = doc->signalActivatedObject.connect(boost::bind(&DocumentItem::slotActiveObject, this, _1));
-    connectEdtObject = doc->signalInEdit.connect(boost::bind(&DocumentItem::slotInEdit, this, _1));
-    connectResObject = doc->signalResetEdit.connect(boost::bind(&DocumentItem::slotResetEdit, this, _1));
-    connectHltObject = doc->signalHighlightObject.connect(boost::bind(&DocumentItem::slotHighlightObject, this, _1,_2,_3));
-    connectExpObject = doc->signalExpandObject.connect(boost::bind(&DocumentItem::slotExpandObject, this, _1,_2));
-    connectScrObject = doc->signalScrollToObject.connect(boost::bind(&DocumentItem::slotScrollToObject, this, _1));
+    connectNewObject = doc->signalNewObject.connect(boost::bind(&DocumentItem::slotNewObject, this, bp::_1));
+    connectDelObject = doc->signalDeletedObject.connect(boost::bind(&DocumentItem::slotDeleteObject, this, bp::_1));
+    connectChgObject = doc->signalChangedObject.connect(boost::bind(&DocumentItem::slotChangeObject, this, bp::_1));
+    connectRenObject = doc->signalRelabelObject.connect(boost::bind(&DocumentItem::slotRenameObject, this, bp::_1));
+    connectActObject = doc->signalActivatedObject.connect(boost::bind(&DocumentItem::slotActiveObject, this, bp::_1));
+    connectEdtObject = doc->signalInEdit.connect(boost::bind(&DocumentItem::slotInEdit, this, bp::_1));
+    connectResObject = doc->signalResetEdit.connect(boost::bind(&DocumentItem::slotResetEdit, this, bp::_1));
+    connectHltObject = doc->signalHighlightObject.connect(boost::bind(&DocumentItem::slotHighlightObject, this, bp::_1,bp::_2,bp::_3));
+    connectExpObject = doc->signalExpandObject.connect(boost::bind(&DocumentItem::slotExpandObject, this, bp::_1,bp::_2));
+    connectScrObject = doc->signalScrollToObject.connect(boost::bind(&DocumentItem::slotScrollToObject, this, bp::_1));
 
     setFlags(Qt::ItemIsEnabled/*|Qt::ItemIsEditable*/);
 }
@@ -1783,8 +1784,8 @@ DocumentObjectItem::DocumentObjectItem(Gui::ViewProviderDocumentObject* pcViewPr
     setFlags(flags()|Qt::ItemIsEditable);
     // Setup connections
     connectIcon = pcViewProvider->signalChangeIcon.connect(boost::bind(&DocumentObjectItem::slotChangeIcon, this));
-    connectTool = pcViewProvider->signalChangeToolTip.connect(boost::bind(&DocumentObjectItem::slotChangeToolTip, this, _1));
-    connectStat = pcViewProvider->signalChangeStatusTip.connect(boost::bind(&DocumentObjectItem::slotChangeStatusTip, this, _1));
+    connectTool = pcViewProvider->signalChangeToolTip.connect(boost::bind(&DocumentObjectItem::slotChangeToolTip, this, bp::_1));
+    connectStat = pcViewProvider->signalChangeStatusTip.connect(boost::bind(&DocumentObjectItem::slotChangeStatusTip, this, bp::_1));
     myselves->insert(this);
 }
 

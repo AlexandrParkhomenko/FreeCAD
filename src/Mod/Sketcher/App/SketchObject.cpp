@@ -3,7 +3,6 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-
 #include "stdexport.h"
 # include <TopoDS_Shape.hxx>
 # include <TopoDS_Face.hxx>
@@ -42,7 +41,7 @@
 # include <vector>
 //# include <QtGlobal>
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 #include "App/Document.h"
 #include "App/FeaturePythonPyImp.h"
@@ -69,6 +68,7 @@
 
 using namespace Sketcher;
 using namespace Base;
+namespace bp = boost::placeholders;
 
 const int GeoEnum::RtPnt  = -1;
 const int GeoEnum::HAxis  = -1;
@@ -113,10 +113,10 @@ SketchObject::SketchObject()
 
     noRecomputes=false;
 
-    ExpressionEngine.setValidator(boost::bind(&Sketcher::SketchObject::validateExpression, this, _1, _2));
+    ExpressionEngine.setValidator(boost::bind(&Sketcher::SketchObject::validateExpression, this, bp::_1, bp::_2));
 
-    constraintsRemovedConn = Constraints.signalConstraintsRemoved.connect(boost::bind(&Sketcher::SketchObject::constraintsRemoved, this, _1));
-    constraintsRenamedConn = Constraints.signalConstraintsRenamed.connect(boost::bind(&Sketcher::SketchObject::constraintsRenamed, this, _1));
+    constraintsRemovedConn = Constraints.signalConstraintsRemoved.connect(boost::bind(&Sketcher::SketchObject::constraintsRemoved, this, bp::_1));
+    constraintsRenamedConn = Constraints.signalConstraintsRenamed.connect(boost::bind(&Sketcher::SketchObject::constraintsRenamed, this, bp::_1));
 
     analyser = new SketchAnalysis(this);
 }

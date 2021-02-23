@@ -3,9 +3,6 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-
-
-
 #include "Application.h"
 #include "Document.h"
 #include "DocumentObject.h"
@@ -14,6 +11,7 @@
 #include "Base/Console.h"
 
 using namespace App;
+namespace bp = boost::placeholders;
 
 std::vector<DocumentObserverPython*> DocumentObserverPython::_instances;
 
@@ -40,54 +38,54 @@ void DocumentObserverPython::removeObserver(const Py::Object& obj)
 DocumentObserverPython::DocumentObserverPython(const Py::Object& obj) : inst(obj)
 {
     this->connectApplicationCreatedDocument = App::GetApplication().signalNewDocument.connect(boost::bind
-        (&DocumentObserverPython::slotCreatedDocument, this, _1));
+        (&DocumentObserverPython::slotCreatedDocument, this, bp::_1));
     this->connectApplicationDeletedDocument = App::GetApplication().signalDeleteDocument.connect(boost::bind
-        (&DocumentObserverPython::slotDeletedDocument, this, _1));
+        (&DocumentObserverPython::slotDeletedDocument, this, bp::_1));
     this->connectApplicationRelabelDocument = App::GetApplication().signalRelabelDocument.connect(boost::bind
-        (&DocumentObserverPython::slotRelabelDocument, this, _1));
+        (&DocumentObserverPython::slotRelabelDocument, this, bp::_1));
     this->connectApplicationActivateDocument = App::GetApplication().signalActiveDocument.connect(boost::bind
-        (&DocumentObserverPython::slotActivateDocument, this, _1));
+        (&DocumentObserverPython::slotActivateDocument, this, bp::_1));
     this->connectApplicationUndoDocument = App::GetApplication().signalUndoDocument.connect(boost::bind
-        (&DocumentObserverPython::slotUndoDocument, this, _1));
+        (&DocumentObserverPython::slotUndoDocument, this, bp::_1));
     this->connectApplicationRedoDocument = App::GetApplication().signalRedoDocument.connect(boost::bind
-        (&DocumentObserverPython::slotRedoDocument, this, _1));
+        (&DocumentObserverPython::slotRedoDocument, this, bp::_1));
 
     this->connectDocumentBeforeChange = App::GetApplication().signalBeforeChangeDocument.connect(boost::bind
-        (&DocumentObserverPython::slotBeforeChangeDocument, this, _1, _2));
+        (&DocumentObserverPython::slotBeforeChangeDocument, this, bp::_1, bp::_2));
     this->connectDocumentChanged = App::GetApplication().signalChangedDocument.connect(boost::bind
-        (&DocumentObserverPython::slotChangedDocument, this, _1, _2));
+        (&DocumentObserverPython::slotChangedDocument, this, bp::_1, bp::_2));
     this->connectDocumentCreatedObject = App::GetApplication().signalNewObject.connect(boost::bind
-        (&DocumentObserverPython::slotCreatedObject, this, _1));
+        (&DocumentObserverPython::slotCreatedObject, this, bp::_1));
     this->connectDocumentDeletedObject = App::GetApplication().signalDeletedObject.connect(boost::bind
-        (&DocumentObserverPython::slotDeletedObject, this, _1));
+        (&DocumentObserverPython::slotDeletedObject, this, bp::_1));
     this->connectDocumentBeforeChangeObject = App::GetApplication().signalBeforeChangeObject.connect(boost::bind
-        (&DocumentObserverPython::slotBeforeChangeObject, this, _1, _2));
+        (&DocumentObserverPython::slotBeforeChangeObject, this, bp::_1, bp::_2));
     this->connectDocumentChangedObject = App::GetApplication().signalChangedObject.connect(boost::bind
-        (&DocumentObserverPython::slotChangedObject, this, _1, _2));
+        (&DocumentObserverPython::slotChangedObject, this, bp::_1, bp::_2));
 
     this->connectDocumentObjectRecomputed = App::GetApplication().signalObjectRecomputed.connect(boost::bind
-        (&DocumentObserverPython::slotRecomputedObject, this, _1));
+        (&DocumentObserverPython::slotRecomputedObject, this, bp::_1));
     this->connectDocumentRecomputed = App::GetApplication().signalRecomputed.connect(boost::bind
-        (&DocumentObserverPython::slotRecomputedDocument, this, _1));
+        (&DocumentObserverPython::slotRecomputedDocument, this, bp::_1));
 
     this->connectDocumentOpenTransaction = App::GetApplication().signalOpenTransaction.connect(boost::bind
-        (&DocumentObserverPython::slotOpenTransaction, this, _1, _2));
+        (&DocumentObserverPython::slotOpenTransaction, this, bp::_1, bp::_2));
     this->connectDocumentCommitTransaction = App::GetApplication().signalCommitTransaction.connect(boost::bind
-        (&DocumentObserverPython::slotCommitTransaction, this, _1));
+        (&DocumentObserverPython::slotCommitTransaction, this, bp::_1));
     this->connectDocumentAbortTransaction = App::GetApplication().signalAbortTransaction.connect(boost::bind
-        (&DocumentObserverPython::slotAbortTransaction, this, _1));
+        (&DocumentObserverPython::slotAbortTransaction, this, bp::_1));
 
     this->connectDocumentStartSave = App::GetApplication().signalStartSaveDocument.connect(boost::bind
-        (&DocumentObserverPython::slotStartSaveDocument, this, _1, _2));
+        (&DocumentObserverPython::slotStartSaveDocument, this, bp::_1, bp::_2));
     this->connectDocumentFinishSave = App::GetApplication().signalFinishSaveDocument.connect(boost::bind
-        (&DocumentObserverPython::slotFinishSaveDocument, this, _1, _2));
+        (&DocumentObserverPython::slotFinishSaveDocument, this, bp::_1, bp::_2));
 
     this->connectObjectAppendDynamicProperty = App::GetApplication().signalAppendDynamicProperty.connect(boost::bind
-        (&DocumentObserverPython::slotAppendDynamicProperty, this, _1));
+        (&DocumentObserverPython::slotAppendDynamicProperty, this, bp::_1));
     this->connectObjectRemoveDynamicProperty = App::GetApplication().signalRemoveDynamicProperty.connect(boost::bind
-        (&DocumentObserverPython::slotRemoveDynamicProperty, this, _1));
+        (&DocumentObserverPython::slotRemoveDynamicProperty, this, bp::_1));
     this->connectObjectChangePropertyEditor = App::GetApplication().signalChangePropertyEditor.connect(boost::bind
-        (&DocumentObserverPython::slotChangePropertyEditor, this, _1));
+        (&DocumentObserverPython::slotChangePropertyEditor, this, bp::_1));
 }
 
 DocumentObserverPython::~DocumentObserverPython()

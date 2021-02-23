@@ -3,8 +3,6 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-
-
 # include <assert.h>
 # include <string>
 # include <boost/bind.hpp>
@@ -31,6 +29,7 @@ FC_LOG_LEVEL_INIT("Selection",false,true,true)
 
 using namespace Gui;
 using namespace std;
+namespace bp = boost::placeholders;
 
 SelectionObserver::SelectionObserver() : blockSelection(false)
 {
@@ -61,7 +60,7 @@ void SelectionObserver::attachSelection()
 {
     if (!connectSelection.connected()) {
         connectSelection = Selection().signalSelectionChanged.connect(boost::bind
-            (&SelectionObserver::_onSelectionChanged, this, _1));
+            (&SelectionObserver::_onSelectionChanged, this, bp::_1));
     }
 }
 
@@ -1005,7 +1004,7 @@ SelectionSingleton::SelectionSingleton()
     hy = 0;
     hz = 0;
     ActiveGate = 0;
-    App::GetApplication().signalDeletedObject.connect(boost::bind(&Gui::SelectionSingleton::slotDeletedObject, this, _1));
+    App::GetApplication().signalDeletedObject.connect(boost::bind(&Gui::SelectionSingleton::slotDeletedObject, this, bp::_1));
     CurrentPreselection.Type = SelectionChanges::ClrSelection;
     CurrentPreselection.pDocName = 0;
     CurrentPreselection.pObjectName = 0;

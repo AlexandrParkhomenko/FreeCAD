@@ -12,10 +12,11 @@
 #include "Base/Tools.h"
 #include "App/ObjectIdentifier.h"
 #include "App/Document.h"
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 using namespace Gui;
 using namespace App;
+namespace bp = boost::placeholders;
 
 ExpressionBinding::ExpressionBinding()
     : iconLabel(0)
@@ -63,7 +64,7 @@ void ExpressionBinding::bind(const App::ObjectIdentifier &_path)
     
     //connect to be informed about changes
     DocumentObject * docObj = path.getDocumentObject();
-    connection = docObj->ExpressionEngine.expressionChanged.connect(boost::bind(&ExpressionBinding::expressionChange, this, _1));
+    connection = docObj->ExpressionEngine.expressionChanged.connect(boost::bind(&ExpressionBinding::expressionChange, this, bp::_1));
 }
 
 void ExpressionBinding::bind(const Property &prop)

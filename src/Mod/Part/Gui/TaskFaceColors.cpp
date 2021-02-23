@@ -3,8 +3,6 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-
-
 # include <sstream>
 # include <BRep_Tool.hxx>
 # include <BRepGProp.hxx>
@@ -26,7 +24,7 @@
 # include <Inventor/nodes/SoSeparator.h>
 
 #include <boost/signals2.hpp>
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 #include "ui_TaskFaceColors.h"
 #include "TaskFaceColors.h"
@@ -49,6 +47,7 @@
 
 
 using namespace PartGui;
+namespace bp = boost::placeholders;
 
 namespace PartGui {
     class FaceSelection : public Gui::SelectionFilterGate
@@ -254,9 +253,9 @@ FaceColors::FaceColors(ViewProviderPartExt* vp, QWidget* parent)
     Gui::Selection().addSelectionGate(gate);
 
     d->connectDelDoc = Gui::Application::Instance->signalDeleteDocument.connect(boost::bind
-        (&FaceColors::slotDeleteDocument, this, _1));
+        (&FaceColors::slotDeleteDocument, this, bp::_1));
     d->connectDelObj = Gui::Application::Instance->signalDeletedObject.connect(boost::bind
-        (&FaceColors::slotDeleteObject, this, _1));
+        (&FaceColors::slotDeleteObject, this, bp::_1));
 }
 
 FaceColors::~FaceColors()

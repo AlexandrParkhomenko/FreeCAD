@@ -8,7 +8,7 @@
 # include <QHeaderView>
 # include <QEvent>
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 #include "Base/Parameter.h"
 #include "App/PropertyStandard.h"
@@ -30,6 +30,7 @@ using namespace std;
 using namespace Gui;
 using namespace Gui::DockWnd;
 using namespace Gui::PropertyEditor;
+namespace bp = boost::placeholders;
 
 
 /* TRANSLATOR Gui::PropertyView */
@@ -76,22 +77,22 @@ PropertyView::PropertyView(QWidget *parent)
 
     this->connectPropData =
     App::GetApplication().signalChangedObject.connect(boost::bind
-        (&PropertyView::slotChangePropertyData, this, _1, _2));
+        (&PropertyView::slotChangePropertyData, this, bp::_1, bp::_2));
     this->connectPropView =
     Gui::Application::Instance->signalChangedObject.connect(boost::bind
-        (&PropertyView::slotChangePropertyView, this, _1, _2));
+        (&PropertyView::slotChangePropertyView, this, bp::_1, bp::_2));
     this->connectPropAppend =
     App::GetApplication().signalAppendDynamicProperty.connect(boost::bind
-        (&PropertyView::slotAppendDynamicProperty, this, _1));
+        (&PropertyView::slotAppendDynamicProperty, this, bp::_1));
     this->connectPropRemove =
     App::GetApplication().signalRemoveDynamicProperty.connect(boost::bind
-        (&PropertyView::slotRemoveDynamicProperty, this, _1));
+        (&PropertyView::slotRemoveDynamicProperty, this, bp::_1));
     this->connectPropChange =
     App::GetApplication().signalChangePropertyEditor.connect(boost::bind
-        (&PropertyView::slotChangePropertyEditor, this, _1));
+        (&PropertyView::slotChangePropertyEditor, this, bp::_1));
     this->connectActiveDoc =
     Application::Instance->signalActiveDocument.connect(boost::bind
-        (&PropertyView::slotActiveDocument, this, _1));
+        (&PropertyView::slotActiveDocument, this, bp::_1));
 }
 
 PropertyView::~PropertyView()

@@ -66,6 +66,7 @@
 
 using namespace Gui;
 using Gui::Dialog::DlgSettingsImageImp;
+namespace bp = boost::placeholders;
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -549,7 +550,7 @@ StdCmdDrawStyle::StdCmdDrawStyle()
     sPixmap       = "DrawStyleAsIs";
     eType         = Alter3DView;
 
-    this->getGuiApplication()->signalActivateView.connect(boost::bind(&StdCmdDrawStyle::updateIcon, this, _1));
+    this->getGuiApplication()->signalActivateView.connect(boost::bind(&StdCmdDrawStyle::updateIcon, this, bp::_1));
 }
 
 Gui::Action * StdCmdDrawStyle::createAction(void)

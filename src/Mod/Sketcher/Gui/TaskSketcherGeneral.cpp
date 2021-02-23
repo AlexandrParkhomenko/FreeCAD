@@ -3,9 +3,6 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-
-
-
 #include "ui_TaskSketcherGeneral.h"
 #include "TaskSketcherGeneral.h"
 #include "Gui/Application.h"
@@ -20,6 +17,7 @@
 
 using namespace SketcherGui;
 using namespace Gui::TaskView;
+namespace bp = boost::placeholders;
 
 SketcherGeneralWidget::SketcherGeneralWidget(QWidget *parent)
   : QWidget(parent), ui(new Ui_TaskSketcherGeneral)
@@ -213,7 +211,7 @@ TaskSketcherGeneral::TaskSketcherGeneral(ViewProviderSketch *sketchView)
 
     Gui::Application* app = Gui::Application::Instance;
     changedSketchView = app->signalChangedObject.connect(boost::bind
-        (&TaskSketcherGeneral::onChangedSketchView, this, _1, _2));
+        (&TaskSketcherGeneral::onChangedSketchView, this, bp::_1, bp::_2));
 }
 
 TaskSketcherGeneral::~TaskSketcherGeneral()

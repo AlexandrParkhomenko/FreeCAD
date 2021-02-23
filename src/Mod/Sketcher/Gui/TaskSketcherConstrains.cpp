@@ -30,7 +30,7 @@
 #include "Gui/Selection.h"
 #include "Gui/BitmapFactory.h"
 #include "Gui/ViewProvider.h"
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include "Gui/Command.h"
 #include "Gui/MainWindow.h"
 #include "Gui/PrefWidgets.h"

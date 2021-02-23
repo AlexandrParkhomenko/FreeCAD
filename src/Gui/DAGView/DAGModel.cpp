@@ -3,7 +3,7 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <boost/graph/topological_sort.hpp>
 #include <boost/graph/reverse_graph.hpp>
 
@@ -41,6 +41,7 @@
 
 using namespace Gui;
 using namespace DAG;
+namespace bp = boost::placeholders;
 
 LineEdit::LineEdit(QWidget* parentIn): QLineEdit(parentIn)
 {
@@ -122,11 +123,11 @@ Model::Model(QObject *parentIn, const Gui::Document &documentIn) : QGraphicsScen
   connect(this->editingFinishedAction, SIGNAL(triggered()),
           this, SLOT(editingFinishedSlot()));
   
-  connectNewObject = documentIn.signalNewObject.connect(boost::bind(&Model::slotNewObject, this, _1));
-  connectDelObject = documentIn.signalDeletedObject.connect(boost::bind(&Model::slotDeleteObject, this, _1));
-  connectChgObject = documentIn.signalChangedObject.connect(boost::bind(&Model::slotChangeObject, this, _1, _2));
-  connectEdtObject = documentIn.signalInEdit.connect(boost::bind(&Model::slotInEdit, this, _1));
-  connectResObject = documentIn.signalResetEdit.connect(boost::bind(&Model::slotResetEdit, this, _1));
+  connectNewObject = documentIn.signalNewObject.connect(boost::bind(&Model::slotNewObject, this, bp::_1));
+  connectDelObject = documentIn.signalDeletedObject.connect(boost::bind(&Model::slotDeleteObject, this, bp::_1));
+  connectChgObject = documentIn.signalChangedObject.connect(boost::bind(&Model::slotChangeObject, this, bp::_1, bp::_2));
+  connectEdtObject = documentIn.signalInEdit.connect(boost::bind(&Model::slotInEdit, this, bp::_1));
+  connectResObject = documentIn.signalResetEdit.connect(boost::bind(&Model::slotResetEdit, this, bp::_1));
 }
 
 Model::~Model()

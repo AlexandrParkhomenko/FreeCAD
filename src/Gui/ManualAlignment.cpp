@@ -29,7 +29,7 @@
 # include <Inventor/nodes/SoTranslation.h>
 # include <Inventor/sensors/SoNodeSensor.h>
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 #include "App/Document.h"
 #include "App/GeoFeature.h"
@@ -50,6 +50,7 @@
 
 
 using namespace Gui;
+namespace bp = boost::placeholders;
 
 AlignmentGroup::AlignmentGroup()
 {
@@ -620,7 +621,7 @@ ManualAlignment::ManualAlignment()
 {
     // connect with the application's signal for deletion of documents
     this->connectApplicationDeletedDocument = Gui::Application::Instance->signalDeleteDocument
-        .connect(boost::bind(&ManualAlignment::slotDeletedDocument, this, _1));
+        .connect(boost::bind(&ManualAlignment::slotDeletedDocument, this, bp::_1));
 
     // setup sensor connection
     d->sensorCam1 = new SoNodeSensor(Private::syncCameraCB, this);
@@ -814,7 +815,7 @@ void ManualAlignment::startAlignment(Base::Type mousemodel)
     if (this->connectDocumentDeletedObject.connected())
         this->connectDocumentDeletedObject.disconnect();
     this->connectDocumentDeletedObject = myDocument->signalDeletedObject.connect(boost::bind
-        (&ManualAlignment::slotDeletedObject, this, _1));
+        (&ManualAlignment::slotDeletedObject, this, bp::_1));
 
     continueAlignment();
 }

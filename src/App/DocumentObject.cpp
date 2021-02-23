@@ -18,9 +18,10 @@
 #include "DocumentObjectExtension.h"
 #include "GeoFeatureGroupExtension.h"
 #include "App/DocumentObjectPy.h"
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 using namespace App;
+namespace bp = boost::placeholders;
 
 
 PROPERTY_SOURCE(App::DocumentObject, App::TransactionalObject)
@@ -564,7 +565,7 @@ void DocumentObject::renameObjectIdentifiers(const std::map<ObjectIdentifier, Ob
  * @brief Helper function that sets up a signal to track document object renames.
  */
 
-void DocumentObject::connectRelabelSignals()
+void DocumentObject::connectRelabelSignals() // Delete Me!
 {
     // Only keep signal if the ExpressionEngine has at least one expression
     if (ExpressionEngine.numExpressions() > 0) {
@@ -573,7 +574,7 @@ void DocumentObject::connectRelabelSignals()
         if (!onRelabledObjectConnection.connected()) {
             onRelabledObjectConnection = getDocument()->signalRelabelObject
                     .connect(boost::bind(&PropertyExpressionEngine::slotObjectRenamed,
-                                         &ExpressionEngine, _1));
+                                         &ExpressionEngine, bp::_1));
         }
 
         // Connect to signalDeletedObject, to properly track deletion of other objects
@@ -581,7 +582,7 @@ void DocumentObject::connectRelabelSignals()
         if (!onDeletedObjectConnection.connected()) {
             onDeletedObjectConnection = getDocument()->signalDeletedObject
                     .connect(boost::bind(&PropertyExpressionEngine::slotObjectDeleted,
-                                         &ExpressionEngine, _1));
+                                         &ExpressionEngine, bp::_1));
         }
 
         try {

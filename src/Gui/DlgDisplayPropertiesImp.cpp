@@ -29,6 +29,7 @@
 
 using namespace Gui::Dialog;
 using namespace std;
+namespace bp = boost::placeholders;
 
 
 /* TRANSLATOR Gui::Dialog::DlgDisplayPropertiesImp */
@@ -76,7 +77,7 @@ DlgDisplayPropertiesImp::DlgDisplayPropertiesImp( QWidget* parent, Qt::WindowFla
 
     this->connectChangedObject =
     Gui::Application::Instance->signalChangedObject.connect(boost::bind
-        (&DlgDisplayPropertiesImp::slotChangedObject, this, _1, _2));
+        (&DlgDisplayPropertiesImp::slotChangedObject, this, bp::_1, bp::_2));
 }
 
 /** 

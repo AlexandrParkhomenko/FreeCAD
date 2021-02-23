@@ -3,11 +3,9 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-
-
 # include <sstream>
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 #include "Application.h"
 #include "Document.h"
@@ -16,6 +14,7 @@
 #include "App/Document.h"
 
 using namespace Gui;
+namespace bp = boost::placeholders;
 
 
 DocumentT::DocumentT()
@@ -195,25 +194,25 @@ void DocumentObserver::attachDocument(Document* doc)
         return;
 
     this->connectDocumentCreatedObject = doc->signalNewObject.connect(boost::bind
-        (&DocumentObserver::slotCreatedObject, this, _1));
+        (&DocumentObserver::slotCreatedObject, this, bp::_1));
     this->connectDocumentDeletedObject = doc->signalDeletedObject.connect(boost::bind
-        (&DocumentObserver::slotDeletedObject, this, _1));
+        (&DocumentObserver::slotDeletedObject, this, bp::_1));
     this->connectDocumentChangedObject = doc->signalChangedObject.connect(boost::bind
-        (&DocumentObserver::slotChangedObject, this, _1, _2));
+        (&DocumentObserver::slotChangedObject, this, bp::_1, bp::_2));
     this->connectDocumentRelabelObject = doc->signalRelabelObject.connect(boost::bind
-        (&DocumentObserver::slotRelabelObject, this, _1));
+        (&DocumentObserver::slotRelabelObject, this, bp::_1));
     this->connectDocumentActivateObject = doc->signalActivatedObject.connect(boost::bind
-        (&DocumentObserver::slotActivatedObject, this, _1));
+        (&DocumentObserver::slotActivatedObject, this, bp::_1));
     this->connectDocumentEditObject = doc->signalInEdit.connect(boost::bind
-        (&DocumentObserver::slotEnterEditObject, this, _1));
+        (&DocumentObserver::slotEnterEditObject, this, bp::_1));
     this->connectDocumentResetObject = doc->signalResetEdit.connect(boost::bind
-        (&DocumentObserver::slotResetEditObject, this, _1));
+        (&DocumentObserver::slotResetEditObject, this, bp::_1));
     this->connectDocumentUndo = doc->signalUndoDocument.connect(boost::bind
-        (&DocumentObserver::slotUndoDocument, this, _1));
+        (&DocumentObserver::slotUndoDocument, this, bp::_1));
     this->connectDocumentRedo = doc->signalRedoDocument.connect(boost::bind
-        (&DocumentObserver::slotRedoDocument, this, _1));
+        (&DocumentObserver::slotRedoDocument, this, bp::_1));
     this->connectDocumentDelete = doc->signalDeleteDocument.connect(boost::bind
-        (&DocumentObserver::slotDeleteDocument, this, _1));
+        (&DocumentObserver::slotDeleteDocument, this, bp::_1));
 }
 
 void DocumentObserver::detachDocument()

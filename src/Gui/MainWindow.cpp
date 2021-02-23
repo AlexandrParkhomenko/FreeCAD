@@ -27,7 +27,7 @@
 # include <QTimer>
 # include <QToolBar>
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 // FreeCAD Base header
 #include "Base/Parameter.h"

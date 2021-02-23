@@ -16,6 +16,7 @@
 #include "Gui/ViewProvider.h"
 
 using namespace Gui;
+namespace bp = boost::placeholders;
 
 namespace Gui {
 
@@ -99,9 +100,9 @@ private:
 MergeDocuments::MergeDocuments(App::Document* doc) : stream(0), appdoc(doc)
 {
     connectExport = doc->signalExportObjects.connect
-        (boost::bind(&MergeDocuments::exportObject, this, _1, _2));
+        (boost::bind(&MergeDocuments::exportObject, this, bp::_1, bp::_2));
     connectImport = doc->signalImportObjects.connect
-        (boost::bind(&MergeDocuments::importObject, this, _1, _2));
+        (boost::bind(&MergeDocuments::importObject, this, bp::_1, bp::_2));
     document = Gui::Application::Instance->getDocument(doc);
 }
 

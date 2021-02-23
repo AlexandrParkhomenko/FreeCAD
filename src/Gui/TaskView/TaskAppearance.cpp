@@ -3,8 +3,6 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-
-
 # include <algorithm>
 # include <boost/bind.hpp>
 
@@ -18,6 +16,7 @@
 #include "Base/Console.h"
 
 using namespace Gui::TaskView;
+namespace bp = boost::placeholders;
 
 /* TRANSLATOR Gui::TaskView::TaskAppearance */
 
@@ -37,7 +36,7 @@ TaskAppearance::TaskAppearance(QWidget *parent)
 
     this->connectChangedObject =
     Gui::Application::Instance->signalChangedObject.connect(boost::bind
-        (&TaskAppearance::slotChangedObject, this, _1, _2));
+        (&TaskAppearance::slotChangedObject, this, bp::_1, bp::_2));
 }
 
 TaskAppearance::~TaskAppearance()

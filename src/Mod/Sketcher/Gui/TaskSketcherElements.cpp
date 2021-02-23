@@ -28,7 +28,7 @@
 #include "Gui/BitmapFactory.h"
 #include "Gui/ViewProvider.h"
 #include "Gui/BitmapFactory.h"
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include "Gui/Command.h"
 
 using namespace SketcherGui;

@@ -16,7 +16,7 @@
 #include "Gui/Selection.h"
 #include "Gui/Command.h"
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 #include "Mod/Sketcher/App/SketchObject.h"
 

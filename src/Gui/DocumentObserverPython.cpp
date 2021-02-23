@@ -15,6 +15,7 @@
 #include "Base/Console.h"
 
 using namespace Gui;
+namespace bp = boost::placeholders;
 
 std::vector<DocumentObserverPython*> DocumentObserverPython::_instances;
 
@@ -41,28 +42,27 @@ void DocumentObserverPython::removeObserver(const Py::Object& obj)
 DocumentObserverPython::DocumentObserverPython(const Py::Object& obj) : inst(obj)
 {
     this->connectApplicationCreatedDocument = Gui::Application::Instance->signalNewDocument.connect(boost::bind
-        (&DocumentObserverPython::slotCreatedDocument, this, _1));
+        (&DocumentObserverPython::slotCreatedDocument, this, bp::_1));
     this->connectApplicationDeletedDocument = Gui::Application::Instance->signalDeleteDocument.connect(boost::bind
-        (&DocumentObserverPython::slotDeletedDocument, this, _1));
+        (&DocumentObserverPython::slotDeletedDocument, this, bp::_1));
     this->connectApplicationRelabelDocument = Gui::Application::Instance->signalRelabelDocument.connect(boost::bind
-        (&DocumentObserverPython::slotRelabelDocument, this, _1));
+        (&DocumentObserverPython::slotRelabelDocument, this, bp::_1));
     this->connectApplicationRenameDocument = Gui::Application::Instance->signalRenameDocument.connect(boost::bind
-        (&DocumentObserverPython::slotRelabelDocument, this, _1));
+        (&DocumentObserverPython::slotRelabelDocument, this, bp::_1));
     this->connectApplicationActivateDocument = Gui::Application::Instance->signalActiveDocument.connect(boost::bind
-        (&DocumentObserverPython::slotActivateDocument, this, _1));
+        (&DocumentObserverPython::slotActivateDocument, this, bp::_1));
 
     this->connectDocumentCreatedObject = Gui::Application::Instance->signalNewObject.connect(boost::bind
-        (&DocumentObserverPython::slotCreatedObject, this, _1));
+        (&DocumentObserverPython::slotCreatedObject, this, bp::_1));
     this->connectDocumentDeletedObject = Gui::Application::Instance->signalDeletedObject.connect(boost::bind
-        (&DocumentObserverPython::slotDeletedObject, this, _1));
+        (&DocumentObserverPython::slotDeletedObject, this, bp::_1));
     this->connectDocumentChangedObject = Gui::Application::Instance->signalChangedObject.connect(boost::bind
-        (&DocumentObserverPython::slotChangedObject, this, _1, _2));
+        (&DocumentObserverPython::slotChangedObject, this, bp::_1, bp::_2));
     
     this->connectDocumentObjectInEdit = Gui::Application::Instance->signalInEdit.connect(boost::bind
-        (&DocumentObserverPython::slotInEdit, this, _1));
+        (&DocumentObserverPython::slotInEdit, this, bp::_1));
     this->connectDocumentObjectResetEdit = Gui::Application::Instance->signalResetEdit.connect(boost::bind
-        (&DocumentObserverPython::slotResetEdit, this, _1));
-    
+        (&DocumentObserverPython::slotResetEdit, this, bp::_1));
 }
 
 DocumentObserverPython::~DocumentObserverPython()

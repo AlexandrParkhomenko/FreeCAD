@@ -3,8 +3,6 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-
-
 # include <boost/bind.hpp>
 # include <QAbstractSpinBox>
 # include <QActionEvent>
@@ -32,6 +30,7 @@
 #endif
 
 using namespace Gui::TaskView;
+namespace bp = boost::placeholders;
 
 //**************************************************************************
 //**************************************************************************
@@ -377,16 +376,16 @@ TaskView::TaskView(QWidget *parent)
 
     connectApplicationActiveDocument = 
     App::GetApplication().signalActiveDocument.connect
-        (boost::bind(&Gui::TaskView::TaskView::slotActiveDocument, this, _1));
+        (boost::bind(&Gui::TaskView::TaskView::slotActiveDocument, this, bp::_1));
     connectApplicationDeleteDocument = 
     App::GetApplication().signalDeletedDocument.connect
         (boost::bind(&Gui::TaskView::TaskView::slotDeletedDocument, this));
     connectApplicationUndoDocument = 
     App::GetApplication().signalUndoDocument.connect
-        (boost::bind(&Gui::TaskView::TaskView::slotUndoDocument, this, _1));
+        (boost::bind(&Gui::TaskView::TaskView::slotUndoDocument, this, bp::_1));
     connectApplicationRedoDocument = 
     App::GetApplication().signalRedoDocument.connect
-        (boost::bind(&Gui::TaskView::TaskView::slotRedoDocument, this, _1));
+        (boost::bind(&Gui::TaskView::TaskView::slotRedoDocument, this, bp::_1));
 }
 
 TaskView::~TaskView()

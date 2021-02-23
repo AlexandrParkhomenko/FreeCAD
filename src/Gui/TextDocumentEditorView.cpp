@@ -6,7 +6,7 @@
 
 
 #include <iostream>
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <boost/signals2.hpp>
 #include <QString>
 #include <QMessageBox>

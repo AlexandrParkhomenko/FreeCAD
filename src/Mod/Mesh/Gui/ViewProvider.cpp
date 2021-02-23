@@ -3,8 +3,6 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-
-
 # include <stdlib.h>
 # include <QAction>
 # include <QMenu>
@@ -73,7 +71,7 @@
 #include "Mod/Mesh/App/Mesh.h"
 #include "Mod/Mesh/App/MeshFeature.h"
 #include "Mod/Mesh/Gui/ViewProviderMeshPy.h"  //# generated from xml
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 #include "ViewProvider.h"
 #include "SoFCIndexedFaceSet.h"
@@ -81,6 +79,7 @@
 
 
 using namespace MeshGui;
+namespace bp = boost::placeholders;
 
 using Mesh::Feature;
 using MeshCore::MeshKernel;
@@ -683,7 +682,7 @@ void ViewProviderMesh::setupContextMenu(QMenu* menu, QObject* receiver, const ch
     QAction* act = menu->addAction(QObject::tr("Display components"));
     act->setCheckable(true);
     act->setChecked(pcMatBinding->value.getValue() == SoMaterialBinding::PER_FACE);
-    func->toggle(act, boost::bind(&ViewProviderMesh::setHighlightedComponents, this, _1));
+    func->toggle(act, boost::bind(&ViewProviderMesh::setHighlightedComponents, this, bp::_1));
 }
 
 bool ViewProviderMesh::setEdit(int ModNum)

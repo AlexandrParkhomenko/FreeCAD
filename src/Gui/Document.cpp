@@ -3,8 +3,6 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-
-
 # include <algorithm>
 # include <QAbstractButton>
 # include <qapplication.h>
@@ -48,6 +46,7 @@
 #include "Thumbnail.h"
 
 using namespace Gui;
+namespace bp = boost::placeholders;
 
 namespace Gui {
 
@@ -112,40 +111,40 @@ Document::Document(App::Document* pcDocument,Application * app)
 
     // Setup the connections
     d->connectNewObject = pcDocument->signalNewObject.connect
-        (boost::bind(&Gui::Document::slotNewObject, this, _1));
+        (boost::bind(&Gui::Document::slotNewObject, this, bp::_1));
     d->connectDelObject = pcDocument->signalDeletedObject.connect
-        (boost::bind(&Gui::Document::slotDeletedObject, this, _1));
+        (boost::bind(&Gui::Document::slotDeletedObject, this, bp::_1));
     d->connectCngObject = pcDocument->signalChangedObject.connect
-        (boost::bind(&Gui::Document::slotChangedObject, this, _1, _2));
+        (boost::bind(&Gui::Document::slotChangedObject, this, bp::_1, bp::_2));
     d->connectRenObject = pcDocument->signalRelabelObject.connect
-        (boost::bind(&Gui::Document::slotRelabelObject, this, _1));
+        (boost::bind(&Gui::Document::slotRelabelObject, this, bp::_1));
     d->connectActObject = pcDocument->signalActivatedObject.connect
-        (boost::bind(&Gui::Document::slotActivatedObject, this, _1));
+        (boost::bind(&Gui::Document::slotActivatedObject, this, bp::_1));
     d->connectActObjectBlocker = boost::signals2::shared_connection_block
         (d->connectActObject, false);
     d->connectSaveDocument = pcDocument->signalSaveDocument.connect
-        (boost::bind(&Gui::Document::Save, this, _1));
+        (boost::bind(&Gui::Document::Save, this, bp::_1));
     d->connectRestDocument = pcDocument->signalRestoreDocument.connect
-        (boost::bind(&Gui::Document::Restore, this, _1));
+        (boost::bind(&Gui::Document::Restore, this, bp::_1));
     d->connectStartLoadDocument = App::GetApplication().signalStartRestoreDocument.connect
-        (boost::bind(&Gui::Document::slotStartRestoreDocument, this, _1));
+        (boost::bind(&Gui::Document::slotStartRestoreDocument, this, bp::_1));
     d->connectFinishLoadDocument = App::GetApplication().signalFinishRestoreDocument.connect
-        (boost::bind(&Gui::Document::slotFinishRestoreDocument, this, _1));
+        (boost::bind(&Gui::Document::slotFinishRestoreDocument, this, bp::_1));
 
     d->connectExportObjects = pcDocument->signalExportViewObjects.connect
-        (boost::bind(&Gui::Document::exportObjects, this, _1, _2));
+        (boost::bind(&Gui::Document::exportObjects, this, bp::_1, bp::_2));
     d->connectImportObjects = pcDocument->signalImportViewObjects.connect
-        (boost::bind(&Gui::Document::importObjects, this, _1, _2, _3));
+        (boost::bind(&Gui::Document::importObjects, this, bp::_1, bp::_2, _3));
 
     d->connectUndoDocument = pcDocument->signalUndo.connect
-        (boost::bind(&Gui::Document::slotUndoDocument, this, _1));
+        (boost::bind(&Gui::Document::slotUndoDocument, this, bp::_1));
     d->connectRedoDocument = pcDocument->signalRedo.connect
-        (boost::bind(&Gui::Document::slotRedoDocument, this, _1));
+        (boost::bind(&Gui::Document::slotRedoDocument, this, bp::_1));
 
     d->connectTransactionAppend = pcDocument->signalTransactionAppend.connect
-        (boost::bind(&Gui::Document::slotTransactionAppend, this, _1, _2));
+        (boost::bind(&Gui::Document::slotTransactionAppend, this, bp::_1, bp::_2));
     d->connectTransactionRemove = pcDocument->signalTransactionRemove.connect
-        (boost::bind(&Gui::Document::slotTransactionRemove, this, _1, _2));
+        (boost::bind(&Gui::Document::slotTransactionRemove, this, bp::_1, bp::_2));
     // pointer to the python class
     // NOTE: As this Python object doesn't get returned to the interpreter we
     // mustn't increment it (Werner Jan-12-2006)

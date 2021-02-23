@@ -3,8 +3,6 @@
  *   FreeCAD LICENSE IS LGPL3 WITHOUT ANY WARRANTY                         *
  ***************************************************************************/
 
-
-
 # include <sstream>
 # include <QRegExp>
 # include <QTextStream>
@@ -41,6 +39,7 @@
 using namespace PartGui;
 using namespace Gui;
 using namespace Attacher;
+namespace bp = boost::placeholders;
 
 /* TRANSLATOR PartDesignGui::TaskAttacher */
 
@@ -188,8 +187,8 @@ TaskAttacher::TaskAttacher(Gui::ViewProviderDocumentObject *ViewProvider,QWidget
     updatePreview();
 
     // connect object deletion with slot
-    auto bnd1 = boost::bind(&TaskAttacher::objectDeleted, this, _1);
-    auto bnd2 = boost::bind(&TaskAttacher::documentDeleted, this, _1);
+    auto bnd1 = boost::bind(&TaskAttacher::objectDeleted, this, bp::_1);
+    auto bnd2 = boost::bind(&TaskAttacher::documentDeleted, this, bp::_1);
     Gui::Document* document = Gui::Application::Instance->getDocument(ViewProvider->getObject()->getDocument());
     connectDelObject = document->signalDeletedObject.connect(bnd1);
     connectDelDocument = document->signalDeleteDocument.connect(bnd2);

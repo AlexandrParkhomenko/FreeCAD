@@ -34,7 +34,7 @@
 #include "SoFCDB.h"
 #include "ViewProviderExtension.h"
 
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 FC_LOG_LEVEL_INIT("ViewProvider",true,true)
 
