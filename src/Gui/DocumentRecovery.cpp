@@ -52,7 +52,7 @@ std::string DocumentRecovery::doctools =
 "import xml.sax\n"
 "import xml.sax.handler\n"
 "import xml.sax.xmlreader\n"
-"import zipfile\n"
+"import zipfile_in_DocumentRecovery\n"
 "\n"
 "# SAX handler to parse the Document.xml\n"
 "class DocumentHandler(xml.sax.handler.ContentHandler):\n"

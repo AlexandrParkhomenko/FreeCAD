@@ -84,7 +84,7 @@ class GCodeEditorDialog(QtWidgets.QDialog):
         self.selectionobj.ViewObject.NormalColor = highlightcolor
 
         # nice text editor widget for editing the gcode
-        self.editor = QtGui.QTextEdit()
+        self.editor = QtWidgets.QTextEdit()
         font = QtGui.QFont()
         p = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Editor")
         font.setFamily(p.GetString("Font", "Courier"))
@@ -96,7 +96,7 @@ class GCodeEditorDialog(QtWidgets.QDialog):
         layout.addWidget(self.editor)
 
         # Note
-        lab = QtGui.QLabel()
+        lab = QtWidgets.QLabel()
         lab.setText(translate("Path_Inspect", "<b>Note</b>: Pressing OK will commit any change you make above to the object, but if the object is parametric, these changes will be overridden on recompute."))
         lab.setWordWrap(True)
         layout.addWidget(lab)

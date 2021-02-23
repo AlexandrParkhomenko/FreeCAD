@@ -214,6 +214,7 @@ void FileWriter::putNextEntry(const char* file)
 //}
 
 void FileWriter::writeFiles(void){
+    std::cout << "FileWriter::writeFiles:" << std::endl;
     // use a while loop because it is possible that while
     // processing the files new ones can be added
     size_t index = 0;
@@ -232,6 +233,7 @@ void FileWriter::writeFiles(void){
             }
 
             std::string fileName = DirName + "/" + entry.FileName;
+            std::cout << fileName << std::endl;
             this->FileStream.open(fileName.c_str(), std::ios::out | std::ios::binary);
             entry.Object->SaveDocFile(*this);
             this->FileStream.close();

@@ -165,24 +165,10 @@ public:
     static PyObject * number_xor_handler (PyObject *self, PyObject *other);
     /// callback for the number_or_handler
     static PyObject * number_or_handler (PyObject *self, PyObject *other);
-#if PY_MAJOR_VERSION < 3
-    /// callback for the number_coerce_handler
-    static int number_coerce_handler (PyObject **self, PyObject **other);
-#endif
     /// callback for the number_int_handler
     static PyObject * number_int_handler (PyObject *self);
-#if PY_MAJOR_VERSION < 3
-    /// callback for the number_long_handler
-    static PyObject * number_long_handler (PyObject *self);
-#endif
     /// callback for the number_float_handler
     static PyObject * number_float_handler (PyObject *self);
-#if PY_MAJOR_VERSION < 3
-    /// callback for the number_oct_handler
-    static PyObject * number_oct_handler (PyObject *self);
-    /// callback for the number_hex_handler
-    static PyObject * number_hex_handler (PyObject *self);
-#endif
     //@}
 -
 + if (self.export.Sequence):
@@ -319,19 +305,7 @@ PyTypeObject @self.export.Name@::Type = {
     /* --- Functions to access object as input/output buffer ---------*/
     0,                                                /* tp_as_buffer */
     /* --- Flags to define presence of optional/expanded features */
-#if PY_MAJOR_VERSION >= 3
     Py_TPFLAGS_BASETYPE|Py_TPFLAGS_DEFAULT,        /*tp_flags */
-#else
-+ if (self.export.RichCompare and self.export.NumberProtocol):
-    Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_RICHCOMPARE|Py_TPFLAGS_CHECKTYPES,        /*tp_flags */
-= elif (self.export.RichCompare):
-    Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_RICHCOMPARE,        /*tp_flags */
-= elif (self.export.NumberProtocol):
-    Py_TPFLAGS_DEFAULT|Py_TPFLAGS_CHECKTYPES,        /*tp_flags */
-= else:
-    Py_TPFLAGS_DEFAULT,        /*tp_flags */
--
-#endif
     "@self.export.Documentation.UserDocu.replace('\\n','\\\\n\\"\\n    \\"')@",           /*tp_doc */
     0,                                                /*tp_traverse */
     0,                                                /*tp_clear */
@@ -363,9 +337,7 @@ PyTypeObject @self.export.Name@::Type = {
     0,                                                /*tp_weaklist */
     0,                                                /*tp_del */
     0                                                 /*tp_version_tag */
-#if PY_MAJOR_VERSION >= 3
     ,0                                                /*tp_finalize */
-#endif
 };
 
 /// Methods structure of @self.export.Name@
@@ -404,9 +376,6 @@ PyNumberMethods @self.export.Name@::Number[] = { {
     number_add_handler,
     number_subtract_handler,
     number_multiply_handler,
-#if PY_MAJOR_VERSION < 3
-    number_divide_handler,
-#endif
     number_remainder_handler,
     number_divmod_handler,
     number_power_handler,
@@ -420,26 +389,12 @@ PyNumberMethods @self.export.Name@::Number[] = { {
     number_and_handler,
     number_xor_handler,
     number_or_handler,
-#if PY_MAJOR_VERSION < 3
-    number_coerce_handler,
-#endif
     number_int_handler,
-#if PY_MAJOR_VERSION < 3
-    number_long_handler,
-#else
     0,
-#endif
     number_float_handler,
-#if PY_MAJOR_VERSION < 3
-    number_oct_handler,
-    number_hex_handler,
-#endif
     NULL,    /*nb_inplace_add*/
     NULL,    /*nb_inplace_subtract*/
     NULL,    /*nb_inplace_multiply*/
-#if PY_MAJOR_VERSION < 3
-    NULL,    /*nb_inplace_divide*/
-#endif
     NULL,    /*nb_inplace_remainder*/
     NULL,    /*nb_inplace_power*/
     NULL,    /*nb_inplace_lshift*/
@@ -448,18 +403,12 @@ PyNumberMethods @self.export.Name@::Number[] = { {
     NULL,    /*nb_inplace_xor*/
     NULL,    /*nb_inplace_or*/
     NULL,    /*nb_floor_divide*/
-#if PY_MAJOR_VERSION < 3
-    NULL,    /*nb_true_divide*/
-#else
     number_divide_handler,    /*nb_true_divide*/
-#endif
     NULL,    /*nb_inplace_floor_divide*/
     NULL,    /*nb_inplace_true_divide*/
     NULL     /*nb_index*/
-#if PY_VERSION_HEX >= 0x03050000
    ,NULL     /*nb_matrix_multiply*/
    ,NULL     /*nb_inplace_matrix_multiply*/
-#endif
 } };
 -
 

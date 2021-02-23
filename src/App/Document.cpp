@@ -1790,6 +1790,7 @@ void Document::restore (void)
     d->objectMap.clear();
     d->activeObject = 0;
 
+	fs::path mycurrentpath = fs::current_path();
     fs::current_path(FileName.getValue());
 
     Base::FileInfo fi("Document.xml");
@@ -1822,6 +1823,7 @@ void Document::restore (void)
     // without GUI. But if available then follow after all data files of the App document.
     signalRestoreDocument(reader);
     reader.readFiles();
+	fs::current_path(mycurrentpath);
 
     // reset all touched
     for (std::map<std::string,DocumentObject*>::iterator It= d->objectMap.begin();It!=d->objectMap.end();++It) {

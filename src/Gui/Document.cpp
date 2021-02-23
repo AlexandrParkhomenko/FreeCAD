@@ -767,10 +767,10 @@ void Document::Restore(Base::XMLReader &reader)
     reader.addFile("GuiDocument.xml",this);
     // hide all elements to avoid to update the 3d view when loading data files
     // RestoreDocFile then restores the visibility status again
-    std::map<const App::DocumentObject*,ViewProviderDocumentObject*>::iterator it;
-    for (it = d->_ViewProviderMap.begin(); it != d->_ViewProviderMap.end(); ++it) {
-        it->second->startRestoring();
-    }
+//    std::map<const App::DocumentObject*,ViewProviderDocumentObject*>::iterator it;
+//    for (it = d->_ViewProviderMap.begin(); it != d->_ViewProviderMap.end(); ++it) {
+//        it->second->startRestoring();
+//    }
 }
 
 /**
