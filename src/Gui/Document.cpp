@@ -134,7 +134,7 @@ Document::Document(App::Document* pcDocument,Application * app)
     d->connectExportObjects = pcDocument->signalExportViewObjects.connect
         (boost::bind(&Gui::Document::exportObjects, this, bp::_1, bp::_2));
     d->connectImportObjects = pcDocument->signalImportViewObjects.connect
-        (boost::bind(&Gui::Document::importObjects, this, bp::_1, bp::_2, _3));
+        (boost::bind(&Gui::Document::importObjects, this, bp::_1, bp::_2, bp::_3));
 
     d->connectUndoDocument = pcDocument->signalUndo.connect
         (boost::bind(&Gui::Document::slotUndoDocument, this, bp::_1));
