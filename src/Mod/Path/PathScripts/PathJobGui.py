@@ -208,7 +208,7 @@ class ViewProvider:
         # make sure the resource view providers are setup properly
         if prop == 'Model' and self.obj.Model:
             for base in self.obj.Model.Group:
-                if base.ViewObject and base.ViewObject.Proxy and not PathJob.isArchPanelSheet(base):
+                if base.ViewObject and base.ViewObject.Proxy: # and not PathJob.isArchPanelSheet(base)
                     base.ViewObject.Proxy.onEdit(_OpenCloseResourceEditor)
         if prop == 'Stock' and self.obj.Stock and self.obj.Stock.ViewObject and self.obj.Stock.ViewObject.Proxy:
             self.obj.Stock.ViewObject.Proxy.onEdit(_OpenCloseResourceEditor)

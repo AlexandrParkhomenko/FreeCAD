@@ -65,6 +65,7 @@
 #include <QOpenGLDebugMessage>
 #include <QOpenGLDebugLogger>
 
+#include <Inventor/SbByteBuffer.h>
 #include <Inventor/SbViewportRegion.h>
 #include <Inventor/system/gl.h>
 #include <Inventor/events/SoEvents.h>

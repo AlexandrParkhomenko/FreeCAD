@@ -388,8 +388,9 @@ void TaskCheckGeometryResults::goCheck()
     ResultEntry *theRoot = new ResultEntry();
 
     Handle(Message_ProgressIndicator) theProgress = new BOPProgressIndicator(tr("Check geometry"), Gui::getMainWindow());
-    theProgress->NewScope("BOP check...");
-    theProgress->Show();
+    Message_ProgressRange theRange(theProgress->Start());
+    Message_ProgressScope theScope(theRange, TCollection_AsciiString("BOP check..."), selection.size());
+    theScope.Show();
 
     selectedCount = static_cast<int>(selection.size());
     for (it = selection.begin(); it != selection.end(); ++it)
@@ -451,10 +452,11 @@ void TaskCheckGeometryResults::goCheck()
             std::string label = "Checking ";
             label += feature->Label.getStrValue();
             label += "...";
-            theProgress->NewScope(label.c_str());
-            invalidShapes += goBOPSingleCheck(shape, theRoot, baseName, theProgress);
-            theProgress->EndScope();
-            if (theProgress->UserBreak())
+            Message_ProgressScope theInnerScope(theScope.Next(), TCollection_AsciiString(label.c_str()), 1);
+            theInnerScope.Show();
+            invalidShapes += goBOPSingleCheck(shape, theRoot, baseName, theInnerScope);
+            theInnerScope.Close();
+            if (theScope.UserBreak())
               break;
           }
         }
@@ -564,35 +566,40 @@ QString TaskCheckGeometryResults::getShapeContentString()
 }
 
 int TaskCheckGeometryResults::goBOPSingleCheck(const TopoDS_Shape& shapeIn, ResultEntry *theRoot, const QString &baseName,
-                                               const Handle(Message_ProgressIndicator)& theProgress)
+                                               const Message_ProgressScope& theScope)
 {
-  //Reference use: src/BOPTest/BOPTest_CheckCommands.cxx
-  
-  //I don't why we need to make a copy, but it doesn't work without it.
-  //BRepAlgoAPI_Check also makes a copy of the shape.
-  
-  //didn't use BRepAlgoAPI_Check because it calls BRepCheck_Analyzer itself and
-  //doesn't give us access to it. so I didn't want to run BRepCheck_Analyzer twice to get invalid results.
-  
-  //BOPAlgo_ArgumentAnalyzer can check 2 objects with respect to a boolean op.
-  //this is left for another time.
+
+    ParameterGrp::handle group = App::GetApplication().GetUserParameter().
+    GetGroup("BaseApp")->GetGroup("Preferences")->GetGroup("Mod")->GetGroup("Part")->GetGroup("CheckGeometry");
+    bool runSingleThreaded = group->GetBool("RunBOPCheckSingleThreaded", false);
+    bool logErrors = group->GetBool("LogErrors", true);
+    bool argumentTypeMode = group->GetBool("ArgumentTypeMode", true);
+    bool selfInterMode = group->GetBool("SelfInterMode", true);
+    bool smallEdgeMode = group->GetBool("SmallEdgeMode", true);
+    bool rebuildFaceMode = group->GetBool("RebuildFaceMode", true);
+    bool continuityMode = group->GetBool("ContinuityMode", true);
+    bool tangentMode = group->GetBool("TangentMode", true);
+    bool mergeVertexMode = group->GetBool("MergeVertexMode", true);
+    bool mergeEdgeMode = group->GetBool("MergeEdgeMode", true);
+    bool curveOnSurfaceMode = group->GetBool("CurveOnSurfaceMode", true);
+
   TopoDS_Shape BOPCopy = BRepBuilderAPI_Copy(shapeIn).Shape();
   BOPAlgo_ArgumentAnalyzer BOPCheck;
-  BOPCheck.SetProgressIndicator(theProgress);
+  BOPCheck.SetProgressIndicator(theScope);
 //   BOPCheck.StopOnFirstFaulty() = true; //this doesn't run any faster but gives us less results.
   BOPCheck.SetShape1(BOPCopy);
-  //all settings are false by default. so only turn on what we want.
-  BOPCheck.ArgumentTypeMode() = true;
-  BOPCheck.SelfInterMode() = true;
-  BOPCheck.SmallEdgeMode() = true;
-  BOPCheck.RebuildFaceMode() = true;
-  BOPCheck.ContinuityMode() = true;
-  BOPCheck.SetParallelMode(true); //this doesn't help for speed right now(occt 6.9.1).
-  BOPCheck.SetRunParallel(true); //performance boost, use all available cores
-  BOPCheck.TangentMode() = true; //these 4 new tests add about 5% processing time.
-  BOPCheck.MergeVertexMode() = true;
-  BOPCheck.CurveOnSurfaceMode() = true;
-  BOPCheck.MergeEdgeMode() = true;
+  
+  BOPCheck.ArgumentTypeMode() = argumentTypeMode;
+  BOPCheck.SelfInterMode() = selfInterMode;
+  BOPCheck.SmallEdgeMode() = smallEdgeMode;
+  BOPCheck.RebuildFaceMode() = rebuildFaceMode;
+  BOPCheck.ContinuityMode() = continuityMode;
+  BOPCheck.SetParallelMode(!runSingleThreaded); //this doesn't help for speed right now(occt 6.9.1).
+  BOPCheck.SetRunParallel(!runSingleThreaded); //performance boost, use all available cores
+  BOPCheck.TangentMode() = tangentMode; //these 4 new tests add about 5% processing time.
+  BOPCheck.MergeVertexMode() = mergeVertexMode;
+  BOPCheck.MergeEdgeMode() = mergeEdgeMode;
+  BOPCheck.CurveOnSurfaceMode() = curveOnSurfaceMode;
   
 // start_time;
 BOPCheck.Perform();
@@ -917,25 +924,28 @@ BOPProgressIndicator::~BOPProgressIndicator ()
     myProgress->close();
 }
 
-Standard_Boolean BOPProgressIndicator::Show (const Standard_Boolean theForce)
+void BOPProgressIndicator::Show (const Message_ProgressScope& theScope,
+                                 const Standard_Boolean isForce)
 {
-    if (theForce) {
-        steps = 0;
-        canceled = false;
+    Standard_CString aName = theScope.Name(); //current step
+    myProgress->setLabelText (QString::fromLatin1(aName));
 
-        time.start();
+    if (isForce) {
         myProgress->show();
-
-        myProgress->setRange(0, 0);
-        myProgress->setValue(0);
-    }
-    else {
-        Handle(TCollection_HAsciiString) aName = GetScope(1).GetName(); //current step
-        if (!aName.IsNull())
-            myProgress->setLabelText (QString(aName->ToCString()));
     }
 
-    return Standard_True;
+    QCoreApplication::processEvents();
+}
+
+void BOPProgressIndicator::Reset()
+{
+    steps = 0;
+    canceled = false;
+
+    time.start();
+
+    myProgress->setRange(0, 0);
+    myProgress->setValue(0);
 }
 
 Standard_Boolean BOPProgressIndicator::UserBreak()
