@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=FreeCAD
+Comment=3D CAD models & CNC gcode maker
+GenericName=CNC gcode maker
+Exec=/usr/bin/freecad-path %F
+Path=/usr/share/freecad-path
+Terminal=false
+Type=Application
+Icon=freecad-path
+Categories=Application;Science;Math;Education;
+StartupNotify=true
+#MimeType=application/x-extension-fcstd;
+

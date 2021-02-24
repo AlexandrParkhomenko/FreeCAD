@@ -36,7 +36,7 @@ list(APPEND FreeCADMainCmd_LIBS
 )
 add_executable(FreeCADMainCmd ${FreeCADMainCmd_SRCS})
 target_link_libraries(FreeCADMainCmd ${FreeCADMainCmd_LIBS})
-SET_BIN_DIR(FreeCADMainCmd FreeCADCmd)
+SET_BIN_DIR(FreeCADMainCmd "freecad-path-cmd")
 INSTALL(TARGETS FreeCADMainCmd 
   RUNTIME DESTINATION bin
 )
@@ -46,7 +46,7 @@ SET(FreeCADMainPy_SRCS
 )
 add_library(FreeCADMainPy SHARED ${FreeCADMainPy_SRCS})
 target_link_libraries(FreeCADMainPy FreeCADApp)
-SET_BIN_DIR(FreeCADMainPy FreeCAD)
+SET_BIN_DIR(FreeCADMainPy "freecad-path")
 SET_PYTHON_PREFIX_SUFFIX(FreeCADMainPy)
 INSTALL(TARGETS FreeCADMainPy
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
@@ -61,7 +61,7 @@ SET(FreeCAD_LIBS
 )
 add_executable(FreeCADMain ${FreeCAD_SRCS})
 target_link_libraries(FreeCADMain ${FreeCAD_LIBS})
-SET_BIN_DIR(FreeCADMain FreeCAD)
+SET_BIN_DIR(FreeCADMain "freecad-path")
 INSTALL(TARGETS FreeCADMain 
   RUNTIME DESTINATION bin
 )

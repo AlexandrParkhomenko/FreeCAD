@@ -1003,12 +1003,11 @@ else(WIN32)
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     )
     INSTALL(FILES
-        Icons/freecad-icon-16.png
-        Icons/freecad-icon-32.png
-        Icons/freecad-icon-48.png
-        Icons/freecad-icon-64.png
-        Icons/freecad.svg
-        Icons/freecad-doc.png
+        Icons/freecad-path-icon-16.png
+        Icons/freecad-path-icon-32.png
+        Icons/freecad-path-icon-48.png
+        Icons/freecad-path-icon-64.png
+        Icons/freecad-path.svg
         DESTINATION ${CMAKE_INSTALL_DATADIR}
     )
 endif(WIN32)

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR) #https://cmake.org/cmake/help/v3.12/module/FindPython3.html#module:FindPython3
 #name
-project(FreeCAD)
-set(PACKAGE_VERSION_NAME "FreeCAD.0.20.Path")
+project(freecad-path)
+set(PACKAGE_VERSION_NAME "freecad-path.0.2021")
 configure_file(${CMAKE_SOURCE_DIR}/src/Version.h.cmake ${CMAKE_SOURCE_DIR}/src/Version.h)
 #compilator
 set(CMAKE_BUILD_TYPE "Release")  #for shiboken2
@@ -15,7 +15,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
 
 # Output directories for install target
-SET(CMAKE_INSTALL_PREFIX "/usr/lib/freecad" CACHE PATH "Installation root directory")
+SET(CMAKE_INSTALL_PREFIX "/usr/lib/freecad-path" CACHE PATH "Installation root directory")
 SET(CMAKE_INSTALL_DATADIR data CACHE PATH "Output directory for data and resource files")
 SET(CMAKE_INSTALL_INCLUDEDIR include CACHE PATH "Output directory for header files")
 SET(CMAKE_INSTALL_LIBDIR lib CACHE PATH "Output directory for libraries. Don't set it without manual adaption of LibDir variable in src/App/FreeCADInit.py")
