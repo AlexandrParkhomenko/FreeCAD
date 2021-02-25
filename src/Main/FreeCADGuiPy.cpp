@@ -245,7 +245,7 @@ PyMOD_INIT_FUNC(FreeCADGui)
 {
     try {
         Base::Interpreter().loadModule("FreeCAD");
-        App::Application::Config()["AppIcon"] = "freecad";
+        App::Application::Config()["AppIcon"] = "freecad-path";
         // it's possible that the GUI is already initialized when the Gui version of the executable
         // is started in command mode
         if (Base::Type::fromName("Gui::BaseView").isBad())

@@ -76,7 +76,7 @@ int main( int argc, char ** argv )
     App::Application::Config()["AppDataSkipVendor"] = "true";
 
     // set the banner (for logging and console)
-    App::Application::Config()["AppIcon"] = "freecad";
+    App::Application::Config()["AppIcon"] = "freecad-path";
     App::Application::Config()["StartWorkbench"] = "Sketcher";
 
     try {

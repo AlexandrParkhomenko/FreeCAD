@@ -53,7 +53,7 @@ StdCmdWorkbench::StdCmdWorkbench()
     sMenuText     = QT_TR_NOOP("Workbench");
     sToolTipText  = QT_TR_NOOP("Switch between workbenches");
     sStatusTip    = QT_TR_NOOP("Switch between workbenches");
-    sPixmap       = "freecad";
+    sPixmap       = "freecad-path";
     eType         = 0;
 }
 
